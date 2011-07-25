@@ -1,3 +1,7 @@
 Various subproject related to conversion of OSM to dcm (CityGuide)
 --
 Разнообразные софтины, связанные с конверсией OSM в dcm (навигационную программу СитиГИД)
+
+1. peirce.ru
+ php/javascript
+ Сайт, на который выкладываются карты и работают валидаторы
