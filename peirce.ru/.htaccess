@@ -1,0 +1,8 @@
+<Files *>
+AddDefaultCharset utf-8
+</Files>
+
+<Files ~ "\.(html|pl|php|txt|cgi|map)$">
+AddDefaultCharset utf-8
+</Files>
+
