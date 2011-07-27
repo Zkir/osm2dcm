@@ -10,3 +10,7 @@ Various subproject related to conversion of OSM to dcm (CityGuide)
  Постпроцессор, которым подпиливается mp, перед конвертацией mp->dcm
  он же валидатор адресов/связности графа
  VB6
+
+3. zOsmStat
+ Статистика, которая считается по osm-файлу.
+ VB6
