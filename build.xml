@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="osm2dcm" basedir="." default="all"> 
+
+  <property name="vbexe" location="C:\Program Files\Microsoft Visual Studio\VB98\vb6.EXE"/> 
+  <property name="buildpath" location="d:\osm\osm2dcm"/> 
+  
+  <target name="all" description="Do the entire build" depends="zOsmStat,mpFilter">
+    <echo>Osm2dcm all</echo>
+  </target>
+  
+  <!--Прога подсчета статистики -->
+  <target name="zOsmStat"> 
+    <echo>zOsmStat</echo>
+    <exec executable="${vbexe}"> 
+      <arg value="-make"/> 
+      <arg value="zOsmStat\zOsmStat.vbp"/> 
+      <arg value="${buildpath}\zOsmStat.exe"/> 
+      <arg value="-out"/> 
+      <arg value="${buildpath}:\build_log.txt"/> 
+    </exec> 
+  </target> 
+  
+  <!--Постпроцессор / Валидатор -->
+  <target name="mpFilter"> 
+    <echo>mpFilter</echo>
+    <exec executable="${vbexe}"> 
+      <arg value="-make"/> 
+      <arg value="mpFilter\mpPostProcessor.vbp"/> 
+      <arg value="${buildpath}\mpPostProcessor.exe"/> 
+      <arg value="-out"/> 
+      <arg value="${buildpath}:\build_log.txt"/> 
+    </exec>
+        
+  </target> 
+
+</project> 
