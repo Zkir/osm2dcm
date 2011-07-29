@@ -12,7 +12,8 @@ include("ZSitePage.php");
   $zPage->header="Валидатор дорожного графа";
   $zPage->WriteHtml('<H2>Тест рутингового графа ('.$mapid.')</H2>');
   $zPage->WriteHtml('<P align=right><a href="/addr.php?mapid='.$mapid.'">Назад к таблице</a> <P>' );
-  $zPage->WriteHtml('<P>Показываются "изоляты", т.е. дороги или группы дорог, не связанные с основным дорожным графом <P>' );
+  $zPage->WriteHtml('<P>Показываются "изоляты", т.е. дороги или группы дорог, не связанные с основным дорожным графом. ' );
+  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog.php?postid=14435">Подробнее...</a> </P>' );
   	  
   $zPage->WriteHtml('
                     <div id="cm-example" style="width: 100%; height: 450px"></div> 
