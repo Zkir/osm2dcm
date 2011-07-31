@@ -15,5 +15,9 @@ Various subproject related to conversion of OSM to dcm (CityGuide)
  Статистика, которая считается по osm-файлу.
  VB6
 
+4. osm2dcm
+ Скрипты, которые выполняют основную конвертацию в DSM
+ vbs/bat. 
+
 build.xml - ant-cкрипт для сборки всего этого добра
 Результаты сборки вываливаются в d:\osm\osm2dcm
