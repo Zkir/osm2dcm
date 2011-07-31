@@ -1,0 +1,1 @@
+getbound.pl -o poly\%1 %2

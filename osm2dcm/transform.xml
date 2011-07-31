@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<translations>
+  <translation>
+   <name>Private parking transform</name>
+   <description>Convert amenity=parking+access=private to amenity=private_parking</description>
+   <match mode="and">
+     <tag k="amenity" v="parking"/>
+     <tag k="access" v="private"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="amenity" v="private_parking"/>
+   </output>
+ </translation>
+ 
+ <translation>
+   <name>Service roundabout transform</name>
+   <description>Remove  junction=roundabout from hw=service</description>
+   <match mode="and">
+     <tag k="highway" v="service"/>
+     <tag k="junction" v="roundabout"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="highway" v="service"/>
+   </output>
+ </translation>
+ 
+  <translation>
+   <name>Remove Religion from graveyards</name>
+   <description>Remove Religion from graveyards</description>
+   <match mode="and">
+     <tag k="amenity" v="grave_yard"/>
+     <tag k="religion" v=".*"/>
+     <tag k="denomination" v=".*"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="amenity" v="grave_yard"/>
+   </output>
+ </translation>
+ 
+  <translation>
+   <name>lpg gas fuel stations</name>
+   <description>Gas fuel stations</description>
+   <match mode="and">
+     <tag k="amenity" v="fuel"/>
+     <tag k="fuel:cng" v="yes"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="amenity" v="cng_fuel"/>
+   </output>
+  </translation>
+  
+  <translation>
+   <name>lpg-gas fuel stations</name>
+   <description>Gas fuel stations</description>
+   <match mode="and">
+     <tag k="amenity" v="fuel"/>
+     <tag k="fuel:lpg" v="yes"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="amenity" v="lpg_fuel"/>
+   </output>
+  </translation>
+  
+  
+  <translation>
+   <name>railway_siding</name>
+   <description>siding rails</description>
+   <match mode="and">
+     <tag k="railway" v="rail"/>
+     <tag k="service" v="siding"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="railway" v="rail_siding"/>
+   </output>
+  </translation>
+  
+  <translation>
+   <name>railway_spur</name>
+   <description>siding rails</description>
+   <match mode="and">
+     <tag k="railway" v="rail"/>
+     <tag k="service" v="spur"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="railway" v="rail_siding"/>
+   </output>
+  </translation>
+  
+  <translation>
+   <name>railway_yard</name>
+   <description>siding rails</description>
+   <match mode="and">
+     <tag k="railway" v="rail"/>
+     <tag k="service" v="yard"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="railway" v="rail_siding"/>
+   </output>
+  </translation>
+  
+  <translation>
+   <name>Remove passable liftgates</name>
+   <description>Remove passable liftgates</description>
+   <match mode="and">
+     <tag k="barrier" v="lift_gate"/>
+     <tag k="access" v="yes"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+      <tag k="access" v="yes"/>
+   </output>
+ </translation>
+
+ <translation>
+   <name>Convert nameless living streets to service</name>
+   <description>Convert nameless living streets to service</description>
+   <match mode="and">
+     <tag k="highway" v="living_street"/>
+     <notag k="name" v=".*"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="highway" v="service"/>
+   </output>
+ </translation>
+ 
+</translations>

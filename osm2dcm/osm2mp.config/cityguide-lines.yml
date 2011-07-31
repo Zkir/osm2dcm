@@ -1,0 +1,190 @@
+--- ways
+---
+#admin_level 6 l 0x1d,1 0 3 
+#!Check Priority!
+- condition:
+    - admin_level = 6
+  action:
+    - action: write_line
+      type: 0x1d
+      level_h: 3
+
+#admin_level 4 l 0x1c,1 0 5 
+#!Check Priority!
+- condition:
+    - admin_level = 4
+  action:
+    - action: write_line
+      type: 0x1c
+      level_h: 5
+
+#admin_level 3 l 0x1c,1 0 5 
+#!Check Priority!
+- condition:
+    - admin_level = 3
+  action:
+    - action: write_line
+      type: 0x1c
+      level_h: 5
+
+#admin_level 2 l 0x1e,1 0 5 
+#!Check Priority!
+- condition:
+    - admin_level = 2
+  action:
+    - action: write_line
+      type: 0x1e
+      level_h: 5
+
+##boundary administrative l 0x1d,2 0 2 
+#contour elevation l 0x20 
+- condition:
+    - contour = elevation
+  action:
+    - action: write_line
+      type: 0x20
+      level_h: 1
+
+#contour_ext elevation_minor l 0x20 
+- condition:
+    - contour_ext = elevation_minor
+  action:
+    - action: write_line
+      type: 0x20
+      level_h: 1
+
+#contour_ext elevation_medium l 0x21 
+- condition:
+    - contour_ext = elevation_medium
+  action:
+    - action: write_line
+      type: 0x21
+      level_h: 1
+
+#contour_ext elevation_major l 0x22 
+- condition:
+    - contour_ext = elevation_major
+  action:
+    - action: write_line
+      type: 0x22
+      level_h: 1
+
+#highway service l 0x8849,2 0 0 
+#!Check Priority!
+- condition:
+    - highway = service
+  action:
+    - action: write_line
+      type: 0x8849
+      level_h: 0
+
+##highway footway l 0x8849 0 0 
+##highway footway/city l 0x8849 0 0 
+##highway path l 0x8849 0 0 
+##highway steps l 0x16,1 0 1 
+#highway track l 0x880a 0 1 
+- condition:
+    - highway = track
+  action:
+    - action: write_line
+      type: 0x880a
+      level_h: 1
+
+##highway unsurfaced l 0x0a,2 0 1 0,0,0,0,0,0,0,0,0,0,0,0 
+#power line l 0x29 0 0 
+- condition:
+    - power = line
+  action:
+    - action: write_line
+      type: 0x29
+      level_h: 0
+
+#railway light_rail l 0x14 0 1 
+- condition:
+    - railway = light_rail
+  action:
+    - action: write_line
+      type: 0x14
+      level_h: 1
+
+#railway monorail l 0x40 0 2 
+- condition:
+    - railway = monorail
+  action:
+    - action: write_line
+      type: 0x40
+      level_h: 2
+
+#railway rail l 0x14 0 4 
+- condition:
+    - railway = rail
+  action:
+    - action: write_line
+      type: 0x14
+      level_h: 4
+
+#railway rail_siding l 0x14 0 1 
+- condition:
+    - railway = rail_siding
+  action:
+    - action: write_line
+      type: 0x14
+      level_h: 1
+
+#waterway canal l 0x1f 0 2 
+- condition:
+    - waterway = canal
+  action:
+    - action: write_line
+      type: 0x1f
+      level_h: 2
+
+#waterway river l 0x1f 0 3 
+- condition:
+    - waterway = river
+  action:
+    - action: write_line
+      type: 0x1f
+      level_h: 3
+
+#waterway stream l 0x18 0 1 
+- condition:
+    - waterway = stream
+  action:
+    - action: write_line
+      type: 0x18
+      level_h: 1
+
+#barrier city_wall l 0x46 0 2 
+- condition:
+    - barrier = city_wall
+  action:
+    - action: write_line
+      type: 0x46
+      level_h: 2
+
+#barrier wall l 0x46 0 2 
+- condition:
+    - barrier = wall
+  action:
+    - action: write_line
+      type: 0x46
+      level_h: 2
+
+#barrier fence l 0x46 0 2 
+- condition:
+    - barrier = fence
+  action:
+    - action: write_line
+      type: 0x46
+      level_h: 2
+
+#Special operation: convert coastline to sea polygon
+# natural coastline
+- condition:
+    - natural = coastline
+  action:
+    - action: load_coastline
+    - action: write_line
+      type: 0x15
+      level_h: 5
