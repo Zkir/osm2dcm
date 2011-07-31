@@ -4,33 +4,60 @@
   <property name="vbexe" location="C:\Program Files\Microsoft Visual Studio\VB98\vb6.EXE"/> 
   <property name="buildpath" location="d:\osm\osm2dcm"/> 
   
-  <target name="all" description="Do the entire build" depends="zOsmStat,mpFilter">
+  <target name="all" description="Do the entire build" depends="compile,copy">
     <echo>Osm2dcm all</echo>
   </target>
   
-  <!--Прога подсчета статистики -->
-  <target name="zOsmStat"> 
+  <target name="clean">
+    <echo>Cleaning the ${buildpath}</echo>
+    <delete dir="${buildpath}"/>
+  </target>
+  
+  <target name="init" depends="clean">
+    <echo>Creating the build directory</echo>
+    <mkdir dir="${buildpath}"/>
+    <mkdir dir="${buildpath}\poly"/>
+    <mkdir dir="${buildpath}\_my\test"/>
+  </target>
+  
+  <target name="compile" depends="init">
+    <echo>Compile vb routines</echo>
+    <!--Прога подсчета статистики -->
     <echo>zOsmStat</echo>
-    <exec executable="${vbexe}"> 
+    <exec executable="${vbexe}" failonerror="true"> 
       <arg value="-make"/> 
       <arg value="zOsmStat\zOsmStat.vbp"/> 
       <arg value="${buildpath}\zOsmStat.exe"/> 
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
-    </exec> 
-  </target> 
-  
-  <!--Постпроцессор / Валидатор -->
-  <target name="mpFilter"> 
+    </exec>
+     
+    <!--Постпроцессор / Валидатор -->
     <echo>mpFilter</echo>
-    <exec executable="${vbexe}"> 
+    <exec executable="${vbexe}" failonerror="true"> 
       <arg value="-make"/> 
       <arg value="mpFilter\mpPostProcessor.vbp"/> 
       <arg value="${buildpath}\mpPostProcessor.exe"/> 
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
     </exec>
-        
   </target> 
+  
+  <!--Часть файлов просто копируется -->
+  <target name="copy" depends="init" >
+    <copy todir="${buildpath}" includeEmptyDirs="false" >
+        <fileset file="osm2dcm\*.*"  />
+    </copy>
+    
+    <copy todir="${buildpath}">
+        <fileset dir="osm2dcm\osm2mp.config"/>
+    </copy>
+    
+    <copy todir="${buildpath}\poly">
+        <fileset dir="osm2dcm\poly"/>
+    </copy>
+   
+   
+</target>
 
 </project> 
