@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="osm2dcm" basedir="." default="all"> 
+<project name="osm2dcm" basedir="." default="full_build"> 
 
-  <property name="vbexe" location="C:\Program Files\Microsoft Visual Studio\VB98\vb6.EXE"/> 
-  <property name="buildpath" location="d:\osm\osm2dcm"/> 
-  
-  <target name="all" description="Do the entire build" depends="compile,copy">
-    <echo>Osm2dcm all</echo>
-  </target>
+  <property name="vbexe"          location="C:\Program Files\Microsoft Visual Studio\VB98\vb6.EXE"/> 
+  <property name="buildpath"      location="d:\osm\osm2dcm"/> 
+  <property name="productionpath" location="o:\osm2dcm"/>  
   
   <target name="clean">
     <echo>Cleaning the ${buildpath}</echo>
@@ -57,7 +54,16 @@
         <fileset dir="osm2dcm\poly"/>
     </copy>
    
-   
-</target>
+  </target>
 
+  <target name="full_build" description="Do the entire build" depends="compile,copy">
+    <echo>Full build of Osm2dcm has been completed</echo>
+  </target>
+  
+  <target name="deploy" description="Deploy scripts to the production server" depends="full_build">
+    <copy todir="${productionpath}">
+      <fileset dir="${buildpath}"/>
+    </copy>  
+       
+  </target>
 </project> 
