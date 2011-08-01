@@ -405,7 +405,7 @@ function PrintAddressesSummary()
 
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
           $zPage->WriteHtml( '<td>'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</td>');
-           $zPage->WriteHtml('<td>'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</td>" );
+          $zPage->WriteHtml('<td><a href="/routing-map.php?mapid='.$item->MapId.'">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
           $zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
           $zPage->WriteHtml( '<td><a href="/addr.php?mapid='.$item->MapId.'">посмотреть</a></td>');
 
