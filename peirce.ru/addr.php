@@ -89,6 +89,15 @@ function MakeWikiLink($city)
 	return "http://ru.wikipedia.org/wiki/".$city;
 }
 
+function TestX($x,$x0 )
+{
+	if (((float)$x)>((float)$x0))
+	  {	return '<img src="img/cross.gif" alt= "Допустимо '.$x0.'"  height="25px" />'; }
+	else
+	  {	return '<img src="img/tick.gif" height="25px" />'; }
+}
+
+
 //Страница деталей области.
 function PrintAddresses($mapid, $errtype)
 {
@@ -98,12 +107,45 @@ function PrintAddresses($mapid, $errtype)
 if ($errtype=="")
 {
   $zPage->WriteHtml('<P align=right><a href="/addr.php">Назад к списку регионов</a> <p>' );
-
+  $zPage->WriteHtml('<table>
+              <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
+              <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
+              <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
+              </table>
+              <h2>Контроль качества</h2>
+              <table>
+                <tr><td><b>Отрисовка карты</b></td></tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
+                  <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
+                  <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,0).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Города без населения:</td>
+                  <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,0).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Города без полигональных границ:</td>
+                  <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,0).'</td>
+                </tr>
+                <tr><td><b>Рутинговый граф</b></td></tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Изолированные рутинговые подграфы:</td>
+                  <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,0).'</td>
+                </tr>
+                <tr><td><b>Адресный реестр</b></td></tr> 
+                <tr>
+                  <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
+                  <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
+                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,5).'</td></tr>
+              </table>
+              <hr/>'  );
   $zPage->WriteHtml("<H2>Сводка </H2>" );
   $zPage->WriteHtml("<table>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Код карты</td><td><b>".$mapid."</b></td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Дата прохода валидатора </td><td>".$xml->Date."</td><tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Потраченное время </td><td>".$xml->TimeUsed."</td><tr>" );
+ 
 
   $zPage->WriteHtml("<tr><td align=\"right\">Разрывы береговой линии </td><td>".$xml->CoastLineTest->Summary->NumberOfBreaks."</td><tr>" );
   $zPage->WriteHtml('<tr><td align=\"right\"><a href="/routing-map.php?mapid='.$mapid.'">Изолированные рутинговые подграфы</a> </td><td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td><tr>' );
