@@ -10,10 +10,10 @@ include("ZSitePage.php");
   
   $zPage->title="Валидатор дорожного графа";
   $zPage->header="Валидатор дорожного графа";
-  $zPage->WriteHtml('<H2>Тест рутингового графа ('.$mapid.')</H2>');
-  $zPage->WriteHtml('<P align=right><a href="/addr.php?mapid='.$mapid.'">Назад к таблице</a> <P>' );
-  $zPage->WriteHtml('<P>Показываются "изоляты", т.е. дороги или группы дорог, не связанные с основным дорожным графом. ' );
-  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog.php?postid=14435">Подробнее...</a> </P>' );
+  $zPage->WriteHtml('<h2>Тест рутингового графа ('.$mapid.')</h2>');
+  $zPage->WriteHtml('<p style="text-align:right"><a href="/addr.php?mapid='.$mapid.'">Назад к таблице</a> </p>' );
+  $zPage->WriteHtml('<p>Показываются "изоляты", т.е. дороги или группы дорог, не связанные с основным дорожным графом. ' );
+  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog.php?postid=14435">Подробнее...</a> </p>' );
   	  
   $zPage->WriteHtml('
                     <div id="cm-example" style="width: 100%; height: 450px"></div> 
@@ -22,9 +22,9 @@ include("ZSitePage.php");
                     <script type="text/javascript">
                       ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","");
                     </script> 
-                    <img id="ttt" src="" style="display:none;">
+                    <img id="ttt" src="" style="display:none;" alt="Dummy item for JOSM" />
   	  ');
-  $zPage->WriteHtml('<P>По щелчку на маркере открывается JOSM, он должен быть запущен</P>');
+  $zPage->WriteHtml('<p>По щелчку на маркере открывается JOSM, он должен быть запущен</p>');
 
  $zPage->Output("1");
 ?>

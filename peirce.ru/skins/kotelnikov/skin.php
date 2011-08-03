@@ -73,8 +73,7 @@ function PrintSideBlockNews()
 }	    
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
    <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="skins/kotelnikov/style.css" />
@@ -84,7 +83,7 @@ function PrintSideBlockNews()
     ?>
 
   </title>
-  <script src="/sorttable.js"> </script>
+  <script src="/sorttable.js" type="text/javascript"> </script>
   </head>
   <body><div id="box">
    <!-- header -->
@@ -211,8 +210,8 @@ function PrintSideBlockNews()
     &copy; Карты — участники проекта <a href="http://openstreetmap.org">OpenStreetMap</a>, 
     по лицензии <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.<br />
 	<!--Преобразование использует (в том числе) конвертор <a href="http://wiki.openstreetmap.org/index.php?title=Ru:Osm2mp">osm2mp</a> от <a href="http://forum.openstreetmap.org/profile.php?id=927">liosha</a>.<br />
-	Cборки карт, конфиги: <a href="http://forum.openstreetmap.org/profile.php?id=2739">Zkir</a>.<BR/> -->
-	Дизайн страницы на основе макета <a href="http://kotelnikov.net">Владимира Котельникова</a>.<BR/>
+	Cборки карт, конфиги: <a href="http://forum.openstreetmap.org/profile.php?id=2739">Zkir</a>.<br /> -->
+	Дизайн страницы на основе макета <a href="http://kotelnikov.net">Владимира Котельникова</a>.<br />
 	Cайт существует при поддержке <a href="http://gis-lab.info">Гис-Лаб </a>.
 	   	   <!-- Yandex.Metrika -->
 		<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
