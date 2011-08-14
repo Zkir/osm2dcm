@@ -16,6 +16,9 @@ Const WAY_APPROVEDUSER = "ApprovedUser"
 Const WAY_APPROVEDDATE = "ApprovedDate"
 Const WAY_UPDATEDATE = "UpdateDate"
 
+Const WAY_NNODES = "NNodes"
+Const WAY_NTAGS = "NTags"
+
 Public strConnectionString As String
 Public strOSMPath As String
 
@@ -55,6 +58,8 @@ Private Function ProcessOsmFile(strMapID As String, rsWays As ADODB.Recordset, r
   Dim strHighway As String
   Dim strRef As String
   Dim strName As String
+  Dim intNNodes As Long
+  Dim intNTags As Long
   
   Dim NodeCollection As Collection
   
@@ -79,6 +84,8 @@ On Error GoTo finalize
       strRef = ""
       strHighway = ""
       strName = ""
+      intNNodes = 0
+      intNTags = 0
       
       Set NodeCollection = New Collection
       
@@ -88,11 +95,14 @@ On Error GoTo finalize
         clsXMLNode.ParseNode textline
         
         If clsXMLNode.Name = "nd" Then
+          intNNodes = intNNodes + 1
           NodeCollection.Add clsXMLNode.GetAttributeValue("ref")
+    
         End If
         
         
         If clsXMLNode.Name = "tag" Then
+          intNTags = intNTags + 1
            
           'Не работает
           ' - кодировка не совпадает
@@ -125,6 +135,9 @@ On Error GoTo finalize
         rsWays(WAY_CHANGEDATE).Value = dtDate
         rsWays(WAY_CHANGEUSER).Value = strUser
         rsWays(WAY_CURRENTVERSION).Value = intVersion
+        rsWays(WAY_NNODES).Value = intNNodes
+        rsWays(WAY_NTAGS).Value = intNTags
+        
         rsWays.Update
         
       End If
@@ -141,6 +154,7 @@ finalize:
 End Function
 Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Recordset)
   Dim dtUpdateDate As Date
+  Dim strChangeDesc As String
   
   dtUpdateDate = Now()
   
@@ -159,12 +173,15 @@ Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Record
       rsWays(WAY_CHANGEDATE).Value = rsWaysNew(WAY_CHANGEDATE).Value
       rsWays(WAY_CHANGEUSER).Value = rsWaysNew(WAY_CHANGEUSER).Value
       rsWays(WAY_CURRENTVERSION).Value = rsWaysNew(WAY_CURRENTVERSION).Value
+      rsWays(WAY_NNODES).Value = rsWaysNew(WAY_NNODES).Value
+      rsWays(WAY_NTAGS).Value = rsWaysNew(WAY_NTAGS).Value
+        
       
       'Дата и причина добавления в трекер
       If rsWays(WAY_CURRENTVERSION).Value = 1 Then
-       rsWays(WAY_CHANGEDESCRIPTION).Value = "Создан"
+       rsWays(WAY_CHANGEDESCRIPTION).Value = "Линия создана"
       Else
-        rsWays(WAY_CHANGEDESCRIPTION).Value = "Добавлен в трекер"
+        rsWays(WAY_CHANGEDESCRIPTION).Value = "Линия добавлена в трекер"
       End If
       
       'Одобрение снимается
@@ -185,10 +202,33 @@ Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Record
         rsWays(WAY_CHANGEDATE).Value = rsWaysNew(WAY_CHANGEDATE).Value
         rsWays(WAY_CHANGEUSER).Value = rsWaysNew(WAY_CHANGEUSER).Value
         rsWays(WAY_CURRENTVERSION).Value = rsWaysNew(WAY_CURRENTVERSION).Value
+        rsWays(WAY_NNODES).Value = rsWaysNew(WAY_NNODES).Value
+        rsWays(WAY_NTAGS).Value = rsWaysNew(WAY_NTAGS).Value
         
         'Дата и причина добавления в трекер
-        rsWays(WAY_CHANGEDESCRIPTION).Value = "Изменен"
         rsWays(WAY_UPDATEDATE).Value = dtUpdateDate
+        strChangeDesc = ""
+        
+        'Что изменено
+        If rsWays(WAY_NNODES).Value > rsWays(WAY_NNODES).OriginalValue Then
+          strChangeDesc = strChangeDesc & " Добавлены вершины."
+        End If
+        
+        If rsWays(WAY_NTAGS).Value > rsWays(WAY_NTAGS).OriginalValue Then
+          strChangeDesc = strChangeDesc & " Добавлены теги."
+        End If
+        If rsWays(WAY_NNODES).Value < rsWays(WAY_NNODES).OriginalValue Then
+          strChangeDesc = strChangeDesc & " Удалены вершины."
+        End If
+        
+        If rsWays(WAY_NTAGS).Value < rsWays(WAY_NTAGS).OriginalValue Then
+          strChangeDesc = strChangeDesc & " Удалены теги."
+        End If
+        
+        If strChangeDesc = "" Then
+           strChangeDesc = "Изменены теги/вершины"
+        End If
+        rsWays(WAY_CHANGEDESCRIPTION).Value = strChangeDesc
         
         'Одобрение снимается
         rsWays(WAY_APPROVEDDATE).Value = Null
@@ -215,7 +255,7 @@ Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Record
       rsWays(WAY_CHANGEUSER).Value = "???"
           
       'Дата и причина добавления в трекер
-      rsWays(WAY_CHANGEDESCRIPTION).Value = "Удален"
+      rsWays(WAY_CHANGEDESCRIPTION).Value = "Линия удалена"
       
       rsWays(WAY_APPROVEDDATE).Value = Null
       rsWays(WAY_APPROVEDUSER).Value = Null

@@ -51,10 +51,10 @@ On Error GoTo finalize
   If MapCode = "" Then
     Err.Raise vbObjectError, "Main", "Map code is not specified"
   End If
-  
-  Print #3, "Processing has been started"
+ 
   Print #3, "Source file: " & MapCode
   
+  Print #3, "Loading config"
   'Прочтем строку доступа к данным
   Call LoadConfig
   
