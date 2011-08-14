@@ -12,7 +12,7 @@ include("ZSitePage.php");
   $mapid=$_GET['mapid'];
   $errtype=$_GET['errtype'];
 
-  $zPage->WriteHtml( "<H1>Валидатор адресов</H1>");
+  $zPage->WriteHtml( "<h1>Валидатор адресов</h1>");
   if($mapid!="")
   {
 
@@ -37,8 +37,8 @@ include("ZSitePage.php");
                        <p>См. также <a href="http://wiki.openstreetmap.org/wiki/RU:%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%82%D0%BE%D1%80%D1%8B">
                        список валидаторов</a> в осм-вики.</p>        ' );
 
-    $zPage->WriteHtml( '<P><small>Между прочим, таблица сортируется. Нужно кликнуть
-                        на заголовок столбца. </small></P> ');
+    $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
+                        на заголовок столбца. </small></p> ');
 
     PrintAddressesSummary();
   }
@@ -106,7 +106,7 @@ function PrintAddresses($mapid, $errtype)
 
 if ($errtype=="")
 {
-  $zPage->WriteHtml('<P align=right><a href="/addr.php">Назад к списку регионов</a> <p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/addr.php">Назад к списку регионов</a> </p>' );
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
