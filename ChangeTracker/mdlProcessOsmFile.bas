@@ -17,6 +17,7 @@ Const WAY_APPROVEDDATE = "ApprovedDate"
 Const WAY_UPDATEDATE = "UpdateDate"
 
 Public strConnectionString As String
+Public strOSMPath As String
 
 Private Sub LoadData(strMapID As String, rsWays As ADODB.Recordset, rsNodes As ADODB.Recordset, blnStructureOnly)
   
@@ -59,7 +60,7 @@ Private Function ProcessOsmFile(strMapID As String, rsWays As ADODB.Recordset, r
   
   
 On Error GoTo finalize
-
+  PrintToLog "Processing file: " & strFileName
   Open strFileName For Input As #1
   Do While EOF(1) <> True
     
@@ -133,16 +134,10 @@ On Error GoTo finalize
   
 ProcessOsmFile = True
 finalize:
- Close #1
- If Err.Number <> 0 Then
-   If Err.Number = 76 Then
-     'file not found
-     ProcessOsmFile = False
-   Else
-     
-     Err.Raise vbObjectError, "", Err.Description
+  Close #1
+  If Err.Number <> 0 Then
+    Err.Raise vbObjectError, "ProcessOsmFile", Err.Description
    End If
- End If
 End Function
 Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Recordset)
   Dim dtUpdateDate As Date
@@ -251,7 +246,7 @@ Dim rsWaysNew As ADODB.Recordset
 
   'Загрузим данные из осм-файла
 
-  ProcessOsmFile MapCode, rsWaysNew, rsNodesNew, "d:\OSM\osm2dcm.bak\_my\" & MapCode & "\final.osm"
+  ProcessOsmFile MapCode, rsWaysNew, rsNodesNew, strOSMPath & "\" & MapCode & "\final.osm"
   
   CompareVersions rsWays, rsWaysNew
 

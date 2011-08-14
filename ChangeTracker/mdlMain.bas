@@ -27,11 +27,14 @@ Private Sub LoadConfig()
   
     
   Line Input #2, strConnectionString
+  Line Input #2, strOSMPath
   
   Close #2
 
 End Sub
-
+Public Sub PrintToLog(strLine As String)
+Print #3, strLine
+End Sub
 'Основная процедура
 ' Файловые переменные такие
 ' #1 - исходный осм-файл
