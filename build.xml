@@ -38,6 +38,16 @@
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
     </exec>
+    
+    <!--Отслеживалка изменений -->
+    <echo>ChangeTracker</echo>
+    <exec executable="${vbexe}" failonerror="true"> 
+      <arg value="-make"/> 
+      <arg value="ChangeTracker\ChangeTracker.vbp"/> 
+      <arg value="${buildpath}\ChangeTracker.exe"/> 
+      <arg value="-out"/> 
+      <arg value="${buildpath}:\build_log.txt"/> 
+    </exec>
   </target> 
   
   <!--Часть файлов просто копируется -->
