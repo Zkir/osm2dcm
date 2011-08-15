@@ -44,7 +44,7 @@ Private Sub LoadData(strMapID As String, rsWays As ADODB.Recordset, rsNodes As A
   Set rsNodes = New ADODB.Recordset
   rsNodes.CursorType = adOpenStatic
   rsNodes.CursorLocation = adUseClient
-  rsNodes.Open "Select * from Nodes", objCon, adOpenStatic, adLockBatchOptimistic, adCmdText
+'  rsNodes.Open "Select * from Nodes", objCon, adOpenStatic, adLockBatchOptimistic, adCmdText
 
 End Sub
 
