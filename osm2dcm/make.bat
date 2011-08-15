@@ -17,6 +17,40 @@ call trim %~1 %~3 %~4 %~5
 if errorlevel 1 goto error
 
 rem --------------------------------------------------------------------------------
+rem Statistic and Change Tracker
+rem --------------------------------------------------------------------------------
+echo.
+echo Calculate statistics
+zOsmStat.exe %1 %2
+if errorlevel 1 goto error_stat
+echo  Statistics - OK
+goto change_tracker
+:error_stat
+echo  Statistics - failed
+
+:change_tracker
+echo.
+echo Change Tracker
+set DO_CT=0
+if "%1"=="RU-MOS" (
+  set DO_CT=1
+)
+if "%1"=="RU-SPO" (
+  set DO_CT=1
+)
+if "%1"=="RU-IVA" (
+  set DO_CT=1
+)
+
+echo "%DO_CT%" 
+echo "%1" 
+if "%DO_CT%"=="1" (
+  echo ChangeTracker.exe %1
+  ChangeTracker.exe %1 
+)
+
+
+rem --------------------------------------------------------------------------------
 rem Convert osm to mp and then mp to dcm
 rem --------------------------------------------------------------------------------
 
@@ -49,15 +83,6 @@ echo done
 echo.
 echo Conversion of %1 has finished successfully.
 
-echo.
-echo Calculate statistics
-
-zOsmStat.exe %1 %2
-if errorlevel 1 goto error_stat
-echo  Statistics - OK
-goto end
-:error_stat
-echo  Statistics - failed
 goto end
 :error
 echo.
