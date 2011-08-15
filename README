@@ -19,5 +19,10 @@ Various subproject related to conversion of OSM to dcm (CityGuide)
  Скрипты, которые выполняют основную конвертацию в DSM
  vbs/bat. 
 
+5. ChangeTracker
+   ChangeTracker.site
+ Отслеживалка измений в дорожном графе
+ VB6/PHP
+  
 build.xml - ant-cкрипт для сборки всего этого добра
 Результаты сборки вываливаются в d:\osm\osm2dcm
