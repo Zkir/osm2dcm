@@ -274,6 +274,7 @@ Private Sub CompareVersions(rsWays As ADODB.Recordset, rsWaysNew As ADODB.Record
   'Это веи, которых нет в новом файле
   Do While Not rsWays.EOF
     If rsWays(WAY_CURRENTVERSION).Value <> 0 Then
+      rsWays(WAY_PREVIOUSVERSION).Value = rsWays(WAY_CURRENTVERSION).Value
       rsWays(WAY_CURRENTVERSION).Value = 0
       
       'Дату и версию удаления мы по понятной причине получить не можем
