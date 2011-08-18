@@ -29,7 +29,7 @@
         break;
    }
   $strsql=$strsql." and ChangeDate > DATEADD (month, -1, CONVERT (date,current_timestamp)) ";
- 
+
   $strsql="SELECT * FROM WayLog ".$strsql." order by ChangeDate desc";
 
 
@@ -63,6 +63,7 @@
     <td><b>Ref</b></td>
     <td><b>Номер версии</b></td>
     <td><b>Пред. версия</b></td>
+    <td><b>Разн.</b></td>
     <td><b>Что случилось</b></td>
     <td><b>Кто изменил</b></td>
     <td><b>В пакете правок</b></td>
@@ -85,7 +86,7 @@
         <td> '.$row['Ref'].'</td>
         <td> '.$row['CurrentVersion'].'</td>
         <td> '.$row['PreviousVersion'].'</td>
-        
+        <td><a href="/diff.php?id='.$row['WayID'].'&v2='.$row['CurrentVersion'].'&v1='.$row['PreviousVersion'].'">разн.</a></td>  
         <!-- <td> '.$row['ChangeDescription'].'</td> -->
         <td> '.iconv('Windows-1251', 'UTF-8', $row['ChangeDescription']).'</td>
         <td> <a href="http://www.openstreetmap.org/user/'.$row['ChangeUser'].'/edits">'
