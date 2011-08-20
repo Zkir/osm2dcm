@@ -338,6 +338,20 @@ Do While Not EOF(1)
   End If
 
   '13
+  'Отфильтруем лишние запреты поворотов
+   If oMpSection.SectionType = "[Restrict]" Then
+    Dim strRestrParam As String
+    strRestrParam = oMpSection.GetAttributeValue("RestrParam")
+    If strRestrParam <> "" Then
+      If Split(strRestrParam, ",")(2) = 1 Then
+      ' Это такой странный запрет поворота, который на автомобили не распространяется.
+        blnSkipSection = True
+      End If
+    End If
+  End If
+ 
+  
+  '14
   'создадим адресный реестр.
   'Дома, или во всяком случае, объекты с номером дома.
   'Const CityNameAttr = "CityIdx"
@@ -377,7 +391,7 @@ Do While Not EOF(1)
     End If
   End If
   
-  
+  '15
   'Добавим улицу в тест рутинга
   If oMpSection.SectionType = "[POLYLINE]" Then
 
