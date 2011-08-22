@@ -1013,11 +1013,15 @@
 #railway station 0xf006 
 - condition:
     - railway = station
+    - station != subway
   action:
     - action: write_poi
       type: 0xf006
       level_h: 1
       contacts: yes
+
+#underground halls ( railway = station; station = subway) are not processed.
+#CG is not able to distribute them by generalization levels properly
 
 #railway subway_entrance 0xf005 
 - condition:
