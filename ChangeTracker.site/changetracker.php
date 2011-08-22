@@ -61,12 +61,11 @@
     <td><b>Highway</b></td>
     <td><b>Name</b></td>
     <td><b>Ref</b></td>
-    <td><b>Номер версии</b></td>
-    <td><b>Пред. версия</b></td>
+    <td><b>Номер <br/> версии</b></td>
+    <td><b>Пред. <br/>версия</b></td>
     <td><b>Разн.</b></td>
     <td><b>Что случилось</b></td>
     <td><b>Кто изменил</b></td>
-    <td><b>В пакете правок</b></td>
      <!--<td><b>Номер одобренной версии</b></td> -->
     <td><b>Кто одобрил</b></td>
     <td><b>Когда</b></td>
@@ -76,9 +75,12 @@
   while (($row = mssql_fetch_array($result)))
     {
       echo '  <tr class="g'.$row['DangerStatus'].'">'."\n";
-      echo '
-       <td> '. date("d.m.Y H:i", strtotime($row['ChangeDate'])).'</td>
-       <td><a href="http://www.openstreetmap.org/browse/way/'.$row['WayID'].'">'
+      
+      if ($row['Changeset']!='???')
+        {echo ' <td><a href="http://www.openstreetmap.org/browse/changeset/'.$row['Changeset'].'" alt=" В пакете правок"> '. date("d.m.Y H:i", strtotime($row['ChangeDate'])).'</a></td>';}
+      else 
+        {echo ' <td> '. date("d.m.Y H:i", strtotime($row['ChangeDate'])).'</td>';}	  
+      echo ' <td><a href="http://www.openstreetmap.org/browse/way/'.$row['WayID'].'">'
       .$row['WayID'].'</a> </td>
         <td> '
         .$row['Highway'].' </td>
@@ -91,7 +93,6 @@
         <td> '.iconv('Windows-1251', 'UTF-8', $row['ChangeDescription']).'</td>
         <td> <a href="http://www.openstreetmap.org/user/'.$row['ChangeUser'].'/edits">'
           .$row['ChangeUser'].'</a></td>
-        <td> <a href="http://www.openstreetmap.org/browse/changeset/'.$row['Changeset'].'" >'.$row['Changeset'].'</a></td>
         <!-- <td> '.$row['ApprovedVersion'].'-</td>   -->
         <td> '.$row['ApprovedUser'].'</td>';
 

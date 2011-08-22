@@ -16,12 +16,12 @@
   if ($nv2!='')
     $v2 = simplexml_load_file("http://www.openstreetmap.org/api/0.6/way/$way_id/$nv2");
   
-  echo "<H1>Линия: $way_id</H1>";
+  echo '<H1>Линия: <a href="http://www.openstreetmap.org/browse/way/'.$way_id.'"> '.$way_id.'</a></H1>';
   
-  echo "<p><b>Изменено:</b> ".$v2->way['timestamp']."<br/> ";
-  echo "<b>Пользователь:</b> ".$v2->way['user']."<br/>";
-  echo "<b>Версия:</b> ".$v2->way['version']."<br/>";
-  echo "<b>В пакете правок:</b> ".$v2->way['changeset']."</p>";
+  echo '<p><b>Изменено:</b> '.$v2->way['timestamp'].'<br/> ';
+  echo '<b>Пользователь:</b> <a href="http://www.openstreetmap.org/user/'.$v2->way['user'].'/edits">'.$v2->way['user'].'</a><br/>';
+  echo '<b>Версия:</b> '.$v2->way['version'].'<br/>';
+  echo '<b>В пакете правок:</b> <a href="http://www.openstreetmap.org/browse/changeset/'.$v2->way['changeset'].'">'.$v2->way['changeset'].'</a></p>';
 
   
   echo '<table CELLSPACING="5">';
