@@ -18,6 +18,7 @@ const STATISTICS_XML = "d:\osm\osm2dcm\statistics.xml"
 'История/список карт для конвертации
 const RS_MAP_CODE="MapCode"
 const RS_MAP_CGID="MapID"
+const RS_MAP_PRIORITY="Priority"
 const RS_MAP_TITLE="MapTitle"
 const RS_MAP_LOCTITLE="MapLocTitle"
 const RS_MAP_POLY="MapPolyFile"
@@ -63,7 +64,8 @@ Private Function OpenMapHistory(strFileName)
   'создаем объект Recordset
   Set rs = CreateObject("ADODB.Recordset")
   rs.Fields.Append RS_MAP_CODE, 202, 255
-  rs.Fields.Append RS_MAP_CGID, 202, 255  
+  rs.Fields.Append RS_MAP_CGID, 202, 255 
+  rs.Fields.Append RS_MAP_PRIORITY, 202, 255 
   rs.Fields.Append RS_MAP_TITLE, 202, 255
   rs.Fields.Append RS_MAP_LOCTITLE, 202, 255
   rs.Fields.Append RS_MAP_POLY, 202, 255
@@ -84,21 +86,22 @@ Private Function OpenMapHistory(strFileName)
       rs.AddNew
       rs(RS_MAP_CODE)=trim(A(0))
       rs(RS_MAP_CGID)=trim(A(1))
-      rs(RS_MAP_LOCTITLE)=trim(A(2))       
-      rs(RS_MAP_TITLE)=trim(A(3))    
+      rs(RS_MAP_PRIORITY)=trim(A(2))
+      rs(RS_MAP_LOCTITLE)=trim(A(3))       
+      rs(RS_MAP_TITLE)=trim(A(4))    
      
       if rs(RS_MAP_TITLE).value="" then
         rs(RS_MAP_TITLE).value=rs(RS_MAP_LOCTITLE).value
       end if      
 
-      rs(RS_MAP_POLY)=trim(A(4))
-      rs(RS_MAP_SOURCE)=trim(A(5))
-      rs(RS_MAP_DIRECTCOPY)=trim(A(6)) 
-      rs(RS_MAP_CUSTOMKEYS)=trim(A(7)) 
-      rs(RS_MAP_VIEWPOINT)=trim(A(8))
-      rs(RS_MAP_DATE)=A(9)
-      rs(RS_MAP_VERSION)=A(10)
-      rs(RS_MAP_USEDTIME)=A(11)
+      rs(RS_MAP_POLY)=trim(A(5))
+      rs(RS_MAP_SOURCE)=trim(A(6))
+      rs(RS_MAP_DIRECTCOPY)=trim(A(7)) 
+      rs(RS_MAP_CUSTOMKEYS)=trim(A(8)) 
+      rs(RS_MAP_VIEWPOINT)=trim(A(9))
+      rs(RS_MAP_DATE)=A(10)
+      rs(RS_MAP_VERSION)=A(11)
+      rs(RS_MAP_USEDTIME)=A(12)
     end if
   
 Loop
@@ -184,6 +187,7 @@ Private Function SaveMapCreationHistory(rs, strFileName)
   Do While Not rs.EOF  
     Men.WriteLine MyFormat(rs(RS_MAP_CODE).Value,11)       & " | " & _ 
                   MyFormat(rs(RS_MAP_CGID).Value,11)       & " | " & _
+                  MyFormat(rs(RS_MAP_PRIORITY).Value,2)       & " | " & _
                   MyFormat(rs(RS_MAP_LOCTITLE).Value,32)   & " | " & _
                   MyFormat(AB(rs(RS_MAP_LOCTITLE).Value,rs(RS_MAP_TITLE).Value),32)      & " | " & _
                   MyFormat(rs(RS_MAP_POLY).Value,10)       & " | " & _
@@ -285,7 +289,7 @@ set rsMapList=OpenMapHistory("history.txt")
 'Прочтем историю конвертации
 set rsMapCreationHistory=OpenMapHistory("history.txt")
 
-rsMapList.sort = RS_MAP_DATE & " asc"
+rsMapList.sort = RS_MAP_PRIORITY & " asc, " & RS_MAP_DATE & " asc"
 'rsMapList.sort = RS_MAP_USEDTIME & " asc"
 
 'Начнем процесс
@@ -302,11 +306,9 @@ Do While Not rsMapList.EOF
     Wscript.Echo rsMapList(RS_MAP_SOURCE).Value & " " & dtSourceDate  & " " & rsMapList(RS_MAP_DATE).value
  
       
-    if rsMapList(RS_MAP_USEDTIME).value <120 then
-      intPeriodicity= 0.6
-    else
-      intPeriodicity= 3
-    end if
+
+    intPeriodicity= 0.6
+ 
 
     intNewVersion=rsMapList(RS_MAP_VERSION).value+1
 
