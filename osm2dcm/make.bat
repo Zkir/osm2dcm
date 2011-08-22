@@ -41,6 +41,12 @@ if "%1"=="RU-SPO" (
 if "%1"=="RU-IVA" (
   set DO_CT=1
 )
+if "%1"=="RU-SVE" (
+  set DO_CT=1
+)
+if "%1"=="RU-KDA" (
+  set DO_CT=1
+)
 
 echo "%DO_CT%" 
 echo "%1" 
@@ -75,9 +81,10 @@ rar a -ep "%WORK_PATH%\%1.rar" "%WORK_PATH%\%1.dcm"
 rem --------------------------------------------------------------------------------
 rem upload rar archive file to the ftp server 
 rem --------------------------------------------------------------------------------
+:retry_upload
 echo - uploading map to server ...
 corecmd.exe -site rambler -O -u %WORK_PATH%\%1.rar   -p www/cg_maps/ -s
-if errorlevel 1 goto error
+if errorlevel 1 goto retry_upload
 echo done
 
 echo.
