@@ -90,10 +90,13 @@
         <td> '.$row['PreviousVersion'].'</td>
         <td><a href="/diff.php?id='.$row['WayID'].'&v2='.$row['CurrentVersion'].'&v1='.$row['PreviousVersion'].'">разн.</a></td>  
         <!-- <td> '.$row['ChangeDescription'].'</td> -->
-        <td> '.iconv('Windows-1251', 'UTF-8', $row['ChangeDescription']).'</td>
-        <td> <a href="http://www.openstreetmap.org/user/'.$row['ChangeUser'].'/edits">'
-          .$row['ChangeUser'].'</a></td>
-        <!-- <td> '.$row['ApprovedVersion'].'-</td>   -->
+        <td> '.iconv('Windows-1251', 'UTF-8', $row['ChangeDescription']).'</td>';
+        if ($row['ChangeUser']!='???')
+          {echo '<td> <a href="http://www.openstreetmap.org/user/'.$row['ChangeUser'].'/edits">'
+          .$row['ChangeUser'].'</a></td>';}
+        else
+          {echo '<td> '.$row['ChangeUser'].'</td>';}; 	    
+        echo '<!-- <td> '.$row['ApprovedVersion'].'-</td>   -->
         <td> '.$row['ApprovedUser'].'</td>';
 
         if ($row['ApprovedDate']<>'')
