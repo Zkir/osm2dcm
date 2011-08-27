@@ -66,7 +66,13 @@ Public Sub ProcessMP(strSrcFileName As String, strTargetFileName As String, strV
 Dim blnSkipSection As Boolean
 Dim oMpSection As clsMpSection
 Dim oAddrRegisty As clsAddrRegistry
-Dim oRoutingTest As clsRoutingTest
+
+Dim oRoutingTestFull As clsRoutingTest
+Dim oRoutingTest0 As clsRoutingTest
+Dim oRoutingTest1 As clsRoutingTest
+Dim oRoutingTest2 As clsRoutingTest
+Dim oRoutingTest3 As clsRoutingTest
+
 Dim oSourceErrors As clsSourceErrors
 
 Dim Size As Double
@@ -74,9 +80,14 @@ Dim strLabel As String
 On Error GoTo finalize
 
 Set oAddrRegisty = New clsAddrRegistry
-Set oRoutingTest = New clsRoutingTest
-Set oSourceErrors = New clsSourceErrors
 
+Set oRoutingTestFull = New clsRoutingTest
+Set oRoutingTest0 = New clsRoutingTest
+Set oRoutingTest1 = New clsRoutingTest
+Set oRoutingTest2 = New clsRoutingTest
+Set oRoutingTest3 = New clsRoutingTest
+
+Set oSourceErrors = New clsSourceErrors
 
 Open strSrcFileName For Input As #1
 Open strTargetFileName For Output As #2
@@ -419,16 +430,33 @@ Do While Not EOF(1)
       
       ReDim Preserve NodeList(NN - 1)
       'Передается список рутинговых нод, и bbox для данной дороги
-      oRoutingTest.AddRoad NodeList, lat1, lon1, lat2, lon2
+      oRoutingTestFull.AddRoad NodeList, lat1, lon1, lat2, lon2
+      
+      If OSMLevelByTag(oMpSection.GetOsmHighway) <= 0 Then
+        oRoutingTest0.AddRoad NodeList, lat1, lon1, lat2, lon2
+      End If
+      
+      If OSMLevelByTag(oMpSection.GetOsmHighway) <= 1 Then
+        oRoutingTest1.AddRoad NodeList, lat1, lon1, lat2, lon2
+      End If
+      
+      If OSMLevelByTag(oMpSection.GetOsmHighway) <= 2 Then
+        oRoutingTest2.AddRoad NodeList, lat1, lon1, lat2, lon2
+      End If
+      
+      If OSMLevelByTag(oMpSection.GetOsmHighway) <= 3 Then
+        oRoutingTest3.AddRoad NodeList, lat1, lon1, lat2, lon2
+      End If
                  
     End If
   End If
   
   'Комментарии. В них содержаться ошибки найденные Osm2mp.pl
- 
+  Dim i As Integer
   If oMpSection.SectionType = "COMMENT" Then
-   oSourceErrors.ProcessComment oMpSection.strComment
-  
+    For i = 0 To oMpSection.nComments - 1
+      oSourceErrors.ProcessComment oMpSection.strComments(i)
+    Next i
   End If
 
   
@@ -460,7 +488,31 @@ Open strTargetFileName & "_addr.xml" For Output As #4
  
  
   oAddrRegisty.PrintRegistryToXML
-  oRoutingTest.PrintRegistryToXML 4
+  
+  Print #4, "<RoutingTest>"
+  oRoutingTestFull.PrintRegistryToXML 4
+  Print #4, "</RoutingTest>"
+  
+  Print #4, "<RoutingTestByLevel>"
+  Print #4, "<Trunk>"
+  oRoutingTest0.PrintRegistryToXML 4
+  Print #4, "</Trunk>"
+  
+  
+  Print #4, "<Primary>"
+  oRoutingTest1.PrintRegistryToXML 4
+  Print #4, "</Primary>"
+  
+  Print #4, "<Secondary>"
+  oRoutingTest2.PrintRegistryToXML 4
+  Print #4, "</Secondary>"
+  
+  Print #4, "<Tertiary>"
+  oRoutingTest3.PrintRegistryToXML 4
+  Print #4, "</Tertiary>"
+  
+  Print #4, "</RoutingTestByLevel>"
+  
   oSourceErrors.PrintErrorsToXML 4
   Print #4, "</QualityReport>"
 
@@ -474,4 +526,23 @@ finalize:
 
 End Sub
 
-
+Function OSMLevelByTag(Tag As String) As Integer
+  Dim intLevel As Integer
+  
+  Select Case Tag
+    Case "trunk", "trunk_link"
+      intLevel = 0
+    Case "primary", "primary_link"
+      intLevel = 1
+    Case "secondary", "secondary_link"
+      intLevel = 2
+    Case "tertiary", "tertiary_link"
+      intLevel = 3
+    
+    Case Else
+      intLevel = 4
+  End Select
+  
+OSMLevelByTag = intLevel
+  
+End Function

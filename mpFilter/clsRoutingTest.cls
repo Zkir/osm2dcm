@@ -34,6 +34,8 @@ Dim rsSubGraph     As ADODB.Recordset
 Dim rsNodes        As ADODB.Recordset
 Dim intSubgraphCount As Long
 
+Private NTotalRoads As Long
+
 Private Sub Class_Initialize()
 
  On Error GoTo finalize
@@ -61,6 +63,7 @@ Private Sub Class_Initialize()
   
   'Начальное значение счетчика подграфов
   intSubgraphCount = 0
+  NTotalRoads = 0
   
 finalize:
   If Err.Number <> 0 Then
@@ -151,6 +154,10 @@ Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
   If lat2 > rsSubGraph(RS_SUBGRAPH_LAT2).Value Then rsSubGraph(RS_SUBGRAPH_LAT2).Value = lat2
   If lon2 > rsSubGraph(RS_SUBGRAPH_LON2).Value Then rsSubGraph(RS_SUBGRAPH_LON2).Value = lon2
   
+  'Общее число дорог так же увеличивается.
+  
+  NTotalRoads = NTotalRoads + 1
+
   
   rsSubGraph.Filter = adFilterNone
   
@@ -229,9 +236,10 @@ Public Function PrintRegistryToXML(FileNumber As Long) As String
   
   rsSubGraph.Filter = adFilterNone
   rsSubGraph.Sort = RS_SUBGRAPH_ROADCOUNT & " desc"
-  Print #FileNumber, "<RoutingTest>"
+  
   Print #FileNumber, "<Summary>"
   Print #FileNumber, "  <NumberOfSubgraphs>" & rsSubGraph.RecordCount & "</NumberOfSubgraphs>"
+  Print #FileNumber, "  <NumberOfRoads>" & NTotalRoads & "</NumberOfRoads>"
   Print #FileNumber, "</Summary>"
   
   Print #FileNumber, "<SubgraphList>"
@@ -248,7 +256,6 @@ Public Function PrintRegistryToXML(FileNumber As Long) As String
     rsSubGraph.MoveNext
   Loop
   Print #FileNumber, "</SubgraphList>"
-  Print #FileNumber, "</RoutingTest>"
   
 End Function
 

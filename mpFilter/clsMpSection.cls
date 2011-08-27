@@ -19,7 +19,8 @@ Option Explicit
 Const l_grad = 111.321322222222
 Const RS_ATTR_NAME = "name"
 Const RS_ATTR_VALUE = "value"
-Public strComment As String
+Private m_strComments(10000) As String
+Public nComments As Integer
 Private rsAttributes As ADODB.Recordset
 Public SectionType As String
 Public SectionEnding As String
@@ -35,6 +36,7 @@ Private Sub Class_Initialize()
   rsAttributes.Fields.Append RS_ATTR_VALUE, adWChar, 2048
   rsAttributes.Open
   rsAttributes(RS_ATTR_NAME).Properties("Optimize") = True
+  nComments = 0
   
 End Sub
 
@@ -58,16 +60,22 @@ End Sub
 Public Sub ReadSection()
   Dim strMpLine As String
   Dim blnSectionStarted As Boolean
+  Dim blnCommentStarted As Boolean
     
   blnSectionStarted = False
-
+  blnCommentStarted = False
   
   Do
     Line Input #1, strMpLine
     strMpLine = Trim(strMpLine)
     
     If (strMpLine = "") And (Not blnSectionStarted) Then
-      SectionType = "BLANK"
+      If Not blnCommentStarted Then
+        SectionType = "BLANK"
+      Else
+        ' Это комментарий
+      End If
+      ' Так или иначе пустая строчка завершает секцию
       Exit Do
     End If
     
@@ -75,8 +83,12 @@ Public Sub ReadSection()
     'comment
     If Left(strMpLine, 1) = ";" Then
       SectionType = "COMMENT"
-      strComment = strMpLine
-      Exit Do
+      blnCommentStarted = True
+      If nComments < UBound(m_strComments) Then
+        m_strComments(nComments) = strMpLine
+        nComments = nComments + 1
+      End If
+      GoTo next_line
     End If
     
     
@@ -118,10 +130,17 @@ Dim i As Integer
 
 Select Case SectionType
   Case "COMMENT":
-    Print #2, strComment
+    For i = 0 To nComments - 1
+      Print #2, m_strComments(i)
+    Next i
+    Print #2, "" ' Это потому что коммент заканчивается пустой строчкой.
   Case "BLANK"
     Print #2, ""
   Case Else
+    For i = 0 To nComments - 1
+      Print #2, m_strComments(i)
+    Next i
+    
     Print #2, SectionType
     
     rsAttributes.MoveFirst
@@ -135,7 +154,9 @@ Select Case SectionType
 End Select
 
 End Sub
-
+Public Function strComments(i As Integer) As String
+  strComments = m_strComments(i)
+End Function
 Public Function GetAttributeValue(ByVal strAttributeName As String) As String
 Dim strAttributeValue
 
@@ -308,3 +329,75 @@ Dim strData As String
 
 End Sub
 
+'Несколько оптимистичная функция
+'OSM ID содержится в первой строке коментария
+Public Function GetOsmID() As String
+Dim s() As String
+Dim strCommentLine
+Dim strType As String
+Dim strNumber As String
+Dim i As Integer
+  
+  strCommentLine = m_strComments(0)
+  
+  i = InStr(strCommentLine, "NodeID =")
+  If i > 0 Then
+   strCommentLine = Mid(strCommentLine, i)
+  End If
+  
+  i = InStr(strCommentLine, "WayID =")
+  If i > 0 Then
+   strCommentLine = Mid(strCommentLine, i)
+  End If
+  
+  i = InStr(strCommentLine, "RelID =")
+  If i > 0 Then
+   strCommentLine = Mid(strCommentLine, i)
+  End If
+    
+    
+  s = Split(strCommentLine, "=")
+  strType = Trim(s(0))
+  strNumber = Trim(s(1))
+  Select Case strType
+    'Точка
+    Case "NodeID"
+      GetOsmID = "N:" & strNumber
+    'Линия
+    Case "WayID"
+      GetOsmID = "W:" & strNumber
+    'Отношение
+    Case "RelID"
+      GetOsmID = "R:" & strNumber
+    Case Else
+      Debug.Print strCommentLine
+      Err.Raise vbObjectError, "GetOsmID", "Неизвестный тип объекта " & strCommentLine
+  End Select
+  
+End Function
+
+'Ищем значение тега Highway. Он сидит в комментариях
+Public Function GetOsmHighway() As String
+Dim s() As String
+Dim strCommentLine
+Dim strValue As String
+Dim j, i As Integer
+  
+For j = 0 To nComments - 1
+
+  strCommentLine = m_strComments(j)
+  
+  i = InStr(strCommentLine, "highway =")
+  If i > 0 Then
+    ' Найдено!
+    strCommentLine = Mid(strCommentLine, i)
+    s = Split(strCommentLine, "=")
+    strValue = Trim(s(1))
+    GetOsmHighway = strValue
+    Exit For
+  End If
+  
+Next j
+    
+  
+End Function
