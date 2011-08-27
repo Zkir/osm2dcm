@@ -1,6 +1,6 @@
 <?php
 #============================================
-#Ежедневные сборки
+#Валидатор адресов
 #(c) Zkir 2010
 #============================================
 include("ZSitePage.php");
@@ -36,11 +36,14 @@ include("ZSitePage.php");
                        <a href="http://addresses.amdmi3.ru/">addresses.amdmi3.ru</a> </p>
                        <p>См. также <a href="http://wiki.openstreetmap.org/wiki/RU:%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%82%D0%BE%D1%80%D1%8B">
                        список валидаторов</a> в осм-вики.</p>        ' );
-
+    $zPage->WriteHtml( '<h2>Россия</h2>');
     $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
                         на заголовок столбца. </small></p> ');
 
-    PrintAddressesSummary();
+    PrintAddressesSummary(0);
+    
+    $zPage->WriteHtml( '<h2>Заграница</h2>');
+    PrintAddressesSummary(1);
   }
 
 $zPage->WriteHtml('
@@ -391,7 +394,7 @@ else //Задан конкретный тип ошибки
   $zPage->WriteHtml( '</table></small>');
 }
 
-function PrintAddressesSummary()
+function PrintAddressesSummary($mode)
 {
    global $zPage;
 
@@ -422,7 +425,7 @@ function PrintAddressesSummary()
 
   foreach ($xml->mapinfo as $item)
     {
-      if(  substr($item->MapId,0,2)=='RU' )
+      if(  (substr($item->MapId,0,2)=='RU' and $mode==0)or (substr($item->MapId,0,2)!='RU' and $mode==1) )
       {
         $xmlfilename=GetXmlFileName($item->MapId);
 
