@@ -9,7 +9,7 @@ option explicit
 const FTP_SERVER="******"
 const FTP_LOGIN_PASSWORD="*****"
 
-const DOWNLOAD_URL= "http://osm.interlan.ru/cg_maps"
+const DOWNLOAD_URL= "http://peirce.osm.rambler.ru/cg_maps"
 
 const OSM_FILES_DIR = "D:\OSM\osm_data\"
 const MAPLIST_XML = "d:\osm\osm2dcm\maplist.xml"
