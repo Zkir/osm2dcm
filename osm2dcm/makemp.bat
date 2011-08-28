@@ -60,8 +60,8 @@ echo ---
 
 rem -----
 echo -starting osm2mp  %DATE%_%TIME% 
-rem perl -S osm2mp.pl  --mapid=%1_osm --mapname="%~2 (OSM)" --navitel --nointerchange3d  --nomarine --nodestsigns --shorelines --hugesea=1000000 --background  --bpoly=d:\OSM\osm2dcm\poly\%3   --transport car %CUSTOM_KEYS%  %WORK_PATH%\final.osm >%WORK_PATH%\%1.pre.mp
-perl -S osm2mp_new.pl  --config=cityguide.yml  --mapid=%1_osm --mapname="%~2 (OSM)" --navitel --nointerchange3d  --nomarine --nodestsigns --shorelines --hugesea=1000000 --background  --bpoly=d:\OSM\osm2dcm\poly\%3   --transport car %CUSTOM_KEYS%  %WORK_PATH%\final.osm >%WORK_PATH%\%1.pre.mp 
+
+perl -S osm2mp_new.pl  --config=osm2mp.config\cityguide.yml  --mapid=%1_osm --mapname="%~2 (OSM)" --navitel --nointerchange3d  --nomarine --nodestsigns --shorelines --hugesea=1000000 --background  --bpoly=d:\OSM\osm2dcm\poly\%3   --transport car %CUSTOM_KEYS%  %WORK_PATH%\final.osm >%WORK_PATH%\%1.pre.mp 
 
 
 

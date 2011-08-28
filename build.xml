@@ -14,7 +14,6 @@
     <echo>Creating the build directory</echo>
     <mkdir dir="${buildpath}"/>
     <mkdir dir="${buildpath}\poly"/>
-    <mkdir dir="${buildpath}\_my\test"/>
   </target>
   
   <target name="compile" depends="init">
@@ -56,12 +55,16 @@
         <fileset file="osm2dcm\*.*"  />
     </copy>
     
-    <copy todir="${buildpath}">
+    <copy todir="${buildpath}\osm2mp.config">
         <fileset dir="osm2dcm\osm2mp.config"/>
     </copy>
     
     <copy todir="${buildpath}\poly">
         <fileset dir="osm2dcm\poly"/>
+    </copy>
+    
+    <copy todir="${buildpath}\_my\test">
+        <fileset dir="osm2dcm\_my\test"/>
     </copy>
    
   </target>
