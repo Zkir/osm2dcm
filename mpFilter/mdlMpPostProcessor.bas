@@ -530,7 +530,7 @@ Function OSMLevelByTag(Tag As String) As Integer
   Dim intLevel As Integer
   
   Select Case Tag
-    Case "trunk", "trunk_link"
+    Case "trunk", "trunk_link", "motorway", "motorway_link"
       intLevel = 0
     Case "primary", "primary_link"
       intLevel = 1
