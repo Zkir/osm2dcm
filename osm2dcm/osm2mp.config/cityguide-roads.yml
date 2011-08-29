@@ -296,3 +296,11 @@
   action:
     - action: modify_road
       routeparams: '.,+1,.,.,.,.,.,.,.,.,.,.'
+
+#ferry=yes 
+- condition:
+    - ferry = yes|true|1
+  action:
+    - action: modify_road
+      type: 0x1b
+      routeparams: '0,.,.,.,.,.,.,.,.,.,.,.'
