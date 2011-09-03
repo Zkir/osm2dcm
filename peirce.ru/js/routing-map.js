@@ -161,16 +161,12 @@ function ProcessMap(XmlFileName, strLevel)
 }
 }//функции
 
- //---------------Обработка щелчка по маркеру------------------------------------------------
-    function doClick(lat1,lon1,lat2,lon2)
-    {
-      var el=document.getElementById('ttt');
-
-      //pstr = "http://localhost:8111/import?url=http://openstreetmap.org/api/0.6/way/XXXX/full";
-      pstr ="http://localhost:8111/load_and_zoom?top="+(lat2)+"&bottom="+(lat1)+"&left="+(lon1)+"&right="+(lon2)+"";
-      //document.write(pstr);
-      el.src = pstr;
-    }
+//---------------Обработка щелчка по маркеру------------------------------------------------
+function doClick(lat1,lon1,lat2,lon2)
+{
+  document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat2)+"&bottom="+(lat1)+"&left="+(lon1)+"&right="+(lon2);
+}
+    
  //---------------Вспомогательная фукция получения XMLHTTP----------------------------------
 
   function getXmlHttp1() {

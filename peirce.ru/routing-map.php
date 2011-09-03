@@ -54,7 +54,7 @@ $zPage=new TZSitePage;
                     <script type="text/javascript">
                       ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
                     </script>
-                    <img id="ttt" src="" style="display:none;" alt="Dummy item for JOSM" />
+                     <iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
   $zPage->WriteHtml('<p>По щелчку на маркере открывается JOSM, он должен быть запущен.</p>');
 
