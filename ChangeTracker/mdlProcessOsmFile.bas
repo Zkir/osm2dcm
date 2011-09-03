@@ -129,7 +129,8 @@ On Error GoTo finalize
     
       If (strHighway = "motorway") Or (strHighway = "motorway_link") Or _
          (strHighway = "trunk") Or (strHighway = "trunk_link") Or _
-         (strHighway = "primary") Or (strHighway = "primary_link") Then
+         (strHighway = "primary") Or (strHighway = "primary_link") Or _
+         (strHighway = "cycleway") Then
         'Это в самом деле дорога
         rsWays.AddNew
         rsWays(WAY_MAPID).Value = strMapID
