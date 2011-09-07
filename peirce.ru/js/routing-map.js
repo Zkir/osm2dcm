@@ -138,7 +138,7 @@ function ProcessMap(XmlFileName, strLevel)
 	        new CM.LatLng(Lat1, Lon2),
 	        new CM.LatLng(Lat2, Lon2),
 	        new CM.LatLng(Lat2, Lon1),
-	        new CM.LatLng(Lat1, Lon1),
+	        new CM.LatLng(Lat1, Lon1)
            ]);
         map.addOverlay(polygon);
 
