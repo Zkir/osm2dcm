@@ -119,18 +119,20 @@ function ProcessMap(XmlFileName, strLevel)
     if (Lon1<LonMin) LonMin=Lon1;
     if (Lon2>LonMax) LonMax=Lon2;
 
+    If ( i > 0 )
+    {
     var aBugDescr="Число ребер: "+NRoads;
     //document.write( "<p>" + aBugDescr  + "</p>");
     markers.push(new CM.Marker(new CM.LatLng((Lat1+Lat2)/2, (Lon1+Lon2)/2),{title: aBugDescr}));
     var aSubGraph=new SubGraphInfo(NRoads,Lat1,Lon1,Lat2,Lon2);
-    CM.Event.addListener(markers[i], 'click', function(latlng) {
-    var delta=0.001;
+    CM.Event.addListener(markers[intMarkerCount], 'click', function(latlng) {
+    //var delta=0.001;
      	//doClick(latlng.lat()-delta,latlng.lng()-delta,latlng.lat()+delta,latlng.lng()+delta);
      	doClick(this.Lat1,this.Lon1,this.Lat2,this.Lon2);
    	   	},aSubGraph);
 
     intMarkerCount=intMarkerCount+1;
-
+    }
         var polygon = new CM.Polyline([
 	        new CM.LatLng(Lat1, Lon1),
 	        new CM.LatLng(Lat1, Lon2),
