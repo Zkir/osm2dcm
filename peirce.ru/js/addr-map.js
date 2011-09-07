@@ -102,7 +102,7 @@ function ProcessMap(XmlFileName, ReportErrType1)
         var aBugDescr=StreetName+", "+HouseName+". Тип ошибки: "+MyErrType;
         //document.write( "<p>" + aBugDescr  + "</p>");
       	markers.push(new CM.Marker(new CM.LatLng(HouseLat, HouseLon),{title: aBugDescr}));
-    	CM.Event.addListener(markers[i], 'click', function(latlng) {
+    	CM.Event.addListener(markers[intMarkerCount], 'click', function(latlng) {
     		doClick(latlng.lat(),latlng.lng());
    		     	});
       		
