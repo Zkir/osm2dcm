@@ -194,8 +194,8 @@ function PrintSideBlockNews()
 		  <li><a href="http://forum.openstreetmap.org/viewforum.php?id=21">Русскоязычный форум OSM</a></li>
 		  <li><a href="http://gis-lab.info/qa/osm-begin.html">Начало работы с OSM</a></li>
 		  <li><a href="http://wiki.openstreetmap.org/index.php/Ru:Beginners_Guide">Руководство для начинающих</a></li>
-		  <li><a href="http://gpsmapsearch.com/osm/mp/">Карты OSM для Garmin</a></li>
-  		  <li><a href="http://fmesh.ru/osm/navitel.html">Карты OSM для Navitel</a></li>
+		  <li><a href="http://gis-lab.info/data/mp/">Карты OSM для Garmin</a></li> 
+  		  <li><a href="http://navitel.osm.rambler.ru/">Карты OSM для Navitel</a></li>
 		  <ul></p>');  
 	}
    ?>		
