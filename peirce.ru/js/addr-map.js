@@ -9,10 +9,7 @@ function ProcessMap(XmlFileName, ReportErrType1)
   map.addControl(new CM.ScaleControl());
  
   map.setCenter(new CM.LatLng(55.75,37.6), 8);
-  
-  
-
-	  	  
+  	  	  
   var xmlhttp = getXmlHttp1();
   xmlhttp.open('GET', XmlFileName, false);
   xmlhttp.send(null);
@@ -32,7 +29,9 @@ function ProcessMap(XmlFileName, ReportErrType1)
     
     var Lat0=0.0;
     var Lon0=0.0;
-    
+    var LatZ=0.0;
+    var LonZ=0.0;
+  
     var markers = [];
     var intLen=0;
     intLen = items.length;
@@ -93,6 +92,8 @@ function ProcessMap(XmlFileName, ReportErrType1)
 		
       } while (f_child) ;
       
+      LatZ=LatZ+parseFloat(HouseLat);
+      LonZ=LonZ+parseFloat(HouseLon);
        //parseInt(MyErrType)==3
       if(ReportErrType1==""||ReportErrType1==MyErrType) 
       { 	   
@@ -110,9 +111,16 @@ function ProcessMap(XmlFileName, ReportErrType1)
       }
      
     }//кц по домам
-    
-    Lat0=Lat0/intMarkerCount;
-    Lon0=Lon0/intMarkerCount;
+    if ( intMarkerCount > 0 )
+    {
+      Lat0=Lat0/intMarkerCount;
+      Lon0=Lon0/intMarkerCount;
+    }
+    else
+    {
+      Lat0=LatZ/intLen;
+      Lon0=LonZ/intLen;
+    }
     //document.write("<p>"+ " " +  Lat0+ " " + Lon0+"</p>");
     map.setCenter(new CM.LatLng(Lat0,Lon0), 8);
     	
@@ -131,12 +139,8 @@ function ProcessMap(XmlFileName, ReportErrType1)
  //---------------Обработка щелчка по маркеру------------------------------------------------
     function doClick(lat,lon)
     {       	 
-      var el=document.getElementById('ttt');
       var delta=0.0002;
-      //pstr = "http://localhost:8111/import?url=http://openstreetmap.org/api/0.6/way/XXXX/full";
-      pstr ="http://localhost:8111/load_and_zoom?top="+(lat+delta)+"&bottom="+(lat-delta)+"&left="+(lon-delta)+"&right="+(lon+delta)+"";
-      //document.write(pstr);
-      el.src = pstr;
+      document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat+delta)+"&bottom="+(lat-delta)+"&left="+(lon-delta)+"&right="+(lon+delta);
     }
  //---------------Вспомогательная фукция получения XMLHTTP----------------------------------    
     function getXmlHttp(){
