@@ -240,12 +240,16 @@
 
 ##highway bridleway r 0x16,1 0 1 1,0,0,0,0,1,1,1,1,0,0,1 
 ##highway cycleway r 0x16,1 0 1 1,0,0,0,0,1,1,1,1,0,0,1 
-##tracktype grade1 r 0x0a,2 0 2 1,0,0,0,0,0,0,1,0,0,0,0 
-##tracktype grade2 r 0x0a,2 0 2 1,0,0,0,0,0,0,1,0,0,0,0 
-##tracktype grade3 r 0x0a,2 0 2 1,0,0,0,0,0,0,1,0,0,0,0 
-##tracktype grade4 r 0x16,2 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
-##tracktype grade5 r 0x16,2 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
-##highway construction r 0x47 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
+
+#highway construction r 0x47 0 1 0,0,0,0,0,0,0,1,0,0,0,0  
+- condition:
+    - highway = checked_construction
+  action:
+    - action: load_road
+      type: 0x47
+      level_h: 1
+      routeparams: '0,0,0,0,0,0,0,1,0,0,0,0'
+
 ## Modifiers
 
 #junction roundabout r 0x0c,3 0 2 1,2,1,0,0,0,0,0,0,0,0,0 
