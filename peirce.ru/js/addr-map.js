@@ -8,7 +8,7 @@ function ProcessMap(XmlFileName, ReportErrType1)
   map.addControl(new CM.LargeMapControl());
   map.addControl(new CM.ScaleControl());
  
-  map.setCenter(new CM.LatLng(55.75,37.6), 8);
+  map.setCenter(new CM.LatLng(55.75,37.6), 5);
   	  	  
   var xmlhttp = getXmlHttp1();
   xmlhttp.open('GET', XmlFileName, false);
@@ -121,8 +121,10 @@ function ProcessMap(XmlFileName, ReportErrType1)
       Lat0=LatZ/intLen;
       Lon0=LonZ/intLen;
     }
-    //document.write("<p>"+ " " +  Lat0+ " " + Lon0+"</p>");
-    map.setCenter(new CM.LatLng(Lat0,Lon0), 8);
+    if ( intLen > 0 )
+      map.setCenter(new CM.LatLng(Lat0,Lon0), 8);
+    else
+      typeErr.innerHTML = "<font color='#aa4411' size=+1>Ошибок по этому региону нет</font>"
     	
     var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 60});
     clusterer.addMarkers(markers);
