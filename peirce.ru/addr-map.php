@@ -17,7 +17,7 @@ include("ZSitePage.php");
   $zPage->WriteHtml('<p>Отображение на карте пока в тестовом режиме, прошу строго не судить :)</p>');
   $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должне быть запущен.</p>');
   
-  $zPage->WriteHtml('<table width=400><tr><td>Выбор типа ошибок:</td>');
+  $zPage->WriteHtml('<span id=typeErr><table width=400><tr><td>Выбор типа ошибок:</td>');
   if ( $errtype > 0 ) $zPage->WriteHtml("<td><a href='addr-map.php?mapid=$mapid'>Все</a></td>");
   else $zPage->WriteHtml('<td><b>Все<b></td>');
   for ( $ii = 1; $ii < 7; $ii++ )
@@ -28,7 +28,7 @@ include("ZSitePage.php");
     else
       $zPage->WriteHtml('<td><b>'.FormatAddrErrType($ii).'</b></td>');
   }
-  $zPage->WriteHtml("</tr></table>Показаны ошибки типа: <b>".($errtype > 0 ? FormatAddrErrName($errtype) : "Все")."</b>");
+  $zPage->WriteHtml("</tr></table>Показаны ошибки типа: <b>".($errtype > 0 ? FormatAddrErrName($errtype) : "Все")."</b></span>");
   
   if($mapid!="")
   {
