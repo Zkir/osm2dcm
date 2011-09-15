@@ -200,7 +200,7 @@
     - action: load_road
       type: 0x07
       level_h: 1
-      routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
+      routeparams: '1,0,0,0,0,0,1,1,1,0,0,0'
 
 #highway pedestrian r 0x16,2 0 1 0,0,0,0,0,1,1,1,1,0,0,1 
 #!Check Priority!

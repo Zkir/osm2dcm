@@ -119,6 +119,7 @@
    </output>
  </translation>
 
+<!--
  <translation>
    <name>Convert nameless living streets to service</name>
    <description>Convert nameless living streets to service</description>
@@ -131,5 +132,6 @@
      <tag k="highway" v="service"/>
    </output>
  </translation>
- 
+-->
+
 </translations>
