@@ -135,10 +135,31 @@ if ($errtype=="")
                 </tr>
                 <tr><td><b>Рутинговый граф</b></td></tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Изолированные рутинговые подграфы:</td>
+                  <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,0).'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,10).'</td>
                 </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;trunk:</td>
+                  <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,3).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;primary и выше:</td>
+                  <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,3).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;secondary и выше:</td>
+                  <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,3).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;tertiary и выше:</td>
+                  <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,3).'</td>
+                </tr>
+
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
                   <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
