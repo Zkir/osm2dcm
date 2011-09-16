@@ -50,9 +50,9 @@ $zPage=new TZSitePage;
   $zPage->WriteHtml('
                     <div id="cm-example" style="width: 100%; height: 450px"></div>
                     <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
-                    <script type="text/javascript" src="js/routing-map.js"> </script>
+                    <script type="text/javascript" src="./js/js-map.js"> </script>
                     <script type="text/javascript">
-                      ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
+                      ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'", -1);
                     </script>
                      <iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
