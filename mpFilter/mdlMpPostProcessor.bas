@@ -62,7 +62,13 @@ Dim l As Long
 
 End Function
 
-Public Sub ProcessMP(strSrcFileName As String, strTargetFileName As String, strViewPoint As String)
+'mp-файл преобразуется по определенным правилам.
+' также делаются тесты (или не делаются, смотря по параметру)
+Public Sub ProcessMP(strSrcFileName As String, _
+                     strTargetFileName As String, _
+                     strViewPoint As String, _
+                     blnDoTests As Boolean)
+                     
 Dim blnSkipSection As Boolean
 Dim oMpSection As clsMpSection
 Dim oAddrRegisty As clsAddrRegistry
@@ -79,13 +85,14 @@ Dim Size As Double
 Dim strLabel As String
 On Error GoTo finalize
 
-Set oAddrRegisty = New clsAddrRegistry
-
-Set oRoutingTestFull = New clsRoutingTest
-Set oRoutingTest0 = New clsRoutingTest
-Set oRoutingTest1 = New clsRoutingTest
-Set oRoutingTest2 = New clsRoutingTest
-Set oRoutingTest3 = New clsRoutingTest
+If blnDoTests Then
+  Set oAddrRegisty = New clsAddrRegistry
+  Set oRoutingTestFull = New clsRoutingTest
+  Set oRoutingTest0 = New clsRoutingTest
+  Set oRoutingTest1 = New clsRoutingTest
+  Set oRoutingTest2 = New clsRoutingTest
+  Set oRoutingTest3 = New clsRoutingTest
+End If
 
 Set oSourceErrors = New clsSourceErrors
 
@@ -231,8 +238,10 @@ Do While Not EOF(1)
        
       'Добавим город в адресный реестр.
       'Возможно нужно проверять еще и тип.
-      oAddrRegisty.AddCityToRegistry oMpSection.mpLabel, oMpSection.GetCoords, intPopulation, False, False, oMpSection.mpType
-       
+      If blnDoTests Then
+        oAddrRegisty.AddCityToRegistry oMpSection.mpLabel, oMpSection.GetCoords, intPopulation, False, False, oMpSection.mpType
+      End If
+      
       If intPopulation > 0 Then
         If intPopulation >= 10000000# Then ' Мегаполис, >10 млн
           oMpSection.mpType = "0x0100"
@@ -281,10 +290,12 @@ Do While Not EOF(1)
   
   '10
   'Добавим в реестр полигональные НП
+  If blnDoTests Then
   If oMpSection.SectionType = "[POLYGON]" Then
     If oMpSection.mpType = "0x01" Or oMpSection.mpType = "0x03" Then  'Город
       oAddrRegisty.AddCityToRegistry oMpSection.mpLabel, oMpSection.GetCoords, 0, True, oMpSection.mpType = "0x01", ""
     End If
+  End If
   End If
   
   '11
@@ -367,7 +378,7 @@ Do While Not EOF(1)
   'Дома, или во всяком случае, объекты с номером дома.
   'Const CityNameAttr = "CityIdx"
   Const CityNameAttr = "CityName"
-  If oMpSection.SectionType = "[POLYGON]" And oMpSection.mpType = "0x13" Then
+  If blnDoTests And (oMpSection.SectionType = "[POLYGON]") And (oMpSection.mpType = "0x13") Then
     If oMpSection.GetAttributeValue("HouseNumber") <> "" Then
       oAddrRegisty.AddHouseToRegistry _
                  Trim$(oMpSection.GetAttributeValue("HouseNumber")), _
@@ -385,7 +396,7 @@ Do While Not EOF(1)
   
   ' улицы. Так случилось что в СитиГиде дома должны быть привязаны
   ' к *Рутинговым* улицам
-  If oMpSection.SectionType = "[POLYLINE]" Then
+  If blnDoTests And oMpSection.SectionType = "[POLYLINE]" Then
 
     If (oMpSection.mpRouteParam <> "" Or _
         oMpSection.mpType = "0x16" Or oMpSection.mpType = "0x8849") And _
@@ -404,7 +415,7 @@ Do While Not EOF(1)
   
   '15
   'Добавим улицу в тест рутинга
-  If oMpSection.SectionType = "[POLYLINE]" Then
+  If blnDoTests And (oMpSection.SectionType = "[POLYLINE]") Then
 
     If (oMpSection.mpRouteParam <> "") Then
       Dim NodeList() As Long
@@ -471,10 +482,11 @@ Loop
 Close #1
 Close #2
 'Лог адресов.
-oAddrRegisty.ValidateCities
-oAddrRegisty.ValidateCitiesReverse
-oAddrRegisty.ValidateHouses
-
+If blnDoTests Then
+  oAddrRegisty.ValidateCities
+  oAddrRegisty.ValidateCitiesReverse
+  oAddrRegisty.ValidateHouses
+End If
 'Выведем отчет о проделанной работе в xml
 Dim dtCurrentDate       As Date
 dtCurrentDate = Date
@@ -486,32 +498,33 @@ Open strTargetFileName & "_addr.xml" For Output As #4
   Print #4, " <Date>" & Year(dtCurrentDate) & "-" & Month(dtCurrentDate) & "-" & Day(dtCurrentDate) & "</Date>"
   Print #4, " <TimeUsed>" & Hour(dtEnd - dtStart) & ":" & Minute(dtEnd - dtStart) & ":" & Second(dtEnd - dtStart) & "</TimeUsed>"
  
- 
-  oAddrRegisty.PrintRegistryToXML
-  
-  Print #4, "<RoutingTest>"
-  oRoutingTestFull.PrintRegistryToXML 4
-  Print #4, "</RoutingTest>"
-  
-  Print #4, "<RoutingTestByLevel>"
-  Print #4, "<Trunk>"
-  oRoutingTest0.PrintRegistryToXML 4
-  Print #4, "</Trunk>"
-  
-  
-  Print #4, "<Primary>"
-  oRoutingTest1.PrintRegistryToXML 4
-  Print #4, "</Primary>"
-  
-  Print #4, "<Secondary>"
-  oRoutingTest2.PrintRegistryToXML 4
-  Print #4, "</Secondary>"
-  
-  Print #4, "<Tertiary>"
-  oRoutingTest3.PrintRegistryToXML 4
-  Print #4, "</Tertiary>"
-  
-  Print #4, "</RoutingTestByLevel>"
+  If blnDoTests Then
+    oAddrRegisty.PrintRegistryToXML
+    
+    Print #4, "<RoutingTest>"
+    oRoutingTestFull.PrintRegistryToXML 4
+    Print #4, "</RoutingTest>"
+    
+    Print #4, "<RoutingTestByLevel>"
+    Print #4, "<Trunk>"
+    oRoutingTest0.PrintRegistryToXML 4
+    Print #4, "</Trunk>"
+    
+    
+    Print #4, "<Primary>"
+    oRoutingTest1.PrintRegistryToXML 4
+    Print #4, "</Primary>"
+    
+    Print #4, "<Secondary>"
+    oRoutingTest2.PrintRegistryToXML 4
+    Print #4, "</Secondary>"
+    
+    Print #4, "<Tertiary>"
+    oRoutingTest3.PrintRegistryToXML 4
+    Print #4, "</Tertiary>"
+    
+    Print #4, "</RoutingTestByLevel>"
+  End If
   
   oSourceErrors.PrintErrorsToXML 4
   Print #4, "</QualityReport>"
