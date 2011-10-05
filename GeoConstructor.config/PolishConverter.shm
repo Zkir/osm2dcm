@@ -2189,21 +2189,13 @@ poi_5C00 //@ // Diving?
   //BUILDS { INFORM={ "{{StreetDesc}}, {{HouseNumber}} ({{CityName}})","{{StreetDesc}}, {{HouseNumber}}","{{StreetDesc}} ({{CityName}})","{{StreetDesc}}" } POICAT="diving" priort=906 OBNAME="{{Label}}" BLDFNC=40 /*Pool*/ }
   $texts { POICAT="diving" priort=909 txtval="{{Label}}" rgbnam="#00008B" fnthei=7 fntstl={ 2,5 } justh=3 justv=3 shifty=-300 } 
 }
-poi_6100 //@ // Address?
-{
-  /*BUILDS
-  {
-    POICAT="firm" priort=906 OBNAME="{{Label}}"
-    // vistab={ "pNotarSud.vis.dcf" }
-    // SCAMIN=0 SCAMAX=-1 layer="pHouse" source="pHouse.dcf"
-    // look4={ RU="Компании|1251" UA="__|1251" }
-    // drawoff={ RU="Предприятия|1251" UA="Підприємства|1251" }
-  }
-  $texts { POICAT="firm" priort=909 txtval="{{Label}}" rgbnam="#7F7F7F" fnthei=7 fntstl={ 2,5 } justh=3 justv=3 shifty=-300 }*/
-  
+
+poi_6100 //
+{  
   ADRESS { NUMBER="{{HouseNumber}}" STRNAM="{{StreetDesc}}" DSTNAM="{{DistrictName}}" TWNNAM="{{CityName}}" TERNAM="{{CountryName}}" REGNAM="{{RegionName}}" 
-           txtval="{{HouseNumber}}" rgbnam=ADRESS_COLOR fnthei=7 justh=3 justv=2 SCAMIN=ADRESS_SCAMIN }
+           txtval="{{HouseNumber}}" rgbnam=ADRESS_COLOR fnthei=7 fntstl=1 justh=3 justv=2 SCAMIN=ADRESS_SCAMIN }
 }
+
 poi_6300 //@ // Height without point in feet no decimal place
 {
   ELEVTN

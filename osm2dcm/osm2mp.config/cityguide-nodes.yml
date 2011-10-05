@@ -1823,7 +1823,7 @@
     - only_node
   action:
     - action: write_poi
-      type: 0x6402
+      type: 0x6100
       contacts: no
 
 #Address on the building entrances
@@ -1834,5 +1834,5 @@
     - only_node
   action:
     - action: write_poi
-      type: 0x6402
+      type: 0x6100
       contacts: no
