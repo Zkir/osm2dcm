@@ -71,7 +71,7 @@ rem ----------------------------------------------------------------------------
 rem Постпроцессинг
 rem ----------------------------------------------------------------------------------
 echo postprocessor has been started       %DATE%_%TIME%
-mpPostProcessor.exe %WORK_PATH%\%1.pre.mp %WORK_PATH%\%1.mp %~5
+mpPostProcessor.exe %WORK_PATH%\%1.pre.mp %WORK_PATH%\%1.mp %~5 1
 if errorlevel 1 goto error
 echo postprocessor has been finished - OK %DATE%_%TIME%
 corecmd.exe -site peirce -O -u %WORK_PATH%\%1.mp_addr.xml   -p ADDR_CHK/ -s
