@@ -134,4 +134,18 @@
  </translation>
 -->
 
+<translation>
+   <name>Ferry transform</name>
+   <description>Convert route=ferry+ferry=* to highway=*+ferry=yes </description>
+   <match mode="and">
+     <tag k="route" v="ferry"/>
+     <tag k="ferry" v=".*" match_id="ferry_type"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="ferry" v="yes"/>
+     <tag k="highway" from_match="ferry_type"/>
+   </output>
+ </translation>
+ 
 </translations>
