@@ -38,7 +38,7 @@ On Error GoTo finalize
     Print #3, "Target file: " & strTarget
     Print #3, "Viewpoint: " & strViewPoint
     Print #3, "Do Tests: " & IIf(blnDoTests, "yes", "no")
-    ProcessMP strSource, strTarget, strViewPoint, False
+    ProcessMP strSource, strTarget, strViewPoint, blnDoTests
     Print #3, "Postprocessor has been finished OK"
   Else
     MsgBox "Usage: mpPostProcessor <source mp file> <target mp file>"
