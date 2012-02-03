@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.279,D:\OSM\_osm2dcm\RoutingTest\uMPParser.pas=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.891,D:\OSM\_osm2dcm\RoutingTest\Unit1.pas=D:\OSM\_osm2dcm\RoutingTest\zADODB.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.631,=D:\Мои документы\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.761,D:\OSM\_osm2dcm\RoutingTest\uMain.pas=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.448,D:\OSM\_osm2dcm\RoutingTest\uRoutingTest.pas=D:\Мои документы\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.959,=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.342,=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.798,D:\OSM\_osm2dcm\RoutingTest\RoutingTest.dproj=D:\Мои документы\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.173,=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.822,D:\OSM\_osm2dcm\RoutingTest\Unit1.pas=D:\OSM\_osm2dcm\RoutingTest\uVB6runtime.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.446,=D:\OSM\_osm2dcm\RoutingTest\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
