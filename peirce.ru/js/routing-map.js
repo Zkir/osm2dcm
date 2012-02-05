@@ -166,7 +166,8 @@ function ProcessMap(XmlFileName, strLevel)
 //---------------Обработка щелчка по маркеру------------------------------------------------
 function doClick(lat1,lon1,lat2,lon2)
 {
-  document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat2)+"&bottom="+(lat1)+"&left="+(lon1)+"&right="+(lon2);
+  var delta=0.0002;
+  document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat2+delta)+"&bottom="+(lat1-delta)+"&left="+(lon1-delta)+"&right="+(lon2+delta);
 }
     
  //---------------Вспомогательная фукция получения XMLHTTP----------------------------------

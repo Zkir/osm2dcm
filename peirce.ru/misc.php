@@ -86,7 +86,8 @@ function PrintMapList($xml, $strGroup)
         $zPage->WriteHtml( '<td>'.$item->code.'</td>');
         $zPage->WriteHtml( '<td width="200px">'.$item->name.'</td>');
         $zPage->WriteHtml( '<td>'.$item->date.'</td>');
-        $zPage->WriteHtml( '<td><a href="'.$item->url.'"> скачать</a></td> </tr>');
+       // $zPage->WriteHtml( '<td><a href="'.$item->url.'"> скачать</a></td> </tr>');
+        $zPage->WriteHtml( '<td><a href="/download.php?mapid='.$item->code.'"> скачать</a></td> </tr>');
         $zPage->WriteHtml( '</tr>');
       }
     }

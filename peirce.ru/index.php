@@ -10,7 +10,8 @@ include("ZSitePage.php");
 
   $zPage->title="Новости -- Карты OSM для СитиГида";
   $zPage->WriteHtml('<h1>Карты OSM для СитиГида</h1>'."\n"); 
-  $zPage->WriteHtml('<P> <img src="img/peirce.jpg" height="65px"  style="float:left;">
+  $zPage->WriteHtml('<P> <img src="img/peirce.jpg" height="65px"  style="float:left;"
+  	                      title="Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф">
   	                 Приветствую тебя, путешественник! <BR/>
   	                 Что-то мне говорит, что ты ищешь карты. Ты попал туда, куда нужно.  
                      Здесь представлены карты из проекта OpenStreetMap, преобразованные для навигационной системы 

@@ -90,7 +90,9 @@ function PrintSideBlockNews()
    <div id="header">
     <!-- logo -->
     <div id="logo">
-     <a href="/"><img src="skins/kotelnikov/img/logo.png" title="Карты OpenStreetMap для GisRussa" alt="Карты OpenStreetMap для GisRussa" style="border: 0px" /></a>
+     <a href="/"><img src="skins/kotelnikov/img/logo.png" 
+      title="OpenStreetMap - это свободная карта всего мира, которую может редактировать каждый" 
+      alt="Карты OpenStreetMap для CитиГида" style="border: 0px" /></a>
     </div>
 
    </div>

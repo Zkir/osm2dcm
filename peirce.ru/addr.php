@@ -159,6 +159,11 @@ if ($errtype=="")
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,3).'</td>
                 </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Дубликаты ребер:</td>
+                  <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
+                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,0).'</td>
+                </tr>
 
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
@@ -327,6 +332,35 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
   $zPage->WriteHtml( '</table>');
+  
+
+/*==========================================================================
+                 Дубликаты рутинговых ребер
+============================================================================*/
+  $zPage->WriteHtml("<H2>Дубликаты рутинговых ребер</H2>");
+  $zPage->WriteHtml('<p>Дубликаты рутинговых ребер являются топологической ошибкой и мешают рутингу. </p>');
+  $zPage->WriteHtml("<p/>" );
+  
+  $zPage->WriteHtml('<p><b><a href="/qq-map.php?mapid='.$mapid.'&test=rd">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
+
+
+  $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>
+                  <td><b>Название</b></td>
+                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
+                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+         </tr>');
+
+  foreach ($xml->RoadDuplicatesTest->DuplicateList->DuplicatePoint as $item)
+    {
+        $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '<td>&lt;двойное ребро&gt;</td>');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="img/josm.png"/></a> </td> ');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="img/potlach.png"/></a> </td> ');
+        $zPage->WriteHtml( '</tr>');
+     }
+  $zPage->WriteHtml( '</table>');  
+  
 /*==========================================================================
                  Несопоставленные адреса
 ============================================================================*/
@@ -433,14 +467,15 @@ function PrintAddressesSummary($mode)
                   <td><b>Домов <BR/> вне НП</b></td>
                   <td><b> Улица не задана</b></td>
                   <td><b> Улица не найдена</b></td>
-                  <td><b>Номерация по территории</b></td>
+                  <td><b>Номера&shy;ция по терри&shy;тории</b></td>
                   <!--
                    <td><b>Города без населения</b></td> -->
                   <!-- <td><b>Города без поли&shyгональных границ</b></td> -->
                	  <td><b>Не сопос&shyтавлено<BR/> адресов</b></td>
                   <td><b>Доля<BR/> битых<BR/> адресов, %</b></td>
-                  <td><b>Число рутинговых подграфов</b></td>
-                  <td width="100px"><b>Дата</b></td>
+                  <td><b>Число рутин&shy;говых подгра&shy;фов</b></td>
+               	  <td><b>Дуб&shy;ли&shy;каты ребер</b></td>
+                  <td width="150px"><b>Дата</b></td>
                   <td><b>Ошибки</b></td>
          </tr>');
 
@@ -472,7 +507,10 @@ function PrintAddressesSummary($mode)
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
           $zPage->WriteHtml( '<td>'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</td>');
           $zPage->WriteHtml('<td><a href="/routing-map.php?mapid='.$item->MapId.'">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
-          $zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
+          $zPage->WriteHtml('<td><a href="/qq-map.php?mapid='.$item->MapId.'&test=rd">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
+          
+          //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
+          $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
           $zPage->WriteHtml( '<td><a href="/addr.php?mapid='.$item->MapId.'">посмотреть</a></td>');
 
           $zPage->WriteHtml( '</tr>');
