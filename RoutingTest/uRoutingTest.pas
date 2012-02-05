@@ -53,6 +53,8 @@ type
   // Это вершина с указанием кординат и номера в мп(?)
   TRouteElement = class
       RoadId:integer;
+      RoadDir:integer;
+      RoadStatus:integer;
       NodeNumber:integer;
       lat:real;
       lon:real;
@@ -74,6 +76,10 @@ type
       //Искомая конечная точка маршрута
       FinishLat:real;
       FinishLon:real;
+      StatusExtremumCount:integer;
+      PrevStatus:integer;
+      CurrentStatusDir:integer;
+      PrevStatusDir:integer;
 
       function GetElementCount:integer;
       function GetElement(Index : Integer):TRouteElement;
@@ -91,6 +97,8 @@ type
       constructor CreateInitialRoute(aStartRoadID,aStartNodeID,aFinishRoadID,aFinishNodeID:integer);
       constructor ContinueRoute(aRoute:TRoute; Continuation:TRouteElement);
       function TestLoops:boolean;
+      function TestClassVariance:boolean;
+
       function TestFinish:boolean;
       function TestDuplicate(aRoute:TRoute):boolean;
       //constructor CreateCopy(Source:TSyntaxPattern);
@@ -146,6 +154,12 @@ begin
   lon:=rsNodes.Fields[RS_NODE_LON].Value;
   strRoutingNodeNo:=trim(rsNodes.Fields[RS_NODE_ROUTINGNODE].Value);
   rsNodes.Filter:=varFilter;
+
+
+  rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
+  RoadDir:=rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
+  RoadStatus:=rsRoads.Fields[RS_ROAD_STATUS].Value;
+  rsRoads.Filter:=adFilterNone;
 end;
 
 constructor TRouteElement.Create(aRoadId:integer; aNodeNumber:integer;aLat,aLon:Real;aRoutingNodeNo:string);
@@ -156,6 +170,11 @@ begin
   lat:=aLat;
   lon:=aLon;
   strRoutingNodeNo:=aRoutingNodeNo;
+
+  rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
+  RoadDir:=rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
+  RoadStatus:=rsRoads.Fields[RS_ROAD_STATUS].Value;
+  rsRoads.Filter:=adFilterNone;
 end;
 
 constructor  TRouteElement.CreateCopy(Source:TRouteElement) ;
@@ -165,8 +184,10 @@ begin
   lat:=Source.lat;
   lon:=Source.lon;
   strRoutingNodeNo:=Source.strRoutingNodeNo;
-end;
 
+  RoadDir:=Source.RoadDir;
+  RoadStatus:=Source.RoadStatus;
+end;
 
 
 //Расстояние между двумя точками
@@ -194,7 +215,11 @@ begin
 
   RemainingLength:=Distance(Elements[0].Lat,
                             Elements[0].Lon,
-                            FinishLat,FinishLon)
+                            FinishLat,FinishLon);
+  StatusExtremumCount:=0;
+  PrevStatus:=5;
+  CurrentStatusDir:=0;
+  PrevStatusDir:=0;
 end;
 
 constructor TRoute.ContinueRoute(aRoute:TRoute; Continuation:TRouteElement);
@@ -207,6 +232,12 @@ begin
   RemainingLength:=aRoute.RemainingLength;
   FinishLat:=aRoute.FinishLat;
   FinishLon:=aRoute.FinishLon;
+
+  PrevStatus:=aRoute.PrevStatus;
+  CurrentStatusDir:=aRoute.CurrentStatusDir;
+  PrevStatusDir:=aRoute.PrevStatusDir;
+
+  StatusExtremumCount:=aRoute.StatusExtremumCount;
 
   for i := 0 to aRoute.ElementCount-1 do
     FRouteElements.Add(TRouteElement.CreateCopy(aRoute[i]));
@@ -221,7 +252,31 @@ begin
 
   RemainingLength:=Distance(Elements[ElementCount-1].Lat,
                             Elements[ElementCount-1].Lon,
-                            FinishLat,FinishLon)
+                            FinishLat,FinishLon);
+
+  //Проверим одногорбойсть статуса дорог. допустим единственный минимум статуса
+
+   //4 3 2 1 1 1 1 2 3 4 4 3 3 4
+   if Continuation.RoadStatus< PrevStatus then
+     begin //Мы на восходящей части
+
+       PrevStatus:= Continuation.RoadStatus;
+       PrevStatusDir:=CurrentStatusDir;
+       CurrentStatusDir:=-1;
+     end;
+
+   if Continuation.RoadStatus> PrevStatus then
+     begin //Мы на нисходящей части
+
+       PrevStatus:= Continuation.RoadStatus;
+       PrevStatusDir:=CurrentStatusDir;
+       CurrentStatusDir:=1;
+     end;
+
+   //Экстремум фиксируется тогда, когда подъем сменяется спуском
+   if CurrentStatusDir*PrevStatusDir<0 then
+     StatusExtremumCount:=StatusExtremumCount+1;
+
 
 end;
 
@@ -247,7 +302,7 @@ end;
 
 function TRoute.FullLength:real;
 begin
-  Result:=Length/1.25+RemainingLength;
+  Result:=Length/1.1+RemainingLength;
 end;
 
 function TRoute.TestLoops:boolean;
@@ -261,6 +316,11 @@ begin
      break;
    end;
 
+end;
+
+function TRoute.TestClassVariance:boolean;
+begin
+   Result:=(StatusExtremumCount>0);
 end;
 
 //Проверяем, что оба маршрута ведут в одну и ту же точку.
@@ -305,11 +365,9 @@ begin
         dir:=-1;
     end;
 
-  rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(CurrentNode.RoadId);
-  if rsRoads.RecordCount<>0   then
-    if rsRoads.Fields[RS_ROAD_ONEWAY].Value<>0 then
-      dir:=rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
-  rsRoads.Filter:=adFilterNone;
+  if CurrentNode.RoadDir<>0 then
+    dir:=CurrentNode.RoadDir;
+
 
 if (dir=0) or  (dir=1) then
 begin
@@ -449,7 +507,7 @@ begin
     begin
       aRoute:=TRoute.ContinueRoute(TRoute(FWorkingSet[K]),
                                    TRouteElement(Continuations[i]));
-      if not aRoute.TestLoops then
+      if (not aRoute.TestLoops) and (not aRoute.TestClassVariance) then
         FWorkingSet.Add(aRoute)
       else
        aRoute.Free;
