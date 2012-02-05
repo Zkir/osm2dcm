@@ -2,7 +2,9 @@ Attribute VB_Name = "mdlMain"
 Option Explicit
 Private Declare Sub ExitProcess Lib "kernel32" (ByVal uExitCode As Long)
 
-Private Sub ParseCommandLine(strSource As String, strTarget As String, strViewPoint As String, blnDoTests As Boolean)
+Private Sub ParseCommandLine(strSource As String, strTarget As String, _
+                            strViewPoint As String, blnDoTests As Boolean, _
+                            blnLite As Boolean)
 Dim strCommandLine As String
 Dim args() As String
   strCommandLine = Command()
@@ -19,6 +21,16 @@ Dim args() As String
     Else
       blnDoTests = True
     End If
+    
+    'Lite
+    
+    If UBound(args) > 3 Then
+      blnLite = args(4) <> 0
+    Else
+      blnLite = False
+    End If
+
+    
   End If
 End Sub
 Sub Main()
@@ -26,10 +38,11 @@ Dim strSource As String
 Dim strTarget As String
 Dim strViewPoint As String
 Dim blnDoTests As Boolean
+Dim blnLite As Boolean
 On Error GoTo finalize
   Open "log-pp.txt" For Append As #3
   
-  ParseCommandLine strSource, strTarget, strViewPoint, blnDoTests
+  ParseCommandLine strSource, strTarget, strViewPoint, blnDoTests, blnLite
   If strSource <> "" And strTarget <> "" Then
     Print #3, ""
     Print #3, " --| MP Postprocessor for osm2dcm conversion, (C) Zkir 2010"
@@ -38,7 +51,8 @@ On Error GoTo finalize
     Print #3, "Target file: " & strTarget
     Print #3, "Viewpoint: " & strViewPoint
     Print #3, "Do Tests: " & IIf(blnDoTests, "yes", "no")
-    ProcessMP strSource, strTarget, strViewPoint, blnDoTests
+    Print #3, "Lite: " & IIf(blnLite, "yes", "no")
+    ProcessMP strSource, strTarget, strViewPoint, blnDoTests, blnLite
     Print #3, "Postprocessor has been finished OK"
   Else
     MsgBox "Usage: mpPostProcessor <source mp file> <target mp file>"

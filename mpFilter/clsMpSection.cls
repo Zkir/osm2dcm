@@ -401,3 +401,23 @@ Next j
     
   
 End Function
+
+Public Function SizeInBytes() As Long
+  Dim intSize As Long
+  
+  intSize = 0
+  
+  If rsAttributes.RecordCount > 0 Then
+  rsAttributes.MoveFirst
+  Do While Not rsAttributes.EOF
+    intSize = intSize + Len(rsAttributes(RS_ATTR_NAME).Value) + Len(rsAttributes(RS_ATTR_VALUE).Value) + 1
+    ' плюс один потому что еще равно учитывается.
+      
+  rsAttributes.MoveNext
+  Loop
+  End If
+   
+  SizeInBytes = intSize
+
+End Function
+

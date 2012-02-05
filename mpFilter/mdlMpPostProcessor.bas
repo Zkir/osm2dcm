@@ -67,7 +67,8 @@ End Function
 Public Sub ProcessMP(strSrcFileName As String, _
                      strTargetFileName As String, _
                      strViewPoint As String, _
-                     blnDoTests As Boolean)
+                     blnDoTests As Boolean, _
+                     blnLite As Boolean)
                      
 Dim blnSkipSection As Boolean
 Dim oMpSection As clsMpSection
@@ -80,9 +81,11 @@ Dim oRoutingTest2 As clsRoutingTest
 Dim oRoutingTest3 As clsRoutingTest
 
 Dim oSourceErrors As clsSourceErrors
+Dim oStatistic    As clsStatistic
 
 Dim Size As Double
 Dim strLabel As String
+
 On Error GoTo finalize
 
 If blnDoTests Then
@@ -95,6 +98,7 @@ If blnDoTests Then
 End If
 
 Set oSourceErrors = New clsSourceErrors
+Set oStatistic = New clsStatistic
 
 Open strSrcFileName For Input As #1
 Open strTargetFileName For Output As #2
@@ -225,6 +229,11 @@ Do While Not EOF(1)
 
   If oMpSection.SectionType = "[POI]" Then
     If oMpSection.GetAttributeValue("City") = "Y" Then
+    
+      If oMpSection.GetAttributeValue("CityName") = "" Then
+        oMpSection.SetAttributeValue "CityName", oMpSection.mpLabel
+      End If
+      
       'Получим население
       strPopulation = oMpSection.GetAttributeValue("Population")
       If IsNumeric(strPopulation) Then
@@ -469,7 +478,24 @@ Do While Not EOF(1)
       oSourceErrors.ProcessComment oMpSection.strComments(i)
     Next i
   End If
-
+  
+  oStatistic.ProcessSection oMpSection.SectionType, oMpSection.mpType, oMpSection.SizeInBytes
+  
+  If blnLite Then
+    ' "Облегченная карта"
+   If oMpSection.SectionType = "[POLYGON]" Then
+     If oMpSection.mpType = "0x13" Or oMpSection.mpType = "0x50" Then
+     'Леса и дома
+       blnSkipSection = True
+     End If
+   End If
+   If oMpSection.SectionType = "[POLYLINE]" Then
+     'Грунтовые дороги и служебные проезды
+     If oMpSection.mpType = "0x880a" Or oMpSection.mpType = "0x8849" Then
+       blnSkipSection = True
+     End If
+   End If
+  End If
   
   'Запишем секцию
   If Not blnSkipSection Then
@@ -527,6 +553,8 @@ Open strTargetFileName & "_addr.xml" For Output As #4
   End If
   
   oSourceErrors.PrintErrorsToXML 4
+  oStatistic.PrintErrorsToXML 4
+  
   Print #4, "</QualityReport>"
 
 Close #4
