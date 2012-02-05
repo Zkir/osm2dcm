@@ -331,7 +331,7 @@
     - religion = muslim
   action:
     - action: write_poi
-      type: 0xf104,3
+      type: 0xf104
       level_h: 1
       contacts: yes
 
