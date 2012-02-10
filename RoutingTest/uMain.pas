@@ -7,6 +7,12 @@ implementation
 
 uses uMPparser,SysUtils,zADODB, ComObj, ADOInt,Variants,Classes,uVB6runtime,uRoutingTest ;
 
+const
+//Города
+ RS_CITY_NAME = 'Name';
+ RS_CITY_POPULATION = 'Population';
+ RS_CITY_COORDS = 'Coords';
+var  rsCities: zADODB.Recordset;
 
 
 procedure AddCity(name:string; latlon:TLatLon;Population:Integer);
@@ -45,20 +51,23 @@ begin
 //  writeln(MpSection.GetAttributeValue('Label'));
 
   intRoadID:=StrToInt(MpSection.GetAttributeValue('RoadID'));//rsRoads.RecordCount+1;
-  rsRoads.AddNew(EmptyParam,EmptyParam);
+  //rsRoads.AddNew(EmptyParam,EmptyParam);
 
   //Номер, просто по порядку
-  rsRoads.Fields[RS_ROAD_ID].value:= intRoadID;
-  rsRoads.Fields[RS_ROAD_STATUS].value:=OSMLevelByTag(MpSection.GetOsmHighway);
+
+
+
+  //rsRoads.Fields[RS_ROAD_ID].value:= intRoadID;
+  arRoads[intRoadID].Status:=OSMLevelByTag(MpSection.GetOsmHighway);
 
   //Разрешенные направления движения
   strDir:=MpSection.GetAttributeValue('DirIndicator');
   if strDir='' then
-    rsRoads.Fields[RS_ROAD_ONEWAY].value:=0
+    arRoads[intRoadID].OneWay:=0
   else
-    rsRoads.Fields[RS_ROAD_ONEWAY].value:=strToInt(strDir);
+    arRoads[intRoadID].OneWay:=strToInt(strDir);
 
-  rsRoads.Update(EmptyParam,EmptyParam);
+ // rsRoads.Update(EmptyParam,EmptyParam);
 
   //Рутинговые ноды
    NN:=0;
@@ -83,6 +92,8 @@ begin
   //(x1,y1),(x2,y2),(x3,y3), ...,(xN,yN)
   lstNodes := Split(strData0, '),');
 
+  SetLength(arRoads[intRoadID].Vertex,lstNodes.Count);
+
   For i:= 0 To lstNodes.Count-1 do
   begin
 
@@ -101,26 +112,25 @@ begin
  //   writeln(latlon);
     j:=Pos(',',latlon);
 
-    rsNodes.Fields[RS_NODE_LAT].Value := StrToFloat(Copy(latlon,1,j-1));
-    rsNodes.Fields[RS_NODE_LON].Value := StrToFloat(Copy(latlon,j+1,length(latlon)-j));
-        rsNodes.Fields[RS_NODE_ROUTINGNODE].value:= trim('');
+    //rsNodes.Fields[RS_NODE_LAT].Value := StrToFloat(Copy(latlon,1,j-1));
+    //rsNodes.Fields[RS_NODE_LON].Value := StrToFloat(Copy(latlon,j+1,length(latlon)-j));
+
+    arRoads[intRoadID].Vertex[i].Lat:=StrToFloat(Copy(latlon,1,j-1));
+    arRoads[intRoadID].Vertex[i].Lon:=StrToFloat(Copy(latlon,j+1,length(latlon)-j));
+
+    rsNodes.Fields[RS_NODE_ROUTINGNODE].value:= -1;
+    arRoads[intRoadID].Vertex[i].RoutingNodeID:= -1;
 
     for j := 0 to NN-1 do
       begin
         if RoutingNodes[j,1]=i then
         begin
-          rsNodes.Fields[RS_NODE_ROUTINGNODE].value:= trim(IntToStr(RoutingNodes[j,2]));
+          rsNodes.Fields[RS_NODE_ROUTINGNODE].value:= RoutingNodes[j,2];
+          arRoads[intRoadID].Vertex[i].RoutingNodeID:=RoutingNodes[j,2];
           break;
         end;
       end;
 
-
-
-      //strX := Trim(Split(tmp(i), ",")(0)) //Широта
-      //strY := Trim(Split(tmp(i), ",")(1)) //Догота
-      //'Широта
-
-      //coords(i, 0) = Right(strX, Len(strX) - 1)
   end;
 
   lstNodes.Free;
@@ -158,11 +168,11 @@ begin
 
   //Создадим список дорог
     //В сущности, нужен только номер и признак односторонности.
-  rsRoads:= CoRecordset.Create;
-  rsRoads.Fields.Append( RS_ROAD_ID, adInteger, 0,0,EmptyParam);
-  rsRoads.Fields.Append( RS_ROAD_ONEWAY, adInteger,0,0,EmptyParam);
-  rsRoads.Fields.Append( RS_ROAD_STATUS, adInteger,0,0,EmptyParam);
-  rsRoads.Open (EmptyParam,EmptyParam,adOpenStatic, adLockBatchOptimistic,  adCmdText);
+  //rsRoads:= CoRecordset.Create;
+  //rsRoads.Fields.Append( RS_ROAD_ID, adInteger, 0,0,EmptyParam);
+  //rsRoads.Fields.Append( RS_ROAD_ONEWAY, adInteger,0,0,EmptyParam);
+  //rsRoads.Fields.Append( RS_ROAD_STATUS, adInteger,0,0,EmptyParam);
+  //rsRoads.Open (EmptyParam,EmptyParam,adOpenStatic, adLockBatchOptimistic,  adCmdText);
 
   //Создадим список вершин.
     //В какую дорогу входит, номер по порядку в данной дороге, координата,
@@ -173,10 +183,10 @@ begin
   rsNodes.Fields.Append( RS_NODE_ROADID, adInteger, 0,0,EmptyParam);
   rsNodes.Fields.Append( RS_NODE_ORDERNO, adInteger, 0,0,EmptyParam);
 
-  rsNodes.Fields.Append( RS_NODE_LAT, adDouble, 0,0,EmptyParam);
-  rsNodes.Fields.Append( RS_NODE_LON, adDouble, 0,0,EmptyParam);
+ // rsNodes.Fields.Append( RS_NODE_LAT, adDouble, 0,0,EmptyParam);
+ // rsNodes.Fields.Append( RS_NODE_LON, adDouble, 0,0,EmptyParam);
 
-  rsNodes.Fields.Append( RS_NODE_ROUTINGNODE, adWChar, 4,0,EmptyParam);
+  rsNodes.Fields.Append( RS_NODE_ROUTINGNODE, adInteger,0,0,EmptyParam);
 
   rsNodes.Open (EmptyParam,EmptyParam,adOpenStatic, adLockBatchOptimistic,  adCmdText);
 
@@ -212,7 +222,7 @@ begin
   Writeln('Map loaded, in ',FormatFloat('#0.00', (T1-T0)*24*60*60),'  second(s)');
 
   Writeln('Cities :',rsCities.RecordCount);
-  Writeln('Roads :',rsRoads.RecordCount);
+  //Writeln('Roads :',rsRoads.RecordCount);
   Writeln('Nodes :',rsNodes.RecordCount);
 
   MpParser.Free;
@@ -220,11 +230,17 @@ begin
 { 2. Между городами попарно постороить маршруты}
   rsCities.sort:=RS_CITY_POPULATION +' desc';
   rsCities.MoveFirst;
+  rsCities.MoveNext;
+
   writeln(rsCities.Fields[RS_CITY_NAME].Value, ' ',rsCities.Fields[RS_CITY_COORDS].Value );
 
   ParseLatLon(lat1,lon1,rsCities.Fields[RS_CITY_COORDS].Value);
 
   rsCities.MoveNext;
+
+  rsCities.MoveNext;
+  rsCities.MoveNext;
+  //rsCities.MoveNext;
 
   writeln(rsCities.Fields[RS_CITY_NAME].Value, ' ',rsCities.Fields[RS_CITY_COORDS].Value  );
   ParseLatLon(lat2,lon2,rsCities.Fields[RS_CITY_COORDS].Value);

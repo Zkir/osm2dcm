@@ -21,27 +21,41 @@ Const
 Function FindRoute(lat1,lon1,lat2,lon2:real):Recordset;
 
 Const
-//Города
- RS_CITY_NAME = 'Name';
- RS_CITY_POPULATION = 'Population';
- RS_CITY_COORDS = 'Coords';
 
-//Дороги
+
+{//Дороги
  RS_ROAD_ID  = 'RoadID';
  RS_ROAD_ONEWAY  = 'Oneway';
- RS_ROAD_STATUS  = 'Status';
+ RS_ROAD_STATUS  = 'Status';}
 
 //Вершины
  RS_NODE_ROADID = 'RoadID';
  RS_NODE_ORDERNO = 'OrderNo';
- RS_NODE_LAT = 'Lat';
- RS_NODE_LON = 'Lon';
+ //RS_NODE_LAT = 'Lat';
+ //RS_NODE_LON = 'Lon';
  RS_NODE_ROUTINGNODE = 'RoutingNode';
 
+ type TVertex=record
+   Lat:double;
+   Lon:double;
+   RoutingNodeID:integer;
+ end;
+
+
+ type TRoad=record
+   OneWay:integer;
+   Status:integer;
+   Vertex:array of TVertex;
+ end;
+
 var
-  rsCities: zADODB.Recordset;
-  rsRoads: zADODB.Recordset;
+  arRoads:array [0..10000] of TRoad;
+
+{  rsRoads: zADODB.Recordset;}
   rsNodes: zADODB.Recordset;
+
+Const GREEDY_LEVEL=1.1;
+
 
 implementation
 
@@ -58,9 +72,9 @@ type
       NodeNumber:integer;
       lat:real;
       lon:real;
-      strRoutingNodeNo:string;
+      intRoutingNodeNo:integer;
       constructor Create(aRoadId:integer; aNodeNumber:integer);Overload;
-      constructor Create(aRoadId:integer; aNodeNumber:integer;aLat,aLon:Real;aRoutingNodeNo:string);Overload;
+      //constructor Create(aRoadId:integer; aNodeNumber:integer;aLat,aLon:Real;aRoutingNodeNo:integer);Overload;
       constructor CreateCopy(Source:TRouteElement);
       //destructor Destroy; Override;
   end;
@@ -105,6 +119,7 @@ type
 
       destructor Destroy; override;
       function FullLength:real;
+      Function GetLengthKm:real;
       //function AsString():String;
   end;
 
@@ -140,42 +155,38 @@ type
 }
 
 constructor TRouteElement.Create(aRoadId:integer; aNodeNumber:integer);
-var varFilter:OleVariant;
 begin
 
   RoadId:=aRoadId;
   NodeNumber:=aNodeNumber;
-  varFilter:=rsNodes.Filter;
-  rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(aRoadId)+' and '+
-                   RS_NODE_ORDERNO+'='+Inttostr(aNodeNumber);
+
+  lat:=arRoads[RoadId].Vertex[aNodeNumber].lat; //rsNodes.Fields[RS_NODE_LAT].Value;
+  lon:=arRoads[RoadId].Vertex[aNodeNumber].lon;//rsNodes.Fields[RS_NODE_LON].Value;
+  intRoutingNodeNo:=arRoads[RoadId].Vertex[aNodeNumber].RoutingNodeID ;//rsNodes.Fields[RS_NODE_ROUTINGNODE].Value;
 
 
-  lat:=rsNodes.Fields[RS_NODE_LAT].Value;
-  lon:=rsNodes.Fields[RS_NODE_LON].Value;
-  strRoutingNodeNo:=trim(rsNodes.Fields[RS_NODE_ROUTINGNODE].Value);
-  rsNodes.Filter:=varFilter;
-
-
-  rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
-  RoadDir:=rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
-  RoadStatus:=rsRoads.Fields[RS_ROAD_STATUS].Value;
-  rsRoads.Filter:=adFilterNone;
+  //rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
+  RoadDir:=arRoads[RoadId].OneWay;  //rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
+  RoadStatus:=arRoads[RoadId].Status;//rsRoads.Fields[RS_ROAD_STATUS].Value;
+  //rsRoads.Filter:=adFilterNone;
 end;
 
-constructor TRouteElement.Create(aRoadId:integer; aNodeNumber:integer;aLat,aLon:Real;aRoutingNodeNo:string);
+(*
+constructor TRouteElement.Create(aRoadId:integer; aNodeNumber:integer;aLat,aLon:Real;aRoutingNodeNo:integer);
 
 begin
   RoadId:=aRoadId;
   NodeNumber:=aNodeNumber;
   lat:=aLat;
   lon:=aLon;
-  strRoutingNodeNo:=aRoutingNodeNo;
+  intRoutingNodeNo:=aRoutingNodeNo;
 
-  rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
-  RoadDir:=rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
-  RoadStatus:=rsRoads.Fields[RS_ROAD_STATUS].Value;
-  rsRoads.Filter:=adFilterNone;
+  //rsRoads.Filter:=RS_ROAD_ID+'='+IntToStr(RoadId);
+  RoadDir:=arRoads[RoadId].OneWay;  //rsRoads.Fields[RS_ROAD_ONEWAY].Value ;
+  RoadStatus:=arRoads[RoadId].Status;//rsRoads.Fields[RS_ROAD_STATUS].Value;
+  //rsRoads.Filter:=adFilterNone;
 end;
+*)
 
 constructor  TRouteElement.CreateCopy(Source:TRouteElement) ;
 begin
@@ -183,7 +194,7 @@ begin
   NodeNumber:=Source.NodeNumber ;
   lat:=Source.lat;
   lon:=Source.lon;
-  strRoutingNodeNo:=Source.strRoutingNodeNo;
+  intRoutingNodeNo:=Source.intRoutingNodeNo;
 
   RoadDir:=Source.RoadDir;
   RoadStatus:=Source.RoadStatus;
@@ -197,6 +208,13 @@ begin
   result:=sqrt(sqr(lat2-lat1)+sqr(lon2-lon1));
 end;
 
+Function DistanceKm(const lat1,lon1,lat2,lon2:double):double;
+Const DEG_LEN=111.2;
+begin
+  //для простоты растояние прямо в градусах.
+  result:=sqrt(sqr(DEG_LEN*(lat2-lat1))+sqr(DEG_LEN*cos((lat1+lat2)/2/180*Pi)*(lon2-lon1)));
+end;
+
 constructor TRoute.CreateInitialRoute(aStartRoadID,aStartNodeID,aFinishRoadID,aFinishNodeID:integer);
 var aNode:TRouteElement;
 begin
@@ -205,13 +223,13 @@ begin
   FRouteElements.Add(aNode);
   Length:=0;
 
-  rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(aFinishRoadID)+' and '+
-                   RS_NODE_ORDERNO+'='+IntTostr(aFinishNodeID);
+  //rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(aFinishRoadID)+' and '+
+  //                 RS_NODE_ORDERNO+'='+IntTostr(aFinishNodeID);
 
 
-  FinishLat:=rsNodes.Fields[RS_NODE_LAT].Value;
-  FinishLon:=rsNodes.Fields[RS_NODE_LON].Value;
-  rsNodes.Filter:=adFilterNone;
+  FinishLat:=arRoads[aFinishRoadID].Vertex[aFinishNodeID].lat;//  rsNodes.Fields[RS_NODE_LAT].Value;
+  FinishLon:=arRoads[aFinishRoadID].Vertex[aFinishNodeID].lon;//rsNodes.Fields[RS_NODE_LON].Value;
+  //rsNodes.Filter:=adFilterNone;
 
   RemainingLength:=Distance(Elements[0].Lat,
                             Elements[0].Lon,
@@ -302,7 +320,7 @@ end;
 
 function TRoute.FullLength:real;
 begin
-  Result:=Length/1.1+RemainingLength;
+  Result:=Length/GREEDY_LEVEL+RemainingLength;
 end;
 
 function TRoute.TestLoops:boolean;
@@ -333,13 +351,21 @@ begin
 
 end;
 
+//Длинна в километрах, при том что координаты в градусах.
+Function TRoute.GetLengthKm:real;
+var i:integer;
+begin
+ Result:=0;
+ for i := 0 to ElementCount-2  do
+   Result:=Result+ DistanceKM(Elements[i].lat,Elements[i].lon, Elements[i+1].lat,Elements[i+1].lon);
+end;
 
 
 //Самая сложная функция. Список вершин, которыми можно продолжить данный маршрут.
 function GetContinuationsList(aRoute:TRoute):TObjectList;
 var CurrentNode,NewNode:TRouteElement;
   StartRoadID,StartNodeID:integer;
-  strRoutingNodeNo:string;
+  intRoutingNodeNo:integer;
 
   NewRoadId,NewNodeNumber:integer;
   rsLinkedNodes:Recordset;
@@ -349,9 +375,7 @@ var CurrentNode,NewNode:TRouteElement;
 begin
   Result:=TObjectList.Create;
   CurrentNode:=aRoute.Elements[aRoute.ElementCount-1];
-  strRoutingNodeNo:=trim(CurrentNode.strRoutingNodeNo);
-  if strRoutingNodeNo='721' then
-     writeln('!');
+  intRoutingNodeNo:=CurrentNode.intRoutingNodeNo;
 
 
   //По текущей дороге вверх и/или вниз.
@@ -371,71 +395,46 @@ begin
 
 if (dir=0) or  (dir=1) then
 begin
-  rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(CurrentNode.RoadID)+' and '+
-                   RS_NODE_ORDERNO+'='+IntTostr(CurrentNode.NodeNumber+1);
 
-  if rsNodes.RecordCount<>0  then
+  if (CurrentNode.NodeNumber+1)<=High(arRoads[CurrentNode.RoadID].Vertex)   then
   begin
-    NewNode:=TRouteElement.Create(CurrentNode.RoadID,CurrentNode.NodeNumber+1,
-                                  rsNodes.Fields[RS_NODE_LAT].Value,
-                                  rsNodes.Fields[RS_NODE_LON].Value,
-                                  rsNodes.Fields[RS_NODE_ROUTINGNODE].Value  );
+    NewNode:=TRouteElement.Create(CurrentNode.RoadID, CurrentNode.NodeNumber+1 );
     Result.Add(NewNode);
   end;
 end;
 if (dir=0) or  (dir=-1) then
 begin
-  rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(CurrentNode.RoadID)+' and '+
-                   RS_NODE_ORDERNO+'='+IntTostr(CurrentNode.NodeNumber-1);
 
-  if rsNodes.RecordCount<>0  then
+  if (CurrentNode.NodeNumber-1)>=Low(arRoads[CurrentNode.RoadID].Vertex)  then
   begin
-    NewNode:=TRouteElement.Create(CurrentNode.RoadID,CurrentNode.NodeNumber-1,
-                                  rsNodes.Fields[RS_NODE_LAT].Value,
-                                  rsNodes.Fields[RS_NODE_LON].Value,
-                                  rsNodes.Fields[RS_NODE_ROUTINGNODE].Value  );
+    NewNode:=TRouteElement.Create(CurrentNode.RoadID,CurrentNode.NodeNumber-1  );
     Result.Add(NewNode);
   end;
 end;
 
   //По смежным дорогам вверх и вниз.
 
-
-
-
-  if strRoutingNodeNo<>'' then
+  if intRoutingNodeNo<>-1 then
   begin
      rsLinkedNodes:=rsNodes.Clone( adLockBatchOptimistic ) ;
-     rsLinkedNodes.Filter:= RS_NODE_ROUTINGNODE+'='+strRoutingNodeNo;
+     rsLinkedNodes.Filter:= RS_NODE_ROUTINGNODE+'='+IntToStr(intRoutingNodeNo);
     //Это мы нашли вершины, смежные с данной.
      while not rsLinkedNodes.EOF do
      begin
        NewRoadId:= rsLinkedNodes.Fields[RS_NODE_ROADID].Value;
        NewNodeNumber := rsLinkedNodes.Fields[RS_NODE_ORDERNO].Value;
-       if (NewRoadId<>CurrentNode.RoadID) {and (NewNodeNumber<>CurrentNode.NodeNumber)} then
+       if (NewRoadId<>CurrentNode.RoadID) then
        begin
 
-         rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(NewRoadID)+' and '+
-                          RS_NODE_ORDERNO+'='+IntTostr(NewNodeNumber+1);
-
-         if rsNodes.RecordCount<>0  then
+         if NewNodeNumber+1<=High(arRoads[NewRoadID].Vertex)   {rsNodes.RecordCount<>0}  then
          begin
-            NewNode:=TRouteElement.Create(NewRoadID,NewNodeNumber+1,
-                                          rsNodes.Fields[RS_NODE_LAT].Value,
-                                          rsNodes.Fields[RS_NODE_LON].Value,
-                                          rsNodes.Fields[RS_NODE_ROUTINGNODE].Value  );
+            NewNode:=TRouteElement.Create(NewRoadID,NewNodeNumber+1 );
             Result.Add(NewNode);
          end;
 
-         rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(NewRoadID)+' and '+
-                          RS_NODE_ORDERNO+'='+IntTostr(NewNodeNumber-1);
-
-         if rsNodes.RecordCount<>0  then
+         if NewNodeNumber-1>=Low(arRoads[NewRoadID].Vertex)  then
          begin
-           NewNode:=TRouteElement.Create(NewRoadID,NewNodeNumber-1,
-                                        rsNodes.Fields[RS_NODE_LAT].Value,
-                                        rsNodes.Fields[RS_NODE_LON].Value,
-                                        rsNodes.Fields[RS_NODE_ROUTINGNODE].Value  );
+           NewNode:=TRouteElement.Create(NewRoadID,NewNodeNumber-1);
            Result.Add(NewNode);
          end;
 
@@ -495,8 +494,8 @@ begin
 
         end;
 
-    writeln('*', FWorkingSet.Count,' ',TRoute(FWorkingSet[K]).FullLength,' ',
-            TRoute(FWorkingSet[K]).RemainingLength,' ', TRoute(FWorkingSet[K]).ElementCount  );
+  //  writeln('*', FWorkingSet.Count,' ',TRoute(FWorkingSet[K]).FullLength,' ',
+  //          TRoute(FWorkingSet[K]).RemainingLength,' ', TRoute(FWorkingSet[K]).ElementCount  );
 
     if (TRoute(FWorkingSet[K]).TestFinish()) or
         (TRoute(FWorkingSet[K]).ElementCount>1000 )  then  break;
@@ -507,7 +506,7 @@ begin
     begin
       aRoute:=TRoute.ContinueRoute(TRoute(FWorkingSet[K]),
                                    TRouteElement(Continuations[i]));
-      if (not aRoute.TestLoops) and (not aRoute.TestClassVariance) then
+      if (not aRoute.TestLoops) {and (not aRoute.TestClassVariance)} then
         FWorkingSet.Add(aRoute)
       else
        aRoute.Free;
@@ -533,6 +532,7 @@ Function FindRoute(lat1,lon1,lat2,lon2:real):Recordset;
 var
   StartRoadID,StartNodeID:integer;
   FinishRoadID,FinishNodeID:integer;
+  CurrentRoadID,CurrentNodeID:integer;
   DStart,DFinish:real;
   DStartMin,DFinishMin:real;
   xml:TStringList;
@@ -556,23 +556,35 @@ Begin
   FinishRoadID:=rsNodes.Fields[RS_NODE_ROADID].Value;
   FinishNodeID:=rsNodes.Fields[RS_NODE_ORDERNO].Value;
 
-  DStartMin:= Distance(lat1,lon1,rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value);
-  DFinishMin:=Distance(lat2,lon2,rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value);
+  DStartMin:= Distance(lat1,lon1,
+                       arRoads[StartRoadID].Vertex[StartNodeID].Lat,arRoads[StartRoadID].Vertex[StartNodeID].Lon
+                       {rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value});
+
+  DFinishMin:=Distance(lat2,lon2,
+                       arRoads[FinishRoadID].Vertex[FinishNodeID].Lat,arRoads[FinishRoadID].Vertex[FinishNodeID].Lon
+                       {rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value});
 
   repeat
-    DStart:= Distance(lat1,lon1,rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value);
+    CurrentRoadID:=rsNodes.Fields[RS_NODE_ROADID].Value;
+    CurrentNodeID:=rsNodes.Fields[RS_NODE_ORDERNO].Value;
+
+    DStart:= Distance(lat1,lon1,
+                      arRoads[CurrentRoadID].Vertex[CurrentNodeID].Lat,
+                      arRoads[CurrentRoadID].Vertex[CurrentNodeID].Lon);
     if DStart<DStartMin then
       begin
-        StartRoadID:=rsNodes.Fields[RS_NODE_ROADID].Value;
-        StartNodeID:=rsNodes.Fields[RS_NODE_ORDERNO].Value;
+        StartRoadID:=CurrentRoadID;
+        StartNodeID:=CurrentNodeID;
         DStartMin:=DStart;
       end;
 
-    DFinish:=Distance(lat2,lon2,rsNodes.Fields[RS_NODE_LAT].Value,rsNodes.Fields[RS_NODE_LON].Value);
+    DFinish:=Distance(lat2,lon2,
+                      arRoads[CurrentRoadID].Vertex[CurrentNodeID].Lat,
+                      arRoads[CurrentRoadID].Vertex[CurrentNodeID].Lon);
     if DFinish<DFinishMin then
       begin
-        FinishRoadID:=rsNodes.Fields[RS_NODE_ROADID].Value;
-        FinishNodeID:=rsNodes.Fields[RS_NODE_ORDERNO].Value;
+        FinishRoadID:=CurrentRoadID;
+        FinishNodeID:=CurrentNodeID;
         DFinishMin:=DFinish;
       end;
 
@@ -586,18 +598,19 @@ Begin
   writeln(rsNodes.Fields[RS_NODE_LAT].Value,',',rsNodes.Fields[RS_NODE_LON].Value);}
 
   aRoute:=CreateRoute(StartRoadID,StartNodeID,FinishRoadID,FinishNodeID);
+
   t1:=Now;
   xml:=TStringList.Create;
   xml.Add('<?xml version="1.0" encoding="WINDOWS-1251"?>');
   xml.Add('<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xmlns="http://www.topografix.com/GPX/1/0" creator="Polar WebSync 2.3 - www.polar.fi" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">');
   xml.Add('<time>2011-09-22T18:56:51Z</time>');
   xml.Add('<trk>');
-  xml.Add('  <name>found in '+FormatFloat('##0.00',(t1-t0)*24*60*60) + ' s</name>');
+  xml.Add('  <name>'+ FormatFloat('##0.00',aRoute.GetLengthKm) + 'km, found in '+FormatFloat('##0.00',(t1-t0)*24*60*60) + ' s</name>');
   xml.Add('  <trkseg>');
   for i := 0  to aRoute.ElementCount-1 do
   begin
-    xml.Add('    <trkpt lat="'+FormatFloat('#0.0000000000',aRoute[i].lat) +'" lon="'+FormatFloat('#0.0000000000',aRoute[i].lon)+'">');
-    xml.Add('    </trkpt>');
+    xml.Add('    <trkpt lat="'+FormatFloat('#0.0000000000',aRoute[i].lat) +'" lon="'+FormatFloat('#0.0000000000',aRoute[i].lon)+'"/>');
+    //xml.Add('    </trkpt>');
   end;
   xml.Add('  </trkseg>');
   xml.Add('</trk>');
