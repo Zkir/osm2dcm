@@ -145,7 +145,8 @@ var MpParser:TMpParser;
     MpSection:TMpSection;
     T0,T1:TDateTime;
     lat1,lon1,lat2,lon2:real;
-    rsRoute:zADODB.Recordset;
+    strCity1,strCity2:string;
+    aRoute:TRoute;
 begin
   Writeln('RoutingTest, (c) Zkir 2012, CC-BY-SA 2.0 ');
 
@@ -233,6 +234,7 @@ begin
   rsCities.MoveNext;
 
   writeln(rsCities.Fields[RS_CITY_NAME].Value, ' ',rsCities.Fields[RS_CITY_COORDS].Value );
+  StrCity1:=rsCities.Fields[RS_CITY_NAME].Value;
 
   ParseLatLon(lat1,lon1,rsCities.Fields[RS_CITY_COORDS].Value);
 
@@ -243,11 +245,23 @@ begin
   //rsCities.MoveNext;
 
   writeln(rsCities.Fields[RS_CITY_NAME].Value, ' ',rsCities.Fields[RS_CITY_COORDS].Value  );
+  StrCity2:=rsCities.Fields[RS_CITY_NAME].Value;
   ParseLatLon(lat2,lon2,rsCities.Fields[RS_CITY_COORDS].Value);
 
-  rsRoute:=FindRoute(lat1,lon1,lat2,lon2);
+  T0:=now;
+  aRoute:=FindRoute(lat1,lon1,lat2,lon2);
   //rsRoute:=FindRoute(lat2,lon2,lat1,lon1);
-  writeln('Route ',rsRoute.RecordCount,' node(s)');
+
+  T1:=now;
+  aRoute.SaveToGpx('d:\test.gpx',
+                   StrCity1 + ' - ' + strCity2 + ' '+
+                   FormatFloat('##0.00',aRoute.GetLengthKm) + 'km, found in '+FormatFloat('##0.00',(t1-t0)*24*60*60) + ' s' );
+
+
+
+  writeln('Route ',aRoute.ElementCount,' node(s)');
+
+  readln;
 
 
  {

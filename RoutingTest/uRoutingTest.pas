@@ -12,13 +12,8 @@ unit uRoutingTest;
 *)
 
 interface
-uses zADODB,ComObj, ADOInt,Variants;
-Const
-  RS_ROUTE_ORDERNO='OrdNo';
-  RS_ROUTE_LAT='Lat';
-  RS_ROUTE_LON='Lon';
+uses zADODB,ComObj, ADOInt,Variants, SysUtils,Classes,Contnrs;
 
-Function FindRoute(lat1,lon1,lat2,lon2:real):Recordset;
 
 Const
 
@@ -56,10 +51,6 @@ var
 
 Const GREEDY_LEVEL=1.1;
 
-
-implementation
-
-uses SysUtils,Classes,Contnrs;
 
 type
 
@@ -101,12 +92,6 @@ type
 
       property ElementCount:integer read GetElementCount;
       property Elements[Index : Integer]:TRouteElement  read GetElement;  default;
-      //function ExplicitWordformCount:integer;
-      //Добавление элемента в шаблон
-      //function AddElement(const strWordForm,strPartOfSpeach,strGrammems: String;
-      //                    blnTerminalElement:boolean):integer;
-      //function AddElementCopy(Element:TSyntaxPatternElement):integer;
-
 
       constructor CreateInitialRoute(aStartRoadID,aStartNodeID,aFinishRoadID,aFinishNodeID:integer);
       constructor ContinueRoute(aRoute:TRoute; Continuation:TRouteElement);
@@ -120,39 +105,15 @@ type
       destructor Destroy; override;
       function FullLength:real;
       Function GetLengthKm:real;
+      Procedure SaveToGpx(strFileName,strComment:string);
       //function AsString():String;
   end;
 
-{
-type
- //  Синтаксический анализатор, на основе порождающей грамматики
-   TGenerativeGrammar = class
-    private
-        FAllRules:TObjectList;//Список правил, используемых для 'порождения'
-        FWorkingRuleSet:TObjectList;// Рабочий набор правил, подмножетство FAllRules
-        //FNonRootRules:TObjectList;
-        FNonTerminalCategoriesList:TStringList;
-        FTerminalCategoriesList:TStringList;
-        function GetAllRuleList: TObjectList;
-        Procedure ExpandVariables(PatternList: TObjectList);
-        Procedure ProcessPermutations(PatternList: TObjectList);
-        procedure CleanUpRules(Phrase: TPhrase);
+Function FindRoute(lat1,lon1,lat2,lon2:real):TRoute;
 
-        function GetRuleListSubset(RightElement:TSyntaxPatternElement): TObjectList;
-        function ModifyTransformationFormula(strFormula, strElFormula:String;N,M,j:integer):String;
-    public
-      //Эта функция собственно и делает ситаксический разбор.
-      // по заданной фразе возвращается список соответствующих ей синтаксических структур.
-      function GetPatternList(Phrase: TPhrase): TObjectList;
+implementation
 
-      //Обертка вокруг предыдущей фунуции
-      function SyntaxAnalysis(Phrase: TPhrase; var intMatchedWords,
-                              intUnmatchedWords:integer): TSyntaxPattern;
-      constructor Create();
-      destructor Destroy; Override;
 
-  end;
-}
 
 constructor TRouteElement.Create(aRoadId:integer; aNodeNumber:integer);
 begin
@@ -360,6 +321,31 @@ begin
    Result:=Result+ DistanceKM(Elements[i].lat,Elements[i].lon, Elements[i+1].lat,Elements[i+1].lon);
 end;
 
+Procedure TRoute.SaveToGpx(strFileName,strComment:string);
+var
+  xml:TStringList;
+  i:integer;
+begin
+  xml:=TStringList.Create;
+  xml.Add('<?xml version="1.0" encoding="WINDOWS-1251"?>');
+  xml.Add('<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xmlns="http://www.topografix.com/GPX/1/0" creator="Polar WebSync 2.3 - www.polar.fi" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">');
+  xml.Add('<time>2011-09-22T18:56:51Z</time>');
+  xml.Add('<trk>');
+  xml.Add('  <name>'+strComment+ '</name>');
+  xml.Add('  <trkseg>');
+  for i := 0  to self.ElementCount-1 do
+  begin
+    xml.Add('    <trkpt lat="'+FormatFloat('#0.0000000000',self[i].lat) +'" lon="'+FormatFloat('#0.0000000000',self[i].lon)+'"/>');
+    //xml.Add('    </trkpt>');
+  end;
+  xml.Add('  </trkseg>');
+  xml.Add('</trk>');
+  xml.Add('</gpx>');
+  xml.SaveToFile(strFileName);
+  xml.Free;
+
+end;
+
 
 //Самая сложная функция. Список вершин, которыми можно продолжить данный маршрут.
 function GetContinuationsList(aRoute:TRoute):TObjectList;
@@ -528,24 +514,16 @@ end;
 
 
 //Функция, которая по заданной начальной и конечной точке возращает маршрут.
-Function FindRoute(lat1,lon1,lat2,lon2:real):Recordset;
+Function FindRoute(lat1,lon1,lat2,lon2:real):TRoute;
 var
   StartRoadID,StartNodeID:integer;
   FinishRoadID,FinishNodeID:integer;
   CurrentRoadID,CurrentNodeID:integer;
   DStart,DFinish:real;
   DStartMin,DFinishMin:real;
-  xml:TStringList;
   aRoute:TRoute;
   i:integer;
-  t0,t1:TDateTime;
 Begin
-  t0:=Now;
-  result:= CoRecordset.Create;
-  result.Fields.Append( RS_ROUTE_ORDERNO, adInteger, 0,0,EmptyParam);
-  result.Fields.Append( RS_ROUTE_LAT, adDouble, 0,0,EmptyParam);
-  result.Fields.Append( RS_ROUTE_LON, adDouble, 0,0,EmptyParam);
-  result.Open (EmptyParam,EmptyParam,adOpenStatic, adLockBatchOptimistic,  adCmdText);
 
   //Нужно найти начальную и конечную точки, принадлежащие графу, ближайшие к заданным
 
@@ -591,31 +569,11 @@ Begin
     rsNodes.MoveNext;
   until rsNodes.EOF;
 
-  {rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(StartRoadID)+' and '+ RS_NODE_ORDERNO+'='+Inttostr(StartNodeID);
-  writeln(rsNodes.Fields[RS_NODE_LAT].Value,',',rsNodes.Fields[RS_NODE_LON].Value);
-
-  rsNodes.Filter:= RS_NODE_ROADID+'='+IntToStr(FinishRoadID)+' and '+ RS_NODE_ORDERNO+'='+Inttostr(FinishNodeID);
-  writeln(rsNodes.Fields[RS_NODE_LAT].Value,',',rsNodes.Fields[RS_NODE_LON].Value);}
-
   aRoute:=CreateRoute(StartRoadID,StartNodeID,FinishRoadID,FinishNodeID);
 
-  t1:=Now;
-  xml:=TStringList.Create;
-  xml.Add('<?xml version="1.0" encoding="WINDOWS-1251"?>');
-  xml.Add('<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xmlns="http://www.topografix.com/GPX/1/0" creator="Polar WebSync 2.3 - www.polar.fi" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">');
-  xml.Add('<time>2011-09-22T18:56:51Z</time>');
-  xml.Add('<trk>');
-  xml.Add('  <name>'+ FormatFloat('##0.00',aRoute.GetLengthKm) + 'km, found in '+FormatFloat('##0.00',(t1-t0)*24*60*60) + ' s</name>');
-  xml.Add('  <trkseg>');
-  for i := 0  to aRoute.ElementCount-1 do
-  begin
-    xml.Add('    <trkpt lat="'+FormatFloat('#0.0000000000',aRoute[i].lat) +'" lon="'+FormatFloat('#0.0000000000',aRoute[i].lon)+'"/>');
-    //xml.Add('    </trkpt>');
-  end;
-  xml.Add('  </trkseg>');
-  xml.Add('</trk>');
-  xml.Add('</gpx>');
-  xml.SaveToFile('d:\test.gpx');
+   Result:=aRoute;
+
+
 End;
 
 
