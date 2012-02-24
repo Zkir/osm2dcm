@@ -1836,3 +1836,19 @@
     - action: write_poi
       type: 0x6100
       contacts: no
+
+#Address on address points
+- condition:
+    - addr:housenumber = *
+    - building != *
+    - amenity != *
+    - shop != *
+    - office != *
+    - tourism != *
+    - craft != *
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6100
+      contacts: no
+
