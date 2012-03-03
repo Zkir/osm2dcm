@@ -15,3 +15,5 @@ call osmosis --read-xml-0.6 file="d:\OSM\osm_data\%SOURCEFILE%" --buffer bufferC
 )
 
 call osmosis --read-xml file="d:\OSM\osm2dcm\_my\%1\final.full.osm" --lp  --construction-way daysBeforeOpening=60 daysAfterChecking=30 --tt --write-xml d:\OSM\osm2dcm\_my\%1\final.osm 
+
+corecmd.exe -site peirce -O -u d:\OSM\osm2dcm\_my\%1\%1.hwconstr_chk.xml   -p ADDR_CHK/ -s
