@@ -3,6 +3,12 @@ unit uMPParser;
 interface
 uses SysUtils,classes,IniFiles;
 
+CONST
+
+ST_IMG_ID='[IMG ID]';
+ST_POLYLINE='[POLYLINE]';
+ST_POI='[POI]';
+
 type TLatLon=String;
 
 type TMpSection=class
@@ -16,9 +22,12 @@ type TMpSection=class
     constructor Create();
     destructor Destroy; Override;
     function GetAttributeValue(strAttrName:string):string;
+    procedure SetAttributeValue(strAttrName:string;strAttrValue:string);
     Function GetCoords(): TLatLon;
     Function GetOsmHighway(): String;
     function mpRouteParam():String;
+    function mpType():String;
+    procedure WriteSection();
 end;
 
 type TMpParser=class
@@ -33,7 +42,7 @@ type TMpParser=class
     function EOF:Boolean;
 end;
 Function OSMLevelByTag(Tag: String):Integer;
-
+var tgtFile:TextFile;
 implementation
 uses uvb6runtime;
 constructor TMpSection.Create();
@@ -53,6 +62,11 @@ begin
   result:=Attributes.Values[strAttrName];
 end;
 
+procedure TMpSection.SetAttributeValue(strAttrName:string;strAttrValue:string);
+begin
+  Attributes.Values[strAttrName]:=strAttrValue;
+end;
+
 function TMpSection.mpRouteParam(): String;
 begin
   Result := GetAttributeValue('RouteParam');
@@ -60,7 +74,10 @@ begin
     Result := GetAttributeValue('RouteParams');
 End;
 
-
+function TMpSection.mpType():String;
+begin
+  Result := GetAttributeValue('Type');
+End;
 
 Function TMpSection.GetCoords(): TLatLon;
 var
@@ -109,6 +126,32 @@ begin
 
 End;
 
+procedure TMpSection.WriteSection();
+var i:integer;
+Begin
+  if SectionType='BLANK' then
+    writeln(tgtFile)
+  else
+  begin
+
+    for i := 0 to Comments.Count-1  do
+      Writeln (tgtFile,Comments[i]);
+    if SectionType<>'COMMENT' then
+    begin
+      Writeln (tgtFile,SectionType);
+      for i := 0 to Attributes.Count-1  do
+        Writeln (tgtFile,Attributes[i]);
+
+      Writeln (tgtFile,SectionEnding );
+    end
+    else
+      writeln(tgtFile);
+  end;
+End;
+
+//******************************************************************************
+//                             TMpParser
+//******************************************************************************
 constructor TMpParser.Create(const strFileName: String);
 begin
 
