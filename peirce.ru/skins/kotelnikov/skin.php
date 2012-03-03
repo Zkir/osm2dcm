@@ -147,16 +147,32 @@ function PrintSideBlockNews()
      
    		
     if ($UseWide!="1")
-    {	   
+    {	
+
+    PrintSideBlock('СитиГид',
+          '<img style="float:left;position:relative;top:-7px;" src="img/cg_logo.gif">
+          <p><strong>СитиГид</strong> - это популярная программа-навигатор с поддержкой пробок.
+             Существуют версии практически для всех
+             распространенных платформ: Windows Mobile, WinCE (автонавигаторы, PNA), Android, Symbian, iPhone.
+             Ее можно найти (и приобрести) <a href="http://probki.net">на сайте производителя</a>. ');
+
+    PrintSideBlock('Что такое OSM?',
+          '<img style="float:right;position:relative;top:-7px;" src="img/osm_logo.png">
+		  <p><a href="http://openstreetmap.org">OpenStreetMap</a> — это свободно редактируемая карта всего мира.
+		  Она сделана такими же людьми, как и вы.</p>
+          <p><a href="http://openstreetmap.org">OpenStreetMap</a> позволяет совместно просматривать,
+          изменять и использовать географические данные в любой точке Земли.</p>');
+   
     //Дежурный-По-Сайту
+    /*
     PrintSideBlock('Дежурный-По-Сайту',
                   '<p>Если у вас возникли вопросы, задайте их нашему онлайн-консультанту.
                    Даже если он не знает ответ на ваш вопрос, разговор <b>будет записан</b>
                    и мы постараемся ответить этот вопрос позже:</p>
                    <p>
-                     <iframe src="http://ai.zkir.ru/inf?bot_id=00000000-0000-0000-0000-000000000001" height="200" width="330" frameborder="0" scrolling="no" > </iframe>
+                     <iframe src="http://ai.zkir.ru/inf?bot_id=00000000-0000-0000-0000-000000000001" height="200" width="330" frameborder="0" scrolling="no" >                      </iframe>
                    </p>');
-           
+   */        
    //<!-- Линия жизни -->
     PrintSideBlock('Линия Жизни',
 		          '<p align="center"><a href="http://life-line.ru" 
@@ -168,19 +184,8 @@ function PrintSideBlockNews()
    //<!-- Новости -->
     PrintSideBlockNews();
    
-    PrintSideBlock('Что такое OSM?',
-          '<img style="float:right;position:relative;top:-7px;" src="img/osm_logo.png">
-		  <p><a href="http://openstreetmap.org">OpenStreetMap</a> — это свободно редактируемая карта всего мира.
-		  Она сделана такими же людьми, как и вы.</p>
-          <p><a href="http://openstreetmap.org">OpenStreetMap</a> позволяет совместно просматривать,
-          изменять и использовать географические данные в любой точке Земли.</p>');
-   
-    PrintSideBlock('СитиГид',
-          '<img style="float:left;position:relative;top:-7px;" src="img/cg_logo.gif">
-          <p><strong>СитиГид</strong> - это популярная программа-навигатор с поддержкой пробок.
-             Существуют версии практически для всех
-             распространенных платформ: Windows Mobile, WinCE (автонавигаторы, PNA), Android, Symbian, iPhone.
-             Ее можно найти (и приобрести) <a href="http://probki.net">на сайте производителя</a>. ');
+
+  
    
     PrintSideBlock('Гис-Лаб', 
 		          '<img style="float:right;position:relative;top:-7px" src="http://gis-lab.info/images/gis-lab-button.gif"/> 
