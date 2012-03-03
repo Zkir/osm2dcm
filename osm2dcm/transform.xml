@@ -148,4 +148,17 @@
    </output>
  </translation>
  
+ <translation>
+   <name>default levels for garages</name>
+   <description>1 level is set for garages by default</description>
+   <match mode="and">
+     <tag k="building" v="garages"/>
+     <notag k="building:levels" v=".*"/>
+   </match>
+   <output>
+     <copy-all/>
+     <tag k="building:levels" v="1"/>
+   </output>
+ </translation>
+ 
 </translations>
