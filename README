@@ -23,6 +23,14 @@ Various subproject related to conversion of OSM to dcm (CityGuide)
    ChangeTracker.site
  Отслеживалка измений в дорожном графе
  VB6/PHP
-  
+
+6. mp2mp
+ Аналог известной одноименной утилиты для сборки польских файлов их нескольких частей. В процессе допиливания
+ Delphi XE2
+ 
+6. RoutingTest
+ Валидатор рутинга. В процессе допиливания
+ Delphi XE2
+ 
 build.xml - ant-cкрипт для сборки всего этого добра
 Результаты сборки вываливаются в d:\osm\osm2dcm
