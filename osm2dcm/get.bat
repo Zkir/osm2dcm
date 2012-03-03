@@ -12,10 +12,8 @@ call getbz2 georgia     http://data.gis-lab.info/osm_dump/dump/latest/GE.osm.bz2
 call getbz2 armenia     http://data.gis-lab.info/osm_dump/dump/latest/AM.osm.bz2
 call getbz2 kyrgyzstan  http://data.gis-lab.info/osm_dump/dump/latest/KG.osm.bz2
 
-call getbz2 azerbaijan  http://data.gis-lab.info/osm/azerbaijan/azerbaijan.osm.bz2
-
-
-call getbz2 uzbekistan  http://data.gis-lab.info/osm/uzbekistan/uzbekistan.osm.bz2
+call getbz2 azerbaijan  http://data.gis-lab.info/osm_dump/dump/latest/AZ.osm.bz2
+call getbz2 uzbekistan  http://data.gis-lab.info/osm_dump/dump/latest/UZ.osm.bz2
 
 rem ================================================================================
 rem  разные страны
