@@ -61,6 +61,10 @@ function GetXmlFileName($mapid)
 {
   return "ADDR_CHK/".$mapid.".mp_addr.xml";
 }
+function GetHWCXmlFileName($mapid)
+{
+  return "ADDR_CHK/".$mapid.".hwconstr_chk.xml";
+}
 
 //Ссылка на Josm
 function MakeJosmLink($lat,$lon)
@@ -178,6 +182,7 @@ if ($errtype=="")
 
   $zPage->WriteHtml("<tr><td align=\"right\">Разрывы береговой линии </td><td>".$xml->CoastLineTest->Summary->NumberOfBreaks."</td><tr>" );
   $zPage->WriteHtml('<tr><td align=\"right\"><a href="/routing-map.php?mapid='.$mapid.'">Изолированные рутинговые подграфы</a> </td><td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td><tr>' );
+  $zPage->WriteHtml('<tr><td align=\"right\"><a href="#hwconstr_chk">Просроченные строящиеся дороги</a> </td><td>'.'??'.'</td><tr>' );
 
 
   $zPage->WriteHtml("<tr><td align=\"right\">Города без населения </td><td>".$xml->AddressTest->Summary->CitiesWithoutPopulation."</td><tr>" );
@@ -360,6 +365,39 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
   $zPage->WriteHtml( '</table>');  
+  
+/*==========================================================================
+                 Highway=construction
+============================================================================*/
+  $zPage->WriteHtml('<a name="hwconstr_chk"><H2>Просроченные строящиеся дороги</H2></a>');
+  $zPage->WriteHtml('<p>В этом разделе показываются строящиеся дороги, ожидаемая дата открытия которых уже наступила, дороги которые проверялись слишком давно,
+                    а так же дороги, дата проверки или дата открытия которых нераспознанны. </p>');
+  $zPage->WriteHtml("<p>Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 года должно быть записано как 2012-02-29<p/>" );
+  $zPage->WriteHtml("<p><small>Таблица сортируется. Достаточно щелкнуть по заголовку столбца</small><p/>" );
+  //$zPage->WriteHtml('<p><b><a href="/qq-map.php?mapid='.$mapid.'&test=rd">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
+
+  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+
+  $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>
+                  <td><b>Тип ошибки</b></td>
+                  <td><b>Ожидаемая дата открытия</b></td>
+                  <td><b>Дата последней проверки</b></td>
+                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
+                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+         </tr>');
+
+  foreach ($xml1->error as $item)
+    {
+        $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '<td>'.$item['errorType'].'</td>');
+        $zPage->WriteHtml( '<td>'.$item->opening_date.'</td>');
+        $zPage->WriteHtml( '<td>'.$item->check_date.'</td>');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->bound['top'],$item->bound['left']).'" target="josm" title="JOSM"> <img src="img/josm.png"/></a> </td> ');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->bound['top'],$item->bound['left']) .'" target="_blank" title="Potlach"><img src="img/potlach.png"/></a> </td> ');
+        $zPage->WriteHtml( '</tr>');
+     }
+  $zPage->WriteHtml( '</table>');   
   
 /*==========================================================================
                  Несопоставленные адреса
