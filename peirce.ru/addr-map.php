@@ -13,7 +13,7 @@ include("ZSitePage.php");
   $errtype=@$_GET['errtype'];
 
   $zPage->WriteHtml( "<h1>Валидатор адресов</h1>");
-  $zPage->WriteHtml('<p align="right"><a href="/addr.php?mapid='.$mapid.'">Назад к таблице</a> </p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/qc/'.$mapid.'">Назад к таблице</a> </p>' );
   $zPage->WriteHtml('<p>Отображение на карте пока в тестовом режиме, прошу строго не судить :)</p>');
   $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должне быть запущен.</p>');
   
@@ -52,9 +52,9 @@ function PrintMap($mapid,$errtype)
   <div id="cm-example" style="width: 100%; height: 600px"></div> 
   <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script> 
 	   
-  <script type="text/javascript" src="./js/addr-map.js"> </script> 
+  <script type="text/javascript" src="/js/addr-map.js"> </script> 
   <script type="text/javascript">
-      ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
+      ProcessMap("/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
    </script> 
   <iframe id="ttt" src="" style="display:none;"></iframe>');
    

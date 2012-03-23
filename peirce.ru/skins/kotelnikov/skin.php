@@ -48,7 +48,8 @@ function PrintSideBlockNews()
     echo '<div class="post">'."\n";
     echo '<p>';
             
-    $blog_link=$g_SelfUrl.'/blog.php?postid='.substr($item->link,45,5);
+    //$blog_link=$g_SelfUrl.'/blog.php?postid='.substr($item->link,45,5);
+    $blog_link=$g_SelfUrl.'/blog/'.substr($item->link,45,5);
     //выводим на печать заголовок новости
     echo '<small><b><a href="'.$blog_link.'" target="_top">'.str_replace("[Карты OSM для СитиГИДа]","",$item->title).'</a></b></small>'."\n";
     $contents=$item->description;
@@ -76,7 +77,7 @@ function PrintSideBlockNews()
 <html xmlns="http://www.w3.org/1999/xhtml" >
    <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="skins/kotelnikov/style.css" />
+  <link rel="stylesheet" type="text/css" href="/skins/kotelnikov/style.css" />
   <title>
     <?php
       echo $this->title;
@@ -90,7 +91,7 @@ function PrintSideBlockNews()
    <div id="header">
     <!-- logo -->
     <div id="logo">
-     <a href="/"><img src="skins/kotelnikov/img/logo.png" 
+     <a href="/"><img src="/skins/kotelnikov/img/logo.png" 
       title="OpenStreetMap - это свободная карта всего мира, которую может редактировать каждый" 
       alt="Карты OpenStreetMap для CитиГида" style="border: 0px" /></a>
     </div>
@@ -104,8 +105,10 @@ function PrintSideBlockNews()
                   <li><a href="'.$g_SelfUrl.'/daily.php">Россия</a></li>                
                   <li><a href="'.$g_SelfUrl.'/misc.php">Страны Мира</a></li>
                   <li><a href="'.$g_SelfUrl.'/stat.php">Статистика</a></li>
-                  <li><a href="'.$g_SelfUrl.'/addr.php">Адресный валидатор</a></li>
-                  <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
+                  <li><a href="'.$g_SelfUrl.'/qc">Контроль качества</a></li>';
+                 // <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
+            echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">Форум</a></li>';
+                             
             ?>
         </ul>
   </div>
@@ -150,14 +153,14 @@ function PrintSideBlockNews()
     {	
 
     PrintSideBlock('СитиГид',
-          '<img style="float:left;position:relative;top:-7px;" src="img/cg_logo.gif">
+          '<img style="float:left;position:relative;top:-7px;" src="/img/cg_logo.gif">
           <p><strong>СитиГид</strong> - это популярная программа-навигатор с поддержкой пробок.
              Существуют версии практически для всех
              распространенных платформ: Windows Mobile, WinCE (автонавигаторы, PNA), Android, Symbian, iPhone.
              Ее можно найти (и приобрести) <a href="http://probki.net">на сайте производителя</a>. ');
 
     PrintSideBlock('Что такое OSM?',
-          '<img style="float:right;position:relative;top:-7px;" src="img/osm_logo.png">
+          '<img style="float:right;position:relative;top:-7px;" src="/img/osm_logo.png">
 		  <p><a href="http://openstreetmap.org">OpenStreetMap</a> — это свободно редактируемая карта всего мира.
 		  Она сделана такими же людьми, как и вы.</p>
           <p><a href="http://openstreetmap.org">OpenStreetMap</a> позволяет совместно просматривать,

@@ -6,3 +6,21 @@ AddDefaultCharset utf-8
 AddDefaultCharset utf-8
 </Files>
 
+
+RewriteEngine on
+RewriteRule ^rss$ rss.php
+RewriteRule ^qc$ addr.php
+RewriteRule ^qc/([a-zA-Z0-9_-]+)$ addr.php?mapid=$1
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/rss$ rss.php?mapid=$1
+
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/addr/([0-6])$ addr.php?mapid=$1&errtype=$2
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/addr-map$ addr-map.php?mapid=$1
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/addr-map/([0-6])$ addr-map.php?mapid=$1&errtype=$2
+
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/routing-map$ routing-map.php?mapid=$1
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/routing-map/([0-4])$ routing-map.php?mapid=$1&level=$2
+
+RewriteRule ^qc/([a-zA-Z0-9_-]+)/rd-map$ qq-map.php?mapid=$1&test=rd
+
+
+RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1

@@ -21,11 +21,14 @@ $zPage=new TZSitePage;
   $zPage->title="Валидатор дорожного графа";
   $zPage->header="Валидатор дорожного графа";
   $zPage->WriteHtml('<h2>Тест рутингового графа ('.$mapid.', дороги: '.mb_strtolower (FormatRoutingLevelName($level), 'UTF-8'  ).')</h2>');
-  $zPage->WriteHtml('<p style="text-align:right"><a href="/addr.php?mapid='.$mapid.'">
+  if ($mapid!="RU")
+  {
+  $zPage->WriteHtml('<p style="text-align:right"><a href="/qc/'.$mapid.'">
                      Назад к таблице</a> </p>' );
+  }
   $zPage->WriteHtml('<p>Показываются "изоляты", т.е. дороги или группы дорог,
                      не связанные с основным дорожным графом. ' );
-  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog.php?postid=14435">
+  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog/14435">
                      Подробнее...</a> </p>' );
   $zPage->WriteHtml('<p>Почему "изоляты" это так плохо? Потому что они мешают
                      рутингу, прокладке маршрута. Когда старт и финиш оказываются
@@ -41,10 +44,14 @@ $zPage=new TZSitePage;
   for($i=4;$i>=0;$i--)
   {
      $zPage->WriteHtml('<td>');
-     if ($i<>$level)
-       $zPage->WriteHtml('<a href="routing-map.php?mapid='.$mapid.'&level='.$i.'">'.FormatRoutingLevelName($i).'</a>');
-     else
-       $zPage->WriteHtml('<b>'.FormatRoutingLevelName($i).'</b>');
+     if (($i<>$level) and !( (($i==4) or ($i==3) )and $mapid=="RU") )
+       $zPage->WriteHtml('<a href="/qc/'.$mapid.'/routing-map/'.$i.'">'.FormatRoutingLevelName($i).'</a>');
+     else{
+       if (!( (($i==4) or ($i==3) )and $mapid=="RU" )){ 	  
+         $zPage->WriteHtml('<b>'.FormatRoutingLevelName($i).'</b>');}
+       else
+       {$zPage->WriteHtml(''.FormatRoutingLevelName($i).'');} 
+     }    
      $zPage->WriteHtml('</td>');
      if($i>0)
      {
@@ -55,9 +62,9 @@ $zPage=new TZSitePage;
   $zPage->WriteHtml('
                     <div id="cm-example" style="width: 100%; height: 450px"></div>
                     <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
-                    <script type="text/javascript" src="js/routing-map.js"> </script>
+                    <script type="text/javascript" src="/js/routing-map.js"> </script>
                     <script type="text/javascript">
-                      ProcessMap("ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
+                      ProcessMap("/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
                     </script>
                      <iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
