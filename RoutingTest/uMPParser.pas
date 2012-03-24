@@ -8,6 +8,7 @@ CONST
 ST_IMG_ID='[IMG ID]';
 ST_POLYLINE='[POLYLINE]';
 ST_POI='[POI]';
+ST_COMMENT = 'COMMENT';
 
 type TLatLon=String;
 
