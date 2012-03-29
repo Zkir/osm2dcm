@@ -67,6 +67,8 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<Debugger_RunParams>d:\OSM\Overview_map.ru\RU-OVRV.mp process.xml</Debugger_RunParams>
+			<Debugger_CWD>D:\OSM\Overview_map.ru</Debugger_CWD>
 			<DCC_RemoteDebug>false</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
