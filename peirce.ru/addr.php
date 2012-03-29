@@ -31,7 +31,7 @@ include("ZSitePage.php");
                        (такие фрагменты недоступны для рутинга. <a href="/blog/14435">Подробнее про связность дорожного графа...</a>
                        </p> Также проверяется отсутствие дубликатов дорог. <a href="/blog/16019">Подробнее дубликаты дорог...</a></p>');
     
-    $zPage->WriteHtml( '<p>Связность дорожного графа в масштабах всей России можно посмотреть <a href="/qc/RU/routing-map">здесь</a>.
+    $zPage->WriteHtml( '<p>Связность дорожного графа в масштабах всей России можно посмотреть <a href="/qa/RU/routing-map">здесь</a>.
                        В отличие от теста по отдельным картам (см. таблицу ниже), где в граф включены все дороги, в этот тест включены дороги secondary и выше .</p>');
     
     	 	  
@@ -130,12 +130,12 @@ function PrintAddresses($mapid, $errtype)
 
 if ($errtype=="")
 {
-  $zPage->WriteHtml('<p align="right"><a href="/qc">Назад к списку регионов</a> </p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
-              <tr><td>RSS</td><td><a href="/qc/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>
+              <tr><td>RSS</td><td><a href="/qa/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>
               </table>
               <h2>Сводка</h2>
               <table>
@@ -199,7 +199,7 @@ if ($errtype=="")
  
 
   $zPage->WriteHtml("<tr><td align=\"right\">Разрывы береговой линии </td><td>".$xml->CoastLineTest->Summary->NumberOfBreaks."</td><tr>" );
-  $zPage->WriteHtml('<tr><td align=\"right\"><a href="/qc/'.$mapid.'/routing-map">Изолированные рутинговые подграфы</a> </td><td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td><tr>' );
+  $zPage->WriteHtml('<tr><td align=\"right\"><a href="/qa/'.$mapid.'/routing-map">Изолированные рутинговые подграфы</a> </td><td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td><tr>' );
   $zPage->WriteHtml('<tr><td align=\"right\"><a href="#rdups">Дубликаты рутинговых ребер</a></td><td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td><tr>' );
   $zPage->WriteHtml('<tr><td align=\"right\"><a href="#hwconstr_chk">Просроченные строящиеся дороги</a> </td><td>'.$xml1->summary->total.'</td><tr>' );
 
@@ -213,12 +213,12 @@ if ($errtype=="")
   $zPage->WriteHtml("<tr><td align=\"right\">Не сопоставлено адресов</td><td>".$xml->AddressTest->Summary->UnmatchedHouses."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых адресов</td><td>".number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ')."%</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Из них, по типу ошибок:</td><td></td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(I)  <a href="/qc/'.$mapid.'/addr/1">Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(II) <a href="/qc/'.$mapid.'/addr/2">Улица не задана</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(III)<a href="/qc/'.$mapid.'/addr/3">Улица не найдена</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(IV) <a href="/qc/'.$mapid.'/addr/4">Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(V)  <a href="/qc/'.$mapid.'/addr/5"> Дом номеруется по территории</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(VI) <a href="/qc/'.$mapid.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(I)  <a href="/qa/'.$mapid.'/addr/1">Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(II) <a href="/qa/'.$mapid.'/addr/2">Улица не задана</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(III)<a href="/qa/'.$mapid.'/addr/3">Улица не найдена</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(IV) <a href="/qa/'.$mapid.'/addr/4">Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(V)  <a href="/qa/'.$mapid.'/addr/5"> Дом номеруется по территории</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(VI) <a href="/qa/'.$mapid.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
 
 
   $zPage->WriteHtml("</table>" );
@@ -365,7 +365,7 @@ if ($errtype=="")
   $zPage->WriteHtml('<p>Дубликаты рутинговых ребер являются топологической ошибкой и мешают рутингу. </p>');
   $zPage->WriteHtml("<p/>" );
   
-  $zPage->WriteHtml('<p><b><a href="/qc/'.$mapid.'/rd-map">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/rd-map">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
 
 
   $zPage->WriteHtml( '<table width="900px" class="sortable">
@@ -428,15 +428,15 @@ if ($errtype=="")
   $zPage->WriteHtml('<p> Данный валидатор показывает какие дома/адреса <b>не</b>
                      попадают в адресный поиск после конвертации карт в СитиГид. <BR/>
                      Объяснение типов ошибок <a href="#errdescr">см. ниже</a></p>');
-  $zPage->WriteHtml('<p><b><a href="/qc/'.$mapid.'/addr-map">Посмотреть ошибки адресации на карте</a></b></p>');
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map">Посмотреть ошибки адресации на карте</a></b></p>');
 
 }
 else //Задан конкретный тип ошибки
 {
-   $zPage->WriteHtml('<p align="right"><a href="/qc/'.$mapid.'">Назад к сводке '.$mapid.'</a></p>');
+   $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к сводке '.$mapid.'</a></p>');
    $zPage->WriteHtml("<H2>".FormatAddrErrName($errtype)."</H2>" );
    $zPage->WriteHtml(FormatAddrErrDesc($errtype));
-   $zPage->WriteHtml('<p><b><a href="/qc/'.$mapid.'/addr-map/'.$errtype.'">Посмотреть ошибки адресации на карте</a></b></p>');
+   $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map/'.$errtype.'">Посмотреть ошибки адресации на карте</a></b></p>');
 
 }
 
@@ -447,12 +447,12 @@ else //Задан конкретный тип ошибки
   	                      Следует сначала починить отдельные типы.</b></p>');
       $zPage->WriteHtml("<b>по типам ошибок</b>");
       $zPage->WriteHtml('<table>');
-      $zPage->WriteHtml('<tr><td>(I)   </td><td><a href="/qc/'.$mapid.'/addr/1"> Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
-      $zPage->WriteHtml('<tr><td>(II)  </td><td><a href="/qc/'.$mapid.'/addr/2"> Улица не задана</a> </td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
-      $zPage->WriteHtml('<tr><td>(III) </td><td><a href="/qc/'.$mapid.'/addr/3">Улица не найдена</a> </td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
-      $zPage->WriteHtml('<tr><td>(IV)  </td><td><a href="/qc/'.$mapid.'/addr/4"> Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
-      $zPage->WriteHtml('<tr><td>(V)   </td><td><a href="/qc/'.$mapid.'/addr/5"> Дом номеруется по территории</a> </td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
-      $zPage->WriteHtml('<tr><td>(VI)  </td><td><a href="/qc/'.$mapid.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(I)   </td><td><a href="/qa/'.$mapid.'/addr/1"> Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(II)  </td><td><a href="/qa/'.$mapid.'/addr/2"> Улица не задана</a> </td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(III) </td><td><a href="/qa/'.$mapid.'/addr/3">Улица не найдена</a> </td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(IV)  </td><td><a href="/qa/'.$mapid.'/addr/4"> Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(V)   </td><td><a href="/qa/'.$mapid.'/addr/5"> Дом номеруется по территории</a> </td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
+      $zPage->WriteHtml('<tr><td>(VI)  </td><td><a href="/qa/'.$mapid.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
 
       $zPage->WriteHtml('</table>');
 
@@ -577,12 +577,12 @@ function PrintAddressesSummary($mode)
 
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
           $zPage->WriteHtml( '<td>'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</td>');
-          $zPage->WriteHtml('<td><a href="/qc/'.$item->MapId.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
-          $zPage->WriteHtml('<td><a href="/qc/'.$item->MapId.'/rd-map">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
+          $zPage->WriteHtml('<td><a href="/qa/'.$item->MapId.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
+          $zPage->WriteHtml('<td><a href="/qa/'.$item->MapId.'/rd-map">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
           $zPage->WriteHtml( '<td>'.$N_hwc.'</td>');
           //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
-          $zPage->WriteHtml( '<td><a href="/qc/'.$item->MapId.'">посмотреть</a></td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->MapId.'">посмотреть</a></td>');
 
           $zPage->WriteHtml( '</tr>');
         }

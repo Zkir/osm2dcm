@@ -13,7 +13,7 @@ include("ZSitePage.php");
   $errtype=@$_GET['errtype'];
 
   $zPage->WriteHtml( "<h1>Валидатор адресов</h1>");
-  $zPage->WriteHtml('<p align="right"><a href="/qc/'.$mapid.'">Назад к таблице</a> </p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
   $zPage->WriteHtml('<p>Отображение на карте пока в тестовом режиме, прошу строго не судить :)</p>');
   $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должне быть запущен.</p>');
   

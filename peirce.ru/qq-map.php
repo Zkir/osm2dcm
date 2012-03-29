@@ -14,7 +14,7 @@ include("ZSitePage.php");
   $errtype=@$_GET['errtype'];
 
   $zPage->WriteHtml( "<h1>Дубликаты рутинговых ребер</h1>");
-  $zPage->WriteHtml('<p align="right"><a href="/qc/'.$mapid.'">Назад к таблице</a> </p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
   $zPage->WriteHtml('<p>На этой странице показываются дубликаты рутинговых ребер. Дубликаты рутинговых ребер мешают
   	                 прокладке маршрутов и расстановке запретов поворотов. <a href="http://peirce.gis-lab.info/blog/16019">Подробнее...</a> 
                     </p>');

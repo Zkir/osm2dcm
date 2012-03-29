@@ -7,12 +7,12 @@
   if ($MapId=='')
   {
     echo '<title>Контроль качества - Все карты</title>
-          <link>http://peirce.gis-lab.info/qc</link>';
+          <link>http://peirce.gis-lab.info/qa</link>';
   }
   else
   {
   	 echo '<title>Контроль качества - '.$MapId.'</title>
-           <link>http://peirce.gis-lab.info/qc/'.$MapId.'</link>';
+           <link>http://peirce.gis-lab.info/qa/'.$MapId.'</link>';
   }
   
   $xml = simplexml_load_file("statistics.xml");
@@ -32,7 +32,7 @@ function PrintItem($MapId,$MapName){
 	echo '<item>
     <guid>'.$MapId.'/'.$xml->Date.'</guid>
     <title>'.$MapName.'('.$MapId.') - '.$xml->Date.' </title>
-    <link>http://peirce.gis-lab.info/qc/'.$MapId.'</link>
+    <link>http://peirce.gis-lab.info/qa/'.$MapId.'</link>
     <author>Ch.S. Peirce</author>
     <pubDate>'.$xml->Date.'</pubDate>
     <description>';

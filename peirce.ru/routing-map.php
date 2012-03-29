@@ -23,7 +23,7 @@ $zPage=new TZSitePage;
   $zPage->WriteHtml('<h2>Тест рутингового графа ('.$mapid.', дороги: '.mb_strtolower (FormatRoutingLevelName($level), 'UTF-8'  ).')</h2>');
   if ($mapid!="RU")
   {
-  $zPage->WriteHtml('<p style="text-align:right"><a href="/qc/'.$mapid.'">
+  $zPage->WriteHtml('<p style="text-align:right"><a href="/qa/'.$mapid.'">
                      Назад к таблице</a> </p>' );
   }
   $zPage->WriteHtml('<p>Показываются "изоляты", т.е. дороги или группы дорог,
@@ -45,7 +45,7 @@ $zPage=new TZSitePage;
   {
      $zPage->WriteHtml('<td>');
      if (($i<>$level) and !( (($i==4) or ($i==3) )and $mapid=="RU") )
-       $zPage->WriteHtml('<a href="/qc/'.$mapid.'/routing-map/'.$i.'">'.FormatRoutingLevelName($i).'</a>');
+       $zPage->WriteHtml('<a href="/qa/'.$mapid.'/routing-map/'.$i.'">'.FormatRoutingLevelName($i).'</a>');
      else{
        if (!( (($i==4) or ($i==3) )and $mapid=="RU" )){ 	  
          $zPage->WriteHtml('<b>'.FormatRoutingLevelName($i).'</b>');}

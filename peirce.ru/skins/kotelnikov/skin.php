@@ -105,7 +105,7 @@ function PrintSideBlockNews()
                   <li><a href="'.$g_SelfUrl.'/daily.php">Россия</a></li>                
                   <li><a href="'.$g_SelfUrl.'/misc.php">Страны Мира</a></li>
                   <li><a href="'.$g_SelfUrl.'/stat.php">Статистика</a></li>
-                  <li><a href="'.$g_SelfUrl.'/qc">Контроль качества</a></li>';
+                  <li><a href="'.$g_SelfUrl.'/qa">Контроль качества</a></li>';
                  // <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
             echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">Форум</a></li>';
                              
