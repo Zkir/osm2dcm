@@ -35,6 +35,7 @@ Dim rsNodes        As ADODB.Recordset
 Dim intSubgraphCount As Long
 
 Private NTotalRoads As Long
+Private NRoutiningEdges As Long
 
 Private Sub Class_Initialize()
 
@@ -64,6 +65,7 @@ Private Sub Class_Initialize()
   'Начальное значение счетчика подграфов
   intSubgraphCount = 0
   NTotalRoads = 0
+  NRoutiningEdges = 0
   
 finalize:
   If Err.Number <> 0 Then
@@ -157,6 +159,9 @@ Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
   'Общее число дорог так же увеличивается.
   
   NTotalRoads = NTotalRoads + 1
+  
+  'число рутинговых ребер в данной дороге равно количеству рутинговых вершин минус один.
+  NRoutiningEdges = NRoutiningEdges + (UBound(NodeList) - LBound(NodeList))
 
   
   rsSubGraph.Filter = adFilterNone
@@ -240,6 +245,8 @@ Public Function PrintRegistryToXML(FileNumber As Long) As String
   Print #FileNumber, "<Summary>"
   Print #FileNumber, "  <NumberOfSubgraphs>" & rsSubGraph.RecordCount & "</NumberOfSubgraphs>"
   Print #FileNumber, "  <NumberOfRoads>" & NTotalRoads & "</NumberOfRoads>"
+  Print #FileNumber, "  <NumberOfRoutingEdges>" & NRoutiningEdges & "</NumberOfRoutingEdges>"
+  
   Print #FileNumber, "</Summary>"
   
   Print #FileNumber, "<SubgraphList>"

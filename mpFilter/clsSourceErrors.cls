@@ -97,7 +97,7 @@ End Function
 Private Function ParseCLCoords(ByVal strComment As String, ByRef lat1 As Double, ByRef lon1 As Double, ByRef lat2 As Double, ByRef lon2 As Double) As Boolean
 Dim Matches As Variant
  'ERROR: Possible coastline break at \(([0-9.]+),30.1579854\) or \(59.8707318,30.1609809\)"
- Set Matches = Ereg_Match(strComment, "Possible coastline break at \(([0-9.]+),([0-9.]+)\) or \(([0-9.]+),([0-9.]+)\)")
+ Set Matches = Ereg_Match(strComment, "Possible coastline break at \((-?[0-9.]+),(-?[0-9.]+)\) or \((-?[0-9.]+),(-?[0-9.]+)\)")
  If Matches.Count = 4 Then
    lat1 = Matches.Item(0)
    lon1 = Matches.Item(1)
@@ -114,7 +114,7 @@ Private Function ParseRDCoords(ByVal strComment As String, _
                                ByRef lat1 As Double, ByRef lon1 As Double) As Boolean
 Dim Matches As Variant
  ''; ERROR: Roads 91630559:0, 91630559:0, 91630559:0 have 1 duplicate segments near (52.6322258,38.4829784)
- Set Matches = Ereg_Match(strComment, "ERROR: Roads .+ duplicate segments near \(([0-9.]+),([0-9.]+)\)")
+ Set Matches = Ereg_Match(strComment, "ERROR: Roads .+ duplicate segments near \((-?[0-9.]+),(-?[0-9.]+)\)")
  If Matches.Count = 2 Then
    lat1 = Matches.Item(0)
    lon1 = Matches.Item(1)

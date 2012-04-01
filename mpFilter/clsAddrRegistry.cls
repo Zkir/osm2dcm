@@ -209,7 +209,12 @@ Public Function CheckStreet(strStreetDesc As String, strCity As String) As Integ
  'Эта проверка предшествует поиску в "негородских" улицах, потому что есть особое извращение присваивать
  ' названия микрорайонов дворовым проездам. hw=service
  strStreetDesc = LCase$(strStreetDesc)
- If InStr(LCase$(strStreetDesc), "микрорайон") <> 0 Or InStr(LCase$(strStreetDesc), "мкрн.") <> 0 Or InStr(LCase$(strStreetDesc), "поселок") Or InStr(LCase$(strStreetDesc), "квартал") Then
+ If InStr(LCase$(strStreetDesc), "микрорайон") <> 0 Or _
+    InStr(LCase$(strStreetDesc), "мкрн.") <> 0 Or _
+    InStr(LCase$(strStreetDesc), "квартал") Or _
+    InStr(LCase$(strStreetDesc), "поселок") Or _
+    InStr(LCase$(strStreetDesc), "садоводство") Or _
+    InStr(strStreetDesc, "СНТ") Then
    CheckStreet = steNumberRelatedToTerritory
    GoTo fin
  End If
