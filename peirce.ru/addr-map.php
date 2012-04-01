@@ -12,23 +12,24 @@ include("ZSitePage.php");
   $mapid=@$_GET['mapid'];
   $errtype=@$_GET['errtype'];
 
-  $zPage->WriteHtml( "<h1>Валидатор адресов</h1>");
-  $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
-  $zPage->WriteHtml('<p>Отображение на карте пока в тестовом режиме, прошу строго не судить :)</p>');
-  $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должне быть запущен.</p>');
+  $zPage->WriteHtml('<h1>Валидатор адресов ('.$mapid.', '.($errtype > 0 ? FormatAddrErrName($errtype) : 'Все ошибки').')</h1>');
+  $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a><br/>' );
+  $zPage->WriteHtml('<a href="/qa/'.$mapid.'/addr/'.$errtype.'">Посмотреть список</a> </p>' );
+  
+  $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
   
   $zPage->WriteHtml('<span id=typeErr><table width=400><tr><td>Выбор типа ошибок:</td>');
-  if ( $errtype > 0 ) $zPage->WriteHtml("<td><a href='addr-map.php?mapid=$mapid'>Все</a></td>");
+  if ( $errtype > 0 ) $zPage->WriteHtml('<td><a href="/qa/'.$mapid.'/addr-map">Все</a></td>');
   else $zPage->WriteHtml('<td><b>Все<b></td>');
   for ( $ii = 1; $ii < 7; $ii++ )
   {
     $zPage->WriteHtml('<td>◆</td>');
     if ($ii <> $errtype)
-      $zPage->WriteHtml("<td><a href='addr-map.php?mapid=$mapid&errtype=$ii' title='".FormatAddrErrName($ii)."'>".FormatAddrErrType($ii).'</a></td>');
+      $zPage->WriteHtml('<td><a href="/qa/'.$mapid.'/addr-map/'.$ii.'" title="'.FormatAddrErrName($ii).'">'.FormatAddrErrType($ii).'</a></td>');
     else
       $zPage->WriteHtml('<td><b>'.FormatAddrErrType($ii).'</b></td>');
   }
-  $zPage->WriteHtml("</tr></table>Показаны ошибки типа: <b>".($errtype > 0 ? FormatAddrErrName($errtype) : "Все")."</b></span>");
+  $zPage->WriteHtml("</tr></table></span>");
   
   if($mapid!="")
   {
