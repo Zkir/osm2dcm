@@ -39,6 +39,8 @@ Dim rsCityPolies As ADODB.Recordset
 Dim rsStreets    As ADODB.Recordset
 Dim rsHouses     As ADODB.Recordset
 
+Dim rsTerritories As ADODB.Recordset
+
 'Оригинальные типы городов
 Const otCity = "0x0300" '-city
 Const otTown = "0x0800"    '-town
@@ -92,16 +94,41 @@ Private Sub Class_Initialize()
   rsCityPolies.Fields.Append RS_CITY_VALID, adInteger
   rsCityPolies.Open
   rsCityPolies(RS_CITY_NAME).Properties("Optimize") = True
+  
+  'Территории, которые используются вместо улиц
+  Set rsTerritories = New ADODB.Recordset
+  rsTerritories.Fields.Append RS_ADDR_STREET, adWChar, 255
+  rsTerritories.Fields.Append RS_ADDR_CITY, adWChar, 255
+  rsTerritories.Open
+  
+  FillPredefinedTerritories
+  
 finalize:
   If Err.Number <> 0 Then
     Err.Raise Err.Number, "ProcessMP", Err.Description & " clsAddrRegistry.Initialize:" & Erl
   End If
 End Sub
 
+
 Private Sub Class_Terminate()
   Set rsHouses = Nothing
   Set rsStreets = Nothing
 End Sub
+
+Private Sub AddPredefinedTerritory(strCity As String, strTerritory As String)
+  rsTerritories.AddNew
+  rsTerritories(RS_ADDR_CITY) = strCity
+  rsTerritories(RS_ADDR_STREET) = strTerritory
+  'rsTerritories.Update
+End Sub
+
+'Cписок наперед известных территорий
+Private Sub FillPredefinedTerritories()
+  AddPredefinedTerritory "Набережные Челны", "Новый город"
+  AddPredefinedTerritory "Набережные Челны", "ГЭС"
+  AddPredefinedTerritory "Набережные Челны", "ЗЯБ"
+End Sub
+
 
 Public Sub AddHouseToRegistry(strHouseNumber As String, _
                               strStreetDesc As String, _
@@ -215,6 +242,15 @@ Public Function CheckStreet(strStreetDesc As String, strCity As String) As Integ
     InStr(LCase$(strStreetDesc), "поселок") Or _
     InStr(LCase$(strStreetDesc), "садоводство") Or _
     InStr(strStreetDesc, "СНТ") Then
+   CheckStreet = steNumberRelatedToTerritory
+   GoTo fin
+ End If
+ 
+ 'Попытаемся найти нашу улицу в списке территорий.
+ rsTerritories.Filter = RS_ADDR_CITY & "= '" & StrForFilter(strCity) & "' AND " & _
+                        RS_ADDR_STREET & "= '" & StrForFilter(strStreetDesc) & "'"
+ 
+ If rsTerritories.RecordCount > 0 Then
    CheckStreet = steNumberRelatedToTerritory
    GoTo fin
  End If
