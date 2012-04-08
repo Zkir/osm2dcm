@@ -382,12 +382,15 @@ Do While Not EOF(1)
   End If
  
   
-  '14
+  '14-1
   'создадим адресный реестр.
   'Дома, или во всяком случае, объекты с номером дома.
   'Const CityNameAttr = "CityIdx"
   Const CityNameAttr = "CityName"
-  If blnDoTests And (oMpSection.SectionType = "[POLYGON]") And (oMpSection.mpType = "0x13") Then
+  If blnDoTests And ( _
+    ((oMpSection.SectionType = "[POLYGON]") And (oMpSection.mpType = "0x13")) Or _
+    ((oMpSection.SectionType = "[POI]") And (oMpSection.mpType = "0x6100")) _
+    ) Then
     If oMpSection.GetAttributeValue("HouseNumber") <> "" Then
       oAddrRegisty.AddHouseToRegistry _
                  Trim$(oMpSection.GetAttributeValue("HouseNumber")), _
@@ -403,6 +406,7 @@ Do While Not EOF(1)
     oMpSection.SetAttributeValue "StreetDesc", oMpSection.mpLabel
   End If
   
+  '14-2
   ' улицы. Так случилось что в СитиГиде дома должны быть привязаны
   ' к *Рутинговым* улицам
   If blnDoTests And oMpSection.SectionType = "[POLYLINE]" Then
@@ -421,6 +425,18 @@ Do While Not EOF(1)
                  
     End If
   End If
+  
+  '14-3
+  'Территории, по которым может вестись адресация.
+  If blnDoTests Then
+    If (oMpSection.SectionType = "[POI]") And (oMpSection.mpType = "0x1F00" Or oMpSection.mpType = "0x1F01") Then
+    
+      oAddrRegisty.AddAddrTerritoryToRegistry _
+                    Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
+                    Trim$(oMpSection.mpLabel)
+    End If
+  End If
+  
   
   '15
   'Добавим улицу в тест рутинга

@@ -115,18 +115,19 @@ Private Sub Class_Terminate()
   Set rsStreets = Nothing
 End Sub
 
-Private Sub AddPredefinedTerritory(strCity As String, strTerritory As String)
-  rsTerritories.AddNew
-  rsTerritories(RS_ADDR_CITY) = strCity
-  rsTerritories(RS_ADDR_STREET) = strTerritory
-  'rsTerritories.Update
+Public Sub AddAddrTerritoryToRegistry(strCity As String, strTerritoryName As String)
+  If strCity <> "" Then
+    rsTerritories.AddNew
+    rsTerritories(RS_ADDR_CITY) = strCity
+    rsTerritories(RS_ADDR_STREET) = strTerritoryName
+  End If
 End Sub
 
 'Cписок наперед известных территорий
 Private Sub FillPredefinedTerritories()
-  AddPredefinedTerritory "Набережные Челны", "Новый город"
-  AddPredefinedTerritory "Набережные Челны", "ГЭС"
-  AddPredefinedTerritory "Набережные Челны", "ЗЯБ"
+  AddAddrTerritoryToRegistry "Набережные Челны", "Новый город"
+  AddAddrTerritoryToRegistry "Набережные Челны", "ГЭС"
+  AddAddrTerritoryToRegistry "Набережные Челны", "ЗЯБ"
 End Sub
 
 
