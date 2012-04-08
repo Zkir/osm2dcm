@@ -54,11 +54,8 @@ End Sub
 
 Public Sub PrintErrorsToXML(FileNumber As Integer)
  rsMPStat.Filter = adFilterNone
- rsMPStat.Sort = RS_STAT_TOTAL_SIZE & " desc"
+ rsMPStat.Sort = RS_STAT_KIND & " asc ," & RS_STAT_TYPE & " asc"
   Print #FileNumber, "<Statistics>"
-  'Print #FileNumber, "<Summary>"
-  'Print #FileNumber, "  <NumberOfBreaks>" & rsCoastLineBreaks.RecordCount & "</NumberOfBreaks>"
-  'Print #FileNumber, "</Summary>"
   
   Do While Not rsMPStat.EOF
     Print #FileNumber, "  <Type>"
