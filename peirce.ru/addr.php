@@ -165,8 +165,8 @@ if ($errtype=="")
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
                   <td>'.TestX($xml1->summary->total,5).'</td>
-                  <td><a href="#hwconstr_chk">список</a></td>
-                  <td></td>
+                  <td><a href="#hwconstr_chk">список</a></td> 
+                  <td><a href="/qa/'.$mapid.'/hwc-map">на карте</a></td>
                 </tr>
                 
                 <tr><td><b>Рутинговый граф</b></td></tr>
@@ -420,8 +420,10 @@ if ($errtype=="")
   $zPage->WriteHtml('<p>В этом разделе показываются строящиеся дороги, ожидаемая дата открытия которых уже наступила, дороги которые проверялись слишком давно,
                     а так же дороги, дата проверки или дата открытия которых нераспознанны. </p>');
   $zPage->WriteHtml("<p>Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 года должно быть записано как 2012-03-29<p/>" );
-  //$zPage->WriteHtml('<p><b><a href="/qq-map.php?mapid='.$mapid.'&test=rd">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
+  
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/hwc-map">Посмотреть просроченные дороги на карте</a></b></p>');
 
+  
  if ($xml1->summary->total>0)
  {
   $zPage->WriteHtml("<p><small>Таблица сортируется. Достаточно щелкнуть по заголовку столбца</small><p/>" );
@@ -611,7 +613,7 @@ function PrintAddressesSummary($mode)
           $zPage->WriteHtml( '<td>'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</td>');
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/rd-map">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
-          $zPage->WriteHtml( '<td>'.$N_hwc.'</td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/hwc-map">'.$N_hwc.'</a></td>');
           //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
@@ -677,7 +679,7 @@ function PrintQASummary($mode)
           $zPage->WriteHtml( '<td width="80px">'.$item->code.'</td>');
           $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
-          $zPage->WriteHtml( '<td>'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
 
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->HousesWOCities.'</td>' );
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
@@ -691,7 +693,7 @@ function PrintQASummary($mode)
           $zPage->WriteHtml('<td>'.$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges."</td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/rd-map">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
-          $zPage->WriteHtml( '<td>'.$N_hwc.'</td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/hwc-map">'.$N_hwc.'</a></td>');
           //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');

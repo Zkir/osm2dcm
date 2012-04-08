@@ -13,24 +13,39 @@ include("ZSitePage.php");
   $test=@$_GET['test'];
   $errtype=@$_GET['errtype'];
 
-  $zPage->WriteHtml( "<h1>Дубликаты рутинговых ребер</h1>");
-  $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
-  $zPage->WriteHtml('<p>На этой странице показываются дубликаты рутинговых ребер. Дубликаты рутинговых ребер мешают
-  	                 прокладке маршрутов и расстановке запретов поворотов. <a href="http://peirce.gis-lab.info/blog/16019">Подробнее...</a> 
-                    </p>');
+  switch ($test){
+  case "rd":
+    $zPage->WriteHtml( "<h1>Дубликаты рутинговых ребер</h1>");
+    $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
+    $zPage->WriteHtml('<p>На этой странице показываются дубликаты рутинговых ребер. Дубликаты рутинговых ребер мешают
+  	                   прокладке маршрутов и расстановке запретов поворотов. <a href="http://peirce.gis-lab.info/blog/16019">Подробнее...</a> 
+                      </p>');
   
-  $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
   
   
   
-  if($mapid!="")
-  {
-    PrintMap($mapid,$errtype);
+    if($mapid!="")
+    {
+      PrintMap($mapid,$errtype);
+    }
+    else
+    {
+      PrintMap("RU-SPO","");    
+    }
+  break;
+  case "hwc":
+    $zPage->WriteHtml('<h1>Просроченные перекрытия дорог ('.$mapid.') </h1>');
+    $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
+    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+    
+    PrintMapAlt($mapid,$errtype);
+    break;
+  default: 
+    $zPage->WriteHtml('<p>Неизвестный тест.</p>');
   }
-  else
-  {
-    PrintMap("RU-SPO","");    
-  }
+
+
 
  $zPage->Output("1");
 
@@ -42,21 +57,33 @@ function PrintMap($mapid,$errtype)
 {
   global $zPage;
   $zPage->WriteHtml('
-  <div id="cm-example" style="width: 100%; height: 600px"></div> 
-  <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script> 
+    <div id="cm-example" style="width: 100%; height: 600px"></div> 
+    <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script> 
 	   
-  <script type="text/javascript" src="/js/qq-map.js"> </script> 
-  <script type="text/javascript">
-      ProcessMap("/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
-   </script> 
-  <iframe id="ttt" src="" style="display:none;"></iframe>');
+    <script type="text/javascript" src="/js/qa-map.js"> </script> 
+    <script type="text/javascript">
+       ProcessMap("rd","/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
+    </script> 
+    <iframe id="ttt" src="" style="display:none;"></iframe>');
    
  
 }
-	
 
-
-
+function PrintMapAlt($mapid,$errtype)
+{
+  global $zPage;
+  $zPage->WriteHtml('
+    <div id="cm-example" style="width: 100%; height: 600px"></div> 
+    <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script> 
+	   
+    <script type="text/javascript" src="/js/qa-map.js"> </script> 
+    <script type="text/javascript">
+       ProcessMap("hwc","/ADDR_CHK/'.$mapid.'.hwconstr_chk.xml","'.$errtype.'");
+    </script> 
+    <iframe id="ttt" src="" style="display:none;"></iframe>');
+   
+ 
+}
 
 
 ?>
