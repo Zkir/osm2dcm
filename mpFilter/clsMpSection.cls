@@ -128,6 +128,8 @@ End Sub
 Public Sub WriteSection()
 Dim i As Integer
 
+'rsAttributes.Sort = RS_ATTR_NAME
+
 Select Case SectionType
   Case "COMMENT":
     For i = 0 To nComments - 1
