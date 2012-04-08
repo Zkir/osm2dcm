@@ -22,6 +22,10 @@ RewriteRule ^qa/([a-zA-Z0-9_-]+)/routing-map$ routing-map.php?mapid=$1
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/routing-map/([0-4])$ routing-map.php?mapid=$1&level=$2
 
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/rd-map$ qq-map.php?mapid=$1&test=rd
+RewriteRule ^qa/([a-zA-Z0-9_-]+)/hwc-map$ qq-map.php?mapid=$1&test=hwc
 
 
+RewriteRule ^daily$ daily.php
+RewriteRule ^misc_maps$  misc.php
+RewriteRule ^stat$  stat.php
 RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
