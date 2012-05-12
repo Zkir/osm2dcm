@@ -21,9 +21,9 @@ Dim X() As Double
 Dim Y() As Double
 
 Dim textline As String
-Dim i As Integer
-Dim j As Integer
-Dim N As Integer
+Dim i As Long
+Dim j As Long
+Dim N As Long
 Dim strTmp() As String
 Dim s As Double
 Dim dS As Double
@@ -56,9 +56,13 @@ ReDim Preserve Y(100000)
   Loop While Trim(textline) <> "END"
   Line Input #1, textline
   
+  If Trim(textline) = "" Then
+    Line Input #1, textline
+  End If
+  
   'ќжидаем конец файла
   If Trim(textline) <> "END" Then
-    Err.Raise vbObjectError, "", "File is not finished!"
+    Err.Raise vbObjectError, "", "Poly-file is not finished!"
   End If
   
 Close #1

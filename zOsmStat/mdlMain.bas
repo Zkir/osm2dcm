@@ -5,7 +5,7 @@ Dim N  As Long
 Dim M14  As Long
 Dim M100  As Long
 Dim M365  As Long
-Dim AvgAge As Long
+Dim AvgAge As Variant
 Dim NUsers As Long
 Dim dtLastEditDate As Date
 
@@ -13,8 +13,12 @@ Public Const NULL_DATE = "1900-1-1"
 
 
 
-'
-Const PATH_TO_POLY = "d:\OSM\osm2dcm\poly\"
+'pathes
+Const PATH_TO_POLY = "D:\OSM\osm2dcm\poly\"
+Const PATH_TO_OSM = "D:\osm\osm2dcm\_my\"
+'Const PATH_TO_POLY = "O:\osm2dcm\poly\"
+'Const PATH_TO_OSM = "O:\osm2dcm\_my\"
+
 
 Public Function ConvertFromXMLDate(ByVal strDate As String) As Date
   Dim dtTime As Date
@@ -57,7 +61,7 @@ On Error GoTo finalize
   M14 = 0
   M100 = 0
   M365 = 0
-  AvgAge = 0
+  AvgAge = CDec(0)
   dtLastEditDate = NULL_DATE
   
   Set colUsers = New Collection
@@ -78,7 +82,7 @@ On Error GoTo finalize
     
     If dtDate <> NULL_DATE Then
       N = N + 1
-      AvgAge = AvgAge + (dtCurrentDate - dtDate)
+      AvgAge = AvgAge + Int(dtCurrentDate - dtDate)
       If dtDate > dtCurrentDate - 14 Then
         M14 = M14 + 1
         'Добавим пользователя в коллекцию
@@ -230,7 +234,7 @@ Public Sub Main1(strMapID As String, strMapName As String)
  LoadStatRS rsStat
 
  'ProcessMap rsStat, strMapID, strMapName, "d:\osm\osm2dcm\_my\" & strMapID & "\final.full.osm"
- ProcessMap rsStat, strMapID, strMapName, "d:\osm\osm2dcm\_my\" & strMapID & "\final.osm"
+ ProcessMap rsStat, strMapID, strMapName, PATH_TO_OSM & strMapID & "\final.osm"
  
  SaveStatisticsToXml rsStat, "d:\OSM\osm2dcm\statistics.xml"
  

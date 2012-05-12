@@ -1,6 +1,6 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\system32\stdole2.tlb#OLE Automation
-Reference=*\G{2A75196C-D9EB-4129-B803-931327F72D5C}#2.8#0#C:\Program Files\Common Files\System\ado\msado28.tlb#Microsoft ActiveX Data Objects 2.8 Library
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{2A75196C-D9EB-4129-B803-931327F72D5C}#2.8#0#C:\Program Files (x86)\Common Files\System\ado\msado28.tlb#Microsoft ActiveX Data Objects 2.8 Library
 Module=mdlMain; mdlMain.bas
 Module=mdlSqure; mdlSqure.bas
 Class=zXMLNode; zXMLNode.cls
@@ -9,7 +9,7 @@ Startup="Sub Main"
 HelpFile=""
 Title="zOsmStat"
 ExeName32="zOsmStat.exe"
-Command32="RU-KC "Карачаево-черкессия""
+Command32="SK-FULL "Эстония""
 Name="zOsmStat"
 HelpContextID="0"
 CompatibleMode="0"
