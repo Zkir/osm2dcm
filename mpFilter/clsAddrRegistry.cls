@@ -125,9 +125,16 @@ End Sub
 
 'Cписок наперед известных территорий
 Private Sub FillPredefinedTerritories()
+
+  AddAddrTerritoryToRegistry "Москва", "Ленинские Горы"
+  AddAddrTerritoryToRegistry "Дубнево", "ЛПХ Искра"
+  AddAddrTerritoryToRegistry "Зеленоград", "деревня Кутузово"
+  
+  
   AddAddrTerritoryToRegistry "Набережные Челны", "Новый город"
   AddAddrTerritoryToRegistry "Набережные Челны", "ГЭС"
   AddAddrTerritoryToRegistry "Набережные Челны", "ЗЯБ"
+  
 End Sub
 
 
@@ -227,8 +234,14 @@ Public Function CheckStreet(strStreetDesc As String, strCity As String) As Integ
  
  'Продолжаем искать дальше
  ' Улица может номероваться в рамках населенного пункта или квартала.
+ 
  ' Название улицы равно названию города
  If strCity = strStreetDesc Then
+   CheckStreet = steNumberRelatedToTerritory
+   GoTo fin
+ End If
+ 
+ If "деревня " & strCity = strStreetDesc Then
    CheckStreet = steNumberRelatedToTerritory
    GoTo fin
  End If
@@ -236,13 +249,13 @@ Public Function CheckStreet(strStreetDesc As String, strCity As String) As Integ
  'Название "улицы" содержит слово "микрорайон" или поселок.
  'Эта проверка предшествует поиску в "негородских" улицах, потому что есть особое извращение присваивать
  ' названия микрорайонов дворовым проездам. hw=service
- strStreetDesc = LCase$(strStreetDesc)
+ '####### strStreetDesc = LCase$(strStreetDesc) - очень странная строчка
  If InStr(LCase$(strStreetDesc), "микрорайон") <> 0 Or _
     InStr(LCase$(strStreetDesc), "мкрн.") <> 0 Or _
-    InStr(LCase$(strStreetDesc), "квартал") Or _
-    InStr(LCase$(strStreetDesc), "поселок") Or _
-    InStr(LCase$(strStreetDesc), "садоводство") Or _
-    InStr(strStreetDesc, "СНТ") Then
+    InStr(LCase$(strStreetDesc), "квартал") <> 0 Or _
+    InStr(LCase$(strStreetDesc), "поселок") <> 0 Or _
+    InStr(LCase$(strStreetDesc), "садоводство") <> 0 Or _
+    Left(strStreetDesc, 3) = "СНТ" Then
    CheckStreet = steNumberRelatedToTerritory
    GoTo fin
  End If

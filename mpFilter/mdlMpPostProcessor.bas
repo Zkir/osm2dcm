@@ -54,7 +54,9 @@ Dim l As Long
   strStreetName = Replace$(strStreetName, " переулок ", " пер. ", , , vbTextCompare)
   strStreetName = Replace$(strStreetName, " проезд ", " пр-д. ", , , vbTextCompare)
   strStreetName = Replace$(strStreetName, " шоссе ", " ш. ", , , vbTextCompare)
-
+  
+  'Убьем пробел перед номером
+  strStreetName = Replace$(strStreetName, " № ", " №", , , vbTextCompare)
    
   'Обтримливание на всякий случай
   strStreetName = Trim$(strStreetName)
@@ -537,7 +539,7 @@ dtEnd = Date + Time
 Open strTargetFileName & "_addr.xml" For Output As #4
   Print #4, "<?xml version=""1.0"" encoding=""windows-1251""?>"
   Print #4, "<QualityReport>"
-  Print #4, " <Date>" & Year(dtCurrentDate) & "-" & Month(dtCurrentDate) & "-" & Day(dtCurrentDate) & "</Date>"
+  Print #4, " <Date>" & FormatXMLDate(dtCurrentDate) & "</Date>"
   Print #4, " <TimeUsed>" & Hour(dtEnd - dtStart) & ":" & Minute(dtEnd - dtStart) & ":" & Second(dtEnd - dtStart) & "</TimeUsed>"
  
   If blnDoTests Then
@@ -602,4 +604,8 @@ Function OSMLevelByTag(Tag As String) As Integer
   
 OSMLevelByTag = intLevel
   
+End Function
+
+Function FormatXMLDate(dtDate As Date) As String
+  FormatXMLDate = Format(Year(dtDate), "0000") & "-" & Format(Month(dtDate), "00") & "-" & Format(Day(dtDate), "00")
 End Function
