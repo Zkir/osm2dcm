@@ -62,7 +62,7 @@ ReDim Preserve Y(100000)
   
   'ќжидаем конец файла
   If Trim(textline) <> "END" Then
-    Err.Raise vbObjectError, "", "Poly-file is not finished!"
+    Err.Raise vbObjectError, "", "Poly-file is not finished! '" & textline & "' instead of 'END'"
   End If
   
 Close #1
