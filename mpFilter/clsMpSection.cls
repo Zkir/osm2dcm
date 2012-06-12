@@ -330,6 +330,28 @@ Dim strData As String
   Next i
 
 End Sub
+Public Sub CalculateFirstLast(lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double)
+Dim coords() As String
+Dim i As Integer
+Dim lat As Double, lon As Double
+Dim strData As String
+  
+  strData = GetAttributeValue("Data0")
+  
+  strData = Replace(strData, "(", "")
+  strData = Replace(strData, ")", "")
+  coords = Split(strData, ",")
+
+  'Первая точка
+  lat1 = coords(0)
+  lon1 = coords(1)
+  lat2 = coords(UBound(coords) - 1)
+  lon2 = coords(UBound(coords))
+  
+  
+
+End Sub
+
 
 'Несколько оптимистичная функция
 'OSM ID содержится в первой строке коментария

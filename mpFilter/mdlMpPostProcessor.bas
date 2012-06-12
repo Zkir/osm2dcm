@@ -85,6 +85,8 @@ Dim oRoutingTest3 As clsRoutingTest
 Dim oSourceErrors As clsSourceErrors
 Dim oStatistic    As clsStatistic
 
+Dim oDanglingRoads As clsDanglingRoads
+
 Dim Size As Double
 Dim strLabel As String
 
@@ -97,6 +99,8 @@ If blnDoTests Then
   Set oRoutingTest1 = New clsRoutingTest
   Set oRoutingTest2 = New clsRoutingTest
   Set oRoutingTest3 = New clsRoutingTest
+  
+  Set oDanglingRoads = New clsDanglingRoads
 End If
 
 Set oSourceErrors = New clsSourceErrors
@@ -168,6 +172,7 @@ Do While Not EOF(1)
   'Убьем слово улица, ул. в названиях улиц
   If oMpSection.SectionType = "[POLYLINE]" Then
     If (oMpSection.mpType >= "0x01" And oMpSection.mpType <= "0x0C") Or _
+        oMpSection.mpType = "0x0a" Or _
         oMpSection.mpType = "0x16" Or oMpSection.mpType = "0x8849" Or oMpSection.mpType = "0x880a" Then
       strLabel = oMpSection.mpLabel
       If strLabel <> "" Then
@@ -446,6 +451,7 @@ Do While Not EOF(1)
 
     If (oMpSection.mpRouteParam <> "") Then
       Dim NodeList() As Long
+      Dim NodeList2() As Long
       Dim NN As Long
       Dim aNode As Long
       Dim strNodeAttr
@@ -456,17 +462,22 @@ Do While Not EOF(1)
       aNode = -1
       NN = 0
       ReDim NodeList(100)
+      ReDim NodeList2(100)
       Do
         strNodeAttr = oMpSection.GetAttributeValue("Nod" & NN)
         If strNodeAttr <> "" Then
           NN = NN + 1
           aNode = Split(strNodeAttr, ",")(1)
           NodeList(NN - 1) = aNode
+          
+          NodeList2(NN - 1) = Split(strNodeAttr, ",")(2)
         End If
         
       Loop Until strNodeAttr = ""
       
       ReDim Preserve NodeList(NN - 1)
+      ReDim Preserve NodeList2(NN - 1)
+      
       'Передается список рутинговых нод, и bbox для данной дороги
       oRoutingTestFull.AddRoad NodeList, lat1, lon1, lat2, lon2
       
@@ -485,6 +496,10 @@ Do While Not EOF(1)
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 3 Then
         oRoutingTest3.AddRoad NodeList, lat1, lon1, lat2, lon2
       End If
+      
+      'Нужно передавать координаты первой и последней вершины
+      oMpSection.CalculateFirstLast lat1, lon1, lat2, lon2
+      oDanglingRoads.AddRoad OSMLevelByTag(oMpSection.GetOsmHighway), NodeList, NodeList2, lat1, lon1, lat2, lon2
                  
     End If
   End If
@@ -525,11 +540,16 @@ Do While Not EOF(1)
 Loop
 Close #1
 Close #2
-'Лог адресов.
+
 If blnDoTests Then
+ 'Лог адресов.
   oAddrRegisty.ValidateCities
   oAddrRegisty.ValidateCitiesReverse
   oAddrRegisty.ValidateHouses
+  
+ 'Висячие дороги
+  oDanglingRoads.Validate
+  
 End If
 'Выведем отчет о проделанной работе в xml
 Dim dtCurrentDate       As Date
@@ -569,9 +589,10 @@ Open strTargetFileName & "_addr.xml" For Output As #4
     
     Print #4, "</RoutingTestByLevel>"
   End If
-  
+  oDanglingRoads.PrintErrorsToXML 4
   oSourceErrors.PrintErrorsToXML 4
   oStatistic.PrintErrorsToXML 4
+  
   
   Print #4, "</QualityReport>"
 
