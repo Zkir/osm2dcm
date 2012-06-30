@@ -15,11 +15,11 @@
            <link>http://peirce.gis-lab.info/qa/'.$MapId.'</link>';
   }
   
-  $xml = simplexml_load_file("statistics.xml");
-  foreach ($xml->mapinfo as $item)
+  $xml = simplexml_load_file("maplist.xml");
+  foreach ($xml->map as $item)
     {
-      if(($MapId==$item->MapId) or ($MapId==''))
-        PrintItem($item->MapId,$item->MapName);
+      if(($MapId==$item->code) or ($MapId==''))
+        PrintItem($item->code,$item->name);
     }
   echo '</channel>
        </rss>';
