@@ -27,11 +27,11 @@ include("ZSitePage.php");
   
     if($mapid!="")
     {
-      PrintMap($mapid,$errtype);
+      PrintMap("rd",$mapid,$errtype);
     }
     else
     {
-      PrintMap("RU-SPO","");    
+      PrintMap("rd","RU-SPO","");    
     }
   break;
   case "hwc":
@@ -39,10 +39,17 @@ include("ZSitePage.php");
     $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
     $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
     
-    PrintMapAlt($mapid,$errtype);
+    PrintMapAlt("hwc", $mapid,$errtype);
     break;
+  case "dnodes":
+    $zPage->WriteHtml('<h1>Тупики магистралей ('.$mapid.') </h1>');
+    $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
+    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+    
+    PrintMap("dnodes", $mapid,$errtype);
+    break;  
   default: 
-    $zPage->WriteHtml('<p>Неизвестный тест.</p>');
+    $zPage->WriteHtml('<p>Неизвестный тест .'.$test.'</p>');
   }
 
 
@@ -53,7 +60,7 @@ include("ZSitePage.php");
      Разные полезные фукции
 ===============================================================================*/
 
-function PrintMap($mapid,$errtype)
+function PrintMap($test, $mapid,$errtype)
 {
   global $zPage;
   $zPage->WriteHtml('
@@ -62,14 +69,14 @@ function PrintMap($mapid,$errtype)
 	   
     <script type="text/javascript" src="/js/qa-map.js"> </script> 
     <script type="text/javascript">
-       ProcessMap("rd","/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
+       ProcessMap("'.$test.'","/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$errtype.'");
     </script> 
     <iframe id="ttt" src="" style="display:none;"></iframe>');
    
  
 }
 
-function PrintMapAlt($mapid,$errtype)
+function PrintMapAlt($test, $mapid,$errtype)
 {
   global $zPage;
   $zPage->WriteHtml('
@@ -78,7 +85,7 @@ function PrintMapAlt($mapid,$errtype)
 	   
     <script type="text/javascript" src="/js/qa-map.js"> </script> 
     <script type="text/javascript">
-       ProcessMap("hwc","/ADDR_CHK/'.$mapid.'.hwconstr_chk.xml","'.$errtype.'");
+       ProcessMap("'.$test.'","/ADDR_CHK/'.$mapid.'.hwconstr_chk.xml","'.$errtype.'");
     </script> 
     <iframe id="ttt" src="" style="display:none;"></iframe>');
    

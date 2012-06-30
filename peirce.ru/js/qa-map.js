@@ -214,6 +214,62 @@ function GetHWCErrorList(XmlFileName)
   
   return EL;
 }
+
+
+//Тупики важных дорог.
+function GetDnodesErrorList(XmlFileName)
+{
+  var EL = [];
+   
+  
+  var xmlhttp = getXmlHttp1();
+  xmlhttp.open('GET', XmlFileName, false);
+  xmlhttp.send(null);
+  if(xmlhttp.status == 200) 
+  {
+    var doc = xmlhttp.responseXML.documentElement;
+   	   
+   	//Проходимся по всем элементам-записям и составляем их репрезентацию
+   	   	   
+    var items = doc.getElementsByTagName("Road");
+   
+    var HouseLat=0;
+    var HouseLon=0;
+    var MyErrType="0";
+    
+  
+    var intLen=0;
+    intLen = items.length;
+  
+    
+    for (var i = 0; i < intLen; i++)
+    {
+	  	  
+	  //Отсчитываем с первого дочернего узла
+	 // var f_child = items[i].firstChild;
+      var f_child = items[i];
+	  	  
+
+          try{
+               	HouseLat= f_child.getElementsByTagName("lat")[0].firstChild.nodeValue;
+               	HouseLon= f_child.getElementsByTagName("lon")[0].firstChild.nodeValue;
+              }
+              catch(err){
+                throw('Координаты точки не заданы');
+              }
+  	  	  //Устанавливаем следующий узел
+	
+      
+      EL.push (new ErrorItem(HouseLat,HouseLon, 'Ошибка топологии: тупик важной дороги'));
+      
+    }//кц по ошибкам
+    	
+  }	//условия удачной загрузки xml
+  else
+    {throw new Error("Unable to load xml file with error list: "+XmlFileName);}
+  
+  return EL;
+}
 //==========================================================================================================================
 // Main function
 //==========================================================================================================================
@@ -247,9 +303,13 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
     case "rd":
       ErrorList=GetRDErrorList(XmlFileName);
       break;
-     case "hwc":
+    case "hwc":
       ErrorList=GetHWCErrorList(XmlFileName);
-      break;  
+      break;
+    case "dnodes":
+      ErrorList=GetDnodesErrorList(XmlFileName);
+      break; 
+        
     default:
       throw new Error("Unknown test: "+TestName);
   }
