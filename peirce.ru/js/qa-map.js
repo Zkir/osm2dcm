@@ -231,7 +231,7 @@ function GetDnodesErrorList(XmlFileName)
    	   
    	//Проходимся по всем элементам-записям и составляем их репрезентацию
    	   	   
-    var items = doc.getElementsByTagName("Road");
+    var items = doc.getElementsByTagName("DeadEnd");
    
     var HouseLat=0;
     var HouseLon=0;
@@ -246,21 +246,32 @@ function GetDnodesErrorList(XmlFileName)
     {
 	  	  
 	  //Отсчитываем с первого дочернего узла
-	 // var f_child = items[i].firstChild;
-      var f_child = items[i];
-	  	  
 
-          try{
-               	HouseLat= f_child.getElementsByTagName("lat")[0].firstChild.nodeValue;
-               	HouseLon= f_child.getElementsByTagName("lon")[0].firstChild.nodeValue;
+      var f_child = items[i].firstChild;
+	  do
+  	  {
+  	  	  
+    	//Выбираем имя узла и в соответствии с этим выполняем необходимое действие
+		switch (f_child.nodeName)
+		{
+			  
+			case "Coord":
+              try{
+               	HouseLat= f_child.getElementsByTagName("Lat")[0].firstChild.nodeValue;
+               	HouseLon= f_child.getElementsByTagName("Lon")[0].firstChild.nodeValue;
               }
               catch(err){
                 throw('Координаты точки не заданы');
               }
+        	  break;
+		}
   	  	  //Устанавливаем следующий узел
-	
+		f_child = f_child.nextSibling;	
+		
+      } while (f_child) ;
       
-      EL.push (new ErrorItem(HouseLat,HouseLon, 'Ошибка топологии: тупик важной дороги'));
+      
+      EL.push (new ErrorItem(HouseLat,HouseLon, 'Ошибка присвоения статуса: тупик важной дороги'));
       
     }//кц по ошибкам
     	

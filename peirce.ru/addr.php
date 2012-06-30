@@ -253,6 +253,13 @@ if ($errtype=="")
                   <td><a href="#rdups">список</a></td>
                   <td><a href="/qa/'.$mapid.'/rd-map">на карте</a></td>
                 </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Тупики важных дорог:</td>
+                  <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
+                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,10).'</td>
+                  <td><a href="#deadends">список</a></td> 
+                  <td><a href="/qa/'.$mapid.'/dnodes-map">на карте</a></td>
+                </tr>
 
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
@@ -450,7 +457,32 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
   $zPage->WriteHtml( '</table>');  
+/*==========================================================================
+                 Тупики важных дорог
+============================================================================*/
+  $zPage->WriteHtml('<a name="deadends"><H2>Тупики важных дорог</H2></a>');
+  $zPage->WriteHtml('<p>'.GetDeadEndsTestDescription().'</p>');
+  $zPage->WriteHtml("<p/>" );
   
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/dnodes-map">Посмотреть тупики важных дорог на карте</a></b></p>');
+
+
+  $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>
+                  <td><b>Название</b></td>
+                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
+                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+         </tr>');
+
+  foreach ($xml->DeadEndsTest->DeadEndList->DeadEnd as $item)
+    {
+        $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '<td>&lt;тупик&gt;</td>');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
+        $zPage->WriteHtml( '</tr>');
+     }
+  $zPage->WriteHtml( '</table>');    
 /*==========================================================================
                  Highway=construction
 ============================================================================*/
@@ -908,6 +940,15 @@ case 6:
 }
 
 return $str;
+}
+
+function GetDeadEndsTestDescription()
+{
+  $str='В этом списке показываются тупики дорог trunk, primary и secondary. Основная идея очень простая: 
+        важная дорога не может просто так заканчиваться, а должна куда-то вести. Тупиковый участок, т.е. участок после последнего перекрестка,
+        по определению не имеет никакого значения, кроме местного. Таким образом тупики - это ошибки присвоения статусов.';	
+  
+  return $str;
 }
 
 ?>
