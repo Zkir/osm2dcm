@@ -28,6 +28,7 @@ Const RS_HAS_HOUSES = "HasHouses"
 'Города
 Const RS_CITY_NAME = "Name"
 Const RS_CITY_POPULATION = "Population"
+Const RS_CITY_POPULATION_MISSING = "PopulationMissing"
 Const RS_CITY_COORDS = "Coords"
 Const RS_CITY_VALID = "Valid"
 Const RS_CITY_URBANTYPE = "UrbanType"
@@ -92,6 +93,7 @@ Private Sub Class_Initialize()
   Set rsCities = New ADODB.Recordset
   rsCities.Fields.Append RS_CITY_NAME, adWChar, 255
   rsCities.Fields.Append RS_CITY_POPULATION, adInteger
+  rsCities.Fields.Append RS_CITY_POPULATION_MISSING, adInteger
   rsCities.Fields.Append RS_CITY_COORDS, adWChar, 255
   rsCities.Fields.Append RS_CITY_VALID, adInteger
   rsCities.Fields.Append RS_CITY_ORIGTYPE, adWChar, 255
@@ -344,9 +346,10 @@ Public Sub ValidateCities()
  Do While Not rsCities.EOF
    'population
    'Будем требовать population только для city и town
+   rsCities(RS_CITY_POPULATION_MISSING).Value = 0
    If ((rsCities(RS_CITY_ORIGTYPE).Value = otCity) Or (rsCities(RS_CITY_ORIGTYPE).Value = otTown)) Then
-     If (rsCities(RS_CITY_POPULATION).Value = 0) Then
-       rsCities(RS_CITY_POPULATION).Value = -1
+     If (rsCities(RS_CITY_POPULATION).Value = -1) Then
+       rsCities(RS_CITY_POPULATION_MISSING).Value = 1
      End If
    End If
    
@@ -449,7 +452,7 @@ Public Sub PrintRegistryToXML()
   End If
     
   'Число городов без населения
-  rsCities.Filter = RS_CITY_POPULATION & "=-1"
+  rsCities.Filter = RS_CITY_POPULATION_MISSING & "=1"
   intCitiesWOPopulation = rsCities.RecordCount
     
   'Число городов без полигональных границ
@@ -490,7 +493,7 @@ Public Sub PrintRegistryToXML()
   'Города без населения
   Print #4, "<CitiesWithoutPopulation>"
   rsCities.Sort = RS_CITY_NAME
-  rsCities.Filter = RS_CITY_POPULATION & "=-1"
+  rsCities.Filter = RS_CITY_POPULATION_MISSING & "=1"
   Do While Not rsCities.EOF
     Print #4, "<City>"
     Print #4, " <City>" & MakeXmlString(rsCities(RS_CITY_NAME).Value) & "</City>"

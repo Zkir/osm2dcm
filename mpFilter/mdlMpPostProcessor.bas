@@ -266,7 +266,7 @@ Do While Not EOF(1)
       If IsNumeric(strPopulation) Then
         intPopulation = strPopulation
       Else
-        intPopulation = 0
+        intPopulation = -1
         If Trim$(strPopulation) <> "" Then
           Print #3, "unparsed population value: " & strPopulation
         End If
