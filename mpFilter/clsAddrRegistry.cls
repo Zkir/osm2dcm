@@ -34,10 +34,11 @@ Const RS_CITY_URBANTYPE = "UrbanType"
 Const RS_CITY_ORIGTYPE = "OrigType"
 
 'Рекордсеты с данными
-Dim rsCities     As ADODB.Recordset
-Dim rsCityPolies As ADODB.Recordset
-Dim rsStreets    As ADODB.Recordset
-Dim rsHouses     As ADODB.Recordset
+Dim rsCities            As ADODB.Recordset
+Dim rsCityPolies        As ADODB.Recordset
+Dim rsStreets           As ADODB.Recordset 'Это рекордсет с улицами (обобщенными).
+Dim rsStreetSegments    As ADODB.Recordset 'А это рекордсет с сегментами улиц.
+Dim rsHouses            As ADODB.Recordset
 
 Dim rsTerritories As ADODB.Recordset
 
@@ -78,6 +79,15 @@ Private Sub Class_Initialize()
   rsStreets(RS_ADDR_STREET).Properties("Optimize") = True
   rsStreets(RS_ADDR_CITY).Properties("Optimize") = True
   
+  
+  'Сегменты улиц (вне пределов НП)
+  Set rsStreetSegments = New ADODB.Recordset
+  rsStreetSegments.Fields.Append RS_ADDR_STREET, adWChar, 255
+  rsStreetSegments.Fields.Append RS_ADDR_CITY, adWChar, 255
+  rsStreetSegments.Fields.Append RS_ADDR_COORDS, adWChar, 255
+  rsStreetSegments.Open
+
+  
   'Города
   Set rsCities = New ADODB.Recordset
   rsCities.Fields.Append RS_CITY_NAME, adWChar, 255
@@ -113,6 +123,7 @@ End Sub
 Private Sub Class_Terminate()
   Set rsHouses = Nothing
   Set rsStreets = Nothing
+  Set rsStreetSegments = Nothing
 End Sub
 
 Public Sub AddAddrTerritoryToRegistry(strCity As String, strTerritoryName As String)
@@ -148,9 +159,12 @@ Public Sub AddHouseToRegistry(strHouseNumber As String, _
  rsHouses(RS_ADDR_HOUSENUMER).Value = strHouseNumber
  rsHouses(RS_ADDR_COORDS).Value = strCoords
 End Sub
-Public Sub AddStreetToRegistry(strStreetDesc As String, strCity As String, blnRoutable As Boolean, strCoords As String)
+Public Sub AddStreetToRegistry(strStreetDesc As String, strCity As String, _
+                               blnRoutable As Boolean, strCoords As String, blnShouldBeInCity As Boolean)
 Dim varFilter
 
+'Именованные улицы, к которым привязываются дома
+If strStreetDesc <> "" Then
  varFilter = rsStreets.Filter
 ' Debug.Print strCity, strStreetDesc
  rsStreets.Filter = RS_ADDR_CITY & "= '" & StrForFilter(strCity) & "' AND " & _
@@ -169,6 +183,18 @@ Dim varFilter
    rsStreets(RS_ROUTABLE).Value = 1
  End If
  rsStreets.Filter = varFilter
+
+ 
+'Улицы за пределами населенных пунктов
+ If blnShouldBeInCity And blnRoutable And strCity = "" Then
+   rsStreetSegments.AddNew
+   rsStreetSegments(RS_ADDR_CITY).Value = strCity
+   rsStreetSegments(RS_ADDR_STREET).Value = strStreetDesc
+   rsStreetSegments(RS_ADDR_COORDS).Value = strCoords
+ End If
+ 
+End If
+ 
 End Sub
 
 'Добавление города, как границ, так и точки
@@ -378,6 +404,9 @@ Public Sub PrintRegistryToXML()
   Dim intCitiesWOPopulation As Long
   Dim intCitiesWOBounds   As Long
   Dim intCitiesWONodes    As Long
+  
+  Dim intStreetsOutsideCities As Long
+  
   Dim dblErrorRate        As Double
   Dim lat                 As String
   Dim lon                 As String
@@ -430,6 +459,11 @@ Public Sub PrintRegistryToXML()
   'Число городов без точек
   rsCityPolies.Filter = RS_CITY_VALID & "=0"
   intCitiesWONodes = rsCityPolies.RecordCount
+  
+  'Число улиц за пределами НП
+  rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
+  intStreetsOutsideCities = rsStreetSegments.RecordCount
+  
   Print #4, "<AddressTest>"
   
   Print #4, "<Summary>"
@@ -446,6 +480,9 @@ Public Sub PrintRegistryToXML()
   Print #4, " <CitiesWithoutPopulation>" & intCitiesWOPopulation & "</CitiesWithoutPopulation>"
   Print #4, " <CitiesWithoutPlacePolygon>" & intCitiesWOBounds & "</CitiesWithoutPlacePolygon>"
   Print #4, " <CitiesWithoutPlaceNode>" & intCitiesWONodes & "</CitiesWithoutPlaceNode>"
+  
+  Print #4, " <StreetsOutsideCities>" & intStreetsOutsideCities & "</StreetsOutsideCities>"
+  
   Print #4, " <ErrorRate>" & dblErrorRate & "</ErrorRate>"
   
   Print #4, "</Summary>"
@@ -521,25 +558,24 @@ Public Sub PrintRegistryToXML()
   
   Print #4, "</AddressErrorList>"
   
-  Print #4, "<StreetErrors>"
-  'Это, видимо, улицы, по которым есть дома, но которые не связаны с НП
-  rsStreets.Filter = RS_ADDR_CITY & "= '' AND " & _
-                     RS_HAS_HOUSES & "<> '0'"
-  Do While Not rsStreets.EOF
+  'Улицы, оказавшиеся почему-то за пределами НП
+  Print #4, "<StreetsOutsideCities>"
+  
+  rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
+  Do While Not rsStreetSegments.EOF
     Print #4, "<Street>"
-    Print #4, " <ErrType>1</ErrType>"
-    Print #4, " <City>" & MakeXmlString(rsStreets(RS_ADDR_CITY).Value) & "</City>"
-    Print #4, " <Street>" & MakeXmlString(rsStreets(RS_ADDR_STREET).Value) & "</Street>"
-    Print #4, " <Routable>" & MakeXmlString(rsStreets(RS_ROUTABLE).Value) & "</Routable>"
+   ' Print #4, " <ErrType>1</ErrType>"
+   ' Print #4, " <City>" & MakeXmlString(rsStreetSegments(RS_ADDR_CITY).Value) & "</City>"
+    Print #4, " <Street>" & MakeXmlString(rsStreetSegments(RS_ADDR_STREET).Value) & "</Street>"
     Print #4, " <Coord>"
-    GetLatLon lat, lon, rsStreets(RS_ADDR_COORDS).Value
-    Print #4, "   <lat>" & lat & "</lat>"
-    Print #4, "   <lon>" & lon & "</lon>"
+    GetLatLon lat, lon, rsStreetSegments(RS_ADDR_COORDS).Value
+    Print #4, "   <Lat>" & lat & "</Lat>"
+    Print #4, "   <Lon>" & lon & "</Lon>"
     Print #4, " </Coord>"
     Print #4, "</Street>"
-    rsStreets.MoveNext
+    rsStreetSegments.MoveNext
   Loop
-  Print #4, "</StreetErrors>"
+  Print #4, "</StreetsOutsideCities>"
   Print #4, "</AddressTest>"
 End Sub
 

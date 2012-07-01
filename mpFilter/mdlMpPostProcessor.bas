@@ -23,20 +23,22 @@ End Function
 'Будем также считать что секция состоит из атрибутов
 'Name = Value
 
-Private Function NormalizeStreetName(ByVal strStreetName As String) As String
+Public Function NormalizeStreetName(ByVal strStreetName As String, ByVal blnKillUl As Boolean) As String
 Dim l As Long
-
-  'улица убивается в начале и в конце названия.
-  ' в средине пока не будем
   strStreetName = Trim$(strStreetName)
-  
+   
+ 
   l = Len(strStreetName)
-  If LCase(Left(strStreetName, 5)) = "улица" Then strStreetName = Right(strStreetName, l - 5)
-  If LCase(Left(strStreetName, 3)) = "ул." Then strStreetName = Right(strStreetName, l - 3)
+  If blnKillUl Then
+    
+    If LCase(Left(strStreetName, 5)) = "улица" Then strStreetName = Right(strStreetName, l - 5)
+    If LCase(Left(strStreetName, 3)) = "ул." Then strStreetName = Right(strStreetName, l - 3)
   
-  If LCase(Right(strStreetName, 5)) = "улица" Then strStreetName = Left(strStreetName, l - 5)
-  If LCase(Right(strStreetName, 3)) = "ул." Then strStreetName = Left(strStreetName, l - 3)
-  
+    If LCase(Right(strStreetName, 5)) = "улица" Then strStreetName = Left(strStreetName, l - 5)
+    If LCase(Right(strStreetName, 3)) = "ул." Then strStreetName = Left(strStreetName, l - 3)
+    
+    
+  End If
   
   'Применим сокращения
   '
@@ -54,12 +56,23 @@ Dim l As Long
   strStreetName = Replace$(strStreetName, " переулок ", " пер. ", , , vbTextCompare)
   strStreetName = Replace$(strStreetName, " проезд ", " пр-д. ", , , vbTextCompare)
   strStreetName = Replace$(strStreetName, " шоссе ", " ш. ", , , vbTextCompare)
+  strStreetName = Replace$(strStreetName, " улица ", " ул. ", , , vbTextCompare)
   
   'Убьем пробел перед номером
   strStreetName = Replace$(strStreetName, " № ", " №", , , vbTextCompare)
    
   'Обтримливание на всякий случай
   strStreetName = Trim$(strStreetName)
+  
+  ' статусная часть переносится в конец
+  If Not blnKillUl Then
+    l = Len(strStreetName)
+    If LCase(Left(strStreetName, 3)) = "ул." Then strStreetName = Right(strStreetName, l - 3) + " ул."
+    'If LCase(Left(strStreetName, 3)) = "пр." Then strStreetName = Right(strStreetName, l - 3) + " пр."
+  End If
+  
+  strStreetName = Trim$(strStreetName)
+  
   NormalizeStreetName = strStreetName
 
 End Function
@@ -172,15 +185,22 @@ Do While Not EOF(1)
   'Убьем слово улица, ул. в названиях улиц
   If oMpSection.SectionType = "[POLYLINE]" Then
     If (oMpSection.mpType >= "0x01" And oMpSection.mpType <= "0x0C") Or _
-        oMpSection.mpType = "0x0a" Or _
+        oMpSection.mpType = "0x0a" Or oMpSection.mpType = "0x0b" Or oMpSection.mpType = "0x0c" Or _
         oMpSection.mpType = "0x16" Or oMpSection.mpType = "0x8849" Or oMpSection.mpType = "0x880a" Then
       strLabel = oMpSection.mpLabel
+      
+      'Это особенная бага osm2mp. StreetDesc нерутинговым улицам не присваевается.
+      'Тем не менее, оригинальное название нам понадобиться для адресного теста.
       If strLabel <> "" Then
-        strLabel = NormalizeStreetName(strLabel)
-        oMpSection.SetAttributeValue "Label", strLabel
-        If oMpSection.GetAttributeValue("StreetDesc") <> "" Then
+        If oMpSection.GetAttributeValue("StreetDesc") = "" Then
           oMpSection.SetAttributeValue "StreetDesc", strLabel
         End If
+      End If
+      
+      'Нормализуем Label
+      If strLabel <> "" Then
+        strLabel = NormalizeStreetName(strLabel, True)
+        oMpSection.SetAttributeValue "Label", strLabel
       End If
     End If
   End If
@@ -190,7 +210,7 @@ Do While Not EOF(1)
   
   strLabel = oMpSection.GetAttributeValue("StreetDesc")
   If strLabel <> "" Then
-    strLabel = NormalizeStreetName(strLabel)
+    strLabel = NormalizeStreetName(strLabel, False)
     oMpSection.SetAttributeValue "StreetDesc", strLabel
   End If
   
@@ -409,18 +429,14 @@ Do While Not EOF(1)
     End If
   End If
   
-  If oMpSection.mpLabel <> "" And (oMpSection.mpType = "0x8849" Or oMpSection.mpType = "0x16") Then
-    oMpSection.SetAttributeValue "StreetDesc", oMpSection.mpLabel
-  End If
-  
+   
   '14-2
-  ' улицы. Так случилось что в СитиГиде дома должны быть привязаны
+  ' Улицы. Так случилось что в СитиГиде дома должны быть привязаны
   ' к *Рутинговым* улицам
   If blnDoTests And oMpSection.SectionType = "[POLYLINE]" Then
 
     If (oMpSection.mpRouteParam <> "" Or _
-        oMpSection.mpType = "0x16" Or oMpSection.mpType = "0x8849") And _
-       ((oMpSection.GetAttributeValue("StreetDesc") <> "")) Then
+        oMpSection.mpType = "0x16" Or oMpSection.mpType = "0x8849") Then
        'And  (oMpSection.GetAttributeValue(CityNameAttr) <> "")
        
       
@@ -428,7 +444,9 @@ Do While Not EOF(1)
                  Trim$(oMpSection.GetAttributeValue("StreetDesc")), _
                  Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
                  (oMpSection.mpRouteParam <> ""), _
-                 oMpSection.GetCoords()
+                 oMpSection.GetCoords(), _
+                 (oMpSection.mpType = "0x6") Or (oMpSection.mpType = "0x06")
+
                  
     End If
   End If
