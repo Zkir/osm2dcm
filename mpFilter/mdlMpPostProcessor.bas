@@ -445,8 +445,9 @@ Do While Not EOF(1)
                  Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
                  (oMpSection.mpRouteParam <> ""), _
                  oMpSection.GetCoords(), _
-                 (oMpSection.mpType = "0x6") Or (oMpSection.mpType = "0x06")
-
+                 (oMpSection.mpType = "0x06") Or (oMpSection.mpType = "0x07")
+      
+      'Примечание. Подразумевается что hw=residential и hw=living_street должны быть внутри городов
                  
     End If
   End If
