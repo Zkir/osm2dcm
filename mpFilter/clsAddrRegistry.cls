@@ -136,17 +136,33 @@ Public Sub AddAddrTerritoryToRegistry(strCity As String, strTerritoryName As Str
   End If
 End Sub
 
-'Cписок наперед известных территорий
+'Cписок наперед известных территорий (фиктивных улиц)
 Private Sub FillPredefinedTerritories()
-
+  
+  'RU-MOS
   AddAddrTerritoryToRegistry "Москва", "Ленинские Горы"
+  AddAddrTerritoryToRegistry "Москва", "Манежная пл."
+  AddAddrTerritoryToRegistry "Москва", "Новоясеневский тупик"
+  
+  
+  
   AddAddrTerritoryToRegistry "Дубнево", "ЛПХ Искра"
   AddAddrTerritoryToRegistry "Зеленоград", "деревня Кутузово"
   
-  
+  'Татарстан
   AddAddrTerritoryToRegistry "Набережные Челны", "Новый город"
   AddAddrTerritoryToRegistry "Набережные Челны", "ГЭС"
   AddAddrTerritoryToRegistry "Набережные Челны", "ЗЯБ"
+  
+  'RU-SPO
+  AddAddrTerritoryToRegistry "Санкт-Петербург", "Канонерский остров"
+  
+  AddAddrTerritoryToRegistry "Ломоносов", "Жилгородок №12"
+  AddAddrTerritoryToRegistry "Ломоносов", "Жилгородок №15"
+  
+  'LV-FULL
+  AddAddrTerritoryToRegistry "Riga", "Gleznotaju iela"
+  AddAddrTerritoryToRegistry "Ogre", "Plavas iela"
   
 End Sub
 
