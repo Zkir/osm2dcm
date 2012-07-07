@@ -28,7 +28,8 @@ function PrintItem($MapId,$MapName){
 	
   $xml = simplexml_load_file(GetXmlFileName($MapId));
   $xml1 = simplexml_load_file(GetHWCXmlFileName($MapId));
-
+  
+  
 	echo '<item>
     <guid>'.$MapId.'/'.$xml->Date.'</guid>
     <title>'.$MapName.'('.$MapId.') - '.$xml->Date.' </title>
@@ -37,10 +38,11 @@ function PrintItem($MapId,$MapName){
     <pubDate>'.$xml->Date.'</pubDate>
     <description>';
     echo '<![CDATA[';
+    
+    $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
+
     WriteHtml('<table>
-              <tr><td>Код карты</td><td><b>'.$MapId.'</b></td></tr>
-              <tr><td>Название</td><td><b>'.$MapName.'</b></td></tr>
-             
+              <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
               </table>
@@ -62,7 +64,17 @@ function PrintItem($MapId,$MapName){
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,0).'</td>
                 </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
+                  <td>'.$xml1->summary->total.'</td>
+                  <td>'.TestX($xml1->summary->total,5).'</td>
+                </tr>
                 <tr><td><b>Рутинговый граф</b></td></tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Число рутинговых ребер :</td>
+                  <td>'.$xml->RoutingTest->Summary->NumberOfRoutingEdges.'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,300000.0).'</td>
+                </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
@@ -91,15 +103,27 @@ function PrintItem($MapId,$MapName){
                 <tr>
                   <td>&nbsp;&nbsp;Дубликаты ребер:</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
-                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,0).'</td>
+                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,5).'</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Тупики важных дорог:</td>
+                  <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
+                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,10).'</td>
                 </tr>
 
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
+                  <td>&nbsp;&nbsp;Доля улиц, несопоставленых НП:</td>
+                  <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
+                  <td>'.TestX(100.00*$UnmatchedStreetsRate,5).'</td>
+                </tr>
+                <tr>
                   <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
-                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,5).'</td></tr>
-              </table>
+                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,5).'</td>
+                </tr>
+              
+                </table>
               <hr/>'  );
   WriteHtml("<H2>Подробности</H2>" );
   WriteHtml("<table>" );
@@ -150,9 +174,15 @@ function GetHWCXmlFileName($mapid)
 function TestX($x,$x0 )
 {
 	if (((float)$x)>((float)$x0))
-	  {	return '<img src="/img/cross.gif" alt= "Допустимо '.$x0.'"  height="25px" />'; }
+	  {	
+	    //return '<img src="/img/cross.gif" alt= "Допустимо '.$x0.'"  height="25px" />';
+	    return '<font color="red">✘</font>';
+	  }
 	else
-	  {	return '<img src="/img/tick.gif" height="25px" />'; }
+	  {	
+	    //return '<img src="/img/tick.gif" height="25px" />';
+	   return '<font color="green">✔</font>';
+	  }
 }
 
 ?>
