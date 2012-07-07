@@ -164,6 +164,8 @@ if ($errtype=="")
 
   	
   $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
+  
+  $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
@@ -263,6 +265,13 @@ if ($errtype=="")
 
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
+                  <td>&nbsp;&nbsp;Доля улиц, несопоставленых НП:</td>
+                  <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
+                  <td>'.TestX(100.00*$UnmatchedStreetsRate,5).'</td>
+                  <td>список</td>
+                  <td>на карте</td>
+                </tr>
+                <tr>
                   <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,5).'</td>
@@ -291,7 +300,8 @@ if ($errtype=="")
   $zPage->WriteHtml("<tr><td align=\"right\"><b>По улицам<b></td><td></td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Всего улиц</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Улиц вне НП:</td><td>".$xml->AddressTest->Summary->StreetsOutsideCities."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых улиц</td><td>".number_format(100.00*(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets),2,'.', ' ')."%</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых улиц</td><td>".number_format(100.00*$UnmatchedStreetsRate ,2,'.', ' ')."%</td></tr>" );
+
 
   $zPage->WriteHtml("</table>" );
   $zPage->WriteHtml("<p/>" );
