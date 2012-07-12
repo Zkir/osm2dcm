@@ -44,7 +44,8 @@ Dim l As Long
   '
   strStreetName = " " & Trim$(strStreetName) & " "
   
-  If Not (ereg(strStreetName, "^ [0-9]+-я Набережная $") Or strStreetName = " Набережная ") Then
+  If Not (ereg(strStreetName, "^ [0-9]+-я Набережная $") Or strStreetName = " Набережная " Or _
+          ereg(strStreetName, "^ [0-9]+-я Набережная улица $") Or strStreetName = " Набережная улица ") Then
     ' названия типа "6-я набережная" не сокращаются, во избежание "6-я наб."
     strStreetName = Replace$(strStreetName, " набережная ", " наб. ", , , vbTextCompare)
   End If
