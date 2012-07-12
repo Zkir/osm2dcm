@@ -519,7 +519,7 @@ Do While Not EOF(1)
       
       'Нужно передавать координаты первой и последней вершины
       oMpSection.CalculateFirstLast lat1, lon1, lat2, lon2
-      oDanglingRoads.AddRoad OSMLevelByTag(oMpSection.GetOsmHighway), NodeList, NodeList2, lat1, lon1, lat2, lon2
+      oDanglingRoads.AddRoad oMpSection.mpType, OSMLevelByTag(oMpSection.GetOsmHighway), NodeList, NodeList2, lat1, lon1, lat2, lon2
                  
     End If
   End If

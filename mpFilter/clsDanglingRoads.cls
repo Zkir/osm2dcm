@@ -28,6 +28,7 @@ Const RS_DANGLING_NODES_ID = "Id"
 Const RS_DANGLING_NODES_LAT = "Lat"
 Const RS_DANGLING_NODES_LON = "Lon"
 Const RS_DANGLING_NODES_LEVEL = "Level"
+Const RS_DANGLING_NODES_HWLINK = "hwlink"
 
 'Полный список вершин.
 Const RS_ALL_NODES_ID = "Id"
@@ -46,6 +47,8 @@ Private Sub Class_Initialize()
   rsDanglingNodes.Fields.Append RS_DANGLING_NODES_LAT, adDouble
   rsDanglingNodes.Fields.Append RS_DANGLING_NODES_LON, adDouble
   rsDanglingNodes.Fields.Append RS_DANGLING_NODES_LEVEL, adInteger
+  rsDanglingNodes.Fields.Append RS_DANGLING_NODES_HWLINK, adInteger
+  
 
   rsDanglingNodes.Open
   'rsDanglingNodes(RS_SUBGRAPH_ID).Properties("Optimize") = True
@@ -65,7 +68,8 @@ finalize:
 End Sub
 
 
-Public Sub AddRoad(intRoadLevel As Integer, _
+Public Sub AddRoad(strMpType As String, _
+                   intRoadLevel As Integer, _
                    NodeList() As Long, _
                    NodeList2() As Long, _
                    lat1 As Double, lon1 As Double, _
@@ -95,6 +99,9 @@ If intRoadLevel <= 2 Then
     rsDanglingNodes(RS_DANGLING_NODES_LAT).Value = lat1
     rsDanglingNodes(RS_DANGLING_NODES_LON).Value = lon1
     rsDanglingNodes(RS_DANGLING_NODES_LEVEL).Value = intRoadLevel
+    
+     'является ли дорога куском развязки
+    rsDanglingNodes(RS_DANGLING_NODES_HWLINK).Value = IIf((strMpType = "0x08") Or (strMpType = "0x0B"), 1, 0)
   End If
   
   If NodeList2(UBound(NodeList)) <> 1 Then
@@ -103,12 +110,17 @@ If intRoadLevel <= 2 Then
     rsDanglingNodes(RS_DANGLING_NODES_LAT).Value = lat2
     rsDanglingNodes(RS_DANGLING_NODES_LON).Value = lon2
     rsDanglingNodes(RS_DANGLING_NODES_LEVEL).Value = intRoadLevel
+    
+    'является ли дорога куском развязки
+    rsDanglingNodes(RS_DANGLING_NODES_HWLINK).Value = IIf((strMpType = "0x08") Or (strMpType = "0x0B"), 1, 0)
   End If
 End If
 
 End Sub
 
 Public Sub Validate()
+
+rsDanglingNodes.Filter = adFilterNone
 If rsDanglingNodes.RecordCount > 0 Then
   rsDanglingNodes.MoveFirst
   Do While Not rsDanglingNodes.EOF
@@ -124,8 +136,8 @@ End Sub
 
 
 Public Sub PrintErrorsToXML(FileNumber As Integer)
- rsDanglingNodes.Filter = adFilterNone
- 
+ 'rsDanglingNodes.Filter = adFilterNone
+ rsDanglingNodes.Filter = RS_DANGLING_NODES_HWLINK & "=" & 0
  Print #FileNumber, "<DeadEndsTest>"
  Print #FileNumber, "<Summary>"
  Print #FileNumber, "  <NumberOfDeadEnds>" & rsDanglingNodes.RecordCount & "</NumberOfDeadEnds>"
