@@ -24,6 +24,7 @@ Const RS_SUBGRAPH_LAT1 = "Lat1"
 Const RS_SUBGRAPH_LON1 = "Lon1"
 Const RS_SUBGRAPH_LAT2 = "Lat2"
 Const RS_SUBGRAPH_LON2 = "Lon2"
+Const RS_SUBGRAPH_HAS_EXTNODES = "HasExternalNodes"
 
 'Вершины
 Const RS_NODE_ID = "Id"
@@ -49,6 +50,8 @@ Private Sub Class_Initialize()
   rsSubGraph.Fields.Append RS_SUBGRAPH_LON1, adDouble
   rsSubGraph.Fields.Append RS_SUBGRAPH_LAT2, adDouble
   rsSubGraph.Fields.Append RS_SUBGRAPH_LON2, adDouble
+  rsSubGraph.Fields.Append RS_SUBGRAPH_HAS_EXTNODES, adBoolean
+  
     
   rsSubGraph.Open
   rsSubGraph(RS_SUBGRAPH_ID).Properties("Optimize") = True
@@ -99,12 +102,18 @@ End Sub
 'В идеале должен быть один подграф. Практически может быть несколько (какие-нибудь карты островов).
 ' В любом случае подграфы с несколькими (до десятка) ребрами суть ошибки.
 '
-Public Sub AddRoad(NodeList() As Long, _
+' NodeList() - список айдишников рутинговых вершин
+' NodeExtrAttrList() - 0 для обычной вершины и 1 для внешней (которая соединяется с чем-то за пределами карты)
+' Подграф, содержащий внешние вершины, не является вполне изолированным.
+Public Sub AddRoad(NodeList() As Long, NodeExtrAttrList() As Long, _
                    lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double)
 Dim i As Integer
 Dim N As Long ' число найденных подграфов
 Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
+Dim blnHasExternalNodes As Boolean
+
   N = 0
+  blnHasExternalNodes = False
   For i = LBound(NodeList) To UBound(NodeList)
     rsNodes.Filter = RS_NODE_ID & "=" & NodeList(i)
     If rsNodes.RecordCount > 1 Then
@@ -114,6 +123,10 @@ Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
       'Подграф найден
       N = N + 1
       SubGraphs(N) = rsNodes(RS_NODE_SUBGRAPH).Value
+    End If
+    
+    If NodeExtrAttrList(i) = 1 Then
+      blnHasExternalNodes = True
     End If
   Next i
   
@@ -127,7 +140,7 @@ Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
     rsSubGraph(RS_SUBGRAPH_LON1).Value = lon1
     rsSubGraph(RS_SUBGRAPH_LAT2).Value = lat2
     rsSubGraph(RS_SUBGRAPH_LON2).Value = lon2
-    
+    rsSubGraph(RS_SUBGRAPH_HAS_EXTNODES).Value = blnHasExternalNodes
         
     N = 1
     SubGraphs(1) = rsSubGraph(RS_SUBGRAPH_ID).Value
@@ -156,6 +169,9 @@ Dim SubGraphs(10000) As Long '  найденные подграфы (1..N)
   If lat2 > rsSubGraph(RS_SUBGRAPH_LAT2).Value Then rsSubGraph(RS_SUBGRAPH_LAT2).Value = lat2
   If lon2 > rsSubGraph(RS_SUBGRAPH_LON2).Value Then rsSubGraph(RS_SUBGRAPH_LON2).Value = lon2
   
+  'Если в данной дороге есть внешняя нода, значит во всем подграфе есть внешняя нода.
+  If blnHasExternalNodes Then rsSubGraph(RS_SUBGRAPH_HAS_EXTNODES).Value = True
+  
   'Общее число дорог так же увеличивается.
   
   NTotalRoads = NTotalRoads + 1
@@ -172,6 +188,7 @@ End Sub
 Private Sub MergeSubGraphs(ByVal intGraph1ID As Long, ByVal intGraph2ID As Long)
 Dim Nroads As Long
 Dim lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double
+Dim blnHasExternalNodes As Boolean
 Dim varNodeFilter
 Dim varSGFilter
   'Число ребер в первом подграфе увеличивается
@@ -187,6 +204,7 @@ Dim varSGFilter
     lon1 = rsSubGraph(RS_SUBGRAPH_LON1).Value
     lat2 = rsSubGraph(RS_SUBGRAPH_LAT2).Value
     lon2 = rsSubGraph(RS_SUBGRAPH_LON2).Value
+    blnHasExternalNodes = rsSubGraph(RS_SUBGRAPH_HAS_EXTNODES).Value
     
     'Запись удаляется. число дорог зануляется на всякий случай
     rsSubGraph(RS_SUBGRAPH_ROADCOUNT).Value = 0
@@ -202,7 +220,10 @@ Dim varSGFilter
     If lon1 < rsSubGraph(RS_SUBGRAPH_LON1).Value Then rsSubGraph(RS_SUBGRAPH_LON1).Value = lon1
     If lat2 > rsSubGraph(RS_SUBGRAPH_LAT2).Value Then rsSubGraph(RS_SUBGRAPH_LAT2).Value = lat2
     If lon2 > rsSubGraph(RS_SUBGRAPH_LON2).Value Then rsSubGraph(RS_SUBGRAPH_LON2).Value = lon2
-
+    
+    'Если в данном подграфе есть внешняя нода, значит  и в объединенном подграфе есть внешняя нода.
+    If blnHasExternalNodes Then rsSubGraph(RS_SUBGRAPH_HAS_EXTNODES).Value = True
+  
   End If
   
   rsSubGraph.Filter = varSGFilter
@@ -239,7 +260,10 @@ End Sub
 'Cохранение списка ошибок в xml
 Public Function PrintRegistryToXML(FileNumber As Long) As String
   
-  rsSubGraph.Filter = adFilterNone
+  'rsSubGraph.Filter = adFilterNone
+  'Выводим только пографы без "внешних нод"
+  rsSubGraph.Filter = RS_SUBGRAPH_HAS_EXTNODES & "=False"
+  
   rsSubGraph.Sort = RS_SUBGRAPH_ROADCOUNT & " desc"
   
   Print #FileNumber, "<Summary>"

@@ -499,22 +499,22 @@ Do While Not EOF(1)
       ReDim Preserve NodeList2(NN - 1)
       
       'Передается список рутинговых нод, и bbox для данной дороги
-      oRoutingTestFull.AddRoad NodeList, lat1, lon1, lat2, lon2
+      oRoutingTestFull.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 0 Then
-        oRoutingTest0.AddRoad NodeList, lat1, lon1, lat2, lon2
+        oRoutingTest0.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       End If
       
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 1 Then
-        oRoutingTest1.AddRoad NodeList, lat1, lon1, lat2, lon2
+        oRoutingTest1.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       End If
       
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 2 Then
-        oRoutingTest2.AddRoad NodeList, lat1, lon1, lat2, lon2
+        oRoutingTest2.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       End If
       
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 3 Then
-        oRoutingTest3.AddRoad NodeList, lat1, lon1, lat2, lon2
+        oRoutingTest3.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       End If
       
       'Нужно передавать координаты первой и последней вершины

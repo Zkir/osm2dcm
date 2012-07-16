@@ -67,11 +67,14 @@ finalize:
   End If
 End Sub
 
-
+'Добавление концов дороги в список.
+' NodeList() - список айдишников рутинговых вершин
+' NodeExtrAttrList() - 0 для обычной веришины и 1 для внешней (которая соединяется с чем-то за пределами карты)
+'
 Public Sub AddRoad(strMpType As String, _
                    intRoadLevel As Integer, _
                    NodeList() As Long, _
-                   NodeList2() As Long, _
+                   NodeExtrAttrList() As Long, _
                    lat1 As Double, lon1 As Double, _
                    lat2 As Double, lon2 As Double)
 
@@ -93,7 +96,8 @@ Dim i As Integer
 
 'Добавим концевые вершины в список висячих вершин
 If intRoadLevel <= 2 Then
-  If NodeList2(LBound(NodeList)) <> 1 Then
+  If NodeExtrAttrList(LBound(NodeList)) <> 1 Then
+    ' Кроме внешних рутинговых вершин. Они не являются висячими, потому что с чем-то соединяются.
     rsDanglingNodes.AddNew
     rsDanglingNodes(RS_DANGLING_NODES_ID).Value = NodeList(LBound(NodeList))
     rsDanglingNodes(RS_DANGLING_NODES_LAT).Value = lat1
@@ -104,7 +108,7 @@ If intRoadLevel <= 2 Then
     rsDanglingNodes(RS_DANGLING_NODES_HWLINK).Value = IIf((strMpType = "0x08") Or (strMpType = "0x0B"), 1, 0)
   End If
   
-  If NodeList2(UBound(NodeList)) <> 1 Then
+  If NodeExtrAttrList(UBound(NodeList)) <> 1 Then
     rsDanglingNodes.AddNew
     rsDanglingNodes(RS_DANGLING_NODES_ID).Value = NodeList(UBound(NodeList))
     rsDanglingNodes(RS_DANGLING_NODES_LAT).Value = lat2
