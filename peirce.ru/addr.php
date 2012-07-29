@@ -7,8 +7,7 @@ include("ZSitePage.php");
 require_once("include/misc_utils.php"); 
 
   $zPage=new TZSitePage;
-  $zPage->title="Валидатор адресов";
-  $zPage->header="Валидатор адресов";
+ 
 
   $mapid=$_GET['mapid'];
   $errtype=$_GET['errtype'];
@@ -17,6 +16,9 @@ require_once("include/misc_utils.php");
 
   if($mapid!="")
   {
+  	$zPage->title="Контроль качества  - $mapid";
+    $zPage->header="Контроль качества - $mapid";
+    
     $zPage->WriteHtml( "<h1>Контроль качества</h1>");
 	  
    
@@ -24,6 +26,9 @@ require_once("include/misc_utils.php");
   }
   else
   {
+  	$zPage->title="Контроль качества  - сводка по регионам";
+    $zPage->header="Контроль качества - сводка по регионам";
+      
     if ($page!='addr_summary')
     {	
       $zPage->WriteHtml( '<h1>Контроль качества</h1>');
@@ -151,6 +156,7 @@ function PrintQADetails($mapid, $errtype)
   global $zPage;
    $xml = simplexml_load_file(GetXmlFileName($mapid));
    $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+   $xmlQCR = simplexml_load_file("QualityCriteria.xml");
 
 if ($errtype=="")
 {
@@ -162,6 +168,7 @@ if ($errtype=="")
         $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
   }
 
+   	
   	
   $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
   
@@ -179,28 +186,28 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
                   <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
-                  <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,0).'</td>
+                  <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks).'</td>
                   <td><a href="#shorelinebreaks">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без населения:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
-                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,0).'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation).'</td>
                   <td><a href="#citynopop">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без полигональных границ:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
-                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,0).'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon).'</td>
                   <td><a href="#citynoborder">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
-                  <td>'.TestX($xml1->summary->total,5).'</td>
+                  <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions).'</td>
                   <td><a href="#hwconstr_chk">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/hwc-map">на карте</a></td>
                 </tr>
@@ -209,56 +216,56 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Число рутинговых ребер :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfRoutingEdges.'</td>
-                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,300000).'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,$xmlQCR->ClassA->MaxRoutiningEdges).'</td>
                   <td></td>
                   <td></td>  
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,10).'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs).'</td>
                   <td></td>
                   <td><a href="/qa/'.$mapid.'/routing-map">на карте</a></td>  
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;trunk:</td>
                   <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,3).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk).'</td>
                   <td></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/0">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;primary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,3).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary).'</td>
                   <td></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/1">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;secondary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,3).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary).'</td>
                   <td></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/2">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;tertiary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,3).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary).'</td>
                   <td></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/3">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Дубликаты ребер:</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
-                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,5).'</td>
+                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates).'</td>
                   <td><a href="#rdups">список</a></td>
                   <td><a href="/qa/'.$mapid.'/rd-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Тупики важных дорог:</td>
                   <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
-                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,10).'</td>
+                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds).'</td>
                   <td><a href="#deadends">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/dnodes-map">на карте</a></td>
                 </tr>
@@ -267,18 +274,17 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Доля улиц, несопоставленых НП:</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
-                  <td>'.TestX(100.00*$UnmatchedStreetsRate,5).'</td>
+                  <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets).'</td>
                   <td>список</td>
                   <td>на карте</td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
-                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,5).'</td>
+                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses).'</td>
                   <td><a href="#addr">список</a></td>
                   <td><a href="/qa/'.$mapid.'/addr-map">на карте</a></td>
                 </tr>
-              
                 </table>
               <hr/>'  );
                 
@@ -704,6 +710,90 @@ function PrintAddressSummary($mode)
 }
 
 
+function GetQaClass($xml_addr, $xmlQCR)
+{
+  //Пока смотрим только на критические ошибки. 
+  //Разрывы береговой линии, и превышение числа допустимого числа ребер.
+
+  //Будем двигаться сверху вниз, опуская рейтинг, если нужно
+  $QARating="A";
+  //Класс B
+  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassA->MaxSealineBreaks)
+  	$QARating="B";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassA->MaxIsolatedSubgraphs)
+    $QARating="B";
+  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary)
+    $QARating="B";
+  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   (int)$xmlQCR->ClassA->MaxDeadEnds)
+    $QARating="B";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > (int)$xmlQCR->ClassA->MaxRoutiningEdges)
+    $QARating="B";
+  if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses)
+    $QARating="B";
+  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets)
+    $QARating="B";
+  
+  
+  //Класс C
+  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
+  	$QARating="C";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
+    $QARating="C";
+  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
+    $QARating="C";
+  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   (int)$xmlQCR->ClassB->MaxDeadEnds)
+    $QARating="C";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > (int)$xmlQCR->ClassB->MaxRoutiningEdges)
+    $QARating="C";
+  if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
+    $QARating="C";
+  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+    $QARating="C";
+  
+  //Класс D
+  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
+  	$QARating="D";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > 2*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
+    $QARating="D";
+  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > 2*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
+    $QARating="D";
+  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   2*(int)$xmlQCR->ClassB->MaxDeadEnds)
+    $QARating="D";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > 2*(int)$xmlQCR->ClassB->MaxRoutiningEdges)
+    $QARating="D";
+  if((float)$xml_addr->AddressTest->Summary->ErrorRate > 2*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
+    $QARating="D";
+  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+    $QARating="D";
+  
+  
+    //Класс F
+  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
+  	$QARating="E";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > 3*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
+    $QARating="E";
+  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > 3*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
+    $QARating="E";
+  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   3*(int)$xmlQCR->ClassB->MaxDeadEnds)
+    $QARating="E";
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > 3*(int)$xmlQCR->ClassB->MaxRoutiningEdges)
+    $QARating="E";
+  if((float)$xml_addr->AddressTest->Summary->ErrorRate > 3*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
+    $QARating="E";
+  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+    $QARating="E";
+  
+  //Класс X
+  if ((int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > $xmlQCR->ClassC->MaxSealineBreaks)
+    $QARating="X";
+  if ((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges> $xmlQCR->ClassC->MaxRoutiningEdges)
+    $QARating="X";
+          
+          
+          
+  return $QARating;
+}	
+
 /*=====================================================================================================
 Сводная таблица по контролю качества
 =======================================================================================================*/
@@ -713,21 +803,26 @@ function PrintQASummary($strGroup)
 
    //Cписок пока строим по статистике
    $xml = simplexml_load_file("maplist.xml");
-
+   $xmlQCR = simplexml_load_file("QualityCriteria.xml");
+   
    $zPage->WriteHtml( '<table width="900px" class="sortable">
 
    	    <tr style="background: #AFAFAF">
                   <td width="80px"><b>Код</b></td>
                   <td width="180px"><b>Карта</b></td>
-                  <td><b>Всего<BR/> адресов</b></td>
-                  <td><b>Доля<BR/> битых<BR/> адресов, %</b></td>
-                  <td><b>Города без насе&shy;ления</b></td>
-                  <td><b>Города без поли&shy;гональ&shy;ных границ</b></td> 
-                  <td><b>Раз&shy;рывы бере&shy;говой линии</b></td> 
+                  <td><b>Всего<BR/> адре&shy;сов</b></td>
+                  <td><b>Доля<BR/> битых<BR/> адресов, дома %</b></td>
+                  <td><b>Доля<BR/> битых<BR/> адресов, улицы %</b></td>
+                  <!--<td><b>Города без поли&shy;гональ&shy;ных границ</b></td>--> 
+                 
                   <td><b>Число рутин&shy;говых ребер</b></td>               
                   <td><b>Число рутин&shy;говых подгра&shy;фов</b></td>
+                  <td><b>Число рутин&shy;говых подгра&shy;фов tertiary</b></td>
+                  <td><b>Ту&shy;пики важ&shy;ных дорог</b></td>
                	  <td><b>Дуб&shy;ли&shy;каты ребер</b></td>
-               	  <td><b>Просро&shy;ченные пере&shy;крытия</b></td>
+               	  <!--<td><b>Просро&shy;ченные пере&shy;крытия</b></td> -->
+                  <td><b>Города без насе&shy;ления</b></td>
+                  <td><b>Раз&shy;рывы бере&shy;говой линии</b></td>
                   <td width="150px"><b>Дата</b></td>
                   <td><b>Рей&shy;тинг</b></td>
                   <td><b>Ошибки</b></td>
@@ -751,43 +846,9 @@ function PrintQASummary($strGroup)
           }
           else $N_hwc='-';
           
-          //Пока смотрим только на критические ошибки. 
-          //Разрывы береговой линии, и превышение числа допустимого числа ребер.
-          $CriticalErrors=0;
-          if ( ((float)$xml_addr->CoastLineTest->Summary->NumberOfBreaks>0)or ((float)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges>300000)  )
-            $CriticalErrors=1;
           
-          //Некритические ошибки
-          $NonCriticalErrors=0;
-          if ( ((float)$xml_addr->AddressTest->Summary->ErrorRate>0.05) )
-            $NonCriticalErrors=1;
-          
-          if ( ((float)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs>20) )
-            $NonCriticalErrors=1;
-          
-          if ( ((float)$xml_addr->AddressTest->Summary->ErrorRate>0.15) )
-            $NonCriticalErrors=2;
-          
-          if ( ((float)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs>90) )
-            $NonCriticalErrors=2;
-          
-          
-          $QARating="?";
-          if ($CriticalErrors==1)
-           {$QARating="X";}
-          else 
-          {   
-          	  $QARating="A";
+          $QARating=GetQaClass($xml_addr, $xmlQCR);
           	  
-          	  if ($NonCriticalErrors==2)
-          	  {$QARating="C";}
-          	   
-          	  if ($NonCriticalErrors==1)
-          	  {$QARating="B";}
-          	  
-          	  
-            } ;
-          
           $Style="";
           switch ($QARating) {
             case "A":
@@ -800,10 +861,13 @@ function PrintQASummary($strGroup)
              $Style="background: #FFFF60";
              break; 
             case "D":
-             $Style="background: #FFEECC";
-             break;  
+             $Style="background: #FFDDBB";
+             break;
+            case "E":
+             $Style="background: #FFD0B0";
+             break;   
             case "X":
-             $Style="background: #FFBBAA";
+             $Style="background: #FFA090";
              break;
           }
           	  
@@ -815,20 +879,27 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
+
 
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->HousesWOCities.'</td>' );
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
 
-          $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPopulation.'</td>' );
-          $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>' );
-          $zPage->WriteHtml( '<td>'.$xml_addr->CoastLineTest->Summary->NumberOfBreaks.'</td>' );
+          
+          //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>' );
+          
           
           
           $zPage->WriteHtml('<td>'.$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges."</td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
+          $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/routing-map/3">'.$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs."</a></td>" );
+          
+          $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/dnodes-map">'.$xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds."</a></td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/rd-map">'.$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates."</a></td>" );
-          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/hwc-map">'.$N_hwc.'</a></td>');
-          //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
+          //$zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/hwc-map">'.$N_hwc.'</a></td>');
+          
+          $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPopulation.'</td>' );
+          $zPage->WriteHtml( '<td>'.$xml_addr->CoastLineTest->Summary->NumberOfBreaks.'</td>' );
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
           $zPage->WriteHtml( '<td>'.$QARating.'</td>');
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
