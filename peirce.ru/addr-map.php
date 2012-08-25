@@ -4,6 +4,7 @@
 #(c) Zkir 2010
 #============================================
 include("ZSitePage.php");
+require_once("include/misc_utils.php"); 
 
   $zPage=new TZSitePage;
   $zPage->title="Валидатор адресов";
@@ -39,8 +40,10 @@ include("ZSitePage.php");
   {
     PrintMap("RU-MOS","");    
   }
+  $zPage->WriteHtml('<h2>Другие тесты</h2>');
+  PrintTestNavigator($mapid);
 
- $zPage->Output("1");
+  $zPage->Output("1");
 
 /* =============================================================================
      Разные полезные фукции

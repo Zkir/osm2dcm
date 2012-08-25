@@ -4,6 +4,7 @@
 #(c) Zkir 2010
 #============================================
 include("ZSitePage.php");
+require_once("include/misc_utils.php"); 
 
   $zPage=new TZSitePage;
   $zPage->title="Контроль качества";
@@ -44,17 +45,26 @@ include("ZSitePage.php");
   case "dnodes":
     $zPage->WriteHtml('<h1>Тупики магистралей ('.$mapid.') </h1>');
     $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
-    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+       
+    $zPage->WriteHtml('<p>'.GetDeadEndsTestDescription().'</p>');
     
     PrintMap("dnodes", $mapid,$errtype);
+    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+    $zPage->WriteHtml('<h2>Как починить</h2>');
+    $zPage->WriteHtml('<p>Следует, в зависимости от ситуации, либо скорректировать статус дороги,
+                          либо исправить геометрию - соединить вершины, восстановить удаленные участки дорог. 
+                         <a href="http://peirce.gis-lab.info/blog.php?postid=17547">Подробнее...</a> </p>');
+    
     break;  
   default: 
     $zPage->WriteHtml('<p>Неизвестный тест .'.$test.'</p>');
   }
+  
+  $zPage->WriteHtml('<h2>Другие тесты</h2>');
+  PrintTestNavigator($mapid);
 
-
-
- $zPage->Output("1");
+ 
+  $zPage->Output("1");
 
 /* =============================================================================
      Разные полезные фукции
@@ -91,6 +101,12 @@ function PrintMapAlt($test, $mapid,$errtype)
    
  
 }
+
+
+                  
+                  
+                  
+                  
 
 
 ?>

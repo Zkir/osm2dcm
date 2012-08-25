@@ -15,13 +15,16 @@ include("ZSitePage.php");
   $zPage->WriteHtml( '<p>   На этой странице приведены основные статистические данные 
   	  для участвующих в конвертации регионов. </p>');
    $zPage->WriteHtml( "<H2>Россия</H2>");	  
-  	  
+  	  //
   $zPage->WriteHtml( '	  
     <link rel="stylesheet" href="js/dijit/themes/claro/claro.css"/>
+    <style type="text/css">
+     #map svg{width:100%;height:100%;}
+    </style>
     <div class="claro">
   	<table width="100%" border="1px">
 	  <tr>
-		<td><div id="map" style="width:100%;height:400px;border:solid"></div></td>
+		<td><div id="map" style="width:620px;height:400px;border:solid;"></div></td>
 		<td width="220px">
 			<div id="indicators"></div>
 			<div id="mapLegend"></div>
@@ -80,7 +83,7 @@ djConfig = {
   	  
 <small> 
 <p> 
-<a name="descr"/>	
+<a name="descr"></a>
 <b>Площадь, в тыс кв. км.</b>  - Площадь региона. Считается по poly-файлу, по которому делается обрезка, может на 20-30%% превосходить "паспортное" значение.
 </p> 
 <p> 

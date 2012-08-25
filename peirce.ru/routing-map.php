@@ -3,7 +3,7 @@
 #(c) Zkir 2010
 #============================================
 include("ZSitePage.php");
-
+require_once("include/misc_utils.php"); 
 
 $zPage=new TZSitePage;
 
@@ -69,8 +69,10 @@ $zPage=new TZSitePage;
                      <iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
   $zPage->WriteHtml('<p>По щелчку на маркере открывается JOSM, он должен быть запущен.</p>');
-
- $zPage->Output("1");
+ 
+  $zPage->WriteHtml('<h2>Другие тесты</h2>');
+  PrintTestNavigator($mapid);
+  $zPage->Output("1");
 
 function FormatRoutingLevelName($level)
 {

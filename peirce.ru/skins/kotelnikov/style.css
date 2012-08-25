@@ -354,3 +354,27 @@ color: #666666;
 
 table {
 line-height: 1.2em;}
+
+#content-wide-text tr:hover{
+background-color: #F6F6F6;
+}
+
+
+
+a[href *= ':8111']:before {
+    content: '(J)';
+    vertical-align: 6;
+    text-decoration:  none;
+}
+a[href *= ':8111']:visited {
+    color: green;
+}
+a[href *= 'openstreetmap.org/edit' ]::before {
+    content: "(P)";
+    vertical-align: top;
+    text-decoration: none;
+    top: ;
+}
+a[href *='openstreetmap.org/edit']:visited {
+    color: green;
+}

@@ -119,7 +119,7 @@ function ProcessMap(XmlFileName, strLevel)
     if (Lon1<LonMin) LonMin=Lon1;
     if (Lon2>LonMax) LonMax=Lon2;
 
-    if ( i > 0 )
+    if ( i >= 0 )
     {
     var aBugDescr="Число ребер: "+NRoads;
     //document.write( "<p>" + aBugDescr  + "</p>");

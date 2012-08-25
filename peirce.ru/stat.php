@@ -4,6 +4,7 @@
 #(c) Zkir 2010
 #============================================	
 include("ZSitePage.php");
+require_once("include/misc_utils.php"); 
 
   $zPage=new TZSitePage;
   $zPage->title="Cтатистика";
@@ -20,14 +21,20 @@ include("ZSitePage.php");
   $zPage->WriteHtml( "<H2>Россия</H2>");
   PrintStatistics ($xml,'Россия');
   
-  $zPage->WriteHtml( "<H2>Зарубежье</H2>");
-  PrintStatistics ($xml,'Зарубежье');
+  $zPage->WriteHtml( "<H2>Ближнее зарубежье </H2>");  
+  PrintStatistics ($xml,"Ближнее Зарубежье");
+
+  $zPage->WriteHtml( "<H2>Дальнее зарубежье </H2>");
+  PrintStatistics ($xml,"Дальнее Зарубежье");
+  
+
+  
   
   $zPage->WriteHtml('
   	  
 <small> 
 <p> 
-<a name="descr"/>	
+<a name="descr"></a>	
 <b>Площадь, в тыс кв. км.</b>  - Площадь региона. Считается по poly-файлу, по которому делается обрезка, может на 20-30%% превосходить "паспортное" значение.
 </p> 
 <p> 
@@ -96,8 +103,11 @@ function PrintStatistics($xml, $strGroup)
 
   foreach ($xml->mapinfo as $item)
     {
-      if( ($strGroup=='Россия' AND substr($item->MapId,0,2)=='RU') OR 
-      	  ($strGroup=='Зарубежье' AND substr($item->MapId,0,2)<>'RU')   )
+      //if( ($strGroup=='Россия' AND substr($item->MapId,0,2)=='RU') OR 
+      //	  ($strGroup=='Зарубежье' AND substr($item->MapId,0,2)<>'RU')   )
+      if( $strGroup==GetMapGroup(substr($item->MapId,0,2))
+        )	  
+      	  
       {
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td>'.$item->MapId.'</td>');

@@ -61,6 +61,20 @@ require_once("include/misc_utils.php");
                        список валидаторов</a> в осм-вики.</p>        ' );
       $zPage->WriteHtml( '<h2>Отрисовка карты</h2>'); 
       $zPage->WriteHtml( '<p>Проверяется целостность береговой линии, наличие городов без указанного населения, а так же наличие городов без полигональных границ.</p>');                   
+      $zPage->WriteHtml( '<h2>Система рейтинга</h2>');
+      $zPage->WriteHtml( '<p>Каждой карте присваивается буквенная оценка качества: A, B, C, D, E, F, X (колонка "Рейтинг").</p>
+                         <p><b>A</b> - Идеальные адресный реестр и дорожный граф. Минимальное количество ошибок по всем показателям. То к чему нужно стремиться.</p>
+                         <p><b>B</b> - Целый адресный реестр и дорожный граф. Количественные критерии: до 15% не сопоставленных адресов,
+                                       не более 50 изолятов в полном дорожном графе, не более 5 изолятов в основных (начиная с tertiary) дорогах,
+                                       не более 10 тупиков магистралей. </p>
+                         <p><b>C</b> - Кандидат в B. По сравнению с B, наличествуют изоляты в основных (начиная с tertiary)
+                                       дорогах и тупики магистралей.  </p>
+                         <p><b>D</b> - Целый адресный реестр. Дорожный граф в неудовлетворильном состоянии (до 100 изолятов). </p>
+                         <p><b>E, F</b>  - Многочисленные ошибки как в адресном реестре, так и в дорожном графе.</p>
+                         <p><b>X</b> - Критические ошибки, приводящие к неработоспособности/неприглядному виду карты: разрывы береговой линии, 
+                         ("разлившееся" море), превышение допустимого количества рутинговых ребер. </p>     
+                       ');
+      $zPage->WriteHtml( '<p>C июля 2012 года выпускаются только те карты, которые получили оценки A и B</p>');
       $zPage->WriteHtml( '<h2>Россия</h2>');
       $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
                         на заголовок столбца. </small></p> ');
@@ -176,7 +190,7 @@ if ($errtype=="")
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
-              <tr><td>Последня известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
+              <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
               <tr><td>RSS</td><td><a href="/qa/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>
               </table>
@@ -709,79 +723,109 @@ function PrintAddressSummary($mode)
   $zPage->WriteHtml( '</table>');
 }
 
+function TestQaClass($xml_addr, $xnClass)
+{
+  $Result=TRUE;
+  if ($xnClass->MaxTotalAddr!=""){
+    if( (int)$xml_addr->AddressTest->Summary->TotalHouses > (int)$xnClass->MaxTotalAddr)
+  	  $Result=FALSE;
+  }  	
+  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xnClass->MaxSealineBreaks)
+  	$Result=FALSE;
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > (int)$xnClass->MaxIsolatedSubgraphs)
+    $Result=FALSE;
+  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > (int)$xnClass->MaxIsolatedSubgraphsTertiary)
+    $Result=FALSE;
+  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   (int)$xnClass->MaxDeadEnds)
+    $Result=FALSE;
+  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > (int)$xnClass->MaxRoutiningEdges)
+    $Result=FALSE;
+  if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xnClass->MaxUnmatchedAddrHouses)
+    $Result=FALSE;
+  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xnClass->MaxUnmatchedAddrStreets)
+    $Result=FALSE;
+  
+  return $Result;
+}
 
+//Проверка класса качества карты
 function GetQaClass($xml_addr, $xmlQCR)
 {
-  //Пока смотрим только на критические ошибки. 
-  //Разрывы береговой линии, и превышение числа допустимого числа ребер.
 
-  //Будем двигаться сверху вниз, опуская рейтинг, если нужно
-  $QARating="A";
+  //Класс A
+  if (TestQaClass($xml_addr,$xmlQCR->ClassA))
+  {
+    $QARating="A";
+    return $QARating;
+  }
+
   //Класс B
-  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassA->MaxSealineBreaks)
-  	$QARating="B";
-  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassA->MaxIsolatedSubgraphs)
+  if (TestQaClass($xml_addr,$xmlQCR->ClassB))
+  {
     $QARating="B";
-  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary)
-    $QARating="B";
-  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   (int)$xmlQCR->ClassA->MaxDeadEnds)
-    $QARating="B";
-  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > (int)$xmlQCR->ClassA->MaxRoutiningEdges)
-    $QARating="B";
-  if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses)
-    $QARating="B";
-  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets)
-    $QARating="B";
+    return $QARating;
+  }
+  
+  //Класс B-
+  if (TestQaClass($xml_addr,$xmlQCR->ClassBm))
+  {
+    $QARating="B-";
+    return $QARating;
+  }
   
   
   //Класс C
-  if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
-  	$QARating="C";
-  if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
+  if (TestQaClass($xml_addr,$xmlQCR->ClassC))
+  {
     $QARating="C";
-  if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > (int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
-    $QARating="C";
-  if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   (int)$xmlQCR->ClassB->MaxDeadEnds)
-    $QARating="C";
-  if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > (int)$xmlQCR->ClassB->MaxRoutiningEdges)
-    $QARating="C";
-  if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
-    $QARating="C";
-  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
-    $QARating="C";
+    return $QARating;
+  }
   
   //Класс D
+  if (TestQaClass($xml_addr,$xmlQCR->ClassD))
+  {
+    $QARating="D";
+    return $QARating;
+  }
+  
+  //Теперь будем двигаться сверху вниз, опуская рейтинг, если нужно
+  $QARating="E";
+  
+   
+
+  
+  //Класс E
   if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
-  	$QARating="D";
+  	$QARating="E";
   if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > 2*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
-    $QARating="D";
+    $QARating="E";
   if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > 2*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
-    $QARating="D";
+    $QARating="E";
   if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   2*(int)$xmlQCR->ClassB->MaxDeadEnds)
-    $QARating="D";
+    $QARating="E";
   if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > 2*(int)$xmlQCR->ClassB->MaxRoutiningEdges)
-    $QARating="D";
+    $QARating="E";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 2*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
-    $QARating="D";
+    $QARating="E";
   if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
-    $QARating="D";
+    $QARating="E";
   
   
     //Класс F
   if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
-  	$QARating="E";
+  	$QARating="F";
   if((int)$xml_addr->RoutingTest->Summary->NumberOfSubgraphs > 3*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphs)
-    $QARating="E";
+    $QARating="F";
   if( (int)$xml_addr->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs > 3*(int)$xmlQCR->ClassB->MaxIsolatedSubgraphsTertiary)
-    $QARating="E";
+    $QARating="F";
   if( $xml_addr->DeadEndsTest->Summary->NumberOfDeadEnds >   3*(int)$xmlQCR->ClassB->MaxDeadEnds)
-    $QARating="E";
+    $QARating="F";
   if((int)$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges > 3*(int)$xmlQCR->ClassB->MaxRoutiningEdges)
-    $QARating="E";
+    $QARating="F";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 3*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
-    $QARating="E";
+    $QARating="F";
   if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
-    $QARating="E";
+    $QARating="F";
   
   //Класс X
   if ((int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > $xmlQCR->ClassC->MaxSealineBreaks)
@@ -805,6 +849,13 @@ function PrintQASummary($strGroup)
    $xml = simplexml_load_file("maplist.xml");
    $xmlQCR = simplexml_load_file("QualityCriteria.xml");
    
+   $NumberOfA=0;
+   $NumberOfB=0;
+   $NumberOfC=0;
+   $NumberOfD=0;
+   $NumberOfE=0;
+   $NumberOfF=0;
+   $NumberOfX=0;
    $zPage->WriteHtml( '<table width="900px" class="sortable">
 
    	    <tr style="background: #AFAFAF">
@@ -828,6 +879,7 @@ function PrintQASummary($strGroup)
                   <td><b>Ошибки</b></td>
          </tr>');
 
+ 
   foreach ($xml->map as $item)
     {
       //if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
@@ -850,24 +902,38 @@ function PrintQASummary($strGroup)
           $QARating=GetQaClass($xml_addr, $xmlQCR);
           	  
           $Style="";
-          switch ($QARating) {
+           switch ($QARating) {
             case "A":
              $Style="background: #DDFFCC";
+             $NumberOfA=$NumberOfA+1;
              break;
             case "B":
              $Style="background: #FFFF90";
+             $NumberOfB=$NumberOfB+1;
              break;
+            case "B-":
+             $Style="background: #FFFF75";
+             $NumberOfB=$NumberOfB+1;
+             break; 
             case "C":
              $Style="background: #FFFF60";
+             $NumberOfC=$NumberOfC+1;
              break; 
             case "D":
              $Style="background: #FFDDBB";
+             $NumberOfD=$NumberOfD+1;
              break;
             case "E":
              $Style="background: #FFD0B0";
-             break;   
+             $NumberOfE=$NumberOfE+1;
+             break;
+            case "F":
+             $Style="background: #FFB0B0";
+             $NumberOfF=$NumberOfF+1;
+             break;    
             case "X":
              $Style="background: #FFA090";
+             $NumberOfX=$NumberOfX+1;
              break;
           }
           	  
@@ -913,6 +979,18 @@ function PrintQASummary($strGroup)
     }
 
   $zPage->WriteHtml( '</table>');
+  $zPage->WriteHtml( '<p>Итого в данном списке, '.($NumberOfA+$NumberOfB).' карт прошло QC (A+B)</p>');
+  $zPage->WriteHtml( 'A: '.$NumberOfA.', ');
+  $zPage->WriteHtml( 'B: '.$NumberOfB.', ');
+  $zPage->WriteHtml( 'C: '.$NumberOfC.', ');
+  $zPage->WriteHtml( 'D: '.$NumberOfD.', ');
+  $zPage->WriteHtml( 'E: '.$NumberOfE.', ');
+  $zPage->WriteHtml( 'F: '.$NumberOfF.', ');
+  $zPage->WriteHtml( 'X: '.$NumberOfX.'</p>');
+  
+  //$QAIndex=(6*$NumberOfA+5*$NumberOfB+4*$NumberOfC+3*$NumberOfD+2*$NumberOfE+1*$NumberOF+0*$NumberOfX)/($NumberOfA+$NumberOfB+$NumberOfC+$NumberOfD+$NumberOfE+$NumberOF+$NumberOfX);
+  //$zPage->WriteHtml( '<p>Условный индекс по данному списку: '.$QAIndex.'</p>');
+  
 }
 
 /*=============================================================================================================================
@@ -1023,13 +1101,6 @@ case 6:
 return $str;
 }
 
-function GetDeadEndsTestDescription()
-{
-  $str='В этом списке показываются тупики дорог trunk, primary и secondary. Основная идея очень простая: 
-        важная дорога не может просто так заканчиваться, а должна куда-то вести. Тупиковый участок, т.е. участок после последнего перекрестка,
-        по определению не имеет никакого значения, кроме местного. Таким образом тупики - это ошибки присвоения статусов.';	
-  
-  return $str;
-}
+
 
 ?>
