@@ -91,6 +91,7 @@ public class QaRelease {
       int intRoutiningEdges=objQaReport.getRoutiningEdges();
       double dblUnmatchedAddrHouses=objQaReport.getUnmatchedAddrHouses();
       double dblUnmatchedAddrStreets=objQaReport.getUnmatchedAddrStreets();
+      int intTotalNumberOfHouses =objQaReport.getTotalNumberOfHouses();
 
       //Теперь собственно проверки
 
@@ -116,9 +117,13 @@ public class QaRelease {
       {
           blnResult=false;
       }
-      if (CheckSingleCriterionF("Доля несопоставленных домов",dblUnmatchedAddrHouses,MAX_UNMATCHED_ADDR_HOUSES)!=true)
+
+      if (intTotalNumberOfHouses>1000)
       {
-        blnResult=false;
+        if (CheckSingleCriterionF("Доля несопоставленных домов",dblUnmatchedAddrHouses,MAX_UNMATCHED_ADDR_HOUSES)!=true)
+        {
+          blnResult=false;
+        }
       }
       if (CheckSingleCriterionF("Доля несопоставленных улиц",dblUnmatchedAddrStreets,MAX_UNMATCHED_ADDR_STREETS)!=true)
       {

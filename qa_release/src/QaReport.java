@@ -64,7 +64,11 @@ public class QaReport {
       dblTotalStreets=Double.parseDouble(objXmlDocument.getDocumentElement().getElementsByTagName("TotalStreets").item(0).getFirstChild().getNodeValue());
       return dblStreetsOutsideCities/dblTotalStreets;
     }
+    public int getTotalNumberOfHouses()
+    {
+      return Integer.parseInt(objXmlDocument.getElementsByTagName("TotalHouses").item(0).getFirstChild().getNodeValue()) ;
 
+    }
     public QaReport(String strXmlReportFileName)
     {
         parseXmlFile(strXmlReportFileName);
