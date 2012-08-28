@@ -55,9 +55,22 @@ require_once("include/misc_utils.php");
                           либо исправить геометрию - соединить вершины, восстановить удаленные участки дорог. 
                          <a href="http://peirce.gis-lab.info/blog.php?postid=17547">Подробнее...</a> </p>');
     
-    break;  
+    break;
+    
+  case "addr-street":
+    $zPage->WriteHtml('<h1>Улицы, не сопоставленные населенным пунктам('.$mapid.') </h1>');
+    $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к таблице</a> </p>' );
+       
+    $zPage->WriteHtml('<p>'.'В этом тесте показываются улицы, не попавшие в адресный поиск, потому что они не находятся внутри полигонов place=*'.'</p>');
+    
+    PrintMap("addr-street", $mapid, $errtype);
+    $zPage->WriteHtml('<p>По клику на маркере открывается JOSM, он должен быть запущен.</p>');
+    //$zPage->WriteHtml('<h2>Как починить</h2>');
+    //$zPage->WriteHtml('<p>...</p>');
+    
+    break;      
   default: 
-    $zPage->WriteHtml('<p>Неизвестный тест .'.$test.'</p>');
+    $zPage->WriteHtml('<p>Неизвестный тест "'.$test.'"</p>');
   }
   
   $zPage->WriteHtml('<h2>Другие тесты</h2>');

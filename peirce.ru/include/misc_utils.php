@@ -56,12 +56,12 @@ function PrintTestNavigator($mapid)
   $zPage->WriteHtml('<table cellpadding="6px" width="100%">
   	                   <tr>
   	                     <td><b> Тест адрески,<br/> дома </b></td><td><b> Тест адрески,<br/> улицы </b></td>
-  	                     <td><b> Изолированные <br /> рутинговые ребра </b></td><td><b> Тупики <br/>магистралей </b></td> 
+  	                     <td><b> Изолированные <br /> рутинговые подграфы </b></td><td><b> Тупики <br/>магистралей </b></td> 
   	                     <td><b> Дубликаты <br/>ребер </b></td>  <td><b> Просроченные <br />строящиеся дороги</b></td>
   	                   </tr>
   	                   <tr>
                          <td><a href="/qa/'.$mapid.'/addr-map">На карте</a></td>
-  	                     <td>На карте</td>
+  	                     <td><a href="/qa/'.$mapid.'/addr-street-map">На карте</a></td>
   	                     <td><a href="/qa/'.$mapid.'/routing-map">На карте</a></td> 
   	                     <td><a href="/qa/'.$mapid.'/dnodes-map">На карте</a></td>
   	                     <td><a href="/qa/'.$mapid.'/rd-map">На карте</a></td>

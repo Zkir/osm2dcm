@@ -24,6 +24,7 @@ RewriteRule ^qa/([a-zA-Z0-9_-]+)/routing-map/([0-4])$ routing-map.php?mapid=$1&l
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/rd-map$ qq-map.php?mapid=$1&test=rd
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/hwc-map$ qq-map.php?mapid=$1&test=hwc
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/dnodes-map$ qq-map.php?mapid=$1&test=dnodes
+RewriteRule ^qa/([a-zA-Z0-9_-]+)/addr-street-map$ qq-map.php?mapid=$1&test=addr-street
 
 
 RewriteRule ^daily$ maps7.php

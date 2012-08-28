@@ -286,14 +286,14 @@ if ($errtype=="")
 
                 <tr><td><b>Адресный реестр</b></td></tr> 
                 <tr>
-                  <td>&nbsp;&nbsp;Доля улиц, несопоставленых НП:</td>
+                  <td>&nbsp;&nbsp;Доля улиц, не сопоставленых НП:</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets).'</td>
                   <td>список</td>
-                  <td>на карте</td>
+                  <td><a href="/qa/'.$mapid.'/addr-street-map">на карте</a></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Доля несопоставленых адресов:</td>
+                  <td>&nbsp;&nbsp;Доля не сопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses).'</td>
                   <td><a href="#addr">список</a></td>
@@ -472,18 +472,21 @@ if ($errtype=="")
 
 
   $zPage->WriteHtml( '<table width="900px" class="sortable">
-    	    <tr>
+    	    <tr>  
+    	          <td width="20px"><b>#</b></td>
                   <td><b>Название</b></td>
                   <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
                   <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
          </tr>');
-
+ 
+  $LineNum=0;
   foreach ($xml->RoadDuplicatesTest->DuplicateList->DuplicatePoint as $item)
-    {
+    {   $LineNum++;
         $zPage->WriteHtml( '<tr>');
-        $zPage->WriteHtml( '<td>&lt;двойное ребро&gt;</td>');
-        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
-        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
+        $zPage->WriteHtml( '  <td>'.$LineNum.'.</td>');
+        $zPage->WriteHtml( '  <td>&lt;двойное ребро&gt;</td>');
+        $zPage->WriteHtml( '  <td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
+        $zPage->WriteHtml( '  <td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
         $zPage->WriteHtml( '</tr>');
      }
   $zPage->WriteHtml( '</table>');  
@@ -496,17 +499,20 @@ if ($errtype=="")
   
   $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/dnodes-map">Посмотреть тупики важных дорог на карте</a></b></p>');
 
-
+  
   $zPage->WriteHtml( '<table width="900px" class="sortable">
-    	    <tr>
+    	    <tr>  
+    	          <td width="20px"><b>#</b></td>
                   <td><b>Название</b></td>
                   <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
                   <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
          </tr>');
-
+  $LineNum=0;
   foreach ($xml->DeadEndsTest->DeadEndList->DeadEnd as $item)
     {
+    	$LineNum++;
         $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '<td>'.$LineNum.'.</td>');
         $zPage->WriteHtml( '<td>&lt;тупик&gt;</td>');
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
@@ -945,7 +951,7 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
-          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
 
 
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->HousesWOCities.'</td>' );

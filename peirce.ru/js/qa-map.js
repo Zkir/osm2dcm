@@ -281,6 +281,77 @@ function GetDnodesErrorList(XmlFileName)
   
   return EL;
 }
+
+//Улицы вне городов
+function GetAddrStreetErrorList(XmlFileName)
+{
+  var EL = [];
+   
+  
+  var xmlhttp = getXmlHttp1();
+  xmlhttp.open('GET', XmlFileName, false);
+  xmlhttp.send(null);
+  if(xmlhttp.status == 200) 
+  {
+    var doc = xmlhttp.responseXML.documentElement;
+   	   
+   	//Проходимся по всем элементам-записям и составляем их репрезентацию
+   	 
+   	var testElement=doc.getElementsByTagName("StreetsOutsideCities");   	   
+    var items =testElement[1].childNodes;
+   
+    var HouseLat=0;
+    var HouseLon=0;
+    var MyErrType="0";
+    var StreetName="";
+    
+  
+    var intLen=0;
+    intLen = items.length;
+  
+    
+    for (var i = 0; i < intLen; i++)
+    if (items[i].nodeType==1)
+    {
+	  StreetName="б/имени";	  
+	  //Отсчитываем с первого дочернего узла
+
+      var f_child = items[i].firstChild;
+	  do
+  	  {
+  	  	  
+    	//Выбираем имя узла и в соответствии с этим выполняем необходимое действие
+		switch (f_child.nodeName)
+		{
+			case "Street":
+			  StreetName=f_child.firstChild.nodeValue;
+			  break;  
+			case "Coord":
+              try{
+               	HouseLat= f_child.getElementsByTagName("Lat")[0].firstChild.nodeValue;
+               	HouseLon= f_child.getElementsByTagName("Lon")[0].firstChild.nodeValue;
+              }
+              catch(err){
+                throw('Координаты точки не заданы');
+              }
+        	  break;
+		}
+  	  	  //Устанавливаем следующий узел
+		f_child = f_child.nextSibling;	
+		
+      } while (f_child) ;
+      
+      
+      EL.push (new ErrorItem(HouseLat,HouseLon, 'Улица за пределами НП: '+ StreetName ));
+      
+    }//кц по ошибкам
+    	
+  }	//условия удачной загрузки xml
+  else
+    {throw new Error("Unable to load xml file with error list: "+XmlFileName);}
+  
+  return EL;
+}
 //==========================================================================================================================
 // Main function
 //==========================================================================================================================
@@ -320,6 +391,10 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
     case "dnodes":
       ErrorList=GetDnodesErrorList(XmlFileName);
       break; 
+    
+    case "addr-street":
+      ErrorList=GetAddrStreetErrorList(XmlFileName);
+      break;  
         
     default:
       throw new Error("Unknown test: "+TestName);
