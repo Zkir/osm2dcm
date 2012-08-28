@@ -326,6 +326,7 @@ if ($errtype=="")
   $zPage->WriteHtml("</table>" );
   $zPage->WriteHtml("<p/>" );
 
+  $zPage->WriteHtml(' <hr/>'  );
 /*==========================================================================
                  Разрывы береговой линии
 ============================================================================*/
@@ -786,6 +787,14 @@ function GetQaClass($xml_addr, $xmlQCR)
     $QARating="C";
     return $QARating;
   }
+  
+  //Класс C-
+  if (TestQaClass($xml_addr,$xmlQCR->ClassCm))
+  {
+    $QARating="C";
+    return $QARating;
+  }
+  
   
   //Класс D
   if (TestQaClass($xml_addr,$xmlQCR->ClassD))
