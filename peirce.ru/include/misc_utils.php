@@ -69,8 +69,8 @@ function PrintTestNavigator($mapid)
   	                   </tr>
   	                   <tr>
   	                     <td><a href="/qa/'.$mapid.'#addr">Список</a></td>
-  	                     <td>Список</td>
-  	                     <td>Список</td>
+  	                     <td><a href="/qa/'.$mapid.'#addr-street">Список</a></td>
+  	                     <td><a href="/qa/'.$mapid.'#isol">Список</a></td> 
   	                     <td><a href="/qa/'.$mapid.'#deadends">Список</a></td> 
   	                     <td><a href="/qa/'.$mapid.'#rdups">Список</a></td>
   	                     <td><a href="/qa/'.$mapid.'#hwconstr_chk">Список</a></td>
