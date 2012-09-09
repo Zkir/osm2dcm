@@ -138,7 +138,7 @@ Dim s         As Double
 Dim AvgLat    As Double
     
     'Найдем площадь по соответствующему  poly-файлу
-    s = CalculateSquare(PATH_TO_POLY & strMapID, AvgLat)
+    s = CalculateSquare(PATH_TO_POLY & strMapID & ".poly", AvgLat)
     s = s * (111 ^ 2) * Cos(AvgLat / 180 * 3.14159)
     If ProcessOSMFile(strFileName, Date) Then
     
