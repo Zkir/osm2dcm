@@ -345,7 +345,7 @@ Do While Not EOF(1)
 '
 '      End If
       
-      Size = oMpSection.GetSize()
+      Size = oMpSection.CalculateArea()
       If Size < 0.25 Then
         'EndLevel = 3
         oMpSection.mpType = "0x41"
@@ -532,7 +532,8 @@ Do While Not EOF(1)
     Next i
   End If
   
-  oStatistic.ProcessSection oMpSection.SectionType, oMpSection.mpType, oMpSection.SizeInBytes
+  'Статистика. Передаем просто секцию
+  oStatistic.ProcessSection oMpSection
   
   If blnLite Then
     ' "Облегченная карта"

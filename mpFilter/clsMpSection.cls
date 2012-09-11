@@ -27,6 +27,7 @@ Public SectionEnding As String
 Private m_Type As String
 Private m_Label As String
 
+
 Private Sub Class_Initialize()
   SectionType = ""
   SectionEnding = ""
@@ -226,7 +227,10 @@ Property Get mpRouteParam() As String
     mpRouteParam = GetAttributeValue("RouteParams")
   End If
 End Property
-Public Function GetSize()
+
+
+'Размер полигона в километрах квадратных
+Public Function CalculateArea()
 Dim strData0 As String
 Dim coords() As Double ' массив координат вершин полигона
 Dim tmp() As String
@@ -235,7 +239,7 @@ Dim strY As String
 Dim i As Long, N As Long
 Dim s As Double
 'Найдем размер объекта в квадратных километрах
-'предполагаем что Data0 содержит внешний конкурс полигона
+'предполагаем что Data0 содержит внешний контур полигона
   strData0 = GetAttributeValue("Data0")
   
 'Распарсим его.
@@ -277,8 +281,65 @@ Dim s As Double
   s = s * l_grad * l_grad * Cos(coords(0, 0) * 3.141592653 / 180)
   
   'Знак зависит от направления обхода, но площадь полигона так или иначе положительна
-  GetSize = Abs(s)
+  CalculateArea = Abs(s)
 End Function
+Public Function CalculateLength()
+Dim deltaLat As Double
+Dim deltaLon As Double
+Dim AvgLat As Double
+Dim coeff As Double ' длинна дуги в км
+Dim dblLength As Double
+Dim strData0 As String
+Dim coords() As Double ' массив координат вершин полигона
+Dim tmp() As String
+Dim strX As String
+Dim strY As String
+Dim i As Long, N As Long
+
+  coeff = 111.1
+   
+  dblLength = 0
+  
+  'предполагаем что Data0 содержит координаты точек линии.
+  strData0 = GetAttributeValue("Data0")
+  
+  'Распарсим вершины
+  tmp = Split(strData0, "),")
+  N = UBound(tmp)
+  ReDim coords(N, 1)
+  For i = 0 To N
+    strX = Trim$(Split(tmp(i), ",")(0)) 'Широта
+    strY = Trim$(Split(tmp(i), ",")(1)) 'Догота
+    'Широта
+    
+    coords(i, 0) = Right(strX, Len(strX) - 1)
+    
+    
+    'Долгота
+    If i = N Then
+      coords(i, 1) = Left(strY, Len(strY) - 1)
+    Else
+      coords(i, 1) = strY
+    End If
+       
+  Next i
+  
+  
+'Цикл по вершинам
+  For i = 0 To N - 1
+    deltaLat = (coords(i, 0) - coords(i + 1, 0))
+    AvgLat = (coords(i, 0) + coords(i + 1, 0)) / 2
+    deltaLon = (coords(i, 1) - coords(i + 1, 1))
+    
+    
+    'Переведем градусы в километры и найдем длинну
+ 
+    dblLength = dblLength + Sqr((coeff * deltaLat) ^ 2 + (coeff * Cos(AvgLat * 3.141592653 / 180) * deltaLon) ^ 2)
+  Next i
+
+  CalculateLength = dblLength
+End Function
+
 
 Public Function GetCoords() As String
 Dim strData As String
@@ -445,3 +506,8 @@ Public Function SizeInBytes() As Long
 
 End Function
 
+Public Function isOneWay() As Boolean
+ Dim strRouteParam As String
+ strRouteParam = mpRouteParam()
+  isOneWay = (Split(strRouteParam, ",")(2) <> "0")
+End Function
