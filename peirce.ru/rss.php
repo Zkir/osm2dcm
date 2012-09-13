@@ -4,23 +4,30 @@
   echo '<?xml version="1.0" encoding="utf-8"?>
         <rss version="2.0">
         <channel>';
+  
+  $xml = simplexml_load_file("maplist.xml");
+  
   if ($MapId=='')
   {
-    echo '<title>Контроль качества - Все карты</title>
+    echo '<title>Контроль качества - Сводка</title>
           <link>http://peirce.gis-lab.info/qa</link>';
+    PrintSummaryItem($xml);
   }
   else
   {
-  	 echo '<title>Контроль качества - '.$MapId.'</title>
+    echo '<title>Контроль качества - '.$MapId.'</title>
            <link>http://peirce.gis-lab.info/qa/'.$MapId.'</link>';
-  }
-  
-  $xml = simplexml_load_file("maplist.xml");
-  foreach ($xml->map as $item)
+     
+     
+    
+    foreach ($xml->map as $item)
     {
-      if(($MapId==$item->code) or ($MapId==''))
+      if(($MapId==$item->code) )
         PrintItem($item->code,$item->name);
     }
+  }
+  
+
   echo '</channel>
        </rss>';
 
@@ -185,5 +192,85 @@ function TestX($x,$x0 )
 	  }
 }
 
-?>
 
+
+function PrintSummaryItem($xml){
+	
+	$strPubDate=date("Y-m-d");
+	
+	$strQAStartDate='2012-07-21';
+	$intNumberOfMaps=0;
+	$intNumberOfQAPassedMaps=0;
+	$intQAIndex1=0;
+	$intQAIndex1Max=0;
+	
+	$intQAIndex2=0;
+	$intQAIndex2Max=0;
+	$intDateDiff=0;
+	
+	
+	foreach ($xml->map as $item)
+    {
+       if( (substr($item->code,0,2)=='RU') and ($item->code!='RU-OVRV'))
+       {
+       	   $intNumberOfMaps=$intNumberOfMaps+1;
+       	   $intDateDiff=DateDiff($item->date, $strPubDate );
+       	   $intQAIndex1=$intQAIndex1+$intDateDiff;
+       	     if($intDateDiff>$intQAIndex1Max)
+       	       $intQAIndex1Max=$intDateDiff;
+       	   
+       	   if($item->date>$strQAStartDate)
+       	   {	    
+       	     $intNumberOfQAPassedMaps=$intNumberOfQAPassedMaps+1;
+       	     $intQAIndex2=$intQAIndex2+$intDateDiff;
+       	     
+       	     if($intDateDiff>$intQAIndex2Max)
+       	       $intQAIndex2Max=$intDateDiff;	  
+       	     //echo $item->code.",".$item->date. ", ". $strPubDate . ", ". DateDiff($item->date, $strPubDate )." <br /> ";
+       	   }  
+       }	   
+    }
+    
+    $intQAIndex1= (float)$intQAIndex1/(float)$intNumberOfMaps;
+	$intQAIndex2= (float)$intQAIndex2/(float)$intNumberOfQAPassedMaps;
+	
+	
+	echo '<item>
+    <guid>'.'QA-'.$strPubDate.'(test-3)</guid>
+    <title>'.'Контроль качества, сводка '.$strPubDate.' </title>
+    <link>http://peirce.gis-lab.info/qa</link>
+    <author>Ch.S. Peirce</author>
+    <pubDate>'.$strPubDate.'</pubDate>
+    <description>';
+    echo "<![CDATA[";
+	
+	echo "<h1>Показатели качества ($strPubDate)</h1>";
+	echo '<p>Количество карт в группе "Россия" (за все время): '.$intNumberOfMaps.'</p>';
+	echo '<p>Количество карт прошедших QA в группе "Россия" (за все время): '.$intNumberOfQAPassedMaps.'</p>';
+	
+	echo '<p>Показатель латентности I: '.number_format($intQAIndex1,1,'.', ' ') .' дней (Максимальный: '.$intQAIndex1Max.'  дней)</p>';
+	echo '<p>Показатель латентности II: '.number_format($intQAIndex2,1,'.', ' ').' дней (Максимальный: '.$intQAIndex2Max.'  дней)</p>';
+	
+	
+	
+		
+    echo ']]>';
+    echo '</description>
+        </item>';
+}
+function DateDiff($StartDate, $EndDate)
+{
+  $Y1=substr($StartDate,0,4);
+  $M1=substr($StartDate,5,2);
+  $D1=substr($StartDate,8,2);
+  //echo "$M1,$D1,$Y1 <br />";
+  
+  $current_date = mktime (0,0,0,date("m") ,date("d"),date("Y"));  //дата сегодня
+  $old_date = mktime (0,0,0,$M1,$D1,$Y1); //2004.11.25
+  $difference = ($current_date - $old_date); //разница в секундах
+  $difference_in_days = ($difference / 86400); //разница в днях
+  
+ // echo "$StartDate, $EndDate, $difference_in_days  <br /> ";
+  return $difference_in_days;
+}
+?>
