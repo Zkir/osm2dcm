@@ -27,7 +27,10 @@ require_once("include/misc_utils.php");
     case 'addr_summary':
       PrintAddressSummaryPage();
       break;
-      
+    case 'stat_summary':  
+      $zPage->title="Статистика (наполненность карт)";       	
+      PrintMpStatSummaryPage();
+      break;
     case 'qa_summary':         
     default:
       
@@ -127,7 +130,12 @@ if ($errtype=="")
   foreach ($xml_stat->mapinfo as $item)
   {
       if($mapid==$item->MapId)
+      {	  
         $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
+        $strMapName=$item->MapName;
+        
+        $objStatRecord=$item;
+      }  
   }
 
    	
@@ -137,6 +145,7 @@ if ($errtype=="")
   $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
+              <tr><td>Название карты</td><td><b>'.$strMapName.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
               <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
@@ -275,9 +284,17 @@ if ($errtype=="")
   $zPage->WriteHtml("</table>" );
   $zPage->WriteHtml("<p/>" );
 
+ 
+  
+  //Cтатистика
+  PrintStatistics($objStatRecord,$xml);
+
+ 	 
+ $zPage->WriteHtml("<p/>" );
+ 
+  
+  
   $zPage->WriteHtml(' <hr/>'  );
-  
-  
 /*==========================================================================
                  Разрывы береговой линии
 ============================================================================*/
@@ -1245,6 +1262,131 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     {
   	  $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');
     }	  
+}
+
+//Вывод статистики
+function PrintStatistics($objStatRecord,$xml)
+{	
+  global $zPage;
+  $item=$objStatRecord;  
+   
+  $zPage->WriteHtml( '<h2>Основные статистические сведения</h2>');
+  $zPage->WriteHtml( '<b>'.$item->MapId.'</b>- ');
+  $zPage->WriteHtml( '<b>'.$item->MapName.'</b>');
+  $zPage->WriteHtml( '<h3>Osm-данные</h3>' );
+  $zPage->WriteHtml( '<table>');
+  $zPage->WriteHtml( '<tr>
+              
+                  <td><b>Площадь,<br/> тыс.&nbsp;кв.&nbsp;км</b></td>
+                  <td><b>Число объектов</b></td>
+                  <td><b>Правок в день</b></td>
+                  <td><b>моложе 14 дней</b></td>
+                  <td><b>100 дней</b></td>
+                  <td><b> 365 дней</b></td>
+                  <td><b>Ср. возраст, дни</b></td>
+                  <td><b>Число объектов<br/>  на кв.&nbsp;км</b></td>
+                  <td><b>Правок в день<br/>на тыс.&nbsp;кв.&nbsp;км</b></td>
+                  <td><b>Активные <br/> участники</b></td>
+         </tr>');
+        	  
+  
+      	
+  $zPage->WriteHtml( '<tr>');
+  $zPage->WriteHtml( '<td>'.number_format($item->Square/1000,0,'.', ' ').'</td>');
+  $zPage->WriteHtml( '<td>'.$item->NumberOfObjects.'</td>');
+  $zPage->WriteHtml( '<td>'.$item->EditsPerDay.'</td> ');
+  $zPage->WriteHtml( '<td>'.$item->M14.'%</td> ');
+  $zPage->WriteHtml( '<td>'.$item->M100.'%</td> ');
+  $zPage->WriteHtml( '<td>'.$item->M365.'%</td> ');
+  $zPage->WriteHtml( '<td>'.number_format($item->AverageObjectAge,0,'.', ' ').'</td> ');
+  $zPage->WriteHtml( '<td>'.number_format($item->ObjectsPerSquareKm,2,'.', ' ').'</td> ');
+  $zPage->WriteHtml( '<td>'.number_format((((float)$item->EditsPerDayPerSquareKm)*1000.0) ,1,'.', ' ').'</td> ');
+  $zPage->WriteHtml( '<td>'.$item->ActiveUsers.'</td> ');
+  $zPage->WriteHtml( '</tr>');      
+  $zPage->WriteHtml( '</table>');
+  $zPage->WriteHtml( '<p>Расшифровку показателей см. на <a href="/stat#descr">странице статистики</a>.</p>');
+  
+    $zPage->WriteHtml("<p/>" );
+  $zPage->WriteHtml("<h3>Итоговая карта</h3>" );
+  $zPage->WriteHtml(
+   '- Общая протяженность дорог: <b>'.$xml->Statistics->Summary->RoadLengthKm.'</b> км, дворовых проездов: <b>'.$xml->Statistics->Summary->ServiceRoadLengthKm.'</b> км <br />
+    - Общее количество точек интереса (POI): <b>'.($xml->Statistics->Summary->TotalPoiNumber).'</b> шт.,
+         в том числе с адресной информацией: <b>'.($xml->Statistics->Summary->PoiWithAddressNumber).'</b> шт.<br />
+    - Количество населенных пунктов, доступных в адресном поиске: <b>'.$xml->Statistics->Summary->CitiesNumber.'</b> <br />                  
+    - Общее количество зданий с адресной информацией: <b>'.(($xml->AddressTest->Summary->TotalHouses)-($xml->AddressTest->Summary->UnmatchedHouses)).'</b> шт.<br />');
+}
+
+/*=====================================================================================================
+Сводная таблица по Статистике МП
+=======================================================================================================*/
+function PrintMpStatSummaryPage()
+{
+  global $zPage;	 
+  $zPage->WriteHtml( '<h1>Статистика (наполненность карт для СГ)</h1>');
+  $zPage->WriteHtml( '<p>   На этой странице приведены статистические показатели, отражающие наполненность (подробность) итоговых карт.
+  	                  Эти показатели считаются по объектам, фактически попавшим в готовые карты osm для СГ 7.x  </p>');
+  $zPage->WriteHtml( '<h2>Россия</h2>');
+  $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
+                          на заголовок столбца. </small></p> ');
+  PrintMpStatSummary(0);
+      
+  //$zPage->WriteHtml( '<h2>Заграница</h2>');
+  //PrintAddressSummary(1);
+	
+}
+function PrintMpStatSummary($mode)
+{
+   global $zPage;
+
+   //Cписок пока строим по статистике
+   $xml = simplexml_load_file("maplist.xml");
+
+   $zPage->WriteHtml( '<table width="900px" class="sortable">
+
+   	    <tr style="background: #AFAFAF">
+                  <td width="80px"><b>Код</b></td>
+                  <td width="180px"><b>Карта</b></td>
+                  <td><b>Протяжен&shy;ность дорог, км</b></td>
+            
+                  <td><b>Протяженность дворовых проездов, км</b></td>
+                  <td><b>Общее количество точек интереса (POI)</b></td> 
+                  <td><b>в том числе POI c адресами</b></td>
+                  <td><b>Общее количество зданий с  адресами</b></td>
+                  <td><b>Количество населенных пунктов</b></td>   
+        </tr>');
+
+  foreach ($xml->map as $item)
+    {
+      if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
+      {
+        $xmlfilename=GetXmlFileName($item->code);
+
+        if(file_exists($xmlfilename))
+        {
+          $xml_addr = simplexml_load_file($xmlfilename);
+          
+                    
+          $zPage->WriteHtml( '<tr>');
+          $zPage->WriteHtml( '<td width="80px">'.$item->code.'</td>');
+          $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+          
+          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->RoadLengthKm."</td>" );
+          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->ServiceRoadLengthKm."</td>" );
+          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->TotalPoiNumber."</td>" );
+          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->PoiWithAddressNumber."</td>" );
+          $zPage->WriteHtml('<td>'.(($xml_addr->AddressTest->Summary->TotalHouses)-($xml_addr->AddressTest->Summary->UnmatchedHouses))."</td>" );
+          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->CitiesNumber."</td>" );
+       
+
+          $zPage->WriteHtml( '</tr>');
+        }
+
+
+
+      }
+    }
+
+  $zPage->WriteHtml( '</table>');
 }
 
 ?>

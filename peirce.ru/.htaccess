@@ -32,6 +32,7 @@ RewriteRule ^qa/([a-zA-Z0-9_-]+)/addr-street-map$ qq-map.php?mapid=$1&test=addr-
 RewriteRule ^daily$ maps7.php
 RewriteRule ^misc_maps$  maps5.php
 RewriteRule ^stat$  stat.php
+RewriteRule ^stat2$ addr.php?page=stat_summary
 RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
 
 
