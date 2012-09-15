@@ -31,6 +31,11 @@ require_once("include/misc_utils.php");
       $zPage->title="Статистика (наполненность карт)";       	
       PrintMpStatSummaryPage();
       break;
+    case 'rss':
+    	$zPage->title="Контроль качества - $mapid";
+        $zPage->header="Контроль качества - $mapid";
+        PrintQADetailsPageRss($mapid);
+    	break;  
     case 'qa_summary':         
     default:
       
@@ -49,13 +54,18 @@ require_once("include/misc_utils.php");
   }
 
 
-
-$zPage->WriteHtml('
-<div style="display: none;">
-<iframe name="josm"></iframe>
-</div>');
-
- $zPage->Output("1");
+if($page!='rss')
+{	 
+  $zPage->WriteHtml('
+              <div style="display: none;">
+              <iframe name="josm"></iframe>
+              </div>');
+  $zPage->Output("1");
+}
+else
+{
+  $zPage->OutputAsRss();
+}
 
 /* 
 =============================================================================
@@ -102,83 +112,76 @@ function MakeWikiLink($city)
 	return "http://ru.wikipedia.org/wiki/".$city;
 }
 
-function TestX($x,$x0 )
+function TestX($x,$x0, $blnRss )
 {
-	if (((float)$x)>((float)$x0))
-	  {	return '<img src="/img/cross.gif" alt= "Допустимо '.$x0.'"  height="25px" />'; }
+	if ($blnRss)
+	{
+		$CrossHtml='<font color="red">✘</font>';
+		$TickHtml='<font color="green">✔</font>';
+	}
 	else
-	  {	return '<img src="/img/tick.gif" height="25px" />'; }
+	{
+		$CrossHtml='<img src="/img/cross.gif" alt= "Допустимо '.$x0.'"  height="25px" />';
+		$TickHtml='<img src="/img/tick.gif" height="25px" />';
+	}	
+		 
+	if (((float)$x)>((float)$x0))
+	  {	return $CrossHtml; }
+	else
+	  {	return $TickHtml; }
 }
 
 //============================================================================================================
 //      Страница деталей области.
 //============================================================================================================
-function PrintQADetailsPage($mapid, $errtype)
+function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRss)
 {
   global $zPage;
   
-  $zPage->WriteHtml( "<h1>Контроль качества ($mapid)</h1>");
-  
-  $xml = simplexml_load_file(GetXmlFileName($mapid));
-  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
   $xmlQCR = simplexml_load_file("QualityCriteria.xml");
-
-if ($errtype=="")
-{
-  $xml_stat = simplexml_load_file('statistics.xml');
-  $LastKnownEdit='???';
-  foreach ($xml_stat->mapinfo as $item)
-  {
-      if($mapid==$item->MapId)
-      {	  
-        $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
-        $strMapName=$item->MapName;
-        
-        $objStatRecord=$item;
-      }  
-  }
-
-   	
-  	
-  $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
-  
+  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+ 
   $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Название карты</td><td><b>'.$strMapName.'</b></td></tr>
               <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
               <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
-              <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>
-              <tr><td>RSS</td><td><a href="/qa/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>
-              </table>
+              <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>');
+  if(!$blnRss)
+  $zPage->WriteHtml(
+              '<tr><td>RSS</td><td><a href="/qa/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>');
+  
+  $zPage->WriteHtml(
+  	          '</table>
               <h2>Сводка</h2>
               <table>
                 <tr><td><b>Отрисовка карты</b></td></tr>
                 <tr>
                   <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
                   <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
-                  <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks).'</td>
+                  <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks,$blnRss).'</td>
                   <td><a href="#shorelinebreaks">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без населения:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
-                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation).'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation,$blnRss).'</td>
                   <td><a href="#citynopop">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без полигональных границ:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
-                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon).'</td>
+                  <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon,$blnRss).'</td>
                   <td><a href="#citynoborder">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
-                  <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions).'</td>
+                  <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
                   <td><a href="#hwconstr_chk">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/hwc-map">на карте</a></td>
                 </tr>
@@ -187,42 +190,42 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Число рутинговых ребер :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfRoutingEdges.'</td>
-                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,$xmlQCR->ClassA->MaxRoutiningEdges).'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,$xmlQCR->ClassA->MaxRoutiningEdges,$blnRss).'</td>
                   <td></td>
                   <td></td>  
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs).'</td>
+                  <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs,$blnRss).'</td>
                   <td><a href="#isol">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/routing-map">на карте</a></td>  
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;tertiary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary,$blnRss).'</td>
                   <td><a href="#isol3">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/3">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;secondary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary,$blnRss).'</td>
                   <td><a href="#isol2">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/2">на карте</a></td>
                 </tr>                	
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;primary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary,$blnRss).'</td>
                   <td><a href="#isol1">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/1">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;trunk:</td>
                   <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
-                  <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk).'</td>
+                  <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk,$blnRss).'</td>
                   <td><a href="#isol0">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/0">на карте</a></td>
                 </tr>
@@ -230,14 +233,14 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Дубликаты ребер:</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
-                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates).'</td>
+                  <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates,$blnRss).'</td>
                   <td><a href="#rdups">список</a></td>
                   <td><a href="/qa/'.$mapid.'/rd-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Тупики важных дорог:</td>
                   <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
-                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds).'</td>
+                  <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds,$blnRss).'</td>
                   <td><a href="#deadends">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/dnodes-map">на карте</a></td>
                 </tr>
@@ -246,14 +249,14 @@ if ($errtype=="")
                 <tr>
                   <td>&nbsp;&nbsp;Доля улиц, не сопоставленых НП:</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
-                  <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets).'</td>
+                  <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets,$blnRss).'</td>
                   <td><a href="#addr-street">список</a></td>
                   <td><a href="/qa/'.$mapid.'/addr-street-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Доля не сопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
-                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses).'</td>
+                  <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses,$blnRss).'</td>
                   <td><a href="#addr">список</a></td>
                   <td><a href="/qa/'.$mapid.'/addr-map">на карте</a></td>
                 </tr>
@@ -279,9 +282,82 @@ if ($errtype=="")
   $zPage->WriteHtml("<tr><td align=\"right\">Всего улиц</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Улиц вне НП:</td><td>".$xml->AddressTest->Summary->StreetsOutsideCities."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых улиц</td><td>".number_format(100.00*$UnmatchedStreetsRate ,2,'.', ' ')."%</td></tr>" );
-
-
   $zPage->WriteHtml("</table>" );
+  
+}
+
+function PrintQADetailsPageRss($mapid)
+{
+  global $zPage;
+  
+  	  
+  //Загрузка данных
+  $xml = simplexml_load_file(GetXmlFileName($mapid));
+
+  $xml_stat = simplexml_load_file('statistics.xml');
+  $LastKnownEdit='???';
+  foreach ($xml_stat->mapinfo as $item)
+  {
+      if($mapid==$item->MapId)
+      {	  
+        $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
+        $strMapName=$item->MapName;
+        
+        $objStatRecord=$item;
+      }  
+  }
+
+  //Параметры rss
+  $zPage->cnl_link='http://peirce.gis-lab.info/qa/'.$mapid;
+  $zPage->item_guid=$mapid.'/'.$xml->Date;
+  $zPage->item_title=$strMapName.'('.$mapid.') - '.$xml->Date;
+  $zPage->item_link='http://peirce.gis-lab.info/qa/'.$mapid;
+  $zPage->item_pubDate=$xml->Date;
+
+  
+  
+  //Вывод
+  PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,True); 
+  $zPage->WriteHtml("<p/>" );
+  
+  //Cтатистика
+  PrintStatistics($objStatRecord,$xml);
+
+}	
+
+function PrintQADetailsPage($mapid, $errtype)
+{
+  global $zPage;
+  
+  $zPage->WriteHtml( "<h1>Контроль качества ($mapid)</h1>");
+  
+  $xml = simplexml_load_file(GetXmlFileName($mapid));
+  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+ 
+
+if ($errtype=="")
+{
+  $xml_stat = simplexml_load_file('statistics.xml');
+  $LastKnownEdit='???';
+  foreach ($xml_stat->mapinfo as $item)
+  {
+      if($mapid==$item->MapId)
+      {	  
+        $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
+        $strMapName=$item->MapName;
+        
+        $objStatRecord=$item;
+      }  
+  }
+
+   	
+  	
+  $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
+  
+  PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,False);
+  
+  
+  
   $zPage->WriteHtml("<p/>" );
 
  
