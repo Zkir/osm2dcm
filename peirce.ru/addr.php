@@ -161,28 +161,28 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
                   <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
                   <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks,$blnRss).'</td>
-                  <td><a href="#shorelinebreaks">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#shorelinebreaks">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без населения:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation,$blnRss).'</td>
-                  <td><a href="#citynopop">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#citynopop">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без полигональных границ:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon,$blnRss).'</td>
-                  <td><a href="#citynoborder">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#citynoborder">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
                   <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
-                  <td><a href="#hwconstr_chk">список</a></td> 
+                  <td><a href="/qa/'.$mapid.'#hwconstr_chk">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/hwc-map">на карте</a></td>
                 </tr>
                 
@@ -198,35 +198,35 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs,$blnRss).'</td>
-                  <td><a href="#isol">список</a></td> 
+                  <td><a href="/qa/'.$mapid.'#isol">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/routing-map">на карте</a></td>  
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;tertiary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary,$blnRss).'</td>
-                  <td><a href="#isol3">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#isol3">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/3">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;secondary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary,$blnRss).'</td>
-                  <td><a href="#isol2">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#isol2">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/2">на карте</a></td>
                 </tr>                	
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;primary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary,$blnRss).'</td>
-                  <td><a href="#isol1">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#isol1">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/1">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;trunk:</td>
                   <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk,$blnRss).'</td>
-                  <td><a href="#isol0">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#isol0">список</a></td>
                   <td><a href="/qa/'.$mapid.'/routing-map/0">на карте</a></td>
                 </tr>
 
@@ -234,14 +234,14 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Дубликаты ребер:</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
                   <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates,$blnRss).'</td>
-                  <td><a href="#rdups">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#rdups">список</a></td>
                   <td><a href="/qa/'.$mapid.'/rd-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Тупики важных дорог:</td>
                   <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
                   <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds,$blnRss).'</td>
-                  <td><a href="#deadends">список</a></td> 
+                  <td><a href="/qa/'.$mapid.'#deadends">список</a></td> 
                   <td><a href="/qa/'.$mapid.'/dnodes-map">на карте</a></td>
                 </tr>
 
@@ -250,14 +250,14 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Доля улиц, не сопоставленых НП:</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets,$blnRss).'</td>
-                  <td><a href="#addr-street">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#addr-street">список</a></td>
                   <td><a href="/qa/'.$mapid.'/addr-street-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Доля не сопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses,$blnRss).'</td>
-                  <td><a href="#addr">список</a></td>
+                  <td><a href="/qa/'.$mapid.'#addr">список</a></td>
                   <td><a href="/qa/'.$mapid.'/addr-map">на карте</a></td>
                 </tr>
                 </table>
@@ -1043,6 +1043,11 @@ function PrintQASummaryPage()
       PrintQASummary("Ближнее Зарубежье");
       $zPage->WriteHtml( '<h3>Дальнее зарубежье</h3>');
       PrintQASummary("Дальнее Зарубежье");
+      
+      
+       $zPage->WriteHtml( '<h2>См. также </h2>');
+       $zPage->WriteHtml( '<p> Все вопросы по работе данного валидатора можно задать на <a href="http://forum.openstreetmap.org/viewtopic.php?id=12233">форуме OSM</a>. </p>');
+      
 }	
 
 function PrintQASummary($strGroup)
@@ -1463,6 +1468,23 @@ function PrintMpStatSummary($mode)
     }
 
   $zPage->WriteHtml( '</table>');
+  
+  $zPage->WriteHtml( '<h2>Методика расчета</h2>');
+  $zPage->WriteHtml( '<p>Данные показатели отражают подробность (детализированость) итоговых карт для Ситигида на основе OSM. В данной статистики отражаются объекты,
+  	                     фактически попавшие в итоговые карты, а не все данные, которые есть в OSM.
+                         Подсчет ведется по промежуточному польскому файлу. </p>');
+  $zPage->WriteHtml( '<p><b>Протяженность дорог, км</b> - Протяженность дорог и улиц, без учета дворовых проездов и сельскохозяйственных грунтовок.
+  	                        Длинна односторонних дорог учитывается с коэффициентом 0.5. Сделано это для того, чтобы способ, которым нарисована дорога 
+  	                        (одним веем или двумя) не влиял на этот показатель. </p>');
+            
+  $zPage->WriteHtml('<p><b>Протяженность дворовых проездов, км</b> - протяженность дворовых проездов, проездов на заправках, и других служебных проездов.  </p>
+  	                 <p><b>Общее количество точек интереса (POI)</b> - число точечных объектов (ПОИ) в карте, без учета точечных домов и пунсонов населенных пунктов. </p> 
+                     <p><b>в том числе POI c адресами</b> - число ПОИ, имеющих адрес </td>
+                     <p><b>Общее количество зданий с  адресами</b> - число зданий, как точечных, так и полигональных, имеющих адрес и попадающих в адресный поиск.</td>
+                     <p><b>Количество населенных пунктов</b> - Количество точечных населенных пунктов (пунсонов). </p> ');
+  $zPage->WriteHtml('<h2>См. также</h2>');
+  $zPage->WriteHtml('<p> <ul> <li> <a href="/stat">Статистика по исходным данным OSM</a>  </li> </ul> </p> ');
+  
 }
 
 ?>

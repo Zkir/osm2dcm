@@ -86,7 +86,7 @@ function PrintSideBlockNews()
   </title>
   <script src="/sorttable.js" type="text/javascript"> </script>
   </head>
-  <body><div id="box">
+  <body class="claro"><div id="box">
    <!-- header -->
    <div id="header">
     <!-- logo -->
@@ -102,10 +102,13 @@ function PrintSideBlockNews()
         <ul>
             <?php
             echo '<li id="active"><a href="'.$g_SelfUrl.'">Новости</a></li>
-                  <li><a href="'.$g_SelfUrl.'/daily">для СГ 7.x</a></li>                
-                  <li><a href="'.$g_SelfUrl.'/maps5.php">для  СГ 5.x</a></li>
-                  <li><a href="'.$g_SelfUrl.'/stat">Статистика</a></li>
-                  <li><a href="'.$g_SelfUrl.'/qa">Контроль качества</a></li>';
+                  <li><a href="'.$g_SelfUrl.'/daily">Карты</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/qa">Контроль качества</a></li>';       
+            //echo  '<li><a href="'.$g_SelfUrl.'/maps5.php">для  СГ 5.x</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/stat">Статистика 1</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/stat2">Статистика 2</a></li>';
+          
+            
                  // <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
             echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">Форум</a></li>';
                              

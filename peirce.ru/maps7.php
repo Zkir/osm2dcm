@@ -14,6 +14,12 @@ require_once("include/misc_utils.php");
   $xml3 = simplexml_load_file("maplist_old.xml"); //Ручные карты
   	  
   $zPage->WriteHtml( "<H1>Карты для Ситигид 7.x</H1>");
+  $zPage->WriteHtml('<P> <img src="img/peirce.jpg" height="65px"  style="float:left;"
+                        title="Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф">
+  	                 На этой странице представленны карты Openstreetmap для навигационной программы Ситигид 7.x. 
+  	                 Карты для предыдущей версии СГ 5.x все еще можно найти <a href="/maps5.php">здесь<a>. 
+                       
+                     </P>');
   
   $zPage->WriteHtml( "<H2>Обзорные карты</H2>");
   $zPage->WriteHtml('
@@ -26,7 +32,8 @@ require_once("include/misc_utils.php");
   PrintMapListOld ($xml3,"Карты с пробками");
   
   $zPage->WriteHtml('<H2>Ежедневные карты</H2>');
-  $zPage->WriteHtml('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день.'); 
+  $zPage->WriteHtml('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день. <br/>
+                     <b>Важно</b>: в этот список включаются только те карты, которые прошли <a href="/qa">контроль качества</a>  '); 
     
   $zPage->WriteHtml( "<H3>Россия</H3>");
   PrintMapList ($xml,"Россия");
@@ -37,6 +44,7 @@ require_once("include/misc_utils.php");
   $zPage->WriteHtml( "<H3>Дальнее зарубежье </H3>");
   PrintMapList ($xml,"Дальнее Зарубежье");
 
+/*
   $zPage->WriteHtml( "<H2>Все карты, торрент </H2>");
     
   $zPage->WriteHtml( '
@@ -55,6 +63,9 @@ require_once("include/misc_utils.php");
       По техническим причинам, в раздачу не попали две имеющиеся обзорки, Мира и России (экспериметальные)<br />'
       );
     
+  */
+//  $zPage->WriteHtml( "<H2>См. также </H2>");
+//  $zPage->WriteHtml( "Возникли вопросы? Их можно задать <a href="">на форуме!</a>");
   
   
  $zPage->Output();

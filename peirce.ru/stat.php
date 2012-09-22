@@ -64,7 +64,10 @@ require_once("include/misc_utils.php");
 </small>');
   
   $zPage->WriteHtml(' <H2>См. также</H2>
-  	 <ul> 	 
+  	 <ul>
+  	   <li>
+   	     <a href="/stat2">Статистика по готовым картам для СГ. </a>  
+       </li> 	 
    	   <li>
    	     <a href="http://gis-lab.info/projects/osm-stats.html">Статистика роста OSM по объектам по регионам </a> (GIS-Lab) 
        </li>
