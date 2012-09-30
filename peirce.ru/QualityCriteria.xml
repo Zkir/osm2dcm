@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<QualityCriteria>
+<ClassA>
+  <Description>
+    Строгие требования, к которым нужно стремиться. Целый адресный реестр и идеальный дорожный граф. Проверяются все показатели
+  </Description>
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxCitiesWithoutPopulation>0</MaxCitiesWithoutPopulation>
+  <MaxCitiesWithoutPlacePolygon>0</MaxCitiesWithoutPlacePolygon>
+  <MaxOutdatedConstructions>5</MaxOutdatedConstructions>
+  <MaxIsolatedSubgraphs>10</MaxIsolatedSubgraphs>
+  
+  <MaxIsolatedSubgraphsTrunk>3</MaxIsolatedSubgraphsTrunk>
+  <MaxIsolatedSubgraphsPrimary>3</MaxIsolatedSubgraphsPrimary>
+  <MaxIsolatedSubgraphsSecondary>3</MaxIsolatedSubgraphsSecondary>
+  <MaxIsolatedSubgraphsTertiary>3</MaxIsolatedSubgraphsTertiary>
+  <MaxRoadDuplicates>5</MaxRoadDuplicates>
+  <MaxDeadEnds>10</MaxDeadEnds>
+  
+  
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>0.05</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrStreets>0.10</MaxUnmatchedAddrStreets>
+</ClassA>
+
+   
+<ClassB>
+  <Description>
+    Класс B - карты, которые можно выпускать в свет. Целый адресный реестр и дорожный граф.
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
+  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>10</MaxDeadEnds>
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+</ClassB>
+
+<ClassBm>
+  <Description>
+    Класс B - карты, которые можно выпускать в свет. Целый дорожный граф. Поиск только до улиц. Малое количество нанесенных адресов.
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
+  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>10</MaxDeadEnds>
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxTotalAddr>1000</MaxTotalAddr>
+  <MaxUnmatchedAddrHouses>0.999</MaxUnmatchedAddrHouses> 
+  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+</ClassBm>
+
+<ClassC>
+  <Description>
+    Класс C - кандидат. Карта проходит по адреске и изолятам, возможны ошибки статуса (изоляты по уровням и тупики).
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
+  
+  <MaxIsolatedSubgraphsTertiary>500</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>500</MaxDeadEnds>
+  
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+</ClassC>
+
+<ClassCm>
+  <Description>
+    Класс Cm - Особый случай. Целый рутинговый граф (все критерии удовлетворяются) и поиск до улиц. Много ошибок в адресах домов.
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
+  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>10</MaxDeadEnds>
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>0.99</MaxUnmatchedAddrHouses> 
+  <MaxUnmatchedAddrStreets>0.10</MaxUnmatchedAddrStreets>
+</ClassCm>
+
+<ClassD>
+  <Description>
+    Целый адресный реестр, изолятов в пределах 100 .
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>100</MaxIsolatedSubgraphs>
+  
+  <MaxIsolatedSubgraphsTertiary>500</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>500</MaxDeadEnds>
+  
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+</ClassD>
+
+<ClassX>
+  <Description>
+    Минимальные требования чтобы карта работала в СГ. Целое море.
+  </Description>
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+</ClassX>  
+</QualityCriteria>
+
+
