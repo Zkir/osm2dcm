@@ -59,8 +59,12 @@ Dim l As Long
   strStreetName = Replace$(strStreetName, " шоссе ", " ш. ", , , vbTextCompare)
   strStreetName = Replace$(strStreetName, " улица ", " ул. ", , , vbTextCompare)
   
-  'Убьем пробел перед номером
-  strStreetName = Replace$(strStreetName, " № ", " №", , , vbTextCompare)
+  ' 'Убьем пробел перед номером
+  'strStreetName = Replace$(strStreetName, " № ", " №", , , vbTextCompare)
+  
+  ''Номер СГ таки  не понимает.
+  'strStreetName = Replace$(strStreetName, " № ", " №", , , vbTextCompare)
+
    
   'Обтримливание на всякий случай
   strStreetName = Trim$(strStreetName)
@@ -109,6 +113,7 @@ On Error GoTo finalize
 If blnDoTests Then
   Set oAddrRegisty = New clsAddrRegistry
   Set oRoutingTestFull = New clsRoutingTest
+  oRoutingTestFull.FillExceptionList
   Set oRoutingTest0 = New clsRoutingTest
   Set oRoutingTest1 = New clsRoutingTest
   Set oRoutingTest2 = New clsRoutingTest
@@ -220,7 +225,8 @@ Do While Not EOF(1)
   'Особый тип для грунтовых дорог. "Грунтовыми" будем считать дороги с классом скорости 0 (5 км/ч)
   'Это правильно, потому что непроезжие дороги заметны визуально.
   If oMpSection.SectionType = "[POLYLINE]" Then
-    If (oMpSection.mpType <> "0x1b") And (oMpSection.mpType <> "0x47") And (oMpSection.mpType <> "0x16") And (oMpSection.mpType <> "0x8849") Then
+    If (oMpSection.mpType <> "0x1b") And (oMpSection.mpType <> "0x47") And _
+      (oMpSection.mpType <> "0x16") And (oMpSection.mpType <> "0x8849") And (oMpSection.mpType <> "0x07") Then
     ' Кроме паромных переправ,  строящихся дорог и пешеходных дорог и служебных проездов
       If Left(Trim(oMpSection.mpRouteParam), 1) = "0" Then
         oMpSection.mpType = "0x0a"
@@ -444,11 +450,13 @@ Do While Not EOF(1)
       oAddrRegisty.AddStreetToRegistry _
                  Trim$(oMpSection.GetAttributeValue("StreetDesc")), _
                  Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
-                 (oMpSection.mpRouteParam <> ""), _
+                 (oMpSection.mpRouteParam <> "") And Not (oMpSection.mpType = "0x07"), _
                  oMpSection.GetCoords(), _
-                 (oMpSection.mpType = "0x06") Or (oMpSection.mpType = "0x07")
+                 (oMpSection.mpType = "0x06") 'Or (В названии есть слово улица)
       
-      'Примечание. Подразумевается что hw=residential и hw=living_street должны быть внутри городов
+      ' Примечания.
+      '  1. Подразумевается что hw=residential и hw=living_street должны быть внутри городов
+      '  2. Дворовые проезды все равно не ищутся, даже рутинговые.
                  
     End If
   End If
@@ -499,7 +507,7 @@ Do While Not EOF(1)
       ReDim Preserve NodeList2(NN - 1)
       
       'Передается список рутинговых нод, и bbox для данной дороги
-      oRoutingTestFull.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
+
       
       If OSMLevelByTag(oMpSection.GetOsmHighway) <= 0 Then
         oRoutingTest0.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
@@ -517,11 +525,22 @@ Do While Not EOF(1)
         oRoutingTest3.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
       End If
       
+      'Это все дороги кроме service
+      If OSMLevelByTag(oMpSection.GetOsmHighway) <= 4 Then
+        oRoutingTestFull.AddRoad NodeList, NodeList2, lat1, lon1, lat2, lon2
+      End If
+      
+      
       'Нужно передавать координаты первой и последней вершины
       oMpSection.CalculateFirstLast lat1, lon1, lat2, lon2
       oDanglingRoads.AddRoad oMpSection.mpType, OSMLevelByTag(oMpSection.GetOsmHighway), NodeList, NodeList2, lat1, lon1, lat2, lon2
                  
     End If
+  End If
+  
+  'Убьем CountryName, оно в СГ не используется
+  If oMpSection.GetAttributeValue("CountryName") <> "" Then
+    oMpSection.DeleteAttribute "CountryName"
   End If
   
   'Комментарии. В них содержаться ошибки найденные Osm2mp.pl
@@ -570,6 +589,9 @@ If blnDoTests Then
   
  'Висячие дороги
   oDanglingRoads.Validate
+  
+ 'Исключения/изоляты в рутинговом графе
+ oRoutingTestFull.CheckExceptions
   
 End If
 'Выведем отчет о проделанной работе в xml
@@ -639,9 +661,12 @@ Function OSMLevelByTag(Tag As String) As Integer
       intLevel = 2
     Case "tertiary", "tertiary_link"
       intLevel = 3
-    
-    Case Else
+    Case "residential", "unclassified", "living_street", "checked_construction"
       intLevel = 4
+    Case "service"
+      intLevel = 5
+    Case Else
+      intLevel = 5
   End Select
   
 OSMLevelByTag = intLevel

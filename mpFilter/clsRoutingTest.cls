@@ -25,6 +25,7 @@ Const RS_SUBGRAPH_LON1 = "Lon1"
 Const RS_SUBGRAPH_LAT2 = "Lat2"
 Const RS_SUBGRAPH_LON2 = "Lon2"
 Const RS_SUBGRAPH_HAS_EXTNODES = "HasExternalNodes"
+Const RS_SUBGRAPH_KNOWN_EXCEPTION = "KnownException"
 
 'Вершины
 Const RS_NODE_ID = "Id"
@@ -35,8 +36,20 @@ Dim rsSubGraph     As ADODB.Recordset
 Dim rsNodes        As ADODB.Recordset
 Dim intSubgraphCount As Long
 
+
+Const RS_EXCEP_MAPCODE = "MapCode"
+Const RS_EXCEP_NAME = "Name"
+Const RS_EXCEP_LAT = "Lat"
+Const RS_EXCEP_LON = "Lon"
+Const RS_EXCEP_DESCR = "Descr"
+Const RS_EXCEP_N = "n"
+
+Dim rsExceptions As ADODB.Recordset
+
 Private NTotalRoads As Long
 Private NRoutiningEdges As Long
+
+
 
 Private Sub Class_Initialize()
 
@@ -51,6 +64,7 @@ Private Sub Class_Initialize()
   rsSubGraph.Fields.Append RS_SUBGRAPH_LAT2, adDouble
   rsSubGraph.Fields.Append RS_SUBGRAPH_LON2, adDouble
   rsSubGraph.Fields.Append RS_SUBGRAPH_HAS_EXTNODES, adBoolean
+  rsSubGraph.Fields.Append RS_SUBGRAPH_KNOWN_EXCEPTION, adBoolean
   
     
   rsSubGraph.Open
@@ -70,6 +84,20 @@ Private Sub Class_Initialize()
   NTotalRoads = 0
   NRoutiningEdges = 0
   
+  'Создадим рекордсет c исключениями
+  Set rsExceptions = New ADODB.Recordset
+  rsExceptions.Fields.Append RS_EXCEP_MAPCODE, adVarWChar, 10
+  rsExceptions.Fields.Append RS_EXCEP_LAT, adDouble
+  rsExceptions.Fields.Append RS_EXCEP_LON, adDouble
+  rsExceptions.Fields.Append RS_EXCEP_NAME, adVarWChar, 256
+  rsExceptions.Fields.Append RS_EXCEP_DESCR, adVarWChar, 256
+  rsExceptions.Fields.Append RS_EXCEP_N, adInteger ' Число найденных исключений
+  
+  
+     
+  rsExceptions.Open
+  
+  
 finalize:
   If Err.Number <> 0 Then
     Err.Raise Err.Number, "Class_Initialize", Err.Description & " clsAddrRegistry.Initialize:" & Erl
@@ -80,6 +108,73 @@ Private Sub Class_Terminate()
   Set rsSubGraph = Nothing
   Set rsNodes = Nothing
 End Sub
+
+'Заполнение списка исключений (действительно оторванных кусков)
+'RU-SPO|Название|59.749664, 32.9696697|комментарий
+Public Sub FillExceptionList()
+  
+  Dim ObjXml As MSXML2.DOMDocument
+  Set ObjXml = New MSXML2.DOMDocument
+  
+  ObjXml.Load "SubGraphList.xml"
+  
+  Dim strExceptionList As String
+  strExceptionList = ObjXml.documentElement.getElementsByTagName("rev").Item(0).Text
+  
+
+  
+  Dim strLine As String
+  Dim strLines() As String
+  Dim strValues() As String
+  Dim blnInSection As Boolean
+  Dim i As Integer
+  strLines = Split(strExceptionList, vbLf)
+  
+  blnInSection = False
+  For i = LBound(strLines) To UBound(strLines)
+    strLine = Trim(strLines(i))
+    'Debug.Print strLine
+    If (strLine) = "<pre>" Then
+      blnInSection = True
+    End If
+    
+    If (strLine) = "</pre>" Then
+      blnInSection = False
+    End If
+    
+    If blnInSection Then
+      If (Left(strLine, 1) <> "#") And (strLine <> "") And (strLine <> "<pre>") Then
+      strValues = Split(strLine, "|")
+      If UBound(strValues) = 4 Then
+        AddException strValues(0), strValues(1), Split(strValues(2), ",")(0), Split(strValues(2), ",")(1), strValues(3), strValues(4)
+      End If
+    
+      End If
+    End If
+  Next i
+  
+  'Здесь нужно парсить файл
+  'D:\OSM\_osm2dcm\SubGraphList.xml
+  
+
+End Sub
+'Добавление исключения в список
+Private Sub AddException(ByVal strMapCode As String, _
+                         ByVal strName As String, _
+                         ByVal dblLat As Double, _
+                         ByVal dblLon As Double, _
+                         ByVal strMaxStatus As String, _
+                         ByVal strDescr As String)
+                         
+  rsExceptions.AddNew
+  rsExceptions(RS_EXCEP_MAPCODE).Value = strMapCode
+  rsExceptions(RS_EXCEP_LAT).Value = dblLat
+  rsExceptions(RS_EXCEP_LON).Value = dblLon
+  rsExceptions(RS_EXCEP_NAME).Value = Left(strName, rsExceptions(RS_EXCEP_NAME).DefinedSize)
+  rsExceptions(RS_EXCEP_DESCR).Value = Left(strDescr, rsExceptions(RS_EXCEP_DESCR).DefinedSize)
+  rsExceptions(RS_EXCEP_N).Value = 0
+End Sub
+
 
 'Самая важная функция.
 'Добавляется дорога.
@@ -257,12 +352,43 @@ Dim varNodeFilter
   rsNodes.Filter = varNodeFilter
 
 End Sub
+'Проверка списка исключений
+Public Function CheckExceptions()
+Dim varFilter As Variant
+  
+  varFilter = rsSubGraph.Filter
+  
+  
+  If rsExceptions.RecordCount > 0 Then
+    rsExceptions.MoveFirst
+    Do While Not rsExceptions.EOF
+      ' Тут то как раз и нужно проверить, есть ли подграф, соответсвующий данному. Просто по координате.
+      ' Дополнительно, нужно удостовериться, что это не главный (основной) подграф.
+      rsSubGraph.Filter = RS_SUBGRAPH_LAT1 & "<" & rsExceptions(RS_EXCEP_LAT) & _
+                          " And " & RS_SUBGRAPH_LAT2 & ">" & rsExceptions(RS_EXCEP_LAT) & _
+                          " And " & RS_SUBGRAPH_LON1 & "<" & rsExceptions(RS_EXCEP_LON) & _
+                          " And " & RS_SUBGRAPH_LON2 & ">" & rsExceptions(RS_EXCEP_LON) & _
+                          " And " & RS_SUBGRAPH_HAS_EXTNODES & "=False"
+      If rsSubGraph.RecordCount > 0 Then
+        rsExceptions(RS_EXCEP_N).Value = rsExceptions(RS_EXCEP_N).Value + 1
+        rsSubGraph(RS_SUBGRAPH_KNOWN_EXCEPTION).Value = True
+      End If
+       
+      
+      rsExceptions.MoveNext
+    Loop
+  End If
+  
+rsSubGraph.Filter = varFilter
+End Function
+
 'Cохранение списка ошибок в xml
 Public Function PrintRegistryToXML(FileNumber As Long) As String
   
   'rsSubGraph.Filter = adFilterNone
-  'Выводим только пографы без "внешних нод"
-  rsSubGraph.Filter = RS_SUBGRAPH_HAS_EXTNODES & "=False"
+  'Выводим только пографы без "внешних нод". Исключения тоже не выводим
+  rsSubGraph.Filter = RS_SUBGRAPH_HAS_EXTNODES & "=False and " & RS_SUBGRAPH_KNOWN_EXCEPTION & "=False"
+
   
   rsSubGraph.Sort = RS_SUBGRAPH_ROADCOUNT & " desc"
   
@@ -283,10 +409,33 @@ Public Function PrintRegistryToXML(FileNumber As Long) As String
     Print #FileNumber, "      <Lat2>" & rsSubGraph(RS_SUBGRAPH_LAT2).Value & "</Lat2>"
     Print #FileNumber, "      <Lon2>" & rsSubGraph(RS_SUBGRAPH_LON2).Value & "</Lon2>"
     Print #FileNumber, "    </Bbox>"
+
     Print #FileNumber, "  </Subgraph>"
+
     rsSubGraph.MoveNext
   Loop
   Print #FileNumber, "</SubgraphList>"
+  
+  
+  Print #FileNumber, "<ExceptionList>"
+  If rsExceptions.RecordCount > 0 Then
+    rsExceptions.MoveFirst
+    Do While Not rsExceptions.EOF
+      Print #FileNumber, "  <SubgraphExc>"
+      Print #FileNumber, "    <MapId>" & rsExceptions(RS_EXCEP_MAPCODE).Value & "</MapId>"
+      Print #FileNumber, "    <Name>" & rsExceptions(RS_EXCEP_NAME).Value & "</Name>"
+      Print #FileNumber, "    <Descr>" & rsExceptions(RS_EXCEP_DESCR).Value & "</Descr>"
+      Print #FileNumber, "    <Coord>"
+      Print #FileNumber, "      <Lat>" & rsExceptions(RS_EXCEP_LAT).Value & "</Lat>"
+      Print #FileNumber, "      <Lon>" & rsExceptions(RS_EXCEP_LON).Value & "</Lon>"
+      Print #FileNumber, "    </Coord>"
+      Print #FileNumber, "    <NumberOfFoundOccurences>" & rsExceptions(RS_EXCEP_N).Value & "</NumberOfFoundOccurences>"
+      Print #FileNumber, "  </SubgraphExc>"
+      rsExceptions.MoveNext
+    Loop
+  End If
+  Print #FileNumber, "</ExceptionList>"
+  
   
 End Function
 

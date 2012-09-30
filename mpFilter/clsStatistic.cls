@@ -94,10 +94,14 @@ Public Sub ProcessSection(oMpSection As clsMpSection)
           dblRoadLen = dblRoadLen / 2
         End If
         dblRoadLength = dblRoadLength + dblRoadLen
+      Else
+        dblServiceRoadLength = dblServiceRoadLength + oMpSection.CalculateLength
       End If
-    End If
-    If oMpSection.mpType = "0x8849" Then
-      dblServiceRoadLength = dblServiceRoadLength + oMpSection.CalculateLength
+    Else
+      If oMpSection.mpType = "0x8849" Then
+        'Если дворовые проезды не влючены, они получают тип 0x8849
+        dblServiceRoadLength = dblServiceRoadLength + oMpSection.CalculateLength
+      End If
     End If
   End If
   

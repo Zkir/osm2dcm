@@ -117,6 +117,13 @@ Public Sub ReadSection()
       strMpLine = Replace$(strMpLine, "Ё", "Е", , , vbBinaryCompare)
       strMpLine = Replace$(strMpLine, "ё", "е", , , vbBinaryCompare)
       
+      'Убьем пробел перед номером
+      strMpLine = Replace$(strMpLine, "№ ", "№", , , vbTextCompare)
+  
+      'Номер СГ таки  не понимает.
+      strMpLine = Replace$(strMpLine, "№", "No ", , , vbTextCompare)
+
+      
       If strMpLine <> "" Then
         AddAttributeLine strMpLine
       End If
@@ -186,6 +193,18 @@ Public Function SetAttributeValue(ByVal strAttributeName As String, ByVal strAtt
   m_Label = ""
   m_Type = ""
 End Function
+Public Function DeleteAttribute(ByVal strAttributeName As String)
+
+  rsAttributes.Find RS_ATTR_NAME & "='" & strAttributeName & "'", , adSearchForward, adBookmarkFirst
+  If Not rsAttributes.EOF Then
+    rsAttributes.Delete
+  End If
+  
+  'Сбросим кеш
+  m_Label = ""
+  m_Type = ""
+End Function
+
 
 Property Get mpType() As String
   If m_Type = "" Then
