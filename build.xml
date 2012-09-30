@@ -17,7 +17,8 @@
   </target>
   
   <target name="compile" depends="init">
-    <echo>Compile vb routines</echo>
+    <!-- VB6 -->
+    <echo> -- Compile vb routines</echo>
     <!--Прога подсчета статистики -->
     <echo>zOsmStat</echo>
     <exec executable="${vbexe}" failonerror="true"> 
@@ -47,6 +48,22 @@
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
     </exec>
+    
+    <!-- JAVA -->
+    <echo> -- Compile java routines</echo>
+    <!--Проверялка релиз-критерия -->
+    <echo>qa_release</echo>
+    <!--
+     <javac destdir="build/class">
+      <src path="src"/>
+     </javac>
+     -->
+     <jar destfile="${buildpath}/qa_release.jar" manifest="qa_release/META-INF/MANIFEST.MF" >
+       <fileset dir="qa_release/out/production/qa_release">
+         <include name="**/*.class"/>
+       </fileset>
+     </jar>
+    
   </target> 
   
   <!--Часть файлов просто копируется -->
