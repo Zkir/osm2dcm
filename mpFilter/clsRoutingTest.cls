@@ -112,11 +112,16 @@ End Sub
 'Заполнение списка исключений (действительно оторванных кусков)
 'RU-SPO|Название|59.749664, 32.9696697|комментарий
 Public Sub FillExceptionList()
+  Dim strExceptionFileName As String
   
   Dim ObjXml As MSXML2.DOMDocument
   Set ObjXml = New MSXML2.DOMDocument
   
-  ObjXml.Load "SubGraphList.xml"
+  strExceptionFileName = "IsolatedSubGraphList.xml"
+  
+  If Not ObjXml.Load(strExceptionFileName) Then
+    Err.Raise vbObjectError, "clsRoutingTest.FillExceptionList", "Unable to load exception list for isolated subgraph test: " & strExceptionFileName
+  End If
   
   Dim strExceptionList As String
   strExceptionList = ObjXml.documentElement.getElementsByTagName("rev").Item(0).Text
