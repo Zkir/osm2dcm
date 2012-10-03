@@ -217,7 +217,7 @@
     - highway = living_street
   action:
     - action: load_road
-      type: 0x07
+      type: 0x06
       level_h: 1
       routeparams: '1,0,0,0,0,0,1,1,1,0,0,0'
 
@@ -244,6 +244,15 @@
 
 
 ##highway service r 0x07,2 0 0 1,0,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = service
+    - area != yes
+  action:
+    - action: load_road
+      type: 0x07
+      level_h: 0
+      routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
+
 
 ##route ferry r 0x1b 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
 #- condition:
@@ -308,6 +317,7 @@
 # unpaved roads
 - condition:
     - surface = unpaved|ground|earth|mud|grass|sand|dirt
+    - highway != service
   action:
     - action: modify_road
       type: 0x0a
@@ -335,3 +345,4 @@
     - action: modify_road
       type: 0x1b
       routeparams: '0,.,.,.,.,.,.,.,.,.,.,.'
+

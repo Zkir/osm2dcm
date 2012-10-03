@@ -1,7 +1,13 @@
 --- ways
 ---
 #admin_level 6 l 0x1d,1 0 3 
-#!Check Priority!
+- condition:
+    - admin_level = 8
+  action:
+    - action: write_line
+      type: 0x1d
+      level_h: 3
+
 - condition:
     - admin_level = 6
   action:
@@ -69,14 +75,14 @@
       type: 0x22
       level_h: 1
 
-#highway service l 0x8849,2 0 0 
-#!Check Priority!
-- condition:
-    - highway = service
-  action:
-    - action: write_line
-      type: 0x8849
-      level_h: 0
+##highway service l 0x8849,2 0 0 
+##!Check Priority!
+#- condition:
+#    - highway = service
+#  action:
+#    - action: write_line
+#      type: 0x8849
+#      level_h: 0
 
 ##highway footway l 0x8849 0 0 
 ##highway footway/city l 0x8849 0 0 
@@ -161,7 +167,7 @@
   action:
     - action: write_line
       type: 0x46
-      level_h: 2
+      level_h: 1
 
 #barrier wall l 0x46 0 2 
 - condition:
@@ -169,7 +175,7 @@
   action:
     - action: write_line
       type: 0x46
-      level_h: 2
+      level_h: 1
 
 #barrier fence l 0x46 0 2 
 - condition:
@@ -177,7 +183,7 @@
   action:
     - action: write_line
       type: 0x46
-      level_h: 2
+      level_h: 0
 
 #Special operation: convert coastline to sea polygon
 # natural coastline
@@ -188,3 +194,4 @@
     - action: write_line
       type: 0x15
       level_h: 5
+

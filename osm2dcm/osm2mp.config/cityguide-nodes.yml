@@ -493,7 +493,7 @@
     - highway = crossing
   action:
     - action: write_poi
-      type: 0x6406
+      type: 0xFE0D
       level_h: 0
       contacts: yes
 
@@ -959,6 +959,31 @@
       type: 0x1F01
       level_h: 0
       contacts: yes
+
+# именованные landuse=residential
+# 0x1F01 - произвольный тип, для валидатора адресов.
+- condition:
+    - landuse = residential
+    - name = *
+  action:
+    - action: write_poi
+      type: 0x1F01
+      level_h: 1
+      contacts: yes
+
+
+# именованные "полигональные дороги"
+# 0x1F01 - произвольный тип, для валидатора адресов.
+- condition:
+    - area:highway = *
+    - name = *
+  action:
+    - action: write_poi
+      type: 0x1F01
+      level_h: 1
+      contacts: yes
+
+
 
 #place town 0x0800 0 4 city 
 - condition:
