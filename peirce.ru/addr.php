@@ -156,6 +156,8 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   	          '</table>
               <h2>Сводка</h2>
               <table>
+                <tr><td><b>Рейтинг</b></td><td><b>'.GetQaClass($xml, $xmlQCR).'</b></td></tr>
+                <tr></tr>
                 <tr><td><b>Отрисовка карты</b></td></tr>
                 <tr>
                   <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
@@ -659,6 +661,10 @@ if ($errtype=="")
     foreach ($xml->AddressTest->StreetsOutsideCities->Street as $item)
     {
     	$LineNum++;
+    	if ($LineNum>1000)
+    	{
+    	  break;
+    	}	
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td>'.$LineNum.'.</td>');
         $zPage->WriteHtml( '<td>'.($item->Street).'</td>');
@@ -667,6 +673,10 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
     $zPage->WriteHtml( '</table>');    
+    if ($LineNum>1000)
+    	{
+    	  $zPage->WriteHtml( '<i>Ошибок очень много, показана первая тысяча ошибок</i>');
+    	}	
   }
   else
   {
@@ -879,6 +889,12 @@ function TestQaClass($xml_addr, $xnClass)
     $Result=FALSE;
   if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xnClass->MaxUnmatchedAddrStreets)
     $Result=FALSE;
+  
+  //Дупликаты дорог.
+  if ($xnClass->MaxRoadDuplicates!=""){
+    if( (int)$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates > (int)$xnClass->MaxRoadDuplicates)
+  	  $Result=FALSE;
+  }
   
   return $Result;
 }
@@ -1470,8 +1486,7 @@ function PrintMpStatSummary($mode)
   $zPage->WriteHtml( '</table>');
   
   $zPage->WriteHtml( '<h2>Методика расчета</h2>');
-  $zPage->WriteHtml( '<p>Данные показатели отражают подробность (детализированость) итоговых карт для Ситигида на основе OSM. В данной статистики отражаются объекты,
-  	                     фактически попавшие в итоговые карты, а не все данные, которые есть в OSM.
+  $zPage->WriteHtml( '<p>Данные показатели отражают подробность (детализированость) итоговых карт для Ситигида на основе OSM. 
                          Подсчет ведется по промежуточному польскому файлу. </p>');
   $zPage->WriteHtml( '<p><b>Протяженность дорог, км</b> - Протяженность дорог и улиц, без учета дворовых проездов и сельскохозяйственных грунтовок.
   	                        Длинна односторонних дорог учитывается с коэффициентом 0.5. Сделано это для того, чтобы способ, которым нарисована дорога 
