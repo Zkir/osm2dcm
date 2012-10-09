@@ -235,6 +235,8 @@ impassable:     0
 
 toll_booth:     0,0,0,0,0,0,0,0
 cattle_grid:    0,0,0,0,0,0,0,0
+gate:           0,0,0,0,0,0,0,0
+lift_gate:      0,0,0,0,0,0,0,0
 
 
 

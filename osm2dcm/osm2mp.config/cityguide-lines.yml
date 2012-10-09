@@ -75,14 +75,6 @@
       type: 0x22
       level_h: 1
 
-##highway service l 0x8849,2 0 0 
-##!Check Priority!
-#- condition:
-#    - highway = service
-#  action:
-#    - action: write_line
-#      type: 0x8849
-#      level_h: 0
 
 ##highway footway l 0x8849 0 0 
 ##highway footway/city l 0x8849 0 0 

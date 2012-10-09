@@ -503,11 +503,4 @@
       type: 0x47
       level_h: 4
 
-##highway=service + area=yes
-- condition:
-    - highway = service
-    - area = yes
-  action:
-    - action: write_polygon
-      type: 0x6a
-      level_h: 0
+

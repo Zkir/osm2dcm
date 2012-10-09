@@ -246,6 +246,7 @@
 ##highway service r 0x07,2 0 0 1,0,0,0,0,0,0,0,0,0,0,0 
 - condition:
     - highway = service
+    - access != private
     - area != yes
   action:
     - action: load_road
@@ -253,6 +254,26 @@
       level_h: 0
       routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
 
+
+- condition:
+    - highway = service
+    - access = private
+    - area != yes
+  action:
+    - action: write_line
+      type: 0x8849
+      level_h: 0
+
+
+#Polygonal service are NOT included into routing
+##highway=service + area=yes
+- condition:
+    - highway = service
+    - area = yes
+  action:
+    - action: write_polygon
+      type: 0x6a
+      level_h: 0
 
 ##route ferry r 0x1b 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
 #- condition:
