@@ -208,7 +208,7 @@ function PrintSummaryItem($xml){
 	$intQAIndex2Max=0;
 	$intDateDiff=0;
 	
-	
+	//Отставание карт
 	foreach ($xml->map as $item)
     {
        if( (substr($item->code,0,2)=='RU') and ($item->code!='RU-OVRV'))
@@ -235,8 +235,31 @@ function PrintSummaryItem($xml){
 	$intQAIndex2= (float)$intQAIndex2/(float)$intNumberOfQAPassedMaps;
 	
 	
+	//Отставание данных валидатора. 
+	$xml_stat = simplexml_load_file("statistics.xml");
+	$intQAIndex3=0;
+	$intQAIndex3Max=0;
+	$intDateDiff=0;
+	$intNumberOfMapsB=0;
+	foreach ($xml_stat->mapinfo as $item)
+    {
+       if( (substr($item->MapId,0,2)=='RU') and ($item->code!='RU-OVRV'))
+       {
+       	   $intNumberOfMapsB=$intNumberOfMapsB+1;
+       	   $intDateDiff=DateDiff2($item->LastKnownEdit);
+       	   $intQAIndex3=$intQAIndex3+$intDateDiff;
+       	     if($intDateDiff>$intQAIndex3Max)
+       	       $intQAIndex3Max=$intDateDiff;
+       	   
+       }	   
+    }
+    
+    $intQAIndex3= (float)$intQAIndex3/(float)$intNumberOfMapsB;
+    
+    
+	
 	echo '<item>
-    <guid>'.'QA-'.$strPubDate.'(test-3)</guid>
+    <guid>'.'QA-'.$strPubDate.'(test-0)</guid>
     <title>'.'Контроль качества, сводка '.$strPubDate.' </title>
     <link>http://peirce.gis-lab.info/qa</link>
     <author>Ch.S. Peirce</author>
@@ -250,7 +273,7 @@ function PrintSummaryItem($xml){
 	
 	echo '<p>Показатель латентности I: '.number_format($intQAIndex1,1,'.', ' ') .' дней (Максимальный: '.$intQAIndex1Max.'  дней)</p>';
 	echo '<p>Показатель латентности II: '.number_format($intQAIndex2,1,'.', ' ').' дней (Максимальный: '.$intQAIndex2Max.'  дней)</p>';
-	
+	echo '<p>Показатель латентности III: '.number_format($intQAIndex3,1,'.', ' ').' дней (Максимальный: '.number_format($intQAIndex3Max,1,'.', ' ').'  дней)</p>';
 	
 	
 		
@@ -267,6 +290,26 @@ function DateDiff($StartDate, $EndDate)
   
   $current_date = mktime (0,0,0,date("m") ,date("d"),date("Y"));  //дата сегодня
   $old_date = mktime (0,0,0,$M1,$D1,$Y1); //2004.11.25
+  $difference = ($current_date - $old_date); //разница в секундах
+  $difference_in_days = ($difference / 86400); //разница в днях
+  
+ // echo "$StartDate, $EndDate, $difference_in_days  <br /> ";
+  return $difference_in_days;
+}
+
+
+function DateDiff2($StartDate)
+{
+  $Y1=substr($StartDate,6,4);
+  $M1=substr($StartDate,3,2);
+  $D1=substr($StartDate,0,2);
+  
+  $HH=substr($StartDate,11,2);;
+  $MM=substr($StartDate,14,2);;
+  //echo "$Y1-$M1-$D1 $HH:$MM, <br />";
+  
+  $current_date =time();//mktime (0,0,0,date("m") ,date("d"),date("Y"));  //текущее время 
+  $old_date = mktime ($HH,$MM,0,$M1,$D1,$Y1); //2004.11.25
   $difference = ($current_date - $old_date); //разница в секундах
   $difference_in_days = ($difference / 86400); //разница в днях
   
