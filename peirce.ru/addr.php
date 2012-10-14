@@ -149,9 +149,12 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
               <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>');
   if(!$blnRss)
-  $zPage->WriteHtml(
+  {
+    if (!isset($zPage->item_link)) $zPage->item_link='/qa/'.$mapid;
+    $zPage->WriteHtml(
               '<tr><td>RSS</td><td><a href="/qa/'.$mapid.'/rss"><img src="/img/feed-icon-14x14.png"/></a></td></tr>');
-  
+  }
+
   $zPage->WriteHtml(
   	          '</table>
               <h2>Сводка</h2>
@@ -161,108 +164,108 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
                   <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
                   <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#shorelinebreaks">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#shorelinebreaks">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без населения:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#citynopop">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#citynopop">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Города без полигональных границ:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#citynoborder">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#citynoborder">список</a></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
                   <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#hwconstr_chk">список</a></td> 
-                  <td><a href="/qa/'.$mapid.'/hwc-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#hwconstr_chk">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/hwc-map">на карте</a></td>
                 </tr>
-                
+
                 <tr><td><b>Рутинговый граф</b></td></tr>
                 <tr>
                   <td>&nbsp;&nbsp;Число рутинговых ребер :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfRoutingEdges.'</td>
                   <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,$xmlQCR->ClassA->MaxRoutiningEdges,$blnRss).'</td>
                   <td></td>
-                  <td></td>  
+                  <td></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#isol">список</a></td> 
-                  <td><a href="/qa/'.$mapid.'/routing-map">на карте</a></td>  
+                  <td><a href="'.$zPage->item_link.'#isol">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;tertiary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#isol3">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/routing-map/3">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol3">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/3">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;secondary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#isol2">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/routing-map/2">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol2">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/2">на карте</a></td>
                 </tr>                	
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;primary и выше:</td>
                   <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#isol1">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/routing-map/1">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol1">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/1">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;trunk:</td>
                   <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#isol0">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/routing-map/0">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol0">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/0">на карте</a></td>
                 </tr>
 
                 <tr>
                   <td>&nbsp;&nbsp;Дубликаты ребер:</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
                   <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#rdups">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/rd-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#rdups">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/rd-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Тупики важных дорог:</td>
                   <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
                   <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#deadends">список</a></td> 
-                  <td><a href="/qa/'.$mapid.'/dnodes-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#deadends">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/dnodes-map">на карте</a></td>
                 </tr>
 
-                <tr><td><b>Адресный реестр</b></td></tr> 
+                <tr><td><b>Адресный реестр</b></td></tr>
                 <tr>
                   <td>&nbsp;&nbsp;Доля улиц, не сопоставленых НП:</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#addr-street">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/addr-street-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#addr-street">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/addr-street-map">на карте</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;Доля не сопоставленых адресов:</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses,$blnRss).'</td>
-                  <td><a href="/qa/'.$mapid.'#addr">список</a></td>
-                  <td><a href="/qa/'.$mapid.'/addr-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#addr">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/addr-map">на карте</a></td>
                 </tr>
                 </table>
               <hr/>'  );
-                
+
   $zPage->WriteHtml("<H2>Сводка по адресации</H2>" );
   $zPage->WriteHtml("<table>" );
   $zPage->WriteHtml("<tr><td align=\"right\"><b>По домам<b></td><td></td></tr>" );
@@ -271,12 +274,12 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   $zPage->WriteHtml("<tr><td align=\"right\">Не сопоставлено адресов</td><td>".$xml->AddressTest->Summary->UnmatchedHouses."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых адресов</td><td>".number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ')."%</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Из них, по типу ошибок:</td><td></td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(I)  <a href="/qa/'.$mapid.'/addr/1">Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(II) <a href="/qa/'.$mapid.'/addr/2">Улица не задана</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(III)<a href="/qa/'.$mapid.'/addr/3">Улица не найдена</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(IV) <a href="/qa/'.$mapid.'/addr/4">Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(V)  <a href="/qa/'.$mapid.'/addr/5"> Дом номеруется по территории</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(VI) <a href="/qa/'.$mapid.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(I)  <a href="'.$zPage->item_link.'/addr/1">Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(II) <a href="'.$zPage->item_link.'/addr/2">Улица не задана</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(III)<a href="'.$zPage->item_link.'/addr/3">Улица не найдена</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(IV) <a href="'.$zPage->item_link.'/addr/4">Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(V)  <a href="'.$zPage->item_link.'/addr/5"> Дом номеруется по территории</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right">(VI) <a href="'.$zPage->item_link.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
   $zPage->WriteHtml("<tr><td><b></td><td></td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\"><b>По улицам<b></td><td></td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">Всего улиц</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
