@@ -50,10 +50,13 @@ echo
 		    </tr>
 		    <tr>
 		      <td><span id="permalink"> </span> -- <a href="?next">Покажите следующее место!</></td>
-		      <td>
+		      <td>';
+if (!$blnPermalink){
+  echo '   
 		      	  <b>Статистика:</b><br /> 
-		      	  Всего недоступных сегментов дорог: <b><span id="total_segs">xxx</span></b>,  показано сегодня: <b><span id="shown_segs">yyy</span></b>.
-		      </td>
+		      	  Всего недоступных сегментов дорог: <b><span id="total_segs">xxx</span></b>,  показано сегодня: <b><span id="shown_segs">yyy</span></b>.';
+}
+echo      ' </td>
 		    </tr>
 		</table>
 		<iframe id="ttt" src="" style="display:none;"></iframe>
