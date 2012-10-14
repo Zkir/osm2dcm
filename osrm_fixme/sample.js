@@ -1,0 +1,1 @@
+var EdgeData={"type": "MultiLineString", "properties": {"maxlon": 21.98614, "minlon": 21.98343, "minlat": 51.7882, "reason": "This segment is LONGEST in your review area.", "gid": 1430532, "maxlat": 51.79545, "count_all": 2419379, "count_fixed": 2606}, "coordinates": [[[21.98343, 51.79545], [21.98614, 51.7882]]]}
