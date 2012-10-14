@@ -33,16 +33,18 @@ include("ZSitePage.php");
     $contents=$item->description;
     $contents=str_replace('<a href', '<a target="_top" href',$contents);
      //выводим на печать текст статьи
+    $blog_link=$g_SelfUrl.'/blog/'.substr($item->link,45,5);
     if (strlen($contents)<2000)
       { 
        $zPage->WriteHtml('<div class="entry">'.$contents.'</div>'."\n");
       }
     else
     {
-    	$blog_link=$g_SelfUrl.'/blog.php?postid='.substr($item->link,45,5);
-    	$zPage->WriteHtml('<div class="entry">'.substr($contents,0,1000).'... <a href="'.$blog_link.'">/читать дальше/<a></div>'."\n");
-    }          
-    //$zPage->WriteHtml( '<p align="right"><a href="'.$blog_link.'#Comment'.'" >'."Комментировать".'</a></p>');      
+    	
+    	$zPage->WriteHtml('<div class="entry">'.substr($contents,0,1000).'... <a href="'.$blog_link.'">/.../<a></div>'."\n");
+    }
+    //$zPage->WriteHtml('<div class="entry">'.substr($contents,0,1000).'... <a href="'.$blog_link.'">/.../<a></div>'."\n");          
+    $zPage->WriteHtml( '<p align="right"><a href="'.$blog_link.'" >'."Комментировать".'</a></p>');      
     //$zPage->WriteHtml('<p/>');
     $zPage->WriteHtml( '</div>'."\n\n");
     $i=$i+1;

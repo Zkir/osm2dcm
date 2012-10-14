@@ -85,6 +85,14 @@ function PrintSideBlockNews()
 
   </title>
   <script src="/sorttable.js" type="text/javascript"> </script>
+
+  <!-- VK -->
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?56"></script>
+
+  <script type="text/javascript">
+      VK.init({apiId: 3170198, onlyWidgets: true});
+  </script>
+
   </head>
   <body class="claro"><div id="box">
    <!-- header -->

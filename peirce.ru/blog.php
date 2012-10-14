@@ -32,10 +32,21 @@ include("ZSitePage.php");
     $zPage->WriteHtml( '<a name="Comment"> </a>');
     $zPage->WriteHtml( '<p>');
     //<img src="/img/peirce.jpg" height="65px"  style="float:left;">');
-    $zPage->WriteHtml( '<BR/><i>Нет, это не жежешечка, и оставлять комменты тут нельзя :)<BR/> 
-                           <!--Но зато можно высказать свое мнение Дежурному-По-Сайту. -->
-                            Если есть вопросы или предложения, лучше всего написать на <a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid">наш форум </a>.
-                           </i>');
+    
+
+ $zPage->WriteHtml('
+    <!-- Put this div tag to the place, where the Comments block will be -->
+    <div id="vk_comments"></div>
+      <script type="text/javascript">
+      VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
+   </script>
+    ');
+   
+    //$zPage->WriteHtml( '<BR/><i>Нет, это не жежешечка, и оставлять комменты тут нельзя :)<BR/> 
+    //                       <!--Но зато можно высказать свое мнение Дежурному-По-Сайту. -->
+    //                        Если есть вопросы или предложения, лучше всего написать на <a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid">наш форум </a>.
+    //                       </i>');
+    
     $zPage->WriteHtml('<p/>');
     $zPage->WriteHtml( '</div>'."\n\n");
     }
