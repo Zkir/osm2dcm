@@ -19,8 +19,10 @@ echo
 		   
 	  <script type="text/javascript" src="/2/fixme-map.js"> </script>'; 
 	  	  
-if (!$blnPermalink)	  	  
-  echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&lat=55.77&lon=37.8&rnd='.mt_rand(0,100000).'"> </script> ');
+if (!$blnPermalink){	  	  
+  //echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&lat=55.77&lon=37.8&rnd='.time().'"> </script> ');
+  echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&campaign=001&rnd='.time().'"> </script> ');
+}
 
 echo 	  
 	'</head>
@@ -54,7 +56,9 @@ echo
 if (!$blnPermalink){
   echo '   
 		      	  <b>Статистика:</b><br /> 
-		      	  Всего недоступных сегментов дорог: <b><span id="total_segs">xxx</span></b>,  показано сегодня: <b><span id="shown_segs">yyy</span></b>.';
+		      	  Во всем мире, недоступных сегментов дорог: <b><span id="total_segs">xxx</span></b>,  показано сегодня: <b><span id="shown_segs">yyy</span></b>. </br>
+		          В текущей окрестности, недоступных сегментов дорог: <b><span id="total_segs1">xxx</span></b>,  показано сегодня: <b><span id="shown_segs1">yyy</span></b>. </br>
+	         ';
 }
 echo      ' </td>
 		    </tr>
@@ -89,6 +93,12 @@ echo '
              
             Elem=document.getElementById(\'shown_segs\');
             Elem.innerHTML=EdgeData.properties.count_fixed;
+            
+            var Elem=document.getElementById(\'total_segs1\');
+            Elem.innerHTML=EdgeData.properties.count_campaign;
+             
+            Elem=document.getElementById(\'shown_segs1\');
+            Elem.innerHTML=EdgeData.properties.fixed_campaign;
              	        
 	   </script> 
 	</body>
