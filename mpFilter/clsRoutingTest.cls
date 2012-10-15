@@ -127,6 +127,8 @@ Public Sub FillExceptionList()
   strExceptionList = ObjXml.documentElement.getElementsByTagName("rev").Item(0).Text
   
 
+  'Здесь нужно парсить файл  IsolatedSubGraphList.xml
+  'Собственно содержимое находится между <pre> и </pre>
   
   Dim strLine As String
   Dim strLines() As String
@@ -157,10 +159,6 @@ Public Sub FillExceptionList()
       End If
     End If
   Next i
-  
-  'Здесь нужно парсить файл
-  'D:\OSM\_osm2dcm\SubGraphList.xml
-  
 
 End Sub
 'Добавление исключения в список
