@@ -43,5 +43,8 @@ RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
 
 RewriteRule ^qa_addr$ addr.php?page=addr_summary
 
+RewriteRule ^fixme$  2/fixme.php
+
+
 
 Redirect 301 /daily.php http://peirce.gis-lab.info/daily 
