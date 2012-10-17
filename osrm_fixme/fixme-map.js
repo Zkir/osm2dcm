@@ -36,7 +36,7 @@ if (lon1>lon2) {MaxLon=lon1;MinLon=lon2} else {MaxLon=lon2;MinLon=lon1};
   document.getElementById('ttt').contentWindow.location.href=strJosmLink;
   
   var Elem=document.getElementById('josm_mlink');
-  Elem.innerHTML='<a href="'+strJosmLink+'" target="_new">ручную ссылку</a>';
+  Elem.innerHTML='<a href="'+strJosmLink+'" target="_new">JOSM</a>';
 	
   var Elem=document.getElementById('permalink');
   Elem.innerHTML='<a href="'+strPermalink+'">Постоянная ссылка</a>'; 	  

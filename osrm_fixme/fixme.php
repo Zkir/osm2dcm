@@ -30,8 +30,8 @@ echo
 	  <h1>Так вот ты какое, недоступное ребро!</h1>
 		<table>
 			<tr>
-			  <td><div id="cm-example" style="width: 400px; height: 400px"></div> </td> 
-			  <td valign="top" width="550px" style="padding:5px" >
+			  <td><div id="cm-example" style="width: 450px; height: 400px"></div> </td> 
+			  <td valign="top" width="550px" style="padding-left:15px" >
 			     <p><b>Что это такое?</b><br /> 
 			     На этой странице представлены  участки дорог, на которые по разным причинам невозможно заехать 
 			     (если по-умному, "ребра дорожного графа, недоступные для рутинга"). В большинстве случаев они возникают из-за ошибок редакторов карты.</p>
@@ -42,7 +42,7 @@ echo
 			     <p>
 			       <b>Что мне делать?</b><br />
 			       Нажмите F5. Страница обновится, и на карте покажется одно из проблемных ребр. Если Josm запущен, этот участок карты автоматически загрузится в Josm для редактирования. 
-			       (Если Josm не загружает это место, можно попробовать <span id="josm_mlink"></span>)<br/><br/>
+			       (Если Josm не загружает это место, можно попробовать ручную ссылку на Josm под картой.)<br/><br/>
 			       Если заметно что-то подозрительное (<a href="http://wiki.openstreetmap.org/wiki/User:Zkir/Так_вот_ты_какое,_недоступное_ребро!">оторванные от основного графа куски дорог, односторонние дороги, на которые есть только въезд или только выезд,
 			       или просто несоединенные, где надо вершины</a>), <i>почините :) </i> <br/> <br/>
 			       После этого нажмите F5 - отобразится следующий сегмент. 
@@ -51,8 +51,11 @@ echo
 			  </td>
 		    </tr>
 		    <tr>
-		      <td><span id="permalink"> </span> -- <a href="?next">Покажите следующее место!</></td>
-		      <td>';
+		      <td>
+		      	  <p align="center"><span id="josm_mlink"></span>  -- <span id="permalink"> </span> --  <span id="glagne_permalink"> </span> </p>
+		      	  <p align="center"><a href="?next">Покажите следущую проблему!</a></p> 
+		      </td>
+		      <td style="padding-left:15px">';
 if (!$blnPermalink){
   echo '   
 		      	  <b>Статистика:</b><br /> 
@@ -62,10 +65,19 @@ if (!$blnPermalink){
 }
 echo      ' </td>
 		    </tr>
+	        <tr>
+	          <td></td>
+	          <td></td>
+	        </tr>
 		</table>
 		<iframe id="ttt" src="" style="display:none;"></iframe>
 		<hr/>
-		<p><small>(c) Komzpa, Zkir, OsRM и другие участники проекта OSM, СС-BY-SA, и прочее, и прочее</small></p>
+		<p><small>
+	        Посвящаем созданную этой страницей заслугу благу всех живых существ.
+	        Komzpa, Zkir, OsRM и другие участники проекта <a href="http://openstreetmap.org">Openstreetmap</a>,
+	        СС-BY-SA, ODBL и прочее, и прочее, что применимо в данном случае. 
+	      </small>
+	    </p>
 		<p><small><a href="http://openstreetmap.by/?request=osrm_error_to_josm">Оригинальная страница </a> </small></p>
 		
 		  <script type="text/javascript">
@@ -88,6 +100,9 @@ echo '
 		    
 	        ProcessMap(lat1,lon1,lat2,lon2);
             
+            Elem=document.getElementById(\'glagne_permalink\');
+            Elem.innerHTML=\' <a href="http://www.openstreetmap.org/?lat=\'+(lat1+lat2)/2+\'&lon=\'+(lon1+lon2)/2+\'&zoom=18" target="_blank">Это место на osm.org</a>\';
+            
             var Elem=document.getElementById(\'total_segs\');
             Elem.innerHTML=EdgeData.properties.count_all;
              
@@ -99,8 +114,19 @@ echo '
              
             Elem=document.getElementById(\'shown_segs1\');
             Elem.innerHTML=EdgeData.properties.fixed_campaign;
+            
+            
+            
              	        
 	   </script> 
+	   	   
+   	   <!-- Yandex.Metrika -->
+			<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+			<div style="display:none;"><script type="text/javascript">
+			try { var yaCounter1224821 = new Ya.Metrika(1224821); } catch(e){}
+			</script></div>
+			<noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1224821" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika -->
 	</body>
 	</html>'
 ?>
