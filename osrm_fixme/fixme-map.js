@@ -31,16 +31,14 @@ if (lon1>lon2) {MaxLon=lon1;MinLon=lon2} else {MaxLon=lon2;MinLon=lon1};
   var delta=0.0002;
   var strJosmLink;
   strJosmLink="http://localhost:8111/load_and_zoom?top="+(MaxLat+delta)+"&bottom="+(MinLat-delta)+"&left="+(MinLon-delta)+"&right="+(MaxLon+delta);
-  strPermalink="?permalink="+lat1+","+lon1+","+lat2+","+lon2;
+
   	  	  
   document.getElementById('ttt').contentWindow.location.href=strJosmLink;
   
   var Elem=document.getElementById('josm_mlink');
   Elem.innerHTML='<a href="'+strJosmLink+'" target="_new">JOSM</a>';
 	
-  var Elem=document.getElementById('permalink');
-  Elem.innerHTML='<a href="'+strPermalink+'">Постоянная ссылка</a>'; 	  
-  //document.write('<p><a href="'+strJosmLink+'" target="_new">ссылка для JOSM</a></p>'); 
+
   	  	  
  } //блока try
   catch(err){
