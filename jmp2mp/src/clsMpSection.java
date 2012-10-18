@@ -106,21 +106,18 @@ public class clsMpSection {
     }
     return tmp;
   }
-  //Подсчеты разных свойств
-  public double CalculateArea()
+
+  // массив координат вершин полигона (почему-то замкнутый)
+  private double[][] GetCoordArray()
   {
-    String   strData0;
-  	String[] tmp;
-    int N;
-    int i;
     double[][]  dblCoords; // массив координат вершин полигона
 
+    String   strData0;
+    String[] tmp;
+    int N;
     String strX;
     String strY;
-
-    double s;
-
-    //Найдем размер объекта в квадратных километрах
+    int i;
 
     //предполагаем, что Data0 содержит внешний контур полигона
     strData0 = GetAttributeValue("Data0");
@@ -153,10 +150,6 @@ public class clsMpSection {
         dblCoords[i][1] = Double.parseDouble(strY);
       }
 
-
-      /*System.out.print(dblCoords[i][0] );
-      System.out.print(" " );
-      System.out.println(dblCoords[i][1] );*/
     }
 
     //Убедимся, что полигон замкнутый
@@ -168,9 +161,66 @@ public class clsMpSection {
       dblCoords[N-1][1] = dblCoords[0][1];
     }
 
+
+    return dblCoords;
+  }
+
+  //Получение bbox объекта
+  public double[] CalculateBBOX()
+  {
+    double[] bbox;
+    double[][] Coords;
+    double lat,lon;
+    double lat1,lon1,lat2,lon2;
+    int i;
+
+    Coords=GetCoordArray();
+
+    //Начнем с первой точки
+    lat1 = Coords[0][0];
+    lon1 = Coords[0][1];
+    lat2 = Coords[0][0];
+    lon2 = Coords[0][1];
+
+    for(i=1;i<Coords.length;i++)
+    {
+      lat = Coords[i][0];
+      lon = Coords[i][1];
+
+      if (lat < lat1)  lat1 = lat;
+      if (lat > lat2)  lat2 = lat;
+
+      if (lon < lon1)  lon1 = lon;
+      if (lon > lon2)  lon2 = lon;
+    }
+
+    bbox=new double[4];
+    bbox[0]=lat1;
+    bbox[1]=lon1;
+    bbox[2]=lat2;
+    bbox[3]=lon2;
+
+    return bbox;
+  }
+
+  //Подсчеты разных свойств
+  public double CalculateArea()
+  {
+
+    int i;
+    double[][]  dblCoords; // массив координат вершин полигона
+
+
+    double s;
+
+    //Найдем размер объекта в квадратных километрах
+
+
+    dblCoords=GetCoordArray();
+
     //Найдем площадь в квадратных градусах
     s = 0;
-    for(i=0;i<N-1;i++){
+    for(i=0;i<dblCoords.length-1-1;i++){
       s = s + (dblCoords[i][0] - dblCoords[i + 1][0]) * (dblCoords[i][1] + dblCoords[i + 1][1]) / 2;
     }
 
@@ -184,4 +234,32 @@ public class clsMpSection {
     //Знак зависит от направления обхода, но площадь полигона так или иначе положительна
     return Math.abs(s);
   }
+
+  //Значение осм-тега, оно сидит в комментариях
+  public String GetOsmHighway() throws Exception
+  {
+    int i,j;
+
+
+    String strCommentLine;
+    String strValue;
+    //Dim j, i As Integer
+
+    for (j=0;j<oComments.size(); j++ )
+    {
+      strCommentLine = oComments.get(j);
+
+      i= strCommentLine.indexOf("highway =");  //  i = InStr(strCommentLine, )
+      if(i > 0)
+      { // Найдено
+        strCommentLine = strCommentLine.substring(i);
+
+        strValue = strCommentLine.split("=")[1].trim();
+        return strValue;
+      }
+
+    }
+    throw new Exception("Unable to find osm highway tag");
+  }
+
 }

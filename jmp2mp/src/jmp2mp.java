@@ -6,6 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 import java.io.*;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 public class jmp2mp {
   //Основные параметры карты
@@ -13,8 +17,15 @@ public class jmp2mp {
   private static String strTarget; //Выходной файл
   private static String strViewPoint; //Начальная точка карты
 
+  private static clsConnectivityTest oConnectivityTest;
+  private static clsConnectivityTest oConnectivityTest0; //Trunk
+  private static clsConnectivityTest oConnectivityTest1; //Primary
+  private static clsConnectivityTest oConnectivityTest2; //Secondary
+  private static clsConnectivityTest oConnectivityTest3; //Tertiary
+
+
   //Точка входа
-  public static void  main(String args[]) throws IOException
+  public static void  main(String args[]) throws IOException,Exception
   {
     System.out.println(" --| jmp2mp (c) Zkir 2012");
     ParseCommandLine(args);
@@ -42,22 +53,30 @@ public class jmp2mp {
     strTarget="";
     strViewPoint="";
 
-    //strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
-    //strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
+   // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
+   // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
-    strSource="d:/OSM/osm2dcm/_my/BY-VI/BY-VI.pre.mp";
-    strTarget="d:/OSM/osm2dcm/_my/BY-VI/BY-VI.java.mp";
+    strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
+    strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
 
   }
-  private static void ProcessMP (String strSource, String strTarget, String strViewPoint) throws IOException
+  private static void ProcessMP (String strSource, String strTarget, String strViewPoint) throws IOException,Exception
   {
     clsMpFile oSrcMp;
     clsMpFile oTgtMp;
     clsMpSection oMpSection;
+    boolean blnSkipSection;
 
     oSrcMp= new clsMpFile(strSource,0);
     oTgtMp= new clsMpFile(strTarget,1);
-    boolean blnSkipSection;
+
+
+
+    oConnectivityTest  = new clsConnectivityTest();
+    oConnectivityTest0 = new clsConnectivityTest();
+    oConnectivityTest1 = new clsConnectivityTest();
+    oConnectivityTest2 = new clsConnectivityTest();
+    oConnectivityTest3 = new clsConnectivityTest();
 
     while (oSrcMp.ReadNextSection()){ //цикл по секциям
       //Здесь различные операции над секцией
@@ -136,11 +155,79 @@ public class jmp2mp {
       //16. Убьем CountryName, оно в СГ не используется
       RemoveCountryAttribute(oSrcMp.CurrentSection);
 
+      //17. Тест связности.
+      if (oMpSection.SectionType.equals( "[POLYLINE]")){
+        if(!oMpSection.mpRouteParam().equals("") ){
+
+
+          int Nnodes;
+          String[] NodeList;
+          int[]    NodeList2;
+          double lat1, lon1,  lat2, lon2 ;
+
+
+
+          int NN;
+          int aNode;
+          String strNodeAttr;
+
+          NodeList=new String[100] ;
+          NodeList2=new int[100];
+
+
+          double[] bbox;
+
+          bbox=oMpSection.CalculateBBOX();
+          lat1=bbox[0];
+          lon1=bbox[1];
+          lat2=bbox[2];
+          lon2=bbox[3];
+
+
+          NN=0;
+          while (true)
+          {
+            strNodeAttr = oMpSection.GetAttributeValue("Nod" + NN);
+            if (strNodeAttr.equals("") ) break;
+
+            NodeList[NN] =  strNodeAttr.split(",")[1];
+            NodeList2[NN] = Integer.parseInt(strNodeAttr.split(",")[2]) ;
+
+            NN++;
+          }
+          //Нужно передать список рутинговых нод, и bbox для данной области.
+          //Все дороги кроме service
+          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 4)
+            oConnectivityTest.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+
+          //Trunk
+          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 0)
+            oConnectivityTest0.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+
+          //Primary
+          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 1)
+            oConnectivityTest1.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+
+          //Secondary
+          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 2)
+            oConnectivityTest2.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+
+          //Tertiary
+          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 3)
+            oConnectivityTest3.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+
+        }
+      }
+
+      //Записываем секцию, если не было велено ее выкинуть.
       if (!blnSkipSection){
         oTgtMp.WriteSection(oSrcMp.CurrentSection);
       }
     }
     oTgtMp.Close();
+
+
+    PrintReport(strTarget + "_addr.xml");
   }
 
   //====================================================================================================================
@@ -405,5 +492,95 @@ public class jmp2mp {
 
     strStreetName = strStreetName.trim();
     return strStreetName;
+  }
+
+  private static void PrintReport(String strFileName)   throws IOException
+  {
+    BufferedWriter oReportFile;
+    oReportFile = new BufferedWriter(new FileWriter(strFileName));
+
+    Date dtCurrentDate;
+
+    dtCurrentDate=new Date();
+
+    oReportFile.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n");
+    oReportFile.write( "<QualityReport>\r\n");
+    oReportFile.write( " <Date>" + FormatXMLDate(dtCurrentDate, false) + "</Date>\r\n");
+    oReportFile.write( " <DateWithTime>" + FormatXMLDate(dtCurrentDate, true) + "</DateWithTime>\r\n");
+    //oReportFile.write( " <TimeUsed>" & Hour(dtEnd - dtStart) & ":" & Minute(dtEnd - dtStart) & ":" & Second(dtEnd - dtStart) & "</TimeUsed>"
+
+    oReportFile.write( "<RoutingTest>\r\n");
+    oConnectivityTest.PrintRegistryToXML(oReportFile);
+    oReportFile.write( "</RoutingTest>\r\n");
+
+    oReportFile.write( "<RoutingTestByLevel>\r\n");
+    oReportFile.write( "<Trunk>\r\n");
+    oConnectivityTest0.PrintRegistryToXML(oReportFile);
+    oReportFile.write( "</Trunk>\r\n");
+
+    oReportFile.write( "<Primary>\r\n");
+    oConnectivityTest1.PrintRegistryToXML(oReportFile);
+    oReportFile.write("</Primary>\r\n");
+
+    oReportFile.write( "<Secondary>\r\n");
+    oConnectivityTest2.PrintRegistryToXML(oReportFile);
+    oReportFile.write( "</Secondary>\r\n");
+
+    oReportFile.write( "<Tertiary>\r\n");
+    oConnectivityTest3.PrintRegistryToXML(oReportFile);
+    oReportFile.write( "</Tertiary>\r\n");
+    oReportFile.write( "</RoutingTestByLevel>\r\n");
+
+    oReportFile.write( "</QualityReport>\r\n");
+
+    oReportFile.close();
+   
+
+  }
+  private static String FormatXMLDate(Date dtDate,boolean blnWithTime)
+  {
+    DateFormat dateFormat;
+    if (blnWithTime)
+      {dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");}
+    else
+      {dateFormat = new SimpleDateFormat("yyyy-MM-dd");}
+
+    return dateFormat.format(dtDate);
+  }
+  private static int OSMLevelByTag(String Tag)
+  {
+    int intLevel;
+
+    // else if (Tag.equals()||Tag.equals()  )
+
+    if (Tag.equals("trunk") || Tag.equals("trunk_link") || Tag.equals("motorway") || Tag.equals("motorway_link")  )
+    {
+      intLevel = 0;
+    }
+    else if (Tag.equals("primary") || Tag.equals("primary_link"))
+    {
+      intLevel = 1;
+    }
+    else if (Tag.equals("secondary")||Tag.equals("secondary_link") )
+    {
+      intLevel = 2;
+    }
+    else if (Tag.equals("tertiary")||Tag.equals("tertiary_link") )
+    {
+      intLevel = 3;
+    }
+    else if (Tag.equals("residential")||Tag.equals("unclassified")||Tag.equals("living_street")||Tag.equals("checked_construction") )
+    {
+      intLevel = 4;
+    }
+    else if (Tag.equals("service"))
+    {
+      intLevel = 5;
+    }
+    else
+    {
+      intLevel = 5;
+    }
+    return intLevel;
   }
 }
