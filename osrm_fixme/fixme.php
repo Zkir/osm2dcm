@@ -53,7 +53,7 @@ echo
 		    <tr>
 		      <td>
 		      	  <p align="center"><span id="josm_mlink"></span>  -- <span id="permalink"> </span> --  <span id="glagne_permalink"> </span> </p>
-		      	  <p align="center"><a href="?next">Покажите следущую проблему!</a></p> 
+		      	  <p align="center"><a href="?next">Покажите следующую проблему!</a></p> 
 		      </td>
 		      <td style="padding-left:15px">';
 if (!$blnPermalink){
