@@ -1,14 +1,14 @@
 ﻿Fixme - inaccessible road 
 So that is what inaccessible road is!
 Where am I?
-This page displays the road segments, which are inaccessible for various reasons (they are also called "not route-able parts of the road network"). 
-In most cases they are errors in the OSM data which can and should be corrected.
+This page displays the road segments, which  for various reasons are <i>inaccessible</i> (they are also called "not route-able parts of the road network"). 
+In most cases these are errors in the OSM data which can and should be corrected.
 Where this data is taken from?
 Data analysis is performed by the {OsRM} project.
 What should I do?
 Please press F5. This page will refresh, and one of the problematic routing edges will be displayed. 
 If Josm is running, this place will be automaticaly loaded into Josm for editing.
-(Make sure that Josm Remote Control is activated. You can also use 'manual' link below the map.)
+(Make sure that Josm Remote Control is activated. You can also try 'manual' link below the map.)
 If you see something suspicious, like {[url=1]}isolated roads, or oneway roads where it is possible to drive out but not drive in and vice-versa, or just roads that are not properly connected by common nodes{[/url]}, <i>please fix</i> :) 
 After that, please press F5 again - the next road segment will be displayed.
 JOSM
@@ -18,7 +18,7 @@ Please show me the next problem!
 Statistics:
 World-wide, inaccessible road segments : {1}, touched today: {2}. 
 In the current campaign, inaccessible road segments: {1}, touched today: {2}. 
-This page is dedicated to benefit of all living creatures.
+This page is dedicated to the benefit of all living creatures.
 Komzpa, Zkir, OsRM and other contributors of the {Openstreetmap} project, СС-BY-SA, ODBL and all other magical incantations applicable in this case.
 Original page
 How to fix instructions

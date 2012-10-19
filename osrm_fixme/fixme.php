@@ -60,7 +60,7 @@ echo
 			  <td><div id="cm-example" style="width: 450px; height: 400px"></div> </td> 
 			  <td valign="top" width="550px" style="padding-left:15px" >
 			     <p>
-	               <b>'.$lan[1].'</b><br />
+	               <b>'.$lan[2].'</b><br />
 	               '.$lan[3].'
 	               '.$lan[4].' 
 			     </p>
