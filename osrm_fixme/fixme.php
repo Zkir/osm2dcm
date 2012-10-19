@@ -66,7 +66,7 @@ echo
 			     </p>
 			     <p>
 			       <b>'.$lan[5].'</b><br />
-	               '.lan_match($lan[6],'{OsRM}','<a href="http://map.project-osrm.org/">OsRM</a>').' 
+	               '.lan_match($lan[6],'{OSRM}','<a href="http://map.project-osrm.org/">OSRM</a>').' 
 			        
 			     </p>
 			     <p>
@@ -77,7 +77,7 @@ echo
 			       <br/><br/>
 			         ';
 		$str_tmp=$lan[11];
-		$str_tmp=lan_match($str_tmp,'{[url=1]}', '<a href="http://wiki.openstreetmap.org/wiki/User:Zkir/Так_вот_ты_какое,_недоступное_ребро!">');
+		$str_tmp=lan_match($str_tmp,'{[url=1]}', '<a href="http://wiki.openstreetmap.org/wiki/So_that_is_what_inaccessible_road_is!">');
 		$str_tmp=lan_match($str_tmp,'{[/url]}', '</a>');
 		echo $str_tmp;
 		echo        '
@@ -118,7 +118,7 @@ echo      ' </td>
 		<p>
 		  <small>
 		  	   <a href="http://openstreetmap.by/?request=osrm_error_to_josm">'.$lan[22].' </a>  --
-		  	   <a href="http://wiki.openstreetmap.org/wiki/User:Zkir/Так_вот_ты_какое,_недоступное_ребро!">'.$lan[23].' </a> --
+		  	   <a href="http://wiki.openstreetmap.org/wiki/So_that_is_what_inaccessible_road_is!">'.$lan[23].' </a> --
 		  	   <a href="http://forum.openstreetmap.org/viewtopic.php?id=18745">'.$lan[24].' </a> 
 		  </small>
 		</p>

@@ -4,7 +4,7 @@ Where am I?
 This page displays the road segments, which  for various reasons are <i>inaccessible</i> (they are also called "not route-able parts of the road network"). 
 In most cases these are errors in the OSM data which can and should be corrected.
 Where this data is taken from?
-Data analysis is performed by the {OsRM} project.
+Data analysis is performed by the {OSRM} project.
 What should I do?
 Please press F5. This page will refresh, and one of the problematic routing edges will be displayed. 
 If Josm is running, this place will be automaticaly loaded into Josm for editing.
@@ -19,7 +19,7 @@ Statistics:
 World-wide, inaccessible road segments : {1}, touched today: {2}. 
 In the current campaign, inaccessible road segments: {1}, touched today: {2}. 
 This page is dedicated to the benefit of all living creatures.
-Komzpa, Zkir, OsRM and other contributors of the {Openstreetmap} project, СС-BY-SA, ODBL and all other magical incantations applicable in this case.
+Komzpa, Zkir, OSRM and other contributors of the {Openstreetmap} project, СС-BY-SA, ODBL and all other magical incantations applicable in this case.
 Original page
 How to fix instructions
 Forum thread (ru)
