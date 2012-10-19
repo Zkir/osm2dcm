@@ -1,0 +1,71 @@
+msgid "Fixme - inaccessible road"
+msgstr "Почини меня - недоступные ребра"
+
+msgid "So that is what inaccessible road is!"
+msgstr "Так вот ты какое, недоступное ребро!"
+
+msgid "Where am I?"
+msgstr "Что это такое?"
+
+msgid "This page displays the road segments, which for various reasons are <i>inaccessible</i> (they are also called \"not route-able parts of the road network\")."
+msgstr "На этой странице представлены участки дорог, на которые по разным причинам невозможно заехать (если по-умному, «ребра дорожного графа, недоступные для рутинга»)."
+
+msgid "In most cases these are errors in the OSM data which can and should be corrected."
+msgstr "В большинстве случаев они возникают из-за ошибок редакторов карты."
+
+msgid "Where this data is taken from?"
+msgstr "Откуда взялись эти данные?"
+
+msgid "Data analysis is performed by the %s project."
+msgstr "Анализ дорог в OSM проведен проектом %s."
+
+msgid "What should I do?"
+msgstr "Что мне делать?"
+
+msgid "Please press F5. This page will refresh, and one of the problematic routing edges will be displayed."
+msgstr "Нажмите F5. Страница обновится, и на карте покажется одно из проблемных ребр. "
+
+msgid "If Josm is running, this place will be automaticaly loaded into Josm for editing."
+msgstr "Если Josm запущен, этот участок карты автоматически загрузится в Josm для редактирования."
+
+msgid "Make sure that Josm Remote Control is activated. You can also try 'manual' link below the map."
+msgstr "Если Josm не загружает это место, можно попробовать ручную ссылку на Josm под картой."
+
+msgid "If you see something suspicious, like %sisolated roads, or oneway roads where it is possible to drive out but not drive in and vice-versa, or just roads that are not properly connected by common nodes%s, <i>please fix</i> :)"
+msgstr "Если заметно что-то подозрительное (%sоторванные от основного графа куски дорог, односторонние дороги, на которые есть только въезд или только выезд, или просто несоединенные, где надо, вершины%s), <i>почините</i> :) "
+
+msgid "After that, please press F5 again - the next road segment will be displayed."
+msgstr "После этого нажмите F5 - отобразится следующий сегмент."
+
+msgid "Please show me the next problem!"
+msgstr "Покажите следующую проблему!"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "World-wide, inaccessible road segments : %s, touched today: %s."
+msgstr "Во всем мире, недоступных сегментов дорог: %s, показано сегодня: %s. "
+
+msgid "In the current campaign, inaccessible road segments: %s, touched today: %s."
+msgstr "В текущей окрестности, недоступных сегментов дорог: %s, показано сегодня: %s. "
+
+msgid "This page is dedicated to the benefit of all living creatures."
+msgstr "Посвящаем созданную этой страницей заслугу благу всех живых существ."
+
+msgid "Komzpa, Zkir, OsRM and other contributors of the %s project, СС-BY-SA, ODBL and all other magical incantations applicable in this case."
+msgstr "Komzpa, Zkir, OsRM и другие участники проекта %s, СС-BY-SA, ODBL и прочее, и прочее, что применимо в данном случае."
+
+msgid "Original page"
+msgstr "Оригинальная страница"
+
+msgid "How to fix instructions"
+msgstr "Инструкции как починить"
+
+msgid "Forum thread (ru)"
+msgstr "Обсуждение на форуме (ru)"
+
+msgid "This place at osm.org"
+msgstr "Это место на osm.org"
+
+msgid "Permalink"
+msgstr "Постоянная ссылка"
