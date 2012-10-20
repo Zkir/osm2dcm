@@ -1840,6 +1840,16 @@
       level_h: 0
       contacts: yes
 
+#barrier * 0xfe4b 
+# Special CG type 
+- condition:
+    - barrier = gate|lift_gate|block|bollard
+  action:
+    - action: write_poi
+      type: 0xfe4b
+      level_h: 0
+      contacts: no
+
 #Building on the nodes
 - condition:
     - building = *
