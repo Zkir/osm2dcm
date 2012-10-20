@@ -119,7 +119,8 @@ echo      ' </td>
 		  <small>
 		  	   <a href="http://openstreetmap.by/?request=osrm_error_to_josm">'.$lan[22].' </a>  --
 		  	   <a href="http://wiki.openstreetmap.org/wiki/So_that_is_what_inaccessible_road_is!">'.$lan[23].' </a> --
-		  	   <a href="http://forum.openstreetmap.org/viewtopic.php?id=18745">'.$lan[24].' </a> 
+		  	   <a href="http://forum.openstreetmap.org/viewtopic.php?id=18745">'.$lan[24].' </a> --
+		  	   <a href="http://www.openstreetmap.org/user/Zkir/diary/17915">'.$lan[25].' </a>
 		  </small>
 		</p>
 		
