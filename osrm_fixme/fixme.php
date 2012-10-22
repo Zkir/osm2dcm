@@ -6,6 +6,32 @@
 session_start();
 
 //Получим параметры
+
+//Кампания
+//Начальная точка
+if ($_GET['campaign']!="")
+{
+  $campaign=$_GET['campaign'];
+}
+else
+{
+  $campaign="001";
+}
+
+
+//Начальная точка
+if ($_GET['p0']!="")
+{
+  $coord0 = explode(",", $_GET['p0']);
+  $campaign="off";
+  $blnP0=true;
+}
+else
+{  $blnP0=false;
+}
+
+
+//Пермалинк
 if ($_GET['permalink']!="")
 {
   $blnPermalink=True;
@@ -16,6 +42,7 @@ else
 	$blnPermalink=False;
 }
 
+//Язык
 if( trim($_GET['setlang'])!="")
 {
   $_SESSION['lan_code']=$_GET['setlang'];
@@ -43,14 +70,20 @@ echo
 		   
 	  <script type="text/javascript" src="/2/fixme-map.js"> </script>'; 
 	  	  
-if (!$blnPermalink){	  	  
-  //echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&lat=55.77&lon=37.8&rnd='.time().'"> </script> ');
-  echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&campaign=001&rnd='.time().'"> </script> ');
+if (!$blnPermalink){
+  if (!$blnP0){
+    echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&campaign='.$campaign.'&rnd='.time().'"> </script> ');
+  }
+  else {
+  	echo(' <script type="text/javascript" src="http://openstreetmap.by/?request=osrm_error_to_josm&format=json&campaign=off&lat='.$coord0[0].'&lon='.$coord0[1].'&span=1&rnd='.time().'"> </script> ');  
+  }  
 }
+
 
 echo 	  
 	'</head>
 	<body>
+	 
 	  <div style="float:right">
 	    <a href="?setlang=ru">RU</a> | <a href="?setlang=en">EN</a> 
 	  </div>
