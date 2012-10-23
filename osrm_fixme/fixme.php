@@ -85,7 +85,7 @@ echo
 	<body>
 	 
 	  <div style="float:right">
-	    <a href="?setlang=ru">RU</a> | <a href="?setlang=en">EN</a> 
+	     <a href="?setlang=en">ENG</a> | <a href="?setlang=ru">RUS</a> | <a href="?setlang=uk">UKR</a> 
 	  </div>
 	  <h1>'.$lan[1].'</h1>
 		<table>
