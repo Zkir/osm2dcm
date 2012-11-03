@@ -29,6 +29,9 @@ public class jmp2mp {
   //Статистка по польскому файлу
   private static clsStatistic oStatistic;
 
+  //Ошибки найденные osm2mp
+  private static clsSourceErrors oSourceErrors;
+
 
   //Точка входа
   public static void  main(String args[]) throws IOException,MPParseException
@@ -63,8 +66,8 @@ public class jmp2mp {
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
-     strSource="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.pre.mp";
-     strTarget="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.java.mp";
+     strSource="d:/OSM/osm2dcm/_my/ES-GA/ES-GA.pre.mp";
+     strTarget="d:/OSM/osm2dcm/_my/ES-GA/ES-GA.java.mp";
 
     //strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
     //strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
@@ -89,6 +92,7 @@ public class jmp2mp {
     oConnectivityTest3 = new clsConnectivityTest();
 
     oStatistic = new clsStatistic();
+    oSourceErrors = new clsSourceErrors();
 
     while (oSrcMp.ReadNextSection()){ //цикл по секциям
       //Здесь различные операции над секцией
@@ -230,6 +234,18 @@ public class jmp2mp {
 
         }
       }
+
+      //Комментарии. В них содержаться ошибки найденные Osm2mp.pl
+      int i;
+      if (oMpSection.SectionType.equals("COMMENT"))
+      {
+        for(i=0;i< oMpSection.oComments.size();i++ )
+        {
+          oSourceErrors.ProcessComment (oMpSection.oComments.get(i));
+        }
+      }
+
+
 
       //Статистика по исходному файлу
       oStatistic.ProcessSection(oMpSection);
@@ -551,7 +567,8 @@ public class jmp2mp {
     oReportFile.write( "</RoutingTestByLevel>\r\n");
 
     //oDanglingRoads.PrintErrorsToXML (oReportFile);
-    //oSourceErrors.PrintErrorsToXML  (oReportFile);
+
+    oSourceErrors.PrintErrorsToXML(oReportFile);
     oStatistic.PrintReportToXML(oReportFile);
 
     oReportFile.write( "</QualityReport>\r\n");
