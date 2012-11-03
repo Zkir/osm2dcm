@@ -29,4 +29,9 @@ public class vb6 {
     }
     return result;
   }
+
+  public static long Round(double x)
+  {
+    return Math.round(x);
+  }
 }

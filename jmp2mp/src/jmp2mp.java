@@ -12,20 +12,26 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class jmp2mp {
+  //Параметры процесса
+  private static Date dtProcessEnd,  dtProcessStart;
   //Основные параметры карты
   private static String strSource; //Входной файл
   private static String strTarget; //Выходной файл
   private static String strViewPoint; //Начальная точка карты
 
+  // Классы, которые используются для тестов.
   private static clsConnectivityTest oConnectivityTest;
   private static clsConnectivityTest oConnectivityTest0; //Trunk
   private static clsConnectivityTest oConnectivityTest1; //Primary
   private static clsConnectivityTest oConnectivityTest2; //Secondary
   private static clsConnectivityTest oConnectivityTest3; //Tertiary
 
+  //Статистка по польскому файлу
+  private static clsStatistic oStatistic;
+
 
   //Точка входа
-  public static void  main(String args[]) throws IOException,Exception
+  public static void  main(String args[]) throws IOException,MPParseException
   {
     System.out.println(" --| jmp2mp (c) Zkir 2012");
     ParseCommandLine(args);
@@ -38,6 +44,7 @@ public class jmp2mp {
       System.out.println( "Viewpoint: " + strViewPoint);
       ProcessMP (strSource, strTarget, strViewPoint);
       System.out.println( "Postprocessor has been finished OK");
+      System.out.println( "Time used: "+ Long.toString(dtProcessEnd.getTime()-dtProcessStart.getTime()) );
     }
     else
     {
@@ -56,11 +63,14 @@ public class jmp2mp {
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
-    strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
-    strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
+     strSource="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.pre.mp";
+     strTarget="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.java.mp";
+
+    //strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
+    //strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
 
   }
-  private static void ProcessMP (String strSource, String strTarget, String strViewPoint) throws IOException,Exception
+  private static void ProcessMP (String strSource, String strTarget, String strViewPoint) throws IOException, MPParseException
   {
     clsMpFile oSrcMp;
     clsMpFile oTgtMp;
@@ -70,13 +80,15 @@ public class jmp2mp {
     oSrcMp= new clsMpFile(strSource,0);
     oTgtMp= new clsMpFile(strTarget,1);
 
-
+    dtProcessStart= new Date();
 
     oConnectivityTest  = new clsConnectivityTest();
     oConnectivityTest0 = new clsConnectivityTest();
     oConnectivityTest1 = new clsConnectivityTest();
     oConnectivityTest2 = new clsConnectivityTest();
     oConnectivityTest3 = new clsConnectivityTest();
+
+    oStatistic = new clsStatistic();
 
     while (oSrcMp.ReadNextSection()){ //цикл по секциям
       //Здесь различные операции над секцией
@@ -219,6 +231,9 @@ public class jmp2mp {
         }
       }
 
+      //Статистика по исходному файлу
+      oStatistic.ProcessSection(oMpSection);
+
       //Записываем секцию, если не было велено ее выкинуть.
       if (!blnSkipSection){
         oTgtMp.WriteSection(oSrcMp.CurrentSection);
@@ -226,6 +241,7 @@ public class jmp2mp {
     }
     oTgtMp.Close();
 
+    dtProcessEnd=new Date();
 
     PrintReport(strTarget + "_addr.xml");
   }
@@ -507,7 +523,10 @@ public class jmp2mp {
     oReportFile.write( "<QualityReport>\r\n");
     oReportFile.write( " <Date>" + FormatXMLDate(dtCurrentDate, false) + "</Date>\r\n");
     oReportFile.write( " <DateWithTime>" + FormatXMLDate(dtCurrentDate, true) + "</DateWithTime>\r\n");
-    //oReportFile.write( " <TimeUsed>" & Hour(dtEnd - dtStart) & ":" & Minute(dtEnd - dtStart) & ":" & Second(dtEnd - dtStart) & "</TimeUsed>"
+    oReportFile.write( " <TimeUsed>" + FormatXMLTimeInterval(dtProcessStart,dtProcessEnd ) + "</TimeUsed>\r\n");
+
+
+
 
     oReportFile.write( "<RoutingTest>\r\n");
     oConnectivityTest.PrintRegistryToXML(oReportFile);
@@ -531,6 +550,10 @@ public class jmp2mp {
     oReportFile.write( "</Tertiary>\r\n");
     oReportFile.write( "</RoutingTestByLevel>\r\n");
 
+    //oDanglingRoads.PrintErrorsToXML (oReportFile);
+    //oSourceErrors.PrintErrorsToXML  (oReportFile);
+    oStatistic.PrintReportToXML(oReportFile);
+
     oReportFile.write( "</QualityReport>\r\n");
 
     oReportFile.close();
@@ -547,6 +570,23 @@ public class jmp2mp {
 
     return dateFormat.format(dtDate);
   }
+
+  private static String FormatXMLTimeInterval(Date dtStart,Date dtEnd)
+  {
+    long HH,mm,ss;
+    long t;
+    t=(dtEnd.getTime() - dtStart.getTime())/1000;
+
+    ss=t%60;
+    t=t/60;
+    mm=t%60;
+    t=t/60;
+    HH=t;
+
+
+    return Long.toString(HH)+":"+Long.toString(mm)+":"+Long.toString(ss);
+  }
+
   private static int OSMLevelByTag(String Tag)
   {
     int intLevel;

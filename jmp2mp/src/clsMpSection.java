@@ -1,5 +1,3 @@
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import java.util.ArrayList;
 
 /**
@@ -9,6 +7,15 @@ import java.util.ArrayList;
  * Time: 15:53
  * To change this template use File | Settings | File Templates.
  */
+
+class MPParseException extends Exception {
+  public MPParseException(String ErrorMsg)
+  {
+    super(ErrorMsg);
+  }
+}
+
+
 public class clsMpSection {
 
   public String SectionType;
@@ -96,6 +103,10 @@ public class clsMpSection {
       }
     }
 
+  }
+  public String mpType()
+  {
+    return GetAttributeValue("Type");
   }
   public String mpRouteParam()
   {
@@ -235,8 +246,42 @@ public class clsMpSection {
     return Math.abs(s);
   }
 
+  //Найдем длинну линии в километрах
+  public double CalculateLength()
+  {
+    final double coeff=111.1;// длинна одного градуса дуги в км
+
+    int i;
+    double dblLen;
+    double deltaLat,AvgLat,deltaLon;
+
+    double[][]  dblCoords; // массив координат вершин полигона
+    //Получим массив координат
+    dblCoords=GetCoordArray();
+
+    //Сложим длинну сегментов
+    dblLen = 0;
+    for(i=0;i<dblCoords.length-1-1;i++){
+
+      deltaLat = dblCoords[i][0] - dblCoords[i + 1][0];
+      deltaLon = dblCoords[i][1] - dblCoords[i + 1][1];
+      AvgLat =  (dblCoords[i][0] + dblCoords[i + 1][0]) / 2;
+
+      double x,y;
+      x=(coeff * deltaLat);
+      y=(coeff * Math.cos(AvgLat * 3.141592653 / 180) * deltaLon);
+
+
+      dblLen = dblLen + Math.sqrt(x*x+y*y) ;
+
+    }
+
+    return dblLen;
+
+  }
+
   //Значение осм-тега, оно сидит в комментариях
-  public String GetOsmHighway() throws Exception
+  public String GetOsmHighway() throws MPParseException
   {
     int i,j;
 
@@ -259,7 +304,26 @@ public class clsMpSection {
       }
 
     }
-    throw new Exception("Unable to find osm highway tag");
+    throw new MPParseException("Unable to find osm highway tag");
   }
 
+  public boolean isOneWay()
+  {
+
+    return !mpRouteParam().split(",")[2].equals("0") ;
+
+  }
+
+  public long SizeInBytes()
+  {
+    int i;
+    int intSize;
+    intSize=0;
+
+    for(i=0;i<oAttributes.size();i++ )
+    {
+      intSize=intSize+ oAttributes.get(i).length();
+    }
+    return intSize;
+  }
 }

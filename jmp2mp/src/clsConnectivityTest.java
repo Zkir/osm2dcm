@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.NodeSet;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -253,7 +251,7 @@ public void AddRoad(int Nnodes, String[] NodeList, int[] NodeExtrAttrList,
 
     oReportFile.write("<Summary>\r\n");
     oReportFile.write( "  <NumberOfSubgraphs>" + lstResultSet.size() + "</NumberOfSubgraphs>\r\n");
-    oReportFile.write( "  <NumberOfRoads>" + Integer.toString( NTotalRoads) + "</NumberOfRoads> \r\n");
+    oReportFile.write( "  <NumberOfRoads>" + Integer.toString( NTotalRoads) + "</NumberOfRoads>\r\n");
     oReportFile.write( "  <NumberOfRoutingEdges>" + Integer.toString(NRoutiningEdges) + "</NumberOfRoutingEdges>\r\n");
     oReportFile.write( "</Summary>\r\n");
 
@@ -276,7 +274,8 @@ public void AddRoad(int Nnodes, String[] NodeList, int[] NodeExtrAttrList,
       oReportFile.write( "  </Subgraph>\r\n");
     }
    oReportFile.write( "</SubgraphList>\r\n");
-
+   oReportFile.write( "<ExceptionList>\r\n");
+   oReportFile.write( "</ExceptionList>\r\n");
 
   }
 }
