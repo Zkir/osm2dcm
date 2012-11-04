@@ -214,6 +214,34 @@ public class clsMpSection {
     return bbox;
   }
 
+  //Получение координат первой и последней точки
+  public double[] CalculateFirstLast()
+  {
+    double[] bbox;
+    double[][] Coords;
+    double lat1,lon1,lat2,lon2;
+
+    Coords=GetCoordArray();
+
+    //первая точка
+    lat1 = Coords[0][0];
+    lon1 = Coords[0][1];
+
+    //Последняя точка.   Coords - c какого-то хрена замкнутый массив, поэтому length-2
+    lat2 = Coords[Coords.length-2][0];
+    lon2 = Coords[Coords.length-2][1];
+
+    bbox=new double[4];
+    bbox[0]=lat1;
+    bbox[1]=lon1;
+    bbox[2]=lat2;
+    bbox[3]=lon2;
+
+    return bbox;
+  }
+
+
+
   //Подсчеты разных свойств
   public double CalculateArea()
   {

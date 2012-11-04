@@ -32,6 +32,8 @@ public class jmp2mp {
   //Ошибки найденные osm2mp
   private static clsSourceErrors oSourceErrors;
 
+  private static clsDeadEndTest oDeadEndTest;
+
 
   //Точка входа
   public static void  main(String args[]) throws IOException,MPParseException
@@ -66,8 +68,8 @@ public class jmp2mp {
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
-     strSource="d:/OSM/osm2dcm/_my/ES-GA/ES-GA.pre.mp";
-     strTarget="d:/OSM/osm2dcm/_my/ES-GA/ES-GA.java.mp";
+     strSource="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.pre.mp";
+     strTarget="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.java.mp";
 
     //strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
     //strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
@@ -93,6 +95,7 @@ public class jmp2mp {
 
     oStatistic = new clsStatistic();
     oSourceErrors = new clsSourceErrors();
+    oDeadEndTest =new clsDeadEndTest();
 
     while (oSrcMp.ReadNextSection()){ //цикл по секциям
       //Здесь различные операции над секцией
@@ -171,11 +174,11 @@ public class jmp2mp {
       //16. Убьем CountryName, оно в СГ не используется
       RemoveCountryAttribute(oSrcMp.CurrentSection);
 
-      //17. Тест связности.
+      // Связность и висячие вершины
       if (oMpSection.SectionType.equals( "[POLYLINE]")){
         if(!oMpSection.mpRouteParam().equals("") ){
 
-
+          //17. Тест связности
           int Nnodes;
           String[] NodeList;
           int[]    NodeList2;
@@ -232,6 +235,17 @@ public class jmp2mp {
           if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 3)
             oConnectivityTest3.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
 
+
+          //18. Тест висячих вершин
+          //Нам нужны координаты первой и последней вершины
+          bbox=oMpSection.CalculateFirstLast();
+          lat1=bbox[0];
+          lon1=bbox[1];
+          lat2=bbox[2];
+          lon2=bbox[3];
+
+
+          oDeadEndTest.AddRoad(oMpSection.mpType(), OSMLevelByTag(oMpSection.GetOsmHighway()),NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
         }
       }
 
@@ -256,6 +270,8 @@ public class jmp2mp {
       }
     }
     oTgtMp.Close();
+
+    oDeadEndTest.Validate();
 
     dtProcessEnd=new Date();
 
@@ -566,7 +582,7 @@ public class jmp2mp {
     oReportFile.write( "</Tertiary>\r\n");
     oReportFile.write( "</RoutingTestByLevel>\r\n");
 
-    //oDanglingRoads.PrintErrorsToXML (oReportFile);
+    oDeadEndTest.PrintErrorsToXML(oReportFile);
 
     oSourceErrors.PrintErrorsToXML(oReportFile);
     oStatistic.PrintReportToXML(oReportFile);
