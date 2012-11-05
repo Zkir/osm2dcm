@@ -119,7 +119,7 @@ public class clsMpSection {
   }
 
   // массив координат вершин полигона (почему-то замкнутый)
-  private double[][] GetCoordArray()
+  private double[][] GetCoordArray()  throws MPParseException
   {
     double[][]  dblCoords; // массив координат вершин полигона
 
@@ -129,9 +129,30 @@ public class clsMpSection {
     String strX;
     String strY;
     int i;
+    int intLevel;
+
 
     //предполагаем, что Data0 содержит внешний контур полигона
     strData0 = GetAttributeValue("Data0");
+    if (strData0.equals(""))
+    {
+
+      for(intLevel=1;intLevel<6;intLevel++)
+      {
+         strData0 = GetAttributeValue("Data"+Integer.toString(intLevel));
+         if(!strData0.equals(""))
+         {
+           break;
+         }
+      }
+      if (strData0.equals(""))
+      {
+        throw new MPParseException("unable to find object coordinates(DataX attribute) ");
+      }
+    }
+
+
+
     //Распарсим его.
     //Формат
     //(x1,y1),(x2,y2),(x3,y3), ...,(xN,yN)
@@ -177,7 +198,7 @@ public class clsMpSection {
   }
 
   //Получение bbox объекта
-  public double[] CalculateBBOX()
+  public double[] CalculateBBOX() throws MPParseException
   {
     double[] bbox;
     double[][] Coords;
@@ -215,7 +236,7 @@ public class clsMpSection {
   }
 
   //Получение координат первой и последней точки
-  public double[] CalculateFirstLast()
+  public double[] CalculateFirstLast() throws MPParseException
   {
     double[] bbox;
     double[][] Coords;
@@ -240,10 +261,30 @@ public class clsMpSection {
     return bbox;
   }
 
+  //Получение координат первой точки
+  public double[] GetCoord() throws MPParseException
+  {
+    double[] bbox;
+    double[][] Coords;
+    double lat1,lon1,lat2,lon2;
+
+    Coords=GetCoordArray();
+
+    //первая точка
+    lat1 = Coords[0][0];
+    lon1 = Coords[0][1];
+
+    bbox=new double[2];
+    bbox[0]=lat1;
+    bbox[1]=lon1;
+
+    return bbox;
+  }
+
 
 
   //Подсчеты разных свойств
-  public double CalculateArea()
+  public double CalculateArea() throws MPParseException
   {
 
     int i;
@@ -275,7 +316,7 @@ public class clsMpSection {
   }
 
   //Найдем длинну линии в километрах
-  public double CalculateLength()
+  public double CalculateLength() throws MPParseException
   {
     final double coeff=111.1;// длинна одного градуса дуги в км
 

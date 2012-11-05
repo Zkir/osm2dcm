@@ -29,7 +29,11 @@ public class vb6 {
     }
     return result;
   }
+  public static int InStr (String str, String substr)
+  {
+     return (str.indexOf(substr)+1);
 
+  }
   public static long Round(double x)
   {
     return Math.round(x);

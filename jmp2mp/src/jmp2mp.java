@@ -32,8 +32,11 @@ public class jmp2mp {
   //Ошибки найденные osm2mp
   private static clsSourceErrors oSourceErrors;
 
+  //Тест тупиков
   private static clsDeadEndTest oDeadEndTest;
 
+  //Тест адрески
+  private static clsAddrRegistryTest oAddrRegistryTest;
 
   //Точка входа
   public static void  main(String args[]) throws IOException,MPParseException
@@ -86,6 +89,8 @@ public class jmp2mp {
     oTgtMp= new clsMpFile(strTarget,1);
 
     dtProcessStart= new Date();
+
+    oAddrRegistryTest = new clsAddrRegistryTest();
 
     oConnectivityTest  = new clsConnectivityTest();
     oConnectivityTest0 = new clsConnectivityTest();
@@ -144,6 +149,15 @@ public class jmp2mp {
       //9. Классифицируем города по населению
       ClassifyCitiesByPopulation(oSrcMp.CurrentSection);
 
+      //10. Добавим в реестр полигональные НП
+      if (oMpSection.SectionType.equals("[POLYGON]"))
+      {
+        if (oMpSection.mpType().equals("0x01") || oMpSection.mpType().equals("0x03")) //Город
+        {
+          double[] Coord=oMpSection.GetCoord();
+          oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"), Coord[0],Coord[1], 0, true, oMpSection.mpType().equals("0x01"),  "");
+        }
+      }
       //11. Классифицируем озера по размеру
       ClassifyLakesBySize(oSrcMp.CurrentSection);
 
@@ -170,6 +184,65 @@ public class jmp2mp {
           }
         }
       }
+
+      //14-1
+      //создадим адресный реестр.
+      //Дома, или во всяком случае, объекты с номером дома.
+      if(
+          ((oMpSection.SectionType.equals("[POLYGON]")) && (oMpSection.mpType().equals("0x13"))) ||
+          ((oMpSection.SectionType.equals("[POI]")) && (oMpSection.mpType().equals("0x6100")))
+      )
+      {
+        if (!oMpSection.GetAttributeValue("HouseNumber").equals("") )
+        {
+          double[] Coord;
+          Coord=oMpSection.GetCoord();
+          oAddrRegistryTest.AddHouseToRegistry(
+             oMpSection.GetAttributeValue("HouseNumber").trim(),
+             oMpSection.GetAttributeValue("StreetDesc").trim(),
+             oMpSection.GetAttributeValue("CityName").trim(),
+             Coord[0],Coord[1]);
+       }
+      }
+
+      //14-2
+      // Улицы. Так случилось что в СитиГиде дома должны быть привязаны
+      // к *Рутинговым* улицам
+
+      if (oMpSection.SectionType.equals("[POLYLINE]"))
+      {
+        if (!oMpSection.mpRouteParam().equals("") ||   oMpSection.mpType().equals("0x16")  || oMpSection.mpType().equals("0x8849"))
+        {
+          double[] Coord;
+          Coord=oMpSection.GetCoord();
+
+          oAddrRegistryTest.AddStreetToRegistry(
+                    oMpSection.GetAttributeValue("StreetDesc").trim(),
+                    oMpSection.GetAttributeValue("CityName").trim(),
+                    (!oMpSection.mpRouteParam().equals("")) && ! (oMpSection.mpType().equals("0x07")),
+                    Coord[0],Coord[1],
+                    (oMpSection.mpType().equals("0x06")) //Or (В названии есть слово улица)
+                    );
+
+          // Примечания.
+          //  1. Подразумевается что hw=residential и hw=living_street должны быть внутри городов
+          //  2. Дворовые проезды все равно не ищутся, даже рутинговые.
+
+        }
+      }
+
+     /*
+     //14-3
+     //Территории, по которым может вестись адресация.
+
+       If (oMpSection.SectionType = "[POI]") And (oMpSection.mpType = "0x1F00" Or oMpSection.mpType = "0x1F01") Then
+
+         oAddrRegisty.AddAddrTerritoryToRegistry _
+                       Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
+                       Trim$(oMpSection.mpLabel)
+       End If
+
+      */
 
       //16. Убьем CountryName, оно в СГ не используется
       RemoveCountryAttribute(oSrcMp.CurrentSection);
@@ -271,6 +344,9 @@ public class jmp2mp {
     }
     oTgtMp.Close();
 
+    oAddrRegistryTest.ValidateCities();
+    oAddrRegistryTest.ValidateCitiesReverse();
+    oAddrRegistryTest.ValidateHouses();
     oDeadEndTest.Validate();
 
     dtProcessEnd=new Date();
@@ -320,10 +396,10 @@ public class jmp2mp {
     }
   }
   //9. Классифицируем города по населению
-  private static void ClassifyCitiesByPopulation(clsMpSection oMpSection)
+  private static void ClassifyCitiesByPopulation(clsMpSection oMpSection) throws MPParseException
   {
     String strPopulation;
-    int intPopulation=0;
+    int intPopulation=-1;
     if (oMpSection.SectionType.equals("[POI]"))
     {
       if(oMpSection.GetAttributeValue("City").equals("Y")){
@@ -341,16 +417,20 @@ public class jmp2mp {
           }
           catch (NumberFormatException e){
             System.out.println("unparsed population value: " + strPopulation);
+
           }
         }
 
-        /*
-          'Добавим город в адресный реестр.
-          'Возможно нужно проверять еще и тип.
-          If blnDoTests Then
-            oAddrRegisty.AddCityToRegistry oMpSection.mpLabel, oMpSection.GetCoords, intPopulation, False, False, oMpSection.mpType
-          End If
-        */
+
+        //Добавим город в адресный реестр.
+        //Возможно нужно проверять еще и тип.
+
+        double[] Coords;
+        Coords=oMpSection.GetCoord();
+
+        oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"), Coords[0],Coords[1], intPopulation, false, false, oMpSection.mpType());
+
+
 
 
         if (intPopulation > 0) {
@@ -404,7 +484,7 @@ public class jmp2mp {
   }
 
   //11. Классифицируем озера по размеру
-  private static void ClassifyLakesBySize(clsMpSection oMpSection) //throws Exception
+  private static void ClassifyLakesBySize(clsMpSection oMpSection) throws MPParseException
   {
     double dblSize;
 
@@ -463,6 +543,8 @@ public class jmp2mp {
       }
     }
   }
+
+
 
 
   //16. Убьем CountryName, оно в СГ не используется
@@ -558,6 +640,7 @@ public class jmp2mp {
     oReportFile.write( " <TimeUsed>" + FormatXMLTimeInterval(dtProcessStart,dtProcessEnd ) + "</TimeUsed>\r\n");
 
 
+    oAddrRegistryTest.PrintErrorsToXML(oReportFile);
 
 
     oReportFile.write( "<RoutingTest>\r\n");
