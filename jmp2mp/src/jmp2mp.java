@@ -56,7 +56,7 @@ public class jmp2mp {
     }
     else
     {
-      System.out.println( "Usage: mpPostProcessor <source mp file> <target mp file>");
+      System.out.println( "Usage: mpPostProcessor <source mp file> <target mp file> <view point>");
     }
 
   }
@@ -71,8 +71,12 @@ public class jmp2mp {
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
-     strSource="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.pre.mp";
-     strTarget="d:/OSM/osm2dcm/_my/RU-KGD/RU-KGD.java.mp";
+    strSource=args[0];
+    strTarget=args[1];
+
+    if(args.length>2)
+      strViewPoint=args[2];
+
 
     //strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
     //strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
@@ -627,7 +631,8 @@ public class jmp2mp {
   private static void PrintReport(String strFileName)   throws IOException
   {
     BufferedWriter oReportFile;
-    oReportFile = new BufferedWriter(new FileWriter(strFileName));
+    //oReportFile = new BufferedWriter(new FileWriter(strFileName));
+    oReportFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), "utf-8"));
 
     Date dtCurrentDate;
 

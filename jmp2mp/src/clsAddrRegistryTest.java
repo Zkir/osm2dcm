@@ -529,17 +529,24 @@ public class clsAddrRegistryTest {
 
   public void PrintErrorsToXML(BufferedWriter oReportFile)  throws IOException
   {
+    int i;
 
     int intTotalHouses=arrHouses.size();
     int intTotalStreets=arrStreets.size() ;
     int intUnmatchedHouses= arrHousesErr.size();
 
-    int intStreetsOutsideCities=-1;
-
+    int intStreetsOutsideCities=0;
+    for(i=0;i<arrStreetSegments.size();i++ )
+    {
+      if (arrStreetSegments.get(i).cityName.equals("")  )
+      {
+        intStreetsOutsideCities=intStreetsOutsideCities+1;
+      }
+    }
 
     double dblErrorRate=(double)intUnmatchedHouses/(double)intTotalHouses ;
 
-    int i;
+
 
 
 
@@ -644,7 +651,7 @@ public class clsAddrRegistryTest {
 
 
 
-    /*
+      /*
 
       rsHouses.Filter = adFilterNone
       rsStreets.Filter = adFilterNone
@@ -698,30 +705,31 @@ public class clsAddrRegistryTest {
 
 
 
+      */
 
 
 
+      //Улицы, оказавшиеся почему-то за пределами НП
+      oReportFile.write( "<StreetsOutsideCities>\r\n");
 
-      'Улицы, оказавшиеся почему-то за пределами НП
-      oReportFile.write( "<StreetsOutsideCities>"
+      //rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
+      for(i=0;i<arrStreetSegments.size();i++ )
+      {
+        StreetInfo theStreetInfo;
+        theStreetInfo=arrStreetSegments.get(i);
+        if (theStreetInfo.cityName.equals("")  )
+        {
+          oReportFile.write( "<Street>\r\n");
+          oReportFile.write( " <Street>" + MakeXmlString(theStreetInfo.streetName) + "</Street>\r\n");
+          oReportFile.write( " <Coord>\r\n");
+          oReportFile.write( "   <Lat>" + theStreetInfo.lat + "</Lat>\r\n");
+          oReportFile.write( "   <Lon>" + theStreetInfo.lon + "</Lon>\r\n");
+          oReportFile.write( " </Coord>\r\n" );
+          oReportFile.write( "</Street>\r\n" );
+        }
+      }
+      oReportFile.write( "</StreetsOutsideCities>\r\n");
 
-      rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
-      Do While Not rsStreetSegments.EOF
-        oReportFile.write( "<Street>"
-       ' oReportFile.write( " <ErrType>1</ErrType>"
-       ' oReportFile.write( " <City>" & MakeXmlString(rsStreetSegments(RS_ADDR_CITY).Value) & "</City>"
-        oReportFile.write( " <Street>" & MakeXmlString(rsStreetSegments(RS_ADDR_STREET).Value) & "</Street>"
-        oReportFile.write( " <Coord>"
-        GetLatLon lat, lon, rsStreetSegments(RS_ADDR_COORDS).Value
-        oReportFile.write( "   <Lat>" & lat & "</Lat>"
-        oReportFile.write( "   <Lon>" & lon & "</Lon>"
-        oReportFile.write( " </Coord>"
-        oReportFile.write( "</Street>"
-        rsStreetSegments.MoveNext
-      Loop
-      oReportFile.write( "</StreetsOutsideCities>"
-
-  */
     oReportFile.write("</AddressTest>\r\n");
   }
 

@@ -25,7 +25,8 @@ public class clsMpFile {
 
     }
     if (intMode==1){
-      oOutFile = new BufferedWriter(new FileWriter(strFileName));
+      //oOutFile = new BufferedWriter(new FileWriter(strFileName));
+      oOutFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), "windows-1251"));
     }
 
   }
