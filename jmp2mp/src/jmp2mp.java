@@ -235,18 +235,16 @@ public class jmp2mp {
         }
       }
 
-     /*
+
      //14-3
      //Территории, по которым может вестись адресация.
 
-       If (oMpSection.SectionType = "[POI]") And (oMpSection.mpType = "0x1F00" Or oMpSection.mpType = "0x1F01") Then
-
-         oAddrRegisty.AddAddrTerritoryToRegistry _
-                       Trim$(oMpSection.GetAttributeValue(CityNameAttr)), _
-                       Trim$(oMpSection.mpLabel)
-       End If
-
-      */
+      if (oMpSection.SectionType.equals("[POI]") && (oMpSection.mpType().equals("0x1F00") || oMpSection.mpType().equals("0x1F01")))
+      {
+         oAddrRegistryTest.AddAddrTerritoryToRegistry(
+                       oMpSection.GetAttributeValue("CityName").trim(),
+                       oMpSection.GetAttributeValue("Label").trim() );
+      }
 
       //16. Убьем CountryName, оно в СГ не используется
       RemoveCountryAttribute(oSrcMp.CurrentSection);

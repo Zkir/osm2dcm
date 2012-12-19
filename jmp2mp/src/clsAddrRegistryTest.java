@@ -71,6 +71,8 @@ public class clsAddrRegistryTest {
   ArrayList<CityInfo> arrCityPolies;
   ArrayList<CityInfo> arrCities;
 
+  HashMap<String,String> mapAddrTerritoryByNameAndCity;
+
 
   //Результаты
   ArrayList<CityInfo> arrCitiesWOPopulation;
@@ -95,6 +97,8 @@ public class clsAddrRegistryTest {
     arrStreets=new ArrayList<StreetInfo>();
     mapStreetByNameAndCity=new HashMap<String,StreetInfo>();
     arrStreetSegments=new ArrayList<StreetInfo>();
+
+    mapAddrTerritoryByNameAndCity= new HashMap<String, String>();
 
     arrHouses= new ArrayList<HouseInfo>();
 
@@ -209,6 +213,12 @@ public class clsAddrRegistryTest {
 
       arrCities.add(theCityInfo);
     }
+
+  }
+
+  public void AddAddrTerritoryToRegistry(String strCityName, String strStreetName)
+  {
+    mapAddrTerritoryByNameAndCity.put(strCityName+"/"+strStreetName,"A");
 
   }
 
@@ -493,16 +503,13 @@ public class clsAddrRegistryTest {
        return steNumberRelatedToTerritory;
     }
 
-    /*
-    'Попытаемся найти нашу улицу в списке территорий.
-    rsTerritories.Filter = RS_ADDR_CITY & "= '" & StrForFilter(strCity) & "' AND " & _
-                           RS_ADDR_STREET & "= '" & StrForFilter(strStreetDesc) & "'"
 
-    If rsTerritories.RecordCount > 0 Then
-      CheckStreet = steNumberRelatedToTerritory
-      GoTo fin
-    End If
-    */
+    //Попытаемся найти нашу улицу в списке территорий.
+    if(mapAddrTerritoryByNameAndCity.containsKey(strCity+"/"+strStreetDesc) )
+    {
+      return steNumberRelatedToTerritory;
+    }
+
 
     // Последняя попытка
     //Улица может присутствовать, но быть не сопоставлена городу.
