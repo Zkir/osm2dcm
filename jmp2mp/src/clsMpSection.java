@@ -119,7 +119,7 @@ public class clsMpSection {
   }
 
   // массив координат вершин полигона (почему-то замкнутый)
-  private double[][] GetCoordArray()  throws MPParseException
+  private double[][] GetCoordArray(boolean blnForceClosed)  throws MPParseException
   {
     double[][]  dblCoords; // массив координат вершин полигона
 
@@ -160,7 +160,14 @@ public class clsMpSection {
     tmp = strData0.split("\\)\\,");
 
     N=tmp.length;
-    dblCoords= new double[N+1][];
+    if (blnForceClosed)
+      {
+        dblCoords= new double[N+1][];
+      }
+    else
+    {
+      dblCoords= new double[N][];
+    }
 
 
     for(i=0;i<N;i++){
@@ -185,14 +192,16 @@ public class clsMpSection {
     }
 
     //Убедимся, что полигон замкнутый
-    if ((dblCoords[0][0]!= dblCoords[N-1][0]) || (dblCoords[0][1] != dblCoords[N-1][1])){
-      //Если полигон не замкнутый(такое может быть по разным причинам), надо его замкнуть
-      N = N + 1;
-      dblCoords[N-1]=new double[2];
-      dblCoords[N-1][0] = dblCoords[0][0];
-      dblCoords[N-1][1] = dblCoords[0][1];
+    if (blnForceClosed)
+    {
+      if ((dblCoords[0][0]!= dblCoords[N-1][0]) || (dblCoords[0][1] != dblCoords[N-1][1])){
+        //Если полигон не замкнутый(такое может быть по разным причинам), надо его замкнуть
+        N = N + 1;
+        dblCoords[N-1]=new double[2];
+        dblCoords[N-1][0] = dblCoords[0][0];
+        dblCoords[N-1][1] = dblCoords[0][1];
+      }
     }
-
 
     return dblCoords;
   }
@@ -206,7 +215,7 @@ public class clsMpSection {
     double lat1,lon1,lat2,lon2;
     int i;
 
-    Coords=GetCoordArray();
+    Coords=GetCoordArray(false);
 
     //Начнем с первой точки
     lat1 = Coords[0][0];
@@ -242,7 +251,7 @@ public class clsMpSection {
     double[][] Coords;
     double lat1,lon1,lat2,lon2;
 
-    Coords=GetCoordArray();
+    Coords=GetCoordArray(true);
 
     //первая точка
     lat1 = Coords[0][0];
@@ -268,7 +277,7 @@ public class clsMpSection {
     double[][] Coords;
     double lat1,lon1,lat2,lon2;
 
-    Coords=GetCoordArray();
+    Coords=GetCoordArray(true);
 
     //первая точка
     lat1 = Coords[0][0];
@@ -296,7 +305,7 @@ public class clsMpSection {
     //Найдем размер объекта в квадратных километрах
 
 
-    dblCoords=GetCoordArray();
+    dblCoords=GetCoordArray(true);
 
     //Найдем площадь в квадратных градусах
     s = 0;
@@ -326,7 +335,7 @@ public class clsMpSection {
 
     double[][]  dblCoords; // массив координат вершин полигона
     //Получим массив координат
-    dblCoords=GetCoordArray();
+    dblCoords=GetCoordArray(true);
 
     //Сложим длинну сегментов
     dblLen = 0;

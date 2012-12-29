@@ -52,7 +52,7 @@ public class jmp2mp {
       System.out.println( "Viewpoint: " + strViewPoint);
       ProcessMP (strSource, strTarget, strViewPoint);
       System.out.println( "Postprocessor has been finished OK");
-      System.out.println( "Time used: "+ Long.toString(dtProcessEnd.getTime()-dtProcessStart.getTime()) );
+      System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
     }
     else
     {
