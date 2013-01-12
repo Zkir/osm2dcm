@@ -90,8 +90,8 @@ echo
 	  <h1>'.$lan[1].'</h1>
 		<table>
 			<tr>
-			  <td><div id="cm-example" style="width: 450px; height: 400px"></div> </td> 
-			  <td valign="top" width="550px" style="padding-left:15px" >
+			  <td><div id="cm-example" style="width: 400px; height: 400px"></div> </td> 
+			  <td valign="top" width="550px" style="padding-left:15px;padding-right=5px" >
 			     <p>
 	               <b>'.$lan[2].'</b><br />
 	               '.$lan[3].'
@@ -119,6 +119,15 @@ echo
 			     </p>
 			     
 			  </td>
+			  <td valign="top"  style="padding-left:15px;padding-right:5px;color:red;">
+			  	  <div style="max-width:250px" >
+			  	<b>Warning</b><br />   
+			     * Not all routing issues displayed on this page are currently fixable, due to limited set of features in OSRM. <br />
+			     * Not every problem can be fixed without local knowledge. To fix some problems properly survey can be necessary.
+			       Please make only changes in which you are absolutely sure. <br />
+			     * It\'s preferable to fix problems in area which your are familar with. Please refer to <a href="http://wiki.openstreetmap.org/wiki/So_that_is_what_inaccessible_road_is!"> wiki</a> how to get problems from your local area only.
+			    </div>
+			  </td>	  
 		    </tr>
 		    <tr>
 		      <td>
