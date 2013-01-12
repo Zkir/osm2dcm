@@ -38,7 +38,22 @@
   <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 </ClassB>
 
-<ClassBm>
+<ClassBm0>
+  <Description>
+    Класс B - карты, которые можно выпускать в свет. Целый дорожный граф. Низкая доля "исправимых ошибок"
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
+  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>10</MaxDeadEnds>
+  <MaxRoutiningEdges>300000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+  <MaxUnmatchedAddrHouses>1.0</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrHousesFixable>0.05</MaxUnmatchedAddrHousesFixable>
+</ClassBm0>
+
+<ClassBm1>
   <Description>
     Класс B - карты, которые можно выпускать в свет. Целый дорожный граф. Поиск только до улиц. Малое количество нанесенных адресов.
   </Description>
@@ -48,10 +63,10 @@
   <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
   <MaxDeadEnds>10</MaxDeadEnds>
   <MaxRoutiningEdges>300000</MaxRoutiningEdges>
-  <MaxTotalAddr>1000</MaxTotalAddr>
+  <MaxTotalAddr>2000</MaxTotalAddr>
   <MaxUnmatchedAddrHouses>0.999</MaxUnmatchedAddrHouses> 
   <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
-</ClassBm>
+</ClassBm1>
 
 <ClassC>
   <Description>
