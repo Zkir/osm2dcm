@@ -27,9 +27,9 @@ require_once("include/misc_utils.php");
       <a href="http://peirce.gis-lab.info/maps7/World-OVRV.cgmap">World-OVRV.cgmap</a> - обзорная карта Мира
       </p>');
 
-  $zPage->WriteHtml('<H2>Карты с поддержкой пробок</H2>');
-  $zPage->WriteHtml('Карты, представленные в этом разделе поддерживаются пробочным сервисом и корректурами.'); 
-  PrintMapListOld ($xml3,"Карты с пробками");
+//  $zPage->WriteHtml('<H2>Карты с поддержкой пробок</H2>');
+//  $zPage->WriteHtml('Карты, представленные в этом разделе поддерживаются пробочным сервисом и корректурами.'); 
+//  PrintMapListOld ($xml3,"Карты с пробками");
   
   $zPage->WriteHtml('<H2>Ежедневные карты</H2>');
   $zPage->WriteHtml('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день. <br/>
