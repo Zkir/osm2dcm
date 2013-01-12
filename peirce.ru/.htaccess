@@ -44,7 +44,12 @@ RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
 RewriteRule ^qa_addr$ addr.php?page=addr_summary
 
 RewriteRule ^fixme$  2/fixme.php
+RewriteRule ^fixme/p0/([0-9.-]+,[0-9.-]+)$  2/fixme.php?p0=$1 [QSA]
+RewriteRule ^fixme/TH$  2/fixme.php?campaign=TH [QSA]
 
-
+RewriteRule ^dev/fixme$  2.dev/fixme.php
+RewriteRule ^dev/fixme/p0/([0-9.-]+,[0-9.-]+)$  2.dev/fixme.php?p0=$1 [QSA]
+RewriteRule ^dev/fixme/TH$  2.dev/fixme.php?campaign=TH [QSA]
+RewriteRule ^dev/fixme/JP$  2.dev/fixme.php?campaign=JP [QSA]
 
 Redirect 301 /daily.php http://peirce.gis-lab.info/daily 
