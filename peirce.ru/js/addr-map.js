@@ -1,9 +1,12 @@
+var map;
+var markers = [];
+var CurrentMarker=-1;
 //Main fuction
 function ProcessMap(XmlFileName, ReportErrType1)
 {	
  try{	
   var cloudmade = new CM.Tiles.OpenStreetMap.Mapnik();
-  var map = new CM.Map('cm-example', cloudmade);
+  map = new CM.Map('cm-example', cloudmade);
   var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
   map.addControl(new CM.LargeMapControl());
   map.addControl(new CM.ScaleControl());
@@ -32,7 +35,7 @@ function ProcessMap(XmlFileName, ReportErrType1)
     var LatZ=0.0;
     var LonZ=0.0;
   
-    var markers = [];
+   
     var intLen=0;
     intLen = items.length;
     var intMarkerCount=0;
@@ -129,6 +132,7 @@ function ProcessMap(XmlFileName, ReportErrType1)
     var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 60});
     clusterer.addMarkers(markers);
     
+    document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem()">Показать следущую ошибку</a>.</p>');  
     document.write('<p> всего ошибок:'+intMarkerCount+'</p>');
     	
   }	//условия удачной загрузки xml
@@ -144,6 +148,32 @@ function ProcessMap(XmlFileName, ReportErrType1)
       var delta=0.0002;
       document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat+delta)+"&bottom="+(lat-delta)+"&left="+(lon-delta)+"&right="+(lon+delta);
     }
+    
+    
+function ShowNextProblem()
+{
+	var LatMin=0;
+    var LonMin=0;
+	var LatMax=0;
+    var LonMax=0;
+    
+    CurrentMarker=CurrentMarker+1;
+    
+    if (CurrentMarker>=markers.length)
+    {CurrentMarker=0;}
+    
+    LatMin=markers[CurrentMarker]._position._lat;
+    LonMin=markers[CurrentMarker]._position._lng;
+	LatMax=markers[CurrentMarker]._position._lat;
+    LonMax=markers[CurrentMarker]._position._lng;
+	
+	
+	var bounds = new CM.LatLngBounds(
+                      new CM.LatLng(LatMin, LonMin), 
+                      new CM.LatLng(LatMax, LonMax));
+    map.zoomToBounds(bounds );
+}
+ 
  //---------------Вспомогательная фукция получения XMLHTTP----------------------------------    
     function getXmlHttp(){
     var xmlhttp;

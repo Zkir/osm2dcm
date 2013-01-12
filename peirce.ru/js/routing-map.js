@@ -3,6 +3,11 @@
 // (c) zkir 2011
 //==================================================================================================
 
+var markers = [];
+var SubGraphs = [];
+var CurrentMarker=-1;
+var map;
+
 //costructor for subrgraph marker
 function SubGraphInfo(NRoads,Lat1,Lon1,Lat2,Lon2)
 {
@@ -18,7 +23,7 @@ function ProcessMap(XmlFileName, strLevel)
 {
  try{
   var cloudmade = new CM.Tiles.OpenStreetMap.Mapnik();
-  var map = new CM.Map('cm-example', cloudmade);
+  map = new CM.Map('cm-example', cloudmade);
   var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
   map.addControl(new CM.LargeMapControl());
   map.addControl(new CM.ScaleControl());
@@ -69,7 +74,7 @@ function ProcessMap(XmlFileName, strLevel)
     var LonMin=180;
     var LatMax=0;
     var LonMax=0;
-    var markers = [];
+    
     var intLen=0;
     intLen = items.length;
     var intMarkerCount=0;
@@ -125,6 +130,7 @@ function ProcessMap(XmlFileName, strLevel)
     //document.write( "<p>" + aBugDescr  + "</p>");
     markers.push(new CM.Marker(new CM.LatLng((Lat1+Lat2)/2, (Lon1+Lon2)/2),{title: aBugDescr}));
     var aSubGraph=new SubGraphInfo(NRoads,Lat1,Lon1,Lat2,Lon2);
+    SubGraphs.push(aSubGraph);
     CM.Event.addListener(markers[intMarkerCount], 'click', function(latlng) {
     //var delta=0.001;
      	//doClick(latlng.lat()-delta,latlng.lng()-delta,latlng.lat()+delta,latlng.lng()+delta);
@@ -153,7 +159,8 @@ function ProcessMap(XmlFileName, strLevel)
     map.zoomToBounds(bounds );	
     var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 30});
     clusterer.addMarkers(markers);
-
+    document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem()">Показать следущий изолят</a>.</p>');
+ 
     document.write('<p> всего отдельных подграфов: '+intMarkerCount+'</p>');
 
   }	//условия удачной загрузки xml
@@ -169,8 +176,32 @@ function doClick(lat1,lon1,lat2,lon2)
   var delta=0.0002;
   document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat2+delta)+"&bottom="+(lat1-delta)+"&left="+(lon1-delta)+"&right="+(lon2+delta);
 }
+
+function ShowNextProblem()
+{
+	var LatMin=0;
+    var LonMin=0;
+	var LatMax=0;
+    var LonMax=0;
     
- //---------------Вспомогательная фукция получения XMLHTTP----------------------------------
+    CurrentMarker=CurrentMarker+1;
+    
+    if (CurrentMarker>=SubGraphs.length)
+    {CurrentMarker=0;}
+    
+    LatMin=SubGraphs[CurrentMarker].Lat1;
+    LonMin=SubGraphs[CurrentMarker].Lon1;
+	LatMax=SubGraphs[CurrentMarker].Lat2;
+    LonMax=SubGraphs[CurrentMarker].Lon2;
+	
+	
+	var bounds = new CM.LatLngBounds(
+                      new CM.LatLng(LatMin, LonMin), 
+                      new CM.LatLng(LatMax, LonMax));
+    map.zoomToBounds(bounds );
+}	
+	    
+ //---------------Вспомогательная фукция получения XMfLHTTP----------------------------------
 
   function getXmlHttp1() {
   if (typeof XMLHttpRequest == 'undefined') {

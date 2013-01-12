@@ -9,6 +9,11 @@
 // 2. Отобразить ошибки на карте. Этот этап должен быть одинаков для всех тестов
 // Единственно что, ошибка может быть как точечной (разрыв береговой линии), так и с ббоксом (рутинговый подграф, просроченная дорога)   
 
+// Глобальные переменные
+ var map; //Объект карта
+ var ErrorList = []; //Cписок ошибок
+ var CurrentMarker=-1; //Номер "текущей" ошибки
+ 
 
 //конструктор для "ошибки вообще"
 function ErrorItem(Lat,Lon, Descr)
@@ -359,7 +364,7 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
 {	
  try{	
   var cloudmade = new CM.Tiles.OpenStreetMap.Mapnik();
-  var map = new CM.Map('cm-example', cloudmade);
+  map = new CM.Map('cm-example', cloudmade);
   var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
   map.addControl(new CM.LargeMapControl());
   map.addControl(new CM.ScaleControl());
@@ -367,7 +372,7 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
   map.setCenter(new CM.LatLng(55.75,37.6), 5);
   
   //1.  - получение списка ошибок.
-  var ErrorList = [];
+ 
   
   var LatMin=90;
   var LonMin=180;
@@ -472,7 +477,8 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
     	
   var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 60});
   clusterer.addMarkers(markers);
-    
+  
+  document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem()">Показать следущую ошибку</a>.</p>');  
   document.write('<p> Всего ошибок:'+intMarkerCount+'</p>');
   
 
@@ -488,8 +494,46 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
       var delta=0.0006;
       document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat+delta)+"&bottom="+(lat-delta)+"&left="+(lon-delta)+"&right="+(lon+delta);
     }
- //---------------Вспомогательная фукция получения XMLHTTP----------------------------------    
+   
 
+//-----------------------------------------------------------------------------------------------
+ //  Показать следующую проблему
+ //----------------------------------------------------------------------------------------------
+function ShowNextProblem()
+{
+	var LatMin=0;
+    var LonMin=0;
+	var LatMax=0;
+    var LonMax=0;
+    
+    CurrentMarker=CurrentMarker+1;
+    
+    if (CurrentMarker>=ErrorList.length)
+    {CurrentMarker=0;}
+    
+     switch (ErrorList[i].Kind) {
+      case "POINT":
+        LatMin=ErrorList[CurrentMarker].Lat;
+        LonMin=ErrorList[CurrentMarker].Lon;
+        LatMax=ErrorList[CurrentMarker].Lat;
+        LonMax=ErrorList[CurrentMarker].Lon;
+	    break;
+      case "BBOX":
+        LatMin=ErrorList[CurrentMarker].Lat1;
+        LonMin=ErrorList[CurrentMarker].Lon1;
+        LatMax=ErrorList[CurrentMarker].Lat2;
+        LonMax=ErrorList[CurrentMarker].Lon2;
+      
+	}
+	var bounds = new CM.LatLngBounds(
+                      new CM.LatLng(LatMin, LonMin), 
+                      new CM.LatLng(LatMax, LonMax));
+    map.zoomToBounds(bounds );
+}
+
+ //-----------------------------------------------------------------------------------------------
+ //  Запрос данных к серверу (Вспомогательная фукция получения XMLHTTP )
+ //-----------------------------------------------------------------------------------------------
     
   function getXmlHttp1() {
   if (typeof XMLHttpRequest == 'undefined') {
