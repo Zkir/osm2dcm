@@ -43,7 +43,16 @@ require_once("include/misc_utils.php");
       {
   	    $zPage->title="Контроль качества  - $mapid";
         $zPage->header="Контроль качества - $mapid";
-        PrintQADetailsPage($mapid,$errtype);
+        if(file_exists(GetXmlFileName($mapid)))
+        {	
+          PrintQADetailsPage($mapid,$errtype);
+        }
+        else
+        { 
+        	
+       		$zPage->WriteHtml('<h1>Контроль качества ('.$mapid.')</h1>');
+        	$zPage->WriteHtml('Для региона '.$mapid.' данные валидатора в настоящее время отсутствуют. ');
+        }	  
       }
       else
       {
@@ -145,7 +154,7 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>Название карты</td><td><b>'.$strMapName.'</b></td></tr>
-              <tr><td>Дата прохода валидатора </td><td>'.$xml->Date.'</td></tr>
+              <tr><td>Дата прохода валидатора </td><td>'.$xml->DateWithTime.'</td></tr>
               <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
               <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>');
   if(!$blnRss)
@@ -264,6 +273,18 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses,$blnRss).'</td>
                   <td><a href="'.$zPage->item_link.'#addr">список</a></td>
                   <td><a href="'.$zPage->item_link.'/addr-map">на карте</a></td>
+                </tr>');
+                
+  $SolvableErrorsRate=100.00*( ((float)$xml->AddressTest->Summary->HousesWOCities+
+                                //(float)$xml->AddressTest->Summary->HousesStreetNotSet+
+                                (float)$xml->AddressTest->Summary->HousesStreetNotFound+
+                                (float)$xml->AddressTest->Summary->HousesStreetNotRelatedToCity ) /(float)$xml->AddressTest->Summary->TotalHouses);              
+  $zPage->WriteHtml('<tr>
+                  <td>&nbsp;&nbsp;Доля "легкоисправимых" ошибок (I,III,IV):</td>
+                  <td>'.number_format($SolvableErrorsRate,2,'.', ' ').'%</td>
+                  <td>'.TestX($SolvableErrorsRate,5.00,$blnRss).'</td>
+                  <td><a href="'.$zPage->item_link.'#addr">список</a></td>
+                  <td><a href="'.$zPage->item_link.'/addr-map">на карте</a></td>
                 </tr>
                 </table>
               <hr/>'  );
@@ -314,7 +335,7 @@ function PrintQADetailsPageRss($mapid)
 
   //Параметры rss
   $zPage->cnl_link='http://peirce.gis-lab.info/qa/'.$mapid;
-  $zPage->item_guid=$mapid.'/'.$xml->Date;
+  $zPage->item_guid=$mapid.'/'.$xml->Date.'/x';
   $zPage->item_title=$strMapName.'('.$mapid.') - '.$xml->Date;
   $zPage->item_link='http://peirce.gis-lab.info/qa/'.$mapid;
   $zPage->item_pubDate=$xml->Date;
@@ -664,7 +685,7 @@ if ($errtype=="")
     foreach ($xml->AddressTest->StreetsOutsideCities->Street as $item)
     {
     	$LineNum++;
-    	if ($LineNum>1000)
+    	if ($LineNum>500)
     	{
     	  break;
     	}	
@@ -676,7 +697,7 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
     $zPage->WriteHtml( '</table>');    
-    if ($LineNum>1000)
+    if ($LineNum>500)
     	{
     	  $zPage->WriteHtml( '<i>Ошибок очень много, показана первая тысяча ошибок</i>');
     	}	
@@ -705,7 +726,7 @@ else //Задан конкретный тип ошибки
 }
 
  
-  if ( ($errtype=="")and( ($xml->AddressTest->Summary->UnmatchedHouses>5000)))
+  if ( ($errtype=="")and( ($xml->AddressTest->Summary->UnmatchedHouses>3000)))
   {
   	  $zPage->WriteHtml( '<p><b>К сожалению, ошибок настолько много, что отобразить их все невозможно.
   	                      Следует сначала починить отдельные типы.</b></p>');
@@ -738,7 +759,7 @@ else //Задан конкретный тип ошибки
          </tr>');
 
   $count=0;
-  $max_errors=4000;
+  $max_errors=3000;
   foreach ($xml->AddressTest->AddressErrorList->House as $item)
     {
       if (($errtype=="") or ($item->ErrType== $errtype))
@@ -890,9 +911,42 @@ function TestQaClass($xml_addr, $xnClass)
     $Result=FALSE;
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xnClass->MaxUnmatchedAddrHouses)
     $Result=FALSE;
-  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>   (float)$xnClass->MaxUnmatchedAddrStreets)
+  
+  //Ошибки адресации - улицы
+  if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
+  {	  
+    $tmp_rate=((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets));
+  }
+  else
+  {
+  	  $tmp_rate=0;
+  }	  
+  if($tmp_rate  >   (float)$xnClass->MaxUnmatchedAddrStreets)
     $Result=FALSE;
   
+  //"Исправимые" ошибки адресации - дома
+  if ($xnClass->MaxUnmatchedAddrHousesFixable!=""){
+  	  if (((float)$xml_addr->AddressTest->Summary->TotalHouses)!=0)
+	  {	 
+	  
+	   $SolvableErrorsRate= ( ((float)$xml_addr->AddressTest->Summary->HousesWOCities+
+	                           //(float)$xml_addr->AddressTest->Summary->HousesStreetNotSet+
+	                           (float)$xml_addr->AddressTest->Summary->HousesStreetNotFound+
+	                           (float)$xml_addr->AddressTest->Summary->HousesStreetNotRelatedToCity ) /(float)$xml_addr->AddressTest->Summary->TotalHouses); 
+	   
+	                 
+	 
+	    $tmp_rate=$SolvableErrorsRate;
+	  }
+	  else
+	  {
+	  	  $tmp_rate=0;
+	  }	
+	 
+	  if($tmp_rate  >   (float)$xnClass->MaxUnmatchedAddrHousesFixable)
+	    $Result=FALSE;
+  }
+   	  
   //Дупликаты дорог.
   if ($xnClass->MaxRoadDuplicates!=""){
     if( (int)$xml_addr->RoadDuplicatesTest->Summary->NumberOfDuplicates > (int)$xnClass->MaxRoadDuplicates)
@@ -921,12 +975,17 @@ function GetQaClass($xml_addr, $xmlQCR)
   }
   
   //Класс B-
-  if (TestQaClass($xml_addr,$xmlQCR->ClassBm))
+  if (TestQaClass($xml_addr,$xmlQCR->ClassBm0))
   {
     $QARating="B-";
     return $QARating;
   }
   
+  if (TestQaClass($xml_addr,$xmlQCR->ClassBm1))
+  {
+    $QARating="B-";
+    return $QARating;
+  }
   
   //Класс C
   if (TestQaClass($xml_addr,$xmlQCR->ClassC))
@@ -953,8 +1012,14 @@ function GetQaClass($xml_addr, $xmlQCR)
   //Теперь будем двигаться сверху вниз, опуская рейтинг, если нужно
   $QARating="E";
   
-   
-
+  if ( ((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
+  {	   
+    $tmpStreetRate=((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets));
+  }
+  else
+  {
+    $tmpStreetRate=0;	  
+  }	  
   
   //Класс E
   if( (int)$xml_addr->CoastLineTest->Summary->NumberOfBreaks > (int)$xmlQCR->ClassB->MaxSealineBreaks)
@@ -969,7 +1034,7 @@ function GetQaClass($xml_addr, $xmlQCR)
     $QARating="E";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 2*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
     $QARating="E";
-  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+  if( tmpStreetRate >  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
     $QARating="E";
   
   
@@ -986,7 +1051,7 @@ function GetQaClass($xml_addr, $xmlQCR)
     $QARating="F";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 3*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
     $QARating="F";
-  if( ((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets))>  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+  if( tmpStreetRate >  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
     $QARating="F";
   
   //Класс X
@@ -1043,6 +1108,9 @@ function PrintQASummaryPage()
                          <p><b>B</b> - Целый адресный реестр и дорожный граф. Количественные критерии: до 15% не сопоставленных адресов,
                                        не более 50 изолятов в полном дорожном графе, не более 5 изолятов в основных (начиная с tertiary) дорогах,
                                        не более 10 тупиков магистралей. </p>
+                         <p><b>B-</b> - Тоже что и B, но с поиском только до улиц. В этот класс попадают карты, где адресов мало, меньше двух тысяч,
+                                        либо много "неисправимых" ошибок  (нумерация по территории, нерутинговые улицы). </p>
+          
                          <p><b>C</b> - Кандидат в B. По сравнению с B, наличествуют изоляты в основных (начиная с tertiary)
                                        дорогах и тупики магистралей.  </p>
                          <p><b>D</b> - Целый адресный реестр. Дорожный граф в неудовлетворильном состоянии (до 100 изолятов). </p>
@@ -1173,8 +1241,12 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
-          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
-
+          if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
+          {  
+            $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
+          }
+          else
+          { $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(0,2,'.', ' ').'</a></td>');}
 
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->HousesWOCities.'</td>' );
           //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
@@ -1214,7 +1286,9 @@ function PrintQASummary($strGroup)
   $zPage->WriteHtml( 'D: '.$NumberOfD.', ');
   $zPage->WriteHtml( 'E: '.$NumberOfE.', ');
   $zPage->WriteHtml( 'F: '.$NumberOfF.', ');
-  $zPage->WriteHtml( 'X: '.$NumberOfX.'</p>');
+  $zPage->WriteHtml( 'X: '.$NumberOfX.',');
+  $NumberOfAll=$NumberOfA+$NumberOfB+$NumberOfC+$NumberOfD+$NumberOfE+$NumberOfF+$NumberOfX;
+  $zPage->WriteHtml( ' всего '.$NumberOfAll.' </p>');
   
   //$QAIndex=(6*$NumberOfA+5*$NumberOfB+4*$NumberOfC+3*$NumberOfD+2*$NumberOfE+1*$NumberOF+0*$NumberOfX)/($NumberOfA+$NumberOfB+$NumberOfC+$NumberOfD+$NumberOfE+$NumberOF+$NumberOfX);
   //$zPage->WriteHtml( '<p>Условный индекс по данному списку: '.$QAIndex.'</p>');
@@ -1295,8 +1369,8 @@ case 1:
           <b>Как починить:</b> проверить наличие полигона place, в случае отсутствия добавить.';
     break;
 case 2:
-    $str='<b>В чем проблема:</b> тег addr:street на доме не заполнен.
-          <b>Как починить:</b> добавить addr:street. ';
+    $str='<b>В чем проблема:</b> тег addr:street на доме не заполнен либо дом не включен в отношение своей улицы. <BR/>
+          <b>Как починить:</b> добавить addr:street либо включить дом в отношение соответствующей улицы. Если отношение отсутствует - создать его. ';
     break;
 case 3:
     $str='<b>В чем проблема:</b> улица, указанная на доме, в данном НП не обнаружена. Скорее всего это опечатка, например "улица Гибоедова" вместо
@@ -1348,6 +1422,10 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     foreach ($RoutingTest->SubgraphList->Subgraph as $item)
     { 
     	$LineNum++;
+    	if ($LineNum>500)
+    	{
+    	  break;
+    	}
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '  <td>'.$LineNum.'.</td>');
         $zPage->WriteHtml( '  <td>&lt;изолят&gt;</td>');
@@ -1361,6 +1439,11 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     else
     {
   	  $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');
+    }
+    
+    if ($LineNum>500)
+    {
+      $zPage->WriteHtml( '<i>Ошибок очень много, показаны первые пятьсот ошибок</i>');
     }	  
 }
 
