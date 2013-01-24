@@ -2176,6 +2176,13 @@ sub WritePOI {
             $street .= qq{ ($suburb{$suburb}->{name})}      if $suburb;
             printf "StreetDesc=%s\n", convert_string( $street );
         }
+        else {
+            my $poiid_temp = "node:" . $param{nodeid};
+            my $street_name = $street{$poiid_temp};
+            if ($street_name) {
+               printf "StreetDesc=%s\n", convert_string( $street_name );
+            }
+        }
 
         printf "Zip=%s\n",          convert_string($tag{'addr:postcode'})   if exists $tag{'addr:postcode'};
         printf "Phone=%s\n",        convert_string($tag{'phone'})           if exists $tag{'phone'};
