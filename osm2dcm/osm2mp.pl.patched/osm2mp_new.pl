@@ -35,7 +35,7 @@ use Text::Unidecode;
 
 use Math::Polygon;
 use Math::Geometry::Planar::GPC::Polygon 'new_gpc';
-use Math::Polygon::Tree;
+use Math::Polygon::Tree 0.041;
 use Tree::R;
 
 use List::Util qw{ first reduce sum min max };
@@ -2172,8 +2172,17 @@ sub WritePOI {
         $street = $param{street}
             if exists $param{street} && !defined $street;
         if ( $street ) {
-            my $suburb = FindSuburb( $param{nodeid} || $param{latlon} );
-            $street .= qq{ ($suburb{$suburb}->{name})}      if $suburb;
+        	
+        	my $suburb;
+	        if ( exists $tag{'addr:suburb'}) { 
+	            $suburb = $tag{'addr:suburb'};
+	        }
+	        else {
+              my $sub_ref = FindSuburb( $param{nodeid} || $param{latlon} );
+              $suburb = $suburb{$sub_ref}->{name} if $sub_ref;
+              
+            }  
+            $street .= qq{ ($suburb)}      if $suburb;
             printf "StreetDesc=%s\n", convert_string( $street );
         }
         else {
@@ -2451,7 +2460,8 @@ sub AddRoad {
         
         if ( @ref ) {
             my $ref = join q{,}, sort( uniq( map { s/[\s\-]+//g; split /[,;]/, $_ } @ref ) );
-
+            #BKA: original line
+            #$param{name} = '~[0x05]' . $ref . ( $param{name} ? q{ } . $param{name} : q{} );
             $param{name} = '~[0x05]' . $ref
         }
     }
@@ -2602,10 +2612,18 @@ sub WritePolygon {
             #my $street = $tag{'addr:street'} // ( $city ? $city->{name} : $defaultcity );
             my $street = $tag{'addr:street'};
             $street = $street{"way:$wayid"}     if exists $street{"way:$wayid"};
-        
-            my $suburb = FindSuburb( $plist[0]->[0] );
-            $street .= qq{ ($suburb{$suburb}->{name})}      if $suburb;
-
+            
+            if ( $street ) { 
+	            my $suburb;
+	            if ( exists $tag{'addr:suburb'}) { 
+	                 $suburb = $tag{'addr:suburb'};
+	            }
+	            else {
+	              my $sub_ref = FindSuburb( $plist[0]->[0] );
+	              $suburb = $suburb{$sub_ref}->{name} if $sub_ref;
+	            }  
+	            $street .= qq{ ($suburb)}      if $suburb;
+            }
             printf  "HouseNumber=%s\n", convert_string( $housenumber );
             printf  "StreetDesc=%s\n", convert_string( $street );
             if ( $city ) {
