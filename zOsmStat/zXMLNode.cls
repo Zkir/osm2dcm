@@ -60,10 +60,14 @@ Public Function GetAttributeValue(strAttributeName) As String
 Dim i As Integer
 Dim strAttributeValue As String
 Dim intAttrNameLen As Integer
+Dim blnAttributeFound As Boolean
+
   intAttrNameLen = Len(strAttributeName)
   strAttributeValue = ""
+  blnAttributeFound = False
   For i = 1 To UBound(elements)
    If Left$(elements(i), intAttrNameLen) = strAttributeName Then
+     blnAttributeFound = True
      strAttributeValue = Mid$(elements(i), intAttrNameLen + 2)
      If Mid$(elements(i), intAttrNameLen + 1, 1) <> "=" Then
        Err.Raise vbObjectError, "", "= is missing"
@@ -73,9 +77,26 @@ Dim intAttrNameLen As Integer
    End If
   Next i
   
+  If Not blnAttributeFound Then
+    GetAttributeValue = ""
+    Exit Function
+  End If
+  
+  If Right$(strAttributeValue, 1) <> """" Then
+    strAttributeValue = strAttributeValue + " " + elements(i + 1)
+  End If
+  
+  If Right$(strAttributeValue, 1) <> """" Then
+    strAttributeValue = strAttributeValue + " " + elements(i + 2)
+  End If
+  
+  If Right$(strAttributeValue, 1) <> """" Then
+    strAttributeValue = strAttributeValue + " " + elements(i + 3)
+  End If
+  
   If Trim$(strAttributeValue) <> "" Then
     If Left$(strAttributeValue, 1) <> """" Or Right$(strAttributeValue, 1) <> """" Then
-       Err.Raise vbObjectError, "", "quotation marks are missing"
+       Err.Raise vbObjectError, "", "quotation marks are missing: " & strAttributeValue
     End If
      
     strAttributeValue = Mid$(strAttributeValue, 2, Len(strAttributeValue) - 2)

@@ -31,6 +31,7 @@ Public Function ConvertFromXMLDate(ByVal strDate As String) As Date
   dtTime = TimeSerial(Mid$(strDate, 12, 2), Mid$(strDate, 15, 2), Mid$(strDate, 18, 2))
   ConvertFromXMLDate = dtDate + dtTime
 End Function
+
 Private Function AddUser(colUsers As Collection, strUser As String) As Boolean
 On Error GoTo catch
 colUsers.Add strUser, strUser
@@ -47,14 +48,21 @@ catch:
  End If
 End Function
 
-Public Function ProcessOSMFile(strFileName As String, dtCurrentDate As Date) As Boolean
+Public Function ProcessOSMFile(strFileName As String, dtCurrentDate As Date, strMapID As String) As Boolean
   Dim textline As String
   Dim dtDate As Date
   Dim clsXMLNode As zXMLNode
   Dim colUsers As Collection
   Dim strUserName As String
+  Dim objCalendarOfEdits As clsCalendarOfEdits
   
 On Error GoTo finalize
+
+   
+  Set objCalendarOfEdits = New clsCalendarOfEdits
+ 
+
+  
 
   Open strFileName For Input As #1
   N = 0
@@ -81,6 +89,9 @@ On Error GoTo finalize
     End If
     
     If dtDate <> NULL_DATE Then
+      objCalendarOfEdits.AddUserRS dtDate, clsXMLNode.GetAttributeValue("uid"), clsXMLNode.GetAttributeValue("user")
+    
+    
       N = N + 1
       AvgAge = AvgAge + Int(dtCurrentDate - dtDate)
       If dtDate > dtCurrentDate - 14 Then
@@ -104,6 +115,8 @@ On Error GoTo finalize
   NUsers = colUsers.Count
   Set colUsers = Nothing
 
+  objCalendarOfEdits.save_local_stat PATH_TO_OSM & "\" & strMapID & "\" & strMapID & "_editors.xml"
+  
 ProcessOSMFile = True
 finalize:
  Close #1
@@ -140,7 +153,7 @@ Dim AvgLat    As Double
     'Найдем площадь по соответствующему  poly-файлу
     s = CalculateSquare(PATH_TO_POLY & strMapID & ".poly", AvgLat)
     s = s * (111 ^ 2) * Cos(AvgLat / 180 * 3.14159)
-    If ProcessOSMFile(strFileName, Date) Then
+    If ProcessOSMFile(strFileName, Date, strMapID) Then
     
       rsStat.Find RS_STAT_MAPID & "= '" & strMapID & "'", , , adBookmarkFirst
       

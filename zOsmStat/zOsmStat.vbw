@@ -1,4 +1,5 @@
 mdlMain = 22, 29, 514, 367, 
-mdlSqure = 50, 50, 1118, 372, Z
-zXMLNode = 0, 0, 0, 0, C
-mdlDBI = 0, 0, 0, 0, C
+mdlSqure = 50, 50, 1118, 372, 
+zXMLNode = 100, 100, 1059, 409, 
+mdlDBI = 75, 75, 942, 446, 
+clsCalendarOfEdits = 125, 125, 831, 488, 
