@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.regex.*;
 import java.util.HashMap;
 
 public class jmp2mp {
@@ -394,6 +395,13 @@ public class jmp2mp {
     strLabel = oMpSection.GetAttributeValue("StreetDesc");
     if (!strLabel.equals("")){
       strLabel = NormalizeStreetName(strLabel, false);
+      //Еще одна бага osm2mp. Знак номера дороги "~[0x05]"  копируется в адрес.
+      //Это делать не надо.
+      if (vb6.Left(strLabel,7).equals("~[0x05]") )
+      {
+        strLabel=strLabel.substring(7);
+      }
+
       oMpSection.SetAttributeValue("StreetDesc", strLabel);
     }
   }
@@ -560,7 +568,17 @@ public class jmp2mp {
   //************************ Полезности ********************************************************************************
   private static String NormalizeStreetName(String  strStreetName, boolean blnKillUl)
   {
+    String strSuburb;
     strStreetName = strStreetName.trim();
+
+    Pattern p = Pattern.compile("(.*) \\((.*)\\)");
+    Matcher m = p.matcher(strStreetName);
+    boolean b = m.matches();
+    strSuburb="";
+    if (b){
+      strStreetName=m.group(1);
+      strSuburb=m.group(2);
+    }
 
     int l;
 
@@ -623,6 +641,10 @@ public class jmp2mp {
     }
 
     strStreetName = strStreetName.trim();
+    if  (!strSuburb.equals(""))
+    {
+      strStreetName=strStreetName+" /"+strSuburb +"/";
+    }
     return strStreetName;
   }
 

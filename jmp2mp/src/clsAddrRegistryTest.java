@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Comparator;
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -493,12 +495,23 @@ public class clsAddrRegistryTest {
      //Название "улицы" содержит слово "микрорайон" или поселок.
      //Эта проверка предшествует поиску в "негородских" улицах, потому что есть особое извращение присваивать
      // названия микрорайонов дворовым проездам. hw=service
-     if( vb6.InStr(strStreetDesc.toLowerCase(), "микрорайон") != 0 ||
-         vb6.InStr(strStreetDesc.toLowerCase(), "мкрн.") != 0 ||
-         vb6.InStr(strStreetDesc.toLowerCase(), "квартал") != 0 ||
-         vb6.InStr(strStreetDesc.toLowerCase(), "поселок") != 0 ||
-         vb6.InStr(strStreetDesc.toLowerCase(), "садоводство") != 0 ||
-         vb6.Left(strStreetDesc, 3).equals("СНТ") )
+
+    //Название улицы может содержать название района (suburb)
+     String strStreetDescWoSuburb;
+    strStreetDescWoSuburb=strStreetDesc;
+
+    Pattern p = Pattern.compile("(.*) /(.*)/");
+    Matcher m = p.matcher(strStreetDesc);
+    if (m.matches()){
+      strStreetDescWoSuburb=m.group(1);
+    }
+
+     if( vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "микрорайон") != 0 ||
+         vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "мкрн.") != 0 ||
+         vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "квартал") != 0 ||
+         vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "поселок") != 0 ||
+         vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "садоводство") != 0 ||
+         vb6.Left(strStreetDescWoSuburb, 3).equals("СНТ") )
     {
        return steNumberRelatedToTerritory;
     }
