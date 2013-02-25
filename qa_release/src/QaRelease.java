@@ -55,120 +55,76 @@ public class QaRelease {
         //99 - Внутренняя ошибка
         System.exit(intExitCode);
     }
-    /**
-    *  Общее
-    *   Разрывов береговой линии  - 0
-    * Рутинговый граф
-      *   Общее число изолятов - не более 50
-      *   Общее число изолятов в основном дорожном графе (начиная с tertiary) - не более 5
-      *   Тупиков важных дорог - не более 10
-      *   Общее число рутинговых ребер - не более 300000 (триста тысяч)
-    * Адресный реестр
-      *   Доля несопоставленных домов - не более 15%
-      *   Доля несопоставленных улиц - не более 15%
-     */
-    private static boolean  CheckReleaseCritria(String strValidatorReportFileName)  {
-      boolean blnResult=true;
 
-      //Эти константы по хорошему нужно прочесть из xml
-      final int MAX_SEALINE_BREAKS=0;
-      final int MAX_ISOLATED_SUBGRAPHS=50;
-      final int MAX_ISOLATED_SUBGRAPHS_TERTIARY=5;
-      final int MAX_DEAD_ENDS=10;
-      final int MAX_ROUTINING_EDGES=300000;
-      final double MAX_UNMATCHED_ADDR_HOUSES=0.15;
-      final double MAX_UNMATCHED_ADDR_STREETS=0.15;
+    private static boolean  CheckReleaseCritria(String strValidatorReportFileName)  {
+
+      boolean blnResult=true;
+      String strQAClass;
 
       //Текущие значения. Их точно нужно прочесть из xml :)
-      //TODO: read xml
       QaReport objQaReport=new QaReport(strValidatorReportFileName);
 
 
-      int intSealineBreaks=objQaReport.getSealineBreaks();
-      int intIsolatedSubgraphs=objQaReport.getIsolatedSubgraphs();
-      int intIsolatedSubgraphsTertiary=objQaReport.getIsolatedSubgraphsTertiary();
-      int intDeadEnds=objQaReport.getDeadEnds();
-      int intRoutiningEdges=objQaReport.getRoutiningEdges();
-      double dblUnmatchedAddrHouses=objQaReport.getUnmatchedAddrHouses();
-      double dblUnmatchedAddrStreets=objQaReport.getUnmatchedAddrStreets();
-      int intTotalNumberOfHouses =objQaReport.getTotalNumberOfHouses();
-
-      //Теперь собственно проверки
-
-      if (CheckSingleCriterion("Разрывы береговой линии",intSealineBreaks,MAX_SEALINE_BREAKS)!=true)
-      {
-        blnResult=false;
-      }
-
-      if (CheckSingleCriterion("Изолированные рутинговые подграфы (все)",intIsolatedSubgraphs,MAX_ISOLATED_SUBGRAPHS)!=true)
-      {
-        blnResult=false;
-      }
-      if (CheckSingleCriterion("Изолированные рутинговые подграфы (tertiary)",intIsolatedSubgraphsTertiary,MAX_ISOLATED_SUBGRAPHS_TERTIARY)!=true)
-      {
-            blnResult=false;
-      }
-      if (CheckSingleCriterion("Тупики важных дорог",intDeadEnds,MAX_DEAD_ENDS)!=true)
-      {
-            blnResult=false;
-      }
-
-      if (CheckSingleCriterion("Общее число рутинговых ребер",intRoutiningEdges,MAX_ROUTINING_EDGES)!=true)
-      {
-          blnResult=false;
-      }
-
-      if (intTotalNumberOfHouses>1000)
-      {
-        if (CheckSingleCriterionF("Доля несопоставленных домов",dblUnmatchedAddrHouses,MAX_UNMATCHED_ADDR_HOUSES)!=true)
-        {
-          blnResult=false;
-        }
-      }
-      if (CheckSingleCriterionF("Доля несопоставленных улиц",dblUnmatchedAddrStreets,MAX_UNMATCHED_ADDR_STREETS)!=true)
-      {
-        blnResult=false;
-      }
+      //Получим класс качества карты
+      strQAClass=GetQAClass(objQaReport);
+      System.out.println("Класс качества карты: "+strQAClass);
+      if (strQAClass.equals("A") || strQAClass.equals("B") || strQAClass.equals("B-"))
+      {blnResult=true;}
+      else
+      {blnResult=false;}
 
       return blnResult;
     }
 
-    private static boolean CheckSingleCriterion(String strCriterionName, int intValue,int intMaxValue)
-    {
-        boolean blnResult=false;
-        System.out.println(strCriterionName);
-        System.out.println("    Имеется в карте: "+intValue);
-        System.out.println("    Предельно допустимо: "+intMaxValue);
-        if (intValue<=intMaxValue)
-        {
-            System.out.println("  Пройдено");
-            blnResult=true;
-        }
-        else
-        {
-            System.out.println("  НЕ Пройдено");
-            blnResult=false;
-        }
-      return blnResult;
+    private static String GetQAClass(QaReport objQaReport) {
+      QAClassicator qa_class;
+      qa_class=new QAClassicator("QualityCriteria.xml");
+
+      //Класс A
+      if (qa_class.testQaClass(objQaReport,"ClassA"))
+      {
+        return "A";
+      }
+
+      //Класс B
+      if (qa_class.testQaClass(objQaReport,"ClassB"))
+      {
+        return "B";
+      }
+
+      //Класс B-
+      if (qa_class.testQaClass(objQaReport,"ClassBm0"))
+      {
+        return "B-";
+      }
+
+      if (qa_class.testQaClass(objQaReport,"ClassBm1"))
+      {
+        return "B-";
+      }
+
+      //Класс C
+      if (qa_class.testQaClass(objQaReport,"ClassC"))
+      {
+        return "C";
+      }
+
+      //Класс C-
+      if (qa_class.testQaClass(objQaReport,"ClassCm"))
+      {
+        return "C";
+      }
+
+      //Класс D
+      if (qa_class.testQaClass(objQaReport,"ClassD"))
+      {
+        return "D";
+      }
+
+      return "E";
+
     }
 
-    private static boolean CheckSingleCriterionF(String strCriterionName, double intValue,double intMaxValue)
-    {
-        boolean blnResult=false;
-        System.out.println(strCriterionName);
-        System.out.println("    Имеется в карте: "+intValue);
-        System.out.println("    Предельно допустимо: "+intMaxValue);
-        if (intValue<=intMaxValue)
-        {
-            System.out.println("  Пройдено");
-            blnResult=true;
-        }
-        else
-        {
-            System.out.println("  НЕ Пройдено");
-            blnResult=false;
-        }
-        return blnResult;
-    }
+
 
 }

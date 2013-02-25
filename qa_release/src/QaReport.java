@@ -64,6 +64,16 @@ public class QaReport {
       dblTotalStreets=Double.parseDouble(objXmlDocument.getDocumentElement().getElementsByTagName("TotalStreets").item(0).getFirstChild().getNodeValue());
       return dblStreetsOutsideCities/dblTotalStreets;
     }
+    public double getUnmatchedAddrHousesFixable()
+    {
+      double FixableErrors;
+      FixableErrors=0;
+      FixableErrors=FixableErrors+Double.parseDouble(objXmlDocument.getDocumentElement().getElementsByTagName("HousesWOCities").item(0).getFirstChild().getNodeValue()) ;
+      FixableErrors=FixableErrors+Double.parseDouble(objXmlDocument.getDocumentElement().getElementsByTagName("HousesStreetNotFound").item(0).getFirstChild().getNodeValue());
+      FixableErrors=FixableErrors+Double.parseDouble(objXmlDocument.getDocumentElement().getElementsByTagName("HousesStreetNotRelatedToCity").item(0).getFirstChild().getNodeValue()) ;
+
+      return FixableErrors/getTotalNumberOfHouses();
+    }
     public int getTotalNumberOfHouses()
     {
       return Integer.parseInt(objXmlDocument.getElementsByTagName("TotalHouses").item(0).getFirstChild().getNodeValue()) ;
