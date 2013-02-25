@@ -44,6 +44,11 @@ type TRuleUpliftCities6=Class(TRule)
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
+type TRuleSetRegionMap=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
 implementation
 
 uses Xml.XMLIntf,XMLDoc,ActiveX;
@@ -130,6 +135,11 @@ begin
            aRule:=TRuleUpliftCities6.Create;
            aSourceFile.Rules.Add(aRule);
          end
+         else  if RuleNode.Attributes['predefined']='set_region_map' then
+         begin
+           aRule:=TRuleSetRegionMap.Create;
+           aSourceFile.Rules.Add(aRule);
+         end
          else
            raise Exception.Create('Unknown predefined rule: '+RuleNode.Attributes['predefined']);
 
@@ -192,6 +202,20 @@ begin
 
 end;
 
+function TRuleSetRegionMap.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_IMG_ID) then
+
+      result:=true;
+end;
+
+
+procedure TRuleSetRegionMap.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('RegionMap','1');
+
+end;
 
 (*
 procedure ApplyFilteringRules(i:integer;MpSection:TMpSection;var blnSkipSection:boolean );
@@ -246,7 +270,6 @@ procedure Process(strTgtFileName, strConfigFileName:string);
 
 var MpParser:TMpParser;
     MpSection:TMpSection;
-    F:TextFile;
     SourceMpFiles:TSourceFileList;
     i,j:integer;
     NSections:integer;
