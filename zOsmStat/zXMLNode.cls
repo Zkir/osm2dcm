@@ -82,18 +82,14 @@ Dim blnAttributeFound As Boolean
     Exit Function
   End If
   
-  If Right$(strAttributeValue, 1) <> """" Then
-    strAttributeValue = strAttributeValue + " " + elements(i + 1)
-  End If
+  Dim k As Integer
+  k = 1
+  Do While (Right$(strAttributeValue, 1) <> """") And (i + k <= UBound(elements))
+    strAttributeValue = strAttributeValue + " " + elements(i + k)
+    k = k + 1
+  Loop
   
-  If Right$(strAttributeValue, 1) <> """" Then
-    strAttributeValue = strAttributeValue + " " + elements(i + 2)
-  End If
-  
-  If Right$(strAttributeValue, 1) <> """" Then
-    strAttributeValue = strAttributeValue + " " + elements(i + 3)
-  End If
-  
+   
   If Trim$(strAttributeValue) <> "" Then
     If Left$(strAttributeValue, 1) <> """" Or Right$(strAttributeValue, 1) <> """" Then
        Err.Raise vbObjectError, "", "quotation marks are missing: " & strAttributeValue
