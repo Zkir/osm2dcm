@@ -64,6 +64,32 @@
        </fileset>
      </jar>
     
+    <!--Постпроцессор -->
+    <echo>jmp2mp</echo>
+    
+     <javac destdir="jmp2mp/out/production/jmp2mp" encoding = "utf-8" includeantruntime="false">
+      <src path="jmp2mp/src"/>
+     </javac>
+    
+     <jar destfile="${buildpath}/jmp2mp.jar" manifest="jmp2mp/META-INF/MANIFEST.MF" >
+       <fileset dir="jmp2mp/out/production/jmp2mp">
+         <include name="**/*.class"/>
+       </fileset>
+     </jar>
+     
+     <echo>jmp2mp2</echo>
+    
+     <javac destdir="jmp2mp2/out/production/jmp2mp2" encoding = "utf-8" includeantruntime="false">
+      <src path="jmp2mp2/src"/>
+     </javac>
+    
+     <jar destfile="${buildpath}/jmp2mp2.jar" manifest="jmp2mp2/META-INF/MANIFEST.MF" >
+       <fileset dir="jmp2mp2/out/production/jmp2mp2">
+         <include name="**/*.class"/>
+       </fileset>
+       <zipgroupfileset dir="" includes="**/*.jar" />
+     </jar> 
+    
   </target> 
   
   <!--Часть файлов просто копируется -->
@@ -84,6 +110,13 @@
         <fileset dir="osm2dcm\_my\test"/>
     </copy>
    
+    <copy todir="${buildpath}"  >
+        <fileset file="osm2dcm\osm2mp.pl.patched\osm2mp_new.pl"  />
+    </copy>
+    <copy todir="${buildpath}"  >
+        <fileset file="peirce.ru\QualityCriteria.xml"  />
+    </copy>
+    
   </target>
 
   <target name="full_build" description="Do the entire build" depends="compile,copy">
