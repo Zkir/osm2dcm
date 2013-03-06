@@ -1,20 +1,20 @@
-/**
+package ru.zkir.mp2mp.core; /**
  * Created with IntelliJ IDEA.
  * User: Zkir
  * Date: 07.10.12
  * Time: 14:37
  * To change this template use File | Settings | File Templates.
  */
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
+import ru.zkir.mp2mp.vb6.vb6;
 
-public class clsMpFile {
-  public clsMpSection CurrentSection;
+import java.io.*;
+
+public class MpFile {
+  private MpSection CurrentSection;
   private BufferedReader oInFile;
   private BufferedWriter oOutFile;
   private int m_intMode;
-  public clsMpFile(String strFileName, int intMode) throws FileNotFoundException, IOException
+  public MpFile(String strFileName, int intMode) throws FileNotFoundException, IOException
   {
     m_intMode=intMode;
     // Открываем файл
@@ -30,7 +30,10 @@ public class clsMpFile {
     }
 
   }
-
+  public MpSection getCurrentSection()
+  {
+    return CurrentSection;
+  }
   public void Close()  throws IOException
   {
     if (m_intMode==1){
@@ -42,7 +45,7 @@ public class clsMpFile {
   public boolean ReadNextSection()  throws IOException
   {
 
-    CurrentSection = new clsMpSection();
+    CurrentSection = new MpSection();
     boolean blnSectionStarted;
     boolean blnCommentStarted;
 
@@ -73,7 +76,7 @@ public class clsMpFile {
 
       //System.out.println(strMpLine) ;
       //comment
-      if (vb6.Left(strMpLine,1).equals( ";")) {
+      if (vb6.Left(strMpLine, 1).equals( ";")) {
         CurrentSection.SectionType = "COMMENT";
         blnCommentStarted = true;
         CurrentSection.AddCommentLine(strMpLine);
@@ -124,7 +127,7 @@ public class clsMpFile {
         return !(strMpLine==null);
       }
 
-      public void WriteSection(clsMpSection Section)  throws IOException
+      public void WriteSection(MpSection Section)  throws IOException
       {
 
         //System.out.println("WriteSection");

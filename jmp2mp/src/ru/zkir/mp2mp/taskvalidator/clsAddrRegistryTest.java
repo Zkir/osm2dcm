@@ -1,3 +1,5 @@
+package ru.zkir.mp2mp.taskvalidator;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,6 +8,7 @@ import java.util.Comparator;
 import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import ru.zkir.mp2mp.vb6.vb6;
 
 /**
  * Created with IntelliJ IDEA.

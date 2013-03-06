@@ -1,8 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.regex.*;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Zkir
@@ -10,6 +5,16 @@ import java.util.regex.*;
  * Time: 19:41
  * To change this template use File | Settings | File Templates.
  */
+package ru.zkir.mp2mp.taskvalidator;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.regex.*;
+
+import ru.zkir.mp2mp.core.MPParseException;
+import ru.zkir.mp2mp.vb6.vb6;
+
 
 
 public class clsSourceErrors {

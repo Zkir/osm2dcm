@@ -1,3 +1,5 @@
+package ru.zkir.mp2mp.taskvalidator;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;

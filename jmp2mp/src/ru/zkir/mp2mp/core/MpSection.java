@@ -1,22 +1,11 @@
+package ru.zkir.mp2mp.core;
+
+import ru.zkir.mp2mp.vb6.vb6;
+
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Zkir
- * Date: 07.10.12
- * Time: 15:53
- * To change this template use File | Settings | File Templates.
- */
 
-class MPParseException extends Exception {
-  public MPParseException(String ErrorMsg)
-  {
-    super(ErrorMsg);
-  }
-}
-
-
-public class clsMpSection {
+public class MpSection {
 
   public String SectionType;
   public String SectionEnding;
@@ -24,7 +13,7 @@ public class clsMpSection {
   public ArrayList<String> oAttributes;
   private final double l_grad = 111.321322222222;
 
-  public clsMpSection()
+  public MpSection()
   {
     oComments =new ArrayList<String>();
     oAttributes=new ArrayList<String>();

@@ -1,3 +1,5 @@
+package ru.zkir.mp2mp.vb6;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Zkir

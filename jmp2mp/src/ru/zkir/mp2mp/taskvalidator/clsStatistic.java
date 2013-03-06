@@ -5,6 +5,8 @@
  * Time: 16:13
  * To change this template use File | Settings | File Templates.
  */
+package ru.zkir.mp2mp.taskvalidator;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +14,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Comparator;
 import java.util.Collections;
+
+import ru.zkir.mp2mp.core.MPParseException;
+import ru.zkir.mp2mp.core.MpSection;
+import ru.zkir.mp2mp.vb6.vb6;
+
 public class clsStatistic {
 
   //Статистика по типам секций
@@ -71,7 +78,7 @@ public class clsStatistic {
     intPoiWithAddressNumber=0;
   }
 
-public void ProcessSection(clsMpSection oMpSection) throws MPParseException
+public void ProcessSection(MpSection oMpSection) throws MPParseException
 {
   Double dblRoadLen;
 
@@ -164,7 +171,7 @@ public void ProcessSection(clsMpSection oMpSection) throws MPParseException
   {
     oReportFile.write("<Statistics>\r\n");
     oReportFile.write("<Summary>\r\n");
-    oReportFile.write("  <RoadLengthKm>" + Long.toString(vb6.Round (dblRoadLength)) + "</RoadLengthKm>\r\n");
+    oReportFile.write("  <RoadLengthKm>" + Long.toString(vb6.Round(dblRoadLength)) + "</RoadLengthKm>\r\n");
     oReportFile.write("  <ServiceRoadLengthKm>" + Long.toString(vb6.Round(dblServiceRoadLength)) + "</ServiceRoadLengthKm>\r\n");
     oReportFile.write("  <CitiesNumber>" + Long.toString(intCitiesNumber) + "</CitiesNumber>\r\n");
     oReportFile.write("  <TotalPoiNumber>" + Long.toString(intTotalPoiNumber) + "</TotalPoiNumber>\r\n");
