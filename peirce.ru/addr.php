@@ -4,6 +4,7 @@
 #(c) Zkir 2010
 #============================================
 include("ZSitePage.php");
+$blnCityBoundaryTestApplicable=false;
 require_once("include/misc_utils.php"); 
 
   $zPage=new TZSitePage;
@@ -39,7 +40,7 @@ require_once("include/misc_utils.php");
     case 'qa_summary':         
     default:
       
-      if($mapid!="")
+      if(($mapid!="")and($mapid!="RU")and($mapid!="CIS") and ($mapid!="WORLD") )
       {
   	    $zPage->title="Контроль качества  - $mapid";
         $zPage->header="Контроль качества - $mapid";
@@ -58,7 +59,15 @@ require_once("include/misc_utils.php");
       {
   	    $zPage->title="Контроль качества  - сводка по регионам";
         $zPage->header="Контроль качества - сводка по регионам";
-        PrintQASummaryPage();
+        
+        $MapGroupName="Россия";
+        if ($mapid=="CIS")
+        {$MapGroupName="Ближнее Зарубежье";}
+        
+        if ($mapid=="WORLD")
+        {$MapGroupName="Дальнее Зарубежье";}
+        
+        PrintQASummaryPage($MapGroupName);
       }
   }
 
@@ -90,6 +99,12 @@ function GetHWCXmlFileName($mapid)
 {
   return "ADDR_CHK/".$mapid.".hwconstr_chk.xml";
 }
+
+function GetEditorsXmlFileName($mapid)
+{
+  return "ADDR_CHK/".$mapid."_editors.xml";
+}
+
 
 //Ссылка на Josm
 function MakeJosmLink($lat,$lon)
@@ -146,10 +161,23 @@ function TestX($x,$x0, $blnRss )
 function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRss)
 {
   global $zPage;
+  global $blnCityBoundaryTestApplicable;
   
   $xmlQCR = simplexml_load_file("QualityCriteria.xml");
-  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
- 
+  if (file_exists(GetHWCXmlFileName($mapid)))
+  {
+    $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+  }
+  
+  //Провека границ населенных пуктов применима для не всех стран.
+  $blnCityBoundaryTestApplicable= false;
+  if((substr ($mapid,0,2)=='RU')or (substr ($mapid,0,2)=='UA') )
+  {
+  	  $blnCityBoundaryTestApplicable = true;
+  }
+ 	  
+  
+  	  
   $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
   $zPage->WriteHtml('<table>
               <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
@@ -184,15 +212,17 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation,$blnRss).'</td>
                   <td><a href="'.$zPage->item_link.'#citynopop">список</a></td>
                   <td></td>
-                </tr>
-                <tr>
+                </tr>');
+  if($blnCityBoundaryTestApplicable)
+       $zPage->WriteHtml(
+                '<tr>
                   <td>&nbsp;&nbsp;Города без полигональных границ:</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon,$blnRss).'</td>
                   <td><a href="'.$zPage->item_link.'#citynoborder">список</a></td>
                   <td></td>
-                </tr>
-                <tr>
+                </tr>');
+  $zPage->WriteHtml('<tr>
                   <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
                   <td>'.$xml1->summary->total.'</td>
                   <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
@@ -283,8 +313,8 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td>&nbsp;&nbsp;Доля "легкоисправимых" ошибок (I,III,IV):</td>
                   <td>'.number_format($SolvableErrorsRate,2,'.', ' ').'%</td>
                   <td>'.TestX($SolvableErrorsRate,5.00,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#addr">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/addr-map">на карте</a></td>
+                  <td></td>
+                  <td></td>
                 </tr>
                 </table>
               <hr/>'  );
@@ -315,7 +345,7 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
 function PrintQADetailsPageRss($mapid)
 {
   global $zPage;
-  
+  global $blnCityBoundaryTestApplicable;
   	  
   //Загрузка данных
   $xml = simplexml_load_file(GetXmlFileName($mapid));
@@ -354,11 +384,13 @@ function PrintQADetailsPageRss($mapid)
 function PrintQADetailsPage($mapid, $errtype)
 {
   global $zPage;
+  global $blnCityBoundaryTestApplicable;
   
   $zPage->WriteHtml( "<h1>Контроль качества ($mapid)</h1>");
   
   $xml = simplexml_load_file(GetXmlFileName($mapid));
-  $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+  if (file_exists(GetHWCXmlFileName($mapid)))
+    $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
  
 
 if ($errtype=="")
@@ -392,8 +424,17 @@ if ($errtype=="")
   PrintStatistics($objStatRecord,$xml);
 
  	 
- $zPage->WriteHtml("<p/>" );
+  $zPage->WriteHtml("<p/>" );
  
+  
+  //Редакторы карты
+  if(file_exists(GetEditorsXmlFileName($mapid)))
+  {	
+    PrintEditors($mapid);
+  
+  }
+  
+  
   
   
   $zPage->WriteHtml(' <hr/>'  );
@@ -465,6 +506,8 @@ if ($errtype=="")
 /*==========================================================================
                  Города без полигональных границ
 ============================================================================*/
+if($blnCityBoundaryTestApplicable)
+{	
   $zPage->WriteHtml('<a name="citynoborder"></a><h2>Города без полигональных границ</h2>');
   $zPage->WriteHtml('<p>Наличие полигональных границ (полигона с place=* и name=* или
                      place_name=*, такими же, что и на точке города) критически важно
@@ -498,10 +541,13 @@ if ($errtype=="")
   else
   {
     $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено.</i>');
-  }	    
+  }
+}  	    
 /*==========================================================================
                  Города без точечного центра
 ============================================================================*/
+if($blnCityBoundaryTestApplicable)
+{	
   $zPage->WriteHtml("<h2>Города без точечного центра</h2>");
   $zPage->WriteHtml('<p>В этом списке отображаются населенные пункты, у которых есть полигональные границы
   	                 (полигон с place=* и name=* или  place_name=*), но нет точки с place=*.
@@ -523,7 +569,7 @@ if ($errtype=="")
         $zPage->WriteHtml( '</tr>');
      }
   $zPage->WriteHtml( '</table>');
-
+}
 /*==========================================================================
                  Highway=construction
 ============================================================================*/
@@ -652,6 +698,12 @@ if ($errtype=="")
     foreach ($xml->DeadEndsTest->DeadEndList->DeadEnd as $item)
     {
     	$LineNum++;
+    	
+    	if ($LineNum>500)
+    	{
+    	  break;
+    	}
+    	
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td>'.$LineNum.'.</td>');
         $zPage->WriteHtml( '<td>&lt;тупик&gt;</td>');
@@ -1068,7 +1120,7 @@ function GetQaClass($xml_addr, $xmlQCR)
 /*=====================================================================================================
 Сводная таблица по контролю качества
 =======================================================================================================*/
-function PrintQASummaryPage()
+function PrintQASummaryPage($GroupName)
 {
   global $zPage;
 
@@ -1076,6 +1128,24 @@ function PrintQASummaryPage()
       $zPage->WriteHtml( '<p>На этой странице представлены основные показатели, отражающие качество карт, при конвертации в СитиГид.
                          Проверяется адресный реестр, дорожный граф и отрисовка карты.
                          Данные обновляются одновременно с картами для СГ, т.е. по возможности ежедневно.</p>' );
+      $zPage->WriteHtml( '<h2>Группы </h2>');  
+      
+      $zPage->WriteHtml( '
+      	                  <table> 
+      	        	      <tr> 
+      	                    <td>
+      	                     <a href="/qa/RU#table">Россия</a>
+      	                    </td>
+      	        	        <td>
+      	                     <a href="/qa/CIS#table">Ближнее Зарубежье</a>
+      	                    </td>
+      	        	        <td>
+      	                     <a href="/qa/WORLD#table">Дальнее Зарубежье</a>
+      	                    </td>
+      	                  </tr> 
+      	                  </table> 
+                          ');  
+      
       $zPage->WriteHtml( '<h2>Дорожный граф </h2>');  
       $zPage->WriteHtml( '<p>Проверяется связность дорожного графа, т.е. отсутствие фрагментов, оторванных от основной дорожной сети 
                          (такие фрагменты недоступны для рутинга. <a href="/blog/14435">Подробнее про связность дорожного графа...</a>
@@ -1119,18 +1189,19 @@ function PrintQASummaryPage()
                          ("разлившееся" море), превышение допустимого количества рутинговых ребер. </p>     
                        ');
       $zPage->WriteHtml( '<p>C июля 2012 года выпускаются только те карты, которые получили оценки A и B</p>');
-      $zPage->WriteHtml( '<h2>Россия<a name="RU"></a></h2>');
+      $zPage->WriteHtml( '<h2><a name="table">'.$GroupName.'</a></h2>');
       $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
                         на заголовок столбца. </small></p> ');
 
-      PrintQASummary("Россия");
+      PrintQASummary($GroupName);
     
+      /*
       $zPage->WriteHtml( '<h2>Заграница</h2>');
       $zPage->WriteHtml( '<h3>Ближнее зарубежье<a name="CIS"></a></h3>');
       PrintQASummary("Ближнее Зарубежье");
       $zPage->WriteHtml( '<h3>Дальнее зарубежье<a name="WORLD"></a></h3>');
       PrintQASummary("Дальнее Зарубежье");
-      
+      */
       
        $zPage->WriteHtml( '<h2>См. также </h2>');
        $zPage->WriteHtml( '<p> Все вопросы по работе данного валидатора можно задать на <a href="http://forum.openstreetmap.org/viewtopic.php?id=12233">форуме OSM</a>. </p>');
@@ -1391,7 +1462,8 @@ case 5:
           <b>Как починить:</b> никак, поддержки адресов такого типа в СитиГиде нет. ';
     break;
 case 6:
-    $str='<b>В чем проблема:</b> улица с таким названием есть в OSM, но не является рутиговой в СитиГиде. На данный момент это
+    $str='<b>В чем проблема:</b> улица с таким названием есть в OSM, но не является рутинговой в СитиГиде (или вынесена в так называемый вторичный дорожный граф).
+          На данный момент это
           highway=service и highway=pedestrian.<BR/>
           <b>Как починить:</b> следует проверить, насколько обосновано улице присвоен статус service.
           Обычно наличие собственного названия и домов с адресами по этой улице есть некий аргумент в поддержку того,
@@ -1447,6 +1519,74 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     }	  
 }
 
+//Редакторы карты
+function PrintEditors($mapid)
+{
+ global $zPage;
+ $xml=simplexml_load_file(GetEditorsXmlFileName($mapid));	
+ $zPage->WriteHtml( '<h2><a name="editors">Редакторы карты за последние 12 месяцев</a> </h2>');	
+ 
+ 
+ $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>  <td width="20px"><b>#</b></td>
+                  <td><b>Редактор</b></td>
+                  <td><b>?</b></td>
+                  <td><b>?</b></td>
+                  <td><b>'.$xml->periods->period_1.'</b></td>
+                  <td><b>'.$xml->periods->period_2.'</b></td>
+                  <td><b>'.$xml->periods->period_3.'</b></td>
+                  <td><b>'.$xml->periods->period_4.'</b></td>
+                  <td><b>'.$xml->periods->period_5.'</b></td>
+                  <td><b>'.$xml->periods->period_6.'</b></td>
+                  <td><b>'.$xml->periods->period_7.'</b></td>
+                  <td><b>'.$xml->periods->period_8.'</b></td>
+                  <td><b>'.$xml->periods->period_9.'</b></td>
+                  <td><b>'.$xml->periods->period_10.'</b></td>
+                  <td><b>'.$xml->periods->period_11.'</b></td>
+                  <td><b>'.$xml->periods->period_12.'</b></td>
+                  <td><b>'.$xml->periods->period_13.'</b></td>
+             </tr>');
+  
+    $LineNum=0;
+    foreach ($xml->user as $user)
+    { 
+    	$LineNum++;
+    	if ($LineNum>100)
+    	{
+    	  break;
+    	}
+        $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '  <td>'.$LineNum.'.</td>');
+        $zPage->WriteHtml( '  <td><a href="http://www.openstreetmap.org/user/'.$user->name.'">'.$user->name.'</a></td>');
+        $zPage->WriteHtml( '  <td><a href=" http://hdyc.neis-one.org/?'.$user->name.'">*</a></td>');
+        $zPage->WriteHtml( '  <td><a href=" http://yosmhm.neis-one.org/?'.$user->name.'">*</a></td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_1.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_2.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_3.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_4.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_5.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_6.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_7.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_8.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_9.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_10.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_11.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_12.'</td>');
+        $zPage->WriteHtml( '  <td align="right">'.$user->period_13.'</td>');
+        $zPage->WriteHtml( '</tr>');
+    }
+    $zPage->WriteHtml( '</table>');
+    
+    
+    
+    if ($LineNum>50)
+    {
+      $zPage->WriteHtml( '<i>Показаны первые 100 редакторов из '.$xml->user_count.'</i>');
+    }	  
+
+ 
+};
+
 //Вывод статистики
 function PrintStatistics($objStatRecord,$xml)
 {	
@@ -1490,7 +1630,7 @@ function PrintStatistics($objStatRecord,$xml)
   $zPage->WriteHtml( '<p>Расшифровку показателей см. на <a href="/stat#descr">странице статистики</a>.</p>');
   
     $zPage->WriteHtml("<p/>" );
-  $zPage->WriteHtml("<h3>Итоговая карта</h3>" );
+  $zPage->WriteHtml('<h3><a name="map_stat">Итоговая карта</a><sup><a href="#map_stat">#</a></sup></h3>' );
   $zPage->WriteHtml(
    '- Общая протяженность дорог: <b>'.$xml->Statistics->Summary->RoadLengthKm.'</b> км, дворовых проездов: <b>'.$xml->Statistics->Summary->ServiceRoadLengthKm.'</b> км <br />
     - Общее количество точек интереса (POI): <b>'.($xml->Statistics->Summary->TotalPoiNumber).'</b> шт.,

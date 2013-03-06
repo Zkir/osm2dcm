@@ -23,8 +23,8 @@ require_once("include/misc_utils.php");
   
   $zPage->WriteHtml( "<H2>Обзорные карты</H2>");
   $zPage->WriteHtml('
-      <a href="http://peirce.gis-lab.info/maps7/RU-OVRV.cgmap">RU-OVRV.cgmap</a>  - обзорная карта всей России<br />
-      <a href="http://peirce.gis-lab.info/maps7/World-OVRV.cgmap">World-OVRV.cgmap</a> - обзорная карта Мира
+      <a href="http://peirce.gis-lab.info/maps7/World-OVRV.cgmap"><b>World-OVRV</b></a> - обзорная карта Мира, для 7.2 <br/>
+      <b>RU-OVRV.cgmap</b>  - обзорная карта всей России (см. ниже, в общем списке)<br />
       </p>');
 
 //  $zPage->WriteHtml('<H2>Карты с поддержкой пробок</H2>');
