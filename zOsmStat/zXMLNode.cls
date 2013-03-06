@@ -45,6 +45,7 @@ Public Function ParseNode(strNode As String) As Date
    Case "relation": dtTimeStamp = ConvertFromXMLDate(GetNodeTime())
    Case "/relation": dtTimeStamp = NULL_DATE
    Case "member": dtTimeStamp = NULL_DATE
+   Case "!--End": dtTimeStamp = NULL_DATE ' osmfilter emulates osmosis
    Case Else
      Err.Raise vbObjectError, "", "unknown tag found: " & elements(0)
  End Select
