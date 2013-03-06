@@ -19,6 +19,7 @@ public class jmp2mp {
   private static String strSource; //Входной файл
   private static String strTarget; //Выходной файл
   private static String strViewPoint; //Начальная точка карты
+  private static boolean blnEroadShieldsOnly;//Только евромаршруты на щитах дорог.
 
   // Классы, которые используются для тестов.
   private static clsConnectivityTest oConnectivityTest;
@@ -51,13 +52,15 @@ public class jmp2mp {
       System.out.println( "Source file: " + strSource);
       System.out.println( "Target file: " + strTarget);
       System.out.println( "Viewpoint: " + strViewPoint);
-      ProcessMP (strSource, strTarget, strViewPoint);
+      System.out.println( "E-road shields only: " + blnEroadShieldsOnly);
+
+      ProcessMP (strSource, strTarget, strViewPoint, blnEroadShieldsOnly);
       System.out.println( "Postprocessor has been finished OK");
       System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
     }
     else
     {
-      System.out.println( "Usage: mpPostProcessor <source mp file> <target mp file> <view point>");
+      System.out.println( "Usage: jmp2mp <source mp file> <target mp file> <view point>");
     }
 
   }
@@ -68,6 +71,7 @@ public class jmp2mp {
     strSource="";
     strTarget="";
     strViewPoint="";
+    blnEroadShieldsOnly=false;
 
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
@@ -78,12 +82,18 @@ public class jmp2mp {
     if(args.length>2)
       strViewPoint=args[2];
 
+      if(args.length>3)
+      {
+        if (args[3].equals("1"))
+        {
+          blnEroadShieldsOnly=true;
+        }
+      }
 
-    //strSource="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.pre.mp";
-    //strTarget="d:/OSM/osm2dcm/_my/TH-FULL/TH-FULL.java.mp";
+
 
   }
-  private static void ProcessMP (String strSource, String strTarget, String strViewPoint) throws IOException, MPParseException
+  private static void ProcessMP (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly) throws IOException, MPParseException
   {
     clsMpFile oSrcMp;
     clsMpFile oTgtMp;
@@ -133,6 +143,8 @@ public class jmp2mp {
       //  (По-моему, это просто не нужно )
 
       //4,5 . Убьем слово улица, ул. в адресах (StreetDesc) и названиях улиц(Label). Применим сокращения статусных частей улиц.
+      NormalizeRoadShields(oSrcMp.CurrentSection,blnEroadShieldsOnly);
+
       NormalizeStreetLabelsAndAddresses(oSrcMp.CurrentSection);
 
       //6. 'Особый тип для грунтовых дорог.
@@ -405,6 +417,53 @@ public class jmp2mp {
       oMpSection.SetAttributeValue("StreetDesc", strLabel);
     }
   }
+
+
+  private static void NormalizeRoadShields(clsMpSection oMpSection,boolean blnEroadsOnly)
+  {
+    String strShields;
+    String mpType;
+    mpType=oMpSection.GetAttributeValue("Type");
+
+
+    //Убьем слово улица, ул. в названиях улиц (Label)
+    if(oMpSection.SectionType.equals("[POLYLINE]")){
+
+      strShields=oMpSection.GetAttributeValue("Label");
+
+      if (vb6.Left(strShields,7).equals("~[0x05]") )
+      {
+        strShields=strShields.substring(7);
+        strShields=NormalizeRoadShield (strShields,blnEroadsOnly);
+        if (!strShields.equals("") )
+        {strShields= "~[0x05]"+strShields;}
+        oMpSection.SetAttributeValue("Label",strShields);
+      }
+
+    }
+  }
+
+  private static String NormalizeRoadShield(String strShieldString, boolean blnEroadsOnly)
+  {
+    String [] Shields;
+    int i,j;
+    strShieldString=strShieldString.replace("Е","E"); //Замена кирилицы на латиницу.
+    Shields=strShieldString.split(",");
+    strShieldString="";
+    for ( i=0; i<Shields.length; i++)
+    {
+     if ((Shields[i].substring(0,1).equals("E"))||(!blnEroadsOnly)  )
+     {
+       if (!strShieldString.equals(""))
+       {strShieldString=strShieldString+",";}
+       strShieldString=strShieldString+Shields[i];
+     }
+    }
+    
+    return strShieldString; 
+  }
+
+
   //9. Классифицируем города по населению
   private static void ClassifyCitiesByPopulation(clsMpSection oMpSection) throws MPParseException
   {
