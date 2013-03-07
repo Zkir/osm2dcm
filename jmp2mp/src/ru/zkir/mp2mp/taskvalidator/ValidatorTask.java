@@ -103,12 +103,14 @@ public class ValidatorTask {
         }
       }
 
+      /*
       //1. Убьем названия огородов (это очевидная бага конвертора )
       if (oMpSection.SectionType.equals("[POLYGON]")){
         if (oMpSection.GetAttributeValue("Type").equals("0x4e") & !oMpSection.GetAttributeValue("Label").equals("")) {
           oMpSection.SetAttributeValue("Label", "");
         }
       }
+      */
 
       //2. Переделаем pedestrian у которых нет названия в нерутинговые пешеходные дорожки.
       // (Операция устарела и закомментирована в vb) = Теперь это делается в osm2mp, более аккуратно
