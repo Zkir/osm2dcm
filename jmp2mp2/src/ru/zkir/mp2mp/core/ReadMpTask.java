@@ -1,3 +1,5 @@
+package ru.zkir.mp2mp.core;
+
 import ru.zkir.mp2mp.core.MpData;
 import ru.zkir.mp2mp.core.MpFile;
 import ru.zkir.mp2mp.core.MpSection;
