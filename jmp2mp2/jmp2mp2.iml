@@ -8,6 +8,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="junidecode-0.1.1" level="project" />
+    <orderEntry type="library" name="jsi-1.0.0" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.6.3" level="project" />
+    <orderEntry type="library" name="trove4j-2.0.2" level="project" />
   </component>
 </module>
 
