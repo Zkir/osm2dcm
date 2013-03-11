@@ -1,35 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <osm version='0.6' upload='true' generator='JOSM'>
   <bounds minlat='56.2526967' minlon='38.0937195' maxlat='56.3043486' maxlon='38.2255554' origin='CGImap 0.0.2' />
-  <node id='-7073' action='modify' visible='true' lat='56.26973701823998' lon='38.122871198740384' />
-  <node id='-7072' action='modify' visible='true' lat='56.26972445276272' lon='38.12321709802789' />
-  <node id='-7071' action='modify' visible='true' lat='56.26984767268588' lon='38.12323331346963' />
-  <node id='-7070' action='modify' visible='true' lat='56.26986023812267' lon='38.12288741418213' />
-  <node id='-7069' action='modify' visible='true' lat='56.26945599180753' lon='38.122917131455296'>
+  <node id='-7123' action='modify' visible='true' lat='56.26765801310896' lon='38.12496497723125'>
+    <tag k='name' v='Химик' />
+    <tag k='place' v='allotments' />
+  </node>
+  <node id='-32' action='modify' visible='true' lat='56.2695341310441' lon='38.12222202785633'>
     <tag k='addr:housenumber' v='4' />
-    <tag k='addr:street' v='Фиктивная улица' />
-    <tag k='addr:suburb' v='Зеленый квартал' />
+    <tag k='addr:suburb' v='Лакокраска' />
     <tag k='building' v='yes' />
   </node>
-  <node id='-22' action='modify' visible='true' lat='56.26954810007499' lon='38.12153761711367'>
+  <node id='-30' action='modify' visible='true' lat='56.26981515690253' lon='38.12217609514143' />
+  <node id='-28' action='modify' visible='true' lat='56.26980259145097' lon='38.122521994428936' />
+  <node id='-26' action='modify' visible='true' lat='56.2699258111224' lon='38.12253820987067' />
+  <node id='-24' action='modify' visible='true' lat='56.26993837653353' lon='38.12219231058317' />
+  <node id='-22' action='modify' visible='true' lat='56.269958493972396' lon='38.12149872603803' />
+  <node id='-20' action='modify' visible='true' lat='56.26994592856789' lon='38.12184462532553' />
+  <node id='-18' action='modify' visible='true' lat='56.26982270896126' lon='38.12182840988379' />
+  <node id='-16' action='modify' visible='true' lat='56.269835274406226' lon='38.12148251059629' />
+  <node id='-14' action='modify' visible='true' lat='56.26954810007499' lon='38.12153761711367'>
     <tag k='addr:housenumber' v='3' />
     <tag k='addr:street' v='Московская улица' />
     <tag k='addr:suburb' v='Лакокраска' />
     <tag k='building' v='yes' />
   </node>
-  <node id='-20' action='modify' visible='true' lat='56.269835274406226' lon='38.12148251059629' />
-  <node id='-18' action='modify' visible='true' lat='56.26982270896126' lon='38.12182840988379' />
-  <node id='-16' action='modify' visible='true' lat='56.26994592856789' lon='38.12184462532553' />
-  <node id='-14' action='modify' visible='true' lat='56.269958493972396' lon='38.12149872603803' />
-  <node id='-12' action='modify' visible='true' lat='56.26993837653353' lon='38.12219231058317' />
-  <node id='-10' action='modify' visible='true' lat='56.2699258111224' lon='38.12253820987067' />
-  <node id='-8' action='modify' visible='true' lat='56.26980259145097' lon='38.122521994428936' />
-  <node id='-6' action='modify' visible='true' lat='56.26981515690253' lon='38.12217609514143' />
-  <node id='-4' action='modify' visible='true' lat='56.2695341310441' lon='38.12222202785633'>
+  <node id='-12' action='modify' visible='true' lat='56.26945599180753' lon='38.122917131455296'>
     <tag k='addr:housenumber' v='4' />
-    <tag k='addr:suburb' v='Лакокраска' />
+    <tag k='addr:street' v='Фиктивная улица' />
+    <tag k='addr:suburb' v='Зеленый квартал' />
     <tag k='building' v='yes' />
   </node>
+  <node id='-10' action='modify' visible='true' lat='56.26986023812267' lon='38.12288741418213' />
+  <node id='-8' action='modify' visible='true' lat='56.26984767268588' lon='38.12323331346963' />
+  <node id='-6' action='modify' visible='true' lat='56.26972445276272' lon='38.12321709802789' />
+  <node id='-4' action='modify' visible='true' lat='56.26973701823998' lon='38.122871198740384' />
   <node id='36324055' timestamp='2011-04-26T22:54:32Z' uid='133332' user='AMDmi3' visible='true' version='5' changeset='7980500' lat='56.2943298' lon='38.225594' />
   <node id='36324056' timestamp='2011-04-26T22:54:19Z' uid='133332' user='AMDmi3' visible='true' version='4' changeset='7980500' lat='56.2900832' lon='38.2160651' />
   <node id='36324057' timestamp='2011-04-26T22:54:51Z' uid='133332' user='AMDmi3' visible='true' version='7' changeset='7980500' lat='56.2857106' lon='38.2097896' />
@@ -6868,36 +6872,62 @@
   <node id='1364672590' timestamp='2011-07-17T16:23:57Z' uid='285316' user='kosmachev' visible='true' version='1' changeset='8749653' lat='56.2976958' lon='38.1319807' />
   <node id='1364672591' timestamp='2011-07-17T16:23:57Z' uid='285316' user='kosmachev' visible='true' version='1' changeset='8749653' lat='56.2982523' lon='38.1327178' />
   <node id='1364672592' timestamp='2011-07-17T16:23:57Z' uid='285316' user='kosmachev' visible='true' version='1' changeset='8749653' lat='56.2982956' lon='38.1321223' />
-  <way id='-7068' action='modify' visible='true'>
-    <nd ref='-7070' />
-    <nd ref='-7071' />
-    <nd ref='-7072' />
-    <nd ref='-7073' />
-    <nd ref='-7070' />
+  <way id='-7106' action='modify' visible='true'>
+    <nd ref='392853415' />
+    <nd ref='355724959' />
+    <nd ref='355724960' />
+    <nd ref='355724961' />
+    <nd ref='401789091' />
+    <nd ref='401789090' />
+    <nd ref='355724963' />
+    <nd ref='392853415' />
+    <tag k='landuse' v='allotments' />
+    <tag k='name' v='Химик' />
+  </way>
+  <way id='-7086' action='modify' visible='true'>
+    <nd ref='355724963' />
+    <nd ref='355724965' />
+    <nd ref='401789092' />
+    <nd ref='414982534' />
+    <nd ref='414982532' />
+    <nd ref='355724952' />
+    <nd ref='392853418' />
+    <nd ref='355724955' />
+    <nd ref='392853415' />
+    <nd ref='355724963' />
+    <tag k='landuse' v='allotments' />
+    <tag k='name' v='Нефтяник' />
+  </way>
+  <way id='-6281' action='modify' visible='true'>
+    <nd ref='-24' />
+    <nd ref='-26' />
+    <nd ref='-28' />
+    <nd ref='-30' />
+    <nd ref='-24' />
     <tag k='addr:housenumber' v='2' />
-    <tag k='addr:street' v='Фиктивная улица' />
-    <tag k='addr:suburb' v='Зеленый квартал' />
+    <tag k='addr:suburb' v='Лакокраска' />
     <tag k='building' v='yes' />
   </way>
-  <way id='-6269' action='modify' visible='true'>
-    <nd ref='-14' />
-    <nd ref='-16' />
-    <nd ref='-18' />
+  <way id='-6279' action='modify' visible='true'>
+    <nd ref='-22' />
     <nd ref='-20' />
-    <nd ref='-14' />
+    <nd ref='-18' />
+    <nd ref='-16' />
+    <nd ref='-22' />
     <tag k='addr:housenumber' v='1' />
     <tag k='addr:street' v='Московская улица' />
     <tag k='addr:suburb' v='Лакокраска' />
     <tag k='building' v='yes' />
   </way>
-  <way id='-6267' action='modify' visible='true'>
-    <nd ref='-12' />
+  <way id='-6277' action='modify' visible='true'>
     <nd ref='-10' />
     <nd ref='-8' />
     <nd ref='-6' />
-    <nd ref='-12' />
+    <nd ref='-4' />
+    <nd ref='-10' />
     <tag k='addr:housenumber' v='2' />
-    <tag k='addr:suburb' v='Лакокраска' />
+    <tag k='addr:street' v='Фиктивная улица' />
+    <tag k='addr:suburb' v='Зеленый квартал' />
     <tag k='building' v='yes' />
   </way>
   <way id='20485621' timestamp='2010-11-08T10:35:17Z' uid='316868' user='LexIgnatov' visible='true' version='15' changeset='6319327'>
@@ -8069,7 +8099,11 @@
     <nd ref='355716951' />
     <tag k='landuse' v='residential' />
   </way>
-  <way id='31776356' timestamp='2009-06-02T20:22:49Z' uid='100812' user='Zkir' visible='true' version='4' changeset='1407660'>
+  <way id='31776356' action='modify' timestamp='2009-06-02T20:22:49Z' uid='100812' user='Zkir' visible='true' version='4' changeset='1407660'>
+    <nd ref='401789092' />
+    <nd ref='355724966' />
+    <nd ref='355724967' />
+    <nd ref='355724968' />
     <nd ref='355724938' />
     <nd ref='355724941' />
     <nd ref='355724945' />
@@ -8078,23 +8112,7 @@
     <nd ref='355724949' />
     <nd ref='414982535' />
     <nd ref='414982534' />
-    <nd ref='414982532' />
-    <nd ref='355724952' />
-    <nd ref='392853418' />
-    <nd ref='355724955' />
-    <nd ref='392853415' />
-    <nd ref='355724959' />
-    <nd ref='355724960' />
-    <nd ref='355724961' />
-    <nd ref='401789091' />
-    <nd ref='401789090' />
-    <nd ref='355724963' />
-    <nd ref='355724965' />
     <nd ref='401789092' />
-    <nd ref='355724966' />
-    <nd ref='355724967' />
-    <nd ref='355724968' />
-    <nd ref='355724938' />
     <tag k='landuse' v='allotments' />
   </way>
   <way id='31776357' timestamp='2009-03-04T21:51:13Z' uid='100812' user='Zkir' visible='true' version='1' changeset='734957'>
