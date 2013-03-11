@@ -1,9 +1,14 @@
 
 import ru.zkir.mp2mp.core.MPParseException;
 import ru.zkir.mp2mp.core.MpData;
+import ru.zkir.mp2mp.core.ReadMpTask;
+import ru.zkir.mp2mp.core.WriteMpTask;
+import ru.zkir.mp2mp.taskforcejunctions.ForceJunctionsTask;
 import ru.zkir.mp2mp.taskgeocoder.GeocoderTask;
-
 import java.io.IOException;
+
+
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,21 +46,43 @@ public class Jmp2mp {
         String inpipe="DefaultPipe";
         String outpipe="DefaultPipe";
         MpData mpData=new MpData();
+        int i;
 
-        ReadMpTask readMpTask=new ReadMpTask();
-        readMpTask.execute(mpData, cmdLineParser.tasks.get(0));
+        for(i = 0;i<cmdLineParser.tasks.size();i++ )
+        {
+          System.out.println("task:"+ cmdLineParser.tasks.get(i).name);
 
+          //readmp
+          if (cmdLineParser.tasks.get(i).name.equals("readmp"))
+          {
+            ReadMpTask readMpTask=new ReadMpTask();
+            readMpTask.execute(mpData, cmdLineParser.tasks.get(i));
+          }
 
-        GeocoderTask geocoder;
+          //geocode
+          if (cmdLineParser.tasks.get(i).name.equals("geocode"))
+          {
+            GeocoderTask geocoder;
+            geocoder=new GeocoderTask();
+            geocoder.execute(mpData, cmdLineParser.tasks.get(i));
+          }
 
-        geocoder=new GeocoderTask();
-        geocoder.execute(mpData, cmdLineParser.tasks.get(1));
+          //forcejunctions
+          if (cmdLineParser.tasks.get(i).name.equals("forcejunctions"))
+          {
+            ForceJunctionsTask fj;
+            fj=new ForceJunctionsTask();
+            fj.execute(mpData, cmdLineParser.tasks.get(i));
+          }
 
-        WriteMpTask  writeMpTask;
-
-        writeMpTask=new WriteMpTask();
-        writeMpTask.execute(mpData, cmdLineParser.tasks.get(2));
-
+          //writemp
+          if (cmdLineParser.tasks.get(i).name.equals("writemp"))
+          {
+            WriteMpTask writeMpTask;
+            writeMpTask=new WriteMpTask();
+            writeMpTask.execute(mpData, cmdLineParser.tasks.get(i));
+          }
+        }
 
     }
 }

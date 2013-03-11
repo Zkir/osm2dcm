@@ -107,7 +107,7 @@ public class MpSection {
   }
 
   // массив координат вершин полигона (почему-то замкнутый)
-  private double[][] GetCoordArray(boolean blnForceClosed)  throws MPParseException
+  public double[][] GetCoordArray(boolean blnForceClosed)  throws MPParseException
   {
     double[][]  dblCoords; // массив координат вершин полигона
 
