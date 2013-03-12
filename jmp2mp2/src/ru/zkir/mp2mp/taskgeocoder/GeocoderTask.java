@@ -76,7 +76,7 @@ public class GeocoderTask {
       levelsForCity=new String[] {"8"};
 
     //Болгария
-    if (strCountryCode.equals("BO"))
+    if (strCountryCode.equals("BG"))
       levelsForCity=new String[] {"10","8"};
 
     //Сербия
@@ -87,11 +87,11 @@ public class GeocoderTask {
     if (strCountryCode.equals("MK"))
       levelsForCity=new String[] {"8","7"};
 
-    //Босния и гецеговина
+    //Босния и герцеговина
     if (strCountryCode.equals("BA"))
       levelsForCity=new String[] {"8","7"};
 
-    //Босния и гецеговина
+    //Норвегия
     if (strCountryCode.equals("NO"))
       levelsForCity=new String[] {"7"};
 
