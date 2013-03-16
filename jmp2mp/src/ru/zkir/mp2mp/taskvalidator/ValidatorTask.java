@@ -47,7 +47,7 @@ public class ValidatorTask {
   //Тест адрески
   private clsAddrRegistryTest oAddrRegistryTest;
 
-  public void execute (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly) throws IOException, MPParseException
+  public void execute (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly, boolean blnNoRoutingTestByLevels) throws IOException, MPParseException
   {
     String strReportFileName;
     strReportFileName=strTarget + "_addr.xml";
@@ -60,14 +60,19 @@ public class ValidatorTask {
     System.out.println( "Viewpoint: " + strViewPoint);
     System.out.println( "E-road shields only: " + blnEroadShieldsOnly);
 
-    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly);
+    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels);
 
     System.out.println( "Postprocessor has been finished OK");
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
 
   }
 
-  private void ProcessMP (String strSource, String strTarget, String strReportFileName, String strViewPoint, boolean blnEroadShieldsOnly) throws IOException, MPParseException
+  private void ProcessMP (String strSource,
+                          String strTarget,
+                          String strReportFileName,
+                          String strViewPoint,
+                          boolean blnEroadShieldsOnly,
+                          boolean blnNoRoutingTestByLevels) throws IOException, MPParseException
   {
     MpFile oSrcMp;
     MpFile oTgtMp;
@@ -251,6 +256,7 @@ public class ValidatorTask {
 
 
           int NN;
+          int MM;
           int aNode;
           String strNodeAttr;
 
@@ -268,37 +274,47 @@ public class ValidatorTask {
 
 
           NN=0;
+          MM=0;
           while (true)
           {
-            strNodeAttr = oMpSection.GetAttributeValue("Nod" + NN);
-            if (strNodeAttr.equals("") ) break;
+            strNodeAttr = oMpSection.GetAttributeValue("Nod" + MM);
+            if (strNodeAttr.equals("")&& (MM>0) ) break;
 
-            NodeList[NN] =  strNodeAttr.split(",")[1];
-            NodeList2[NN] = Integer.parseInt(strNodeAttr.split(",")[2]) ;
-
-            NN++;
+            if (!strNodeAttr.equals(""))
+            {
+              NodeList[NN] =  strNodeAttr.split(",")[1];
+              NodeList2[NN] = Integer.parseInt(strNodeAttr.split(",")[2]) ;
+              NN++;
+            }
+            MM++;
           }
           //Нужно передать список рутинговых нод, и bbox для данной области.
           //Все дороги кроме service
-          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 4)
+          if (blnNoRoutingTestByLevels)
+          {
             oConnectivityTest.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+          }
+          else
+          {
+            if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 4)
+              oConnectivityTest.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
 
-          //Trunk
-          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 0)
-            oConnectivityTest0.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+            //Trunk
+            if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 0)
+              oConnectivityTest0.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
 
-          //Primary
-          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 1)
-            oConnectivityTest1.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+            //Primary
+            if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 1)
+              oConnectivityTest1.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
 
-          //Secondary
-          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 2)
-            oConnectivityTest2.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+            //Secondary
+            if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 2)
+              oConnectivityTest2.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
 
-          //Tertiary
-          if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 3)
-            oConnectivityTest3.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
-
+            //Tertiary
+            if (OSMLevelByTag(oMpSection.GetOsmHighway()) <= 3)
+              oConnectivityTest3.AddRoad(NN, NodeList, NodeList2,  lat1, lon1,lat2,lon2);
+          }
 
           //18. Тест висячих вершин
           //Нам нужны координаты первой и последней вершины
@@ -308,8 +324,10 @@ public class ValidatorTask {
           lat2=bbox[2];
           lon2=bbox[3];
 
-
-          oDeadEndTest.AddRoad(oMpSection.mpType(), OSMLevelByTag(oMpSection.GetOsmHighway()),NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
+          if(blnNoRoutingTestByLevels )
+            oDeadEndTest.AddRoad(oMpSection.mpType(), 1,NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
+          else
+            oDeadEndTest.AddRoad(oMpSection.mpType(), OSMLevelByTag(oMpSection.GetOsmHighway()),NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
         }
       }
 

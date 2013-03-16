@@ -24,6 +24,7 @@ public class jmp2mp {
   private static String strTarget; //Выходной файл
   private static String strViewPoint; //Начальная точка карты
   private static boolean blnEroadShieldsOnly;//Только евромаршруты на щитах дорог.
+  private static boolean blnNoRoutingTestByLevels;
 
   //Точка входа
   public static void  main(String args[]) throws IOException,MPParseException
@@ -35,7 +36,7 @@ public class jmp2mp {
 
       ValidatorTask validator;
       validator=new ValidatorTask();
-      validator.execute (strSource, strTarget, strViewPoint, blnEroadShieldsOnly);
+      validator.execute (strSource, strTarget, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels);
 
     }
     else
@@ -52,6 +53,7 @@ public class jmp2mp {
     strTarget="";
     strViewPoint="";
     blnEroadShieldsOnly=false;
+    blnNoRoutingTestByLevels=false;
 
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
@@ -62,14 +64,20 @@ public class jmp2mp {
     if(args.length>2)
       strViewPoint=args[2];
 
-      if(args.length>3)
+    if(args.length>3)
       {
         if (args[3].equals("1"))
         {
           blnEroadShieldsOnly=true;
         }
       }
-
+    if(args.length>4)
+    {
+      if (args[4].equals("1"))
+      {
+        blnNoRoutingTestByLevels=true;
+      }
+    }
 
 
   }
