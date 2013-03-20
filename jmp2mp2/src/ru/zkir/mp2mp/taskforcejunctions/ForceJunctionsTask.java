@@ -115,6 +115,12 @@ public class ForceJunctionsTask {
             insertRoutingNode(ms2,intersection_info.intSegNo2,intersection_info.intersection_x,intersection_info.intersection_y,MaxRNodeID);
           }
         }
+        //Дополнительная операция
+        //Удалим атрибут односторонней дороги
+        ms1.DeleteAttribute("DirIndicator");
+        String rp=ms1.GetAttributeValue("RouteParam");
+        rp=rp.substring(0,4)+"0,"+rp.substring(6);
+        ms1.SetAttributeValue("RouteParam",rp);
       }
     }
 
