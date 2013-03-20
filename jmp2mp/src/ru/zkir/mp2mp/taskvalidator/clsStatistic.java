@@ -116,7 +116,7 @@ public void ProcessSection(MpSection oMpSection) throws MPParseException
   {
     if ( !oMpSection.mpRouteParam().equals("") )
     {
-      if ( oMpSection.mpType().equals("0x07") /*!oMpSection.GetOsmHighway().equals("service")*/ )
+      if ( !oMpSection.mpType().equals("0x07") /*!oMpSection.GetOsmHighway().equals("service")*/ )
       {
         dblRoadLen = oMpSection.CalculateLength();
         if ( oMpSection.isOneWay() )

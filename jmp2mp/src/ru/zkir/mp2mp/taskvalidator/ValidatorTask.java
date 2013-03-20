@@ -59,6 +59,7 @@ public class ValidatorTask {
     System.out.println( "Report file: " + strReportFileName);
     System.out.println( "Viewpoint: " + strViewPoint);
     System.out.println( "E-road shields only: " + blnEroadShieldsOnly);
+    System.out.println( "Connectivity test by zero level only: " + blnNoRoutingTestByLevels);
 
     ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels);
 
