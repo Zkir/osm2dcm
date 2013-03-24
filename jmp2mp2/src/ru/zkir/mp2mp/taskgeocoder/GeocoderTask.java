@@ -41,6 +41,9 @@ public class GeocoderTask {
     String[] levelsForCity;
     levelsForCity=new String[] {};
 
+    String[] levelsForRegion;
+    levelsForRegion=new String[] {};
+
     //Страно-специфичные правила
     if (strCountryCode.equals("EE"))
       levelsForCity=new String[] {"9"};
@@ -52,7 +55,23 @@ public class GeocoderTask {
       levelsForCity=new String[] {"8","7"};
 
     if (strCountryCode.equals("ES"))
+    {
       levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+
+    if (strCountryCode.equals("NL"))
+    {
+      levelsForCity=new String[] {"10","8"};
+      levelsForRegion=new String[] {"6"};
+    }
+
+    if (strCountryCode.equals("SE"))
+    {
+      levelsForCity=new String[] {"9","7"};
+      levelsForRegion=new String[] {"6"};
+    }
+
 
     if (strCountryCode.equals("PL"))
       levelsForCity=new String[] {"8","10", "7", "6"};
@@ -100,6 +119,8 @@ public class GeocoderTask {
       levelsForCity=new String[] {"8","6"};
 
 
+
+
     if (levelsForCity.length==0 )
     {
       System.out.println(" No rules are defined for country "+strCountryCode);
@@ -109,7 +130,7 @@ public class GeocoderTask {
     Geocoder geocoder;
     geocoder=new Geocoder();
 
-    geocoder.loadAddressRegionsFromOsmFile(strSrcFileName, levelsForCity);
+    geocoder.loadAddressRegionsFromOsmFile(strSrcFileName, levelsForCity, levelsForRegion);
     System.out.println("Address regions loaded");
     System.out.println("");
 
@@ -122,41 +143,54 @@ public class GeocoderTask {
     MpSection ms;
     int intObjectsWithAddress=0;
     int intCitySet=0;
+    int intRegionSet=0;
     mpData.moveFirst();
     while (!mpData.eof() )
     {
       ms=mpData.getCurrentSection();
       if(
-              ms.GetAttributeValue("CityName").equals("")&&
-             ((!ms.GetAttributeValue("HouseNumber").equals(""))||!ms.GetAttributeValue("StreetDesc").equals(""))
+             /* ms.GetAttributeValue("CityName").equals("")&&  */
+             ((!ms.GetAttributeValue("HouseNumber").equals(""))||!ms.GetAttributeValue("StreetDesc").equals("")
+             ||ms.SectionType.equals("[POI]") )
         )
       {
-
+        intObjectsWithAddress++;
         String strCityName;
+        String strRegionName;
         //Здесь мы получаем координаты объекта.
         // TODO: Для линий еще неплохо бы проверять точки на 20% и 80%, а не на крайних.
         double[] bbox;
+        double lat, lon;
         bbox=ms.CalculateFirstLast();
 
-        strCityName= geocoder.getCityName(bbox[0],bbox[1],levelsForCity);
-
+        lat=bbox[0];
+        lon=bbox[1];
+        //Город ("обычно это муниципалитет")
+        strCityName= geocoder.getCityName(lat,lon,levelsForCity);
         strCityName = Junidecode.unidecode(strCityName);
 
-        //System.out.println(bbox[0]+", "+ bbox[1]) ;
-        //System.out.println(strCityName);
-        intObjectsWithAddress++;
         if (!strCityName.equals(""))
         {
           ms.SetAttributeValue("CityName",strCityName);
-          //break;
           intCitySet++;
         }
+        //Регион ("провинция")
+        strRegionName= geocoder.getCityName(lat,lon,levelsForRegion);
+        strRegionName = Junidecode.unidecode(strRegionName);
+
+        if (!strRegionName.equals(""))
+        {
+          ms.SetAttributeValue("RegionName",strRegionName);
+          intRegionSet++;
+        }
+
       }
       mpData.moveNext();
     }
     dtProcessEnd=new Date();
-    System.out.println("Объектов с адресом: "+ intObjectsWithAddress);
-    System.out.println("Из них обработано: "+ intCitySet );
+    System.out.println("Объектов, для которых нужен адрес: "+ intObjectsWithAddress);
+    System.out.println("Из них обработано (проставлен город)  : "+ intCitySet );
+    System.out.println("Из них обработано (проставлен 'регион') : "+ intRegionSet );
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
   }
 
@@ -194,7 +228,7 @@ class Geocoder{
     return strName;
   }
 
-  void loadAddressRegionsFromOsmFile(String strSrcFileName,String[] levelsForCity)
+  void loadAddressRegionsFromOsmFile(String strSrcFileName,String[] levelsForCity, String[] levelsForRegion)
   {
     OsmParser osmParser;
     osmParser=new OsmParser(strSrcFileName);
@@ -211,10 +245,13 @@ class Geocoder{
     boolean blnNeedForCitySearch;
     blnNeedForCitySearch=false;
     for(int i=0;i<levelsForCity.length;i++)
-    {
-      blnNeedForCitySearch=blnNeedForCitySearch || currentRelation.tags.get("admin_level").equals(levelsForCity[i]);
-    }
-
+      {
+        blnNeedForCitySearch=blnNeedForCitySearch || currentRelation.tags.get("admin_level").equals(levelsForCity[i]);
+      }
+    for(int i=0;i<levelsForRegion.length;i++)
+      {
+        blnNeedForCitySearch=blnNeedForCitySearch || currentRelation.tags.get("admin_level").equals(levelsForRegion[i]);
+      }
 
     if (!blnNeedForCitySearch )
     {
