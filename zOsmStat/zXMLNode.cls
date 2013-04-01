@@ -85,7 +85,7 @@ Dim blnAttributeFound As Boolean
   
   Dim k As Integer
   k = 1
-  Do While (Right$(strAttributeValue, 1) <> """") And (i + k <= UBound(elements))
+  Do While (Not ((Right$(strAttributeValue, 1) = """") And (Len(strAttributeValue) > 1)) And (i + k <= UBound(elements)))
     strAttributeValue = strAttributeValue + " " + elements(i + k)
     k = k + 1
   Loop
