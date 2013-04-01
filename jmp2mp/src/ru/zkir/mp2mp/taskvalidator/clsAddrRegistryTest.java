@@ -48,6 +48,7 @@ public class clsAddrRegistryTest {
   class StreetInfo
   {
     String cityName;
+    String regionName;
     String streetName;
     int routable;
     int hasHouses;
@@ -133,7 +134,7 @@ public class clsAddrRegistryTest {
 
   }
 
-  public void AddStreetToRegistry(String strStreetDesc, String strCity,
+  public void AddStreetToRegistry(String strStreetDesc, String strCity, String strRegion,
                                   boolean blnRoutable,double lat, double lon, boolean blnShouldBeInCity)
   {
     //Безымянные улицы нам не нужны
@@ -148,6 +149,8 @@ public class clsAddrRegistryTest {
     {
       theStreetInfo=new StreetInfo();
       theStreetInfo.cityName = strCity;
+      theStreetInfo.regionName = strRegion;
+
       theStreetInfo.streetName  = strStreetDesc;
       theStreetInfo.routable  = 0;
       theStreetInfo.hasHouses  =0;
@@ -174,6 +177,7 @@ public class clsAddrRegistryTest {
     {
       theStreetInfo=new StreetInfo();
       theStreetInfo.cityName = strCity;
+      theStreetInfo.regionName = strRegion;
       theStreetInfo.streetName  = strStreetDesc;
       if (blnRoutable)
         {theStreetInfo.routable  =1;}
@@ -559,11 +563,23 @@ public class clsAddrRegistryTest {
     int intUnmatchedHouses= arrHousesErr.size();
 
     int intStreetsOutsideCities=0;
+    int intStreetsWithoutRegion=0;
     for(i=0;i<arrStreetSegments.size();i++ )
     {
       if (arrStreetSegments.get(i).cityName.equals("")  )
       {
         intStreetsOutsideCities=intStreetsOutsideCities+1;
+      }
+    }
+
+    for(i=0;i<arrStreets.size();i++ )
+    {
+      //todo: corect condition when CG learn to seach non-routable streets
+      if (arrStreets.get(i).regionName.equals("")  && (arrStreets.get(i).routable!=0) )
+      {
+        intStreetsWithoutRegion=intStreetsWithoutRegion+1;
+        //System.out.println(arrStreets.get(i).streetName+ " -- "+ arrStreets.get(i).cityName );
+
       }
     }
 
@@ -591,6 +607,7 @@ public class clsAddrRegistryTest {
     oReportFile.write( " <CitiesWithoutPlaceNode>" +  Integer.toString(arrCitiesWOPlaceNode.size())+ "</CitiesWithoutPlaceNode>\r\n");
 
     oReportFile.write( " <StreetsOutsideCities>" + Integer.toString( intStreetsOutsideCities) + "</StreetsOutsideCities>\r\n");
+    oReportFile.write( " <StreetsWithoutRegion>" + Integer.toString( intStreetsWithoutRegion) + "</StreetsWithoutRegion>\r\n");
 
     oReportFile.write( " <ErrorRate>" +Double.toString(dblErrorRate) + "</ErrorRate>\r\n");
 

@@ -218,6 +218,7 @@ public class ValidatorTask {
           oAddrRegistryTest.AddStreetToRegistry(
                   oMpSection.GetAttributeValue("StreetDesc").trim(),
                   oMpSection.GetAttributeValue("CityName").trim(),
+                  oMpSection.GetAttributeValue("RegionName").trim(),
                   (!oMpSection.mpRouteParam().equals("")) && ! (oMpSection.mpType().equals("0x07")),
                   Coord[0],Coord[1],
                   (oMpSection.mpType().equals("0x06")) //Or (В названии есть слово улица)
@@ -429,6 +430,7 @@ public class ValidatorTask {
       if (vb6.Left(strShields,7).equals("~[0x05]") )
       {
         strShields=strShields.substring(7);
+
         strShields=NormalizeRoadShield (strShields,blnEroadsOnly);
         if (!strShields.equals("") )
         {strShields= "~[0x05]"+strShields;}
@@ -442,6 +444,7 @@ public class ValidatorTask {
   {
     String [] Shields;
     int i,j;
+    if (strShieldString.trim().equals("")) return strShieldString;
     strShieldString=strShieldString.replace("Е","E"); //Замена кирилицы на латиницу.
     Shields=strShieldString.split(",");
     strShieldString="";
