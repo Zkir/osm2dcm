@@ -68,6 +68,22 @@
   <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 </ClassBm1>
 
+
+<ClassBm2> 
+  <Description>
+    Класс B для заграницы. Целый адресный реестр
+  </Description>
+  
+  <MaxSealineBreaks>0</MaxSealineBreaks>
+  <MaxIsolatedSubgraphs>1000</MaxIsolatedSubgraphs>
+  <MaxIsolatedSubgraphsTertiary>200</MaxIsolatedSubgraphsTertiary>
+  <MaxDeadEnds>500</MaxDeadEnds>
+  <MaxRoutiningEdges>400000</MaxRoutiningEdges>
+  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
+  <MaxUnmatchedAddrStreets>0.015</MaxUnmatchedAddrStreets>
+  <MaxUnmatchedAddrStreetsNoRegion>0.10</MaxUnmatchedAddrStreetsNoRegion>
+</ClassBm2>
+
 <ClassC>
   <Description>
     Класс C - кандидат. Карта проходит по адреске и изолятам, возможны ошибки статуса (изоляты по уровням и тупики).
