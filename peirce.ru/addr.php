@@ -12,6 +12,34 @@ require_once("include/misc_utils.php");
   $page=$_GET['page'];
   $mapid=$_GET['mapid'];
   $errtype=$_GET['errtype'];
+
+
+   // Задаем текущий язык проекта
+    //putenv("LANG=ru_RU"); 
+    //putenv("LANG=en_US"); 
+    putenv("LANG=pt"); 
+    
+
+    // Задаем текущую локаль (кодировку)
+    //setlocale (LC_ALL,"Russian");
+    setlocale (LC_ALL, "pt_BR");
+
+    // Указываем имя домена
+    $domain = 'default';
+
+    // Задаем каталог домена, где содержатся переводы
+    bindtextdomain ($domain, "./locale");
+
+    // Выбираем домен для работы
+
+    textdomain ($domain);
+
+    // Если необходимо, принудительно указываем кодировку
+    // (эта строка не обязательна, она нужна,
+    // если вы хотите выводить текст в отличной
+    // от текущей локали кодировке).
+    bind_textdomain_codeset($domain, 'UTF-8');
+
   
   
   
@@ -40,7 +68,7 @@ require_once("include/misc_utils.php");
     case 'qa_summary':         
     default:
       
-      if(($mapid!="")and($mapid!="RU")and($mapid!="CIS") and ($mapid!="WORLD") )
+      if(($mapid!="")and($mapid!="RU")and($mapid!="CIS") and ($mapid!="WORLD") and (strlen($mapid)!=2) )
       {
   	    $zPage->title="Контроль качества  - $mapid";
         $zPage->header="Контроль качества - $mapid";
@@ -66,6 +94,9 @@ require_once("include/misc_utils.php");
         
         if ($mapid=="WORLD")
         {$MapGroupName="Дальнее Зарубежье";}
+        
+        if (strlen($mapid)==2)
+        {$MapGroupName=$mapid;}	
         
         PrintQASummaryPage($MapGroupName);
       }
@@ -175,16 +206,20 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   {
   	  $blnCityBoundaryTestApplicable = true;
   }
- 	  
+ 
+  if($mapid=='RU-OVRV' )
+  {
+  	  $blnCityBoundaryTestApplicable = false;
+  }	  
   
   	  
   $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
   $zPage->WriteHtml('<table>
-              <tr><td>Код карты</td><td><b>'.$mapid.'</b></td></tr>
-              <tr><td>Название карты</td><td><b>'.$strMapName.'</b></td></tr>
-              <tr><td>Дата прохода валидатора </td><td>'.$xml->DateWithTime.'</td></tr>
-              <tr><td>Последняя известная правка  </td><td>'.$LastKnownEdit.'</td></tr>
-              <tr><td>Потраченное время </td><td>'.$xml->TimeUsed.'</td></tr>');
+              <tr><td>'._("Код карты").'</td><td><b>'.$mapid.'</b></td></tr>
+              <tr><td>'._("Название карты").'</td><td><b>'.$strMapName.'</b></td></tr>
+              <tr><td>'._("Дата прохода валидатора").' </td><td>'.$xml->DateWithTime.'</td></tr>
+              <tr><td>'._("Последняя известная правка").'  </td><td>'.$LastKnownEdit.'</td></tr>
+              <tr><td>'._("Потраченное время").' </td><td>'.$xml->TimeUsed.'</td></tr>');
   if(!$blnRss)
   {
     if (!isset($zPage->item_link)) $zPage->item_link='/qa/'.$mapid;
@@ -194,115 +229,115 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
 
   $zPage->WriteHtml(
   	          '</table>
-              <h2>Сводка</h2>
+              <h2>'._("Сводка").'</h2>
               <table>
-                <tr><td><b>Рейтинг</b></td><td><b>'.GetQaClass($xml, $xmlQCR).'</b></td></tr>
+                <tr><td><b>'._("Рейтинг").'</b></td><td><b>'.GetQaClass($xml, $xmlQCR,substr($mapid,0,2)).'</b></td></tr>
                 <tr></tr>
-                <tr><td><b>Отрисовка карты</b></td></tr>
+                <tr><td><b>'._("Отрисовка карты").'</b></td></tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Разрывы береговой линии:</td>
+                  <td>&nbsp;&nbsp;'._("Разрывы береговой линии:").'</td>
                   <td>'.$xml->CoastLineTest->Summary->NumberOfBreaks.'</td>
                   <td>'.TestX($xml->CoastLineTest->Summary->NumberOfBreaks,$xmlQCR->ClassA->MaxSealineBreaks,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#shorelinebreaks">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#shorelinebreaks">'._("список").'</a></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Города без населения:</td>
+                  <td>&nbsp;&nbsp;'._("Города без населения:").'</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPopulation.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPopulation,$xmlQCR->ClassA->MaxCitiesWithoutPopulation,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#citynopop">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#citynopop">'._("список").'</a></td>
                   <td></td>
                 </tr>');
   if($blnCityBoundaryTestApplicable)
        $zPage->WriteHtml(
                 '<tr>
-                  <td>&nbsp;&nbsp;Города без полигональных границ:</td>
+                  <td>&nbsp;&nbsp;'._("Города без полигональных границ:").'</td>
                   <td>'.$xml->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>
                   <td>'.TestX($xml->AddressTest->Summary->CitiesWithoutPlacePolygon,$xmlQCR->ClassA->MaxCitiesWithoutPlacePolygon,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#citynoborder">список</a></td>
+                  <td><a href="'.$zPage->item_link.'#citynoborder">'._("список").'</a></td>
                   <td></td>
                 </tr>');
   $zPage->WriteHtml('<tr>
-                  <td>&nbsp;&nbsp;Просроченные строящиеся дороги:</td>
+                  <td>&nbsp;&nbsp;'._("Просроченные строящиеся дороги:").'</td>
                   <td>'.$xml1->summary->total.'</td>
                   <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#hwconstr_chk">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/hwc-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#hwconstr_chk">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/hwc-map">'._("на карте").'</a></td>
                 </tr>
 
-                <tr><td><b>Рутинговый граф</b></td></tr>
+                <tr><td><b>'._("Рутинговый граф").'</b></td></tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Число рутинговых ребер :</td>
+                  <td>&nbsp;&nbsp;'._("Число рутинговых ребер:").'</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfRoutingEdges.'</td>
                   <td>'.TestX($xml->RoutingTest->Summary->NumberOfRoutingEdges,$xmlQCR->ClassA->MaxRoutiningEdges,$blnRss).'</td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Изолированные рутинговые подграфы(все) :</td>
+                  <td>&nbsp;&nbsp;'._("Изолированные рутинговые подграфы(все):").'</td>
                   <td>'.$xml->RoutingTest->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTest->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphs,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#isol">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/routing-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map">'._("на карте").'</a></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;&nbsp;&nbsp;tertiary и выше:</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;'._("tertiary и выше:").'</td>
                   <td>'.$xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Tertiary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTertiary,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#isol3">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/routing-map/3">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol3">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/3">'._("на карте").'</a></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;&nbsp;&nbsp;secondary и выше:</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;'._("secondary и выше:").'</td>
                   <td>'.$xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Secondary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsSecondary,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#isol2">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/routing-map/2">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol2">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/2">'._("на карте").'</a></td>
                 </tr>                	
                 <tr>
-                  <td>&nbsp;&nbsp;&nbsp;&nbsp;primary и выше:</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;'._("primary и выше:").'</td>
                   <td>'.$xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Primary->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsPrimary,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#isol1">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/routing-map/1">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol1">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/1">'._("на карте").'</a></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;trunk:</td>
                   <td>'.$xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs.'</td>
                   <td>'.TestX($xml->RoutingTestByLevel->Trunk->Summary->NumberOfSubgraphs,$xmlQCR->ClassA->MaxIsolatedSubgraphsTrunk,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#isol0">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/routing-map/0">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#isol0">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/routing-map/0">'._("на карте").'</a></td>
                 </tr>
 
                 <tr>
-                  <td>&nbsp;&nbsp;Дубликаты ребер:</td>
+                  <td>&nbsp;&nbsp;'._("Дубликаты ребер:").'</td>
                   <td>'.$xml->RoadDuplicatesTest->Summary->NumberOfDuplicates.'</td>
                   <td>'.TestX($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates,$xmlQCR->ClassA->MaxRoadDuplicates,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#rdups">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/rd-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#rdups">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/rd-map">'._("на карте").'</a></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Тупики важных дорог:</td>
+                  <td>&nbsp;&nbsp;'._("Тупики важных дорог:").'</td>
                   <td>'.$xml->DeadEndsTest->Summary->NumberOfDeadEnds.'</td>
                   <td>'.TestX($xml->DeadEndsTest->Summary->NumberOfDeadEnds,$xmlQCR->ClassA->MaxDeadEnds,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#deadends">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/dnodes-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#deadends">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/dnodes-map">'._("на карте").'</a></td>
                 </tr>
 
-                <tr><td><b>Адресный реестр</b></td></tr>
+                <tr><td><b>'._("Адресный реестр").'</b></td></tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Доля улиц, не сопоставленых НП:</td>
+                  <td>&nbsp;&nbsp;'._("Доля улиц, не сопоставленых НП:").'</td>
                   <td>'.number_format(100.00*$UnmatchedStreetsRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*$UnmatchedStreetsRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrStreets,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#addr-street">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/addr-street-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#addr-street">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/addr-street-map">'._("на карте").'</a></td>
                 </tr>
                 <tr>
-                  <td>&nbsp;&nbsp;Доля не сопоставленых адресов:</td>
+                  <td>&nbsp;&nbsp;'._("Доля не сопоставленых адресов:").'</td>
                   <td>'.number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ').'%</td>
                   <td>'.TestX(100.00*(float)$xml->AddressTest->Summary->ErrorRate,100*(float)$xmlQCR->ClassA->MaxUnmatchedAddrHouses,$blnRss).'</td>
-                  <td><a href="'.$zPage->item_link.'#addr">список</a></td>
-                  <td><a href="'.$zPage->item_link.'/addr-map">на карте</a></td>
+                  <td><a href="'.$zPage->item_link.'#addr">'._("список").'</a></td>
+                  <td><a href="'.$zPage->item_link.'/addr-map">'._("на карте").'</a></td>
                 </tr>');
                 
   $SolvableErrorsRate=100.00*( ((float)$xml->AddressTest->Summary->HousesWOCities+
@@ -310,7 +345,7 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                                 (float)$xml->AddressTest->Summary->HousesStreetNotFound+
                                 (float)$xml->AddressTest->Summary->HousesStreetNotRelatedToCity ) /(float)$xml->AddressTest->Summary->TotalHouses);              
   $zPage->WriteHtml('<tr>
-                  <td>&nbsp;&nbsp;Доля "легкоисправимых" ошибок (I,III,IV):</td>
+                  <td>&nbsp;&nbsp;'._('Доля "легкоисправимых" ошибок (I,III,IV):').'</td>
                   <td>'.number_format($SolvableErrorsRate,2,'.', ' ').'%</td>
                   <td>'.TestX($SolvableErrorsRate,5.00,$blnRss).'</td>
                   <td></td>
@@ -319,25 +354,25 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                 </table>
               <hr/>'  );
 
-  $zPage->WriteHtml("<H2>Сводка по адресации</H2>" );
+  $zPage->WriteHtml("<H2>"._("Сводка по адресации")."</H2>" );
   $zPage->WriteHtml("<table>" );
-  $zPage->WriteHtml("<tr><td align=\"right\"><b>По домам<b></td><td></td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Всего адресов</td><td>".$xml->AddressTest->Summary->TotalHouses."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Всего улиц</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Не сопоставлено адресов</td><td>".$xml->AddressTest->Summary->UnmatchedHouses."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых адресов</td><td>".number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ')."%</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Из них, по типу ошибок:</td><td></td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(I)  <a href="'.$zPage->item_link.'/addr/1">Дом вне НП</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(II) <a href="'.$zPage->item_link.'/addr/2">Улица не задана</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(III)<a href="'.$zPage->item_link.'/addr/3">Улица не найдена</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(IV) <a href="'.$zPage->item_link.'/addr/4">Улица не связана с городом</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(V)  <a href="'.$zPage->item_link.'/addr/5"> Дом номеруется по территории</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right">(VI) <a href="'.$zPage->item_link.'/addr/6">Улица не является рутинговой в СГ</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\"><b>"._("По домам")."<b></td><td></td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Всего адресов")."</td><td>".$xml->AddressTest->Summary->TotalHouses."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Всего улиц")."</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Не сопоставлено адресов")."</td><td>".$xml->AddressTest->Summary->UnmatchedHouses."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Доля несопоставленых адресов")."</td><td>".number_format(100.00*(float)$xml->AddressTest->Summary->ErrorRate,2,'.', ' ')."%</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Из них, по типу ошибок:")."</td><td></td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/1">'._('(I) Дом вне НП').'</a></td><td>'.$xml->AddressTest->Summary->HousesWOCities."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/2">'._('(II) Улица не задана').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/3">'._('(III) Улица не найдена').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/4">'._('(IV) Улица не связана с городом').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/5">'._('(V) Дом номеруется по территории').'</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
+  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/6">'._('(VI)Улица не является рутинговой в СГ').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
   $zPage->WriteHtml("<tr><td><b></td><td></td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\"><b>По улицам<b></td><td></td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Всего улиц</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Улиц вне НП:</td><td>".$xml->AddressTest->Summary->StreetsOutsideCities."</td></tr>" );
-  $zPage->WriteHtml("<tr><td align=\"right\">Доля несопоставленых улиц</td><td>".number_format(100.00*$UnmatchedStreetsRate ,2,'.', ' ')."%</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\"><b>"._("По улицам")."<b></td><td></td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Всего улиц")."</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Улиц вне НП:")."</td><td>".$xml->AddressTest->Summary->StreetsOutsideCities."</td></tr>" );
+  $zPage->WriteHtml("<tr><td align=\"right\">"._("Доля несопоставленых улиц")."</td><td>".number_format(100.00*$UnmatchedStreetsRate ,2,'.', ' ')."%</td></tr>" );
   $zPage->WriteHtml("</table>" );
   
 }
@@ -386,7 +421,7 @@ function PrintQADetailsPage($mapid, $errtype)
   global $zPage;
   global $blnCityBoundaryTestApplicable;
   
-  $zPage->WriteHtml( "<h1>Контроль качества ($mapid)</h1>");
+  $zPage->WriteHtml( '<h1>'.sprintf(_('Контроль качества (%s)'),$mapid).'</h1>');
   
   $xml = simplexml_load_file(GetXmlFileName($mapid));
   if (file_exists(GetHWCXmlFileName($mapid)))
@@ -410,7 +445,7 @@ if ($errtype=="")
 
    	
   	
-  $zPage->WriteHtml('<p align="right"><a href="/qa">Назад к списку регионов</a> </p>' );
+  $zPage->WriteHtml('<p align="right"><a href="/qa">'._('Назад к списку регионов').'</a> </p>' );
   
   PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,False);
   
@@ -446,16 +481,16 @@ if ($errtype=="")
   //$zPage->WriteHtml('<p>В эту группу включены тесты, показывающее качество отрисовки карты, насколько она выглядит красиво и опрятно.</p>');
   
   
-  $zPage->WriteHtml('<h2><a name="shorelinebreaks"></a>Разрывы береговой линии</h2>');
-  $zPage->WriteHtml('<p>Когда в береговой линии имеются разрывы, море не создается. </p>');
+  $zPage->WriteHtml('<h2><a name="shorelinebreaks"></a>'._('Разрывы береговой линии').'</h2>');
+  $zPage->WriteHtml('<p>'._('Когда в береговой линии имеются разрывы, море не создается.').'</p>');
   $zPage->WriteHtml('<p/>' );
   if ($xml->CoastLineTest->Summary->NumberOfBreaks>0)
   {	  
   $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>
                   <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
   foreach ($xml->CoastLineTest->BreakList->BreakPoint as $item)
@@ -469,25 +504,24 @@ if ($errtype=="")
   $zPage->WriteHtml( '</table>');
   }
   else
-  {$zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено.</i>');}
+  {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');}
 
 
 /*==========================================================================
                  Города без населения
 ============================================================================*/
-  $zPage->WriteHtml('<a name="citynopop"></a><h2>Города без населения</h2>');
-  $zPage->WriteHtml('<p>Наличие указанного населения (тега population=*) крайне
-                     желательно, поскольку от него зависит размер надписи города в СГ и других приложениях OSM.</BR>
-                     В данный список включены города (place=city и place=town), наличие тега population для деревень и поселков не столь критично.
-                     Правила классификации населенных пунктов можно посмотреть на <a href="http://wiki.openstreetmap.org/wiki/RU:Key:place">OSM-Вики</a>. </p>');
+  $zPage->WriteHtml('<a name="citynopop"></a><h2>'._('Города без населения').'</h2>');
+  $zPage->WriteHtml('<p>'._('Наличие указанного населения (тега population=*) крайне желательно, поскольку от него зависит размер надписи города в СГ и других приложениях OSM.').'<br />'.
+                     _('В данный список включены города (place=city и place=town), наличие тега population для деревень и поселков не столь критично.'));
+  $zPage->WriteHtml(sprintf(_('Правила классификации населенных пунктов можно посмотреть на <a href="%s">OSM-Вики</a>.'),'http://wiki.openstreetmap.org/wiki/RU:Key:place').'</p>');
   $zPage->WriteHtml("<p/>" );
   if($xml->AddressTest->Summary->CitiesWithoutPopulation>0)
   {	  
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>
                   <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
     foreach ($xml->AddressTest->CitiesWithoutPopulation->City as $item)
@@ -501,15 +535,15 @@ if ($errtype=="")
     $zPage->WriteHtml( '</table>');
   }
   else
-    {$zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено.</i>');}
+    {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');}
 
 /*==========================================================================
                  Города без полигональных границ
 ============================================================================*/
 if($blnCityBoundaryTestApplicable)
 {	
-  $zPage->WriteHtml('<a name="citynoborder"></a><h2>Города без полигональных границ</h2>');
-  $zPage->WriteHtml('<p>Наличие полигональных границ (полигона с place=* и name=* или
+  $zPage->WriteHtml('<a name="citynoborder"></a><h2>'._('Города без полигональных границ').'</h2>');
+  $zPage->WriteHtml('<p>'._('Наличие полигональных границ (полигона с place=* и name=* или
                      place_name=*, такими же, что и на точке города) критически важно
                      для адресного поиска. По ним определяется принадлежность домов и улиц
                      населенным пунктам.<BR/> В данный список включены города (place=city и place=town),
@@ -517,15 +551,15 @@ if($blnCityBoundaryTestApplicable)
                      Деревни и поселки (place=village|hamlet) в этом списке не показываются,
                      поскольку деревень может быть очень много, но, если в деревне
                      есть улицы и дома, полигональные границы так же нужны. Все дома вне НП будут
-                     показаны в  секции "Несопоставленные адреса" ниже.
-                      </p>');
+                     показаны в  секции "Несопоставленные адреса" ниже.').
+                      '</p>');
   if($xml->AddressTest->Summary->CitiesWithoutPlacePolygon>0)
   {	  
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>
-                  <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
     foreach ($xml->AddressTest->CitiesWithoutPlacePolygon->City as $item)
@@ -540,7 +574,7 @@ if($blnCityBoundaryTestApplicable)
   }
   else
   {
-    $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено.</i>');
+    $zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');
   }
 }  	    
 /*==========================================================================
@@ -548,16 +582,16 @@ if($blnCityBoundaryTestApplicable)
 ============================================================================*/
 if($blnCityBoundaryTestApplicable)
 {	
-  $zPage->WriteHtml("<h2>Города без точечного центра</h2>");
-  $zPage->WriteHtml('<p>В этом списке отображаются населенные пункты, у которых есть полигональные границы
+  $zPage->WriteHtml('<h2>'._('Города без точечного центра').'</h2>');
+  $zPage->WriteHtml('<p>'._('В этом списке отображаются населенные пункты, у которых есть полигональные границы
   	                 (полигон с place=* и name=* или  place_name=*), но нет точки с place=*.
-  	                 Такие НП в СитиГИДе не отображаются.
-                     </p>');
+  	                 Такие НП в СитиГИДе не отображаются.').
+                     '</p>');
   $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>
-                  <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
   foreach ($xml->AddressTest->CitiesWithoutPlaceNode->City as $item)
@@ -573,23 +607,23 @@ if($blnCityBoundaryTestApplicable)
 /*==========================================================================
                  Highway=construction
 ============================================================================*/
-  $zPage->WriteHtml('<a name="hwconstr_chk"><H2>Просроченные строящиеся дороги</H2></a>');
-  $zPage->WriteHtml('<p>В этом тесте показываются строящиеся дороги, ожидаемая дата открытия которых уже наступила, дороги которые проверялись слишком давно,
-                    а так же дороги, дата проверки или дата открытия которых нераспознанны. </p>');
-  $zPage->WriteHtml("<p>Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 года должно быть записано как 2012-03-29<p/>" );
+  $zPage->WriteHtml('<a name="hwconstr_chk"><h2>'._('Просроченные строящиеся дороги').'</h2></a>');
+  $zPage->WriteHtml('<p>'._('В этом тесте показываются строящиеся дороги, ожидаемая дата открытия которых уже наступила, дороги которые проверялись слишком давно,
+                    а так же дороги, дата проверки или дата открытия которых нераспознанны.').'</p>');
+  $zPage->WriteHtml('<p>'._('Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 года должно быть записано как 2012-03-29').'<p/>' );
   
   
  if ($xml1->summary->total>0)
  {
-  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/hwc-map">Посмотреть просроченные дороги на карте</a></b></p>');
-  $zPage->WriteHtml("<p><small>Таблица сортируется. Достаточно щелкнуть по заголовку столбца</small><p/>" );
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/hwc-map">'._('Посмотреть просроченные дороги на карте').'</a></b></p>');
+  $zPage->WriteHtml('<p><small>'._('Таблица сортируется. Достаточно щелкнуть по заголовку столбца').'</small><p/>' ); 
   $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>
-                  <td><b>Тип ошибки</b></td>
-                  <td><b>Ожидаемая дата открытия</b></td>
-                  <td><b>Дата последней проверки</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Тип ошибки').'</b></td>
+                  <td><b>'._('Ожидаемая дата открытия').'</b></td>
+                  <td><b>'._('Дата последней проверки').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
   foreach ($xml1->error_list->error as $item)
@@ -605,61 +639,60 @@ if($blnCityBoundaryTestApplicable)
   $zPage->WriteHtml( '</table>');   
  }
  else
- {$zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');};
+ {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');};
  
 /*==========================================================================
                  Изолированные рутинговые подграфы
 ============================================================================*/
-  $zPage->WriteHtml('<h2><a name="isol"></a>Изолированные рутинговые подграфы</h2>');
+  $zPage->WriteHtml('<h2><a name="isol"></a>'._('Изолированные рутинговые подграфы').'</h2>');
   
-  $zPage->WriteHtml('<p>В данном тесте показываются "изоляты", т.е. дороги или группы дорог,
-                     не связанные с основным дорожным графом. ' );
-  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog/14435">
-                     Подробнее...</a> </p>' );
-  $zPage->WriteHtml('<p>Почему "изоляты" это так плохо? Потому что они мешают
+  $zPage->WriteHtml('<p>'._('В данном тесте показываются "изоляты", т.е. дороги или группы дорог, несвязанные с основным дорожным графом.') );
+  $zPage->WriteHtml('<a href="http://peirce.gis-lab.info/blog/14435">'._('Подробнее...').'</a> </p>' );
+  $zPage->WriteHtml('<p>'._('Почему "изоляты" это так плохо? Потому что они мешают
                      рутингу, прокладке маршрута. Когда старт и финиш оказываются
-                     в разных подграфах, маршрут не строится. </p> ' );
+                     в разных подграфах, маршрут не строится.').'</p>' );
 
-  $zPage->WriteHtml('<p>Почему должна соблюдаться связность по уровням? Потому значение тега highway используется для генерализации при построения обзорных карт
+  $zPage->WriteHtml('<p>'._('Почему должна соблюдаться связность по уровням? Потому значение тега highway используется для генерализации при построения обзорных карт
                      При выборке дорог определенного уровня (например, только trunk, или trunk и primary) должен получаться связный граф, пригодный для навигации
-                    (прокладки маршрутов), а не бессмысленный лес из не связанных между собой палочек. </p> ' );
-  $zPage->WriteHtml("<p/>" );
+                    (прокладки маршрутов), а не бессмысленный лес из не связанных между собой палочек.').'</p> ' );
+  $zPage->WriteHtml("<p />" );
 
-  $zPage->WriteHtml( '<h3>Изоляты - все дороги (residential/unclassified и выше) </h3>');
+  $zPage->WriteHtml( '<h3>'._('Изоляты - все дороги (residential/unclassified и выше)').'</h3>');
   
  
   PrintIsolatedSubgraphTable($xml->RoutingTest,'/qa/'.$mapid.'/routing-map');
   
 
-  $zPage->WriteHtml( '<h3><a name="isol3"></a>Изоляты - третичные (tertiary) и выше	  </h3>');
+  $zPage->WriteHtml( '<h3><a name="isol3"></a>'._('Изоляты - третичные (tertiary) и выше').'</h3>');
   PrintIsolatedSubgraphTable($xml->RoutingTestByLevel->Tertiary,'/qa/'.$mapid.'/routing-map/3');
   
-  $zPage->WriteHtml( '<h3><a name="isol2"></a>Изоляты - вторичные (secondary) и выше	  </h3>');
+  $zPage->WriteHtml( '<h3><a name="isol2"></a>'._('Изоляты - вторичные (secondary) и выше').'</h3>');
   PrintIsolatedSubgraphTable($xml->RoutingTestByLevel->Secondary,'/qa/'.$mapid.'/routing-map/2');
  
 
-  $zPage->WriteHtml( '<h3><a name="isol1"></a>Изоляты - первичные (primary) и выше	  </h3>');
+  $zPage->WriteHtml( '<h3><a name="isol1"></a>'._('Изоляты - первичные (primary) и выше').'</h3>');
   PrintIsolatedSubgraphTable($xml->RoutingTestByLevel->Primary,'/qa/'.$mapid.'/routing-map/1');
  
 
-  $zPage->WriteHtml( '<h3><a name="isol0"></a>Изоляты - только столбовые (trunk) 	  </h3>');
+  $zPage->WriteHtml( '<h3><a name="isol0"></a>'._('Изоляты - только столбовые (trunk)').'</h3>');
   PrintIsolatedSubgraphTable($xml->RoutingTestByLevel->Trunk,'/qa/'.$mapid.'/routing-map/0');
 
 /*==========================================================================
                  Дубликаты рутинговых ребер
 ============================================================================*/
-  $zPage->WriteHtml('<a name="rdups"><H2>Дубликаты рутинговых ребер</H2></a>');
-  $zPage->WriteHtml('<p>Дубликаты рутинговых ребер являются топологической ошибкой и мешают рутингу. <a href="/blog/16019">Подробнее про дубликаты дорог...</a> </p>');
+  $zPage->WriteHtml('<a name="rdups"><H2>'._('Дубликаты рутинговых ребер').'</H2></a>');
+  $zPage->WriteHtml('<p>'._('Дубликаты рутинговых ребер являются топологической ошибкой и мешают рутингу.'));
+  $zPage->WriteHtml('<a href="/blog/16019">'._('Подробнее про дубликаты дорог...').'</a></p>');
   $zPage->WriteHtml("<p/>" );
   if($xml->RoadDuplicatesTest->Summary->NumberOfDuplicates>0)
   {	  
-    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/rd-map">Посмотреть дубликаты рутинговых ребер на карте</a></b></p>');
+    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/rd-map">'._('Посмотреть дубликаты рутинговых ребер на карте').'</a></b></p>');
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>  
     	          <td width="20px"><b>#</b></td>
-                  <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
  
     $LineNum=0;
@@ -667,7 +700,7 @@ if($blnCityBoundaryTestApplicable)
     {   $LineNum++;
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '  <td>'.$LineNum.'.</td>');
-        $zPage->WriteHtml( '  <td>&lt;двойное ребро&gt;</td>');
+        $zPage->WriteHtml( '  <td>'._('&lt;двойное ребро&gt;').'</td>');
         $zPage->WriteHtml( '  <td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
         $zPage->WriteHtml( '  <td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
         $zPage->WriteHtml( '</tr>');
@@ -675,24 +708,24 @@ if($blnCityBoundaryTestApplicable)
     $zPage->WriteHtml( '</table>');  
   }
   else
-    {$zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');};
+    {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');};
 /*==========================================================================
                  Тупики важных дорог
 ============================================================================*/
-  $zPage->WriteHtml('<a name="deadends"><H2>Тупики важных дорог</H2></a>');
-  $zPage->WriteHtml('<p>'.GetDeadEndsTestDescription().' <a href="http://peirce.gis-lab.info/blog.php?postid=17547">Подробнее...</a></p>');
+  $zPage->WriteHtml('<a name="deadends"><H2>'._('Тупики важных дорог').'</H2></a>');
+  $zPage->WriteHtml('<p>'.GetDeadEndsTestDescription().' <a href="http://peirce.gis-lab.info/blog.php?postid=17547">'._('Подробнее...').'</a></p>');
   
   $zPage->WriteHtml("<p/>" );
   
   if($xml->DeadEndsTest->Summary->NumberOfDeadEnds>0)
   {	  
-    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/dnodes-map">Посмотреть тупики важных дорог на карте</a></b></p>');
+    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/dnodes-map">'._('Посмотреть тупики важных дорог на карте').'</a></b></p>');
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>  
     	          <td width="20px"><b>#</b></td>
-                  <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
     $LineNum=0;
     foreach ($xml->DeadEndsTest->DeadEndList->DeadEnd as $item)
@@ -706,7 +739,7 @@ if($blnCityBoundaryTestApplicable)
     	
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td>'.$LineNum.'.</td>');
-        $zPage->WriteHtml( '<td>&lt;тупик&gt;</td>');
+        $zPage->WriteHtml( '<td>'._('&lt;тупик&gt;').'</td>');
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->Lat,$item->Coord->Lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->Lat,$item->Coord->Lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
         $zPage->WriteHtml( '</tr>');
@@ -715,23 +748,23 @@ if($blnCityBoundaryTestApplicable)
   }
   else
   {
-    $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');
+    $zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');
   }
 /*==========================================================================
                  Тест Адрески, улицы
 ============================================================================*/
-  $zPage->WriteHtml('<a name="addr-street"><h2>Тест адресов, улицы </h2></a>' );
-  $zPage->WriteHtml('<p>В этом тесте показываются улицы, не попавшие в адресный поиск, потому что они не находятся внутри полигонов place=*</p>');
+  $zPage->WriteHtml('<a name="addr-street"><h2>'._('Тест адресов, улицы').'</h2></a>' );
+  $zPage->WriteHtml('<p>'._('В этом тесте показываются улицы, не попавшие в адресный поиск, потому что они не находятся внутри полигонов place=*').'</p>');
   
   if($xml->AddressTest->Summary->StreetsOutsideCities>0)
   {	  
-    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-street-map">Посмотреть ошибки адресации на карте</a></b></p>');
+    $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-street-map">'._('Посмотреть ошибки адресации на карте').'</a></b></p>');
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>  
     	          <td width="20px"><b>#</b></td>
-                  <td><b>Название</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
     $LineNum=0;
     foreach ($xml->AddressTest->StreetsOutsideCities->Street as $item)
@@ -751,29 +784,29 @@ if($blnCityBoundaryTestApplicable)
     $zPage->WriteHtml( '</table>');    
     if ($LineNum>500)
     	{
-    	  $zPage->WriteHtml( '<i>Ошибок очень много, показана первая тысяча ошибок</i>');
+    	  $zPage->WriteHtml( '<i>'._('Ошибок очень много, показана первая тысяча ошибок.').'</i>');
     	}	
   }
   else
   {
-    $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');
+    $zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');
   }
 /*==========================================================================
                  Тест Адрески, Дома
 ============================================================================*/
-  $zPage->WriteHtml('<a name="addr"><h2>Тест адресов, дома </h2></a>' );
-  $zPage->WriteHtml('<p> В данном тесте проверяется, какие дома/адреса <b>не</b>
+  $zPage->WriteHtml('<a name="addr"><h2>'._('Тест адресов, дома').'</h2></a>' );
+  $zPage->WriteHtml('<p>'._('В данном тесте проверяется, какие дома/адреса <b>не</b>
                      попадают в адресный поиск после конвертации карт в СитиГид. <BR/>
-                     Объяснение типов ошибок <a href="#errdescr">см. ниже</a></p>');
-  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map">Посмотреть ошибки адресации на карте</a></b></p>');
+                     Объяснение типов ошибок <a href="#errdescr">см. ниже</a>').'</p>');
+  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map">'._('Посмотреть ошибки адресации на карте').'</a></b></p>');
 
 }
 else //Задан конкретный тип ошибки
 {
-   $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">Назад к сводке '.$mapid.'</a></p>');
+   $zPage->WriteHtml('<p align="right"><a href="/qa/'.$mapid.'">'.sprintf(_('Назад к сводке %s'),$mapid).'</a></p>');
    $zPage->WriteHtml("<H2>".FormatAddrErrName($errtype)."</H2>" );
    $zPage->WriteHtml(FormatAddrErrDesc($errtype));
-   $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map/'.$errtype.'">Посмотреть ошибки адресации на карте</a></b></p>');
+   $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/addr-map/'.$errtype.'">'._('Посмотреть ошибки адресации на карте').'</a></b></p>');
 
 }
 
@@ -796,18 +829,18 @@ else //Задан конкретный тип ошибки
   }
   else
   {
-  $zPage->WriteHtml( '<P><small>И, между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. </small></P> ');
+  $zPage->WriteHtml( '<P><small>'._('И, между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца.').'</small></P> ');
 
 
   $zPage->WriteHtml( '<table width="900px" class="sortable">
 
    	    <tr>
-                  <td><b>Город</b></td>
-                  <td><b>Улица</b></td>
-                  <td><b>Номер дома </b></td>
-                  <td><b>Тип Ошибки</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Город').'</b></td>
+                  <td><b>'._('Улица').'</b></td>
+                  <td><b>'._('Номер дома').'</b></td>
+                  <td><b>'._('Тип ошибки').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
   $count=0;
@@ -964,7 +997,7 @@ function TestQaClass($xml_addr, $xnClass)
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > (float)$xnClass->MaxUnmatchedAddrHouses)
     $Result=FALSE;
   
-  //Ошибки адресации - улицы
+  //Ошибки адресации - улицы не привязанные к городам
   if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
   {	  
     $tmp_rate=((float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets));
@@ -975,6 +1008,20 @@ function TestQaClass($xml_addr, $xnClass)
   }	  
   if($tmp_rate  >   (float)$xnClass->MaxUnmatchedAddrStreets)
     $Result=FALSE;
+  
+  //Ошибки адресации - улицы не привязанные к регионам
+  if ($xnClass->MaxUnmatchedAddrStreetsNoRegion!=""){
+	  if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
+	  {	  
+	    $tmp_rate=((float)($xml_addr->AddressTest->Summary->StreetsWithoutRegion/$xml_addr->AddressTest->Summary->TotalStreets));
+	  }
+	  else
+	  {
+	  	  $tmp_rate=0;
+	  }	  
+	  if( ($xml_addr->AddressTest->Summary->StreetsWithoutRegion=="") or ($tmp_rate  >   (float)$xnClass->MaxUnmatchedAddrStreetsNoRegion))
+	    $Result=FALSE;
+  }
   
   //"Исправимые" ошибки адресации - дома
   if ($xnClass->MaxUnmatchedAddrHousesFixable!=""){
@@ -1009,7 +1056,7 @@ function TestQaClass($xml_addr, $xnClass)
 }
 
 //Проверка класса качества карты
-function GetQaClass($xml_addr, $xmlQCR)
+function GetQaClass($xml_addr, $xmlQCR,$strCountryCode)
 {
 
   //Класс A
@@ -1037,6 +1084,16 @@ function GetQaClass($xml_addr, $xmlQCR)
   {
     $QARating="B-";
     return $QARating;
+  }
+  if (($strCountryCode=="ES") or ($strCountryCode=="NL") or ($strCountryCode=="AT") or ($strCountryCode=="CZ") or ($strCountryCode=="PL")
+  	  or ($strCountryCode=="SE") or ($strCountryCode=="NO") or ($strCountryCode=="IT") or ($strCountryCode=="SI")or ($strCountryCode=="GR")
+  	  or ($strCountryCode=="PL") or ($strCountryCode=="HU")   )
+  {	  
+	  if (TestQaClass($xml_addr,$xmlQCR->ClassBm2))
+	  {
+	    $QARating="C";
+	    return $QARating;
+	  }
   }
   
   //Класс C
@@ -1124,10 +1181,10 @@ function PrintQASummaryPage($GroupName)
 {
   global $zPage;
 
-	  $zPage->WriteHtml( '<h1>Контроль качества</h1>');
-      $zPage->WriteHtml( '<p>На этой странице представлены основные показатели, отражающие качество карт, при конвертации в СитиГид.
+	  $zPage->WriteHtml( '<h1>'._("Контроль качества").'</h1>');
+      $zPage->WriteHtml( '<p>'._('На этой странице представлены основные показатели, отражающие качество карт, при конвертации в СитиГид.
                          Проверяется адресный реестр, дорожный граф и отрисовка карты.
-                         Данные обновляются одновременно с картами для СГ, т.е. по возможности ежедневно.</p>' );
+                         Данные обновляются одновременно с картами для СГ, т.е. по возможности ежедневно.').'</p>' );
       $zPage->WriteHtml( '<h2>Группы </h2>');  
       
       $zPage->WriteHtml( '
@@ -1230,7 +1287,8 @@ function PrintQASummary($strGroup)
                   <td width="180px"><b>Карта</b></td>
                   <td><b>Всего<BR/> адре&shy;сов</b></td>
                   <td><b>Доля<BR/> битых<BR/> адресов, дома %</b></td>
-                  <td><b>Доля<BR/> битых<BR/> адресов, улицы %</b></td>
+                  <td><b>Доля улиц вне города %</b></td>
+                  <td><b>Доля улиц вне региона %</b></td>
                   <!--<td><b>Города без поли&shy;гональ&shy;ных границ</b></td>--> 
                  
                   <td><b>Число рутин&shy;говых ребер</b></td>               
@@ -1250,7 +1308,7 @@ function PrintQASummary($strGroup)
   foreach ($xml->map as $item)
     {
       //if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
-      if( $strGroup==GetMapGroup(substr($item->code,0,2)) )
+      if( ($strGroup==GetMapGroup(substr($item->code,0,2))) or (substr($item->code,0,2)==$strGroup) )
       {
         $xmlfilename=GetXmlFileName($item->code);
 
@@ -1266,7 +1324,7 @@ function PrintQASummary($strGroup)
           else $N_hwc='-';
           
           
-          $QARating=GetQaClass($xml_addr, $xmlQCR);
+          $QARating=GetQaClass($xml_addr, $xmlQCR,substr($item->code,0,2));
           	  
           $Style="";
            switch ($QARating) {
@@ -1315,15 +1373,18 @@ function PrintQASummary($strGroup)
           if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
           {  
             $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
+            if($xml_addr->AddressTest->Summary->StreetsWithoutRegion!="")
+              $zPage->WriteHtml( '<td>'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsWithoutRegion/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</td>');
+            else
+              $zPage->WriteHtml( '<td>?</td>');	          
           }
           else
-          { $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(0,2,'.', ' ').'</a></td>');}
+          { 
+            $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(0,2,'.', ' ').'</a></td>');
+            $zPage->WriteHtml( '<td>'.number_format(0,2,'.', ' ').'</td>');
+          }
 
-          //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->HousesWOCities.'</td>' );
-          //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
-
-          
-          //$zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPlacePolygon.'</td>' );
+       
           
           
           
@@ -1480,14 +1541,14 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
   global $zPage;
   if ($RoutingTest->Summary->NumberOfSubgraphs>0)
   {
-    $zPage->WriteHtml('<p><b><a href="'.$strMapLink.'">Посмотреть изоляты на карте</a></b></p>');
+    $zPage->WriteHtml('<p><b><a href="'.$strMapLink.'">'._('Посмотреть изоляты на карте').'</a></b></p>');
   	  
     $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>  <td width="20px"><b>#</b></td>
-                  <td><b>Название</b></td>
-                  <td><b>Число ребер</b></td>
-                  <td width="100px" align="center"><b>Править <BR/> в JOSM</b></td>
-                  <td width="100px" align="center"><b>Править <BR/>в Potlach</b></td>
+                  <td><b>'._('Название').'</b></td>
+                  <td><b>'._('Число ребер').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
   
     $LineNum=0;
@@ -1500,7 +1561,7 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     	}
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '  <td>'.$LineNum.'.</td>');
-        $zPage->WriteHtml( '  <td>&lt;изолят&gt;</td>');
+        $zPage->WriteHtml( '  <td>'._('&lt;изолят&gt;').'</td>');
         $zPage->WriteHtml( '  <td>'.$item->NumberOfRoads.'</td>
                               <td align="center"> <a href="'.MakeJosmLinkBbox($item->Bbox->Lat1,$item->Bbox->Lon1,$item->Bbox->Lat2,$item->Bbox->Lon2).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td>
                               <td align="center"> <a href="'.MakePotlatchLink($item->Bbox->Lat1,$item->Bbox->Lon1) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td>
@@ -1510,12 +1571,12 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
     }
     else
     {
-  	  $zPage->WriteHtml( '<i>Ошибок данного типа не обнаружено</i>');
+  	  $zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');
     }
     
     if ($LineNum>500)
     {
-      $zPage->WriteHtml( '<i>Ошибок очень много, показаны первые пятьсот ошибок</i>');
+      $zPage->WriteHtml( '<i>'._('Ошибок очень много, показаны первые пятьсот ошибок').'</i>');
     }	  
 }
 
@@ -1524,12 +1585,12 @@ function PrintEditors($mapid)
 {
  global $zPage;
  $xml=simplexml_load_file(GetEditorsXmlFileName($mapid));	
- $zPage->WriteHtml( '<h2><a name="editors">Редакторы карты за последние 12 месяцев</a> </h2>');	
+ $zPage->WriteHtml( '<h2><a name="editors">'._('Редакторы карты за последние 12 месяцев').'</a> </h2>');	
  
  
  $zPage->WriteHtml( '<table width="900px" class="sortable">
     	    <tr>  <td width="20px"><b>#</b></td>
-                  <td><b>Редактор</b></td>
+                  <td><b>'._('Редактор').'</b></td>
                   <td><b>?</b></td>
                   <td><b>?</b></td>
                   <td><b>'.$xml->periods->period_1.'</b></td>
@@ -1581,7 +1642,7 @@ function PrintEditors($mapid)
     
     if ($LineNum>50)
     {
-      $zPage->WriteHtml( '<i>Показаны первые 100 редакторов из '.$xml->user_count.'</i>');
+      $zPage->WriteHtml( '<i>'.sprintf(_('Показаны первые 100 редакторов из %s'),$xml->user_count).'</i>');
     }	  
 
  
@@ -1593,23 +1654,23 @@ function PrintStatistics($objStatRecord,$xml)
   global $zPage;
   $item=$objStatRecord;  
    
-  $zPage->WriteHtml( '<h2>Основные статистические сведения</h2>');
+  $zPage->WriteHtml( '<h2>'._('Основные статистические сведения').'</h2>');
   $zPage->WriteHtml( '<b>'.$item->MapId.'</b>- ');
   $zPage->WriteHtml( '<b>'.$item->MapName.'</b>');
-  $zPage->WriteHtml( '<h3>Osm-данные</h3>' );
+  $zPage->WriteHtml( '<h3>'._('Osm-данные').'</h3>' );
   $zPage->WriteHtml( '<table>');
   $zPage->WriteHtml( '<tr>
               
-                  <td><b>Площадь,<br/> тыс.&nbsp;кв.&nbsp;км</b></td>
-                  <td><b>Число объектов</b></td>
-                  <td><b>Правок в день</b></td>
-                  <td><b>моложе 14 дней</b></td>
-                  <td><b>100 дней</b></td>
-                  <td><b> 365 дней</b></td>
-                  <td><b>Ср. возраст, дни</b></td>
-                  <td><b>Число объектов<br/>  на кв.&nbsp;км</b></td>
-                  <td><b>Правок в день<br/>на тыс.&nbsp;кв.&nbsp;км</b></td>
-                  <td><b>Активные <br/> участники</b></td>
+                  <td><b>'._('Площадь,<br/> тыс.&nbsp;кв.&nbsp;км').'</b></td>
+                  <td><b>'._('Число объектов').'</b></td>
+                  <td><b>'._('Правок в день').'</b></td>
+                  <td><b>'._('моложе 14 дней').'</b></td>
+                  <td><b>'._('100 дней').'</b></td>
+                  <td><b>'._('365 дней').'</b></td>
+                  <td><b>'._('Ср. возраст, дни').'</b></td>
+                  <td><b>'._('Число объектов<br/>  на кв.&nbsp;км').'</b></td>
+                  <td><b>'._('Правок в день<br/>на тыс.&nbsp;кв.&nbsp;км').'</b></td>
+                  <td><b>'._('Активные <br/> участники').'</b></td>
          </tr>');
         	  
   
@@ -1627,16 +1688,22 @@ function PrintStatistics($objStatRecord,$xml)
   $zPage->WriteHtml( '<td>'.$item->ActiveUsers.'</td> ');
   $zPage->WriteHtml( '</tr>');      
   $zPage->WriteHtml( '</table>');
-  $zPage->WriteHtml( '<p>Расшифровку показателей см. на <a href="/stat#descr">странице статистики</a>.</p>');
+  $zPage->WriteHtml( '<p>'.sprintf(_('Расшифровку показателей см. на <a href="%s">странице статистики</a>.'),"/stat#descr").'</p>');
   
     $zPage->WriteHtml("<p/>" );
-  $zPage->WriteHtml('<h3><a name="map_stat">Итоговая карта</a><sup><a href="#map_stat">#</a></sup></h3>' );
-  $zPage->WriteHtml(
-   '- Общая протяженность дорог: <b>'.$xml->Statistics->Summary->RoadLengthKm.'</b> км, дворовых проездов: <b>'.$xml->Statistics->Summary->ServiceRoadLengthKm.'</b> км <br />
-    - Общее количество точек интереса (POI): <b>'.($xml->Statistics->Summary->TotalPoiNumber).'</b> шт.,
-         в том числе с адресной информацией: <b>'.($xml->Statistics->Summary->PoiWithAddressNumber).'</b> шт.<br />
-    - Количество населенных пунктов, доступных в адресном поиске: <b>'.$xml->Statistics->Summary->CitiesNumber.'</b> <br />                  
-    - Общее количество зданий с адресной информацией: <b>'.(($xml->AddressTest->Summary->TotalHouses)-($xml->AddressTest->Summary->UnmatchedHouses)).'</b> шт.<br />');
+  $zPage->WriteHtml('<h3><a name="map_stat">'._('Итоговая карта').'</a><sup><a href="#map_stat">#</a></sup></h3>' );
+  $zPage->WriteHtml(sprintf(
+                             _('- Общая протяженность дорог: <b>%s</b> км, дворовых проездов: <b>%s</b> км'),
+                             $xml->Statistics->Summary->RoadLengthKm, $xml->Statistics->Summary->ServiceRoadLengthKm
+                           ). '<br />');
+  $zPage->WriteHtml(sprintf(
+                             _('- Общее количество точек интереса (POI): <b>%s</b> шт.,
+                                в том числе с адресной информацией: <b>%s</b> шт.'),
+                          ($xml->Statistics->Summary->TotalPoiNumber),($xml->Statistics->Summary->PoiWithAddressNumber)).'<br />');
+  $zPage->WriteHtml(sprintf(
+                             _('- Количество населенных пунктов, доступных в адресном поиске: <b>%s</b>'),
+                             $xml->Statistics->Summary->CitiesNumber).'<br />'); 
+  $zPage->WriteHtml(sprintf(_('- Общее количество зданий с адресной информацией: <b>%s</b> шт.'),(($xml->AddressTest->Summary->TotalHouses)-($xml->AddressTest->Summary->UnmatchedHouses))).'<br />');
 }
 
 /*=====================================================================================================

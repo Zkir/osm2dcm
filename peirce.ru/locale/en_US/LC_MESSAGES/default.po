@@ -1,0 +1,733 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: aa 1\n"
+"POT-Creation-Date: 2013-04-07 00:44+0400\n"
+"PO-Revision-Date: 2013-04-07 00:45+0400\n"
+"Last-Translator: Кирилл <zkir@zkir.ru>\n"
+"Language-Team: \n"
+"Language: Английский\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: d:\\OSM\\_osm2dcm\\peirce.ru\n"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:218
+msgid "Код карты"
+msgstr "Map Code"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:219
+msgid "Название карты"
+msgstr "Map Name"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:220
+msgid "Дата прохода валидатора"
+msgstr "Date of Validation"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:221
+msgid "Последняя известная правка"
+msgstr "Last known edit"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:222
+msgid "Потраченное время"
+msgstr "Time spent"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:232
+msgid "Сводка"
+msgstr "Summary"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:234
+msgid "Рейтинг"
+msgstr "Rating"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:236
+msgid "Отрисовка карты"
+msgstr "Map Rendering"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:238
+msgid "Разрывы береговой линии:"
+msgstr "Costline breaks:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:241
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:248
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:257
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:264
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:280
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:287
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:294
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:301
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:308
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:316
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:323
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:332
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:339
+msgid "список"
+msgstr "list"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:245
+msgid "Города без населения:"
+msgstr "Cities without polulation tag:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:254
+msgid "Города без полигональных границ:"
+msgstr "Places without polygonal borders:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:261
+msgid "Просроченные строящиеся дороги:"
+msgstr "Outdated highway constructions"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:265
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:281
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:288
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:295
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:302
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:309
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:317
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:324
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:333
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:340
+msgid "на карте"
+msgstr "map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:268
+msgid "Рутинговый граф"
+msgstr "Road graph"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:270
+msgid "Число рутинговых ребер:"
+msgstr "Number of the road graph edges"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:277
+msgid "Изолированные рутинговые подграфы(все):"
+msgstr "Isolated subgraphs (all levels)"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:284
+msgid "tertiary и выше:"
+msgstr "tertiary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:291
+msgid "secondary и выше:"
+msgstr "secondary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:298
+msgid "primary и выше:"
+msgstr "primary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:313
+msgid "Дубликаты ребер:"
+msgstr "Duplicated edges"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:320
+msgid "Тупики важных дорог:"
+msgstr "Road dead ends"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:327
+msgid "Адресный реестр"
+msgstr "Address Registry"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:329
+msgid "Доля улиц, не сопоставленых НП:"
+msgstr "Streets not matched to living place:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:336
+msgid "Доля не сопоставленых адресов:"
+msgstr "Not matched building addresses:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:348
+msgid "Доля \"легкоисправимых\" ошибок (I,III,IV):"
+msgstr "Percent of easy errors (I, III, IV)"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:357
+msgid "Сводка по адресации"
+msgstr "Addresses summary"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:359
+msgid "По домам"
+msgstr "By buildings"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:360
+msgid "Всего адресов"
+msgstr "addresses totaly"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:361
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:373
+msgid "Всего улиц"
+msgstr "streets totaly"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:362
+msgid "Не сопоставлено адресов"
+msgstr "Invalid addresses"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:363
+msgid "Доля несопоставленых адресов"
+msgstr "Percent of invalid addresses"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:364
+msgid "Из них, по типу ошибок:"
+msgstr "by error type:"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:365
+msgid "(I) Дом вне НП"
+msgstr "(I) Building outside living place"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:366
+msgid "(II) Улица не задана"
+msgstr "(II) Street is not filled"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:367
+msgid "(III) Улица не найдена"
+msgstr "(III) Street is not found"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:368
+msgid "(IV) Улица не связана с городом"
+msgstr "(IV) Street is outside of a living place"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:369
+msgid "(V) Дом номеруется по территории"
+msgstr "(V) building  is numbered by place/territory"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:370
+msgid "(VI)Улица не является рутинговой в СГ"
+msgstr "(VI) Street is not routable in CityGuide"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:372
+msgid "По улицам"
+msgstr "By streets"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:374
+msgid "Улиц вне НП:"
+msgstr "Streets outside living place"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:375
+msgid "Доля несопоставленых улиц"
+msgstr "Percent of streets unmatched to living places"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:424
+#, php-format
+msgid "Контроль качества (%s)"
+msgstr "Quality Assurance (%s)"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:448
+msgid "Назад к списку регионов"
+msgstr "Back to the list of regions"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:484
+msgid "Разрывы береговой линии"
+msgstr "Coastline breaks"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:485
+msgid "Когда в береговой линии имеются разрывы, море не создается."
+msgstr "When coastline is broken, sea polygon is not created."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:492
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:523
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:561
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:593
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:625
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:694
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:727
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:766
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:842
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1550
+msgid "Править <br /> в JOSM"
+msgstr "Edit in JOSM"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:493
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:524
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:562
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:594
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:626
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:695
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:728
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:767
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:843
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1551
+msgid "Править <br /> в Potlach"
+msgstr "Edit in Potlach"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:507
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:538
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:577
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:642
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:711
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:751
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:792
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1574
+msgid "Ошибок данного типа не обнаружено."
+msgstr "There are no errors of this type."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:513
+msgid "Города без населения"
+msgstr "Cities without polulation tag"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:514
+msgid ""
+"Наличие указанного населения (тега population=*) крайне желательно, "
+"поскольку от него зависит размер надписи города в СГ и других приложениях "
+"OSM."
+msgstr ""
+"Presence of the population tag is highly desirable; population value is used "
+"for label sizing and for determining level of view."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:515
+msgid ""
+"В данный список включены города (place=city и place=town), наличие тега "
+"population для деревень и поселков не столь критично."
+msgstr ""
+"This list contains cities and towns, for smaller places filling population=* "
+"tag isn't so critical. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:516
+#, php-format
+msgid ""
+"Правила классификации населенных пунктов можно посмотреть на <a href=\"%s"
+"\">OSM-Вики</a>."
+msgstr ""
+"Living place classification rules are available in <a href=\"%s\">OSM Wiki</"
+"a>."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:545
+msgid "Города без полигональных границ"
+msgstr "Places without polygonal borders"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:546
+msgid ""
+"Наличие полигональных границ (полигона с place=* и name=* или\n"
+"                     place_name=*, такими же, что и на точке города) "
+"критически важно\n"
+"                     для адресного поиска. По ним определяется "
+"принадлежность домов и улиц\n"
+"                     населенным пунктам.<BR/> В данный список включены "
+"города (place=city и place=town),\n"
+"                     для которых полигональные границы не обнаружены.\n"
+"                     Деревни и поселки (place=village|hamlet) в этом списке "
+"не показываются,\n"
+"                     поскольку деревень может быть очень много, но, если в "
+"деревне\n"
+"                     есть улицы и дома, полигональные границы так же нужны. "
+"Все дома вне НП будут\n"
+"                     показаны в  секции \"Несопоставленные адреса\" ниже."
+msgstr ""
+"Place polygonal borders are critical for addressing. By this border "
+"buildings and streets are matching to the place. Polygon must have same "
+"place=* and name=* (or place_name=* instead of name=*) as place point. "
+"Cities (place=city и place=town) with no polygonal borders are in this list. "
+"Villages (place=village|hamlet) aren't in this list, because of their great "
+"quantity. In case some village have streets and house numbers, it should "
+"have polygonal borders too. All houses outside the places are listed among "
+"'Invalid adresses'. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:560
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:592
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:693
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:726
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:765
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1548
+msgid "Название"
+msgstr "Name"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:585
+msgid "Города без точечного центра"
+msgstr "Places without point center"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:586
+msgid ""
+"В этом списке отображаются населенные пункты, у которых есть полигональные "
+"границы\n"
+"  \t                 (полигон с place=* и name=* или  place_name=*), но нет "
+"точки с place=*.\n"
+"  \t                 Такие НП в СитиГИДе не отображаются."
+msgstr ""
+"Towns which have polygonal border (polygon with place=* and name=*) but "
+"don't have point with same name=* and place=* are shown in this list. Such "
+"places are not displayed in CityGuide."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:610
+msgid "Просроченные строящиеся дороги"
+msgstr "Outdated highway constructions"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:611
+msgid ""
+"В этом тесте показываются строящиеся дороги, ожидаемая дата открытия которых "
+"уже наступила, дороги которые проверялись слишком давно,\n"
+"                    а так же дороги, дата проверки или дата открытия которых "
+"нераспознанны."
+msgstr ""
+"This test shows highways under construction, which opening date is expired, "
+"highways which were checked long time ago, and highways which opening date "
+"can't be parsed. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:613
+msgid ""
+"Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 "
+"года должно быть записано как 2012-03-29"
+msgstr ""
+"Valid date format is: YYYY-MM-DD. For example: twenty ninth of March 2012 "
+"should be written as 2012-03-29"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:618
+msgid "Посмотреть просроченные дороги на карте"
+msgstr "Show the outdated constructions on the map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:619
+msgid "Таблица сортируется. Достаточно щелкнуть по заголовку столбца"
+msgstr "The table is sortable. Just  click the column header."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:622
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:841
+msgid "Тип ошибки"
+msgstr "Error type"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:623
+msgid "Ожидаемая дата открытия"
+msgstr "Expected opening date"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:624
+msgid "Дата последней проверки"
+msgstr "Date of the last check"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:647
+msgid "Изолированные рутинговые подграфы"
+msgstr "Isolated routing subgraphs"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:649
+msgid ""
+"В данном тесте показываются \"изоляты\", т.е. дороги или группы дорог, "
+"несвязанные с основным дорожным графом."
+msgstr ""
+"This test shows isolated road subgraphs. E.g. highways or groups of "
+"highways, which are not connected with main road graph."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:650
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:716
+msgid "Подробнее..."
+msgstr "Tell me more..."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:651
+msgid ""
+"Почему \"изоляты\" это так плохо? Потому что они мешают\n"
+"                     рутингу, прокладке маршрута. Когда старт и финиш "
+"оказываются\n"
+"                     в разных подграфах, маршрут не строится."
+msgstr ""
+"Why isolated subgraps are so bad? Beacause they disurb routing. Route can "
+"not be found when start and finish are in different subgraphs."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:655
+msgid ""
+"Почему должна соблюдаться связность по уровням? Потому значение тега highway "
+"используется для генерализации при построения обзорных карт\n"
+"                     При выборке дорог определенного уровня (например, "
+"только trunk, или trunk и primary) должен получаться связный граф, пригодный "
+"для навигации\n"
+"                    (прокладки маршрутов), а не бессмысленный лес из не "
+"связанных между собой палочек."
+msgstr ""
+"Why the connectivity  of each road level is important? Choosing some level "
+"of roads (ex. only trunk or trunk and primary) you need to get the graph "
+"suitable  for navigation (making routs) but not just  set  of  not connected "
+"lines."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:660
+msgid "Изоляты - все дороги (residential/unclassified и выше)"
+msgstr ""
+"Isolated routing subgraphs — all levels (residential/unclassified and higher)"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:666
+msgid "Изоляты - третичные (tertiary) и выше"
+msgstr "Isolated subgraphs — tertiary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:669
+msgid "Изоляты - вторичные (secondary) и выше"
+msgstr "Isolated subgraphs — secondary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:673
+msgid "Изоляты - первичные (primary) и выше"
+msgstr "Isolated subgraphs — primary and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:677
+msgid "Изоляты - только столбовые (trunk)"
+msgstr "Isolated subgraphs — trunk and higher"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:683
+msgid "Дубликаты рутинговых ребер"
+msgstr "Edge duplicates"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:684
+msgid ""
+"Дубликаты рутинговых ребер являются топологической ошибкой и мешают рутингу."
+msgstr "Edges dublicates are topological error. They disturb routing."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:685
+msgid "Подробнее про дубликаты дорог..."
+msgstr "Tell me more about road duplicates..."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:689
+msgid "Посмотреть дубликаты рутинговых ребер на карте"
+msgstr "Show edge duplicates on the map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:703
+msgid "&lt;двойное ребро&gt;"
+msgstr "&lt;edge duplicate&gt;"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:715
+msgid "Тупики важных дорог"
+msgstr "Road dead ends"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:722
+msgid "Посмотреть тупики важных дорог на карте"
+msgstr "Show the dead ends on the map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:742
+msgid "&lt;тупик&gt;"
+msgstr "&lt;dead end&gt;"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:756
+msgid "Тест адресов, улицы"
+msgstr "Address test, streets"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:757
+msgid ""
+"В этом тесте показываются улицы, не попавшие в адресный поиск, потому что "
+"они не находятся внутри полигонов place=*"
+msgstr ""
+"This test shows streets that can't be matched to any town, because they are "
+"outside any place=* polygon"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:761
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:801
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:809
+msgid "Посмотреть ошибки адресации на карте"
+msgstr "Show address errors on the map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:787
+msgid "Ошибок очень много, показана первая тысяча ошибок."
+msgstr "There are too many errors, only first 1000 are shown."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:797
+msgid "Тест адресов, дома"
+msgstr "Address test, buildings"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:798
+msgid ""
+"В данном тесте проверяется, какие дома/адреса <b>не</b>\n"
+"                     попадают в адресный поиск после конвертации карт в "
+"СитиГид. <BR/>\n"
+"                     Объяснение типов ошибок <a href=\"#errdescr\">см. ниже</"
+"a>"
+msgstr ""
+"This test shows, what buildings/addresses annotations don't get into "
+"CityGuide map address registry. <br /> Please see error types explanation in "
+"the bottom of the page."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:806
+#, php-format
+msgid "Назад к сводке %s"
+msgstr "Back to %s summary"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:832
+msgid ""
+"И, между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца."
+msgstr "By the way, the table is sortable. Just  click the column header."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:838
+msgid "Город"
+msgstr "City"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:839
+msgid "Улица"
+msgstr "Street"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:840
+msgid "Номер дома"
+msgstr "House number"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1184
+msgid "Контроль качества"
+msgstr "Quality Assurance"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1185
+msgid ""
+"На этой странице представлены основные показатели, отражающие качество карт, "
+"при конвертации в СитиГид.\n"
+"                         Проверяется адресный реестр, дорожный граф и "
+"отрисовка карты.\n"
+"                         Данные обновляются одновременно с картами для СГ, т."
+"е. по возможности ежедневно."
+msgstr ""
+"The results of suitability checking of OSM data for converting to CityGuide "
+"maps are presented on this page. Address registry, road graph and map "
+"rendering are checked. Data is updated in same time as CG maps. Daily if "
+"possible."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1544
+msgid "Посмотреть изоляты на карте"
+msgstr "Show isolates subgraphs on the map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1549
+msgid "Число ребер"
+msgstr "Number of edges"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1564
+msgid "&lt;изолят&gt;"
+msgstr "&lt;Isolated subgraph&gt;"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1579
+msgid "Ошибок очень много, показаны первые пятьсот ошибок"
+msgstr "There are too many errors, only first 500 are shown."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1588
+msgid "Редакторы карты за последние 12 месяцев"
+msgstr "Map editors during last 12 months"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1593
+msgid "Редактор"
+msgstr "Editor"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1645
+#, php-format
+msgid "Показаны первые 100 редакторов из %s"
+msgstr "Top 100 editors of  %s are included into this list."
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1657
+msgid "Основные статистические сведения"
+msgstr "Main statistics"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1660
+msgid "Osm-данные"
+msgstr "Osm-data"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1664
+msgid "Площадь,<br/> тыс.&nbsp;кв.&nbsp;км"
+msgstr "Area <br/>thousand sq. km"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1665
+msgid "Число объектов"
+msgstr "Obj. totaly"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1666
+msgid "Правок в день"
+msgstr "Edits per day"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1667
+msgid "моложе 14 дней"
+msgstr "younger  than 14 days"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1668
+msgid "100 дней"
+msgstr "younger than 100 days"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1669
+msgid "365 дней"
+msgstr "younger than a 1 year"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1670
+msgid "Ср. возраст, дни"
+msgstr "mean age (days)"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1671
+msgid "Число объектов<br/>  на кв.&nbsp;км"
+msgstr "Objects per sq. km"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1672
+msgid "Правок в день<br/>на тыс.&nbsp;кв.&nbsp;км"
+msgstr "Edits per thousand sq. km"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1673
+msgid "Активные <br/> участники"
+msgstr "active contributors"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1691
+#, php-format
+msgid "Расшифровку показателей см. на <a href=\"%s\">странице статистики</a>."
+msgstr ""
+"explanation of statistics  can be found at <a href=\"%s\">statistics page</a>"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1694
+msgid "Итоговая карта"
+msgstr "Final CityGuide Map"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1696
+#, php-format
+msgid ""
+"- Общая протяженность дорог: <b>%s</b> км, дворовых проездов: <b>%s</b> км"
+msgstr "- Roads full length: <b>%s</b> km, driveways length: <b>%s</b> km"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1700
+#, php-format
+msgid ""
+"- Общее количество точек интереса (POI): <b>%s</b> шт.,\n"
+"                                в том числе с адресной информацией: <b>%s</"
+"b> шт."
+msgstr "- POIs totaly: <b>%s</b>, with addresses: <b>%s</b>"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1704
+#, php-format
+msgid "- Количество населенных пунктов, доступных в адресном поиске: <b>%s</b>"
+msgstr "- Living places in address registry : <b>%s</b>"
+
+#: d:\OSM\_osm2dcm\peirce.ru/addr.php:1706
+#, php-format
+msgid "- Общее количество зданий с адресной информацией: <b>%s</b> шт."
+msgstr "- Buildings with address data total:  <b>%s</b>"
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:41
+msgid "В этом тесте показываются тупики дорог trunk, primary и secondary."
+msgstr "This test shows dead ends of trunk, primary and secondary roads. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:42
+msgid ""
+"Основная идея очень простая: важная дорога не может просто так (посереди "
+"поля) заканчиваться, а должна куда-то вести."
+msgstr ""
+"The main idea is following: an important road should lead somewhere. It "
+"can't end in some strange point. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:43
+msgid ""
+"Тупиковый участок, т.е. участок после последнего перекрестка, по определению "
+"не имеет никакого значения, кроме местного."
+msgstr ""
+"The deadend segment (the part of the road after the last crossroad) can't be "
+"a main road, only local. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:44
+msgid "Таким образом тупики - это ошибки присвоения статусов."
+msgstr "So it should be a mistake in road class insignment. "
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:45
+msgid ""
+"В случае же, если статусы расставлены правильно, данный тест позволяет "
+"обнаруживать <b>серьезные дефекты</b> дорожного графа, такие как <b>разрывы</"
+"b> (выпадение сегментов) <b>несоединенные вершины</b> и даже <b>нерутинговые "
+"паромы</b>."
+msgstr ""
+"In case when higways classes assigned correctly, this test is able to find "
+"serious highways graph defects like highways segments missings, highways "
+"with close, but not shared nodes, and even more - not routable ferryes."
+
+#: d:\OSM\_osm2dcm\peirce.ru/include/misc_utils.php:46
+msgid ""
+"Разумеется, этот тест применим только для стран, для которых принята "
+"классификация дорог по значимости"
+msgstr ""
+"Of course, this test is applicable only for countries, where classification "
+"by road significance is adopted."
+
+#, fuzzy
+#~ msgid "Ошибок данного типа не обнаружено"
+#~ msgstr "There are no errors of this type."
+
+#, fuzzy
+#~ msgid "Править <BR/> в JOSM"
+#~ msgstr "Edit in JOSM"
+
+#, fuzzy
+#~ msgid "Править <BR/> в Potlach"
+#~ msgstr "Edit in Potlach"
+
+#~ msgid "Ближнее Зарубежье"
+#~ msgstr "Near Abroad"
