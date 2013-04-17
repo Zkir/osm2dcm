@@ -50,7 +50,7 @@ public class GeocoderTask {
 
     if (strCountryCode.equals("AT"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {"8","6"};
       levelsForRegion=new String[] {"6"};
     }
 
@@ -66,6 +66,12 @@ public class GeocoderTask {
       levelsForRegion=new String[] {"6"};
     }
 
+    if (strCountryCode.equals("PT"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+
     if (strCountryCode.equals("NL"))
     {
       levelsForCity=new String[] {"10","8"};
@@ -74,8 +80,8 @@ public class GeocoderTask {
 
     if (strCountryCode.equals("SE"))
     {
-      levelsForCity=new String[] {"9","7"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {"7"};
+      levelsForRegion=new String[] {"4"};
     }
 
     if (strCountryCode.equals("GR"))
@@ -97,7 +103,10 @@ public class GeocoderTask {
     }
 
     if (strCountryCode.equals("SK"))
+    {
       levelsForCity=new String[] {"9"};
+      levelsForRegion=new String[] {"4"};
+    }
 
     if (strCountryCode.equals("SI"))
       levelsForCity=new String[] {"8"};
@@ -111,8 +120,8 @@ public class GeocoderTask {
     //Румыния
     if (strCountryCode.equals("RO"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {"6","4"};
+      levelsForRegion=new String[] {"5","4"};
     }
 
     if (strCountryCode.equals("LT"))
@@ -151,6 +160,12 @@ public class GeocoderTask {
     {
       levelsForCity=new String[] {"7"};
       levelsForRegion=new String[] {"4","6"};
+    }
+    //Дания
+    if (strCountryCode.equals("DK"))
+    {
+      levelsForCity=new String[] {"8","7"};
+      levelsForRegion=new String[] {"4"};
     }
 
     //США
