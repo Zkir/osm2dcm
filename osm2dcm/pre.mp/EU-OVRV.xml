@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<mp2mp>
+
+<source_file name="pre.mp\EuropeBkg.mp">
+  <!--Безусловное копирование -->
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+</source_file>
+
+<source_file name="_my\EU-OVRV\EU-OVRV.roads.mp">
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+  <!--убрать  пои  -->
+  <rule predefined="skip_poi"/>
+</source_file>
+
+</mp2mp>
