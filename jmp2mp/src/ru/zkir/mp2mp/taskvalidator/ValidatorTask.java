@@ -210,7 +210,8 @@ public class ValidatorTask {
 
       if (oMpSection.SectionType.equals("[POLYLINE]"))
       {
-        if (!oMpSection.mpRouteParam().equals("") ||   oMpSection.mpType().equals("0x16")  || oMpSection.mpType().equals("0x8849"))
+        if (!oMpSection.mpRouteParam().equals("") ||   oMpSection.mpType().equals("0x16")
+            || oMpSection.mpType().equals("0x8849") || oMpSection.mpType().equals("0x880a"))
         {
           double[] Coord;
           Coord=oMpSection.GetCoord();
