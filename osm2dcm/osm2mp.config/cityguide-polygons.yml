@@ -300,7 +300,7 @@
 
 #natural beach p 0x89 0 1 0x5400,0,1 
 - condition:
-    - natural = beach
+    - natural = beach|sand
   action:
     - action: write_polygon
       type: 0x89

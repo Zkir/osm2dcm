@@ -146,7 +146,7 @@ whitewater:         1
 
 background:
     type:       0x4B
-    endlevel:   5
+    endlevel:   0
 
 sea:
     type:       0x28

@@ -337,7 +337,7 @@
       routeparams: '.,.,.,1,.,.,.,.,.,.,.,.'
 # unpaved roads
 - condition:
-    - surface = unpaved|ground|earth|mud|grass|sand|dirt
+    - surface = unpaved|ground|earth|mud|grass|sand|dirt|gravel
     - highway != service
   action:
     - action: modify_road

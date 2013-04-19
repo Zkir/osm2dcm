@@ -488,9 +488,11 @@
       contacts: yes
 
 #highway cattle_grid 
-#highway crossing 0x6406 0 0 
+#only not-regulated crossings should be displayed
+#highway crossing 0xFE0D 0 0 
 - condition:
     - highway = crossing
+    - crossing != traffic_signals|unmarked
   action:
     - action: write_poi
       type: 0xFE0D
@@ -982,7 +984,6 @@
       type: 0x1F01
       level_h: 1
       contacts: yes
-
 
 
 #place town 0x0800 0 4 city 
