@@ -33,8 +33,8 @@ public class clsAddrRegistryTest {
   final int steStreetNotSet = 2;
   final int steStreetNotFound = 3;
   final int steStreetNotRelatedToCity = 4;
-  final int steNumberRelatedToTerritory = 5;
-  final int steStreetNotRoutable = 6;
+  //final int steNumberRelatedToTerritory = 5;
+  //final int steStreetNotRoutable = 6;
 
    class HouseInfo
   {
@@ -91,8 +91,8 @@ public class clsAddrRegistryTest {
   int intHousesStreetNotSet ;
   int intHousesStreetNotFound;
   int intHousesStreetNotRelatedToCity ;
-  int intHousesNumberRelatedToTerritory;
-  int intHousesStreetNotRoutable;
+ // int intHousesNumberRelatedToTerritory;
+ // int intHousesStreetNotRoutable;
 
 
   public clsAddrRegistryTest()
@@ -112,8 +112,8 @@ public class clsAddrRegistryTest {
     intHousesStreetNotSet=0 ;
     intHousesStreetNotFound=0;
     intHousesStreetNotRelatedToCity=0;
-    intHousesNumberRelatedToTerritory=0;
-    intHousesStreetNotRoutable=0;
+    //intHousesNumberRelatedToTerritory=0;
+    //intHousesStreetNotRoutable=0;
   }
 
   public void AddHouseToRegistry(String strHouseNumber,
@@ -402,20 +402,20 @@ public class clsAddrRegistryTest {
        intHousesStreetNotFound++;
       }
 
-      if (theHouseInfo.errorCode==steStreetNotRoutable  )
+     /* if (theHouseInfo.errorCode==steStreetNotRoutable  )
       {arrHousesErr.add(theHouseInfo);
         intHousesStreetNotRoutable++;
-      }
+      }*/
 
       if (theHouseInfo.errorCode==steStreetNotRelatedToCity)
       {arrHousesErr.add(theHouseInfo);
         intHousesStreetNotRelatedToCity++;
       }
 
-      if (theHouseInfo.errorCode==steNumberRelatedToTerritory)
+      /*if (theHouseInfo.errorCode==steNumberRelatedToTerritory)
       {arrHousesErr.add(theHouseInfo);
         intHousesNumberRelatedToTerritory++;
-      }
+      } */
     }
 
     //Теперь надо список домов рассортировать
@@ -480,7 +480,9 @@ public class clsAddrRegistryTest {
       }
       else
       {
-        return steStreetNotRoutable;
+        //return steStreetNotRoutable;
+        //Non-routable streets are now included into address registry.
+        return steOK;
       }
     }
 
@@ -490,12 +492,14 @@ public class clsAddrRegistryTest {
     // Название улицы равно названию города
     if(strStreetDesc.equals(strCity))
     {
-      return steNumberRelatedToTerritory;
+      //return steNumberRelatedToTerritory;
+      return steOK;
     }
 
     if (strStreetDesc.equals("деревня " + strCity))
     {
-      return steNumberRelatedToTerritory;
+      //return steNumberRelatedToTerritory;
+      return steOK;
     }
 
 
@@ -504,7 +508,7 @@ public class clsAddrRegistryTest {
      // названия микрорайонов дворовым проездам. hw=service
 
     //Название улицы может содержать название района (suburb)
-     String strStreetDescWoSuburb;
+    String strStreetDescWoSuburb;
     strStreetDescWoSuburb=strStreetDesc;
 
     Pattern p = Pattern.compile("(.*) /(.*)/");
@@ -520,14 +524,16 @@ public class clsAddrRegistryTest {
          vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "садоводство") != 0 ||
          vb6.Left(strStreetDescWoSuburb, 3).equals("СНТ") )
     {
-       return steNumberRelatedToTerritory;
+       //return steNumberRelatedToTerritory;
+      return steOK;
     }
 
 
     //Попытаемся найти нашу улицу в списке территорий.
     if(mapAddrTerritoryByNameAndCity.containsKey(strCity+"/"+strStreetDesc) )
     {
-      return steNumberRelatedToTerritory;
+      //return steNumberRelatedToTerritory;
+      return steOK;
     }
 
 
@@ -546,7 +552,8 @@ public class clsAddrRegistryTest {
       else
       {
         //Это такой особый прикол, что нерутинговым улицам город не присваивается.
-        return steStreetNotRoutable;
+        //return steStreetNotRoutable;
+        return steStreetNotRelatedToCity;
       }
     }
 
@@ -599,8 +606,8 @@ public class clsAddrRegistryTest {
     oReportFile.write( " <HousesStreetNotSet>" + Integer.toString(intHousesStreetNotSet) + "</HousesStreetNotSet>\r\n");
     oReportFile.write( " <HousesStreetNotFound>" + Integer.toString( intHousesStreetNotFound) + "</HousesStreetNotFound>\r\n");
     oReportFile.write( " <HousesStreetNotRelatedToCity>" + Integer.toString(intHousesStreetNotRelatedToCity) + "</HousesStreetNotRelatedToCity>\r\n");
-    oReportFile.write( " <HousesStreetNotRoutable>"  + Integer.toString(intHousesStreetNotRoutable) + "</HousesStreetNotRoutable>\r\n");
-    oReportFile.write( " <HousesNumberRelatedToTerritory>" + Integer.toString(intHousesNumberRelatedToTerritory) + "</HousesNumberRelatedToTerritory>\r\n");
+    //oReportFile.write( " <HousesStreetNotRoutable>"  + Integer.toString(intHousesStreetNotRoutable) + "</HousesStreetNotRoutable>\r\n");
+    //oReportFile.write( " <HousesNumberRelatedToTerritory>" + Integer.toString(intHousesNumberRelatedToTerritory) + "</HousesNumberRelatedToTerritory>\r\n");
 
     oReportFile.write( " <CitiesWithoutPopulation>" + Integer.toString( arrCitiesWOPopulation.size() )+ "</CitiesWithoutPopulation>\r\n");
     oReportFile.write( " <CitiesWithoutPlacePolygon>"  + Integer.toString(arrCitiesWOPlacePolygon.size()) + "</CitiesWithoutPlacePolygon>\r\n");
