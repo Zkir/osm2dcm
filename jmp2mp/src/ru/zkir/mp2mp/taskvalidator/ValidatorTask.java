@@ -47,7 +47,8 @@ public class ValidatorTask {
   //Тест адрески
   private clsAddrRegistryTest oAddrRegistryTest;
 
-  public void execute (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly, boolean blnNoRoutingTestByLevels) throws IOException, MPParseException
+  public void execute (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly,
+                       boolean blnNoRoutingTestByLevels,boolean blnSkipDeadEndTest ) throws IOException, MPParseException
   {
     String strReportFileName;
     strReportFileName=strTarget + "_addr.xml";
@@ -60,8 +61,9 @@ public class ValidatorTask {
     System.out.println( "Viewpoint: " + strViewPoint);
     System.out.println( "E-road shields only: " + blnEroadShieldsOnly);
     System.out.println( "Connectivity test by zero level only: " + blnNoRoutingTestByLevels);
+    System.out.println( "Skip dead end test: " + blnSkipDeadEndTest);
 
-    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels);
+    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest);
 
     System.out.println( "Postprocessor has been finished OK");
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
@@ -73,7 +75,8 @@ public class ValidatorTask {
                           String strReportFileName,
                           String strViewPoint,
                           boolean blnEroadShieldsOnly,
-                          boolean blnNoRoutingTestByLevels) throws IOException, MPParseException
+                          boolean blnNoRoutingTestByLevels,
+                          boolean blnSkipDeadEndTest) throws IOException, MPParseException
   {
     MpFile oSrcMp;
     MpFile oTgtMp;
@@ -327,10 +330,13 @@ public class ValidatorTask {
           lat2=bbox[2];
           lon2=bbox[3];
 
-          if(blnNoRoutingTestByLevels )
-            oDeadEndTest.AddRoad(oMpSection.mpType(), 1,NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
-          else
-            oDeadEndTest.AddRoad(oMpSection.mpType(), OSMLevelByTag(oMpSection.GetOsmHighway()),NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
+          if (!blnSkipDeadEndTest)
+          {
+            if(blnNoRoutingTestByLevels )
+              oDeadEndTest.AddRoad(oMpSection.mpType(), 1,NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
+            else
+              oDeadEndTest.AddRoad(oMpSection.mpType(), OSMLevelByTag(oMpSection.GetOsmHighway()),NN, NodeList, NodeList2, lat1, lon1, lat2, lon2);
+          }
         }
       }
 
@@ -355,11 +361,17 @@ public class ValidatorTask {
       }
     }
     oTgtMp.Close();
+    if (!blnSkipDeadEndTest)
+    {
+      oAddrRegistryTest.ValidateCities();
+      oAddrRegistryTest.ValidateCitiesReverse();
+      oAddrRegistryTest.ValidateHouses();
+    }
+    if (!blnSkipDeadEndTest)
+    {
+      oDeadEndTest.Validate();
+    }
 
-    oAddrRegistryTest.ValidateCities();
-    oAddrRegistryTest.ValidateCitiesReverse();
-    oAddrRegistryTest.ValidateHouses();
-    oDeadEndTest.Validate();
 
     dtProcessEnd=new Date();
 

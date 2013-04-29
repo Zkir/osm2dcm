@@ -114,6 +114,10 @@ public class clsAddrRegistryTest {
     intHousesStreetNotRelatedToCity=0;
     //intHousesNumberRelatedToTerritory=0;
     //intHousesStreetNotRoutable=0;
+    arrHousesErr=new ArrayList<HouseInfo>();
+    arrCitiesWOPopulation=new ArrayList<CityInfo>();
+    arrCitiesWOPlacePolygon=new ArrayList<CityInfo>();
+    arrCitiesWOPlaceNode=new ArrayList<CityInfo>();
   }
 
   public void AddHouseToRegistry(String strHouseNumber,
@@ -293,8 +297,7 @@ public class clsAddrRegistryTest {
 
     //rsCities.Sort = RS_CITY_NAME
 
-    arrCitiesWOPopulation=new ArrayList<CityInfo>();
-    arrCitiesWOPlacePolygon=new ArrayList<CityInfo>();
+
 
     for(i=0;i<arrCities.size();i++ )
     {
@@ -354,9 +357,6 @@ public class clsAddrRegistryTest {
 
 
 
-    //rsCityPolies.Filter = RS_CITY_VALID & "=0"
-    arrCitiesWOPlaceNode=new ArrayList<CityInfo>();
-
     for(i=0;i<arrCityPolies.size();i++ )
     {
       CityInfo theCityInfo;
@@ -376,7 +376,6 @@ public class clsAddrRegistryTest {
   public void  ValidateHouses()
   {
     int i;
-    arrHousesErr=new ArrayList<HouseInfo>();
 
     for(i=0;i<arrHouses.size();i++ )
     {
