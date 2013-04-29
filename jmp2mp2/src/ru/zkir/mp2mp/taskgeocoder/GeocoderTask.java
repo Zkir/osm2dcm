@@ -168,12 +168,49 @@ public class GeocoderTask {
       levelsForRegion=new String[] {"4"};
     }
 
+    //Швейцария
+    if (strCountryCode.equals("CH"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"4"};
+    }
+    //Франция
+    if (strCountryCode.equals("FR"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+
+
     //США
     if (strCountryCode.equals("US"))
       levelsForCity=new String[] {"8","6"};
 
+    //Чили
+    if (strCountryCode.equals("CL"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+    //Venezuela
+    if (strCountryCode.equals("VE"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+    //Парагвай
+    if (strCountryCode.equals("PY"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"4"};
+    }
 
-
+    //Фолклендские о-ва
+    if (strCountryCode.equals("FK"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"4"};
+    }
 
     if (levelsForCity.length==0 )
     {
