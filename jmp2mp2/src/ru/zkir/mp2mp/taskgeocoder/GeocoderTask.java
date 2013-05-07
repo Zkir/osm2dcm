@@ -68,7 +68,7 @@ public class GeocoderTask {
 
     if (strCountryCode.equals("PT"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
     }
 
@@ -120,7 +120,7 @@ public class GeocoderTask {
     //Румыния
     if (strCountryCode.equals("RO"))
     {
-      levelsForCity=new String[] {"6","4"};
+      levelsForCity=new String[] {"6","4","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"5","4"};
     }
 
@@ -195,22 +195,31 @@ public class GeocoderTask {
     //Venezuela
     if (strCountryCode.equals("VE"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
     }
     //Парагвай
     if (strCountryCode.equals("PY"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"4"};
     }
 
     //Фолклендские о-ва
     if (strCountryCode.equals("FK"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"4"};
     }
+
+    //Куба
+    if (strCountryCode.equals("CU"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      //levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"4"};
+    }
+
 
     if (levelsForCity.length==0 )
     {
@@ -293,31 +302,67 @@ public class GeocoderTask {
 //Нас интересуют только "города"
 class Geocoder{
   ArrayList<AddressRegion> addressRegions;
+  ArrayList<CityPoint> cityPoints;
   Geocoder()
   {
     addressRegions=new ArrayList<AddressRegion>();
+    cityPoints=new   ArrayList<CityPoint>();
   }
 
   //Единственная нужная на данный момент функция геокодера
   //определение города
+  double sqr (double x)
+  {return x*x;}
+  double dist(double lat1, double lon1, double lat2,  double lon2)
+  {
+    return sqr(lat1-lat2)+sqr(lon1-lon2);
+  }
   String getCityName(double lat, double lon, String[] levelsForCity)
   {
     String strName="";
 
     for (int k=0;k<levelsForCity.length;k++ )
+    {
+      if (!levelsForCity[k].equals("NEAREST_CITY_POINT"))
       {
-      //Простой линейный поиск
-      for (int i=0;i<addressRegions.size();i++ )
-      {
-        AddressRegion  currRegion;
-        currRegion=addressRegions.get(i);
-        if(currRegion.addrLevel.equals(levelsForCity[k])   && currRegion.polygon.isInside(lat,lon) )
+        //Ищем в списке полигональных адресных регионов
+        //Простой линейный поиск
+        for (int i=0;i<addressRegions.size();i++ )
         {
-          strName=currRegion.name;
-          return strName;
+          AddressRegion  currRegion;
+          currRegion=addressRegions.get(i);
+          if(currRegion.addrLevel.equals(levelsForCity[k])  && currRegion.polygon.isInside(lat,lon) )
+          {
+            strName=currRegion.name;
+            return strName;
+          }
         }
+      }else
+      {
+        //Ищем в списке точечных городов
+        if(cityPoints.size()>0)
+        {
+          double r2min;
+          double r2;
+          r2min=dist(lat, lon, cityPoints.get(0).lat,cityPoints.get(0).lon);
+          strName=cityPoints.get(0).name;
+
+          //А сейчас поищем точечные города.
+          for(int i=1;i<cityPoints.size();i++)
+          {
+            r2=dist(lat,lon,cityPoints.get(i).lat,cityPoints.get(i).lon);
+            if (r2<r2min)
+            {
+              r2min=r2;
+              strName=cityPoints.get(i).name;
+            }
+          }
+        }
+        if(!strName.equals(""))
+        { return strName; }
       }
     }
+
     return strName;
   }
 
@@ -412,6 +457,36 @@ class Geocoder{
     }
     System.out.println(k+ " relation(s) processed");
     System.out.println(addressRegions.size()+ " relation(s) loaded");
+
+    //Извлечем точечные НП
+    java.util.Iterator nodes=osmParser.myParser.nodes.values().iterator();
+    while (nodes.hasNext())
+    {
+      OsmNode theNode;
+      theNode=(OsmNode)nodes.next();
+      if (theNode.tags.containsKey("place")&&
+          (theNode.tags.get("place").equals("city")||theNode.tags.get("place").equals("town")||
+           theNode.tags.get("place").equals("village")||theNode.tags.get("place").equals("hamlet")))
+      {
+        if (!theNode.tags.containsKey("name") || theNode.tags.get("name").equals(""))
+        {
+          System.out.println("place node without name: "+ theNode.id );
+          continue;
+        }
+        CityPoint cityPoint=new CityPoint();
+        cityPoint.lat = theNode.lat;
+        cityPoint.lon = theNode.lon;
+        cityPoint.name= theNode.tags.get("name");
+        cityPoint.placeTag =theNode.tags.get("place");
+       /* if (!(cityPoint.placeTag.equals("city")||cityPoint.placeTag.equals("town")||
+                cityPoint.placeTag.equals("village")||cityPoint.placeTag.equals("hamlet")))
+          System.out.println(theNode.tags.get("place"));*/
+
+        cityPoints.add(cityPoint);
+
+      }
+    }
+    System.out.println(cityPoints.size() + " place points loaded");
   }
 
 
@@ -426,4 +501,13 @@ class AddressRegion{
   AddressRegion()
   {name="";
    polygon=new Polygon();}
+}
+
+class CityPoint
+{
+  String name;
+  String placeTag;
+  double lat;
+  double lon;
+
 }

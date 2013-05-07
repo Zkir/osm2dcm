@@ -73,6 +73,7 @@ class MyParser extends DefaultHandler {
   HashMap<String,OsmWay> ways;
   ArrayList<OsmRelation> relations;
 
+  OsmNode currentNode;
   OsmWay currentWay;
   OsmRelation currentRelation;
   String currentObjectType;
@@ -88,7 +89,8 @@ class MyParser extends DefaultHandler {
                            Attributes attributes) throws SAXException {
 
     if (qName.equals("node")) {
-      nodes.put(attributes.getValue("id"), new OsmNode(attributes.getValue("id"),attributes.getValue("lat"),attributes.getValue("lon"))) ;
+      currentNode=new OsmNode(attributes.getValue("id"),attributes.getValue("lat"),attributes.getValue("lon"));
+      nodes.put(attributes.getValue("id"),currentNode ) ;
       currentObjectType="node";
     }
 
@@ -124,6 +126,15 @@ class MyParser extends DefaultHandler {
       {
         currentRelation.addTag(strKey,strValue);
       }
+
+      //Это нужно для городов
+      if (currentObjectType.equals("node"))
+      {
+        if (strKey.equals("place")||strKey.equals("name") ) {
+          currentNode.addTag(strKey, strValue);
+        }
+      }
+
     }
     //<member type='way' ref='38081911' role='outer' />
     if (qName.equals("member")) {
@@ -224,11 +235,19 @@ class OsmNode{
   String id;
   double lat;
   double lon;
+  java.util.HashMap<String,String> tags;
 
   OsmNode(String aRef, String aLat,String aLon)
-  {id=aRef;
-   lat=Double.parseDouble(aLat);
-   lon=Double.parseDouble(aLon);}
+  {
+    id=aRef;
+    lat=Double.parseDouble(aLat);
+    lon=Double.parseDouble(aLon);
+    tags=new java.util.HashMap<String,String>();
+  }
+  public void addTag(String strKey, String strValue)
+  {
+    tags.put(strKey,strValue);
+  }
 }
 
 class OsmWay{
