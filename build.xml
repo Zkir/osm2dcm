@@ -118,6 +118,10 @@
     <copy todir="${buildpath}\_my\test.GK">
         <fileset dir="osm2dcm\_my\test.GK"/>
     </copy>
+    
+    <copy todir="${buildpath}\_my\test.PP">
+        <fileset dir="osm2dcm\_my\test.PP"/>
+    </copy>
    
     <copy todir="${buildpath}"  >
         <fileset file="osm2dcm\osm2mp.pl.patched\osm2mp_new.pl"  />
@@ -128,8 +132,8 @@
     
   </target>
 
-  <target name="tests" description="tests" depends="">
-  <echo>tests </echo>
+  <target name="test_GK" description="Geocoder test" depends="">
+  <echo>test of Geocoder </echo>
     
     <java jar="${buildpath}\jmp2mp2.jar"
            fork="true"
@@ -154,10 +158,35 @@
     <fail unless="gk_tests_ok" message="geocoder test failed"/> 
     <echo>Geocoder test OK</echo>
   </target>
-  
-  <target name="full_build" description="Do the entire build" depends="compile,copy,tests" >
- 
+
+  <target name="test_PP" description="Postprocessor/validator test" depends="">
+  <echo>test of postprocessor/validator </echo>
     
+    <java jar="${buildpath}\jmp2mp.jar"
+           fork="true"
+           failonerror="true"
+           maxmemory="1280m"
+           >
+         <arg value="${buildpath}\_my\TEST.PP\RU-NIZ.pre.mp" />
+         <arg value="${buildpath}\_my\TEST.PP\RU-NIZ.mp" />
+         <classpath>
+           <pathelement location="${buildpath}\jmp2mp.jar"/>
+         </classpath>
+    </java>
+    <echo>Compare with etalon</echo>
+    <condition property="pp_tests_ok"> 
+      <filesmatch file1="${buildpath}\_my\TEST.PP\RU-NIZ.mp" file2="${buildpath}\_my\TEST.PP\RU-NIZ.etalon.mp"/> 
+    </condition> 
+    <fail unless="pp_tests_ok" message="validator test failed"/> 
+    <echo>postprocessor/validator test OK</echo>
+  </target>
+
+
+  <target name="tests" description="Unit tests" depends="test_GK,test_PP" >
+    <echo>Unit tests completed OK</echo>
+  </target>
+    
+  <target name="full_build" description="Do the entire build" depends="compile,copy,tests" >
     <echo>Full build of Osm2dcm has been completed OK</echo>
   </target>
   
