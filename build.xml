@@ -30,16 +30,18 @@
     </exec>
      
     <!--Постпроцессор / Валидатор -->
-    <echo>mpFilter</echo>
+    <!--<echo>mpFilter</echo>
     <exec executable="${vbexe}" failonerror="true"> 
       <arg value="-make"/> 
       <arg value="mpFilter\mpPostProcessor.vbp"/> 
       <arg value="${buildpath}\mpPostProcessor.exe"/> 
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
-    </exec>
+    </exec> -->
+
     
     <!--Отслеживалка изменений -->
+    <!--
     <echo>ChangeTracker</echo>
     <exec executable="${vbexe}" failonerror="true"> 
       <arg value="-make"/> 
@@ -47,7 +49,7 @@
       <arg value="${buildpath}\ChangeTracker.exe"/> 
       <arg value="-out"/> 
       <arg value="${buildpath}:\build_log.txt"/> 
-    </exec>
+    </exec> -->
     
     <!-- JAVA -->
     <echo> -- Compile java routines</echo>
@@ -79,15 +81,18 @@
      
      <echo>jmp2mp2</echo>
     
-     <javac destdir="jmp2mp2/out/production/jmp2mp2" encoding = "utf-8" includeantruntime="false">
+     <javac destdir="jmp2mp2/out/production/jmp2mp2" 
+            encoding = "utf-8" includeantruntime="false" 
+            classpath="javalibs/junidecode-0.1.1.jar;javalibs/slf4j-api-1.6.3.jar;javalibs/trove4j-2.0.2.jar;javalibs/jsi-1.0.0.jar">
       <src path="jmp2mp2/src"/>
+      
      </javac>
     
      <jar destfile="${buildpath}/jmp2mp2.jar" manifest="jmp2mp2/META-INF/MANIFEST.MF" >
        <fileset dir="jmp2mp2/out/production/jmp2mp2">
          <include name="**/*.class"/>
        </fileset>
-       <zipgroupfileset dir="" includes="**/*.jar" />
+       <zipgroupfileset dir="" includes="javalibs/**/*.jar" />
      </jar> 
     
   </target> 
@@ -109,6 +114,10 @@
     <copy todir="${buildpath}\_my\test">
         <fileset dir="osm2dcm\_my\test"/>
     </copy>
+    
+    <copy todir="${buildpath}\_my\test.GK">
+        <fileset dir="osm2dcm\_my\test.GK"/>
+    </copy>
    
     <copy todir="${buildpath}"  >
         <fileset file="osm2dcm\osm2mp.pl.patched\osm2mp_new.pl"  />
@@ -119,8 +128,37 @@
     
   </target>
 
-  <target name="full_build" description="Do the entire build" depends="compile,copy">
-    <echo>Full build of Osm2dcm has been completed</echo>
+  <target name="tests" description="tests" depends="">
+  <echo>tests </echo>
+    
+    <java jar="${buildpath}\jmp2mp2.jar"
+           fork="true"
+           failonerror="true"
+           maxmemory="1280m"
+           >
+         <arg value="--readmp" />
+         <arg value="file=&quot;${buildpath}\_my\TEST.GK\CU-FULL.pre.mp&quot;" />
+         <arg value="--geocode" />
+         <arg value="src=&quot;${buildpath}\_my\TEST.GK\boundaries.osm&quot;" />
+         <arg value="mapcode=&quot;CU-FULL&quot;" />
+         <arg value="--writemp" />
+         <arg value="file=&quot;${buildpath}\_my\TEST.GK\CU-FULL.mp&quot;"/>
+         <classpath>
+           <pathelement location="${buildpath}\jmp2mp2.jar"/>
+         </classpath>
+    </java>
+    <echo>Compare with etalon</echo>
+    <condition property="gk_tests_ok"> 
+      <filesmatch file1="${buildpath}\_my\TEST.GK\CU-FULL.mp" file2="${buildpath}\_my\TEST.GK\CU-FULL.etalon.mp"/> 
+    </condition> 
+    <fail unless="gk_tests_ok" message="geocoder test failed"/> 
+    <echo>Geocoder test OK</echo>
+  </target>
+  
+  <target name="full_build" description="Do the entire build" depends="compile,copy,tests" >
+ 
+    
+    <echo>Full build of Osm2dcm has been completed OK</echo>
   </target>
   
   <target name="deploy" description="Deploy scripts to the production server" depends="full_build">
