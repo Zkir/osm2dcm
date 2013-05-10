@@ -550,9 +550,9 @@ public class clsAddrRegistryTest {
       }
       else
       {
-        //Это такой особый прикол, что нерутинговым улицам город не присваивается.
-        //return steStreetNotRoutable;
-        return steStreetNotRelatedToCity;
+        //Это такой особый прикол osm2mp, что нерутинговым улицам город не присваивается.
+        //Будем считать, что если улица с таким названием есть, и она нерутинговая, этого достаточно
+        return steOK;
       }
     }
 
