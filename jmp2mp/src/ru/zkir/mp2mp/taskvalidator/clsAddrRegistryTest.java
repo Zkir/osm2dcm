@@ -521,6 +521,7 @@ public class clsAddrRegistryTest {
          vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "квартал") != 0 ||
          vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "поселок") != 0 ||
          vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "садоводство") != 0 ||
+         vb6.InStr(strStreetDescWoSuburb.toLowerCase(), "территория") != 0 ||
          vb6.Left(strStreetDescWoSuburb, 3).equals("СНТ") )
     {
        //return steNumberRelatedToTerritory;
