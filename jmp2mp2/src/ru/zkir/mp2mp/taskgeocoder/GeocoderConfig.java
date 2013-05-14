@@ -19,6 +19,9 @@ public class GeocoderConfig{
     levelsForRegion=new String[] {};
 
     //Страно-специфичные правила
+    //===========================================================================================
+    //Европа
+    //===========================================================================================
     if (strCountryCode.equals("EE"))
       levelsForCity=new String[] {"9"};
 
@@ -156,7 +159,16 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"6"};
     }
 
+    //Мальта
+    if (strCountryCode.equals("MT"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
 
+    //===========================================================================================
+    //Америка
+    //===========================================================================================
     //США
     if (strCountryCode.equals("US"))
       levelsForCity=new String[] {"8","6"};
@@ -195,6 +207,51 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Панама
+    if (strCountryCode.equals("PA"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+    //Белиз
+    if (strCountryCode.equals("BZ"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Коста-Рика CR
+    if (strCountryCode.equals("CR"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Гватемала - GT
+    if (strCountryCode.equals("GT"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+    //Гондурас -- HN
+    if (strCountryCode.equals("HN"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+    //Никарагуа NI
+    if (strCountryCode.equals("NI"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Сальвадор - SV
+    if (strCountryCode.equals("SV"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
   }
 
 }
