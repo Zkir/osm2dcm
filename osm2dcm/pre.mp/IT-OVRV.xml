@@ -6,9 +6,16 @@
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <rule predefined="uplift_cities_6"/>
+  <rule predefined="set_region_map"/>
 </source_file>
 
-<source_file name="_my\IT-OVRV\IT-OVRV.roads.mp">
+<source_file name="pre.mp\ItalyBkg.mp">
+  <!--Безусловное копирование -->
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+</source_file>
+
+<source_file name="_my\IT-OVRV\IT-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <!--убрать  пои  -->

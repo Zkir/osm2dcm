@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="Windows-1251"?>
 <mp2mp>
 
+<source_file name="_my\FI-OVRV\FI-OVRV.cities.mp">
+  <!--Безусловное копирование -->
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+  <rule predefined="uplift_cities_6"/>
+  <rule predefined="set_region_map"/>
+</source_file>
+
 <source_file name="pre.mp\FinlandBkg.mp">
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
 </source_file>
 
-<source_file name="_my\FI-OVRV\FI-OVRV.cities.mp">
-  <!--Безусловное копирование -->
-  <!--Пропустить отдельные комментарии -->
-  <rule predefined="skip_comment_sections"/>
-  <rule predefined="uplift_cities_6"/>
-</source_file>
 
 <source_file name="_my\FI-OVRV\FI-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
