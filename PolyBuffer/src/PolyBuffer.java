@@ -17,15 +17,33 @@ public class PolyBuffer {
   public static void main(String[] args)    throws IOException,ParseException
   {
     DouglasPeuckerSimplifier  dps;
+    System.out.println("PolyBuffer, (c) Zkir 2013");
+    String strSourceFile;
+    String strOutFile;
+    double dblBufferSize;
+    double dblSimplValue;
+    strSourceFile=args[0];
+    strOutFile=args[1];
+    if (args[2]!="")
+    {
+      dblBufferSize= Double.parseDouble(args[2]);
+      dblSimplValue=dblBufferSize/5;
 
-    Geometry g1=ReadFromPoly("D:\\ES-OVRV.poly");
+    }
+    else
+    {
+      dblBufferSize=0.01;
+      dblSimplValue= 0.002;
+    }
 
-    Geometry g2=g1.buffer(0.01,3);
+    Geometry g1=ReadFromPoly(strSourceFile);
+
+    Geometry g2=g1.buffer(dblBufferSize,3);
 
     dps= new DouglasPeuckerSimplifier(g2);
-    dps.setDistanceTolerance(0.0020);
+    dps.setDistanceTolerance(dblSimplValue);
 
-    SaveToPoly(dps.getResultGeometry(),"D:\\ES-OVRV.poly");
+    SaveToPoly(dps.getResultGeometry(),strOutFile);
 
 
 
@@ -39,7 +57,7 @@ public class PolyBuffer {
     double lat, lon;
     oInFile.readLine();//Header, we are not interested in it
     oInFile.readLine();
-    //oInFile.readLine();
+    oInFile.readLine();
     while( (strLine = oInFile.readLine()) != null) {
       strLine = strLine.trim();
       if (strLine.equalsIgnoreCase("end") )
