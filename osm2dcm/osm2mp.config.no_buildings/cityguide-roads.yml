@@ -1,0 +1,369 @@
+--- ways
+---
+#highway motorway r 0x01,2 0 5 6,4,1,0,0,0,0,0,0,1,1,0 
+- condition:
+    - highway = motorway
+  action:
+    - action: load_road
+      type: 0x01
+      level_h: 5
+      routeparams: '6,4,1,0,0,0,0,0,0,1,1,0'
+
+#highway motorway_link r 0x0B,2 0 2 3,4,1,0,0,0,0,0,0,1,1,0 
+- condition:
+    - highway = motorway_link
+  action:
+    - action: load_road
+      type: 0x0B
+      level_h: 2
+      routeparams: '3,4,1,0,0,0,0,0,0,1,1,0'
+
+#highway trunk r 0x01,2 0 5 5,4,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = trunk
+  action:
+    - action: load_road
+      type: 0x01
+      level_h: 5
+      routeparams: '5,4,0,0,0,0,0,0,0,0,0,0'
+
+#highway trunk/city r 0x01,2 0 5 3,3,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = trunk
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x01
+      level_h: 5
+      routeparams: '3,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway trunk_link r 0x0B,2 0 2 3,4,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = trunk_link
+  action:
+    - action: load_road
+      type: 0x0B
+      level_h: 2
+      routeparams: '3,4,0,0,0,0,0,0,0,0,0,0'
+
+#highway trunk_link/city r 0x0B,2 0 2 3,3,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = trunk_link
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x0B
+      level_h: 2
+      routeparams: '3,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway primary r 0x02,2 0 4 4,3,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = primary
+  action:
+    - action: load_road
+      type: 0x02
+      level_h: 4
+      routeparams: '4,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway primary/city r 0x04,2 0 4 3,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = primary
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x04
+      level_h: 4
+      routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway primary_link r 0x08,2 0 2 2,3,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = primary_link
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 2
+      routeparams: '2,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway primary_link/city r 0x08,2 0 2 2,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = primary_link
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 2
+      routeparams: '2,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway secondary r 0x03,2 0 4 4,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = secondary
+  action:
+    - action: load_road
+      type: 0x03
+      level_h: 4
+      routeparams: '4,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway secondary/city r 0x05,2 0 2 3,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = secondary
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x05
+      level_h: 2
+      routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway secondary_link r 0x08,2 0 2 2,3,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = secondary_link
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 2
+      routeparams: '2,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway secondary_link/city r 0x08,2 0 2 2,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = secondary_link
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 2
+      routeparams: '2,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway tertiary r 0x03,2 0 2 3,1,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = tertiary
+  action:
+    - action: load_road
+      type: 0x03
+      level_h: 2
+      routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway tertiary/city r 0x05,2 0 1 3,1,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = tertiary
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x05
+      level_h: 1
+      routeparams: '3,1,0,0,0,0,0,0,0,0,0,0'
+
+#highway tertiary_link  
+- condition:
+    - highway = tertiary_link
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 2
+      routeparams: '2,3,0,0,0,0,0,0,0,0,0,0'
+
+#highway tertiary_link/city 
+- condition:
+    - highway = tertiary_link
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x08
+      level_h: 1
+      routeparams: '2,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway unclassified r 0x03,2 0 1 3,2,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = unclassified
+  action:
+    - action: load_road
+      type: 0x03
+      level_h: 1
+      routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
+
+#highway unclassified/city r 0x06,2 0 1 2,1,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = unclassified
+    - inside_city
+  action:
+    - action: load_road
+      type: 0x06
+      level_h: 1
+      routeparams: '2,1,0,0,0,0,0,0,0,0,0,0'
+
+#highway road r 0x00,2 0 0 0,0,0,0,0,0,0,1,0,0,0,0 
+- condition:
+    - highway = road
+  action:
+    - action: write_line
+      type: 0x8849
+      level_h: 1
+
+#    - action: load_road
+#      type: 0x00
+#      level_h: 0
+#      routeparams: '0,0,0,0,0,0,0,1,0,0,0,0'
+
+#highway residential r 0x06,2 0 1 2,0,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = residential
+  action:
+    - action: load_road
+      type: 0x06
+      level_h: 1
+      routeparams: '2,0,0,0,0,0,0,0,0,0,0,0'
+
+#highway living_street r 0x07,1 0 1 1,0,0,0,0,0,0,0,0,0,0,0 
+#!Check Priority!
+- condition:
+    - highway = living_street
+  action:
+    - action: load_road
+      type: 0x06
+      level_h: 1
+      routeparams: '1,0,0,0,0,0,1,1,1,0,0,0'
+
+#highway pedestrian r 0x16,2 0 1 0,0,0,0,0,1,1,1,1,0,0,1 
+#!Check Priority!
+#- condition:
+#    - highway = pedestrian
+#    - name = *
+#  action:
+#    - action: load_road
+#      type: 0x16
+#      level_h: 1
+#      routeparams: '0,0,0,0,0,1,1,1,1,0,0,1'
+
+
+#Unnamed pedestrians are treated as service 
+- condition:
+    - highway = pedestrian
+#    - name != *
+  action:
+    - action: write_line
+      type: 0x8849
+      level_h: 1
+
+
+##highway service r 0x07,2 0 0 1,0,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = service
+    - access != private
+    - area != yes
+  action:
+    - action: load_road
+      type: 0x07
+      level_h: 0
+      routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
+
+
+- condition:
+    - highway = service
+    - access = private
+    - area != yes
+  action:
+    - action: write_line
+      type: 0x8849
+      level_h: 0
+
+
+#Polygonal service are NOT included into routing
+##highway=service + area=yes
+- condition:
+    - highway = service
+    - area = yes
+  action:
+    - action: write_polygon
+      type: 0x6a
+      level_h: 0
+
+##route ferry r 0x1b 0 1 0,0,0,0,0,0,0,1,0,0,0,0 
+#- condition:
+#    - route = ferry
+#    - vehicle != no 
+#    - motor_vehicle != no
+#    - motorcar != no 
+#  action:
+#    - action: load_road
+#      type: 0x1b
+#      level_h: 1
+#      routeparams: '0,0,0,0,0,0,0,1,0,0,0,0'
+
+##highway bridleway r 0x16,1 0 1 1,0,0,0,0,1,1,1,1,0,0,1 
+##highway cycleway r 0x16,1 0 1 1,0,0,0,0,1,1,1,1,0,0,1 
+
+#highway construction r 0x47 0 1 0,0,0,0,0,0,0,1,0,0,0,0  
+- condition:
+    - highway = checked_construction
+  action:
+    - action: load_road
+      type: 0x47
+      level_h: 1
+      routeparams: '0,0,0,0,0,0,0,1,0,0,0,0'
+
+## Modifiers
+
+#junction roundabout r 0x0c,3 0 2 1,2,1,0,0,0,0,0,0,0,0,0 
+- condition:
+    - junction = roundabout
+  action:
+    - action: modify_road
+      type: 0x0c
+      routeparams: '.,.,1,.,.,.,.,.,.,.,.,.'
+
+#oneway
+- condition:
+    - oneway = yes|true|1
+  action:
+    - action: modify_road
+      routeparams: '.,.,1,.,.,.,.,.,.,.,.,.'
+
+- condition:
+    - oneway = no|false|0
+  action:
+    - action: modify_road
+      routeparams: '.,.,0,.,.,.,.,.,.,.,.,.'
+
+- condition:
+    - oneway = -1
+  action:
+    - action: modify_road
+      routeparams: '.,.,1,.,.,.,.,.,.,.,.,.'
+      reverse: 1
+
+#toll
+- condition:
+    - toll = yes|true|1
+  action:
+    - action: modify_road
+      routeparams: '.,.,.,1,.,.,.,.,.,.,.,.'
+# unpaved roads
+- condition:
+    - surface = unpaved|ground|earth|mud|grass|sand|dirt|gravel
+    - highway != service
+  action:
+    - action: modify_road
+      type: 0x0a
+      routeparams: '0,.,.,.,.,.,.,.,.,.,.,.'
+# motorroads
+- condition:
+    - highway != motorway
+    - motorroad = yes|true|1
+  action:
+    - action: modify_road
+      routeparams: '.,+1,.,.,.,.,.,.,.,.,.,.'
+
+#ferry=yes 
+- condition:
+    - ferry = yes|true|1
+  action:
+    - action: modify_road
+      type: 0x1b
+      routeparams: '0,.,.,.,.,.,.,.,.,.,.,.'
+
+#route ferry r 0x1b 0 1 0,0,0,0,0,0,0,1,0,0,0,0
+- condition:
+    - route = ferry
+  action:
+    - action: modify_road
+      type: 0x1b
+      routeparams: '0,.,.,.,.,.,.,.,.,.,.,.'
+

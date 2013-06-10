@@ -1,0 +1,487 @@
+--- ways
+---
+#aeroway terminal p 0x07 
+- condition:
+    - aeroway = terminal
+  action:
+    - action: write_polygon
+      type: 0x07
+      level_h: 1
+
+#amenity bank p undef 0 0 0x2F06,0,0 
+#amenity bar p undef 0 0 0x2D02,0,0 
+#amenity biergarten p undef 0 0 0x2D02,0,0 
+#amenity bus_station p undef 0 0 0x2F08 
+#amenity cafe p undef 0 0 0x2A0E 
+#amenity car_rental p undef 0 0 0x2F02 
+#amenity car_wash p undef 0 1 0x2F0E 
+#amenity cinema p undef 0 1 0x2D03 
+#amenity college p 0x0a,1 0 1 0x2C05 
+- condition:
+    - amenity = college
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x0a
+      level_h: 1
+
+#amenity courthouse p undef 0 1 0x3004 
+#amenity dentist p undef 0 1 0xf801 
+#amenity doctors p undef 0 1 0x3002 
+#amenity fast_food p undef 0 1 0x2A07 
+#amenity fire_station p undef 0 1 0x3008 
+#amenity fountain p undef 0 1 0xf302,0,0 
+#amenity food_court p undef 0 1 0x2a07 
+#amenity fuel p undef 0 1 0x2F01,0,1 
+#amenity cng_fuel p undef 0 1 0xF208,0,1 
+#amenity lpg_fuel p undef 0 1 0xF208,0,1 
+#amenity grave_yard p 0x1a 0 1 
+- condition:
+    - amenity = grave_yard
+  action:
+    - action: write_polygon
+      type: 0x1a
+      level_h: 1
+
+#amenity hospital p 0x0b,1 0 1 0x3002 
+- condition:
+    - amenity = hospital
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x0b
+      level_h: 1
+
+#amenity kindergarten p undef 0 1 0xf501 
+#amenity library p undef 0 1 0x2C03,0,0 
+#amenity nightclub p undef 0 1 0x2D02,0,0 
+#amenity parking p 0x05 0 1 0x2F0B 
+- condition:
+    - amenity = parking
+  action:
+    - action: write_polygon
+      type: 0x05
+      level_h: 1
+
+#amenity private_parking p 0x05 0 1 
+- condition:
+    - amenity = private_parking
+  action:
+    - action: write_polygon
+      type: 0x05
+      level_h: 1
+
+#amenity parking_garage p 0x06 
+- condition:
+    - amenity = parking_garage
+  action:
+    - action: write_polygon
+      type: 0x06
+      level_h: 1
+
+#amenity pharmacy p undef 0 1 0x2E05,0,0 
+#amenity sauna p undef 0 1 0xf603,0,0 
+#denomination orthodox p undef,2 0 2 0xf101,0,1 
+#denomination catholic p undef,2 0 2 0xf102,0,1 
+#denomination protestant p undef,2 0 2 0xf103,0,1 
+#denomination evangelical p undef,2 0 2 0xf103,0,1 
+#religion muslim p undef,2 0 2 0xf104,0,1 
+#religion jewish p undef,2 0 2 0xf105,0,1 
+#religion buddhist p undef,2 0 2 0xf106,0,1 
+#amenity police p undef 0 1 0x3001 
+#amenity post_office p undef 0 1 0x2F05,0,0 
+#amenity prison p 0x0c,1 0 1 
+#!Check Priority!
+- condition:
+    - amenity = prison
+  action:
+    - action: write_polygon
+      type: 0x0c
+      level_h: 1
+
+#amenity pub p undef 0 1 0x2D02,0,0 
+#amenity restaurant p undef 0 1 0x4500 
+#amenity school p 0x0a,1 0 1 0x2C05,0,0 
+- condition:
+    - amenity = school
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x0a
+      level_h: 1
+
+#amenity stripclub p undef 0 1 0x2d02,0,0 
+#amenity theatre p undef 0 1 0x2D01,0,0 
+#amenity townhall p undef 0 0 0x3003,0,0 
+#amenity university p 0x0a,1 0 1 0xf504,0,0 
+- condition:
+    - amenity = university
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x0a
+      level_h: 1
+
+##admin_level 8 p 0x01,1 3 4 
+##boundary national_park p 0x14 0 3 
+
+##==============================================================
+# buildings
+##==============================================================
+
+##landuses
+
+#landuse allotments p 0x4e 0 2 
+- condition:
+    - landuse = allotments
+  action:
+    - action: write_polygon
+      type: 0x4e
+      level_h: 2
+
+#place allotments
+- condition:
+    - place = allotments
+    - landuse != allotments
+  action:
+    - action: write_polygon
+      type: 0x4e
+      level_h: 2
+
+#landuse cemetery p 0x1a 0 1 
+- condition:
+    - landuse = cemetery
+  action:
+    - action: write_polygon
+      type: 0x1a
+      level_h: 1
+
+#landuse commercial p 0x08 0 2 
+- condition:
+    - landuse = commercial
+  action:
+    - action: write_polygon
+      type: 0x08
+      level_h: 2
+
+#landuse construction p 0x0c 0 2 
+- condition:
+    - landuse = construction
+  action:
+    - action: write_polygon
+      type: 0x0c
+      level_h: 2
+
+#landuse forest p 0x50 0 3 
+- condition:
+    - landuse = forest
+  action:
+    - action: write_polygon
+      type: 0x50
+      level_h: 3
+
+#landuse garages p 0x0c 
+- condition:
+    - landuse = garages
+  action:
+    - action: write_polygon
+      type: 0x0c
+      level_h: 1
+
+#landuse industrial p 0x0c 0 2 
+- condition:
+    - landuse = industrial
+  action:
+    - action: write_polygon
+      type: 0x0c
+      level_h: 2
+
+#landuse quarry p 0x0c 0 2 
+- condition:
+    - landuse = quarry
+  action:
+    - action: write_polygon
+      type: 0x0c
+      level_h: 2
+
+#landuse residential p 0x02,1 1 2 
+#!Check Priority!
+- condition:
+    - landuse = residential
+  action:
+    - action: write_polygon
+      type: 0x02
+      level_l: 1
+      level_h: 2
+
+#landuse retail p 0x08 0 2 
+- condition:
+    - landuse = retail
+  action:
+    - action: write_polygon
+      type: 0x08
+      level_h: 2
+
+#leisure garden p 0x50 0 2 
+- condition:
+    - leisure = garden
+  action:
+    - action: write_polygon
+      type: 0x50
+      level_h: 2
+
+#leisure golf_course p 0x18 0 1 
+- condition:
+    - leisure = golf_course
+  action:
+    - action: write_polygon
+      type: 0x18
+      level_h: 1
+
+#leisure ice_rink p 0x19 0 1 0x2d08,0,1 
+- condition:
+    - leisure = ice_rink
+  action:
+    - action: write_polygon
+      type: 0x19
+      level_h: 1
+
+#leisure park p 0x50 0 2 
+- condition:
+    - leisure = park
+  action:
+    - action: write_polygon
+      type: 0x50
+      level_h: 2
+
+#leisure pitch p 0x19 0 1 
+- condition:
+    - leisure = pitch
+  action:
+    - action: write_polygon
+      type: 0x19
+      level_h: 1
+
+#leisure stadium p 0x19 0 1 
+- condition:
+    - leisure = stadium
+  action:
+    - action: write_polygon
+      type: 0x19
+      level_h: 1
+
+#leisure water_park p undef 0 0 0x2c00,0,0 
+#natural bay p 0x3f 0 4 
+- condition:
+    - natural = bay
+  action:
+    - action: write_polygon
+      type: 0x3f
+      level_h: 4
+
+#natural beach p 0x89 0 1 0x5400,0,1 
+- condition:
+    - natural = beach|sand
+  action:
+    - action: write_polygon
+      type: 0x89
+      level_h: 1
+
+#natural glacier p 0x4d 0 3 
+- condition:
+    - natural = glacier
+  action:
+    - action: write_polygon
+      type: 0x4d
+      level_h: 3
+
+#natural marsh p 0x51 0 3 
+- condition:
+    - natural = marsh
+  action:
+    - action: write_polygon
+      type: 0x51
+      level_h: 3
+
+#natural scrub p 0x4f 
+- condition:
+    - natural = scrub
+  action:
+    - action: write_polygon
+      type: 0x4f
+      level_h: 1
+
+#natural water p 0x3f,2 0 3 
+#!Check Priority!
+- condition:
+    - natural = water
+  action:
+    - action: write_polygon
+      type: 0x3f
+      level_h: 3
+
+#natural wetland p 0x51 0 3 
+- condition:
+    - natural = wetland
+  action:
+    - action: write_polygon
+      type: 0x51
+      level_h: 3
+
+#natural wood p 0x50 0 3 
+- condition:
+    - natural = wood
+  action:
+    - action: write_polygon
+      type: 0x50
+      level_h: 3
+
+#office accountant p undef 0 0 0x2f00,0,1 
+#office architect p undef 0 0 0x2f00,0,1 
+#office employment_agency p undef 0 0 0x2f00,0,1 
+#office estate_agent p undef 0 0 0xf60f,0,1 
+#office goverment p undef 0 0 0x3007,0,1 
+#office insurance p undef 0 0 0xf60e,0,1 
+#office it p undef 0 0 0xf608,0,1 
+#office lawyer p undef 0 0 0xf60c,0,1 
+#office newspaper p undef 0 0 0xf611,0,1 
+#office quango p undef 0 0 0x3007,0,1 
+#office telecommunication p undef 0 0 0x2f12,0,1 
+#office travel_agent p undef 0 0 0xf613,0,1 
+#place city p 0x01,2 2 5 
+#!Check Priority!
+- condition:
+    - place = city
+  action:
+    - action: write_polygon
+      type: 0x01
+      level_l: 2
+      level_h: 5
+
+#place hamlet p 0x03,2 1 3 
+#!Check Priority!
+- condition:
+    - place = hamlet
+  action:
+    - action: write_polygon
+      type: 0x03
+      level_l: 1
+      level_h: 3
+
+#place town p 0x01,2 2 4 
+#!Check Priority!
+- condition:
+    - place = town
+  action:
+    - action: write_polygon
+      type: 0x01
+      level_l: 2
+      level_h: 4
+
+#place village p 0x03,2 1 3 
+#!Check Priority!
+- condition:
+    - place = village
+  action:
+    - action: write_polygon
+      type: 0x03
+      level_l: 1
+      level_h: 3
+
+#shop bakery p undef 0 0 0x2A0E,0,0 
+#shop bicycle p undef 0 0 0x2F00,0,0 
+#shop books p undef 0 0 0x2E0A,0,0 
+#shop butcher p undef 0 0 0x2E02,0,0 
+#shop car p undef 0 0 0x2F07,0,0 
+#shop car_repair p undef 0 0 0x2F03,0,0 
+#shop chemist p undef 0 0 0x2E02,0,0 
+#shop clothes p undef 0 0 0x2E07,0,0 
+#shop convenience p undef 0 0 0x2E00,0,0 
+#shop computer p undef 0 0 0x2E0B,0,0 
+#shop department_store p undef 0 0 0x2E01,0,0 
+#shop doityourself p undef 0 0 0x2E08,0,0 
+#shop dry_cleaning p undef 0 0 0xf604,0,0 
+#shop electronics p undef 0 0 0x2E0A,0,0 
+#shop electrogoods p undef 0 0 0x2E0A,0,0 
+#shop electrotools p undef 0 0 0x2E0A,0,0 
+#shop furniture p undef 0 0 0x2E09,0,0 
+#shop garden_centre p undef 0 0 0x2E08,0,0 
+#shop grocery p undef 0 0 0x2E02,0,0 
+#shop hardware p undef 0 0 0x2E06,0,0 
+#shop kiosk p undef 0 0 0x2E02,0,0 
+#shop laundry p undef 0 0 0xf604,0,0 
+
+#shop mall        p 0x08,1 0 1 0x2E04,0,0 
+#shop supermarket p 0x08,1 0 1 0x2E02,0,0 
+- condition:
+    - shop = mall|supermarket
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x08
+      level_h: 1
+
+## Sport
+
+#sport basketball p 0x19 
+#sport cycling p 0x19 
+#sport football p 0x19 
+#sport skating p 0x19 0 0 0x2d08,0,0
+#sport skiing p 0x19 0 0 0x5300,0,0  
+#sport soccer p 0x19 
+#sport swimming p 0x19 0 0 0x2d09,0,0 
+#sport table_tennis p 0x19 
+
+# all kinds of sport except golf
+- condition:
+    - sport = *
+    - sport != golf    
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x19
+      level_h: 1
+
+
+#sport golf p 0x18 
+- condition:
+    - sport = golf
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x18
+      level_h: 1
+
+
+
+##Tourism
+
+#tourism attraction p 0x80 
+- condition:
+    - tourism = attraction
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x80
+      level_h: 1
+
+#amenity place_of_worship p 0x80 
+- condition:
+    - amenity = place_of_worship
+    - tourism != attraction
+    - building != *
+  action:
+    - action: write_polygon
+      type: 0x80
+      level_h: 1
+
+#waterway riverbank p 0x47,3 0 4 
+#!Check Priority!
+- condition:
+    - waterway = riverbank
+  action:
+    - action: write_polygon
+      type: 0x47
+      level_h: 4
+
+
