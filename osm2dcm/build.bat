@@ -1,10 +1,10 @@
 @echo off
 
-SET LOG=log.txt
-echo Начало процесса %DATE%_%TIME% >%LOG%
+SET LOG=d:\OSM\osm_data\log.txt
+echo Начало процесса %DATE%_%TIME% >>%LOG%
 
 rem - запускается файл, который делает конверсию по списку карт
-main.vbs
+cscript main.vbs
 
 echo Окончание процесса %DATE%_%TIME% >>%LOG%
 

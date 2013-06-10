@@ -5,9 +5,7 @@ rem getbound.bat finland 54224
 rem getbound.bat estonia1 79510
 rem getbound.bat moldova 58974
 rem getbound.bat GreaterLondon 175342
-rem getbound.bat FR-centre 8640
-rem getbound.bat FR-Ile-de-France 8649
-rem getbound.bat FR-Paris 7444
+
 rem getbound.bat kirgiziya 178009
 rem getbound.bat camboja 49898
 rem getbound.bat thailand 49865
@@ -77,7 +75,7 @@ rem call getbound.bat EE-FULL 79510
 rem call getbound.bat LV-FULL 72594
 rem call getbound.bat LT-FULL 72596
 
-rem call getbound.bat CZ-01 435541
+rem call getbound.bat CZ-01 439841
 rem call getbound.bat CZ-02 435515
 rem call getbound.bat CZ-03 435511
 rem call getbound.bat CZ-04 435516
@@ -111,6 +109,59 @@ rem call getbound.bat BY-VI 59506
 rem call getbound.bat EG-FULL 1473947
 
 
-call getbound.bat UZ-FULL 196240
+rem call getbound.bat UZ-FULL 196240
+
+rem Парагвай
+rem call getbound.bat PY-FULL 287077
+rem Чили 
+rem call getbound.bat CL-FULL 167454
+rem Венесуэла
+rem call getbound.bat VE-FULL 272644
+rem Фолькленд.острова
+rem call getbound.bat FK-FULL 2185374
+rem Cuba
+rem call getbound.bat UZ-FULL xxxxxx
+rem Mexico (Атлас)
+rem call getbound.bat MX-FULL 114686
+rem California (US)
+rem call getbound.bat US-CA xxxxxx
+rem Miami (US) 	Флорида
+rem call getbound.bat US-FL xxxxxx
+
+rem call getbound.bat FR-V 8655
+rem call getbound.bat FR-74 7407
+rem call getbound.bat FR-OVRV 1403916
+
+
+rem getbound.bat FR-centre 8640
+rem getbound.bat FR-Ile-de-France 8649
+rem getbound.bat FR-Paris 7444
+
+rem Эльзас	регион
+rem call getbound.bat FR-A 8636
+rem Аквитания	регион
+rem call getbound.bat FR-B 8637
+rem 	 Овернь	регион
+rem call getbound.bat FR-C 8638
+rem call getbound.bat FR-P 8646	 Нижняя Нормандия	регион
+rem call getbound.bat FR-D 27768	 Бургундия	регион
+rem call getbound.bat FR-E 102740	 Бретань	регион
+rem call getbound.bat FR-F 8640	 Центр	регион
+rem call getbound.bat FR-G 8641	 Шампань-Арденны	регион
+rem call getbound.bat FR-I 8642	 Франш-Конте	регион
+rem call getbound.bat FR-Q 8656	 Верхняя Нормандия	регион
+rem call getbound.bat FR-J 8649	 Иль-де-Франс	регион
+rem call getbound.bat FR-K 8643	 Лангедок-Руссильон	регион
+rem call getbound.bat FR-R 8650	 Пеи-де-ла-Луар	регион
+rem call getbound.bat FR-M 8645	 Лотарингия	регион
+rem call getbound.bat FR-N 8647	 Южные Пиренеи	регион
+rem call getbound.bat FR-O 8648	 Нор-Па-де-Кале	регион
+rem call getbound.bat FR-L 8644	 Лимузен	регион
+rem call getbound.bat FR-S 8651	 Пикардия	регион
+rem call getbound.bat FR-T 8652	 Пуату-Шаранта	регион
+rem call getbound.bat FR-V 8655	 Рона-Альпы	регион
+rem call getbound.bat FR-U 8654	 Прованс-Альпы-Лазурный берег	регион
+
+call getbound.bat FR-H 76910	 Корсика	регион
 
 pause 

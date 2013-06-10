@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<translations>
+<!-- class A routes, E01 - E99 -->
+  <translation>
+   <name>Mark E-routes ways</name>
+   <description>Mark E-routes</description>
+   <match type="way" mode="and">
+     <match mode="or">
+       <tag k="ref"     v="[E|Е][ -]?[0-9]{1,2}(;.*)?"/>
+       <tag k="int_ref" v="[E|Е][ -]?[0-9]{1,2}(;.*)?"/>
+       <tag k="ref"     v="[E|Е][ -]?[1][012][0-9](;.*)?"/>
+       <tag k="int_ref" v="[E|Е][ -]?[1][012][0-9](;.*)?"/>
+     </match>
+
+     <notag k="e-road_network" v="no"/>
+   </match> 
+   <output>
+     <copy-all/>
+     <tag k="E_route_included" v="yes"/>
+   </output>
+ </translation> 
+
+  <translation>
+   <name>Mark E-routes relation</name>
+   <description>Mark E-routes</description>
+   <match type="relation" mode="or">
+     <!--Class A routes, E01 - E99 -->  
+     <tag k="ref" v="[E|Е][ -]?[0-9]{1,2}"/>
+     <tag k="int_ref" v="[E|Е][ -]?[0-9]{1,2}"/>
+
+     <!--Additional class A routes, E101 - E129 -->
+     <tag k="ref" v="[E|Е][ -]?[1][012][0-9]"/>
+     <tag k="int_ref" v="[E|Е][ -]?[1][012][0-9]"/>
+     <!-- Additional interroute links -->
+     <tag k="e-road" v="A_link"/>     
+    </match>
+   <output>
+     <copy-all/>
+     <tag k="E_route_included" v="yes"/>
+   </output>
+ </translation> 
+
+
+<!--ferry transform -->
+ <translation>
+   <name>Ferry transform</name>
+   <description> ferry </description>
+   <match mode="and">
+     <tag k="route" v="ferry"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="ferry" v="yes"/>
+     <tag k="highway" v="trunk"/>
+   </output>
+ </translation>  
+
+ <translation>
+   <name>Service transform</name>
+   <description>hw=service may occur on the border control or near ferries. It should become unclassified  </description>
+   <match mode="and">
+     <tag k="highway" v="service"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="highway" v="unclassified"/>
+   </output>
+ </translation>
+ 
+ <translation>
+   <name>primary transform</name>
+   <description> Euro-primary becomes trunk  </description>
+   <match mode="and">
+     <tag k="highway" v="primary"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="highway" v="trunk"/>
+   </output>
+ </translation>
+</translations>

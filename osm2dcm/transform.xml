@@ -161,4 +161,17 @@
    </output>
  </translation>
  
+ <translation>
+   <name>addr_place</name>
+   <description>addr:place to addr:street</description>
+   <match mode="and">
+     <tag k="addr:place" v=".*" match_id="addr_place" />
+     <notag k="addr:street" v=".*"/>
+   </match>
+   <output>
+     <copy-unmatched/>
+     <tag k="addr:street" from_match="addr_place" />
+   </output>
+ </translation>
+ 
 </translations>

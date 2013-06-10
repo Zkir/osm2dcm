@@ -1,1 +1,1 @@
-getbound.pl -o poly\%1 %2
+getbound.pl -o poly\%1.pre.poly %2

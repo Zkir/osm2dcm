@@ -1,17 +1,180 @@
 @echo off
 
 echo OSM-^>DCM converter script by Zkir 2010
-echo converting name=%1 altname=%2 poly=%3 
+echo converting name=%1 altname=%2 poly=%3 priority %1
 
-set WORK_PATH=d:\OSM\osm2dcm\_my\%1
-
+set WORK_PATH=d:\OSM\osm_data\_my\%1
+set RELEASE_PATH=d:\OSM\osm_data\_output.cgmap
+set RELEASE_PATH_DCM=d:\OSM\osm_data\_output.dcm
 
 md %WORK_PATH%
 del %WORK_PATH%\*.* /q
 
+
+rem --------------------------------------------------------------------------------
+rem Alternative maps
+rem --------------------------------------------------------------------------------
+
+if "%1"=="RU-OVRV" (
+  echo call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="ES-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="IT-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="FI-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="SK-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="PL-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="GB-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="UA-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="NL-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="NO-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="SE-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="CZ-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="AT-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="DK-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="GR-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="FR-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="CL-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+
+if "%1"=="CEAM-OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+if "%1"=="EU-OVRV" (
+  call makemp.eu.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
+
+rem --------------------------------------------------------------------------------
+rem Get latest updates from OSM
+rem --------------------------------------------------------------------------------
+echo source: "%~4" 
+
+rem we curently skip update of ru and local-1
+goto skip_ru
+
+if "%~4"=="russia.pbf" (
+  call update %~4
+  if errorlevel 1 goto error
+  goto trim
+)
+
+if "%~4"=="russia.o5m" (
+  call update %~4
+  if errorlevel 1 goto error
+  goto trim
+)
+
+if "%~4"=="local-1.pbf" (
+  call call update %~4
+  if errorlevel 1 goto error
+  goto trim
+)
+
+:skip_ru
+rem raw data for maps with priority 0 is updated
+rem if "%10"=="0" (
+rem  echo force update of "%~4"
+rem  call d:\osm\osm_data\update.bat %~4
+rem  if errorlevel 1 goto error
+rem )
+
+
 rem --------------------------------------------------------------------------------
 rem Trim osm file
 rem --------------------------------------------------------------------------------
+:trim
+echo extract boundaries for geocoder
+
+call getbnd %1 d:\OSM\osm_data\_src\%4
+
 echo trimming source file
 call trim %~1 %~3 %~4 %~5 
 if errorlevel 1 goto error
@@ -27,33 +190,11 @@ echo  Statistics - OK
 goto change_tracker
 :error_stat
 echo  Statistics - failed
+goto error
+
 
 :change_tracker
-echo.
-echo Change Tracker
-set DO_CT=0
-if "%1"=="RU-MOS" (
-  set DO_CT=1
-)
-if "%1"=="RU-SPO" (
-  set DO_CT=1
-)
-if "%1"=="RU-IVA" (
-  set DO_CT=1
-)
-if "%1"=="RU-SVE" (
-  set DO_CT=1
-)
-if "%1"=="RU-KDA" (
-  set DO_CT=1
-)
-
-echo "%DO_CT%" 
-echo "%1" 
-if "%DO_CT%"=="1" (
-  echo ChangeTracker.exe %1
-  ChangeTracker.exe %1 
-)
+rem nothing here
 
 
 rem --------------------------------------------------------------------------------
@@ -61,31 +202,65 @@ rem Convert osm to mp and then mp to dcm
 rem --------------------------------------------------------------------------------
 
 echo creating mp from osm
-call makemp %~1 %2 %~3 %6 %7
+call makemp %~1 %2 %~3 %6 %7 %~5 d:\OSM\osm_data\_src\%4.boundaries.osm
+
+rem error
+if errorlevel 2 goto error
+
+rem Quality test failed
 if errorlevel 1 goto error
 
+rem принудительный выход
+rem goto error
 
 echo running DCM constructor           %DATE%_%TIME%  version %7
-GeoConstructor.exe -mp:%WORK_PATH%\%~1.mp -scamax:1000000 -codepage:1251 -version:1.%8 -uniqueid:%9
+echo  GeoConstructor.exe -mp:%WORK_PATH%\%~1.mp -subrouter:5 -scale:200000 -scamax:3000000 -codepage:1251 -version:1.%8 -uniqueid:%9 
+GeoConstructor.exe -mp:%WORK_PATH%\%~1.mp -subrouter:5 -scale:200000 -scamax:3000000 -codepage:1251 -version:1.%8 -uniqueid:%9 
+rem -multilevels
 
 if errorlevel 1 goto error
 echo DCM constructor has been finished %DATE%_%TIME% - OK
 
+echo DCM-CGMAP 
+echo CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
+CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
+if errorlevel 1 goto error
+echo DCM-CGMAP convertor has been finished %DATE%_%TIME% - OK
+
+
+:pack_and_upload
+
+rem copy final map to the output folder
+copy /Y %WORK_PATH%\%1.cgmap %RELEASE_PATH%
+copy /Y %WORK_PATH%\%1.dcm   %RELEASE_PATH_DCM%
+
+
 rem --------------------------------------------------------------------------------
 rem dcm to archive and put it to ftp
 rem --------------------------------------------------------------------------------
-del "%WORK_PATH%\%1.rar"
-rar a -ep "%WORK_PATH%\%1.rar" "%WORK_PATH%\%1.dcm"
+rem del "%WORK_PATH%\%1.rar"
+rem rar a -ep "%WORK_PATH%\%1.rar" "%WORK_PATH%\%1.dcm"
 
 
 rem --------------------------------------------------------------------------------
 rem upload rar archive file to the ftp server 
 rem --------------------------------------------------------------------------------
-:retry_upload
-echo - uploading map to server ...
-corecmd.exe -site rambler -O -u %WORK_PATH%\%1.rar   -p www/cg_maps/ -s
-if errorlevel 1 goto retry_upload
+rem  - no new maps in dcm format
+rem :retry_upload
+rem echo - uploading map to server ...
+rem corecmd.exe -site rambler -O -u %WORK_PATH%\%1.rar   -p www/cg_maps/ -s
+rem if errorlevel 1 goto retry_upload
+rem echo done
+
+:retry_upload2
+echo - uploading map 7 to server ...
+corecmd.exe -site rambler -O -u %WORK_PATH%\%1.cgmap   -p /usr/www/peirce/static/cg7_maps/ -s
+if errorlevel 1 goto retry_upload2
 echo done
+
+echo - delete osm file - they are too big
+del %WORK_PATH%\*.osm
+
 
 echo.
 echo Conversion of %1 has finished successfully.

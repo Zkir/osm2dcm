@@ -3,17 +3,37 @@
 echo trimming file=%1 poly=%2
 
 Set SOURCEFILE=%3
-set JUST_COPY=%4
+set JUST_COPY=no
+
+set WORK_PATH=d:\OSM\osm_data\_my\%1
 
 echo source=%SOURCEFILE%
 echo directcopy=%JUST_COPY%
 
 if "%JUST_COPY%"=="yes" (
-copy "d:\OSM\osm_data\%SOURCEFILE%" "d:\OSM\osm2dcm\_my\%1\final.full.osm"
+
+osmconvert d:\OSM\osm_data\_src\%SOURCEFILE% -o=%WORK_PATH%\final.full.pbf
+
 ) else (
-call osmosis --read-xml-0.6 file="d:\OSM\osm_data\%SOURCEFILE%" --buffer bufferCapacity=100000 --bounding-polygon-0.6 file="d:\OSM\osm2dcm\poly\%2" completeWays=yes --buffer bufferCapacity=100000  --write-xml-0.6 file="d:\OSM\osm2dcm\_my\%1\final.full.osm"
+
+osmconvert d:\OSM\osm_data\_src\%SOURCEFILE% -B=d:\OSM\osm2dcm\poly\%2.poly --complex-ways -o=%WORK_PATH%\final.full.pbf
+
 )
+if errorlevel 1 goto error
 
-call osmosis --read-xml file="d:\OSM\osm2dcm\_my\%1\final.full.osm" --lp  --construction-way daysBeforeOpening=60 daysAfterChecking=30 --tt --write-xml d:\OSM\osm2dcm\_my\%1\final.osm 
+call osmosis --read-pbf file="%WORK_PATH%\final.full.pbf" --lp  --construction-way daysBeforeOpening=60 daysAfterChecking=60 writeErrorXML="%WORK_PATH%\%1.hwconstr_chk.xml" --tt --write-xml %WORK_PATH%\final.osm 
 
-corecmd.exe -site peirce -O -u d:\OSM\osm2dcm\_my\%1\%1.hwconstr_chk.xml   -p ADDR_CHK/ -s
+if errorlevel 1 goto error
+
+corecmd.exe -site peirce -O -u %WORK_PATH%\%1.hwconstr_chk.xml   -p ADDR_CHK/ -s
+
+rem --------------------------------------------------------------------------------
+rem Error handling
+rem --------------------------------------------------------------------------------
+goto end
+:error
+echo.
+echo error in process
+Exit /b 1
+:end
+Exit /b 0
