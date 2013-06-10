@@ -1153,7 +1153,7 @@
 #shop car 0x2F07 0 1 
 #shop motorcycle 0x2F07 0 1 
 - condition:
-    - shop = car|motorcycle|car_parts
+    - shop = car|motorcycle|car_parts|tyres
   action:
     - action: write_poi
       type: 0x2F07
