@@ -14,8 +14,10 @@ Public Const NULL_DATE = "1900-1-1"
 
 
 'pathes
-Const PATH_TO_POLY = "D:\OSM\osm2dcm\poly\"
-Const PATH_TO_OSM = "D:\osm\osm2dcm\_my\"
+Public Const PATH_TO_POLY = "D:\OSM\osm2dcm\poly\"
+Public Const PATH_TO_LOG = "D:\osm\osm_data\"
+Public Const PATH_TO_OSM = "D:\osm\osm_data\_my\"
+
 'Const PATH_TO_POLY = "O:\osm2dcm\poly\"
 'Const PATH_TO_OSM = "O:\osm2dcm\_my\"
 
@@ -249,7 +251,7 @@ Public Sub Main1(strMapID As String, strMapName As String)
  'ProcessMap rsStat, strMapID, strMapName, "d:\osm\osm2dcm\_my\" & strMapID & "\final.full.osm"
  ProcessMap rsStat, strMapID, strMapName, PATH_TO_OSM & strMapID & "\final.osm"
  
- SaveStatisticsToXml rsStat, "d:\OSM\osm2dcm\statistics.xml"
+ SaveStatisticsToXml rsStat, PATH_TO_LOG & "statistics.xml"
  
  SaveStatRs rsStat
  
@@ -279,7 +281,7 @@ Public Sub Main()
  Dim strMapID As String
  Dim strMapName As String
 On Error GoTo finalize
-  Open "log-statistics.txt" For Append As #3
+  Open PATH_TO_LOG & "log-statistics.txt" For Append As #3
   
   ParseCommandLine strMapID, strMapName
   If strMapID <> "" Then

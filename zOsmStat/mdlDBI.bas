@@ -41,7 +41,7 @@ Dim textline As String
 Dim A() As String
 Dim i As Integer
 
-  Open App.Path & "\" & "statistics.dat" For Input As #1
+  Open PATH_TO_LOG & "statistics.dat" For Input As #1
 
   Set rsStat = MakeStatsRS
 
@@ -62,7 +62,7 @@ End Sub
 
 Public Sub SaveStatRs(rsStat As Recordset)
 
-  Open App.Path & "\" & "statistics.dat" For Output As #1
+  Open PATH_TO_LOG & "statistics.dat" For Output As #1
   
   rsStat.MoveFirst
   Do While Not rsStat.EOF
