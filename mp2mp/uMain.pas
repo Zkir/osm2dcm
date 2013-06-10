@@ -113,6 +113,7 @@ begin
   begin
    aSourceFile:=TSourceFile.Create;
    aSourceFile.FileName:=xml.DocumentElement.ChildNodes[i].Attributes['name'] ;
+   aSourceFile.FileName:=StringReplace(aSourceFile.FileName ,'%OSM_DATA%','D:\OSM\osm_data\',[rfReplaceAll, rfIgnoreCase]);
    //Смотрим правила
    for j := 0 to xml.DocumentElement.ChildNodes[i].ChildNodes.Count-1 do
    begin
