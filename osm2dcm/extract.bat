@@ -1,11 +1,11 @@
 @echo off
 set SOURCE_FILE=%1
 
-set WORKING_FOLDER=d:\osm\osm_data
+set WORKING_FOLDER=d:\osm\osm_data\_src
 set POLY_FILE=%2
 
 echo extracting file %SOURCE_FILE%
-osmconvert  %WORKING_FOLDER%\planet-m.pbf -o=%WORKING_FOLDER%\_src\%SOURCE_FILE% -B=%POLY_FILE% 
+osmconvert  %WORKING_FOLDER%\..\planet-m.pbf -o=%WORKING_FOLDER%\%SOURCE_FILE% -B=%POLY_FILE% 
 
 if errorlevel 1 goto error
 

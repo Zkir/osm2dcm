@@ -264,7 +264,7 @@ Private Function UpdateHistoryAndSite(intUsedTime,intNewVersion, blnSuccess, int
       end if
       
       ' Сохраним историю
-	  SaveMapCreationHistory rsMapCreationHistory,"history.txt"
+	  SaveMapCreationHistory rsMapCreationHistory, OSM_FILES_DIR & "history.txt"
 	  SaveMapCreationHistory rsMapCreationHistory, OSM_FILES_DIR & "history-log\history.bak-"&Year(dtMapDate)&Month(dtMapDate)&Day(dtMapDate)&Hour(dtMapDate)&Minute(dtMapDate)
 	
       if blnSuccess then
@@ -329,10 +329,10 @@ Set WshShell = WScript.CreateObject("WScript.Shell")
 
 
 'Прочтем список карт для конвертации
-set rsMapList=OpenMapHistory("history.txt")
+set rsMapList=OpenMapHistory(OSM_FILES_DIR & "history.txt")
 
 'Прочтем историю конвертации
-set rsMapCreationHistory=OpenMapHistory("history.txt")
+set rsMapCreationHistory=OpenMapHistory(OSM_FILES_DIR & "history.txt")
 
 'rsMapList.sort = RS_MAP_PRIORITY & " asc, " & RS_MAP_DATE & " asc"
 rsMapList.sort = RS_MAP_PRIORITY & " asc, " & RS_MAP_LAST_TRY_DATE & " asc, " & RS_MAP_USEDTIME & " asc"
