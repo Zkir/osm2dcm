@@ -11,7 +11,7 @@ chcp 1251
 
 rem update %SOURCE_FILE%
 echo preliminary extraction
-osmfilter d:\osm\osm_data\%SOURCE_FILE% --keep= --keep-ways="( highway=*  or route=ferry ) and ( network=e-road or network=e-road:A or ref=E* or int_ref=E* or ref=Е* or int_ref=Е* )" --keep-relations="route=road and ( network=e-road or network=E-road_link or network=e-road_link or ref=E* or int_ref=E* or ref=Е* or int_ref=Е*  ) " --emulate-osmosis >%WORK_PATH%\final.osm
+osmfilter d:\osm\osm_data\_src\%SOURCE_FILE% --keep= --keep-ways="( highway=*  or route=ferry ) and ( network=e-road or network=e-road:A or ref=E* or int_ref=E* or ref=Е* or int_ref=Е* )" --keep-relations="route=road and ( network=e-road or network=E-road_link or network=e-road_link or ref=E* or int_ref=E* or ref=Е* or int_ref=Е*  ) " --emulate-osmosis >%WORK_PATH%\final.osm
 
 echo transform
 call osmosis --read-xml file="%WORK_PATH%\final.osm"  --tt file="transform-EU.xml" --write-xml %WORK_PATH%\final1.osm 
@@ -47,9 +47,11 @@ SET MAP_SCALE=2000000
 
 rem Еще одно упрощение
 java -Xmx2248m  -jar jmp2mp2.jar --readmp file="%WORK_PATH%\%MAPID%.mp_opt.mp" --forcejunctions --writemp file="%WORK_PATH%\%MAPID%.roads.mp"
+if errorlevel 1 goto error
 
 ren %WORK_PATH%\%MAPID%.mp %MAPID%.orig.mp
 mp2mp %WORK_PATH%\%MAPID%.mp pre.mp\%MAPID%.xml
+if errorlevel 1 goto error
 
 rem для обзорной карты применяется особые правила - сама обзорная карта не содержит адрески
 echo GeoConstructor
