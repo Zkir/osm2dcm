@@ -40,7 +40,10 @@ if errorlevel 1 goto error
 
 rem в обзорную карту нужно вложить файл для индекса НП
 CGMapToolPublic.exe Type=CountryTowns InFolder=d:\osm\osm_data\_output.dcm InFile=%WORK_PATH%\%1.dcm
+if errorlevel 1 goto error
+
 7z a -tzip %WORK_PATH%\%1.dcm %WORK_PATH%\%1.sdt
+if errorlevel 1 goto error
 
 CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
 if errorlevel 1 goto error
