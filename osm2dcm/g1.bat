@@ -162,6 +162,28 @@ rem call getbound.bat FR-T 8652	 Пуату-Шаранта	регион
 rem call getbound.bat FR-V 8655	 Рона-Альпы	регион
 rem call getbound.bat FR-U 8654	 Прованс-Альпы-Лазурный берег	регион
 
-call getbound.bat FR-H 76910	 Корсика	регион
+rem call getbound.bat FR-H 76910	 Корсика	регион
+
+rem call getbound.bat TR-1 2094170 Эгейский регион
+rem call getbound.bat TR-2 1726294 Черноморский регион
+rem call getbound.bat TR-3 2094194 Центральная Анатолия
+rem call getbound.bat TR-4 2094154 Восточная Анатолия
+rem call getbound.bat TR-5 2094193 Мраморноморский регион
+rem call getbound.bat TR-6 2092903 Средиземноморский регион
+rem call getbound.bat TR-7 2094155 Юго-Восточная Анатолия
+
+
+call getbound.bat GB-EN1 151164 North East England
+call getbound.bat GB-EN2 151261 North West England
+call getbound.bat GB-EN3 151012 Yorkshire and the Humber
+call getbound.bat GB-EN4 151279 East Midlands
+call getbound.bat GB-EN5 151283 West Midlands
+call getbound.bat GB-EN6 151336 East of England
+call getbound.bat GB-EN7 175342 Greater London
+call getbound.bat GB-EN8 151304 South East England
+call getbound.bat GB-EN9 151339 South West England
+call getbound.bat GB-SCT 58446 Scotland
+call getbound.bat GB-WLS 58437 Wales
+call getbound.bat GB-NIR 156393 Northen Ireland
 
 pause 
