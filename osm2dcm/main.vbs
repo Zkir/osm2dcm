@@ -93,6 +93,7 @@ Private Function OpenMapHistory(strFileName)
   Set Men = FileSystemObject.OpenTextFile(strFileName, 1)'
   Do While Men.AtEndOfStream <> True
   TextLine =trim(Men.ReadLine)
+  'Wscript.Echo TextLine 
     if left(TextLine,1)<>"#" and TextLine<>""  then
       A=split(textline, "|")
       rs.AddNew
@@ -205,7 +206,7 @@ private function AB(a,b)
 end function
 
 Private Function SaveMapCreationHistory(rs, strFileName)
-  Wscript.Echo  strFileName
+  
   dim Men
   Set Men = FileSystemObject.OpenTextFile(strFileName, 2, True)'
   rs.MoveFirst 
@@ -265,7 +266,7 @@ Private Function UpdateHistoryAndSite(intUsedTime,intNewVersion, blnSuccess, int
       
       ' Сохраним историю
 	  SaveMapCreationHistory rsMapCreationHistory, OSM_FILES_DIR & "history.txt"
-	  SaveMapCreationHistory rsMapCreationHistory, OSM_FILES_DIR & "history-log\history.bak-"&Year(dtMapDate)&Month(dtMapDate)&Day(dtMapDate)&Hour(dtMapDate)&Minute(dtMapDate)
+	  SaveMapCreationHistory rsMapCreationHistory, OSM_FILES_DIR & "history-log\history.txt-"&Year(dtMapDate)&Month(dtMapDate)&Day(dtMapDate)&Hour(dtMapDate)&Minute(dtMapDate)
 	
       if blnSuccess then
       
@@ -322,6 +323,7 @@ dim intNewVersion
 dim intPeriodicity
 dim strSource
 dim blnSuccess
+dim intUpdateResult
 
 dtStartDate=Now()
 
@@ -349,8 +351,17 @@ Do While Not (rsMapList.EOF or ((Now()-dtStartDate)>0.25))
  
     dtMapDate=Now()
     dtSourceDate = GetSourceFileDate(strSource)
-    Wscript.Echo rsMapList(RS_MAP_SOURCE).Value & " " & dtSourceDate  & " " & rsMapList(RS_MAP_DATE).value  & " " & rsMapList(RS_MAP_LAST_TRY_DATE).value
- 
+    Wscript.Echo rsMapList(RS_MAP_CODE).Value & " " & rsMapList(RS_MAP_SOURCE).Value & " " & dtSourceDate  & " " & rsMapList(RS_MAP_DATE).value  & " " & rsMapList(RS_MAP_LAST_TRY_DATE).value
+    
+    if (rsMapList(RS_MAP_PRIORITY).value<9) and ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value)>90) and (rsMapList(RS_MAP_LAST_TRY_DATE).value>"01.01.2013") then
+
+      intUpdateResult=WshShell.Run( "update.bat " & strSource & " >>D:\OSM\osm_data\log.txt 2>>&1", 1,TRUE) 
+      Wscript.Echo "Update Result:" & intUpdateResult
+      if intUpdateResult=0 then 
+        dtSourceDate = dtMapDate
+      end if
+
+    end if
        
 
     intPeriodicity= 0.5

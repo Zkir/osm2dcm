@@ -28,6 +28,6 @@ echo.
 echo unable to update source data
 echo try to restore old data
 rem ren %WORKING_FOLDER%\russia_bak.pbf russia.pbf
-pause
+rem pause
 Exit /b 1
 :end

@@ -3,7 +3,9 @@
 echo OSM-^>DCM converter script by Zkir 2010
 echo converting name=%1 altname=%2 poly=%3 priority %1
 
-set WORK_PATH=d:\OSM\osm_data\_my\%1
+set MAPID=%1
+
+set WORK_PATH=d:\OSM\osm_data\_my\%MAPID%
 set RELEASE_PATH=d:\OSM\osm_data\_output.cgmap
 set RELEASE_PATH_DCM=d:\OSM\osm_data\_output.dcm
 
@@ -14,122 +16,22 @@ del %WORK_PATH%\*.* /q
 rem --------------------------------------------------------------------------------
 rem Alternative maps
 rem --------------------------------------------------------------------------------
-
-if "%1"=="RU-OVRV" (
-  echo call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="ES-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="IT-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="FI-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="SK-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="PL-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="GB-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="UA-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="NL-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="NO-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="SE-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="CZ-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="AT-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="DK-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="GR-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="FR-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-if "%1"=="CL-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
-
-
-if "%1"=="CEAM-OVRV" (
-  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
-  if errorlevel 1 goto error
-  goto pack_and_upload
-)
+SET _country_code=%MAPID:~0,2%
+SET _region_code=%MAPID:~3,4%
 
 if "%1"=="EU-OVRV" (
   call makemp.eu.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
   if errorlevel 1 goto error
   goto pack_and_upload
 )
+
+
+if "%_region_code%"=="OVRV" (
+  call makemp.overview.bat  %~1 %2 %~3 %4 %5 %6 %7 %8 %9
+  if errorlevel 1 goto error
+  goto pack_and_upload
+)
+
 
 
 rem --------------------------------------------------------------------------------
@@ -171,9 +73,10 @@ rem ----------------------------------------------------------------------------
 rem Trim osm file
 rem --------------------------------------------------------------------------------
 :trim
-echo extract boundaries for geocoder
-
-call getbnd %1 d:\OSM\osm_data\_src\%4
+if NOT "%~4"=="russia.pbf" (
+  echo extract boundaries for geocoder
+  call getbnd %1 d:\OSM\osm_data\_src\%4
+)
 
 echo trimming source file
 call trim %~1 %~3 %~4 %~5 
@@ -221,11 +124,11 @@ rem -multilevels
 if errorlevel 1 goto error
 echo DCM constructor has been finished %DATE%_%TIME% - OK
 
-echo DCM-CGMAP 
-echo CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
-CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
-if errorlevel 1 goto error
-echo DCM-CGMAP convertor has been finished %DATE%_%TIME% - OK
+rem echo DCM-CGMAP 
+rem echo CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
+rem CGMapToolPublic.exe Type=CrtCGMap InFile=%WORK_PATH%\%1.dcm OutFolder=%WORK_PATH%
+rem if errorlevel 1 goto error
+rem echo DCM-CGMAP convertor has been finished %DATE%_%TIME% - OK
 
 
 :pack_and_upload
