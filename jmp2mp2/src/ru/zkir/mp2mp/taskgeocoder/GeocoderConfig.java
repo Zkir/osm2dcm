@@ -22,27 +22,42 @@ public class GeocoderConfig{
     //===========================================================================================
     //Европа
     //===========================================================================================
-    if (strCountryCode.equals("EE"))
-      levelsForCity=new String[] {"9"};
-
+    //Австрия
     if (strCountryCode.equals("AT"))
     {
       levelsForCity=new String[] {"8","6"};
       levelsForRegion=new String[] {"6"};
     }
+    //Бельгия
+    if (strCountryCode.equals("BE"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
 
+    //Чехия
     if (strCountryCode.equals("CZ"))
     {
       levelsForCity=new String[] {"8","7"};
       levelsForRegion=new String[] {"6"};
     }
 
+    //Эстония
+    if (strCountryCode.equals("EE"))
+      levelsForCity=new String[] {"9"};
+
+    //Испания
     if (strCountryCode.equals("ES"))
     {
       levelsForCity=new String[] {"8"};
       levelsForRegion=new String[] {"6"};
     }
-
+    //Ирландия
+    if (strCountryCode.equals("IE"))
+    {
+      levelsForCity=new String[] {"7","8","10","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"6"};
+    }
     //Португалия
     if (strCountryCode.equals("PT"))
     {
@@ -50,6 +65,7 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"6"};
     }
 
+    //Голландия
     if (strCountryCode.equals("NL"))
     {
       levelsForCity=new String[] {"10","8"};
@@ -61,11 +77,18 @@ public class GeocoderConfig{
       levelsForCity=new String[] {"7"};
       levelsForRegion=new String[] {"4"};
     }
-
+    //Греция
     if (strCountryCode.equals("GR"))
     {
-      levelsForCity=new String[] {"10","8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {"7","8","10"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Турция
+    if (strCountryCode.equals("TR"))
+    {
+      levelsForCity=new String[] {"6"};
+      levelsForRegion=new String[] {"4"};
     }
 
     if (strCountryCode.equals("CY"))
@@ -111,13 +134,19 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"6"};
     }
 
+    //Великобритания. Как-то не понятно.
     if (strCountryCode.equals("GB"))
-      levelsForCity=new String[] {"8"};
+    {
+      levelsForCity=new String[] {"8","10","6"};
+      levelsForRegion=new String[] {"4"};
+    }
 
     //Болгария
     if (strCountryCode.equals("BG"))
+    {
       levelsForCity=new String[] {"10","8"};
-
+      levelsForRegion=new String[] {"6"};
+    }
     //Сербия
     if (strCountryCode.equals("RS"))
     {
