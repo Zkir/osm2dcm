@@ -22,12 +22,27 @@ public class GeocoderConfig{
     //===========================================================================================
     //Европа
     //===========================================================================================
+    //Андорра
+    if (strCountryCode.equals("AD"))
+    {
+      levelsForCity=new String[] {"7"};
+      levelsForRegion=new String[] {"2"};
+    }
+
+    //Албания
+    if (strCountryCode.equals("AL"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
+
     //Австрия
     if (strCountryCode.equals("AT"))
     {
       levelsForCity=new String[] {"8","6"};
       levelsForRegion=new String[] {"6"};
     }
+
     //Бельгия
     if (strCountryCode.equals("BE"))
     {
@@ -52,12 +67,48 @@ public class GeocoderConfig{
       levelsForCity=new String[] {"8"};
       levelsForRegion=new String[] {"6"};
     }
+
     //Ирландия
     if (strCountryCode.equals("IE"))
     {
       levelsForCity=new String[] {"7","8","10","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
     }
+
+    //Исландия
+    if (strCountryCode.equals("IS"))
+    {
+      levelsForCity=new String[] {"6","8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Хорватия
+    if (strCountryCode.equals("HR"))
+    {
+      levelsForCity=new String[] {"8","7","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"6"};
+    }
+    //Лихтенштейн
+    if (strCountryCode.equals("LI"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6","2"};
+    }
+
+    //Монако
+    if (strCountryCode.equals("MC"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"2"};
+    }
+
+    //Голландия
+    if (strCountryCode.equals("NL"))
+    {
+        levelsForCity=new String[] {"10","8"};
+        levelsForRegion=new String[] {"4"};
+    }
+
     //Португалия
     if (strCountryCode.equals("PT"))
     {
@@ -65,18 +116,20 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"6"};
     }
 
-    //Голландия
-    if (strCountryCode.equals("NL"))
-    {
-      levelsForCity=new String[] {"10","8"};
-      levelsForRegion=new String[] {"4"};
-    }
-
+    //Швеция
     if (strCountryCode.equals("SE"))
     {
       levelsForCity=new String[] {"7"};
       levelsForRegion=new String[] {"4"};
     }
+
+    //Сан-Марино
+    if (strCountryCode.equals("SM"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"2"};
+    }
+
     //Греция
     if (strCountryCode.equals("GR"))
     {
@@ -91,12 +144,14 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Кипр
     if (strCountryCode.equals("CY"))
     {
       levelsForCity=new String[] {"8","7"};
       levelsForRegion=new String[] {"6"};
     }
 
+    //Польша
     if (strCountryCode.equals("PL"))
     {
       levelsForCity=new String[] {"8","10", "7", "6"};
@@ -109,9 +164,14 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Словения
     if (strCountryCode.equals("SI"))
+    {
       levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"5"};
+    }
 
+    //Венгрия
     if (strCountryCode.equals("HU"))
     {
       levelsForCity=new String[] {"8", "7"};
@@ -138,15 +198,16 @@ public class GeocoderConfig{
     if (strCountryCode.equals("GB"))
     {
       levelsForCity=new String[] {"8","10","6"};
-      levelsForRegion=new String[] {"4"};
+      levelsForRegion=new String[] {"5","4"};
     }
 
     //Болгария
     if (strCountryCode.equals("BG"))
     {
-      levelsForCity=new String[] {"10","8"};
+      levelsForCity=new String[] {"10","8","6"}; //Проблема - София единственная имеет admin_level=6
       levelsForRegion=new String[] {"6"};
     }
+
     //Сербия
     if (strCountryCode.equals("RS"))
     {
@@ -160,14 +221,17 @@ public class GeocoderConfig{
 
     //Босния и герцеговина
     if (strCountryCode.equals("BA"))
-      levelsForCity=new String[] {"8","7"};
-
+    {
+      levelsForCity=new String[] {"8","7","6"};
+      levelsForRegion=new String[] {"5"};
+    }
     //Норвегия
     if (strCountryCode.equals("NO"))
     {
       levelsForCity=new String[] {"7"};
       levelsForRegion=new String[] {"4","6"};
     }
+
     //Дания
     if (strCountryCode.equals("DK"))
     {
@@ -181,6 +245,7 @@ public class GeocoderConfig{
       levelsForCity=new String[] {"8"};
       levelsForRegion=new String[] {"4"};
     }
+
     //Франция
     if (strCountryCode.equals("FR"))
     {
