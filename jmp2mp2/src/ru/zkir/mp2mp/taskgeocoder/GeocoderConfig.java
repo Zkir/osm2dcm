@@ -11,12 +11,16 @@ package ru.zkir.mp2mp.taskgeocoder;
 public class GeocoderConfig{
   String[] levelsForCity;
   String[] levelsForRegion;
+  String language;
+  boolean blnHamletsExcluded;
   GeocoderConfig(String strCountryCode)
   {
     //Cхема адресации зависит от страны.
 
     levelsForCity = new String[] {};
     levelsForRegion=new String[] {};
+    language="";
+    blnHamletsExcluded=false;
 
     //Страно-специфичные правила
     //===========================================================================================
@@ -147,8 +151,8 @@ public class GeocoderConfig{
     //Кипр
     if (strCountryCode.equals("CY"))
     {
-      levelsForCity=new String[] {"8","7"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {"CITY_POLYGON","8","7","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"6","2"};
     }
 
     //Польша
@@ -181,7 +185,7 @@ public class GeocoderConfig{
     //Румыния
     if (strCountryCode.equals("RO"))
     {
-      levelsForCity=new String[] {"6","4","NEAREST_CITY_POINT"};
+      levelsForCity=new String[] {"CITY_POLYGON","6","4","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"5","4"};
     }
 
@@ -344,6 +348,25 @@ public class GeocoderConfig{
     if (strCountryCode.equals("SV"))
     {
       levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Ямайка - JM
+    if (strCountryCode.equals("JM"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"6"};
+    }
+
+    //===========================================================================================
+    //Азия
+    //===========================================================================================
+    //Египет
+    if (strCountryCode.equals("EG"))
+    {
+      language="en";
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      blnHamletsExcluded=true;
       levelsForRegion=new String[] {"4"};
     }
   }

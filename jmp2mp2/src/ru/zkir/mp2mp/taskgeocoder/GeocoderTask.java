@@ -49,7 +49,12 @@ public class GeocoderTask {
     Geocoder geocoder;
     geocoder=new Geocoder();
 
-    geocoder.loadAddressRegionsFromOsmFile(strSrcFileName, geocoderConfig.levelsForCity, geocoderConfig.levelsForRegion);
+    geocoder.loadAddressRegionsFromOsmFile(strSrcFileName,
+                                           geocoderConfig.levelsForCity,
+                                           geocoderConfig.levelsForRegion,
+                                           geocoderConfig.language,
+                                           geocoderConfig.blnHamletsExcluded);
+
     System.out.println("Address regions loaded");
     System.out.println("");
 
@@ -86,15 +91,25 @@ public class GeocoderTask {
 
         lat=bbox[0];
         lon=bbox[1];
-        //Город ("обычно это муниципалитет")
-        strCityName= geocoder.getCityName(lat,lon, geocoderConfig.levelsForCity);
-        strCityName = Junidecode.unidecode(strCityName);
+        //Тут грязный хак. Подразумевается, что osm2mp уже проставил города из полигональных place
+        if (geocoderConfig.levelsForCity[0].equals("CITY_POLYGON") && (!ms.GetAttributeValue("CityName").equals("")) )
+        {
+          strCityName = ms.GetAttributeValue("CityName");
+        }
+        else
+        {
+          //Город ("обычно это муниципалитет")
+          strCityName= geocoder.getCityName(lat,lon, geocoderConfig.levelsForCity);
+          strCityName = Junidecode.unidecode(strCityName);
+        }
+
 
         if (!strCityName.equals(""))
         {
           ms.SetAttributeValue("CityName",strCityName);
           intCitySet++;
         }
+
         //Регион ("провинция")
         strRegionName= geocoder.getCityName(lat,lon,geocoderConfig.levelsForRegion);
         strRegionName = Junidecode.unidecode(strRegionName);
@@ -185,7 +200,7 @@ class Geocoder{
     return strName;
   }
 
-  void loadAddressRegionsFromOsmFile(String strSrcFileName,String[] levelsForCity, String[] levelsForRegion)
+  void loadAddressRegionsFromOsmFile(String strSrcFileName,String[] levelsForCity, String[] levelsForRegion, String strLanCode, boolean blnHamletsExcluded)
   {
     OsmParser osmParser;
     osmParser=new OsmParser(strSrcFileName);
@@ -217,7 +232,15 @@ class Geocoder{
     }
 
     addressRegion=new AddressRegion();
-    addressRegion.name=currentRelation.tags.get("name");
+    addressRegion.name="";
+    if (!strLanCode.equals("") )
+    {
+      addressRegion.name=currentRelation.tags.get("name"+":"+strLanCode);
+    }
+    if(addressRegion.name==null||addressRegion.name.equals("")) //Если все еще пусто
+    {
+      addressRegion.name=currentRelation.tags.get("name");
+    }
 
     if (addressRegion.name==null)
     {
@@ -292,10 +315,21 @@ class Geocoder{
           System.out.println("place node without name: "+ theNode.id );
           continue;
         }
+        if (theNode.tags.get("place").equals("hamlet") && blnHamletsExcluded)
+        {
+          continue;
+        }
         CityPoint cityPoint=new CityPoint();
         cityPoint.lat = theNode.lat;
         cityPoint.lon = theNode.lon;
-        cityPoint.name= theNode.tags.get("name");
+        if (!strLanCode.equals(""))
+        {
+          cityPoint.name= theNode.tags.get("name"+":"+strLanCode);
+        }
+        if (cityPoint.name==null||cityPoint.name.equals(""))
+        {
+          cityPoint.name= theNode.tags.get("name");
+        }
         cityPoint.placeTag =theNode.tags.get("place");
        /* if (!(cityPoint.placeTag.equals("city")||cityPoint.placeTag.equals("town")||
                 cityPoint.placeTag.equals("village")||cityPoint.placeTag.equals("hamlet")))

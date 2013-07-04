@@ -130,7 +130,7 @@ class MyParser extends DefaultHandler {
       //Это нужно для городов
       if (currentObjectType.equals("node"))
       {
-        if (strKey.equals("place")||strKey.equals("name") ) {
+        if (strKey.equals("place")||strKey.equals("name")||strKey.equals("name:en") ) {
           currentNode.addTag(strKey, strValue);
         }
       }
