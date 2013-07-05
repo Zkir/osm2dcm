@@ -15,10 +15,63 @@ require_once("include/misc_utils.php");
   $zPage->WriteHtml( "<H1>Статистика (данные OSM)</H1>");
   $zPage->WriteHtml( '<p>   На этой странице приведены основные статистические данные по исходным данным OSM
   	  для участвующих в конвертации регионов. </p>
-   <P>И между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. Описание столбцов <a href="#descr">см. ниже</a>. </P>
+ 
+  ');
+  $zPage->WriteHtml( "<H2>Россия</H2>");
+  $zPage->WriteHtml( '
+  	  
+  	  <!-- begin map -->
+<link rel="stylesheet" href="http://peirce.gis-lab.info/js/dijit/themes/claro/claro.css"/>
+<script>
+var selectedIndicatorIndex = 0;
+var indicators = [
+{id:"NumberOfObjects", name:"Число объектов"},
+{id:"EditsPerDay", name:"Правок в день"},
+{id:"M14", name:"14 дней"},
+{id:"M100", name:"100 дней"},
+{id:"M365", name:"365 дней"},
+{id:"AverageObjectAge", name:"Ср. возраст"},
+{id:"ObjectsPerSquareKm", name:"Число объектов на кв. км"},
+{id:"EditsPerDayPerSquareKm", name:"Правок в день на тыс.кв. км"},
+{id:"ActiveUsers", name:"Активные участники"}
+];
+var divergingIndexes = {AverageObjectAge: 1};
+</script>
+<script data-dojo-config="async:true" src="http://peirce.gis-lab.info/js/dojo/dojo.js"></script>
+<script src="stat-json.php"></script>
+<script>
+require([
+	"zkir/stats"
+], function(makeMap){
+	makeMap({
+		selectedIndicatorIndex: selectedIndicatorIndex,
+		indicators: indicators,
+		divergingIndexes: divergingIndexes,
+		features: statJson
+	})
+});
+</script>
+<!-- end map -->
+  	  
+  	  	  
+    
+    <div class="claro">
+  	<table width="100%" border="1px">
+	  <tr>
+		<td><div id="map" style="width:620px;height:400px;border:solid;"></div></td>
+		<td width="220px">
+			<div id="indicators"></div>
+			<div id="mapLegend"></div>
+		</td>
+	  </tr>
+    </table>
+    </div>	
+    	
+    	
+  
   ');
   
-  $zPage->WriteHtml( "<H2>Россия</H2>");
+  $zPage->WriteHtml('<P>И между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. Описание столбцов <a href="#descr">см. ниже</a>. </P>');
   PrintStatistics ($xml,'Россия');
   
   $zPage->WriteHtml( "<H2>Ближнее зарубежье </H2>");  

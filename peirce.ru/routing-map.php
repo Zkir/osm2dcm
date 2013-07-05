@@ -69,6 +69,7 @@ $zPage=new TZSitePage;
                      <iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
   $zPage->WriteHtml('<p>По щелчку на маркере открывается JOSM, он должен быть запущен.</p>');
+  
  
   $zPage->WriteHtml('<h2>Другие тесты</h2>');
   PrintTestNavigator($mapid);

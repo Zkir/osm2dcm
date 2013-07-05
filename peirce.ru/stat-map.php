@@ -16,25 +16,12 @@ include("ZSitePage.php");
   	  для участвующих в конвертации регионов. </p>');
    $zPage->WriteHtml( "<H2>Россия</H2>");	  
   	  //
-  $zPage->WriteHtml( '	  
-    <link rel="stylesheet" href="js/dijit/themes/claro/claro.css"/>
-    <style type="text/css">
-     #map svg{width:100%;height:100%;}
-    </style>
-    <div class="claro">
-  	<table width="100%" border="1px">
-	  <tr>
-		<td><div id="map" style="width:620px;height:400px;border:solid;"></div></td>
-		<td width="220px">
-			<div id="indicators"></div>
-			<div id="mapLegend"></div>
-		</td>
-	  </tr>
-    </table>
-    </div>	
-   <script>
-
-var selectedIndicatorIndex = 2;
+  $zPage->WriteHtml( '
+  	  
+  	  <!-- begin map -->
+<link rel="stylesheet" href="http://peirce.gis-lab.info/js/dijit/themes/claro/claro.css"/>
+<script>
+var selectedIndicatorIndex = 0;
 var indicators = [
 {id:"NumberOfObjects", name:"Число объектов"},
 {id:"EditsPerDay", name:"Правок в день"},
@@ -46,29 +33,41 @@ var indicators = [
 {id:"EditsPerDayPerSquareKm", name:"Правок в день на тыс.кв. км"},
 {id:"ActiveUsers", name:"Активные участники"}
 ];
-
 var divergingIndexes = {AverageObjectAge: 1};
-var style = [
-{
-	reset: true,
-	mode: "highlight",
-	strokeWidth: "4"
-}
-];
-
-djConfig = {
-	isDebug: false,
-	parseOnLoad: false,
-	modulePaths: {course: "../course", zkir: "../zkir"},
-	mapEngine: "gfx"
-};
-
 </script>
- 	
-   <script src="js/dojo/dojo.js"></script>
-    <script src="stat-json.php"></script>
-    <script src="js/russia_geometries.js"></script>
-    <script src="js/stats.js"></script>
+<script data-dojo-config="async:true" src="http://peirce.gis-lab.info/js/dojo/dojo.js"></script>
+<script src="stat-json.php"></script>
+<script>
+require([
+	"zkir/stats"
+], function(makeMap){
+	makeMap({
+		selectedIndicatorIndex: selectedIndicatorIndex,
+		indicators: indicators,
+		divergingIndexes: divergingIndexes,
+		features: statJson
+	})
+});
+</script>
+<!-- end map -->
+  	  
+  	  	  
+    
+    <div class="claro">
+  	<table width="100%" border="1px">
+	  <tr>
+		<td><div id="map" style="width:620px;height:400px;border:solid;"></div></td>
+		<td width="220px">
+			<div id="indicators"></div>
+			<div id="mapLegend"></div>
+		</td>
+	  </tr>
+    </table>
+    </div>	
+    	
+    	
+    	
+  
 
     <P>И между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. Описание столбцов <a href="#descr">см. ниже</a>. </P>
   ');

@@ -11,6 +11,7 @@ include("ZSitePage.php");
   //$zPage->WriteHtml( "postid=$postid");
 
   $url = 'http://www.openstreetmap.org/user/Zkir/diary/rss';       //адрес RSS ленты
+  //$url = 'http://ask.fm/feed/profile/peirceosm.rss';	  
   $rss = simplexml_load_file($url);       //Интерпретирует XML-файл в объект
   //цикл для обхода всей RSS ленты
   $i=0;

@@ -6,43 +6,80 @@
 include("ZSitePage.php");
 require_once("include/misc_utils.php"); 
 
+
+   // Задаем текущий язык проекта
+    //putenv("LANG=ru_RU"); 
+    //putenv("LANG=en_US"); 
+    putenv("LANG=pt"); 
+    
+
+    // Задаем текущую локаль (кодировку)
+    //setlocale (LC_ALL,"Russian");
+    setlocale (LC_ALL, "pt_BR");
+
+    // Указываем имя домена
+    $domain = 'default';
+
+    // Задаем каталог домена, где содержатся переводы
+    bindtextdomain ($domain, "./locale");
+
+    // Выбираем домен для работы
+
+    textdomain ($domain);
+
+    // Если необходимо, принудительно указываем кодировку
+    // (эта строка не обязательна, она нужна,
+    // если вы хотите выводить текст в отличной
+    // от текущей локали кодировке).
+    bind_textdomain_codeset($domain, 'UTF-8');
+
+
   $zPage=new TZSitePage;
-  $zPage->title="Карты для Ситигид 7.x";
-  $zPage->header="Карты для Ситигид 7.x";
+  $zPage->title=_("Карты для Ситигид 7.x");
+  $zPage->header=_("Карты для Ситигид 7.x");
 
   $xml = simplexml_load_file("maplist.xml"); //Интерпретирует XML-файл в объект
   $xml3 = simplexml_load_file("maplist_old.xml"); //Ручные карты
   	  
-  $zPage->WriteHtml( "<H1>Карты для Ситигид 7.x</H1>");
-  $zPage->WriteHtml('<P> <img src="img/peirce.jpg" height="65px"  style="float:left;"
-                        title="Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф">
-  	                 На этой странице представленны карты Openstreetmap для навигационной программы Ситигид 7.x. 
-  	                 Карты для предыдущей версии СГ 5.x все еще можно найти <a href="/maps5.php">здесь<a>. 
+  $zPage->WriteHtml( "<H1>"._("Карты для Ситигид 7.x")."</H1>");
+  $zPage->WriteHtml('<P> <img src="/img/peirce.jpg" height="65px"  style="float:left;"
+                        title="'._('Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф').'">
+  	                 '._('На этой странице представленны карты Openstreetmap для навигационной программы Ситигид 7.x.').' 
+  	                 '._('Карты для предыдущей версии СГ 5.x все еще можно найти <a href="/maps5.php">здесь</a>.').' 
                        
                      </P>');
-  
+  /*
   $zPage->WriteHtml( "<H2>Обзорные карты</H2>");
   $zPage->WriteHtml('
       <a href="http://peirce.gis-lab.info/maps7/World-OVRV.cgmap"><b>World-OVRV</b></a> - обзорная карта Мира, для 7.2 <br/>
       <b>RU-OVRV.cgmap</b>  - обзорная карта всей России (см. ниже, в общем списке)<br />
       </p>');
-
+*/
 //  $zPage->WriteHtml('<H2>Карты с поддержкой пробок</H2>');
 //  $zPage->WriteHtml('Карты, представленные в этом разделе поддерживаются пробочным сервисом и корректурами.'); 
 //  PrintMapListOld ($xml3,"Карты с пробками");
-  
-  $zPage->WriteHtml('<H2>Ежедневные карты</H2>');
-  $zPage->WriteHtml('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день. <br/>
-                     <b>Важно</b>: в этот список включаются только те карты, которые прошли <a href="/qa">контроль качества</a>  '); 
-    
-  $zPage->WriteHtml( "<H3>Россия</H3>");
-  PrintMapList ($xml,"Россия");
-  
-  $zPage->WriteHtml( "<H3>Ближнее зарубежье </H3>");  
-  PrintMapList ($xml,"Ближнее Зарубежье");
+  $group=$_GET['group'];
+  $zPage->WriteHtml('<H2>'._('Ежедневные карты').'</H2>');
+  $zPage->WriteHtml(_('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день.').'<br/>');
 
-  $zPage->WriteHtml( "<H3>Дальнее зарубежье </H3>");
-  PrintMapList ($xml,"Дальнее Зарубежье");
+  
+  if ($group!='')  
+  {
+  	  $zPage->WriteHtml( "<H3>$group</H3>");
+	  PrintMapList ($xml,$group);
+  }
+  else
+  {	  	  
+	  $zPage->WriteHtml( "<H3>Россия</H3>");
+      $zPage->WriteHtml(_('<p><b>Важно</b>: в этот список включаются только те карты, которые прошли <a href="/qa">контроль качества</a>.</p> ')); 
+	  PrintMapList ($xml,"Россия");
+	  
+	  $zPage->WriteHtml( "<H3>Ближнее зарубежье </H3>");  
+	  PrintMapList ($xml,"Ближнее Зарубежье");
+
+	  $zPage->WriteHtml( "<H3>Дальнее зарубежье </H3>");
+	  PrintMapList ($xml,"Дальнее Зарубежье");
+  }
 
 /*
   $zPage->WriteHtml( "<H2>Все карты, торрент </H2>");
@@ -86,12 +123,14 @@ function PrintMapList($xml, $strGroup)
     {
 
       //if(trim($item->group)==$strGroup)
-      if( $strGroup==GetMapGroup(substr($item->code,0,2))
+      if( 
+      	  ($strGroup==GetMapGroup(substr($item->code,0,2))) or
+      	  ($strGroup==substr($item->code,0,2) )
         )
       {
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td >'.$item->code.'</td>');
-        $zPage->WriteHtml( '<td >'.$item->name.'</td>');
+        $zPage->WriteHtml( '<td >'.$item->name_ru.'</td>');
         $zPage->WriteHtml( '<td>'.$item->date.'</td>');
        // $zPage->WriteHtml( '<td><a href="'.$item->url.'"> скачать</a></td> </tr>');
         $zPage->WriteHtml( '<td><a href="http://peirce.osm.rambler.ru/static/cg7_maps/'.$item->code.'.cgmap"> скачать</a></td> </tr>');

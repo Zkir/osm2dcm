@@ -20,15 +20,17 @@ include("ZSitePage.php");
                      на основе данных OSM. 
                        
                      </P>');
-
-  $url = 'http://www.openstreetmap.org/user/Zkir/diary/rss';       //адрес RSS ленты
+  $zPage->WriteHtml('<h2><a name="QnA">Вопросы и ответы</a></h2>');
+  $zPage->WriteHtml('<p>Здесь я отвечаю на вопросы, заданные нашими пользователями. Вопросы публикуются без цензуры, с сохранением орфографии и пунктуации.</p>');
+ // $url = 'http://www.openstreetmap.org/user/Zkir/diary/rss';       //адрес RSS ленты
+  $url = 'http://ask.fm/feed/profile/peirceosm.rss';	
   $rss = simplexml_load_file($url);       //Интерпретирует XML-файл в объект
   //цикл для обхода всей RSS ленты
   $i=0;
   foreach ($rss->channel->item as $item) {
   	if (substr($item->title,0,1)!="*")  {
     $zPage->WriteHtml( '<div class="post">'."\n");
-    $zPage->WriteHtml( '<h2>'.str_replace("[Карты OSM для СитиГИДа]","",$item->title).'</h2>'."\n"); //выводим на печать заголовок статьи
+    $zPage->WriteHtml( '<h3>'.str_replace("[Карты OSM для СитиГИДа]","",$item->title).'</h3>'."\n"); //выводим на печать заголовок статьи
     //$zPage->WriteHtml(substr($item->title,1,1));
     $contents=$item->description;
     $contents=str_replace('<a href', '<a target="_top" href',$contents);
@@ -44,11 +46,11 @@ include("ZSitePage.php");
     	$zPage->WriteHtml('<div class="entry">'.substr($contents,0,1000).'... <a href="'.$blog_link.'">/.../<a></div>'."\n");
     }
     //$zPage->WriteHtml('<div class="entry">'.substr($contents,0,1000).'... <a href="'.$blog_link.'">/.../<a></div>'."\n");          
-    $zPage->WriteHtml( '<p align="right"><a href="'.$blog_link.'" >'."Комментировать".'</a></p>');      
-    //$zPage->WriteHtml('<p/>');
+    //$zPage->WriteHtml( '<p align="right"><a href="'.$blog_link.'" >'."Комментировать".'</a></p>');      
+    $zPage->WriteHtml('<p/>');
     $zPage->WriteHtml( '</div>'."\n\n");
     $i=$i+1;
-    if ($i>=$g_BlogPostNumber)
+    if ($i>=15)
     {
   	    break;
     }

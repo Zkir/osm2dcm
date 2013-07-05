@@ -58,7 +58,7 @@ require_once("include/misc_utils.php");
       break;
     case 'stat_summary':  
       $zPage->title="Статистика (наполненность карт)";       	
-      PrintMpStatSummaryPage();
+      PrintMpStatSummaryPage($_GET['group']);
       break;
     case 'rss':
     	$zPage->title="Контроль качества - $mapid";
@@ -194,7 +194,8 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   global $zPage;
   global $blnCityBoundaryTestApplicable;
   
-  $xmlQCR = simplexml_load_file("QualityCriteria.xml");
+  $xmlQCR = simplexml_load_file("QualityCriteria2.xml");
+  $xmlQCR =GetQAScale($xmlQCR,$mapid);
   if (file_exists(GetHWCXmlFileName($mapid)))
   {
     $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
@@ -212,8 +213,14 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   	  $blnCityBoundaryTestApplicable = false;
   }	  
   
-  	  
-  $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
+  if ($xml->AddressTest->Summary->TotalStreets!=0)
+  {	  	  
+    $UnmatchedStreetsRate=(float)($xml->AddressTest->Summary->StreetsOutsideCities/$xml->AddressTest->Summary->TotalStreets);
+  }
+  else
+  {
+  	  $UnmatchedStreetsRate=0;
+  }	  
   $zPage->WriteHtml('<table>
               <tr><td>'._("Код карты").'</td><td><b>'.$mapid.'</b></td></tr>
               <tr><td>'._("Название карты").'</td><td><b>'.$strMapName.'</b></td></tr>
@@ -339,18 +346,16 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                   <td><a href="'.$zPage->item_link.'#addr">'._("список").'</a></td>
                   <td><a href="'.$zPage->item_link.'/addr-map">'._("на карте").'</a></td>
                 </tr>');
-                
+  
+  $SolvableErrorsRate=0;              
+  if ((float)$xml->AddressTest->Summary->TotalHouses!=0)
+  {	  
   $SolvableErrorsRate=100.00*( ((float)$xml->AddressTest->Summary->HousesWOCities+
                                 //(float)$xml->AddressTest->Summary->HousesStreetNotSet+
                                 (float)$xml->AddressTest->Summary->HousesStreetNotFound+
                                 (float)$xml->AddressTest->Summary->HousesStreetNotRelatedToCity ) /(float)$xml->AddressTest->Summary->TotalHouses);              
-  $zPage->WriteHtml('<tr>
-                  <td>&nbsp;&nbsp;'._('Доля "легкоисправимых" ошибок (I,III,IV):').'</td>
-                  <td>'.number_format($SolvableErrorsRate,2,'.', ' ').'%</td>
-                  <td>'.TestX($SolvableErrorsRate,5.00,$blnRss).'</td>
-                  <td></td>
-                  <td></td>
-                </tr>
+  }
+  $zPage->WriteHtml('
                 </table>
               <hr/>'  );
 
@@ -366,8 +371,8 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/2">'._('(II) Улица не задана').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotSet."</td></tr>" );
   $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/3">'._('(III) Улица не найдена').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotFound."</td></tr>" );
   $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/4">'._('(IV) Улица не связана с городом').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRelatedToCity."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/5">'._('(V) Дом номеруется по территории').'</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
-  $zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/6">'._('(VI)Улица не является рутинговой в СГ').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
+  //$zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/5">'._('(V) Дом номеруется по территории').'</a></td><td>'.$xml->AddressTest->Summary->HousesNumberRelatedToTerritory."</td></tr>" );
+  //$zPage->WriteHtml('<tr><td align="right"><a href="'.$zPage->item_link.'/addr/6">'._('(VI)Улица не является рутинговой в СГ').'</a></td><td>'.$xml->AddressTest->Summary->HousesStreetNotRoutable."</td></tr>" );
   $zPage->WriteHtml("<tr><td><b></td><td></td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\"><b>"._("По улицам")."<b></td><td></td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">"._("Всего улиц")."</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
@@ -1009,8 +1014,10 @@ function TestQaClass($xml_addr, $xnClass)
   if($tmp_rate  >   (float)$xnClass->MaxUnmatchedAddrStreets)
     $Result=FALSE;
   
+ 
   //Ошибки адресации - улицы не привязанные к регионам
   if ($xnClass->MaxUnmatchedAddrStreetsNoRegion!=""){
+  	  //$Result=FALSE;
 	  if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
 	  {	  
 	    $tmp_rate=((float)($xml_addr->AddressTest->Summary->StreetsWithoutRegion/$xml_addr->AddressTest->Summary->TotalStreets));
@@ -1056,7 +1063,7 @@ function TestQaClass($xml_addr, $xnClass)
 }
 
 //Проверка класса качества карты
-function GetQaClass($xml_addr, $xmlQCR,$strCountryCode)
+function GetQaClass($xml_addr, $xmlQCR)
 {
 
   //Класс A
@@ -1085,16 +1092,7 @@ function GetQaClass($xml_addr, $xmlQCR,$strCountryCode)
     $QARating="B-";
     return $QARating;
   }
-  if (($strCountryCode=="ES") or ($strCountryCode=="NL") or ($strCountryCode=="AT") or ($strCountryCode=="CZ") or ($strCountryCode=="PL")
-  	  or ($strCountryCode=="SE") or ($strCountryCode=="NO") or ($strCountryCode=="IT") or ($strCountryCode=="SI")or ($strCountryCode=="GR")
-  	  or ($strCountryCode=="PL") or ($strCountryCode=="HU") or ($strCountryCode=="DK")   )
-  {	  
-	  if (TestQaClass($xml_addr,$xmlQCR->ClassBm2))
-	  {
-	    $QARating="C";
-	    return $QARating;
-	  }
-  }
+ 
   
   //Класс C
   if (TestQaClass($xml_addr,$xmlQCR->ClassC))
@@ -1265,13 +1263,73 @@ function PrintQASummaryPage($GroupName)
       
 }	
 
+function GetQAScale($xmlQCR, $mapCode)
+{
+	if (substr($mapCode,3,4)=="OVRV")
+          {
+            return $xmlQCR->Scale3;
+          }	  
+          else{
+          	  
+          $strCountryCode=substr($mapCode,0,2);
+          if (
+          	     ($strCountryCode=="AT") //Австрия
+          	  or ($strCountryCode=="AL") //Албания
+          	  or ($strCountryCode=="BE") //Бельгия
+          	  or ($strCountryCode=="BG") //Болгария
+          	  or ($strCountryCode=="CH") //Швейцария
+          	  or ($strCountryCode=="CZ") //Чехия
+          	  or ($strCountryCode=="CY") //Кипр
+          	  or ($strCountryCode=="DE") //Германия
+          	  or ($strCountryCode=="DK") //Дания
+           	  or ($strCountryCode=="ES") //Испания
+           	  or ($strCountryCode=="HR") //Хорватия           	  
+           	  or ($strCountryCode=="FR") //Франция
+           	  or ($strCountryCode=="GB") //Великобритания
+           	  or ($strCountryCode=="GR") //Греция
+           	  or ($strCountryCode=="HU") //Венгрия
+          	  or ($strCountryCode=="IE") //Ирландия
+          	  or ($strCountryCode=="IS") //Исландия
+          	  or ($strCountryCode=="IT") //Италия
+          	  or ($strCountryCode=="MT") //Мальта
+              or ($strCountryCode=="NL") //Голландия
+              or ($strCountryCode=="NO") //Норвегия
+              or ($strCountryCode=="PL") //Польша  
+              or ($strCountryCode=="RO") //Румыния
+              or ($strCountryCode=="RS") //Сербия
+  	          or ($strCountryCode=="SE") //Швеция
+  	          or ($strCountryCode=="SI") //Словения
+  	          or ($strCountryCode=="SK") //Словакия
+  	          or ($strCountryCode=="TR") //Турция 
+  	             
+  	          //Amerika
+  	          or ($strCountryCode=="CL") //Чили
+  	          or ($strCountryCode=="CR") //Коста-Рика
+  	          or ($strCountryCode=="CU") 
+          	  or ($strCountryCode=="GT") 
+          	  or ($strCountryCode=="JM") 
+       	  	  or ($strCountryCode=="NI") 
+   	  	  	  or ($strCountryCode=="PY") 
+  	  	  	  or ($strCountryCode=="US")
+  	         )
+  	        {	  
+	          return $xmlQCR->Scale2;
+            }
+          else
+            {
+          	  return $xmlQCR->Scale1;
+             }	     
+          
+          }
+}	
+
 function PrintQASummary($strGroup)
 {
    global $zPage;
 
    //Cписок пока строим по статистике
    $xml = simplexml_load_file("maplist.xml");
-   $xmlQCR = simplexml_load_file("QualityCriteria.xml");
+   $xmlQCR = simplexml_load_file("QualityCriteria2.xml");
    
    $NumberOfA=0;
    $NumberOfB=0;
@@ -1324,7 +1382,9 @@ function PrintQASummary($strGroup)
           else $N_hwc='-';
           
           
-          $QARating=GetQaClass($xml_addr, $xmlQCR,substr($item->code,0,2));
+          $QARating=GetQaClass($xml_addr, GetQAScale($xmlQCR,$item->code));
+          
+          
           	  
           $Style="";
            switch ($QARating) {
@@ -1706,22 +1766,25 @@ function PrintStatistics($objStatRecord,$xml)
 /*=====================================================================================================
 Сводная таблица по Статистике МП
 =======================================================================================================*/
-function PrintMpStatSummaryPage()
+function PrintMpStatSummaryPage($group)
 {
   global $zPage;	 
+  if (trim($group)=='') $group='RU';
+  
   $zPage->WriteHtml( '<h1>Статистика (наполненность карт для СГ)</h1>');
   $zPage->WriteHtml( '<p>   На этой странице приведены статистические показатели, отражающие наполненность (подробность) итоговых карт.
   	                  Эти показатели считаются по объектам, фактически попавшим в готовые карты osm для СГ 7.x  </p>');
-  $zPage->WriteHtml( '<h2>Россия</h2>');
+  $zPage->WriteHtml( '<h2>'.$group.'</h2>');
   $zPage->WriteHtml( '<p><small>Между прочим, таблица сортируется. Нужно кликнуть
                           на заголовок столбца. </small></p> ');
-  PrintMpStatSummary(0);
+  
+  PrintMpStatSummary(0,$group);
       
   //$zPage->WriteHtml( '<h2>Заграница</h2>');
   //PrintAddressSummary(1);
 	
 }
-function PrintMpStatSummary($mode)
+function PrintMpStatSummary($mode, $group)
 {
    global $zPage;
 
@@ -1744,7 +1807,7 @@ function PrintMpStatSummary($mode)
 
   foreach ($xml->map as $item)
     {
-      if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
+      if(  (substr($item->code,0,2)==$group and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
       {
         $xmlfilename=GetXmlFileName($item->code);
 
