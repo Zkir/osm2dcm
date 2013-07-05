@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<!-- begin map -->
+<link rel="stylesheet" href="../dijit/themes/claro/claro.css"/>
+<script>
+var selectedIndicatorIndex = 0;
+var indicators = [
+{id:"NumberOfObjects", name:"Число объектов"},
+{id:"EditsPerDay", name:"Правок в день"},
+{id:"M14", name:"14 дней"},
+{id:"M100", name:"100 дней"},
+{id:"M365", name:"365 дней"},
+{id:"AverageObjectAge", name:"Ср. возраст"},
+{id:"ObjectsPerSquareKm", name:"Число объектов на кв. км"},
+{id:"EditsPerDayPerSquareKm", name:"Правок в день на тыс.кв. км"},
+{id:"ActiveUsers", name:"Активные участники"}
+];
+var divergingIndexes = {AverageObjectAge: 1};
+</script>
+<script data-dojo-config="async:true" src="../dojo/dojo.js"></script>
+<script src="stat-json.php"></script>
+<script>
+require([
+	"zkir/stats"
+], function(makeMap){
+	makeMap({
+		selectedIndicatorIndex: selectedIndicatorIndex,
+		indicators: indicators,
+		divergingIndexes: divergingIndexes,
+		features: statJson
+	})
+});
+</script>
+<!-- end map -->
+</head>
+
+<body class="claro">
+
+<table>
+	<tr>
+		<td><div id="map" style="width:800px;height:400px;"></div></td>
+		<td>
+			<div id="indicators"></div>
+			<div id="mapLegend"></div>
+		</td>
+	</tr>
+</table>
+
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+t<p>
+
+</body>
+</html>
