@@ -51,7 +51,7 @@ public class GeocoderConfig{
     if (strCountryCode.equals("BE"))
     {
       levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForRegion=new String[] {"6","4"};
     }
 
     //Чехия
@@ -356,6 +356,13 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
+    }
+
+    //Мексика - MX
+    if (strCountryCode.equals("MX"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
     }
 
     //===========================================================================================
