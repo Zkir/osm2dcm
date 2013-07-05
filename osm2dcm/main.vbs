@@ -209,6 +209,7 @@ Private Function SaveMapCreationHistory(rs, strFileName)
   
   dim Men
   Set Men = FileSystemObject.OpenTextFile(strFileName, 2, True)'
+  rs.Sort= RS_MAP_CODE
   rs.MoveFirst 
   Do While Not rs.EOF  
     Men.WriteLine MyFormat(rs(RS_MAP_CODE).Value,11)       & " | " & _ 
@@ -353,26 +354,28 @@ Do While Not (rsMapList.EOF or ((Now()-dtStartDate)>0.25))
     dtSourceDate = GetSourceFileDate(strSource)
     Wscript.Echo rsMapList(RS_MAP_CODE).Value & " " & rsMapList(RS_MAP_SOURCE).Value & " " & dtSourceDate  & " " & rsMapList(RS_MAP_DATE).value  & " " & rsMapList(RS_MAP_LAST_TRY_DATE).value
     
-    if (rsMapList(RS_MAP_PRIORITY).value<9) and ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value)>90) and (rsMapList(RS_MAP_LAST_TRY_DATE).value>"01.01.2013") then
-
+    if (rsMapList(RS_MAP_PRIORITY).value<9) and ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value)>105) and (rsMapList(RS_MAP_LAST_TRY_DATE).value>"01.01.2013") then
+      Wscript.Echo " Trying to update source pbf" 
       intUpdateResult=WshShell.Run( "update.bat " & strSource & " >>D:\OSM\osm_data\log.txt 2>>&1", 1,TRUE) 
-      Wscript.Echo "Update Result:" & intUpdateResult
+      Wscript.Echo " Update Result:" & intUpdateResult
       if intUpdateResult=0 then 
-        dtSourceDate = dtMapDate
+        dtSourceDate = GetSourceFileDate(strSource)
       end if
 
     end if
-       
+    
+    'ѕолучим дату снова. “ребуетс€, чтобы дата карты была больше, чем дата исходного файла, дл€ последующих обновлений.
+    dtMapDate=Now()   
 
     intPeriodicity= 0.5
  
 
     intNewVersion=rsMapList(RS_MAP_VERSION).value+1
     
-    '–осси€ обновл€етс€ принудительно
-    if  ((dtSourceDate>rsMapList(RS_MAP_LAST_TRY_DATE).value) or (strSource="russia.pbf_")  or (strSource="russia.o5m_") or (strSource="local-1.pbf_")) _
-        and ( ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value) >intPeriodicity) ) or (rsMapList(RS_MAP_PRIORITY).value=0)  then 'карты, которые уже сегодн€ обновл€лись, собирать не надо.
-       
+
+    if  ( (dtSourceDate>rsMapList(RS_MAP_LAST_TRY_DATE).value)  or (rsMapList(RS_MAP_PRIORITY).value=0)   )then 
+     
+      'Wscript.Echo  dtSourceDate & "  "& rsMapList(RS_MAP_LAST_TRY_DATE).value 
       blnSuccess=ProcessMap(rsMapList(RS_MAP_CODE).Value, _
                      rsMapList(RS_MAP_CGID).Value, _
                      rsMapList(RS_MAP_TITLE).Value, _
@@ -391,7 +394,7 @@ Do While Not (rsMapList.EOF or ((Now()-dtStartDate)>0.25))
          
          'ѕриоритет сбрасываетс€
          if rsMapList(RS_MAP_CODE).Value="EU-OVRV" then
-           UpdateHistoryAndSite intUsedTime,intNewVersion, blnSuccess, 1
+           UpdateHistoryAndSite intUsedTime,intNewVersion, blnSuccess, 6
          else
            UpdateHistoryAndSite intUsedTime,intNewVersion, blnSuccess, 6
          end if
