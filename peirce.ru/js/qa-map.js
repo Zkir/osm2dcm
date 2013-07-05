@@ -478,7 +478,10 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
   var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 60});
   clusterer.addMarkers(markers);
   
-  document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem()">Показать следущую ошибку</a>.</p>');  
+  document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem(0)">Показать следущую ошибку</a> -- ');  
+  document.write('<a href="javascript:void(0)" onclick="ShowNextProblem(1)">Показать случайную ошибку</a> -- ');  
+  document.write('<a href="javascript:void(0)" onclick="LoadCurrentView()">Загрузить текущий вид</a> -- ');
+  document.write('<a href="javascript:void(0)" onclick="ThisPlaceAtOsm()">Это место на OSM.org</a> </p>');  
   document.write('<p> Всего ошибок:'+intMarkerCount+'</p>');
   
 
@@ -494,24 +497,50 @@ function ProcessMap(TestName,XmlFileName, ReportErrType1)
       var delta=0.0006;
       document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat+delta)+"&bottom="+(lat-delta)+"&left="+(lon-delta)+"&right="+(lon+delta);
     }
+function ThisPlaceAtOsm()
+{
+  var bounds;      	 
+  bounds=map.getBounds();
+  var strUrl;
+  strUrl="http://www.openstreetmap.org/?bbox="+ (bounds._sw._lng)+"%2C"+ (bounds._sw._lat)+"%2C"+(bounds._ne._lng)+"%2C"+(bounds._ne._lat);
+ // document.location.href=strUrl;
+  var newWin = window.open(strUrl, "_blank")
+
+
+}
    
+function LoadCurrentView()
+{ 
+  var bounds;      	 
+  bounds=map.getBounds();
+  var strJosmLink;
+  strJosmLink="http://localhost:8111/load_and_zoom?top="+  (bounds._ne._lat)+"&bottom="+(bounds._sw._lat)+"&left="+(bounds._sw._lng)+"&right="+(bounds._ne._lng);
+  document.getElementById('ttt').contentWindow.location.href=strJosmLink;
+}	
 
 //-----------------------------------------------------------------------------------------------
  //  Показать следующую проблему
  //----------------------------------------------------------------------------------------------
-function ShowNextProblem()
+function ShowNextProblem(blnShowRandom)
 {
 	var LatMin=0;
     var LonMin=0;
 	var LatMax=0;
     var LonMax=0;
     
-    CurrentMarker=CurrentMarker+1;
+    if (blnShowRandom==0)
+    {	
+      CurrentMarker=CurrentMarker+1;
+    }
+    else
+    {	
+      CurrentMarker=Math.floor(Math.random()*ErrorList.length); 
+    }	  
     
     if (CurrentMarker>=ErrorList.length)
     {CurrentMarker=0;}
     
-     switch (ErrorList[i].Kind) {
+     switch (ErrorList[CurrentMarker].Kind) {
       case "POINT":
         LatMin=ErrorList[CurrentMarker].Lat;
         LonMin=ErrorList[CurrentMarker].Lon;

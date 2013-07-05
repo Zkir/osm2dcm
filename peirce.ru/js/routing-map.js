@@ -159,7 +159,10 @@ function ProcessMap(XmlFileName, strLevel)
     map.zoomToBounds(bounds );	
     var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 30});
     clusterer.addMarkers(markers);
-    document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem()">Показать следущий изолят</a>.</p>');
+    document.write('<p><a href="javascript:void(0)" onclick="ShowNextProblem(0)">Показать следущий изолят</a> -- ');
+    document.write('<a href="javascript:void(0)" onclick="ShowNextProblem(1)">Показать случайный изолят</a> -- ');
+    document.write('<a href="javascript:void(0)" onclick="LoadCurrentView()">Загрузить текущий вид</a> -- ');
+    document.write('<a href="javascript:void(0)" onclick="ThisPlaceAtOsm()">Это место на OSM.org</a> </p>');
  
     document.write('<p> всего отдельных подграфов: '+intMarkerCount+'</p>');
 
@@ -177,14 +180,43 @@ function doClick(lat1,lon1,lat2,lon2)
   document.getElementById('ttt').contentWindow.location.href="http://localhost:8111/load_and_zoom?top="+(lat2+delta)+"&bottom="+(lat1-delta)+"&left="+(lon1-delta)+"&right="+(lon2+delta);
 }
 
-function ShowNextProblem()
+
+function ThisPlaceAtOsm()
+{
+  var bounds;      	 
+  bounds=map.getBounds();
+  var strLink;
+  strUrl="http://www.openstreetmap.org/?bbox="+ (bounds._sw._lng)+"%2C"+ (bounds._sw._lat)+"%2C"+(bounds._ne._lng)+"%2C"+(bounds._ne._lat);
+  //document.location.href=strUrl;
+  var newWin = window.open(strUrl, "_blank")
+
+
+}
+
+function LoadCurrentView()
+{ 
+  var bounds;      	 
+  bounds=map.getBounds();
+  var strJosmLink;
+  strJosmLink="http://localhost:8111/load_and_zoom?top="+  (bounds._ne._lat)+"&bottom="+(bounds._sw._lat)+"&left="+(bounds._sw._lng)+"&right="+(bounds._ne._lng);
+  document.getElementById('ttt').contentWindow.location.href=strJosmLink;
+}
+
+function ShowNextProblem(blnShowRandom)
 {
 	var LatMin=0;
     var LonMin=0;
 	var LatMax=0;
     var LonMax=0;
     
-    CurrentMarker=CurrentMarker+1;
+    if (blnShowRandom==0)
+    {	
+      CurrentMarker=CurrentMarker+1;
+    }
+    else
+    {	
+      CurrentMarker=Math.floor(Math.random()*SubGraphs.length); 
+    }	  
     
     if (CurrentMarker>=SubGraphs.length)
     {CurrentMarker=0;}
