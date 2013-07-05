@@ -56,8 +56,9 @@ public class PolyBuffer {
     String strCoordLine="";
     double lat, lon;
     oInFile.readLine();//Header, we are not interested in it
-    oInFile.readLine();
-    oInFile.readLine();
+    strLine =oInFile.readLine();
+    if (strLine.equals("") )
+      oInFile.readLine();
     while( (strLine = oInFile.readLine()) != null) {
       strLine = strLine.trim();
       if (strLine.equalsIgnoreCase("end") )
