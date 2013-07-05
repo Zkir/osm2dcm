@@ -86,13 +86,7 @@ function PrintSideBlockNews()
   </title>
   <script src="/sorttable.js" type="text/javascript"> </script>
 
-  <!-- VK -->
-  <script type="text/javascript" src="//vk.com/js/api/openapi.js?56"></script>
-
-  <script type="text/javascript">
-      VK.init({apiId: 3170198, onlyWidgets: true});
-  </script>
-
+ 
   </head>
   <body class="claro"><div id="box">
    <!-- header -->
@@ -109,16 +103,16 @@ function PrintSideBlockNews()
        <div id="menu">
         <ul>
             <?php
-            echo '<li id="active"><a href="'.$g_SelfUrl.'">Новости</a></li>
-                  <li><a href="'.$g_SelfUrl.'/daily">Карты</a></li>';
-            echo  '<li><a href="'.$g_SelfUrl.'/qa">Контроль качества</a></li>';       
+            echo '<li id="active"><a href="'.$g_SelfUrl.'">'._('Новости').'</a></li>
+                  <li><a href="'.$g_SelfUrl.'/daily">'._('Карты').'</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/qa">'._('Контроль качества').'</a></li>';       
             //echo  '<li><a href="'.$g_SelfUrl.'/maps5.php">для  СГ 5.x</a></li>';
-            echo  '<li><a href="'.$g_SelfUrl.'/stat">Статистика 1</a></li>';
-            echo  '<li><a href="'.$g_SelfUrl.'/stat2">Статистика 2</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/stat">'._('Статистика 1').'</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/stat2">'._('Статистика 2').'</a></li>';
           
             
                  // <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
-            echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">Форум</a></li>';
+            echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">'._('Форум').'</a></li>';
                              
             ?>
         </ul>
@@ -163,6 +157,22 @@ function PrintSideBlockNews()
     if ($UseWide!="1")
     {	
 
+     //Дежурный-По-Сайту
+    /*'<p>Если у вас возникли вопросы, задайте их нашему онлайн-консультанту.
+                   Даже если он не знает ответ на ваш вопрос, разговор <b>будет записан</b>
+                   и мы постараемся ответить этот вопрос позже:</p> */
+    PrintSideBlock('Дежурный-По-Сайту',
+                  '<p>Есть вопрос? Самое время его задать. Мы обязательно на него ответим:</p>
+                   <p>
+                     <!--<iframe src="http://ai.zkir.ru/inf?bot_id=00000000-0000-0000-0000-000000000001" height="200" width="330" frameborder="0" scrolling="no" >  
+                     </iframe>
+                     <iframe src="http://ask.fm/widget/16578df4e26fce1dd76ad4aa05a8c3cc91b5eeaf?stylesheet=large&fgcolor=%23000000&bgcolor=%23EFEFEF&lang=2" frameborder="0" scrolling="no" width="330" height="200" style="border:none;"></iframe>
+                     -->
+                     <iframe src="http://ask.fm/widget/87768842a61cbcb377f2322b2e1b9c5f5e9ae926?stylesheet=large&fgcolor=%23000000&bgcolor=%23ffffff&lang=2" frameborder="0" scrolling="no" width="330" height="200" style="border:none;"></iframe>
+                   <br />
+                   <a href="/#QnA"><i>Почитать ответы...</i> </a> </p>');
+           
+       
     PrintSideBlock('СитиГид',
           '<img style="float:left;position:relative;top:-7px;" src="/img/cg_logo.gif">
           <p><strong>СитиГид</strong> - это популярная программа-навигатор с поддержкой пробок.
@@ -177,24 +187,16 @@ function PrintSideBlockNews()
           <p><a href="http://openstreetmap.org">OpenStreetMap</a> позволяет совместно просматривать,
           изменять и использовать географические данные в любой точке Земли.</p>');
    
-    //Дежурный-По-Сайту
-    /*
-    PrintSideBlock('Дежурный-По-Сайту',
-                  '<p>Если у вас возникли вопросы, задайте их нашему онлайн-консультанту.
-                   Даже если он не знает ответ на ваш вопрос, разговор <b>будет записан</b>
-                   и мы постараемся ответить этот вопрос позже:</p>
-                   <p>
-                     <iframe src="http://ai.zkir.ru/inf?bot_id=00000000-0000-0000-0000-000000000001" height="200" width="330" frameborder="0" scrolling="no" >                      </iframe>
-                   </p>');
-   */        
-   //<!-- Линия жизни -->
+   
+   /*<!-- Линия жизни -->
     PrintSideBlock('Линия Жизни',
 		          '<p align="center"><a href="http://life-line.ru" 
 		   	           target="_blank">
 		   	           <img src="http://life-line.ru/files/banners/life-line_240x400_sms.gif" 
 		   		           _fcksavedurl="http://life-line.ru/files/banners/life-line_240x400_sms.gif" 
 		    		           alt="Помоги детям!" >
-		   		  </a></p>');
+		   		  </a></p>'); */
+   
    //<!-- Новости -->
     PrintSideBlockNews();
    
