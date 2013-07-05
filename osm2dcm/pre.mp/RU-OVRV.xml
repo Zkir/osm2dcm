@@ -7,14 +7,14 @@
   <rule predefined="skip_comment_sections"/>
 </source_file>
 
-<source_file name="_my\RU-OVRV\RU-OVRV.cities.mp">
+<source_file name="%OSM_DATA%\_my\RU-OVRV\RU-OVRV.cities.mp">
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <rule predefined="uplift_cities_6"/>
 </source_file>
 
-<source_file name="_my\RU-OVRV\RU-OVRV.roads.mp_opt.mp">
+<source_file name="%OSM_DATA%\_my\RU-OVRV\RU-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <!--убрать  пои  -->
