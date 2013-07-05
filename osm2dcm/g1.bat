@@ -45,19 +45,22 @@ rem call getbound.bat PL-SK 130914
 rem call getbound.bat PL-SL 224462
 
 rem call getbound.bat PL-PM 130975
+
+rem Швеция
+rem call getbound.bat SE-Norrland 52829 
+rem call getbound.bat SE-Svealand 54219 
+rem call getbound.bat SE-Gotaland 54368 
+
+
+rem call getbound.bat NO-SOUTH 406355 
 rem ===================================
 rem Германия 
 rem ===================================
 rem call getbound.bat DE-BB 62504
 rem call getbound.bat DE-ST 62607
 rem call getbound.bat DE-BE 62422
-rem call getbound.bat DE-SN 62467
+rem  call getbound.bat DE-SN 62467
 
-rem call getbound.bat SE-Norrland 52829 
-rem call getbound.bat SE-Svealand 54219 
-rem call getbound.bat SE-Gotaland 54368   
-
-rem call getbound.bat NO-SOUTH 406355
 rem call getbound.bat DE-BW 62611
 rem call getbound.bat DE-MV 28322
 rem call getbound.bat DE-NI 62771
@@ -68,9 +71,10 @@ rem call getbound.bat DE-RP 62341
 rem call getbound.bat DE-HE 62650
 rem call getbound.bat DE-SL 62372
 
-rem call getbound.bat DE-BY 62549
+rem call getbound.bat DE-BY 2145268
 rem call getbound.bat DE-TH 62366
 rem call getbound.bat DE-HH 62782
+
 rem call getbound.bat EE-FULL 79510
 rem call getbound.bat LV-FULL 72594
 rem call getbound.bat LT-FULL 72596
@@ -173,17 +177,23 @@ rem call getbound.bat TR-6 2092903 Средиземноморский регион
 rem call getbound.bat TR-7 2094155 Юго-Восточная Анатолия
 
 
-call getbound.bat GB-EN1 151164 North East England
-call getbound.bat GB-EN2 151261 North West England
-call getbound.bat GB-EN3 151012 Yorkshire and the Humber
-call getbound.bat GB-EN4 151279 East Midlands
-call getbound.bat GB-EN5 151283 West Midlands
-call getbound.bat GB-EN6 151336 East of England
-call getbound.bat GB-EN7 175342 Greater London
-call getbound.bat GB-EN8 151304 South East England
-call getbound.bat GB-EN9 151339 South West England
-call getbound.bat GB-SCT 58446 Scotland
-call getbound.bat GB-WLS 58437 Wales
-call getbound.bat GB-NIR 156393 Northen Ireland
+rem call getbound.bat GB-EN1 151164 North East England
+rem call getbound.bat GB-EN2 151261 North West England
+rem call getbound.bat GB-EN3 151012 Yorkshire and the Humber
+rem call getbound.bat GB-EN4 151279 East Midlands
+rem call getbound.bat GB-EN5 151283 West Midlands
+rem call getbound.bat GB-EN6 151336 East of England
+rem call getbound.bat GB-EN7 175342 Greater London
+rem call getbound.bat GB-EN8 151304 South East England
+rem call getbound.bat GB-EN9 151339 South West England
+rem call getbound.bat GB-SCT 58446 Scotland
+rem call getbound.bat GB-WLS 58437 Wales
+rem call getbound.bat GB-NIR 156393 Northen Ireland
 
+rem call getbound.bat IE-FULL 62273 Ireland
+rem call getbound.bat IS-FULL 299133 Iceland
+
+rem call getbound.bat GB-SC1 1433249 Scotland, Highlands
+rem call getbound.bat BE-OVRV 52411 Belgium
+call getbound.bat JM-FULL 555017 jamaica
 pause 
