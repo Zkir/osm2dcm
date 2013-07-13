@@ -3,6 +3,7 @@
 
   <property name="vbexe"          location="c:\Program Files (x86)\Microsoft Visual Studio\VB98\vb6.EXE"/> 
   <property name="buildpath"      location="d:\osm\osm2dcm"/> 
+  <property name="osmdatapath"      location="d:\osm\osm_data"/> 
   <property name="productionpath" location="o:\osm2dcm"/>  
   
   <target name="clean">
@@ -93,7 +94,31 @@
          <include name="**/*.class"/>
        </fileset>
        <zipgroupfileset dir="" includes="javalibs/**/*.jar" />
-     </jar> 
+     </jar>
+      
+    <echo>PolyBuffer</echo>
+    
+     <javac destdir="PolyBuffer/out/production/PolyBuffer" 
+            encoding = "utf-8" includeantruntime="false" 
+            classpath="javalibs/jts-1.13.jar">
+      <src path="PolyBuffer/src"/>
+      
+     </javac>
+    
+     <jar destfile="${buildpath}/polybuffer.jar" manifest="polybuffer/META-INF/MANIFEST.MF" >
+       <fileset dir="polybuffer/out/production/polybuffer">
+         <include name="**/*.class"/>
+       </fileset>
+       <zipgroupfileset dir="" includes="javalibs/jts-1.13.jar" />
+     </jar>
+     
+    <!-- JAVA -->
+    <echo> -- Compile delphi routines</echo>
+    <!--mp2mp -->
+    <echo>delphi mp2mp (just copying)</echo> 
+    <copy todir="${buildpath}" includeEmptyDirs="false" >
+        <fileset file="mp2mp\Win32\Debug\mp2mp.exe"  />
+    </copy>
     
   </target> 
   
@@ -107,19 +132,31 @@
         <fileset dir="osm2dcm\osm2mp.config"/>
     </copy>
     
+    <copy todir="${buildpath}\osm2mp.config.no_buildings">
+        <fileset dir="osm2dcm\osm2mp.config.no_buildings"/>
+    </copy>
+    
     <copy todir="${buildpath}\poly">
         <fileset dir="osm2dcm\poly"/>
     </copy>
     
-    <copy todir="${buildpath}\_my\test">
+    <copy todir="${buildpath}\poly.src">
+        <fileset dir="osm2dcm\poly.src"/>
+    </copy>
+    
+    <copy todir="${buildpath}\pre.mp">
+        <fileset dir="osm2dcm\pre.mp"/>
+    </copy>
+    
+    <copy todir="${osmdatapath}\_my\test">
         <fileset dir="osm2dcm\_my\test"/>
     </copy>
     
-    <copy todir="${buildpath}\_my\test.GK">
+    <copy todir="${osmdatapath}\_my\test.GK">
         <fileset dir="osm2dcm\_my\test.GK"/>
     </copy>
     
-    <copy todir="${buildpath}\_my\test.PP">
+    <copy todir="${osmdatapath}\_my\test.PP">
         <fileset dir="osm2dcm\_my\test.PP"/>
     </copy>
    
@@ -141,19 +178,19 @@
            maxmemory="1280m"
            >
          <arg value="--readmp" />
-         <arg value="file=&quot;${buildpath}\_my\TEST.GK\CU-FULL.pre.mp&quot;" />
+         <arg value="file=&quot;${osmdatapath}\_my\TEST.GK\CU-FULL.pre.mp&quot;" />
          <arg value="--geocode" />
-         <arg value="src=&quot;${buildpath}\_my\TEST.GK\boundaries.osm&quot;" />
+         <arg value="src=&quot;${osmdatapath}\_my\TEST.GK\boundaries.osm&quot;" />
          <arg value="mapcode=&quot;CU-FULL&quot;" />
          <arg value="--writemp" />
-         <arg value="file=&quot;${buildpath}\_my\TEST.GK\CU-FULL.mp&quot;"/>
+         <arg value="file=&quot;${osmdatapath}\_my\TEST.GK\CU-FULL.mp&quot;"/>
          <classpath>
            <pathelement location="${buildpath}\jmp2mp2.jar"/>
          </classpath>
     </java>
     <echo>Compare with etalon</echo>
     <condition property="gk_tests_ok"> 
-      <filesmatch file1="${buildpath}\_my\TEST.GK\CU-FULL.mp" file2="${buildpath}\_my\TEST.GK\CU-FULL.etalon.mp"/> 
+      <filesmatch file1="${osmdatapath}\_my\TEST.GK\CU-FULL.mp" file2="${osmdatapath}\_my\TEST.GK\CU-FULL.etalon.mp"/> 
     </condition> 
     <fail unless="gk_tests_ok" message="geocoder test failed"/> 
     <echo>Geocoder test OK</echo>
@@ -167,15 +204,15 @@
            failonerror="true"
            maxmemory="1280m"
            >
-         <arg value="${buildpath}\_my\TEST.PP\RU-NIZ.pre.mp" />
-         <arg value="${buildpath}\_my\TEST.PP\RU-NIZ.mp" />
+         <arg value="${osmdatapath}\_my\TEST.PP\RU-NIZ.pre.mp" />
+         <arg value="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp" />
          <classpath>
            <pathelement location="${buildpath}\jmp2mp.jar"/>
          </classpath>
     </java>
     <echo>Compare with etalon</echo>
     <condition property="pp_tests_ok"> 
-      <filesmatch file1="${buildpath}\_my\TEST.PP\RU-NIZ.mp" file2="${buildpath}\_my\TEST.PP\RU-NIZ.etalon.mp"/> 
+      <filesmatch file1="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp" file2="${osmdatapath}\_my\TEST.PP\RU-NIZ.etalon.mp"/> 
     </condition> 
     <fail unless="pp_tests_ok" message="validator test failed"/> 
     <echo>postprocessor/validator test OK</echo>
@@ -190,10 +227,7 @@
     <echo>Full build of Osm2dcm has been completed OK</echo>
   </target>
   
-  <target name="deploy" description="Deploy scripts to the production server" depends="full_build">
-    <copy todir="${productionpath}">
-      <fileset dir="${buildpath}"/>
-    </copy>  
+  
        
-  </target>
+  
 </project> 
