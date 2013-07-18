@@ -60,15 +60,25 @@ $zPage=new TZSitePage;
   };
   $zPage->WriteHtml('</tr> </table> ');
   $zPage->WriteHtml('
-                    <div id="cm-example" style="width: 100%; height: 450px"></div>
-                    <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
-                    <script type="text/javascript" src="/js/routing-map.js"> </script>
-                    <script type="text/javascript">
-                      ProcessMap("/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
-                    </script>
-                     <iframe id="ttt" src="" style="display:none;"></iframe>
+		<div id="cm-example" style="width: 100%; height: 450px"></div>
+
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.js"></script>
+
+		<script type="text/javascript" src="/js/routing-map.js"> </script>
+
+		<script src="/js/leaflet.markercluster.js"></script>
+		<link rel="stylesheet" href="/js/MarkerCluster.css" />
+		<link rel="stylesheet" href="/js/MarkerCluster.Default.css" />
+
+		<script type="text/javascript">
+		ProcessMap("/ADDR_CHK/'.$mapid.'.mp_addr.xml","'.$level.'");
+		</script>
+
+		<iframe id="ttt" src="" style="display:none;"></iframe>
   	  ');
   $zPage->WriteHtml('<p>По щелчку на маркере открывается JOSM, он должен быть запущен.</p>');
+  
  
   $zPage->WriteHtml('<h2>Другие тесты</h2>');
   PrintTestNavigator($mapid);
