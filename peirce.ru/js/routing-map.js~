@@ -35,7 +35,7 @@ function ProcessMap(XmlFileName, strLevel)
 		var osmAttrib='Map data В© OpenStreetMap contributors';
 		var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});		
 
-		osm.addTo(map);		
+		map.addLayer(mapsurfer);
 
 		var ovrv = L.tileLayer.wms("http://81.176.229.99/cgi-bin/qgis_mapserv.fcgi", {
 		    layers: 'highways',
@@ -51,11 +51,9 @@ function ProcessMap(XmlFileName, strLevel)
 		    transparent: true
 		});
 
-		gen.addTo(map);
-
 		var baseMaps = {
-		    "mapnik": osm,
-		    "mapsurfer": mapsurfer
+		    "mapsurfer": mapsurfer,
+		    "mapnik": osm
 		};
 
 		var overlayMaps = {
