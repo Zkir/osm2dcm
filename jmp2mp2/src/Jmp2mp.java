@@ -5,6 +5,8 @@ import ru.zkir.mp2mp.core.ReadMpTask;
 import ru.zkir.mp2mp.core.WriteMpTask;
 import ru.zkir.mp2mp.taskforcejunctions.ForceJunctionsTask;
 import ru.zkir.mp2mp.taskgeocoder.GeocoderTask;
+import ru.zkir.mp2mp.tasksetheaderparams.SetHeaderParamsTask;
+
 import java.io.IOException;
 
 
@@ -74,6 +76,15 @@ public class Jmp2mp {
             fj=new ForceJunctionsTask();
             fj.execute(mpData, cmdLineParser.tasks.get(i));
           }
+
+          //setheaderparams
+          if (cmdLineParser.tasks.get(i).name.equals("setheaderparams"))
+          {
+            SetHeaderParamsTask  shp;
+            shp=new SetHeaderParamsTask();
+            shp.execute(mpData, cmdLineParser.tasks.get(i));
+          }
+
 
           //writemp
           if (cmdLineParser.tasks.get(i).name.equals("writemp"))
