@@ -60,6 +60,12 @@ public class GeocoderConfig{
       levelsForCity=new String[] {"8","7"};
       levelsForRegion=new String[] {"6"};
     }
+    //Германия
+    if (strCountryCode.equals("DE"))
+    {
+      levelsForCity=new String[] {"CITY_POLYGON","8"};
+      levelsForRegion=new String[] {"6"};
+    }
 
     //Эстония
     if (strCountryCode.equals("EE"))
@@ -164,7 +170,7 @@ public class GeocoderConfig{
 
     if (strCountryCode.equals("SK"))
     {
-      levelsForCity=new String[] {"9"};
+      levelsForCity=new String[] {"6","9"};
       levelsForRegion=new String[] {"4"};
     }
 
@@ -376,6 +382,21 @@ public class GeocoderConfig{
       blnHamletsExcluded=true;
       levelsForRegion=new String[] {"4"};
     }
+    //Тунис
+    if (strCountryCode.equals("TN"))
+    {
+      language="en";
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      blnHamletsExcluded=true;
+      levelsForRegion=new String[] {"4"};
+    }
+    //Шри-Ланка
+    if (strCountryCode.equals("LK"))
+    {
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
   }
 
 }
