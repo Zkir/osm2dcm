@@ -367,14 +367,13 @@ function initializeMap(showEURoutes) {
 	osm.addTo(map);		
 
 	if(showEURoutes) {
-		var ovrv = L.tileLayer.wms("http://81.176.229.99/cgi-bin/qgis_mapserv.fcgi", {
-			layers: 'highways',
-			'map': '/home/citygyde/euovrv.qgs',
+		var gen = L.tileLayer.wms("http://euroroutes.zkir.ru:8080/service", {
+			layers: 'generalizedhw',
 			format: 'image/png',
 			transparent: true
 		});
-		
-		var gen = L.tileLayer.wms("http://81.176.229.99/cgi-bin/qgis_mapserv.fcgi", {
+
+		var gen_nc = L.tileLayer.wms("http://81.176.229.99/cgi-bin/qgis_mapserv.fcgi", {
 			layers: 'generalizedhw',
 			'map': '/home/citygyde/euovrv.qgs',
 			format: 'image/png',
@@ -394,8 +393,8 @@ function initializeMap(showEURoutes) {
 	
 	if(showEURoutes) {
 		overlayMaps = {
-				"e-routes": ovrv,
-				"generalized": gen
+				"E-Routes (generalized)": gen,
+				"E-Routes (generalized, no caching)": gen_nc
 		};
 	}
 
