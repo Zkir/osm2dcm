@@ -195,6 +195,10 @@ begin
        (MpSection.mpType = '0x0300') or (MpSection.mpType = '0x0400') or
        (MpSection.mpType = '0x1400')  then
       result:=true;
+
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.mpType = '0x1e') then
+      result:=true;
 end;
 
 procedure TRuleUpliftCities6.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
