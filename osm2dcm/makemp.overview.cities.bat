@@ -6,6 +6,17 @@ echo makemp.overview.cities %1 %2 %3 %4
 
 call osmosis --read-pbf file="d:\osm\osm_data\_src\%3" --node-key-value keyValueList="place.city,place.town"  --write-xml file="%WORK_PATH%\cities.osm" 
 
+rem call osmosis ^
+rem  --read-pbf file="d:\osm\osm_data\_src\%3" ^
+rem  --node-key-value keyValueList="place.country,place.region,place.county,place.state,place.city,place.town" outPipe.0=places ^
+rem  --read-pbf file="d:\osm\osm_data\_src\%3" ^
+rem  --tf reject-relations ^
+rem  --tf accept-ways boundary=administrative ^
+rem  --used-node idTrackerType=Dynamic    outPipe.0=borders ^
+rem  --merge inPipe.0=borders inPipe.1=places ^
+rem  --write-xml file="%WORK_PATH%\cities.osm"
+
+
 
 echo osm2mp
 

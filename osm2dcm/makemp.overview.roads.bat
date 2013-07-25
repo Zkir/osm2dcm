@@ -7,7 +7,7 @@ echo roads  1=%1 2=%2 3=%3 4=%4
 Set CUSTOM_KEYS=%~4
 
 
-call osmosis --read-pbf file="d:\osm\osm_data\_src\%3" --way-key-value keyValueList="highway.motorway_link,highway.motorway,highway.trunk_link,highway.trunk,highway.primary_link,highway.primary,highway.secondary_link,highway.secondary,ferry.trunk,ferry.primary,ferry.secondary" --used-node idTrackerType=Dynamic --write-xml file="%WORK_PATH%\roads.pre.osm" 
+call osmosis --read-pbf file="d:\osm\osm_data\_src\%3" --way-key-value keyValueList="highway.motorway_link,highway.motorway,highway.trunk_link,highway.trunk,highway.primary_link,highway.primary,highway.secondary_link,highway.secondary,ferry.trunk,ferry.primary,ferry.secondary" --used-node idTrackerType=Dynamic --tf accept-relations route=road --write-xml file="%WORK_PATH%\roads.pre.osm" 
 
 
 call osmosis --read-xml file="%WORK_PATH%\roads.pre.osm" --bounding-polygon file="d:\OSM\osm2dcm\poly\%1.poly" completeWays=yes --lp  --tt --write-xml file="%WORK_PATH%\roads.osm"  

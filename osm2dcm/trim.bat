@@ -25,7 +25,6 @@ call osmosis --read-pbf file="%WORK_PATH%\final.full.pbf" --lp  --construction-w
 
 if errorlevel 1 goto error
 
-corecmd.exe -site peirce -O -u %WORK_PATH%\%1.hwconstr_chk.xml   -p ADDR_CHK/ -s
 
 rem --------------------------------------------------------------------------------
 rem Error handling

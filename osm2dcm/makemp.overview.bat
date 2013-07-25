@@ -2,8 +2,11 @@ rem @echo off
 echo %~1 %2 %~3 %4 %5 %6 %7 %8 %9
 
 set MAPID=%1
-set WORK_PATH=d:\OSM\osm_data\_my\%1
+set WORK_PATH=d:\OSM\osm_data\_my\%MAPID%
 set PRE_PATH=d:\osm\osm2dcm\pre.mp
+
+SET _country_code=%MAPID:~0,2%
+SET _region_code=%MAPID:~3,4%
 
 
 rem Обзорная карта содержит список дочерних карт. Его надо скопировать.
@@ -27,6 +30,12 @@ if errorlevel 1 goto error
 rem - Теперь соберем mp, для конвертации, с упрощенными дорогами.
 mp2mp %WORK_PATH%\%1.mp pre.mp\%1.xml
 if errorlevel 1 goto error
+
+rem Установка доп хедерных параметров
+
+SET HEADER_PARAMS=Country=%_country_code%
+java  -Xmx4248m -jar jmp2mp2.jar --readmp file="%WORK_PATH%\%1.mp" --setheaderparams %HEADER_PARAMS% --writemp file="%WORK_PATH%\%1.mp"
+
 
 SET MAP_SCALE=1000000
 rem if "%1"=="RU-OVRV" (
