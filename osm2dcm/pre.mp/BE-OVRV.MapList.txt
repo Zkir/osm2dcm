@@ -1,2 +1,2 @@
-BE-WAL
-BE-VLG
+BE-WAL.dcm
+BE-VLG.dcm

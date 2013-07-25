@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1251"?>
 <mp2mp>
 
-<source_file name="%OSM_DATA%\_my\SK-OVRV\SK-OVRV.cities.mp">
+<source_file name="%OSM_DATA%\_my\CH-OVRV\CH-OVRV.cities.mp">
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
@@ -9,7 +9,7 @@
   <rule predefined="set_region_map"/>
 </source_file>
 
-<source_file name="%OSM_DATA%\_my\SK-OVRV\SK-OVRV.roads.mp_opt.mp">
+<source_file name="%OSM_DATA%\_my\CH-OVRV\CH-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <!--убрать  пои  -->
