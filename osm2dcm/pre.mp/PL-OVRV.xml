@@ -13,7 +13,7 @@
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
-</source_file
+</source_file>
 
 <source_file name="%OSM_DATA%\_my\PL-OVRV\PL-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
