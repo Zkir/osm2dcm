@@ -9,6 +9,7 @@ Dim AvgAge As Variant
 Dim NUsers As Long
 Dim dtLastEditDate As Date
 
+
 Public Const NULL_DATE = "1900-1-1"
 
 
@@ -34,6 +35,13 @@ Public Function ConvertFromXMLDate(ByVal strDate As String) As Date
   ConvertFromXMLDate = dtDate + dtTime
 End Function
 
+Public Function FormatXMLDate(CurrDate As Date) As String
+ FormatXMLDate = Year(CurrDate) & "-" & Format(Month(CurrDate), "00") & "-" & Format(Day(CurrDate), "00")
+End Function
+Public Function FormatXMLDateTime(CurrDate As Date) As String
+ FormatXMLDateTime = Year(CurrDate) & "-" & Format(Month(CurrDate), "00") & "-" & Format(Day(CurrDate), "00") & " " & Format(Hour(CurrDate), "00") & ":" & Format(Minute(CurrDate), "00") & ":" & Format(Second(CurrDate), "00")
+End Function
+
 Private Function AddUser(colUsers As Collection, strUser As String) As Boolean
 On Error GoTo catch
 colUsers.Add strUser, strUser
@@ -50,21 +58,18 @@ catch:
  End If
 End Function
 
-Public Function ProcessOSMFile(strFileName As String, dtCurrentDate As Date, strMapID As String) As Boolean
+Public Function ProcessOSMFile(strFileName As String, dtCurrentDate As Date, strMapID As String, objCalendarOfEdits As clsCalendarOfEdits) As Boolean
   Dim textline As String
   Dim dtDate As Date
   Dim clsXMLNode As zXMLNode
   Dim colUsers As Collection
   Dim strUserName As String
-  Dim objCalendarOfEdits As clsCalendarOfEdits
+ 
   
 On Error GoTo finalize
 
    
-  Set objCalendarOfEdits = New clsCalendarOfEdits
- 
-
-  
+   
 
   Open strFileName For Input As #1
   N = 0
@@ -117,8 +122,6 @@ On Error GoTo finalize
   NUsers = colUsers.Count
   Set colUsers = Nothing
 
-  objCalendarOfEdits.save_local_stat PATH_TO_OSM & "\" & strMapID & "\" & strMapID & "_editors.xml"
-  
 ProcessOSMFile = True
 finalize:
  Close #1
@@ -147,7 +150,7 @@ End If
 End Function
 
 
-Private Sub ProcessMap(rsStat As Recordset, strMapID As String, strMapName As String, strFileName As String)
+Private Sub ProcessMap(rsStat As Recordset, strMapID As String, strMapName As String, strFileName As String, objCalendarOfEdits As clsCalendarOfEdits)
 Dim i         As Integer
 Dim s         As Double
 Dim AvgLat    As Double
@@ -155,7 +158,7 @@ Dim AvgLat    As Double
     'Найдем площадь по соответствующему  poly-файлу
     s = CalculateSquare(PATH_TO_POLY & strMapID & ".poly", AvgLat)
     s = s * (111 ^ 2) * Cos(AvgLat / 180 * 3.14159)
-    If ProcessOSMFile(strFileName, Date, strMapID) Then
+    If ProcessOSMFile(strFileName, Date, strMapID, objCalendarOfEdits) Then
     
       rsStat.Find RS_STAT_MAPID & "= '" & strMapID & "'", , , adBookmarkFirst
       
@@ -245,12 +248,18 @@ End Sub
 'Обработаем осм-файлы и вычислим статистику
 Public Sub Main1(strMapID As String, strMapName As String)
  Dim rsStat As Recordset
+ Dim objCalendarOfEdits As clsCalendarOfEdits
    
  LoadStatRS rsStat
+ Set objCalendarOfEdits = New clsCalendarOfEdits
 
  'ProcessMap rsStat, strMapID, strMapName, "d:\osm\osm2dcm\_my\" & strMapID & "\final.full.osm"
- ProcessMap rsStat, strMapID, strMapName, PATH_TO_OSM & strMapID & "\final.osm"
+ ProcessMap rsStat, strMapID, strMapName, PATH_TO_OSM & strMapID & "\final.osm", objCalendarOfEdits
  
+ ' Файл статистики по данной карте
+ objCalendarOfEdits.save_local_stat PATH_TO_OSM & "\" & strMapID & "\" & strMapID & "_editors.xml", rsStat
+   
+ ' Файл статистики по всем картам
  SaveStatisticsToXml rsStat, PATH_TO_LOG & "statistics.xml"
  
  SaveStatRs rsStat

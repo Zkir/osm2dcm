@@ -123,17 +123,51 @@ End Sub
 Private Function FormatPeriod(dtDate As Date) As String
   FormatPeriod = Year(dtDate) & "-" & Month(dtDate)
 End Function
-Private Function FormatXMLDate(CurrDate As Date) As String
- FormatXMLDate = Year(CurrDate) & "-" & Month(CurrDate) & "-" & Day(CurrDate)
-End Function
-Public Sub save_local_stat(strFileName As String)
+
+
+Public Sub save_local_stat(strFileName As String, rsStat As ADODB.Recordset)
   'Open App.Path & "\" & "statistics.xml" For Output As #1
   Dim i As Integer
   Dim CurrDate As Date
   Open strFileName For Output As #9
   CurrDate = Now()
-  
+  Print #9, "<?xml version=""1.0"" encoding=""utf-8""?>"
   Print #9, "<stat_users date=""" & FormatXMLDate(CurrDate) & """>"
+  
+  'Шапка
+      Print #9, "<mapinfo>"
+     
+      'Карта
+      Print #9, "  <MapId>" & rsStat(RS_STAT_MAPID).Value & "</MapId>"
+      'Дата
+      Print #9, "  <MapDate>" & FormatXMLDate(rsStat(RS_STAT_DATE).Value) & "</MapDate>"
+      'Название
+      ''оно в ср-м vb не юникодное! -'Print #9, "  <MapName>" & rsStat(RS_STAT_MAPNAME).Value & "</MapName>"
+      'Площадь, кв. км
+      Print #9, "  <Square>" & Format(rsStat(RS_STAT_SQUARE).Value, "#0") & "</Square>"
+      'Число объектов
+      Print #9, "  <NumberOfObjects>" & rsStat(RS_STAT_NOBJECTS).Value & "</NumberOfObjects>"
+      'Правок в день
+      Print #9, "  <EditsPerDay>" & Format(rsStat(RS_STAT_EDITSPERDAY).Value, "#0.0") & "</EditsPerDay>"
+      '14 дней
+      Print #9, "  <M14>" & Format(rsStat(RS_STAT_M14).Value * 100, "#0.0") & "</M14>"
+      '100 дней
+      Print #9, "  <M100>" & Format(rsStat(RS_STAT_M100).Value * 100, "#0") & "</M100>"
+      '365 дней
+      Print #9, "  <M365>" & Format(rsStat(RS_STAT_M365).Value * 100, "#0") & "</M365>"
+      'Ср. возраст
+      Print #9, "  <AverageObjectAge>" & Format(rsStat(RS_STAT_AVGAGE).Value, "#0") & "</AverageObjectAge>"
+      'Число объектов на кв. км
+      Print #9, "  <ObjectsPerSquareKm>" & rsStat(RS_STAT_NOBJECTS).Value / rsStat(RS_STAT_SQUARE).Value & "</ObjectsPerSquareKm>"
+      'Правок в день на кв. км
+      Print #9, "  <EditsPerDayPerSquareKm>" & rsStat(RS_STAT_EDITSPERDAY).Value / rsStat(RS_STAT_SQUARE).Value & "</EditsPerDayPerSquareKm>"
+      'Активные участники
+      Print #9, "  <ActiveUsers>" & rsStat(RS_STAT_NUSERS).Value & "</ActiveUsers>"
+      'Последняя известная правка
+      Print #9, "  <LastKnownEdit>" & FormatXMLDateTime(rsStat(RS_STAT_LASTKNOWNEDITDATE).Value) & "</LastKnownEdit>"
+    Print #9, "</mapinfo>"
+  
+  'Редакторы карты за последние 13 месяцев
   Print #9, "<periods>"
   For i = 1 To 13
     Print #9, "  <period_" & i & ">" & FormatPeriod(dtPeriods(i, 0)) & "</period_" & i & ">"
