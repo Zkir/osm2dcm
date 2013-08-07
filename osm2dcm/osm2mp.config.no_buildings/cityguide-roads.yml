@@ -62,7 +62,7 @@
   action:
     - action: load_road
       type: 0x02
-      level_h: 4
+      level_h: 5
       routeparams: '4,3,0,0,0,0,0,0,0,0,0,0'
 
 #highway primary/city r 0x04,2 0 4 3,2,0,0,0,0,0,0,0,0,0,0 
@@ -72,7 +72,7 @@
   action:
     - action: load_road
       type: 0x04
-      level_h: 4
+      level_h: 5
       routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
 
 #highway primary_link r 0x08,2 0 2 2,3,0,0,0,0,0,0,0,0,0,0 
@@ -110,7 +110,7 @@
   action:
     - action: load_road
       type: 0x05
-      level_h: 2
+      level_h: 4
       routeparams: '3,2,0,0,0,0,0,0,0,0,0,0'
 
 #highway secondary_link r 0x08,2 0 2 2,3,0,0,0,0,0,0,0,0,0,0 
@@ -148,7 +148,7 @@
   action:
     - action: load_road
       type: 0x05
-      level_h: 1
+      level_h: 2
       routeparams: '3,1,0,0,0,0,0,0,0,0,0,0'
 
 #highway tertiary_link  
@@ -205,9 +205,20 @@
 #highway residential r 0x06,2 0 1 2,0,0,0,0,0,0,0,0,0,0,0 
 - condition:
     - highway = residential
+    - access != destination
   action:
     - action: load_road
       type: 0x06
+      level_h: 1
+      routeparams: '2,0,0,0,0,0,0,0,0,0,0,0'
+
+#highway residential r 0x06,2 0 1 2,0,0,0,0,0,0,0,0,0,0,0 
+- condition:
+    - highway = residential
+    - access = destination
+  action:
+    - action: load_road
+      type: 0x07
       level_h: 1
       routeparams: '2,0,0,0,0,0,0,0,0,0,0,0'
 
@@ -217,9 +228,9 @@
     - highway = living_street
   action:
     - action: load_road
-      type: 0x06
+      type: 0x07
       level_h: 1
-      routeparams: '1,0,0,0,0,0,1,1,1,0,0,0'
+      routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
 
 #highway pedestrian r 0x16,2 0 1 0,0,0,0,0,1,1,1,1,0,0,1 
 #!Check Priority!

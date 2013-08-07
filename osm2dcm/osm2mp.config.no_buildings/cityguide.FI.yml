@@ -146,7 +146,7 @@ whitewater:         1
 
 background:
     type:       0x4B
-    endlevel:   5
+    endlevel:   0
 
 sea:
     type:       0x28
@@ -167,13 +167,13 @@ yes:            1
 true:           1
 designated:     1
 permissive:     1
+destination:    1
 
 0:              0
 no:             0
 false:          0
 private:        0
 restricted:     0
-destination:    0
 impassable:     0
 
 
@@ -235,6 +235,8 @@ impassable:     0
 
 toll_booth:     0,0,0,0,0,0,0,0
 cattle_grid:    0,0,0,0,0,0,0,0
+gate:           0,0,0,0,0,0,0,0
+lift_gate:      0,0,0,0,0,0,0,0
 
 
 
