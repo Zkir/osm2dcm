@@ -401,7 +401,8 @@ function initializeMap(showEURoutes) {
 	L.control.layers(baseMaps, overlayMaps).addTo(map);
 	map.addControl(new L.Control.Permalink());
 	
-	map.mClusters = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: true });
+	//map.mClusters = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: true });
+	map.mClusters = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: true, maxClusterRadius: 25 });
 	map.mClusters.addTo(map);
 }
 
