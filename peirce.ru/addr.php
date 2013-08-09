@@ -436,17 +436,20 @@ function PrintQADetailsPage($mapid, $errtype)
 if ($errtype=="")
 {
   $xml_stat = simplexml_load_file('statistics.xml');
+  $xml_stat_map=simplexml_load_file(GetEditorsXmlFileName($mapid));
   $LastKnownEdit='???';
-  foreach ($xml_stat->mapinfo as $item)
+
+ foreach ($xml_stat->mapinfo as $item)
   {
       if($mapid==$item->MapId)
       {	  
-        $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
         $strMapName=$item->MapName;
-        
-        $objStatRecord=$item;
       }  
   }
+  
+
+  $LastKnownEdit=$xml_stat_map->mapinfo->LastKnownEdit.' (UTC)';
+  $objStatRecord=$xml_stat_map->mapinfo;
 
    	
   	
