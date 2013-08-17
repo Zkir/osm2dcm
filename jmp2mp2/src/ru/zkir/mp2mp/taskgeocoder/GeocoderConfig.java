@@ -270,6 +270,13 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Туркмения
+    if (strCountryCode.equals("TM"))
+    {
+      levelsForCity=new String[] {"CITY_POLYGON","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
     //===========================================================================================
     //Америка
     //===========================================================================================
@@ -368,6 +375,13 @@ public class GeocoderConfig{
     if (strCountryCode.equals("MX"))
     {
       levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Бразилия BR
+    if (strCountryCode.equals("BR"))
+    {
+      levelsForCity=new String[] {"8"};
       levelsForRegion=new String[] {"4"};
     }
 
