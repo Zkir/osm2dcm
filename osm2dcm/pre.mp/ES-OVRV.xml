@@ -9,6 +9,12 @@
   <rule predefined="set_region_map"/>
 </source_file>
 
+<source_file name="pre.mp\SpainBkg.mp">
+  <!--Безусловное копирование -->
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+</source_file>
+
 <source_file name="%OSM_DATA%\_my\ES-OVRV\ES-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
