@@ -1,7 +1,7 @@
 unit uMain;
 
 interface
-uses uMPParser,Classes,sysutils;
+uses uMPParser,Classes,sysutils, RegularExpressions;
 procedure Main;
 
 type TRule=Class
@@ -39,10 +39,58 @@ type TRuleSkipCommentSections=Class(TRule)
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
-type TRuleUpliftCities6=Class(TRule)
+type TRuleUpliftCities=Class(TRule)
+  strEndLevel:string;
+  constructor Create(EndLevel:string);
   function CheckCondition(MpSection:TMpSection):boolean;override;
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
+
+type TRuleUpliftTowns=Class(TRule)
+  strEndLevel:string;
+  constructor Create(EndLevel:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleUpliftNumberedRoads6=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+
+type TRuleDecreaseNonEuTrunk=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleUpliftEuRoads=Class(TRule)
+  strEndLevel:string;
+  constructor Create(EndLevel:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleUpliftMainRoads=Class(TRule)
+  strEndLevel:string;
+  constructor Create(EndLevel:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleRemoveLabels=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleSetAttribute=Class(TRule)
+  strAttribute:string;
+  strValue:string;
+  constructor Create(aAttribute,aValue:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
 
 type TRuleSetRegionMap=Class(TRule)
   function CheckCondition(MpSection:TMpSection):boolean;override;
@@ -131,9 +179,44 @@ begin
            aRule:=TRuleNoPOI.Create;
            aSourceFile.Rules.Add(aRule);
          end
-         else  if RuleNode.Attributes['predefined']='uplift_cities_6' then
+         else  if RuleNode.Attributes['predefined']='uplift_cities' then
          begin
-           aRule:=TRuleUpliftCities6.Create;
+           aRule:=TRuleUpliftCities.Create(RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='uplift_towns' then
+         begin
+           aRule:=TRuleUpliftTowns.Create(RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='uplift_numbered_roads_6' then
+         begin
+           aRule:=TRuleUpliftNumberedRoads6.Create;
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='decrease_noneu_trunk' then
+         begin
+           aRule:=TRuleDecreaseNonEuTrunk.Create();
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='uplift_eu_roads' then
+         begin
+           aRule:=TRuleUpliftEuRoads.Create(RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='uplift_main_roads' then
+         begin
+           aRule:=TRuleUpliftMainRoads.Create(RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='set_end_level' then
+         begin
+           aRule:=TRuleSetAttribute.Create('EndLevel',RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='remove_labels' then
+         begin
+           aRule:=TRuleRemoveLabels.Create;
            aSourceFile.Rules.Add(aRule);
          end
          else  if RuleNode.Attributes['predefined']='set_region_map' then
@@ -187,26 +270,162 @@ begin
   blnSkipSection:=true;
 end;
 
-function TRuleUpliftCities6.CheckCondition(MpSection:TMpSection):boolean;
+//UpliftCities
+constructor TRuleUpliftCities.Create(EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+end;
+function TRuleUpliftCities.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=false;
   if (MpSection.SectionType=ST_POI) then
     if (MpSection.mpType = '0x0100') or (MpSection.mpType = '0x0200') or
        (MpSection.mpType = '0x0300') or (MpSection.mpType = '0x0400') or
+       (MpSection.mpType = '0x0500') or (MpSection.mpType = '0x0600') or
+       (MpSection.mpType = '0x0700') or (MpSection.mpType = '0x0800') or
        (MpSection.mpType = '0x1400')  then
       result:=true;
 
   if (MpSection.SectionType=ST_POLYLINE) then
-    if (MpSection.mpType = '0x1e') then
+    if (MpSection.mpType = '0x1e') or (MpSection.mpType = '0x1c') then
       result:=true;
 end;
 
-procedure TRuleUpliftCities6.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+
+procedure TRuleUpliftCities.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
-         MpSection.SetAttributeValue('EndLevel','6');
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
+//TRuleUpliftTowns
+constructor TRuleUpliftTowns.Create(EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+end;
+
+function TRuleUpliftTowns.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POI) then
+    if (MpSection.mpType = '0x0900') or (MpSection.mpType = '0x0a00') or
+       (MpSection.mpType = '0x0b00') or (MpSection.mpType = '0x0c00') or
+       (MpSection.mpType = '0x0d00') or (MpSection.mpType = '0x0e00')   then
+      result:=true;
+
 
 end;
 
+procedure TRuleUpliftTowns.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
+//uplift_numbered_roads_6
+function TRuleUpliftNumberedRoads6.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('RouteParam')<>'') and
+       (MpSection.GetAttributeValue('Label')<>'')   then
+      result:=true;
+
+
+end;
+
+procedure TRuleUpliftNumberedRoads6.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+         MpSection.SetAttributeValue('EndLevel','6');
+end;
+
+//TRuleUpliftEuRoads
+constructor TRuleUpliftEuRoads.Create(EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+end;
+function TRuleUpliftEuRoads.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('RouteParam')<>'') and
+       TRegEx.IsMatch(MpSection.GetAttributeValue('Label'),'E[ -]?[0-9]{1,3}')   then
+      result:=true;
+
+
+end;
+
+
+procedure TRuleUpliftEuRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
+//TRuleDecreaseNonEuTrunk
+function TRuleDecreaseNonEuTrunk.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('RouteParam')<>'') and
+       (MpSection.GetAttributeValue('Type')='0x1') and
+       not TRegEx.IsMatch(MpSection.GetAttributeValue('Label'),'E[ -]?[0-9]{1,3}')   then
+      result:=true;
+end;
+
+
+procedure TRuleDecreaseNonEuTrunk.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('Type','0x2');
+end;
+
+//TRuleUpliftMainRoads
+constructor TRuleUpliftMainRoads.Create(EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+end;
+function TRuleUpliftMainRoads.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('Type')='0x1') or
+       (MpSection.GetAttributeValue('Type')='0x2')    then
+      result:=true;
+
+
+end;
+
+procedure TRuleUpliftMainRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
+//TRuleSetAttribute
+constructor TRuleSetAttribute.Create(aAttribute:string;aValue:string);
+begin
+  strAttribute:=aAttribute;
+  strValue:=aValue;
+end;
+
+function TRuleSetAttribute.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=true;
+end;
+
+procedure TRuleSetAttribute.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue(strAttribute,strValue);
+end;
+
+//TRuleRemoveLables
+function TRuleRemoveLabels.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=true;
+end;
+
+procedure TRuleRemoveLabels.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('Label','');
+end;
+
+//SetRegionMap
 function TRuleSetRegionMap.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=false;
@@ -279,6 +498,7 @@ var MpParser:TMpParser;
     i,j:integer;
     NSections:integer;
     blnSkipSection:boolean;
+    intFirstSourceWithRoutingGraph:integer;
 begin
   Writeln('mp2mp, (c) Zkir 2012, CC-BY-SA 2.0 ');
   Writeln('Target file: ',strTgtFileName);
@@ -288,6 +508,7 @@ begin
   SourceMpFiles:=TSourceFileList.Create (strConfigFileName);
 
   Writeln('Processing source files:');
+  intFirstSourceWithRoutingGraph:=-1;
   for i := 0 to SourceMpFiles.Count-1 do
   begin
    Writeln(SourceMpFiles[i].FileName);
@@ -316,6 +537,18 @@ begin
 
      if not(blnSkipSection) then
      begin
+       //Нужно проверить, что дорожный граф присутствует только один раз.
+       //Будем судить по наличию RouteParam
+       if MpSection.GetAttributeValue('RouteParam')<>'' then
+         begin
+           if intFirstSourceWithRoutingGraph=-1 then
+             intFirstSourceWithRoutingGraph:=i;
+
+           if intFirstSourceWithRoutingGraph<>i then
+             raise Exception.Create('Routing graph is present more than once. It is not allowed');
+
+         end;
+
        MpSection.WriteSection();
        NSections:=NSections+1;
      end;
@@ -324,6 +557,7 @@ begin
    MpParser.Free;
    Writeln(' '+IntToStr(NSections)+' section(s) written');
   end;
+  Writeln(uMPParser.tgtFile,'; ### That''s all, folks!');
   CloseFile(uMPParser.tgtFile);
   SourceMpFiles.Free;
   Writeln('Done!');
@@ -341,8 +575,16 @@ procedure Main();
 var
    strTargetFileName, strConfigFileName:string;
 begin
-  ParseCommandLine(strTargetFileName, strConfigFileName);
-  Process(strTargetFileName, strConfigFileName);
+  try
+   ParseCommandLine(strTargetFileName, strConfigFileName);
+   Process(strTargetFileName, strConfigFileName);
+  except
+    on E : Exception do
+      begin
+        writeln(E.Message);
+        halt(1); 
+      end;
+  end;
 end;
 
 initialization
