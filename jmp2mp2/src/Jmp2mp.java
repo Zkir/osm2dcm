@@ -6,6 +6,7 @@ import ru.zkir.mp2mp.core.WriteMpTask;
 import ru.zkir.mp2mp.taskforcejunctions.ForceJunctionsTask;
 import ru.zkir.mp2mp.taskgeocoder.GeocoderTask;
 import ru.zkir.mp2mp.tasksetheaderparams.SetHeaderParamsTask;
+import ru.zkir.mp2mp.taskextsimp.SimplifyRoadsTask;
 
 import java.io.IOException;
 
@@ -85,6 +86,13 @@ public class Jmp2mp {
             shp.execute(mpData, cmdLineParser.tasks.get(i));
           }
 
+          //mp_extsimp
+          if (cmdLineParser.tasks.get(i).name.equals("simplifyroads"))
+          {
+            SimplifyRoadsTask smpr;
+            smpr=new SimplifyRoadsTask();
+            smpr.execute(mpData, cmdLineParser.tasks.get(i));
+          }
 
           //writemp
           if (cmdLineParser.tasks.get(i).name.equals("writemp"))
