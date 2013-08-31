@@ -1,5 +1,6 @@
 package ru.zkir.mp2mp.taskgeocoder;
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Zkir
@@ -11,6 +12,7 @@ package ru.zkir.mp2mp.taskgeocoder;
 public class GeocoderConfig{
   String[] levelsForCity;
   String[] levelsForRegion;
+  String[] redundantWords;
   String language;
   boolean blnHamletsExcluded;
   GeocoderConfig(String strCountryCode)
@@ -19,6 +21,7 @@ public class GeocoderConfig{
 
     levelsForCity = new String[] {};
     levelsForRegion=new String[] {};
+    redundantWords=new String[] {};
     language="";
     blnHamletsExcluded=false;
 
@@ -45,6 +48,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","6"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String [] {"Bezirk","Kreis"};
     }
 
     //Бельгия
@@ -65,6 +69,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"CITY_POLYGON","8"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String [] {"Bezirk","Kreis"};
     }
 
     //Эстония
@@ -78,11 +83,20 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"6"};
     }
 
+    //Греция
+    if (strCountryCode.equals("GR"))
+    {
+      levelsForCity=new String[] {"7","8","10"};
+      levelsForRegion=new String[] {"4"};
+      redundantWords=new String [] {"Demos","Periphereia","Kentorikes"};
+    }
+
     //Ирландия
     if (strCountryCode.equals("IE"))
     {
       levelsForCity=new String[] {"7","8","10","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String [] {"County"};
     }
 
     //Исландия
@@ -131,6 +145,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"7"};
       levelsForRegion=new String[] {"4"};
+      redundantWords =new String[]{"Kommune","lan"};
     }
 
     //Сан-Марино
@@ -140,12 +155,7 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"2"};
     }
 
-    //Греция
-    if (strCountryCode.equals("GR"))
-    {
-      levelsForCity=new String[] {"7","8","10"};
-      levelsForRegion=new String[] {"4"};
-    }
+
 
     //Турция
     if (strCountryCode.equals("TR"))
@@ -166,6 +176,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","10", "7", "6"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String []{"gmina","powiat"};
     }
 
     if (strCountryCode.equals("SK"))
@@ -186,6 +197,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8", "7"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String []{"megye"};
     }
 
     //Румыния
@@ -193,11 +205,13 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"CITY_POLYGON","6","4","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"5","4"};
+      redundantWords=new String []{"Municipiul"};
     }
 
     if (strCountryCode.equals("LT"))
       levelsForCity=new String[] {"8"};
 
+    //Италия
     if (strCountryCode.equals("IT"))
     {
       levelsForCity=new String[] {"8"};
@@ -216,6 +230,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"10","8","6"}; //Проблема - София единственная имеет admin_level=6
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String [] {"Oblast","Obchina","Grad"};
     }
 
     //Сербия
@@ -223,6 +238,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","7"};
       levelsForRegion=new String[] {"6"};
+      redundantWords=new String [] {"Komuna","Opshtina"};
     }
 
     //Македония
@@ -230,6 +246,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"CITY_POLYGON","8","7"};
       levelsForRegion=new String[] {"4"};
+      redundantWords=new String []{"Opshtina"};
     }
 
     //Босния и герцеговина
@@ -237,6 +254,8 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","7","6"};
       levelsForRegion=new String[] {"5"};
+      redundantWords=new String [] {"Opstina","Obchina"};
+
     }
     //Норвегия
     if (strCountryCode.equals("NO"))
@@ -250,6 +269,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"8","7"};
       levelsForRegion=new String[] {"4"};
+      redundantWords =new String[]{"Kommune","Region"};
     }
 
     //Швейцария
@@ -398,6 +418,8 @@ public class GeocoderConfig{
       levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
       blnHamletsExcluded=true;
       levelsForRegion=new String[] {"4"};
+      redundantWords= new String[]{"Governorate"};
+
     }
     //Тунис
     if (strCountryCode.equals("TN"))

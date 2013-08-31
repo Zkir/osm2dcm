@@ -102,7 +102,7 @@ public class GeocoderTask {
           strCityName= geocoder.getCityName(lat,lon, geocoderConfig.levelsForCity);
           strCityName = Junidecode.unidecode(strCityName);
         }
-
+        strCityName=normalizeName(strCityName,geocoderConfig);
 
         if (!strCityName.equals(""))
         {
@@ -113,6 +113,7 @@ public class GeocoderTask {
         //Регион ("провинция")
         strRegionName= geocoder.getCityName(lat,lon,geocoderConfig.levelsForRegion);
         strRegionName = Junidecode.unidecode(strRegionName);
+        strRegionName=normalizeName(strRegionName,geocoderConfig);
 
         if (!strRegionName.equals(""))
         {
@@ -128,6 +129,24 @@ public class GeocoderTask {
     System.out.println("Из них обработано (проставлен город)  : "+ intCitySet );
     System.out.println("Из них обработано (проставлен 'регион') : "+ intRegionSet );
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
+  }
+  private String normalizeName(String strName, GeocoderConfig geocoderConfig)
+  {
+    int i;
+    strName=strName.trim();
+    for (i=0;i<geocoderConfig.redundantWords.length;i++)
+    {
+      if (strName.toLowerCase().startsWith(geocoderConfig.redundantWords[i].toLowerCase()+" ") )
+      {
+        strName=strName.substring(geocoderConfig.redundantWords[i].length());
+      }
+
+      if (strName.toLowerCase().endsWith(" "+geocoderConfig.redundantWords[i].toLowerCase()) )
+      {
+        strName=strName.substring(0,strName.length()-geocoderConfig.redundantWords[i].length());
+      }
+    }
+    return strName.trim();
   }
 
 }
