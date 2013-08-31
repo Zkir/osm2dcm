@@ -227,7 +227,10 @@ public class GeocoderConfig{
 
     //Македония
     if (strCountryCode.equals("MK"))
-      levelsForCity=new String[] {"8","7"};
+    {
+      levelsForCity=new String[] {"CITY_POLYGON","8","7"};
+      levelsForRegion=new String[] {"4"};
+    }
 
     //Босния и герцеговина
     if (strCountryCode.equals("BA"))
