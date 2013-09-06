@@ -283,7 +283,8 @@ begin
        (MpSection.mpType = '0x0300') or (MpSection.mpType = '0x0400') or
        (MpSection.mpType = '0x0500') or (MpSection.mpType = '0x0600') or
        (MpSection.mpType = '0x0700') or (MpSection.mpType = '0x0800') or
-       (MpSection.mpType = '0x1400')  then
+       //Названия стран и регионов
+       (MpSection.mpType = '0x1400') or (MpSection.mpType = '0x1e00')  then
       result:=true;
 
   if (MpSection.SectionType=ST_POLYLINE) then
