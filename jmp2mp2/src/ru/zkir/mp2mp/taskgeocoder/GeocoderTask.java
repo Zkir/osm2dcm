@@ -100,7 +100,6 @@ public class GeocoderTask {
         {
           //Город ("обычно это муниципалитет")
           strCityName= geocoder.getCityName(lat,lon, geocoderConfig.levelsForCity);
-          strCityName = Junidecode.unidecode(strCityName);
         }
         strCityName=normalizeName(strCityName,geocoderConfig);
 
@@ -112,7 +111,6 @@ public class GeocoderTask {
 
         //Регион ("провинция")
         strRegionName= geocoder.getCityName(lat,lon,geocoderConfig.levelsForRegion);
-        strRegionName = Junidecode.unidecode(strRegionName);
         strRegionName=normalizeName(strRegionName,geocoderConfig);
 
         if (!strRegionName.equals(""))
@@ -130,8 +128,11 @@ public class GeocoderTask {
     System.out.println("Из них обработано (проставлен 'регион') : "+ intRegionSet );
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
   }
+
   private String normalizeName(String strName, GeocoderConfig geocoderConfig)
   {
+
+    //Удаление лишних слов
     int i;
     strName=strName.trim();
     for (i=0;i<geocoderConfig.redundantWords.length;i++)
@@ -145,6 +146,12 @@ public class GeocoderTask {
       {
         strName=strName.substring(0,strName.length()-geocoderConfig.redundantWords[i].length());
       }
+    }
+
+    //Перевод в 26 букв латинского алфавита
+    if (geocoderConfig.blnPerformTransliteration )
+    {
+      strName = Junidecode.unidecode(strName);
     }
     return strName.trim();
   }

@@ -15,6 +15,7 @@ public class GeocoderConfig{
   String[] redundantWords;
   String language;
   boolean blnHamletsExcluded;
+  boolean blnPerformTransliteration;
   GeocoderConfig(String strCountryCode)
   {
     //Cхема адресации зависит от страны.
@@ -24,6 +25,7 @@ public class GeocoderConfig{
     redundantWords=new String[] {};
     language="";
     blnHamletsExcluded=false;
+    blnPerformTransliteration=true;
 
     //Страно-специфичные правила
     //===========================================================================================
@@ -94,7 +96,7 @@ public class GeocoderConfig{
     //Ирландия
     if (strCountryCode.equals("IE"))
     {
-      levelsForCity=new String[] {"7","8","10","NEAREST_CITY_POINT"};
+      levelsForCity=new String[] {"CITY_POLYGON","8","10","NEAREST_CITY_POINT"};
       levelsForRegion=new String[] {"6"};
       redundantWords=new String [] {"County"};
     }
@@ -230,7 +232,8 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {"10","8","6"}; //Проблема - София единственная имеет admin_level=6
       levelsForRegion=new String[] {"6"};
-      redundantWords=new String [] {"Oblast","Obchina","Grad"};
+      redundantWords=new String [] {"Област","Община","Град"};
+      blnPerformTransliteration=false;
     }
 
     //Сербия
@@ -300,6 +303,14 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Израиль
+    if (strCountryCode.equals("IL"))
+    {
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"4"};
+      language="en";
+    }
+
     //===========================================================================================
     //Америка
     //===========================================================================================
@@ -317,7 +328,8 @@ public class GeocoderConfig{
     if (strCountryCode.equals("VE"))
     {
       levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6"};
+      levelsForRegion=new String[] {"4"};
+      blnHamletsExcluded=true;
     }
     //Парагвай
     if (strCountryCode.equals("PY"))
@@ -429,6 +441,15 @@ public class GeocoderConfig{
       blnHamletsExcluded=true;
       levelsForRegion=new String[] {"4"};
     }
+
+    //Арабские эмираты
+    if (strCountryCode.equals("AE"))
+    {
+      language="en";
+      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
     //Шри-Ланка
     if (strCountryCode.equals("LK"))
     {
@@ -436,6 +457,30 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {"4"};
     }
 
+    //Таиланд
+    if (strCountryCode.equals("TH"))
+    {
+      language="en";
+      levelsForCity=new String[] {"NEAREST_CITY_POINT"};
+      levelsForRegion=new String[] {"4"};
+    }
+
+    //Сингапур
+    if (strCountryCode.equals("SG"))
+    {
+      //Временный хак, чтобы глаза не мозолило
+      levelsForCity=new String[] {"2"};
+      levelsForRegion=new String[] {"2"};
+    }
+
+    //Гонконг
+    if (strCountryCode.equals("HK"))
+    {
+      //Для начала
+      language="en";
+      levelsForCity=new String[] {"8"};
+      levelsForRegion=new String[] {"6"};
+    }
   }
 
 }
