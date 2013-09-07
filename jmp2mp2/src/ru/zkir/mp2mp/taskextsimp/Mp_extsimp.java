@@ -192,7 +192,7 @@ public class Mp_extsimp {
         }
     } */
     
-    public void optimizeRouting(String inputFile) {
+    public void optimizeRouting(String inputFile, int intEdgeLengthLimit) {
         String outFile = "";
         //String outFile2 = "";
         long time1 = 0;
@@ -256,8 +256,7 @@ public class Mp_extsimp {
         //Epsilon = 5 metres
 
         //Remove very short edges, they are errors, most probably
-        CollapseShortEdges(3);
-        //CollapseDistance = 3 metres
+        CollapseShortEdges(intEdgeLengthLimit);
         
         //Save result
         save_MP_2(outFile);

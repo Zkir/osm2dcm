@@ -127,6 +127,10 @@ public class clsDeadEndTest {
     }
 
   }
+  public boolean isDeadEnd(String strNodeID)
+  {
+    return (mapAllNodes.get(strNodeID).count==1);
+  }
 
   public void PrintErrorsToXML(BufferedWriter oReportFile)  throws IOException
   {
