@@ -159,6 +159,10 @@
     <copy todir="${osmdatapath}\_my\test.PP">
         <fileset dir="osm2dcm\_my\test.PP"/>
     </copy>
+    
+    <copy todir="${osmdatapath}\_my\test.FJ">
+        <fileset dir="osm2dcm\_my\test.FJ"/>
+    </copy>
    
     <copy todir="${buildpath}"  >
         <fileset file="osm2dcm\osm2mp.pl.patched\osm2mp_new.pl"  />
@@ -218,8 +222,32 @@
     <echo>postprocessor/validator test OK</echo>
   </target>
 
+  <target name="test_FJ" description="test of Force Junctions task" depends="">
+  <echo>test of Force Junction task </echo>
+    
+    <java jar="${buildpath}\jmp2mp2.jar"
+           fork="true"
+           failonerror="true"
+           maxmemory="1280m"
+           >
+         <arg value="--readmp" />
+         <arg value="file=&quot;${osmdatapath}\_my\TEST.FJ\EU-OVRV.mp_opt.mp&quot;" />
+         <arg value="--forcejunctions" />
+         <arg value="--writemp" />
+         <arg value="file=&quot;${osmdatapath}\_my\TEST.FJ\EU-OVRV.roads.mp&quot;"/>
+         <classpath>
+           <pathelement location="${buildpath}\jmp2mp2.jar"/>
+         </classpath>
+    </java>
+    <echo>Compare with etalon</echo>
+    <condition property="fj_tests_ok"> 
+      <filesmatch file1="${osmdatapath}\_my\TEST.FJ\EU-OVRV.roads.mp" file2="${osmdatapath}\_my\TEST.FJ\EU-OVRV.roads.etalon.mp"/> 
+    </condition> 
+    <fail unless="fj_tests_ok" message="force junctions test failed"/> 
+    <echo>force junctions test OK</echo>
+  </target>
 
-  <target name="tests" description="Unit tests" depends="test_GK,test_PP" >
+  <target name="tests" description="Unit tests" depends="test_GK,test_PP,test_FJ" >
     <echo>Unit tests completed OK</echo>
   </target>
     
@@ -229,5 +257,5 @@
   
   
        
-  
+  </target>
 </project> 
