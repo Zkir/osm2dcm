@@ -73,7 +73,7 @@ public class ForceJunctionsTask {
     clsDeadEndTest oDeadEndTest=new clsDeadEndTest();
     for (i=0;i<mpData.sections.size() ;i++ )
     {
-      if (i%500==0)
+      if (i%1000==0)
       {
         System.out.println(" i "+i);
       }
@@ -90,7 +90,7 @@ public class ForceJunctionsTask {
     double delta=0.01; // На сколько градусов удлинняем
     for (i=0;i<mpData.sections.size() ;i++ )
     {
-      if (i%500==0)
+      if (i%1000==0)
       {
         System.out.println(" i "+i);
       }
@@ -99,12 +99,13 @@ public class ForceJunctionsTask {
       {
       //нужно найти первый отрезок и последний отрезок полилинии
         double [][] coords= ms1.GetCoordArray(false);
+        String [] RNodes=getRNodesArray(ms1,coords.length);
 
         boolean blnCoordsUpdated;
         double len;
         blnCoordsUpdated=false;
 
-        if (isNodeDeadEnd(ms1,0,oDeadEndTest))
+        if (oDeadEndTest.isDeadEnd(RNodes[0]) )
         {
           len=Math.pow(Math.pow(coords[0][0]-coords[1][0],2) + Math.pow(coords[0][1]-coords[1][1],2),0.5);
           coords[0][0]=coords[0][0]+delta*(coords[0][0]-coords[1][0])/len;
@@ -112,7 +113,7 @@ public class ForceJunctionsTask {
           blnCoordsUpdated=true;
         }
 
-        if (isNodeDeadEnd(ms1,1,oDeadEndTest))
+        if (oDeadEndTest.isDeadEnd(RNodes[coords.length-1]))
         {
           int nlastnode=coords.length-1;
           len=Math.pow(Math.pow(coords[nlastnode][0]-coords[nlastnode-1][0],2) + Math.pow(coords[nlastnode][1]-coords[nlastnode-1][1],2),0.5);
@@ -171,7 +172,7 @@ public class ForceJunctionsTask {
     //Поиск пересечений.
     for (i=0;i<mpData.sections.size() ;i++ )
     {
-      if (i%500==0)
+      if (i%1000==0)
       {
         System.out.println(" i "+i);
       }
@@ -198,14 +199,12 @@ public class ForceJunctionsTask {
           if((intersection_info!=null)&& intersection_info.blnTheyIntersect )
           {
             MaxRNodeID=MaxRNodeID+1;
-            //TODO:Restore
             insertRoutingNode(ms1,intersection_info.intSegNo1,intersection_info.intersection_x,intersection_info.intersection_y,MaxRNodeID);
             insertRoutingNode(ms2,intersection_info.intSegNo2,intersection_info.intersection_x,intersection_info.intersection_y,MaxRNodeID);
           }
         }
         //Дополнительная операция
         //Удалим атрибут односторонней дороги
-        //TODO:Restore
         ms1.DeleteAttribute("DirIndicator");
         String rp=ms1.GetAttributeValue("RouteParam");
         rp=rp.substring(0,4)+"0,"+rp.substring(6);
@@ -213,18 +212,19 @@ public class ForceJunctionsTask {
       }
     }
 
-    //Теперь укоротим тупики обратно.
-    //Рассуждать будем так:
+
+    //После того как пересечения найдены, нетронутые тупики нужно укротить обратно.
     //Если тупиковый сегмент (в начале или конце полилинии) длиннее delta, значит с ним ничего не случилось,
     //и его можно безболезненно перенести обратно
-    //Если короче delta - это значит что на удлинненом отрезке было найдено пересечение и последний сегмент нужно просто удалить.
 
-    //Прогоним тест тупиков еще раз - могли появиться новые рутинговые ноды.
+    //==Безусловное удаление коротких отростков ==
+    //Нужно укоротить на 2*delta, удалив, при необходимости короткие полилинии целиком.
     System.out.println("Finding dead ends");
+    //Прогоним тест тупиков еще раз - могли появиться новые рутинговые ноды.
     oDeadEndTest=new clsDeadEndTest();
     for (i=0;i<mpData.sections.size() ;i++ )
     {
-      if (i%500==0)
+      if (i%1000==0)
       {
         System.out.println(" i "+i);
       }
@@ -237,11 +237,10 @@ public class ForceJunctionsTask {
     }
 
 
-    System.out.println(" Shortening roads ");
-    //"Укоротим" дороги, оканчивающиеся тупиками
+    System.out.println(" Shortening roads 1");
     for (i=0;i<mpData.sections.size() ;i++ )
     {
-      if (i%500==0)
+      if (i%1000==0)
       {
         System.out.println(" i "+i);
       }
@@ -250,17 +249,14 @@ public class ForceJunctionsTask {
       {
         //нужно найти первый отрезок и последний отрезок полилинии
         double [][] coords= ms1.GetCoordArray(false);
-
+        String[]  RNodeList;
+        RNodeList=getRNodesArray(ms1,coords.length);
         boolean blnCoordsUpdated;
-        boolean blnRemoveFirstNode;
-        boolean blnRemoveLastNode;
         double len;
         blnCoordsUpdated=false;
-        blnRemoveFirstNode=false;
-        blnRemoveLastNode=false;
         double epsilon=0.0001;
-
-        if (isNodeDeadEnd(ms1,0,oDeadEndTest))
+        //Первая вершина полилинии
+        if (oDeadEndTest.isDeadEnd(RNodeList[0]))
         {
           len=Math.pow(Math.pow(coords[0][0]-coords[1][0],2) + Math.pow(coords[0][1]-coords[1][1],2),0.5);
           if (len-delta>epsilon)
@@ -269,13 +265,9 @@ public class ForceJunctionsTask {
             coords[0][1]=coords[0][1]-delta*(coords[0][1]-coords[1][1])/len;
             blnCoordsUpdated=true;
           }
-          else
-          {
-            blnRemoveFirstNode=true;
-          }
         }
-
-        if (isNodeDeadEnd(ms1,1,oDeadEndTest))
+        //Последняя вершина полилинии
+        if (oDeadEndTest.isDeadEnd(RNodeList[coords.length-1]))
         {
           int nlastnode=coords.length-1;
           len=Math.pow(Math.pow(coords[nlastnode][0]-coords[nlastnode-1][0],2) + Math.pow(coords[nlastnode][1]-coords[nlastnode-1][1],2),0.5);
@@ -284,10 +276,6 @@ public class ForceJunctionsTask {
             coords[nlastnode][0]=coords[nlastnode][0]-delta*(coords[nlastnode][0]-coords[nlastnode-1][0])/len;
             coords[nlastnode][1]=coords[nlastnode][1]-delta*(coords[nlastnode][1]-coords[nlastnode-1][1])/len;
             blnCoordsUpdated=true;
-          }
-          else
-          {
-            blnRemoveLastNode=true;
           }
         }
         if (blnCoordsUpdated)
@@ -302,13 +290,113 @@ public class ForceJunctionsTask {
           }
           ms1.SetAttributeValue("Data0",strCoords);
         }
-        if (blnRemoveFirstNode)
+
+      }
+    }
+
+
+
+    System.out.println(" Shortening roads 2");
+    //"Укоротим" дороги, оканчивающиеся тупиками
+    //Алгоритм.
+    //1. Взять концевую вершину.
+    //2. Убедиться что она тупиковая.
+    //3. Найти предыдущую рутинговую вершину.
+    //4. если расстояние меньше дельты, дропнуть все узлы до этой вершины.
+    //   Если она сама тупиковая, удалить всю полилинию.
+    for (i=0;i<mpData.sections.size() ;i++ )
+    {
+      if (i%1000==0)
+      { System.out.println(" i "+i); }
+
+      ms1=mpData.sections.get(i);
+      if(ms1.SectionType.equals("[POLYLINE]") && !ms1.mpType().toLowerCase().equals("0x1b"))
+      {
+        //Узлы с координатами
+        double [][] coords;
+        //Номера рутинговых нод. Массив имеет тот же размер, что и координатный, с пропусками.
+        String[] RNodeList;
+
+        coords = ms1.GetCoordArray(false);
+        RNodeList=getRNodesArray(ms1,coords.length);
+
+        double len;
+        int intNextNode;
+
+        if (oDeadEndTest.isDeadEnd(RNodeList[0]))
         {
-          removeRoutingNode(ms1,0);
+          //Теперь нужно найти следущую вершину
+          intNextNode=0;
+          for (j=1;j<coords.length;j++)
+          {
+            if (RNodeList[j]!=null)
+            {
+              intNextNode=j;
+              break;
+            }
+          }
+          if (intNextNode==0)
+          {
+            throw new MPParseException("Next node is not found");
+          }
+
+          len=Math.pow(Math.pow(coords[0][0]-coords[intNextNode][0],2) + Math.pow(coords[0][1]-coords[intNextNode][1],2),0.5);
+          if (len<2*delta)
+          {
+            removeRoutingNode(ms1,0,intNextNode);
+          }
         }
-        if (blnRemoveLastNode)
+        //Перезачитаем список вешин, потому что он мог измениться.
+        coords = ms1.GetCoordArray(false);
+        RNodeList=getRNodesArray(ms1,coords.length);
+
+
+        if (oDeadEndTest.isDeadEnd(RNodeList[coords.length-1]))
         {
-          removeRoutingNode(ms1,coords.length-1);
+          int intLastNode=coords.length-1;
+          intNextNode=intLastNode;
+          //Теперь нужно найти следущую вершину
+          for (j=intLastNode-1;j>=0;j--)
+          {
+            if (RNodeList[j]!=null)
+            {
+              intNextNode=j;
+              break;
+            }
+          }
+          if (intNextNode==intLastNode)
+          {
+           // throw new MPParseException("Next node is not found");
+           ms1.SetAttributeValue("FullyCollapsed","yes");
+            ms1.DeleteAttribute("Data0");
+           ms1.DeleteAttribute("Nod1");
+           //Это значит, что полилиния убита полностью
+           //это был изолированный отрезок (две вершины и обе тупиковые)
+          }
+          else
+          {
+            len=Math.pow(Math.pow(coords[intLastNode][0]-coords[intNextNode][0],2) + Math.pow(coords[intLastNode][1]-coords[intNextNode][1],2),0.5);
+            if (len<2*delta)
+            {
+              removeRoutingNode(ms1,intLastNode,intNextNode);
+            }
+          }
+        }
+
+      }
+    }
+
+    //Удалим убитые ребра.
+
+    for (i=mpData.sections.size()-1;i>=0 ;i-- )
+    {
+
+      ms1=mpData.sections.get(i);
+      if(ms1.SectionType.equals("[POLYLINE]"))
+      {
+        if (ms1.GetAttributeValue("FullyCollapsed").equals("yes"))
+        {
+          mpData.sections.remove(i);
         }
 
       }
@@ -368,32 +456,6 @@ public class ForceJunctionsTask {
 
   }
 
-  //Проверка, является ли первая (node=0) или последняя(node=1) вершина тупиковой,
-  //на основе теста тупиков
-  private boolean isNodeDeadEnd(MpSection ms1,int node, clsDeadEndTest oDeadEndTest)
-  {
-    String[] NodeList;
-    int NN;
-    String strNodeAttr;
-    NodeList=new String[100] ;
-    //Первое что нужно сделать - найти НОМЕР первой и последней вершины в списке рутинговых вершин данной секции
-    NN=0;
-    while (true)
-    {
-      strNodeAttr = ms1.GetAttributeValue("Nod" + (NN+1));
-      if (strNodeAttr.equals("") ) break;
-      NodeList[NN] =  strNodeAttr.split(",")[1];
-      NN++;
-    }
-
-    //Второе, что нужно сделать - проверить, есть ли данная вершина в списке тупиков.
-    if (node!=0)
-    {
-      node=NN-1;
-    }
-
-    return oDeadEndTest.isDeadEnd(NodeList[node]);
-  }
 
 
   //Вставка дополнительной рутинговой вершины.
@@ -439,37 +501,13 @@ public class ForceJunctionsTask {
      }
     }
   }
-  //Удаление вершины (первой или последней)
-  private void removeRoutingNode(MpSection ms1,int intNodeNo) throws MPParseException
+
+  private String[] getRNodesArray(MpSection ms1,int intLength)
   {
-
-    double [][] coords= ms1.GetCoordArray(false);
-    //Удаляем либо первую, либо последнюю
-    if(intNodeNo!=0)
-    {
-      intNodeNo=coords.length-1;
-    }
-    //удаляем лишнюю вершину из списка вершин полилинии ("Data0")
-    String strCoords="";
-    for (int i=0;i<coords.length;i++ )
-    {
-      if (i!=intNodeNo)
-      {
-        if (!strCoords.isEmpty())
-          {strCoords=strCoords+",";}
-        strCoords=strCoords+"("+latLonFormat.format(coords[i][0])+","+latLonFormat.format(coords[i][1])+")";
-      }
-    }
-    ms1.SetAttributeValue("Data0",strCoords);
-
-    //Еще нужно подвинуть рутинговые ноды, чтобы они ссылались на правильные номера вершин.
-    //Если это первая вершина, то ее нужно скипнуть при записи.
-
-    //Зачитаем рутинговые ноды в массив
     String[] NodeList;
     int NN;
     String strNodeAttr;
-    NodeList=new String[coords.length] ;
+    NodeList=new String[intLength] ;
     NN=0;
     while (true)
     {
@@ -478,34 +516,51 @@ public class ForceJunctionsTask {
       NodeList[Integer.parseInt(strNodeAttr.split(",")[0])] =  strNodeAttr.split(",")[1];
       NN++;
     }
+    return NodeList;
+  }
+  //Удаление вершины (первой или последней)
+  private void removeRoutingNode(MpSection ms1,int intFirstNo,int intNextNo) throws MPParseException
+  {
+    int k=0;
+    //Координаты
+    double [][] coords= ms1.GetCoordArray(false);
+    //Рутинговые вершины
+    String[] NodeList=getRNodesArray(ms1,coords.length);
     //Запишем обратно, пропуская лишнюю
-    if (intNodeNo==0)
-    {
-      int k=0;
-      for(int i=0;i<coords.length;i++ )
-      {
-        if ((i!=0)&&(NodeList[i]!=null))
-        {
-          ms1.SetAttributeValue("Nod"+(k+1),(i-1)+","+NodeList[i] +",0");
-          k++;
-        }
-      }
-      ms1.DeleteAttribute("Nod"+(k+1));
-    }
-    else
-    {
-      int k=0;
-      for(int i=0;i<coords.length;i++ )
-      {
-        if ((i!=(coords.length-1))&&(NodeList[i]!=null))
-        {
-          ms1.SetAttributeValue("Nod"+(k+1),i+","+NodeList[i] +",0");
-          k++;
-        }
-      }
-      ms1.DeleteAttribute("Nod"+(k+1));
-    }
+    //if (intFirstNo==0)
 
+    //удаляем лишнюю вершину из списка вершин полилинии ("Data0")
+    String strCoords="";
+    for (int i=0;i<coords.length;i++ )
+    {
+      if ( ((i>=intNextNo)&&(intFirstNo<intNextNo ))||((i<=intNextNo)&&(intFirstNo>intNextNo))  )
+      {
+        if (!strCoords.isEmpty())
+          {strCoords=strCoords+",";}
+        strCoords=strCoords+"("+latLonFormat.format(coords[i][0])+","+latLonFormat.format(coords[i][1])+")";
+      }
+    }
+    ms1.SetAttributeValue("Data0",strCoords);
+
+
+    for(int i=0;i<coords.length;i++ )
+    {
+      if ((((i>=intNextNo)&&(intFirstNo<intNextNo ))||((i<=intNextNo)&&(intFirstNo>intNextNo)))&&(NodeList[i]!=null))
+      {
+        int intNewIndex;
+        if(intFirstNo<intNextNo)
+        {
+          intNewIndex=i-(intNextNo-intFirstNo);
+        }
+        else
+        {
+          intNewIndex=i;
+        }
+        ms1.SetAttributeValue("Nod"+(k+1),(intNewIndex)+","+NodeList[i] +",0");
+        k++;
+      }
+    }
+    ms1.DeleteAttribute("Nod"+(k+1));
 
   }
   //Проверка - пересекаются ли полилинии
