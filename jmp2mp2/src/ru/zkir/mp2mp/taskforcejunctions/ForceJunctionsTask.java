@@ -382,7 +382,17 @@ public class ForceJunctionsTask {
             }
           }
         }
-
+        if (!ms1.GetAttributeValue("Data0").equals("") )
+        {
+          coords = ms1.GetCoordArray(false);
+          if (coords.length<=1)
+          {
+            ms1.SetAttributeValue("FullyCollapsed","yes");
+            ms1.DeleteAttribute("Data0");
+            ms1.DeleteAttribute("Nod1");
+            //Это значит, что полилиния убита полностью
+          }
+        }
       }
     }
 
@@ -394,9 +404,14 @@ public class ForceJunctionsTask {
       ms1=mpData.sections.get(i);
       if(ms1.SectionType.equals("[POLYLINE]"))
       {
+
         if (ms1.GetAttributeValue("FullyCollapsed").equals("yes"))
         {
           mpData.sections.remove(i);
+        }
+        else
+        {
+
         }
 
       }
