@@ -254,8 +254,5 @@
   <target name="full_build" description="Do the entire build" depends="compile,copy,tests" >
     <echo>Full build of Osm2dcm has been completed OK</echo>
   </target>
-  
-  
-       
-  </target>
+
 </project> 
