@@ -16,6 +16,17 @@ public class GeocoderConfig{
   String language;
   boolean blnHamletsExcluded;
   boolean blnPerformTransliteration;
+
+  static final String CITY_POLYGON="CITY_POLYGON";
+  static final String NEAREST_CITY_POINT= "NEAREST_CITY_POINT";
+  static final String ADMIN_LEVEL_2="2";
+  static final String ADMIN_LEVEL_4="4";
+  static final String ADMIN_LEVEL_6="6";
+  static final String ADMIN_LEVEL_7="7";
+  static final String ADMIN_LEVEL_8="8";
+  static final String ADMIN_LEVEL_9="9";
+  static final String ADMIN_LEVEL_10="10";
+
   GeocoderConfig(String strCountryCode)
   {
     //Cхема адресации зависит от страны.
@@ -34,127 +45,127 @@ public class GeocoderConfig{
     //Андорра
     if (strCountryCode.equals("AD"))
     {
-      levelsForCity=new String[] {"7"};
-      levelsForRegion=new String[] {"2"};
+      levelsForCity=new String[] {ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_2};
     }
 
     //Албания
     if (strCountryCode.equals("AL"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Австрия
     if (strCountryCode.equals("AT"))
     {
-      levelsForCity=new String[] {"8","6"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String [] {"Bezirk","Kreis"};
     }
 
     //Бельгия
     if (strCountryCode.equals("BE"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6","4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_4};
     }
 
     //Чехия
     if (strCountryCode.equals("CZ"))
     {
-      levelsForCity=new String[] {"8","7"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
     //Германия
     if (strCountryCode.equals("DE"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String [] {"Bezirk","Kreis"};
     }
 
     //Эстония
     if (strCountryCode.equals("EE"))
-      levelsForCity=new String[] {"9"};
+      levelsForCity=new String[] {ADMIN_LEVEL_9};
 
     //Испания
     if (strCountryCode.equals("ES"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Греция
     if (strCountryCode.equals("GR"))
     {
-      levelsForCity=new String[] {"7","8","10"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_7,ADMIN_LEVEL_8,ADMIN_LEVEL_10};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       redundantWords=new String [] {"Demos","Periphereia","Kentorikes"};
     }
 
     //Ирландия
     if (strCountryCode.equals("IE"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","8","10","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8,ADMIN_LEVEL_10,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String [] {"County"};
     }
 
     //Исландия
     if (strCountryCode.equals("IS"))
     {
-      levelsForCity=new String[] {"6","8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Хорватия
     if (strCountryCode.equals("HR"))
     {
-      levelsForCity=new String[] {"8","7","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
     //Лихтенштейн
     if (strCountryCode.equals("LI"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6","2"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_2};
     }
 
     //Монако
     if (strCountryCode.equals("MC"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"2"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_2};
     }
 
     //Голландия
     if (strCountryCode.equals("NL"))
     {
-        levelsForCity=new String[] {"10","8"};
-        levelsForRegion=new String[] {"4"};
+        levelsForCity=new String[] {ADMIN_LEVEL_10,ADMIN_LEVEL_8};
+        levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Португалия
     if (strCountryCode.equals("PT"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Швеция
     if (strCountryCode.equals("SE"))
     {
-      levelsForCity=new String[] {"7"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       redundantWords =new String[]{"Kommune","lan"};
     }
 
     //Сан-Марино
     if (strCountryCode.equals("SM"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"2"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_2};
     }
 
 
@@ -162,76 +173,76 @@ public class GeocoderConfig{
     //Турция
     if (strCountryCode.equals("TR"))
     {
-      levelsForCity=new String[] {"6"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_6};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Кипр
     if (strCountryCode.equals("CY"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","8","7","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6","2"};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8,ADMIN_LEVEL_7,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_2};
     }
 
     //Польша
     if (strCountryCode.equals("PL"))
     {
-      levelsForCity=new String[] {"8","10", "7", "6"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_10, ADMIN_LEVEL_7, ADMIN_LEVEL_6};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String []{"gmina","powiat"};
     }
 
     if (strCountryCode.equals("SK"))
     {
-      levelsForCity=new String[] {"6","9"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_9};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Словения
     if (strCountryCode.equals("SI"))
     {
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
       levelsForRegion=new String[] {"5"};
     }
 
     //Венгрия
     if (strCountryCode.equals("HU"))
     {
-      levelsForCity=new String[] {"8", "7"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8, ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String []{"megye"};
     }
 
     //Румыния
     if (strCountryCode.equals("RO"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","6","4","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"5","4"};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_6,ADMIN_LEVEL_4,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {"5",ADMIN_LEVEL_4};
       redundantWords=new String []{"Municipiul"};
     }
 
     if (strCountryCode.equals("LT"))
-      levelsForCity=new String[] {"8"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
 
     //Италия
     if (strCountryCode.equals("IT"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Великобритания. Как-то не понятно.
     if (strCountryCode.equals("GB"))
     {
-      levelsForCity=new String[] {"8","10","6"};
-      levelsForRegion=new String[] {"5","4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_10,ADMIN_LEVEL_6};
+      levelsForRegion=new String[] {"5",ADMIN_LEVEL_4};
     }
 
     //Болгария
     if (strCountryCode.equals("BG"))
     {
-      levelsForCity=new String[] {"10","8","6"}; //Проблема - София единственная имеет admin_level=6
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_10,ADMIN_LEVEL_8,ADMIN_LEVEL_6}; //Проблема - София единственная имеет admin_level=6
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String [] {"Област","Община","Град"};
       blnPerformTransliteration=false;
     }
@@ -239,23 +250,23 @@ public class GeocoderConfig{
     //Сербия
     if (strCountryCode.equals("RS"))
     {
-      levelsForCity=new String[] {"8","7"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
       redundantWords=new String [] {"Komuna","Opshtina"};
     }
 
     //Македония
     if (strCountryCode.equals("MK"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","8","7"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8,ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       redundantWords=new String []{"Opshtina"};
     }
 
     //Босния и герцеговина
     if (strCountryCode.equals("BA"))
     {
-      levelsForCity=new String[] {"8","7","6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,ADMIN_LEVEL_6};
       levelsForRegion=new String[] {"5"};
       redundantWords=new String [] {"Opstina","Obchina"};
 
@@ -263,51 +274,51 @@ public class GeocoderConfig{
     //Норвегия
     if (strCountryCode.equals("NO"))
     {
-      levelsForCity=new String[] {"7"};
-      levelsForRegion=new String[] {"4","6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4,ADMIN_LEVEL_6};
     }
 
     //Дания
     if (strCountryCode.equals("DK"))
     {
-      levelsForCity=new String[] {"8","7"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       redundantWords =new String[]{"Kommune","Region"};
     }
 
     //Швейцария
     if (strCountryCode.equals("CH"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Франция
     if (strCountryCode.equals("FR"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Мальта
     if (strCountryCode.equals("MT"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Туркмения
     if (strCountryCode.equals("TM"))
     {
-      levelsForCity=new String[] {"CITY_POLYGON","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Израиль
     if (strCountryCode.equals("IL"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       language="en";
     }
 
@@ -316,108 +327,108 @@ public class GeocoderConfig{
     //===========================================================================================
     //США
     if (strCountryCode.equals("US"))
-      levelsForCity=new String[] {"8","6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6};
 
     //Чили
     if (strCountryCode.equals("CL"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
     //Venezuela
     if (strCountryCode.equals("VE"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       blnHamletsExcluded=true;
     }
     //Парагвай
     if (strCountryCode.equals("PY"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Фолклендские о-ва
     if (strCountryCode.equals("FK"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Куба
     if (strCountryCode.equals("CU"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      //levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      //levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Панама
     if (strCountryCode.equals("PA"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
     //Белиз
     if (strCountryCode.equals("BZ"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Коста-Рика CR
     if (strCountryCode.equals("CR"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Гватемала - GT
     if (strCountryCode.equals("GT"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
     //Гондурас -- HN
     if (strCountryCode.equals("HN"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
     //Никарагуа NI
     if (strCountryCode.equals("NI"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Сальвадор - SV
     if (strCountryCode.equals("SV"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Ямайка - JM
     if (strCountryCode.equals("JM"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
     //Мексика - MX
     if (strCountryCode.equals("MX"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Бразилия BR
     if (strCountryCode.equals("BR"))
     {
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //===========================================================================================
@@ -427,9 +438,9 @@ public class GeocoderConfig{
     if (strCountryCode.equals("EG"))
     {
       language="en";
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
       blnHamletsExcluded=true;
-      levelsForRegion=new String[] {"4"};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
       redundantWords= new String[]{"Governorate"};
 
     }
@@ -437,40 +448,40 @@ public class GeocoderConfig{
     if (strCountryCode.equals("TN"))
     {
       language="en";
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
       blnHamletsExcluded=true;
-      levelsForRegion=new String[] {"4"};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Арабские эмираты
     if (strCountryCode.equals("AE"))
     {
       language="en";
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Шри-Ланка
     if (strCountryCode.equals("LK"))
     {
-      levelsForCity=new String[] {"8","NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Таиланд
     if (strCountryCode.equals("TH"))
     {
       language="en";
-      levelsForCity=new String[] {"NEAREST_CITY_POINT"};
-      levelsForRegion=new String[] {"4"};
+      levelsForCity=new String[] {NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
     //Сингапур
     if (strCountryCode.equals("SG"))
     {
       //Временный хак, чтобы глаза не мозолило
-      levelsForCity=new String[] {"2"};
-      levelsForRegion=new String[] {"2"};
+      levelsForCity=new String[] {ADMIN_LEVEL_2};
+      levelsForRegion=new String[] {ADMIN_LEVEL_2};
     }
 
     //Гонконг
@@ -478,8 +489,30 @@ public class GeocoderConfig{
     {
       //Для начала
       language="en";
-      levelsForCity=new String[] {"8"};
-      levelsForRegion=new String[] {"6"};
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+    }
+    //Вьетнам
+    if (strCountryCode.equals("VN"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+    //===========================================================================================
+    //Австралия/Океания
+    //===========================================================================================
+    //Австралия
+    if (strCountryCode.equals("AU"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
+    //Новая зеландия
+    if (strCountryCode.equals("NZ"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
   }
 
