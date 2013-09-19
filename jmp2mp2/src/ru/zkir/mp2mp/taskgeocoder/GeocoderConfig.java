@@ -232,9 +232,11 @@ public class GeocoderConfig{
     }
 
     //Великобритания. Как-то не понятно.
+    //Admin_level=6 это графства, но кое где они и города
+    //Place используется в северной ирландии
     if (strCountryCode.equals("GB"))
     {
-      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_10,ADMIN_LEVEL_6};
+      levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8,ADMIN_LEVEL_10,ADMIN_LEVEL_6};
       levelsForRegion=new String[] {"5",ADMIN_LEVEL_4};
     }
 
