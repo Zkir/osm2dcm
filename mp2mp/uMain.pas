@@ -39,6 +39,11 @@ type TRuleSkipCommentSections=Class(TRule)
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
+type TRuleSkipRoads=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
 type TRuleUpliftCities=Class(TRule)
   strEndLevel:string;
   constructor Create(EndLevel:string);
@@ -72,6 +77,13 @@ type TRuleUpliftEuRoads=Class(TRule)
 end;
 
 type TRuleUpliftMainRoads=Class(TRule)
+  strEndLevel:string;
+  constructor Create(EndLevel:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleUpliftTrunkRoads=Class(TRule)
   strEndLevel:string;
   constructor Create(EndLevel:string);
   function CheckCondition(MpSection:TMpSection):boolean;override;
@@ -179,6 +191,11 @@ begin
            aRule:=TRuleNoPOI.Create;
            aSourceFile.Rules.Add(aRule);
          end
+         else  if RuleNode.Attributes['predefined']='skip_roads' then
+         begin
+           aRule:=TRuleSkipRoads.Create;
+           aSourceFile.Rules.Add(aRule);
+         end
          else  if RuleNode.Attributes['predefined']='uplift_cities' then
          begin
            aRule:=TRuleUpliftCities.Create(RuleNode.Attributes['EndLevel']);
@@ -207,6 +224,11 @@ begin
          else  if RuleNode.Attributes['predefined']='uplift_main_roads' then
          begin
            aRule:=TRuleUpliftMainRoads.Create(RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
+         else  if RuleNode.Attributes['predefined']='uplift_trunk_roads' then
+         begin
+           aRule:=TRuleUpliftTrunkRoads.Create(RuleNode.Attributes['EndLevel']);
            aSourceFile.Rules.Add(aRule);
          end
          else  if RuleNode.Attributes['predefined']='set_end_level' then
@@ -260,12 +282,22 @@ begin
   blnSkipSection:=true;
 end;
 
+//TRuleSkipCommentSections
 function TRuleSkipCommentSections.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=(MpSection.SectionType=ST_COMMENT);
 end;
 
 procedure TRuleSkipCommentSections.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  blnSkipSection:=true;
+end;
+function TRuleSkipRoads.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=(MpSection.mpRouteParam<>'');
+end;
+
+procedure TRuleSkipRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   blnSkipSection:=true;
 end;
@@ -394,6 +426,24 @@ begin
 end;
 
 procedure TRuleUpliftMainRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
+//TRuleTrunktMainRoads
+constructor TRuleUpliftTrunkRoads.Create(EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+end;
+function TRuleUpliftTrunkRoads.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('Type')='0x1')  then
+      result:=true;
+end;
+
+procedure TRuleUpliftTrunkRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   MpSection.SetAttributeValue('EndLevel',strEndLevel);
 end;
