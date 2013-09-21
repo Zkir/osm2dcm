@@ -2141,11 +2141,27 @@ sub WritePOI {
 
     # region and country - for cities
     if ( $poiregion  &&  $label  &&  $param{add_region} ) {
-        my $region  = name_from_list( 'region', $param{tags});
-        $region .= q{ }. $tag{'addr:district'}     if exists $tag{'addr:district'};
-        printf "RegionName=%s\n", convert_string( $region )     if $region;
-        my $country = convert_string( name_from_list( 'country', $param{tags}) );
-        printf "CountryName=%s\n", convert_string( $country )   if $country;
+    	#BKA: 
+    	#City name and region are assigned to the towns in the same way as for other POIs:
+    	#from the polygonal borders, if any.  
+	    my $city;
+        $city = $city{ FindCity( $param{nodeid} || $param{latlon} ) };
+        if ( $city ) {
+            printf "CityName=%s\n", convert_string( $city->{name} );
+            printf "RegionName=%s\n", convert_string( $city->{region} )        if  $city->{region};
+            printf "CountryName=%s\n", convert_string( $city->{country} )      if  $city->{country};
+        }
+        else
+        {
+        	#if there are no borders,
+        	#CityName is skipped, but RegionName is still assigned
+        	#(for maps of russia)
+        	my $region  = name_from_list( 'region', $param{tags});
+	        $region .= q{ }. $tag{'addr:district'}     if exists $tag{'addr:district'};
+	        printf "RegionName=%s\n", convert_string( $region )     if $region;
+	        my $country = convert_string( name_from_list( 'country', $param{tags}) );
+	        printf "CountryName=%s\n", convert_string( $country )   if $country;
+        }   
     }
 
     # contact information: address, phone
