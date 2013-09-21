@@ -10,6 +10,7 @@
 <source_file name="%OSM_DATA%\_my\EU-OVRV\EU-OVRV.roads.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
+  <rule predefined="uplift_eu_roads" EndLevel="6"/>
   <!--убрать  пои  -->
   <rule predefined="skip_poi"/>
 </source_file>
