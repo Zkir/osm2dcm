@@ -178,7 +178,7 @@
   action:
     - action: write_polygon
       type: 0x50
-      level_h: 3
+      level_h: 4
 
 #landuse garages p 0x0c 
 - condition:
@@ -293,7 +293,7 @@
   action:
     - action: write_polygon
       type: 0x4d
-      level_h: 3
+      level_h: 4
 
 #natural marsh p 0x51 0 3 
 - condition:
@@ -301,7 +301,7 @@
   action:
     - action: write_polygon
       type: 0x51
-      level_h: 3
+      level_h: 4
 
 #natural scrub p 0x4f 
 - condition:
@@ -318,7 +318,7 @@
   action:
     - action: write_polygon
       type: 0x3f
-      level_h: 3
+      level_h: 4
 
 #natural wetland p 0x51 0 3 
 - condition:
@@ -326,7 +326,7 @@
   action:
     - action: write_polygon
       type: 0x51
-      level_h: 3
+      level_h: 4
 
 #natural wood p 0x50 0 3 
 - condition:
@@ -334,7 +334,7 @@
   action:
     - action: write_polygon
       type: 0x50
-      level_h: 3
+      level_h: 4
 
 #office accountant p undef 0 0 0x2f00,0,1 
 #office architect p undef 0 0 0x2f00,0,1 
@@ -366,7 +366,7 @@
     - action: write_polygon
       type: 0x03
       level_l: 1
-      level_h: 3
+      level_h: 4
 
 #place town p 0x01,2 2 4 
 #!Check Priority!
@@ -386,7 +386,7 @@
     - action: write_polygon
       type: 0x03
       level_l: 1
-      level_h: 3
+      level_h: 4
 
 #shop bakery p undef 0 0 0x2A0E,0,0 
 #shop bicycle p undef 0 0 0x2F00,0,0 

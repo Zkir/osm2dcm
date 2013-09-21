@@ -452,6 +452,7 @@
 #amenity toilets 0x4e00 0 1 
 - condition:
     - amenity = toilets
+    - access != private|no
   action:
     - action: write_poi
       type: 0x4e00
@@ -493,6 +494,7 @@
 - condition:
     - highway = crossing
     - crossing != traffic_signals|unmarked
+    - railway != crossing
   action:
     - action: write_poi
       type: 0xFE0D
@@ -920,6 +922,14 @@
       
 #place continent 
 #place country 
+- condition:
+    - place = country
+  action:
+    - action: write_poi
+      type: 0x1400
+      level_l: 2
+      level_h: 5
+      contacts: yes
 #place county 
 #place hamlet 0x0F00 0 2 city 
 - condition:
@@ -943,6 +953,15 @@
 #place locality 
 #place region 
 #place state 
+- condition:
+    - place = state
+  action:
+    - action: write_poi
+      type: 0x1e00
+      level_l: 2
+      level_h: 5
+      contacts: yes
+
 #place suburb 0x1F00 0 2 
 - condition:
     - place = suburb
@@ -993,7 +1012,7 @@
   action:
     - action: write_poi
       type: 0x0800
-      level_h: 4
+      level_h: 5
       city: yes
       
 #place village 0x0C00 0 2 city 
@@ -1003,7 +1022,7 @@
   action:
     - action: write_poi
       type: 0x0C00
-      level_h: 2
+      level_h: 4
       city: yes
 
 #power generation 
