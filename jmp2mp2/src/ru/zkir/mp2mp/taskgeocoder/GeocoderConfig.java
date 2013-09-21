@@ -21,6 +21,7 @@ public class GeocoderConfig{
   static final String NEAREST_CITY_POINT= "NEAREST_CITY_POINT";
   static final String ADMIN_LEVEL_2="2";
   static final String ADMIN_LEVEL_4="4";
+  static final String ADMIN_LEVEL_5="5";
   static final String ADMIN_LEVEL_6="6";
   static final String ADMIN_LEVEL_7="7";
   static final String ADMIN_LEVEL_8="8";
@@ -202,7 +203,7 @@ public class GeocoderConfig{
     if (strCountryCode.equals("SI"))
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8};
-      levelsForRegion=new String[] {"5"};
+      levelsForRegion=new String[] {ADMIN_LEVEL_5};
     }
 
     //Венгрия
@@ -217,7 +218,7 @@ public class GeocoderConfig{
     if (strCountryCode.equals("RO"))
     {
       levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_6,ADMIN_LEVEL_4,NEAREST_CITY_POINT};
-      levelsForRegion=new String[] {"5",ADMIN_LEVEL_4};
+      levelsForRegion=new String[] {ADMIN_LEVEL_5,ADMIN_LEVEL_4};
       redundantWords=new String []{"Municipiul"};
     }
 
@@ -237,7 +238,7 @@ public class GeocoderConfig{
     if (strCountryCode.equals("GB"))
     {
       levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8,ADMIN_LEVEL_10,ADMIN_LEVEL_6};
-      levelsForRegion=new String[] {"5",ADMIN_LEVEL_4};
+      levelsForRegion=new String[] {ADMIN_LEVEL_5,ADMIN_LEVEL_4};
     }
 
     //Болгария
@@ -269,7 +270,7 @@ public class GeocoderConfig{
     if (strCountryCode.equals("BA"))
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,ADMIN_LEVEL_6};
-      levelsForRegion=new String[] {"5"};
+      levelsForRegion=new String[] {ADMIN_LEVEL_5};
       redundantWords=new String [] {"Opstina","Obchina"};
 
     }
