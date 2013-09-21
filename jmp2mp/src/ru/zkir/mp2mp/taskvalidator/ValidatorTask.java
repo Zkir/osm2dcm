@@ -157,7 +157,7 @@ public class ValidatorTask {
         if (oMpSection.mpType().equals("0x01") || oMpSection.mpType().equals("0x03")) //Город
         {
           double[] Coord=oMpSection.GetCoord();
-          oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"), Coord[0],Coord[1], 0, true, oMpSection.mpType().equals("0x01"),  "");
+          oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"),"","", Coord[0],Coord[1], 0, true, oMpSection.mpType().equals("0x01"),  "");
         }
       }
       //11. Классифицируем озера по размеру
@@ -508,7 +508,10 @@ public class ValidatorTask {
         double[] Coords;
         Coords=oMpSection.GetCoord();
 
-        oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"), Coords[0],Coords[1], intPopulation, false, false, oMpSection.mpType());
+        oAddrRegistryTest.AddCityToRegistry(oMpSection.GetAttributeValue("Label"),
+                                            oMpSection.GetAttributeValue("CityName"),
+                                            oMpSection.GetAttributeValue("RegionName"),
+                                            Coords[0],Coords[1], intPopulation,  false, false, oMpSection.mpType());
 
 
 

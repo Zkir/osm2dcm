@@ -58,12 +58,15 @@ public class clsAddrRegistryTest {
 
   class CityInfo
   {
-    String name;
+    String name;       //Название
+    String addrCity;   //Название по геокодеру
+    String addrRegion; //Регион по геокодеру
     long population;
     boolean populationMissing;
     double lat;
     double lon;
-    int valid;
+    int valid;//Наличие полигона place
+    int valid2;//Совпадение названия по геокодеру.
     String origtype;
     boolean urban;
   }
@@ -93,6 +96,8 @@ public class clsAddrRegistryTest {
   int intHousesStreetNotRelatedToCity ;
  // int intHousesNumberRelatedToTerritory;
  // int intHousesStreetNotRoutable;
+  int intNumberOfCities;
+  int intNumberOfCitiesWrongGK;
 
 
   public clsAddrRegistryTest()
@@ -199,6 +204,8 @@ public class clsAddrRegistryTest {
 
   //Добавление города, как границ, так и точки
   public void AddCityToRegistry(String strCityName,
+                                String strAddrCity,
+                                String strAddrRegion,
                                 double lat,
                                 double lon,
                                 long intPopulation,
@@ -219,6 +226,8 @@ public class clsAddrRegistryTest {
     else
     {
       theCityInfo.name=strCityName;
+      theCityInfo.addrCity=strAddrCity;
+      theCityInfo.addrRegion=strAddrRegion;
       theCityInfo.population = intPopulation;
       theCityInfo.lat=(lat);
       theCityInfo.lon=(lon);
@@ -242,15 +251,19 @@ public class clsAddrRegistryTest {
   {
     int i;
     int j;
+    intNumberOfCities=0;
+    intNumberOfCitiesWrongGK=0;
 
     for(i=0;i<arrCities.size();i++ )
     {
       CityInfo theCityInfo;
       theCityInfo=arrCities.get(i);
 
-      //Население
+      //Население и работа геокодера
       if((theCityInfo.origtype.equals(otCity)) || (theCityInfo.origtype.equals(otTown) ))
       {
+        intNumberOfCities++;
+        //Население
         if (theCityInfo.population==-1 )
         {
           theCityInfo.populationMissing=true;
@@ -259,6 +272,15 @@ public class clsAddrRegistryTest {
         {
           theCityInfo.populationMissing=false;
         }
+        //Название города и название присвоенное ему геокодером должно совпадать
+        if(theCityInfo.name.equals(theCityInfo.addrCity) )
+        {theCityInfo.valid2=1;}
+        else
+        {
+          theCityInfo.valid2=0;
+          intNumberOfCitiesWrongGK++;
+        }
+
       }
 
 
@@ -608,8 +630,10 @@ public class clsAddrRegistryTest {
     oReportFile.write( " <HousesStreetNotRelatedToCity>" + Integer.toString(intHousesStreetNotRelatedToCity) + "</HousesStreetNotRelatedToCity>\r\n");
     //oReportFile.write( " <HousesStreetNotRoutable>"  + Integer.toString(intHousesStreetNotRoutable) + "</HousesStreetNotRoutable>\r\n");
     //oReportFile.write( " <HousesNumberRelatedToTerritory>" + Integer.toString(intHousesNumberRelatedToTerritory) + "</HousesNumberRelatedToTerritory>\r\n");
-
+    oReportFile.write( " <TotalCities>" + Integer.toString( intNumberOfCities )+ "</TotalCities>\r\n");
+    oReportFile.write( " <CitiesWrongGK>" + Integer.toString( intNumberOfCitiesWrongGK )+ "</CitiesWrongGK>\r\n");
     oReportFile.write( " <CitiesWithoutPopulation>" + Integer.toString( arrCitiesWOPopulation.size() )+ "</CitiesWithoutPopulation>\r\n");
+
     oReportFile.write( " <CitiesWithoutPlacePolygon>"  + Integer.toString(arrCitiesWOPlacePolygon.size()) + "</CitiesWithoutPlacePolygon>\r\n");
     oReportFile.write( " <CitiesWithoutPlaceNode>" +  Integer.toString(arrCitiesWOPlaceNode.size())+ "</CitiesWithoutPlaceNode>\r\n");
 
@@ -620,7 +644,28 @@ public class clsAddrRegistryTest {
 
     oReportFile.write( "</Summary>\r\n");
 
-
+    //Сводка по НП
+    oReportFile.write( "<CitiesSummary>\r\n");
+    for (i=0;i<arrCities.size();i++ )
+    {
+      CityInfo theCityInfo;
+      theCityInfo=arrCities.get(i);
+      if((theCityInfo.origtype.equals(otCity)) || (theCityInfo.origtype.equals(otTown) ))
+      {
+      oReportFile.write( "<City>\r\n");
+      oReportFile.write( " <Name>" + MakeXmlString(theCityInfo.name) + "</Name>\r\n");
+      oReportFile.write( " <AddrCity>" + MakeXmlString(theCityInfo.addrCity) + "</AddrCity>\r\n");
+      oReportFile.write( " <AddrRegion>" + MakeXmlString(theCityInfo.addrRegion) + "</AddrRegion>\r\n");
+      oReportFile.write( " <Population>" + theCityInfo.population  + "</Population>\r\n");
+      oReportFile.write( " <Valid>" + theCityInfo.valid2  + "</Valid>\r\n");
+      oReportFile.write( " <Coord>\r\n");
+      oReportFile.write( "   <lat>" + theCityInfo.lat + "</lat>\r\n");
+      oReportFile.write( "   <lon>" + theCityInfo.lon + "</lon>\r\n");
+      oReportFile.write( " </Coord>\r\n");
+      oReportFile.write( "</City>\r\n");
+      }
+    }
+    oReportFile.write( "</CitiesSummary>\r\n");
 
     //Города без населения
 
