@@ -210,13 +210,21 @@
            >
          <arg value="${osmdatapath}\_my\TEST.PP\RU-NIZ.pre.mp" />
          <arg value="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp" />
+         <arg value=" " />
+         <arg value="0" />
+         <arg value="0" />
+         <arg value="0" />
+         <arg value="1" />
          <classpath>
            <pathelement location="${buildpath}\jmp2mp.jar"/>
          </classpath>
     </java>
     <echo>Compare with etalon</echo>
     <condition property="pp_tests_ok"> 
+      <and>
       <filesmatch file1="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp" file2="${osmdatapath}\_my\TEST.PP\RU-NIZ.etalon.mp"/> 
+      <filesmatch file1="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp_addr.xml" file2="${osmdatapath}\_my\TEST.PP\RU-NIZ.mp_addr.etalon.xml"/> 
+      </and>
     </condition> 
     <fail unless="pp_tests_ok" message="validator test failed"/> 
     <echo>postprocessor/validator test OK</echo>

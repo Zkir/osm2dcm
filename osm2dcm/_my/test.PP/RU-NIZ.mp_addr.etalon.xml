@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <QualityReport>
- <Date>2013-05-14</Date>
- <DateWithTime>2013-05-14 21:43:41</DateWithTime>
- <TimeUsed>0:0:33</TimeUsed>
 <AddressTest>
 <Summary>
  <TotalHouses>67999</TotalHouses>
@@ -12,6 +9,8 @@
  <HousesStreetNotSet>718</HousesStreetNotSet>
  <HousesStreetNotFound>584</HousesStreetNotFound>
  <HousesStreetNotRelatedToCity>2</HousesStreetNotRelatedToCity>
+ <TotalCities>67</TotalCities>
+ <CitiesWrongGK>67</CitiesWrongGK>
  <CitiesWithoutPopulation>0</CitiesWithoutPopulation>
  <CitiesWithoutPlacePolygon>0</CitiesWithoutPlacePolygon>
  <CitiesWithoutPlaceNode>13</CitiesWithoutPlaceNode>
@@ -19,6 +18,745 @@
  <StreetsWithoutRegion>4254</StreetsWithoutRegion>
  <ErrorRate>0.0193532257827321</ErrorRate>
 </Summary>
+<CitiesSummary>
+<City>
+ <Name>Нижний Новгород</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>1311200</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.3241427</lat>
+   <lon>43.9902091</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Дзержинск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>261400</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.2382157</lat>
+   <lon>43.4617405</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Арзамас</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>110000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.3985</lat>
+   <lon>43.8385</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Саров</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>90000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>54.9346302</lat>
+   <lon>43.3346076</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Бор</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Борский район</AddrRegion>
+ <Population>75809</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.3547</lat>
+   <lon>44.0797097</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Кстово</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Кстовский район</AddrRegion>
+ <Population>65700</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.1495531</lat>
+   <lon>44.198034</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Выкса</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Выксунский район</AddrRegion>
+ <Population>60000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.3205256</lat>
+   <lon>42.17018</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Павлово</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Павловский район</AddrRegion>
+ <Population>60000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.9651391</lat>
+   <lon>43.0711139</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Балахна</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Балахнинский район</AddrRegion>
+ <Population>52813</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.4870505</lat>
+   <lon>43.6039553</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Заволжье</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Городецкий район</AddrRegion>
+ <Population>43000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.6399918</lat>
+   <lon>43.3993547</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Богородск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Богородский район</AddrRegion>
+ <Population>36000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.1034169</lat>
+   <lon>43.5168175</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Кулебаки</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Кулебакский район</AddrRegion>
+ <Population>35700</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.4115038</lat>
+   <lon>42.5271168</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Городец</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Городецкий район</AddrRegion>
+ <Population>31000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.6471404</lat>
+   <lon>43.4760011</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Семенов</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Семеновский район</AddrRegion>
+ <Population>24309</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.7889651</lat>
+   <lon>44.4964667</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Лысково</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Лысковский район</AddrRegion>
+ <Population>22300</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.0278866</lat>
+   <lon>45.0383158</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Сергач</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Сергачский район</AddrRegion>
+ <Population>21500</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.529616</lat>
+   <lon>45.4754305</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Шахунья</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Шахунский район</AddrRegion>
+ <Population>21300</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.6731073</lat>
+   <lon>46.6160494</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Навашино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Навашинский район</AddrRegion>
+ <Population>16600</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.54407</lat>
+   <lon>42.1886723</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Первомайск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Первомайский район</AddrRegion>
+ <Population>14650</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>54.865754</lat>
+   <lon>43.8050623</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Гороховец</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Владимирская область Гороховецкий район</AddrRegion>
+ <Population>13099</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.2065788</lat>
+   <lon>42.6797479</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Починки</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>12500</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>54.701018</lat>
+   <lon>44.8546897</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Чкаловск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Чкаловский район</AddrRegion>
+ <Population>12363</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.7649159</lat>
+   <lon>43.2433235</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Лукоянов</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Лукояновский район</AddrRegion>
+ <Population>12200</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.0348198</lat>
+   <lon>44.4927244</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Урень</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>12200</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.4611111</lat>
+   <lon>45.79</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ворсма</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Павловский район</AddrRegion>
+ <Population>11600</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.9881017</lat>
+   <lon>43.2754846</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ардатов</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Ардатовский район</AddrRegion>
+ <Population>10000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.2410408</lat>
+   <lon>43.0968037</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Володарск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Володарский район</AddrRegion>
+ <Population>10000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.2261397</lat>
+   <lon>43.185072</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Шатки</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>9100</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.188021</lat>
+   <lon>44.1278098</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Дивеево</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Дивеевский район</AddrRegion>
+ <Population>9000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.0416885</lat>
+   <lon>43.245518</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ветлуга</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Ветлужский район</AddrRegion>
+ <Population>9000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.8555543</lat>
+   <lon>45.7793834</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Сосновское</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Сосновский район</AddrRegion>
+ <Population>9000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.805165</lat>
+   <lon>43.1669526</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Перевоз</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Перевозский район</AddrRegion>
+ <Population>8750</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.5965448</lat>
+   <lon>44.544844</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ильиногорск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Володарский район</AddrRegion>
+ <Population>8100</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.2274761</lat>
+   <lon>42.955368</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Выездное</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>8000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.3800194</lat>
+   <lon>43.7853001</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Красные Баки</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Краснобаковский район</AddrRegion>
+ <Population>7391</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.1283099</lat>
+   <lon>45.1567007</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Пильна</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Пильнинский район</AddrRegion>
+ <Population>7300</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.554139</lat>
+   <lon>45.9221747</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Тумботино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Павловский район</AddrRegion>
+ <Population>7300</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.9978485</lat>
+   <lon>43.0241942</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Вознесенское</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область</AddrRegion>
+ <Population>7000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>54.8920026</lat>
+   <lon>42.764676</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Решетиха</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Володарский район</AddrRegion>
+ <Population>6900</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.2164703</lat>
+   <lon>43.2967642</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Вад</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Вадский район</AddrRegion>
+ <Population>6700</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.5313504</lat>
+   <lon>44.2092987</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Шаранга</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6550</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.1771156</lat>
+   <lon>46.54439</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ковернино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6543</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.1261111</lat>
+   <lon>43.8163889</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Бутурлино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Бутурлинский район</AddrRegion>
+ <Population>6500</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.5688629</lat>
+   <lon>44.8914523</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Княгинино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Княгининский район</AddrRegion>
+ <Population>6500</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.8214957</lat>
+   <lon>45.0356149</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Сокольское</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6410</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.1424679</lat>
+   <lon>43.163625</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Воротынец</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Воротынский район</AddrRegion>
+ <Population>6400</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.0604696</lat>
+   <lon>45.862528</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Сухобезводное</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6304</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.0477162</lat>
+   <lon>44.8844743</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Вача</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Вачский район</AddrRegion>
+ <Population>6000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.8010301</lat>
+   <lon>42.7720998</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Вахтан</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.9644444</lat>
+   <lon>46.6855556</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Воскресенское</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>6000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.8383333</lat>
+   <lon>45.4330556</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Большое Мурашкино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Большемурашкинский район</AddrRegion>
+ <Population>5600</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.7847831</lat>
+   <lon>44.7740506</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Гремячево</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Кулебакский район</AddrRegion>
+ <Population>5300</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.3905545</lat>
+   <lon>43.0281713</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Сеченово</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>5264</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.2266667</lat>
+   <lon>45.8922222</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Большое Болдино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Большеболдинский район</AddrRegion>
+ <Population>5000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.00072</lat>
+   <lon>45.3105142</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Мухтолово</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Ардатовский район</AddrRegion>
+ <Population>5000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.4677567</lat>
+   <lon>43.2005045</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Ветлужский</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Ветлужский район</AddrRegion>
+ <Population>5000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.1704922</lat>
+   <lon>45.1206518</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Досчатое</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>5000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.3973348</lat>
+   <lon>42.1038928</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Арья</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>5000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.4880556</lat>
+   <lon>45.975</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Тонкино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>4850</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.372272</lat>
+   <lon>46.458287</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Тоншаево</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>4550</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.7328405</lat>
+   <lon>47.0119439</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Дальнее Константиново</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Дальнеконстантиновский район</AddrRegion>
+ <Population>4400</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.807768</lat>
+   <lon>44.094025</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Спасское</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion></AddrRegion>
+ <Population>4000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.8579699</lat>
+   <lon>45.6954529</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Гагино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Гагинский район</AddrRegion>
+ <Population>3900</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.2305619</lat>
+   <lon>45.0301336</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Варнавино</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Варнавинский район</AddrRegion>
+ <Population>3000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>57.4012541</lat>
+   <lon>45.0876009</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Горбатов</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Павловский район</AddrRegion>
+ <Population>2200</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.1327518</lat>
+   <lon>43.0581108</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Уразовка</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Краснооктябрьский район</AddrRegion>
+ <Population>2143</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>55.399989</lat>
+   <lon>45.6168658</lon>
+ </Coord>
+</City>
+<City>
+ <Name>Васильсурск</Name>
+ <AddrCity></AddrCity>
+ <AddrRegion>Нижегородская область Воротынский район</AddrRegion>
+ <Population>1000</Population>
+ <Valid>0</Valid>
+ <Coord>
+   <lat>56.1296792</lat>
+   <lon>46.013614</lon>
+ </Coord>
+</City>
+</CitiesSummary>
 <CitiesWithoutPopulation>
 </CitiesWithoutPopulation>
 <CitiesWithoutPlacePolygon>
@@ -13777,61 +14515,61 @@
     <Kind>[POI]</Kind>
     <Type>0x0400</Type>
     <Count>1</Count>
-    <Size>174</Size>
+    <Size>150</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0600</Type>
     <Count>1</Count>
-    <Size>138</Size>
+    <Size>120</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0700</Type>
     <Count>1</Count>
-    <Size>128</Size>
+    <Size>112</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0800</Type>
     <Count>6</Count>
-    <Size>857</Size>
+    <Size>770</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0900</Type>
     <Count>8</Count>
-    <Size>1207</Size>
+    <Size>1076</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0a00</Type>
     <Count>10</Count>
-    <Size>1446</Size>
+    <Size>1279</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0b00</Type>
     <Count>32</Count>
-    <Size>4349</Size>
+    <Size>3773</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0C00</Type>
     <Count>554</Count>
-    <Size>59870</Size>
+    <Size>49895</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0e00</Type>
     <Count>19</Count>
-    <Size>2638</Size>
+    <Size>2288</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0F00</Type>
     <Count>4476</Count>
-    <Size>412309</Size>
+    <Size>333359</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
