@@ -70,6 +70,8 @@ public class clsAddrRegistryTest {
     String origtype;
     boolean urban;
   }
+
+
   //Рабочие массивы
   ArrayList<HouseInfo> arrHouses;
 
@@ -603,7 +605,7 @@ public class clsAddrRegistryTest {
 
     for(i=0;i<arrStreets.size();i++ )
     {
-      //todo: corect condition when CG learn to seach non-routable streets
+      //todo: correct condition when CG learn to search non-routable streets
       if (arrStreets.get(i).regionName.equals("")  && (arrStreets.get(i).routable!=0) )
       {
         intStreetsWithoutRegion=intStreetsWithoutRegion+1;
@@ -645,6 +647,13 @@ public class clsAddrRegistryTest {
     oReportFile.write( "</Summary>\r\n");
 
     //Сводка по НП
+    //Отсортируем массив городов по населению.
+    Collections.sort(arrCities,  new Comparator<CityInfo>() {
+      public int compare(CityInfo sp1, CityInfo sp2) {
+        return (sp1.population > sp2.population ) ? -1: (sp1.population < sp2.population) ? 1:0 ;
+      }
+      });
+
     oReportFile.write( "<CitiesSummary>\r\n");
     for (i=0;i<arrCities.size();i++ )
     {

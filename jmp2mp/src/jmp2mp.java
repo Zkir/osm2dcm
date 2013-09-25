@@ -26,6 +26,7 @@ public class jmp2mp {
   private static boolean blnEroadShieldsOnly;//Только евромаршруты на щитах дорог.
   private static boolean blnNoRoutingTestByLevels;
   private static boolean blnSkipDeadEndTest;
+  private static boolean blnSuppressDateInOutput;
 
   //Точка входа
   public static void  main(String args[]) throws IOException,MPParseException
@@ -37,7 +38,8 @@ public class jmp2mp {
 
       ValidatorTask validator;
       validator=new ValidatorTask();
-      validator.execute (strSource, strTarget, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels,  blnSkipDeadEndTest);
+      validator.execute (strSource, strTarget, strViewPoint,
+                         blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest,blnSuppressDateInOutput );
 
     }
     else
@@ -56,6 +58,7 @@ public class jmp2mp {
     blnEroadShieldsOnly=false;
     blnNoRoutingTestByLevels=false;
     blnSkipDeadEndTest=false;
+    blnSuppressDateInOutput=false;
    // strSource="d:/OSM/osm2dcm/_my/test/Test.pre.mp";
    // strTarget="d:/OSM/osm2dcm/_my/test/Test.java.mp";
 
@@ -84,6 +87,13 @@ public class jmp2mp {
       if (args[5].equals("1"))
       {
         blnSkipDeadEndTest=true;
+      }
+    }
+    if(args.length>6)
+    {
+      if (args[6].equals("1"))
+      {
+        blnSuppressDateInOutput=true;
       }
     }
 

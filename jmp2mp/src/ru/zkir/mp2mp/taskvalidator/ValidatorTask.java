@@ -48,7 +48,8 @@ public class ValidatorTask {
   private clsAddrRegistryTest oAddrRegistryTest;
 
   public void execute (String strSource, String strTarget, String strViewPoint, boolean blnEroadShieldsOnly,
-                       boolean blnNoRoutingTestByLevels,boolean blnSkipDeadEndTest ) throws IOException, MPParseException
+                       boolean blnNoRoutingTestByLevels,boolean blnSkipDeadEndTest,
+                       boolean blnSuppressDateInOutput) throws IOException, MPParseException
   {
     String strReportFileName;
     strReportFileName=strTarget + "_addr.xml";
@@ -62,8 +63,9 @@ public class ValidatorTask {
     System.out.println( "E-road shields only: " + blnEroadShieldsOnly);
     System.out.println( "Connectivity test by zero level only: " + blnNoRoutingTestByLevels);
     System.out.println( "Skip dead end test: " + blnSkipDeadEndTest);
+    System.out.println( "Suppress date in output: " + blnSuppressDateInOutput);
 
-    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest);
+    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest,blnSuppressDateInOutput);
 
     System.out.println( "Postprocessor has been finished OK");
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
@@ -76,7 +78,8 @@ public class ValidatorTask {
                           String strViewPoint,
                           boolean blnEroadShieldsOnly,
                           boolean blnNoRoutingTestByLevels,
-                          boolean blnSkipDeadEndTest) throws IOException, MPParseException
+                          boolean blnSkipDeadEndTest,
+                          boolean blnSuppressDateInOutput) throws IOException, MPParseException
   {
     MpFile oSrcMp;
     MpFile oTgtMp;
@@ -375,7 +378,7 @@ public class ValidatorTask {
 
     dtProcessEnd=new Date();
 
-    PrintReport(strReportFileName);
+    PrintReport(strReportFileName,blnSuppressDateInOutput);
   }
 
   //====================================================================================================================
@@ -725,7 +728,7 @@ public class ValidatorTask {
     return strStreetName;
   }
 
-  private void PrintReport(String strFileName)   throws IOException
+  private void PrintReport(String strFileName, boolean blnSuppressDateInOutput)   throws IOException
   {
     BufferedWriter oReportFile;
     //oReportFile = new BufferedWriter(new FileWriter(strFileName));
@@ -737,10 +740,12 @@ public class ValidatorTask {
 
     oReportFile.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n");
     oReportFile.write( "<QualityReport>\r\n");
-    oReportFile.write( " <Date>" + FormatXMLDate(dtCurrentDate, false) + "</Date>\r\n");
-    oReportFile.write( " <DateWithTime>" + FormatXMLDate(dtCurrentDate, true) + "</DateWithTime>\r\n");
-    oReportFile.write( " <TimeUsed>" + FormatXMLTimeInterval(dtProcessStart,dtProcessEnd ) + "</TimeUsed>\r\n");
-
+    if (!blnSuppressDateInOutput)
+    {
+      oReportFile.write( " <Date>" + FormatXMLDate(dtCurrentDate, false) + "</Date>\r\n");
+      oReportFile.write( " <DateWithTime>" + FormatXMLDate(dtCurrentDate, true) + "</DateWithTime>\r\n");
+      oReportFile.write( " <TimeUsed>" + FormatXMLTimeInterval(dtProcessStart,dtProcessEnd ) + "</TimeUsed>\r\n");
+    }
 
     oAddrRegistryTest.PrintErrorsToXML(oReportFile);
 
