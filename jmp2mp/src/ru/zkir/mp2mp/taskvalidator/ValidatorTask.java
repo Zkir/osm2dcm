@@ -484,10 +484,14 @@ public class ValidatorTask {
     {
       if(oMpSection.GetAttributeValue("City").equals("Y")){
 
+        //Зачем это было сделано, совершенно непонятно.
+        //CityName присваивается геокодером, и если не присвоился,
+        // это ошибка, которую мы отслеживаем
+        /*
         //Добавим в адрес название города, если там пусто
         if (oMpSection.GetAttributeValue("CityName").equals("")){
           oMpSection.SetAttributeValue("CityName", oMpSection.GetAttributeValue("Label"));
-        }
+        } */
 
         //Получим население
         strPopulation = oMpSection.GetAttributeValue("Population");
