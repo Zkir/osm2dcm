@@ -62,7 +62,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-      redundantWords=new String [] {"Bezirk","Kreis"};
+      redundantWords=new String [] {"Bezirk","Kreis","Gemeinde","(Stadt)"};
     }
 
     //Бельгия
