@@ -103,9 +103,9 @@ echo QA activated: %QA_ENABLED%
 
 echo additional geocoding
 SET HEADER_PARAMS=Country=%_country_code% 
-rem if "%_region_code%"=="FULL" (
-rem SET HEADER_PARAMS=RegionMap=1 Country=%_country_code% 
-rem )
+if "%_region_code%"=="FULL" (
+SET HEADER_PARAMS=RegionMap=1 Country=%_country_code% 
+)
 
 echo java  -Xmx4248m -jar jmp2mp2.jar --readmp file="%WORK_PATH%\%1.pre.mp" --geocode src="%7" mapcode="%1" --setheaderparams %HEADER_PARAMS% --writemp file="%WORK_PATH%\%1.pre.mp"
 java  -Xmx4248m -jar jmp2mp2.jar --readmp file="%WORK_PATH%\%1.pre.mp" --geocode src="%7" mapcode="%1" --setheaderparams %HEADER_PARAMS% --writemp file="%WORK_PATH%\%1.pre.mp"

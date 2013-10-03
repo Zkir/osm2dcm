@@ -27,6 +27,16 @@ rem - note that statistics is calculated by final.osm - its currently hardcoded
 zOsmStat.exe %MAPID% %2
 if errorlevel 1 goto error
 
+rem Upload validation results
+echo upload validation results to production server
+corecmd.exe -site peirce -O -u %WORK_PATH%\%MAPID%.mp_addr.xml   -p ADDR_CHK/ -s
+corecmd.exe -site peirce -O -u %WORK_PATH%\%MAPID%_editors.xml   -p ADDR_CHK/ -s
+
+echo upload validation results to validator web-UI
+corecmd.exe -site peirce2 -O -u %WORK_PATH%\%MAPID%.mp_addr.xml   -p /http/ADDR_CHK/ -s
+corecmd.exe -site peirce2 -O -u %WORK_PATH%\%MAPID%_editors.xml   -p /http/ADDR_CHK/ -s
+
+
 rem - Теперь соберем mp, для конвертации, с упрощенными дорогами.
 mp2mp %WORK_PATH%\%1.mp pre.mp\%1.xml
 if errorlevel 1 goto error
@@ -38,13 +48,14 @@ java  -Xmx4248m -jar jmp2mp2.jar --readmp file="%WORK_PATH%\%1.mp" --setheaderpa
 
 
 SET MAP_SCALE=1000000
-rem if "%1"=="RU-OVRV" (
-rem SET MAP_SCALE=2000000
-rem )
+SET MAP_MAX_SCALE=20000000
+if "%1"=="RU-OVRV" (
+SET MAP_MAX_SCALE=50000000
+)
 
 rem для обзорной карты применяется особые правила - сама обзорная карта не содержит адрески
-echo GeoConstructor.exe -loadrule:d:\osm\Constructor\BASEMAP_OSM.shm  -mp:%WORK_PATH%\%1.mp -scale:%MAP_SCALE% -scamax:50000000 -codepage:1251 -version:1.%8 -uniqueid:%9
-GeoConstructor.exe -loadrule:d:\osm\Constructor\BASEMAP_OSM.shm  -mp:%WORK_PATH%\%1.mp -scale:%MAP_SCALE% -scamax:50000000 -codepage:1251 -version:1.%8 -uniqueid:%9
+echo GeoConstructor.exe -loadrule:d:\osm\Constructor\BASEMAP_OSM.shm  -mp:%WORK_PATH%\%1.mp -scale:%MAP_SCALE% -scamax:%MAP_MAX_SCALE% -codepage:1251 -version:1.%8 -uniqueid:%9
+GeoConstructor.exe -loadrule:d:\osm\Constructor\BASEMAP_OSM.shm  -mp:%WORK_PATH%\%1.mp -scale:%MAP_SCALE% -scamax:%MAP_MAX_SCALE% -codepage:1251 -version:1.%8 -uniqueid:%9
 if errorlevel 1 goto error
 
 rem в обзорную карту нужно вложить файл для индекса НП

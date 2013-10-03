@@ -33,6 +33,8 @@ const RS_MAP_DATE="CreationDate"
 const RS_MAP_VERSION="MapVersion"
 const RS_MAP_USEDTIME="UsedTime" 'Время в минутах, потраченное на карту.
 
+const UPDATE_PERIOD=300
+
 '********************************************************************************************
 'Создание карты - запускается бат-файл
 '********************************************************************************************
@@ -354,7 +356,11 @@ Do While Not (rsMapList.EOF or ((Now()-dtStartDate)>0.25))
     dtSourceDate = GetSourceFileDate(strSource)
     Wscript.Echo rsMapList(RS_MAP_CODE).Value & " " & rsMapList(RS_MAP_SOURCE).Value & " " & dtSourceDate  & " " & rsMapList(RS_MAP_DATE).value  & " " & rsMapList(RS_MAP_LAST_TRY_DATE).value
     
-    if (rsMapList(RS_MAP_PRIORITY).value<9) and ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value)>105) and (rsMapList(RS_MAP_LAST_TRY_DATE).value>"01.01.2013") then
+    if (rsMapList(RS_MAP_PRIORITY).value<9) and _ 
+       (rsMapList(RS_MAP_LAST_TRY_DATE).value>"01.01.2013") and _
+       ((dtMapDate-rsMapList(RS_MAP_LAST_TRY_DATE).value)>UPDATE_PERIOD) and  _ 
+       ((dtMapDate-dtSourceDate )>7) then
+
       Wscript.Echo " Trying to update source pbf" 
       intUpdateResult=WshShell.Run( "update.bat " & strSource & " >>D:\OSM\osm_data\log.txt 2>>&1", 1,TRUE) 
       Wscript.Echo " Update Result:" & intUpdateResult

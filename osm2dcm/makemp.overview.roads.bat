@@ -30,12 +30,14 @@ echo postprocessor has been finished - OK %DATE%_%TIME%
 rem corecmd.exe -site peirce -O -u %WORK_PATH%\%MAPID%.roads.mp_addr.xml   -p ADDR_CHK/ -s
 del "%WORK_PATH%\%MAPID%.mp_addr.xml"
 ren "%WORK_PATH%\%MAPID%.roads.mp_addr.xml" "%MAPID%.mp_addr.xml" 
-corecmd.exe -site peirce -O -u %WORK_PATH%\%MAPID%.mp_addr.xml   -p ADDR_CHK/ -s
+
+
 
 echo road graph simlifier has been started       %DATE%_%TIME%
 
 
 rem mp_extsimp.exe  %WORK_PATH%\%MAPID%.roads.mp
-java  -Xmx1500m -jar mp_extsimp.jar %WORK_PATH%\%MAPID%.roads.mp
+rem java  -Xmx1500m -jar mp_extsimp.jar %WORK_PATH%\%MAPID%.roads.mp
+java  -Xmx1500m -jar jmp2mp2.jar --simplifyroads src="%WORK_PATH%\%MAPID%.roads.mp"
 echo road graph simlifier has been finished - OK %DATE%_%TIME%
 :End

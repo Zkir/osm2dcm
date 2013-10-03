@@ -22,6 +22,12 @@ if errorlevel 1 goto error
 echo - delete admin_border file
 del %WORKING_FOLDER%\%SOURCE_FILE%.boundaries.osm
 
+if "%SOURCE_FILE%"=="euroroutes.osm" (
+del %WORKING_FOLDER%\%SOURCE_FILE%_full
+ren %WORKING_FOLDER%\%SOURCE_FILE% %SOURCE_FILE%_full
+osmfilter %WORKING_FOLDER%\%SOURCE_FILE%_full --keep= --keep-ways="( highway=*  or route=ferry ) and ( network=e-road or network=e-road:A or ref=E* or int_ref=E* or ref=Å* or int_ref=Å* )" --keep-relations="route=road and ( network=e-road or network=E-road_link or network=e-road_link or ref=E* or int_ref=E* or ref=Å* or int_ref=Å*  ) " --emulate-osmosis >%WORKING_FOLDER%\%SOURCE_FILE%
+)
+
 goto end
 :error
 echo.
