@@ -208,7 +208,7 @@ Private Sub SaveStatisticsToXml(rsStat As Recordset, strXmlFileName As String)
       'Карта
       Print #1, "  <MapId>" & rsStat(RS_STAT_MAPID).Value & "</MapId>"
       'Дата
-      Print #1, "  <MapDate>" & rsStat(RS_STAT_DATE).Value & "</MapDate>"
+      Print #1, "  <MapDate>" & FormatXMLDate(rsStat(RS_STAT_DATE).Value) & "</MapDate>"
       'Название
       Print #1, "  <MapName>" & rsStat(RS_STAT_MAPNAME).Value & "</MapName>"
       'Площадь, кв. км
@@ -232,7 +232,7 @@ Private Sub SaveStatisticsToXml(rsStat As Recordset, strXmlFileName As String)
       'Активные участники
       Print #1, "  <ActiveUsers>" & rsStat(RS_STAT_NUSERS).Value & "</ActiveUsers>"
       'Последняя известная правка
-      Print #1, "  <LastKnownEdit>" & rsStat(RS_STAT_LASTKNOWNEDITDATE).Value & "</LastKnownEdit>"
+      Print #1, "  <LastKnownEdit>" & FormatXMLDateTime(rsStat(RS_STAT_LASTKNOWNEDITDATE).Value) & "</LastKnownEdit>"
     Print #1, "</mapinfo>"
     rsStat.MoveNext
   
@@ -250,19 +250,20 @@ Public Sub Main1(strMapID As String, strMapName As String)
  Dim rsStat As Recordset
  Dim objCalendarOfEdits As clsCalendarOfEdits
    
- LoadStatRS rsStat
+'' LoadStatRS rsStat
+ Set rsStat = MakeStatsRS()
  Set objCalendarOfEdits = New clsCalendarOfEdits
 
  'ProcessMap rsStat, strMapID, strMapName, "d:\osm\osm2dcm\_my\" & strMapID & "\final.full.osm"
  ProcessMap rsStat, strMapID, strMapName, PATH_TO_OSM & strMapID & "\final.osm", objCalendarOfEdits
  
  ' Файл статистики по данной карте
- objCalendarOfEdits.save_local_stat PATH_TO_OSM & "\" & strMapID & "\" & strMapID & "_editors.xml", rsStat
+ objCalendarOfEdits.save_local_stat PATH_TO_OSM & "\" & strMapID & "\" & strMapID & ".osm.statistics.xml", rsStat
    
  ' Файл статистики по всем картам
- SaveStatisticsToXml rsStat, PATH_TO_LOG & "statistics.xml"
+ ''SaveStatisticsToXml rsStat, PATH_TO_OSM & "\" & strMapID & "\" & strMapID & ".statistics.xml"
  
- SaveStatRs rsStat
+ ''SaveStatRs rsStat
  
 End Sub
 Private Sub ParseCommandLine(strMapID As String, strMapName As String)
@@ -290,9 +291,9 @@ Public Sub Main()
  Dim strMapID As String
  Dim strMapName As String
 On Error GoTo finalize
-  Open PATH_TO_LOG & "log-statistics.txt" For Append As #3
-  
   ParseCommandLine strMapID, strMapName
+  Open PATH_TO_OSM & "\" & strMapID & "\" & "statistics.log.txt" For Append As #3
+  
   If strMapID <> "" Then
     Print #3, ""
     Print #3, " --| OSM statistics, (C) Zkir 2010"
