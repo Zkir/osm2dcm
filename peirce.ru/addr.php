@@ -132,8 +132,15 @@ function GetHWCXmlFileName($mapid)
 }
 
 function GetEditorsXmlFileName($mapid)
-{
-  return "ADDR_CHK/".$mapid."_editors.xml";
+{ 
+  if (file_exists("ADDR_CHK/".$mapid.".osm.statistics.xml"))
+  {
+    return "ADDR_CHK/".$mapid.".osm.statistics.xml";
+  }
+  else
+  {	  	  
+    return "ADDR_CHK/".$mapid."_editors.xml";
+  }  
 }
 
 
@@ -203,7 +210,7 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   
   //Провека границ населенных пуктов применима для не всех стран.
   $blnCityBoundaryTestApplicable= false;
-  if((substr ($mapid,0,2)=='RU')or (substr ($mapid,0,2)=='UA') )
+  if((substr ($mapid,0,2)=='RU')or (substr ($mapid,0,2)=='UA') or  (substr ($mapid,0,2)=='RO') )
   {
   	  $blnCityBoundaryTestApplicable = true;
   }
@@ -378,6 +385,20 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   $zPage->WriteHtml("<tr><td align=\"right\">"._("Всего улиц")."</td><td>".$xml->AddressTest->Summary->TotalStreets."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">"._("Улиц вне НП:")."</td><td>".$xml->AddressTest->Summary->StreetsOutsideCities."</td></tr>" );
   $zPage->WriteHtml("<tr><td align=\"right\">"._("Доля несопоставленых улиц")."</td><td>".number_format(100.00*$UnmatchedStreetsRate ,2,'.', ' ')."%</td></tr>" );
+  
+  $zPage->WriteHtml('<tr><td align="right"><b>'._("По городам").'</b></td><td></td></tr>' );
+  $zPage->WriteHtml('<tr><td align="right"><a href="#citiessummary">'._("Всего городов").'</a></td><td>'.$xml->AddressTest->Summary->TotalCities.'</td></tr>' );
+  $zPage->WriteHtml('<tr><td align="right"><a href="#citiesgcerrors">'._("Городов не попавших в геокодер:").'</a></td><td>'.$xml->AddressTest->Summary->CitiesWrongGK.'</td></tr>' );
+  
+  if((float)$xml->AddressTest->Summary->TotalCities!=0)
+  {	  
+    $CitiesErrorsRate=(float)$xml->AddressTest->Summary->CitiesWrongGK/(float)$xml->AddressTest->Summary->TotalCities; 
+    $zPage->WriteHtml("<tr><td align=\"right\">"._("Доля несопоставленых городов")."</td><td>".number_format(100.00*$CitiesErrorsRate ,2,'.', ' ')."%</td></tr>" );
+  }
+  else
+  {
+    $zPage->WriteHtml("<tr><td align=\"right\">"._("Доля несопоставленых городов")."</td><td>?</td></tr>" );
+  }	  
   $zPage->WriteHtml("</table>" );
   
 }
@@ -390,22 +411,29 @@ function PrintQADetailsPageRss($mapid)
   //Загрузка данных
   $xml = simplexml_load_file(GetXmlFileName($mapid));
 
-  $xml_stat = simplexml_load_file('statistics.xml');
+  $xml_stat = simplexml_load_file(GetEditorsXmlFileName($mapid));
   $LastKnownEdit='???';
   foreach ($xml_stat->mapinfo as $item)
   {
       if($mapid==$item->MapId)
       {	  
         $LastKnownEdit=$item->LastKnownEdit.' (UTC)';
-        $strMapName=$item->MapName;
-        
         $objStatRecord=$item;
+      }  
+  }
+  
+  $xml_map_list=simplexml_load_file("maplist.xml");
+  foreach ($xml_map_list->map as $item)
+  {
+      if($mapid==$item->code)
+      {	  
+        $strMapName=$item->name;
       }  
   }
 
   //Параметры rss
   $zPage->cnl_link='http://peirce.gis-lab.info/qa/'.$mapid;
-  $zPage->item_guid=$mapid.'/'.$xml->Date.'/x';
+  $zPage->item_guid=$mapid.'/'.$xml->Date.'/x2';
   $zPage->item_title=$strMapName.'('.$mapid.') - '.$xml->Date;
   $zPage->item_link='http://peirce.gis-lab.info/qa/'.$mapid;
   $zPage->item_pubDate=$xml->Date;
@@ -435,15 +463,16 @@ function PrintQADetailsPage($mapid, $errtype)
 
 if ($errtype=="")
 {
-  $xml_stat = simplexml_load_file('statistics.xml');
+
   $xml_stat_map=simplexml_load_file(GetEditorsXmlFileName($mapid));
   $LastKnownEdit='???';
-
- foreach ($xml_stat->mapinfo as $item)
+  
+ $xml_map_list=simplexml_load_file("maplist.xml");
+ foreach ($xml_map_list->map as $item)
   {
-      if($mapid==$item->MapId)
+      if($mapid==$item->code)
       {	  
-        $strMapName=$item->MapName;
+        $strMapName=$item->name;
       }  
   }
   
@@ -515,6 +544,42 @@ if ($errtype=="")
   {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');}
 
 
+
+/*==========================================================================
+                 Города - сводка
+============================================================================*/
+  $zPage->WriteHtml('<h2>'._('Сводка по городам').'<sup><a name="citiessummary" href="#citiessummary">#</a></sup></h2>');
+  $zPage->WriteHtml("<p/>" );
+  if($xml->AddressTest->Summary->TotalCities>0)
+  {	  
+    $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>
+                  <td><b>Название</b></td>
+                  <td><b>Название города по геокодеру</b></td>
+                  <td><b>Название региона по геокодеру</b></td>
+                  <td><b>Население</b></td>
+                  <td><b>Валидность</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
+         </tr>');
+
+    foreach ($xml->AddressTest->CitiesSummary->City as $item)
+    {
+        $zPage->WriteHtml( '<tr>');
+        $zPage->WriteHtml( '<td>'.$item->Name.'</td>');
+        $zPage->WriteHtml( '<td>'.$item->AddrCity.'</td>');
+        $zPage->WriteHtml( '<td>'.$item->AddrRegion.'</td>');
+        $zPage->WriteHtml( '<td>'.$item->Population.'</td>');
+        $zPage->WriteHtml( '<td>'.$item->Valid.'</td>');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->lat,$item->Coord->lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
+        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->lat,$item->Coord->lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
+        $zPage->WriteHtml( '</tr>');
+     }
+    $zPage->WriteHtml( '</table>');
+  }
+  else
+    {$zPage->WriteHtml( '<i>'._('Данные отсутствуют.').'</i>');}
+    
 /*==========================================================================
                  Города без населения
 ============================================================================*/
@@ -584,13 +649,51 @@ if($blnCityBoundaryTestApplicable)
   {
     $zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');
   }
-}  	    
+}  	
+/*==========================================================================
+                 Города - Ошибки геокодера
+============================================================================*/
+  $zPage->WriteHtml('<a name="citiesgcerrors"></a><h2>'._('Города без адресного поиска').'</h2>');
+  $zPage->WriteHtml("<p/>" );
+  if($xml->AddressTest->Summary->TotalCities>0)
+  {	  
+    $zPage->WriteHtml( '<table width="900px" class="sortable">
+    	    <tr>
+                  <td><b>Название</b></td>
+                  <td><b>Название города по геокодеру</b></td>
+                  <td><b>Название региона по геокодеру</b></td>
+                  <td><b>Население</b></td>
+                  <td><b>Валидность</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
+         </tr>');
+
+    foreach ($xml->AddressTest->CitiesSummary->City as $item)
+    {   
+    	if ($item->Valid==0)
+    	{	 
+	        $zPage->WriteHtml( '<tr>');
+	        $zPage->WriteHtml( '<td>'.$item->Name.'</td>');
+	        $zPage->WriteHtml( '<td>'.$item->AddrCity.'</td>');
+	        $zPage->WriteHtml( '<td>'.$item->AddrRegion.'</td>');
+	        $zPage->WriteHtml( '<td>'.$item->Population.'</td>');
+	        $zPage->WriteHtml( '<td>'.$item->Valid.'</td>');
+	        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->lat,$item->Coord->lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
+	        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->lat,$item->Coord->lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
+	        $zPage->WriteHtml( '</tr>');
+	    }
+     }
+    $zPage->WriteHtml( '</table>');
+  }
+  else
+    {$zPage->WriteHtml( '<i>'._('Данные отсутствуют.').'</i>');}
+    
 /*==========================================================================
                  Города без точечного центра
 ============================================================================*/
 if($blnCityBoundaryTestApplicable)
 {	
-  $zPage->WriteHtml('<h2>'._('Города без точечного центра').'</h2>');
+  $zPage->WriteHtml('<h2>'._('Города без точечного центра').'<sup><a href="#citynocenter" name="citynocenter">#</a></sup></h2>');
   $zPage->WriteHtml('<p>'._('В этом списке отображаются населенные пункты, у которых есть полигональные границы
   	                 (полигон с place=* и name=* или  place_name=*), но нет точки с place=*.
   	                 Такие НП в СитиГИДе не отображаются.').
@@ -950,7 +1053,8 @@ function PrintAddressSummary($mode)
                     
           $zPage->WriteHtml( '<tr>');
           $zPage->WriteHtml( '<td width="80px">'.$item->code.'</td>');
-          $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+          //$zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">'.$item->name.'</a></td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
          // $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalStreets.'</td>' );
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->UnmatchedHouses.'</td>');
@@ -972,7 +1076,7 @@ function PrintAddressSummary($mode)
           //$zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/hwc-map">'.$N_hwc.'</a></td>');
           //$zPage->WriteHtml( '<td>'.str_replace('-','.',$xml_addr->Date).'</td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
-          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
+          //$zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
 
           $zPage->WriteHtml( '</tr>');
         }
@@ -1294,6 +1398,7 @@ function GetQAScale($xmlQCR, $mapCode)
           	  or ($strCountryCode=="IE") //Ирландия
           	  or ($strCountryCode=="IS") //Исландия
           	  or ($strCountryCode=="IT") //Италия
+          	  or ($strCountryCode=="MK") //Македония          	  
           	  or ($strCountryCode=="MT") //Мальта
               or ($strCountryCode=="NL") //Голландия
               or ($strCountryCode=="NO") //Норвегия
@@ -1303,17 +1408,33 @@ function GetQAScale($xmlQCR, $mapCode)
   	          or ($strCountryCode=="SE") //Швеция
   	          or ($strCountryCode=="SI") //Словения
   	          or ($strCountryCode=="SK") //Словакия
+  	          
+  	          //Азия
   	          or ($strCountryCode=="TR") //Турция 
-  	             
+          	  or ($strCountryCode=="TH") //Таиланд
+              or ($strCountryCode=="SG") //Сингапур
+          	  or ($strCountryCode=="IL") //Израиль
+          	  	  
+          	  	  
+  	          //Африка
+  	          or ($strCountryCode=="TN") //Тунис 
+  	          	     
   	          //Amerika
+  	          or ($strCountryCode=="BR") //Бразилия
   	          or ($strCountryCode=="CL") //Чили
   	          or ($strCountryCode=="CR") //Коста-Рика
   	          or ($strCountryCode=="CU") 
           	  or ($strCountryCode=="GT") 
           	  or ($strCountryCode=="JM") 
+              or ($strCountryCode=="HN") 
        	  	  or ($strCountryCode=="NI") 
    	  	  	  or ($strCountryCode=="PY") 
   	  	  	  or ($strCountryCode=="US")
+   	  	      or ($strCountryCode=="VE") //Венесуэла
+   	  	      //Австралия и Океания
+   	  	      or ($strCountryCode=="AU") 
+   	  	      or ($strCountryCode=="NZ") 
+   	  	      	  
   	         )
   	        {	  
 	          return $xmlQCR->Scale2;
@@ -1350,7 +1471,7 @@ function PrintQASummary($strGroup)
                   <td><b>Доля<BR/> битых<BR/> адресов, дома %</b></td>
                   <td><b>Доля улиц вне города %</b></td>
                   <td><b>Доля улиц вне региона %</b></td>
-                  <!--<td><b>Города без поли&shy;гональ&shy;ных границ</b></td>--> 
+                  <td><b>Доля городов без а\п %</b></td>
                  
                   <td><b>Число рутин&shy;говых ребер</b></td>               
                   <td><b>Число рутин&shy;говых подгра&shy;фов</b></td>
@@ -1362,7 +1483,7 @@ function PrintQASummary($strGroup)
                   <td><b>Раз&shy;рывы бере&shy;говой линии</b></td>
                   <td width="150px"><b>Дата</b></td>
                   <td><b>Рей&shy;тинг</b></td>
-                  <td><b>Ошибки</b></td>
+                  <!--<td><b>Ошибки</b></td>-->
          </tr>');
 
  
@@ -1430,7 +1551,8 @@ function PrintQASummary($strGroup)
           
           $zPage->WriteHtml( '<tr style="'.$Style.'">');
           $zPage->WriteHtml( '<td width="80px">'.$item->code.'</td>');
-          $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+          //$zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+          $zPage->WriteHtml( '<td width="180px"><a href="/qa/'.$item->code.'">'.$item->name.'</a></td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
           if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
@@ -1446,10 +1568,19 @@ function PrintQASummary($strGroup)
             $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(0,2,'.', ' ').'</a></td>');
             $zPage->WriteHtml( '<td>'.number_format(0,2,'.', ' ').'</td>');
           }
-
-       
           
+          //Города без адресного поиска.
+          if (((float)$xml_addr->AddressTest->Summary->TotalCities)!=0)
+          {  
+          	$RateCitiesWrongGK=(float)($xml_addr->AddressTest->Summary->CitiesWrongGK/(float)$xml_addr->AddressTest->Summary->TotalCities);  
+            $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'#citiesgcerrors">'.number_format(100.00*$RateCitiesWrongGK,2,'.', ' ').'</a></td>');
+          }
+          else
+          { 
+            $zPage->WriteHtml( '<td>?</td>');	
+          }
           
+          //Рутинг
           
           $zPage->WriteHtml('<td>'.$xml_addr->RoutingTest->Summary->NumberOfRoutingEdges."</td>" );
           $zPage->WriteHtml('<td><a href="/qa/'.$item->code.'/routing-map">'.$xml_addr->RoutingTest->Summary->NumberOfSubgraphs."</a></td>" );
@@ -1463,7 +1594,7 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td>'.$xml_addr->CoastLineTest->Summary->NumberOfBreaks.'</td>' );
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
           $zPage->WriteHtml( '<td>'.$QARating.'</td>');
-          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
+          //$zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
 
           $zPage->WriteHtml( '</tr>');
         }
