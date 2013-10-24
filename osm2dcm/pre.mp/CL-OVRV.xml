@@ -5,7 +5,9 @@
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
-  <rule predefined="uplift_cities_6"/>
+  <rule predefined="skip_roads" />
+  <rule predefined="uplift_towns" EndLevel="7" />
+  <rule predefined="uplift_cities" EndLevel="7"/>
   <rule predefined="set_region_map"/>
 </source_file>
 
@@ -13,11 +15,14 @@
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
+  <rule predefined="set_end_level" EndLevel="7"/>
 </source_file>
 
 <source_file name="%OSM_DATA%\_my\CL-OVRV\CL-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
+  <rule predefined="uplift_numbered_roads_6"/>
+  <rule predefined="uplift_trunk_roads" EndLevel="7"/>
   <!--убрать  пои  -->
   <rule predefined="skip_poi"/>
 </source_file>
