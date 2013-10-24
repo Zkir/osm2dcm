@@ -237,8 +237,8 @@ public class GeocoderConfig{
     //Place используется в северной ирландии
     if (strCountryCode.equals("GB"))
     {
-      levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8,ADMIN_LEVEL_10,ADMIN_LEVEL_6};
-      levelsForRegion=new String[] {ADMIN_LEVEL_5,ADMIN_LEVEL_4};
+      levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8,ADMIN_LEVEL_10,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_5,ADMIN_LEVEL_4};
     }
 
     //Болгария
@@ -255,7 +255,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-      redundantWords=new String [] {"Komuna","Opshtina"};
+      redundantWords=new String [] {"Komuna","Opshtina","Grad" };
     }
 
     //Македония
