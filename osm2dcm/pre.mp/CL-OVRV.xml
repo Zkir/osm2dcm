@@ -22,6 +22,7 @@
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <rule predefined="uplift_numbered_roads_6"/>
+  <rule predefined="uplift_main_roads" EndLevel="7"/>
   <rule predefined="uplift_trunk_roads" EndLevel="7"/>
   <!--убрать  пои  -->
   <rule predefined="skip_poi"/>
