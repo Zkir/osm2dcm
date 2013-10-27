@@ -1863,12 +1863,23 @@
 #barrier * 0xfe4b 
 # Special CG type 
 - condition:
-    - barrier = gate|lift_gate|block|bollard
+    - barrier = gate|lift_gate|block
   action:
     - action: write_poi
       type: 0xfe4b
       level_h: 0
       contacts: no
+
+#only bollards that are part of roads
+- condition:
+    - barrier = bollard
+    - way_barrier = yes
+  action:
+    - action: write_poi
+      type: 0xfe4b
+      level_h: 0
+      contacts: no
+
 
 #Building on the nodes
 - condition:
