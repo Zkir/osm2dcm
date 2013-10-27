@@ -690,6 +690,17 @@
 
 #man_made windmill 
 #man_made works 
+
+
+#man_made bridge
+- condition:
+    - man_made = bridge
+  action:
+    - action: write_poi
+      type: 0x6401
+      level_h: 0
+      contacts: yes
+
 #military airfield 
 #military barracks 
 #military bunker 
@@ -965,6 +976,7 @@
 #place suburb 0x1F00 0 2 
 - condition:
     - place = suburb
+    - only_node
   action:
     - action: write_poi
       type: 0x1F00
@@ -974,7 +986,7 @@
 #place locality
 # 0x1F01 - произвольный тип, для валидатора адресов.
 - condition:
-    - place = locality
+    - place = locality|neighbourhood|quarter 
   action:
     - action: write_poi
       type: 0x1F01
@@ -989,7 +1001,7 @@
   action:
     - action: write_poi
       type: 0x1F01
-      level_h: 1
+      level_h: 0
       contacts: yes
 
 
