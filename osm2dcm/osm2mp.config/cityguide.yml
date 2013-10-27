@@ -258,6 +258,14 @@ lift_gate:      0,0,0,0,0,0,0,0
       country:      %country
 
 - condition:
+    - de:place = city|town|village|hamlet
+  action:
+    - type:         load_city
+      name:         %place
+      region:       %region
+      country:      %country
+
+- condition:
     - place = allotments
   action:
     - type:         load_city
