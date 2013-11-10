@@ -128,7 +128,7 @@ public class clsDeadEndTest {
 
   }
 
-  public void PrintErrorsToXML(BufferedWriter oReportFile)  throws IOException
+  public void PrintErrorsToXML(BufferedWriter oReportFile, boolean blnSummary)  throws IOException
   {
      int i;
      // rsDanglingNodes.Filter = RS_DANGLING_NODES_HWLINK & "=" & 0
@@ -136,19 +136,22 @@ public class clsDeadEndTest {
      oReportFile.write( "<Summary>\r\n");
      oReportFile.write( "  <NumberOfDeadEnds>" +Long.toString(arrDanglingNodesOut.size()) + "</NumberOfDeadEnds>\r\n");
      oReportFile.write( "</Summary>\r\n");
-     oReportFile.write( "  <DeadEndList>\r\n");
-     for(i=0;i<arrDanglingNodesOut.size();i++)
+     if (!blnSummary)
      {
-        oReportFile.write( "  <DeadEnd>\r\n");
-        //oReportFile.write( "    <rn_id>" + arrDanglingNodesOut.get(i).id + "</rn_id>\r\n" );
-        oReportFile.write( "    <Coord>\r\n");
-        oReportFile.write( "      <Lat>" + arrDanglingNodesOut.get(i).lat + "</Lat>\r\n" );
-        oReportFile.write( "      <Lon>" + arrDanglingNodesOut.get(i).lon + "</Lon>\r\n" );
-        oReportFile.write( "    </Coord>\r\n");
-        oReportFile.write( "  </DeadEnd>\r\n");
-      }
-      oReportFile.write( "  </DeadEndList>\r\n");
-      oReportFile.write( "</DeadEndsTest>\r\n" );
+       oReportFile.write( "  <DeadEndList>\r\n");
+       for(i=0;i<arrDanglingNodesOut.size();i++)
+       {
+          oReportFile.write( "  <DeadEnd>\r\n");
+          //oReportFile.write( "    <rn_id>" + arrDanglingNodesOut.get(i).id + "</rn_id>\r\n" );
+          oReportFile.write( "    <Coord>\r\n");
+          oReportFile.write( "      <Lat>" + arrDanglingNodesOut.get(i).lat + "</Lat>\r\n" );
+          oReportFile.write( "      <Lon>" + arrDanglingNodesOut.get(i).lon + "</Lon>\r\n" );
+          oReportFile.write( "    </Coord>\r\n");
+          oReportFile.write( "  </DeadEnd>\r\n");
+        }
+        oReportFile.write( "  </DeadEndList>\r\n");
+     }
+     oReportFile.write( "</DeadEndsTest>\r\n" );
   }
 
 }

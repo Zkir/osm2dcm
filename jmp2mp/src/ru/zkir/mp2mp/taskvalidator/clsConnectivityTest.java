@@ -232,7 +232,7 @@ public void AddRoad(int Nnodes, String[] NodeList, int[] NodeExtrAttrList,
     SubGraphsByNodes.put(strNodeID,SubGraph);
   }
 
-  public void PrintRegistryToXML(BufferedWriter oReportFile) throws IOException
+  public void PrintRegistryToXML(BufferedWriter oReportFile, boolean blnSummary) throws IOException
   {
     int i;
     ArrayList<clsSubGraph> lstResultSet;
@@ -258,26 +258,27 @@ public void AddRoad(int Nnodes, String[] NodeList, int[] NodeExtrAttrList,
     oReportFile.write( "</Summary>\r\n");
 
     //Найденные подграфы
-
-    oReportFile.write(  "<SubgraphList>\r\n");
-
-
-    for(i=0;i<lstResultSet.size();i++ )
+    if (!blnSummary)
     {
-      oReportFile.write( "  <Subgraph>\r\n");
-      oReportFile.write( "    <NumberOfRoads>" + Integer.toString (lstResultSet.get(i).RoadCount) + "</NumberOfRoads>\r\n");
-      oReportFile.write( "    <Bbox>\r\n");
-      oReportFile.write( "      <Lat1>" + Double.toString(lstResultSet.get(i).lat1)  + "</Lat1>\r\n");
-      oReportFile.write( "      <Lon1>" + Double.toString(lstResultSet.get(i).lon1) + "</Lon1>\r\n");
-      oReportFile.write( "      <Lat2>" + Double.toString(lstResultSet.get(i).lat2) + "</Lat2>\r\n");
-      oReportFile.write( "      <Lon2>" + Double.toString(lstResultSet.get(i).lon2) + "</Lon2>\r\n");
-      oReportFile.write( "    </Bbox>\r\n");
+      oReportFile.write(  "<SubgraphList>\r\n");
 
-      oReportFile.write( "  </Subgraph>\r\n");
+
+      for(i=0;i<lstResultSet.size();i++ )
+      {
+        oReportFile.write( "  <Subgraph>\r\n");
+        oReportFile.write( "    <NumberOfRoads>" + Integer.toString (lstResultSet.get(i).RoadCount) + "</NumberOfRoads>\r\n");
+        oReportFile.write( "    <Bbox>\r\n");
+        oReportFile.write( "      <Lat1>" + Double.toString(lstResultSet.get(i).lat1)  + "</Lat1>\r\n");
+        oReportFile.write( "      <Lon1>" + Double.toString(lstResultSet.get(i).lon1) + "</Lon1>\r\n");
+        oReportFile.write( "      <Lat2>" + Double.toString(lstResultSet.get(i).lat2) + "</Lat2>\r\n");
+        oReportFile.write( "      <Lon2>" + Double.toString(lstResultSet.get(i).lon2) + "</Lon2>\r\n");
+        oReportFile.write( "    </Bbox>\r\n");
+
+        oReportFile.write( "  </Subgraph>\r\n");
+      }
+     oReportFile.write( "</SubgraphList>\r\n");
+     oReportFile.write( "<ExceptionList>\r\n");
+     oReportFile.write( "</ExceptionList>\r\n");
     }
-   oReportFile.write( "</SubgraphList>\r\n");
-   oReportFile.write( "<ExceptionList>\r\n");
-   oReportFile.write( "</ExceptionList>\r\n");
-
   }
 }

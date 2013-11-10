@@ -95,7 +95,7 @@ public class clsSourceErrors {
 
   }
 
-  public void PrintErrorsToXML(BufferedWriter oReportFile)  throws IOException
+  public void PrintErrorsToXML(BufferedWriter oReportFile, boolean blnSummary)  throws IOException
   {
     int i;
 
@@ -106,18 +106,20 @@ public class clsSourceErrors {
     oReportFile.write( "  <NumberOfBreaks>" + Long.toString(arrCoastLineBreaks.size()) + "</NumberOfBreaks>\r\n");
     oReportFile.write( "</Summary>\r\n");
 
-    oReportFile.write( "<BreakList>\r\n");
-    for(i=0;i<arrCoastLineBreaks.size();i++)
+    if (!blnSummary)
     {
-      oReportFile.write( "  <BreakPoint>\r\n");
-      oReportFile.write( "    <Coord>\r\n");
-      oReportFile.write( "      <Lat>" + arrCoastLineBreaks.get(i).lat  + "</Lat>\r\n");
-      oReportFile.write( "      <Lon>" + arrCoastLineBreaks.get(i).lon  + "</Lon>\r\n");
-      oReportFile.write( "    </Coord>\r\n");
-      oReportFile.write( "  </BreakPoint>\r\n");
+      oReportFile.write( "<BreakList>\r\n");
+      for(i=0;i<arrCoastLineBreaks.size();i++)
+      {
+        oReportFile.write( "  <BreakPoint>\r\n");
+        oReportFile.write( "    <Coord>\r\n");
+        oReportFile.write( "      <Lat>" + arrCoastLineBreaks.get(i).lat  + "</Lat>\r\n");
+        oReportFile.write( "      <Lon>" + arrCoastLineBreaks.get(i).lon  + "</Lon>\r\n");
+        oReportFile.write( "    </Coord>\r\n");
+        oReportFile.write( "  </BreakPoint>\r\n");
+      }
+      oReportFile.write("</BreakList>\r\n");
     }
-
-    oReportFile.write("</BreakList>\r\n");
     oReportFile.write("</CoastLineTest>\r\n");
 
 
@@ -128,19 +130,20 @@ public class clsSourceErrors {
     oReportFile.write( "  <NumberOfDuplicates>" + Long.toString(arrDuplicateRoads.size()) + "</NumberOfDuplicates>\r\n");
 
     oReportFile.write( "</Summary>\r\n");
-
-    oReportFile.write( "<DuplicateList>\r\n");
-
-    for(i=0;i<arrDuplicateRoads.size();i++)
+    if (!blnSummary)
     {
-       oReportFile.write( "  <DuplicatePoint>\r\n" );
-       oReportFile.write( "    <Coord>\r\n" );
-       oReportFile.write( "      <Lat>" + arrDuplicateRoads.get(i).lat + "</Lat>\r\n");
-       oReportFile.write( "      <Lon>" + arrDuplicateRoads.get(i).lon + "</Lon>\r\n");
-       oReportFile.write( "    </Coord>\r\n");
-       oReportFile.write( "  </DuplicatePoint>\r\n");
+      oReportFile.write( "<DuplicateList>\r\n");
+      for(i=0;i<arrDuplicateRoads.size();i++)
+      {
+        oReportFile.write( "  <DuplicatePoint>\r\n" );
+        oReportFile.write( "    <Coord>\r\n" );
+        oReportFile.write( "      <Lat>" + arrDuplicateRoads.get(i).lat + "</Lat>\r\n");
+        oReportFile.write( "      <Lon>" + arrDuplicateRoads.get(i).lon + "</Lon>\r\n");
+        oReportFile.write( "    </Coord>\r\n");
+        oReportFile.write( "  </DuplicatePoint>\r\n");
+      }
+      oReportFile.write( "</DuplicateList>\r\n");
     }
-    oReportFile.write( "</DuplicateList>\r\n");
     oReportFile.write( "</RoadDuplicatesTest>\r\n");
 
   }

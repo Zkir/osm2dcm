@@ -52,7 +52,9 @@ public class ValidatorTask {
                        boolean blnSuppressDateInOutput) throws IOException, MPParseException
   {
     String strReportFileName;
+    String strSummaryReportFileName;
     strReportFileName=strTarget + "_addr.xml";
+    strSummaryReportFileName=strTarget + "_summary.xml";
 
     System.out.println( "");
     System.out.println( "Postprocessor has been started");
@@ -65,7 +67,7 @@ public class ValidatorTask {
     System.out.println( "Skip dead end test: " + blnSkipDeadEndTest);
     System.out.println( "Suppress date in output: " + blnSuppressDateInOutput);
 
-    ProcessMP (strSource, strTarget, strReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest,blnSuppressDateInOutput);
+    ProcessMP (strSource, strTarget, strReportFileName, strSummaryReportFileName, strViewPoint, blnEroadShieldsOnly,blnNoRoutingTestByLevels, blnSkipDeadEndTest,blnSuppressDateInOutput);
 
     System.out.println( "Postprocessor has been finished OK");
     System.out.println( "Time used: "+ Long.toString((dtProcessEnd.getTime()-dtProcessStart.getTime())/1000)+ " s" );
@@ -75,6 +77,7 @@ public class ValidatorTask {
   private void ProcessMP (String strSource,
                           String strTarget,
                           String strReportFileName,
+                          String strSummaryReportFileName,
                           String strViewPoint,
                           boolean blnEroadShieldsOnly,
                           boolean blnNoRoutingTestByLevels,
@@ -378,7 +381,9 @@ public class ValidatorTask {
 
     dtProcessEnd=new Date();
 
-    PrintReport(strReportFileName,blnSuppressDateInOutput);
+    PrintReport(strReportFileName,blnSuppressDateInOutput,false);
+    PrintReport(strSummaryReportFileName,blnSuppressDateInOutput,true);
+
   }
 
   //====================================================================================================================
@@ -737,7 +742,7 @@ public class ValidatorTask {
     return strStreetName;
   }
 
-  private void PrintReport(String strFileName, boolean blnSuppressDateInOutput)   throws IOException
+  private void PrintReport(String strFileName, boolean blnSuppressDateInOutput, boolean blnSummary)   throws IOException
   {
     BufferedWriter oReportFile;
     //oReportFile = new BufferedWriter(new FileWriter(strFileName));
@@ -756,34 +761,34 @@ public class ValidatorTask {
       oReportFile.write( " <TimeUsed>" + FormatXMLTimeInterval(dtProcessStart,dtProcessEnd ) + "</TimeUsed>\r\n");
     }
 
-    oAddrRegistryTest.PrintErrorsToXML(oReportFile);
+    oAddrRegistryTest.PrintErrorsToXML(oReportFile, blnSummary);
 
 
     oReportFile.write( "<RoutingTest>\r\n");
-    oConnectivityTest.PrintRegistryToXML(oReportFile);
+    oConnectivityTest.PrintRegistryToXML(oReportFile,blnSummary);
     oReportFile.write( "</RoutingTest>\r\n");
 
     oReportFile.write( "<RoutingTestByLevel>\r\n");
     oReportFile.write( "<Trunk>\r\n");
-    oConnectivityTest0.PrintRegistryToXML(oReportFile);
+    oConnectivityTest0.PrintRegistryToXML(oReportFile,blnSummary);
     oReportFile.write( "</Trunk>\r\n");
 
     oReportFile.write( "<Primary>\r\n");
-    oConnectivityTest1.PrintRegistryToXML(oReportFile);
+    oConnectivityTest1.PrintRegistryToXML(oReportFile,blnSummary);
     oReportFile.write("</Primary>\r\n");
 
     oReportFile.write( "<Secondary>\r\n");
-    oConnectivityTest2.PrintRegistryToXML(oReportFile);
+    oConnectivityTest2.PrintRegistryToXML(oReportFile,blnSummary);
     oReportFile.write( "</Secondary>\r\n");
 
     oReportFile.write( "<Tertiary>\r\n");
-    oConnectivityTest3.PrintRegistryToXML(oReportFile);
+    oConnectivityTest3.PrintRegistryToXML(oReportFile,blnSummary);
     oReportFile.write( "</Tertiary>\r\n");
     oReportFile.write( "</RoutingTestByLevel>\r\n");
 
-    oDeadEndTest.PrintErrorsToXML(oReportFile);
+    oDeadEndTest.PrintErrorsToXML(oReportFile, blnSummary);
 
-    oSourceErrors.PrintErrorsToXML(oReportFile);
+    oSourceErrors.PrintErrorsToXML(oReportFile,blnSummary);
     oStatistic.PrintReportToXML(oReportFile);
 
     oReportFile.write( "</QualityReport>\r\n");

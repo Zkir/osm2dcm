@@ -585,7 +585,7 @@ public class clsAddrRegistryTest {
     return steStreetNotFound; // Такой улицы просто нет
   }
 
-  public void PrintErrorsToXML(BufferedWriter oReportFile)  throws IOException
+  public void PrintErrorsToXML(BufferedWriter oReportFile, boolean blnSummary)  throws IOException
   {
     int i;
 
@@ -728,109 +728,112 @@ public class clsAddrRegistryTest {
       oReportFile.write( "</CitiesWithoutPlaceNode>\r\n");
 
       // Битая адреска
-      oReportFile.write( "<AddressErrorList>\r\n");
-      for(i=0;i<arrHousesErr.size();i++ )
+
+      if (!blnSummary)
       {
-
-        HouseInfo theHouseInfo;
-        theHouseInfo= arrHousesErr.get(i);
-
-        oReportFile.write( "<House>\r\n");
-        oReportFile.write( " <ErrType>" + MakeXmlString(theHouseInfo.errorCode) + "</ErrType>\r\n");
-        oReportFile.write( " <City>" + MakeXmlString(theHouseInfo.cityName) + "</City>\r\n");
-        oReportFile.write( " <Street>" + MakeXmlString(theHouseInfo.streetName) + "</Street>\r\n");
-        oReportFile.write( " <HouseNumber>" + MakeXmlString(theHouseInfo.houseNumber) + "</HouseNumber>\r\n");
-        oReportFile.write( " <Coord>\r\n");
-        oReportFile.write( "   <lat>" + theHouseInfo.lat + "</lat>\r\n");
-        oReportFile.write( "   <lon>" + theHouseInfo.lon + "</lon>\r\n");
-        oReportFile.write( " </Coord>\r\n");
-        oReportFile.write( "</House>\r\n");
-
-      }
-
-      oReportFile.write( "</AddressErrorList>\r\n");
-
-
-
-      /*
-
-      rsHouses.Filter = adFilterNone
-      rsStreets.Filter = adFilterNone
-      rsHouses.Sort = RS_ADDR_CITY & ", " & RS_ADDR_STREET & ", " & RS_ADDR_HOUSENUMER
-      intTotalHouses = rsHouses.RecordCount
-      intTotalStreets = rsStreets.RecordCount
-
-      'Фильтр по домам без городов
-      rsHouses.Filter = RS_ADDR_CITY & " = ''"
-      intHousesWOCities = rsHouses.RecordCount
-
-      rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotSet
-      intHousesStreetNotSet = rsHouses.RecordCount
-
-      rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotFound
-      intHousesStreetNotFound = rsHouses.RecordCount
-
-      rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotRelatedToCity
-      intHousesStreetNotRelatedToCity = rsHouses.RecordCount
-
-      rsHouses.Filter = RS_ADDR_ERROR & " = " & steNumberRelatedToTerritory
-      intHousesNumberRelatedToTerritory = rsHouses.RecordCount
-
-      rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotRoutable
-      intHousesStreetNotRoutableCG = rsHouses.RecordCount
-
-      'Фильтр по "несопоставленным домам"
-      rsHouses.Filter = RS_ADDR_ERROR & " <> 0"
-      intUnmatchedHouses = rsHouses.RecordCount
-      If intTotalHouses <> 0 Then
-        dblErrorRate = intUnmatchedHouses / intTotalHouses
-      Else
-        dblErrorRate = 0
-      End If
-
-      'Число городов без населения
-      rsCities.Filter = RS_CITY_POPULATION_MISSING & "=1"
-      intCitiesWOPopulation = rsCities.RecordCount
-
-      'Число городов без полигональных границ
-      rsCities.Filter = RS_CITY_VALID & "=0"
-      intCitiesWOBounds = rsCities.RecordCount
-
-      'Число городов без точек
-      rsCityPolies.Filter = RS_CITY_VALID & "=0"
-      intCitiesWONodes = rsCityPolies.RecordCount
-
-      'Число улиц за пределами НП
-      rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
-      intStreetsOutsideCities = rsStreetSegments.RecordCount
-
-
-
-      */
-
-
-
-      //Улицы, оказавшиеся почему-то за пределами НП
-      oReportFile.write( "<StreetsOutsideCities>\r\n");
-
-      //rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
-      for(i=0;i<arrStreetSegments.size();i++ )
-      {
-        StreetInfo theStreetInfo;
-        theStreetInfo=arrStreetSegments.get(i);
-        if (theStreetInfo.cityName.equals("")  )
+        oReportFile.write( "<AddressErrorList>\r\n");
+        for(i=0;i<arrHousesErr.size();i++ )
         {
-          oReportFile.write( "<Street>\r\n");
-          oReportFile.write( " <Street>" + MakeXmlString(theStreetInfo.streetName) + "</Street>\r\n");
-          oReportFile.write( " <Coord>\r\n");
-          oReportFile.write( "   <Lat>" + theStreetInfo.lat + "</Lat>\r\n");
-          oReportFile.write( "   <Lon>" + theStreetInfo.lon + "</Lon>\r\n");
-          oReportFile.write( " </Coord>\r\n" );
-          oReportFile.write( "</Street>\r\n" );
-        }
-      }
-      oReportFile.write( "</StreetsOutsideCities>\r\n");
 
+          HouseInfo theHouseInfo;
+          theHouseInfo= arrHousesErr.get(i);
+
+          oReportFile.write( "<House>\r\n");
+          oReportFile.write( " <ErrType>" + MakeXmlString(theHouseInfo.errorCode) + "</ErrType>\r\n");
+          oReportFile.write( " <City>" + MakeXmlString(theHouseInfo.cityName) + "</City>\r\n");
+          oReportFile.write( " <Street>" + MakeXmlString(theHouseInfo.streetName) + "</Street>\r\n");
+          oReportFile.write( " <HouseNumber>" + MakeXmlString(theHouseInfo.houseNumber) + "</HouseNumber>\r\n");
+          oReportFile.write( " <Coord>\r\n");
+          oReportFile.write( "   <lat>" + theHouseInfo.lat + "</lat>\r\n");
+          oReportFile.write( "   <lon>" + theHouseInfo.lon + "</lon>\r\n");
+          oReportFile.write( " </Coord>\r\n");
+          oReportFile.write( "</House>\r\n");
+
+        }
+
+        oReportFile.write( "</AddressErrorList>\r\n");
+
+
+
+        /*
+
+        rsHouses.Filter = adFilterNone
+        rsStreets.Filter = adFilterNone
+        rsHouses.Sort = RS_ADDR_CITY & ", " & RS_ADDR_STREET & ", " & RS_ADDR_HOUSENUMER
+        intTotalHouses = rsHouses.RecordCount
+        intTotalStreets = rsStreets.RecordCount
+
+        'Фильтр по домам без городов
+        rsHouses.Filter = RS_ADDR_CITY & " = ''"
+        intHousesWOCities = rsHouses.RecordCount
+
+        rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotSet
+        intHousesStreetNotSet = rsHouses.RecordCount
+
+        rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotFound
+        intHousesStreetNotFound = rsHouses.RecordCount
+
+        rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotRelatedToCity
+        intHousesStreetNotRelatedToCity = rsHouses.RecordCount
+
+        rsHouses.Filter = RS_ADDR_ERROR & " = " & steNumberRelatedToTerritory
+        intHousesNumberRelatedToTerritory = rsHouses.RecordCount
+
+        rsHouses.Filter = RS_ADDR_ERROR & " = " & steStreetNotRoutable
+        intHousesStreetNotRoutableCG = rsHouses.RecordCount
+
+        'Фильтр по "несопоставленным домам"
+        rsHouses.Filter = RS_ADDR_ERROR & " <> 0"
+        intUnmatchedHouses = rsHouses.RecordCount
+        If intTotalHouses <> 0 Then
+          dblErrorRate = intUnmatchedHouses / intTotalHouses
+        Else
+          dblErrorRate = 0
+        End If
+
+        'Число городов без населения
+        rsCities.Filter = RS_CITY_POPULATION_MISSING & "=1"
+        intCitiesWOPopulation = rsCities.RecordCount
+
+        'Число городов без полигональных границ
+        rsCities.Filter = RS_CITY_VALID & "=0"
+        intCitiesWOBounds = rsCities.RecordCount
+
+        'Число городов без точек
+        rsCityPolies.Filter = RS_CITY_VALID & "=0"
+        intCitiesWONodes = rsCityPolies.RecordCount
+
+        'Число улиц за пределами НП
+        rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
+        intStreetsOutsideCities = rsStreetSegments.RecordCount
+
+
+
+        */
+
+
+
+        //Улицы, оказавшиеся почему-то за пределами НП
+        oReportFile.write( "<StreetsOutsideCities>\r\n");
+
+        //rsStreetSegments.Filter = RS_ADDR_CITY & "= '' "
+        for(i=0;i<arrStreetSegments.size();i++ )
+        {
+          StreetInfo theStreetInfo;
+          theStreetInfo=arrStreetSegments.get(i);
+          if (theStreetInfo.cityName.equals("")  )
+          {
+            oReportFile.write( "<Street>\r\n");
+            oReportFile.write( " <Street>" + MakeXmlString(theStreetInfo.streetName) + "</Street>\r\n");
+            oReportFile.write( " <Coord>\r\n");
+            oReportFile.write( "   <Lat>" + theStreetInfo.lat + "</Lat>\r\n");
+            oReportFile.write( "   <Lon>" + theStreetInfo.lon + "</Lon>\r\n");
+            oReportFile.write( " </Coord>\r\n" );
+            oReportFile.write( "</Street>\r\n" );
+          }
+        }
+        oReportFile.write( "</StreetsOutsideCities>\r\n");
+      }
     oReportFile.write("</AddressTest>\r\n");
   }
 
