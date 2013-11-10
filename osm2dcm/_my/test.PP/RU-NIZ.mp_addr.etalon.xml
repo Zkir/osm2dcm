@@ -14556,20 +14556,26 @@
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0C00</Type>
-    <Count>554</Count>
-    <Size>49895</Size>
+    <Count>566</Count>
+    <Size>51286</Size>
+  </Type>
+  <Type>
+    <Kind>[POI]</Kind>
+    <Type>0x0d00</Type>
+    <Count>2</Count>
+    <Size>270</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0e00</Type>
-    <Count>19</Count>
-    <Size>2288</Size>
+    <Count>2</Count>
+    <Size>222</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>
     <Type>0x0F00</Type>
-    <Count>4476</Count>
-    <Size>333359</Size>
+    <Count>4479</Count>
+    <Size>333764</Size>
   </Type>
   <Type>
     <Kind>[POI]</Kind>

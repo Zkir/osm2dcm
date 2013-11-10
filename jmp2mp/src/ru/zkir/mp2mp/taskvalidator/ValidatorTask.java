@@ -557,14 +557,23 @@ public class ValidatorTask {
           else if(intPopulation >= 5000){ // населенный пункт 5 тыс - 10 тыс
             oMpSection.SetAttributeValue("Type", "0x0b00");
           }
-          else if(intPopulation >= 5000){ // населенный пункт 2 тыс - 5 тыс
+          else if(intPopulation >= 2000){ // населенный пункт 2 тыс - 5 тыс
             oMpSection.SetAttributeValue("Type", "0x0c00");
           }
-          else if(intPopulation >= 5000){ // населенный пункт 1 тыс - 2 тыс
+          else if(intPopulation >= 1000){ // населенный пункт 1 тыс - 2 тыс
             oMpSection.SetAttributeValue("Type", "0x0d00");
           }
-          else{
+          else if(intPopulation >= 500){ // населенный пункт 500 - 1 тыс
             oMpSection.SetAttributeValue("Type", "0x0e00");
+          }
+          else if(intPopulation >= 200){ // населенный пункт 200 - 500
+            oMpSection.SetAttributeValue("Type", "0x0f00");
+          }
+          else if(intPopulation >= 100){ // населенный пункт 100 - 200
+            oMpSection.SetAttributeValue("Type", "0x1000");
+          }
+          else{
+            oMpSection.SetAttributeValue("Type", "0x1100");
           }
         }
 

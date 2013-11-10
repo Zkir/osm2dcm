@@ -927,7 +927,7 @@
     - only_node
   action:
     - action: write_poi
-      type: 0x0300
+      type: 0x0700
       level_h: 5
       city: yes
       
@@ -1017,13 +1017,13 @@
       contacts: yes
 
 
-#place town 0x0800 0 4 city 
+#place town 0x0a00 0 4 city 
 - condition:
     - place = town
     - only_node
   action:
     - action: write_poi
-      type: 0x0800
+      type: 0x0a00
       level_h: 5
       city: yes
       

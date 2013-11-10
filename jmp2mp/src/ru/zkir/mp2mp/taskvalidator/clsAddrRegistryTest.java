@@ -22,8 +22,8 @@ public class clsAddrRegistryTest {
 
 
   //Типы НП
-  final String otCity = "0x0300"; //'-city
-  final String otTown = "0x0800"; //   '-town
+  final String otCity = "0x0700"; //'-city
+  final String otTown = "0x0a00"; //   '-town
   final String otVillage = "0x0C00";// '-village
   final String otHamlet = "0x0F00"; //'-hamlet
 
