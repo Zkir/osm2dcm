@@ -88,8 +88,11 @@ public class GeocoderConfig{
 
     //Эстония
     if (strCountryCode.equals("EE"))
-      levelsForCity=new String[] {ADMIN_LEVEL_9};
-
+    {
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_9,ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6}; //Уезды
+      redundantWords=new String [] {"linn","kula","alev"};
+    }
     //Испания
     if (strCountryCode.equals("ES"))
     {
@@ -255,7 +258,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-      redundantWords=new String [] {"Komuna","Opshtina","Grad" };
+      redundantWords=new String [] {"Општина","Град" };
     }
 
     //Македония
@@ -263,7 +266,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8,ADMIN_LEVEL_7};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
-      redundantWords=new String []{"Opshtina"};
+      redundantWords=new String []{"Општина"};
     }
 
     //Босния и герцеговина
@@ -271,7 +274,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,ADMIN_LEVEL_6};
       levelsForRegion=new String[] {ADMIN_LEVEL_5};
-      redundantWords=new String [] {"Opstina","Obchina"};
+      redundantWords=new String [] {"Grad","Opcina","Općina","Opština","Opstina","Obchina"};
 
     }
     //Норвегия
