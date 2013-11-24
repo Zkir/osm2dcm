@@ -76,6 +76,14 @@ type TRuleUpliftEuRoads=Class(TRule)
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
+type TRuleUpliftRoadsByLetter=Class(TRule)
+  strEndLevel:string;
+  strLetter:string;
+  constructor Create(Letter:string;EndLevel:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
 type TRuleUpliftMainRoads=Class(TRule)
   strEndLevel:string;
   constructor Create(EndLevel:string);
@@ -108,6 +116,12 @@ type TRuleSetRegionMap=Class(TRule)
   function CheckCondition(MpSection:TMpSection):boolean;override;
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
+
+type TRuleConvertShieldsToLabels=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
 
 implementation
 
@@ -221,6 +235,11 @@ begin
            aRule:=TRuleUpliftEuRoads.Create(RuleNode.Attributes['EndLevel']);
            aSourceFile.Rules.Add(aRule);
          end
+         else  if RuleNode.Attributes['predefined']='uplift_roads_by_letter' then
+         begin
+           aRule:=TRuleUpliftRoadsByLetter.Create(RuleNode.Attributes['Letter'],RuleNode.Attributes['EndLevel']);
+           aSourceFile.Rules.Add(aRule);
+         end
          else  if RuleNode.Attributes['predefined']='uplift_main_roads' then
          begin
            aRule:=TRuleUpliftMainRoads.Create(RuleNode.Attributes['EndLevel']);
@@ -246,6 +265,12 @@ begin
            aRule:=TRuleSetRegionMap.Create;
            aSourceFile.Rules.Add(aRule);
          end
+         else  if RuleNode.Attributes['predefined']='convert_shields_to_labels' then
+         begin
+           aRule:=TRuleConvertShieldsToLabels.Create;
+           aSourceFile.Rules.Add(aRule);
+         end
+
          else
            raise Exception.Create('Unknown predefined rule: '+RuleNode.Attributes['predefined']);
 
@@ -392,6 +417,30 @@ begin
   MpSection.SetAttributeValue('EndLevel',strEndLevel);
 end;
 
+
+//TRuleUpliftRoadsByLetter
+constructor TRuleUpliftRoadsByLetter.Create(Letter:string;EndLevel:string);
+begin
+  strEndLevel:=EndLevel;
+  strLetter:=Letter;
+end;
+
+function TRuleUpliftRoadsByLetter.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+    if (MpSection.GetAttributeValue('RouteParam')<>'') and
+       TRegEx.IsMatch(MpSection.GetAttributeValue('Label'),'[\],]{1}'+strLetter+'[ -]?[0-9]{1,4}')   then
+      result:=true;
+
+
+end;
+
+procedure TRuleUpliftRoadsByLetter.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  MpSection.SetAttributeValue('EndLevel',strEndLevel);
+end;
+
 //TRuleDecreaseNonEuTrunk
 function TRuleDecreaseNonEuTrunk.CheckCondition(MpSection:TMpSection):boolean;
 begin
@@ -489,6 +538,27 @@ end;
 procedure TRuleSetRegionMap.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   MpSection.SetAttributeValue('RegionMap','1');
+end;
+
+//SetRegionMap
+function TRuleConvertShieldsToLabels.CheckCondition(MpSection:TMpSection):boolean;
+begin
+  result:=false;
+  if (MpSection.SectionType=ST_POLYLINE) then
+
+      result:=true;
+end;
+
+
+procedure TRuleConvertShieldsToLabels.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+var strLabel:string;
+begin
+  strLabel:=MpSection.GetAttributeValue('Label');
+
+  strLabel:=StringReplace( strLabel,'~[0x05]','',[rfIgnoreCase]);
+  strLabel:=Trim(strLabel);
+  MpSection.SetAttributeValue('Label',strLabel);
+  MpSection.SetAttributeValue('StreetDesc',strLabel);
 
 end;
 
