@@ -103,9 +103,14 @@ public class GeocoderConfig{
     //Греция
     if (strCountryCode.equals("GR"))
     {
-      levelsForCity=new String[] {ADMIN_LEVEL_7,ADMIN_LEVEL_8,ADMIN_LEVEL_10};
+      //levelsForCity=new String[] {ADMIN_LEVEL_7,ADMIN_LEVEL_8,ADMIN_LEVEL_10,NEAREST_CITY_POINT};
+      //Should be nearest place node inside (demos aka level=8)
+      levelsForCity=new String[] {NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
-      redundantWords=new String [] {"Demos","Periphereia","Kentorikes"};
+      //redundantWords=new String [] {"Demos","Periphereia","Kentorikes"};
+      redundantWords=new String [] {"Municipality of","Periphery"};
+
+      language="en";
     }
 
     //Ирландия
@@ -128,6 +133,8 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
+      redundantWords=new String [] {"Grad"};
+
     }
     //Лихтенштейн
     if (strCountryCode.equals("LI"))
@@ -184,8 +191,11 @@ public class GeocoderConfig{
     //Кипр
     if (strCountryCode.equals("CY"))
     {
-      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8,ADMIN_LEVEL_7,NEAREST_CITY_POINT};
+      //City polygon is commented out, since osm2mp does not support language properly
+      //CITY_POLYGON
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_7,NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_6,ADMIN_LEVEL_2};
+      language="en";
     }
 
     //Польша
