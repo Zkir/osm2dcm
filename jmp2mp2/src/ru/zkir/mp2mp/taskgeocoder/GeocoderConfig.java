@@ -338,14 +338,46 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
       language="en";
     }
+    //===========================================================================================
+    //Африка
+    //===========================================================================================
+    //Египет
+    if (strCountryCode.equals("EG"))
+    {
+      language="en";
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      blnHamletsExcluded=true;
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      redundantWords= new String[]{"Governorate"};
+
+    }
+    //Тунис
+    if (strCountryCode.equals("TN"))
+    {
+      language="en";
+      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      blnHamletsExcluded=true;
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
+    //ЮАР
+    if (strCountryCode.equals("ZA"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      blnHamletsExcluded=true;
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+      redundantWords=new String[] {"District Municipality", "Metropolitan Municipality"};
+    }
 
     //===========================================================================================
     //Америка
     //===========================================================================================
     //США
     if (strCountryCode.equals("US"))
-      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6};
-
+    {
+      levelsForCity=new String[] { CITY_POLYGON, ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+    }
     //Чили
     if (strCountryCode.equals("CL"))
     {
@@ -451,24 +483,7 @@ public class GeocoderConfig{
     //===========================================================================================
     //Азия
     //===========================================================================================
-    //Египет
-    if (strCountryCode.equals("EG"))
-    {
-      language="en";
-      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
-      blnHamletsExcluded=true;
-      levelsForRegion=new String[] {ADMIN_LEVEL_4};
-      redundantWords= new String[]{"Governorate"};
 
-    }
-    //Тунис
-    if (strCountryCode.equals("TN"))
-    {
-      language="en";
-      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
-      blnHamletsExcluded=true;
-      levelsForRegion=new String[] {ADMIN_LEVEL_4};
-    }
 
     //Арабские эмираты
     if (strCountryCode.equals("AE"))
