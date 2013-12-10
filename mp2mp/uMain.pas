@@ -29,17 +29,30 @@ type TSourceFileList=Class
 End;
 
 //Заданные наперед правила
-type TRuleNoPOI=Class(TRule)
+type TRuleRejectAllObjects=Class(TRule)
   function CheckCondition(MpSection:TMpSection):boolean;override;
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
-type TRuleSkipCommentSections=Class(TRule)
+type TRuleRejectPOI=Class(TRule)
   function CheckCondition(MpSection:TMpSection):boolean;override;
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
 
-type TRuleSkipRoads=Class(TRule)
+type TRuleRejectCommentSections=Class(TRule)
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleAcceptObjectsByType=Class(TRule)
+  strType:string;
+  strKind:string;
+  constructor Create(aKind,aType:string);
+  function CheckCondition(MpSection:TMpSection):boolean;override;
+  procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
+end;
+
+type TRuleRejectRoads=Class(TRule)
   function CheckCondition(MpSection:TMpSection):boolean;override;
   procedure Apply(MpSection:TMpSection;var blnSkipSection:boolean);override;
 end;
@@ -144,24 +157,24 @@ begin
    //Имитируем загрузку xml
    aSourceFile:=TSourceFile.Create;
    aSourceFile.FileName:='d:\OSM\Overview_map.ru\RussiaBkg.mp';
-   aRule:=TRuleSkipCommentSections.Create;
+   aRule:=TRuleRejectCommentSections.Create;
    aSourceFile.Rules.Add(aRule);
    mSourceFiles.Add(aSourceFile);
 
    aSourceFile:=TSourceFile.Create;
    aSourceFile.FileName:='d:\OSM\Overview_map.ru\ru.cities.mp';
-   aRule:=TRuleSkipCommentSections.Create;
+   aRule:=TRuleRejectCommentSections.Create;
    aSourceFile.Rules.Add(aRule);
    mSourceFiles.Add(aSourceFile);
 
    aSourceFile:=TSourceFile.Create;
    aSourceFile.FileName:='d:\OSM\Overview_map.ru\ru.roads.mp';
 
-   aRule:=TRuleSkipCommentSections.Create;
+   aRule:=TRuleRejectCommentSections.Create;
    aSourceFile.Rules.Add(aRule);
 
 
-   aRule:=TRuleNoPOI.Create;
+   aRule:=TRuleRejectPOI.Create;
    aSourceFile.Rules.Add(aRule);
 
    mSourceFiles.Add(aSourceFile);
@@ -196,18 +209,18 @@ begin
        if RuleNode.Attributes['predefined']<>'' then
          if RuleNode.Attributes['predefined']='skip_comment_sections' then
          begin
-           aRule:=TRuleSkipCommentSections.Create;
+           aRule:=TRuleRejectCommentSections.Create;
            aSourceFile.Rules.Add(aRule);
 
          end
          else  if RuleNode.Attributes['predefined']='skip_poi' then
          begin
-           aRule:=TRuleNoPOI.Create;
+           aRule:=TRuleRejectPOI.Create;
            aSourceFile.Rules.Add(aRule);
          end
          else  if RuleNode.Attributes['predefined']='skip_roads' then
          begin
-           aRule:=TRuleSkipRoads.Create;
+           aRule:=TRuleRejectRoads.Create;
            aSourceFile.Rules.Add(aRule);
          end
          else  if RuleNode.Attributes['predefined']='uplift_cities' then
@@ -270,6 +283,18 @@ begin
            aRule:=TRuleConvertShieldsToLabels.Create;
            aSourceFile.Rules.Add(aRule);
          end
+         else  if RuleNode.Attributes['predefined']='reject_all' then
+         begin
+           aRule:=TRuleRejectAllObjects.Create();
+           aSourceFile.Rules.Add(aRule);
+         end
+
+         else  if RuleNode.Attributes['predefined']='accept_objects' then
+         begin
+           aRule:=TRuleAcceptObjectsByType.Create( RuleNode.Attributes['kind'],RuleNode.Attributes['type']);
+           aSourceFile.Rules.Add(aRule);
+         end
+
 
          else
            raise Exception.Create('Unknown predefined rule: '+RuleNode.Attributes['predefined']);
@@ -296,33 +321,67 @@ begin
 end;
 
 //Предопределенные правила
+function TRuleRejectAllObjects.CheckCondition(MpSection:TMpSection):boolean;
+begin
+   result:=(MpSection.SectionType<>ST_COMMENT);
+end;
 
-function TRuleNoPOI.CheckCondition(MpSection:TMpSection):boolean;
+procedure TRuleRejectAllObjects.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  blnSkipSection:=true;
+end;
+
+//Выбор объектов по типу
+constructor TRuleAcceptObjectsByType.Create(aKind,aType:string);
+begin
+  if aKind='poi' then
+    strKind:=ST_POI
+  else if aKind='polyline' then
+    strKind:=ST_POLYLINE
+  else if aKind='polygon' then
+    strKind:=ST_POLYGON
+  else
+    raise Exception.Create('Unknown section type: '+aKind);
+
+  strType:=aType;
+end;
+function TRuleAcceptObjectsByType.CheckCondition(MpSection:TMpSection):boolean;
+begin
+   result:=(MpSection.SectionType=strKind) and (MpSection.mpType=strType);
+end;
+
+procedure TRuleAcceptObjectsByType.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+begin
+  blnSkipSection:=false;
+end;
+
+
+function TRuleRejectPOI.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=(MpSection.SectionType=ST_POI);
 end;
 
-procedure TRuleNoPOI.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+procedure TRuleRejectPOI.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   blnSkipSection:=true;
 end;
 
 //TRuleSkipCommentSections
-function TRuleSkipCommentSections.CheckCondition(MpSection:TMpSection):boolean;
+function TRuleRejectCommentSections.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=(MpSection.SectionType=ST_COMMENT);
 end;
 
-procedure TRuleSkipCommentSections.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+procedure TRuleRejectCommentSections.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   blnSkipSection:=true;
 end;
-function TRuleSkipRoads.CheckCondition(MpSection:TMpSection):boolean;
+function TRuleRejectRoads.CheckCondition(MpSection:TMpSection):boolean;
 begin
   result:=(MpSection.mpRouteParam<>'');
 end;
 
-procedure TRuleSkipRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
+procedure TRuleRejectRoads.Apply(MpSection:TMpSection;var blnSkipSection:boolean);
 begin
   blnSkipSection:=true;
 end;
