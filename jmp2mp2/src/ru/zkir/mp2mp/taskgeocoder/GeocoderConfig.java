@@ -145,6 +145,13 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
+    //Финляндия
+    if (strCountryCode.equals("FI"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+    }
+
     //Франция
     if (strCountryCode.equals("FR"))
     {
@@ -331,6 +338,20 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
+
+    //Беларусь
+    if (strCountryCode.equals("BY"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+    }
+
+    //Украина
+    if (strCountryCode.equals("UA"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
 
     //Туркмения
     if (strCountryCode.equals("TM"))
