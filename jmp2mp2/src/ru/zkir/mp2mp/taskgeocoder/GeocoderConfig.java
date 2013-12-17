@@ -344,6 +344,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {CITY_POLYGON};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
+      blnPerformTransliteration=false;
     }
 
     //Украина
@@ -351,6 +352,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {CITY_POLYGON};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      blnPerformTransliteration=false;
     }
 
     //Туркмения
