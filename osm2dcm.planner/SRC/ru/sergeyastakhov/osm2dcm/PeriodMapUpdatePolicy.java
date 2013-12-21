@@ -49,8 +49,8 @@ public class PeriodMapUpdatePolicy implements MapUpdatePolicy
 
     return priority < 9 &&
         lastTryDate != null &&
-        TimeUnit.MILLISECONDS.toDays(currentTime.getTime() - lastTryDate.getTime()) > sourceExpiredDays &&
+            (currentTime.getTime() - lastTryDate.getTime()) > TimeUnit.DAYS.toMillis(sourceExpiredDays)  &&
         (sourceFileTime == null ||
-            TimeUnit.MILLISECONDS.toDays(currentTime.getTime() - sourceFileTime.getTime()) > sourceIsNewDays);
+            (currentTime.getTime() - sourceFileTime.getTime()) > TimeUnit.DAYS.toMillis(sourceIsNewDays) );
   }
 }
