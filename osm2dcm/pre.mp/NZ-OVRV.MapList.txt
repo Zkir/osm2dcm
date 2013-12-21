@@ -1,2 +1,0 @@
-NZ-N.dcm
-NZ-S.dcm

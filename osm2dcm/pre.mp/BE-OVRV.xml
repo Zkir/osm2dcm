@@ -29,4 +29,31 @@
   <rule predefined="skip_poi"/>
 </source_file>
 
+<source_file name="%OSM_DATA%\_my\BE-OVRV\BE-OVRV.objects.mp">
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+  <!-- выбор по типу, только жд  -->
+  <rule predefined="reject_all" />
+  <rule predefined="accept_objects" kind="polyline" type="0x14" />
+
+  <!--Конечный уровень -->
+  <rule predefined="set_end_level" EndLevel="6"/>
+</source_file>
+
+<source_file name="%OSM_DATA%\_my\BE-OVRV\BE-OVRV.water.mp">
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+  <!-- выбор по типу, только крупные водоемы-->
+  <rule predefined="reject_all" />
+  <rule predefined="accept_objects" kind="polygon" type="0x3e" />
+  <rule predefined="accept_objects" kind="polygon" type="0x3d" />
+  <rule predefined="accept_objects" kind="polygon" type="0x3c" />
+  <rule predefined="accept_objects" kind="polygon" type="0x44" />
+  <rule predefined="accept_objects" kind="polygon" type="0x43" />
+  <rule predefined="accept_objects" kind="polygon" type="0x42" />
+  
+  <!--Конечный уровень -->
+  <rule predefined="set_end_level" EndLevel="6"/>
+</source_file>
+
 </mp2mp>

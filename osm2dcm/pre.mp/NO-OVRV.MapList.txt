@@ -1,5 +1,0 @@
-NO-CENTER.dcm
-NO-EAST.dcm
-NO-NORTH.dcm
-NO-SOUTH.dcm
-NO-WEST.dcm

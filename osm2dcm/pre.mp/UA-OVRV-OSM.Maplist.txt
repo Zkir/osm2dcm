@@ -1,0 +1,5 @@
+UA-C-OSM.dcm
+UA-E-OSM.dcm
+UA-N-OSM.dcm
+UA-S-OSM.dcm
+UA-W-OSM.dcm

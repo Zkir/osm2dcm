@@ -1,0 +1,7 @@
+AU-NSW-OSM.dcm
+AU-NT-OSM.dcm
+AU-QLD-OSM.dcm
+AU-SA-OSM.dcm
+AU-TAS-OSM.dcm
+AU-VIC-OSM.dcm
+AU-WA-OSM.dcm

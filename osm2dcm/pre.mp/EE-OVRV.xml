@@ -29,4 +29,15 @@
   <rule predefined="skip_poi"/>
 </source_file>
 
+<source_file name="%OSM_DATA%\_my\EE-OVRV\EE-OVRV.objects.mp">
+  <!--Пропустить отдельные комментарии -->
+  <rule predefined="skip_comment_sections"/>
+  <!-- выбор по типу, только жд  -->
+  <rule predefined="reject_all" />
+  <rule predefined="accept_objects" kind="polyline" type="0x14" />
+
+  <!--Конечный уровень -->
+  <rule predefined="set_end_level" EndLevel="6"/>
+</source_file>
+
 </mp2mp>

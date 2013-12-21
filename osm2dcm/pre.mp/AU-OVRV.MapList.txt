@@ -1,7 +1,0 @@
-AU-NSW.dcm
-AU-NT.dcm
-AU-QLD.dcm
-AU-SA.dcm
-AU-TAS.dcm
-AU-VIC.dcm
-AU-WA.dcm

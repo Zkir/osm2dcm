@@ -1,0 +1,3 @@
+SK-C-OSM.dcm
+SK-E-OSM.dcm
+SK-W-OSM.dcm

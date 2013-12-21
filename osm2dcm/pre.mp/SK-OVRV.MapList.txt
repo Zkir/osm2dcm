@@ -1,3 +1,0 @@
-SK-C.dcm
-SK-E.dcm
-SK-W.dcm

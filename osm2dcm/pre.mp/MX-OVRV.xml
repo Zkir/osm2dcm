@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1251"?>
 <mp2mp>
 
-<source_file name="%OSM_DATA%\_my\GR-OVRV\GR-OVRV.cities.mp">
+<source_file name="%OSM_DATA%\_my\MX-OVRV\MX-OVRV.cities.mp">
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
@@ -11,25 +11,24 @@
   <rule predefined="set_region_map"/>
 </source_file>
 
-<source_file name="pre.mp\GreeceBkg.mp">
+<source_file name="pre.mp\MexicoBkg.mp">
   <!--Безусловное копирование -->
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <rule predefined="set_end_level" EndLevel="7"/>
 </source_file>
 
-<source_file name="%OSM_DATA%\_my\GR-OVRV\GR-OVRV.roads.mp_opt.mp">
+<source_file name="%OSM_DATA%\_my\MX-OVRV\MX-OVRV.roads.mp_opt.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <rule predefined="uplift_numbered_roads_6"/>
+  <rule predefined="uplift_main_roads" EndLevel="7"/>
   <rule predefined="uplift_trunk_roads" EndLevel="7"/>
-  <rule predefined="decrease_noneu_trunk" />
-  <rule predefined="uplift_eu_roads" EndLevel="7"/>
   <!--убрать  пои  -->
   <rule predefined="skip_poi"/>
 </source_file>
 
-<source_file name="%OSM_DATA%\_my\GR-OVRV\GR-OVRV.objects.mp">
+<source_file name="%OSM_DATA%\_my\MX-OVRV\MX-OVRV.objects.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <!-- выбор по типу, только жд  -->
@@ -40,7 +39,7 @@
   <rule predefined="set_end_level" EndLevel="6"/>
 </source_file>
 
-<source_file name="%OSM_DATA%\_my\GR-OVRV\GR-OVRV.water.mp">
+<source_file name="%OSM_DATA%\_my\MX-OVRV\MX-OVRV.water.mp">
   <!--Пропустить отдельные комментарии -->
   <rule predefined="skip_comment_sections"/>
   <!-- выбор по типу, только крупные водоемы-->

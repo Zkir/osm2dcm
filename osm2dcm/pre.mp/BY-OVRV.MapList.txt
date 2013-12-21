@@ -1,6 +1,0 @@
-BY-BR.dcm
-BY-HO.dcm
-BY-HR.dcm
-BY-MA.dcm
-BY-MI.dcm
-BY-VI.dcm

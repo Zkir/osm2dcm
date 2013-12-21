@@ -1,0 +1,17 @@
+DE-BB-OSM.dcm
+DE-BW1-OSM.dcm
+DE-BW2-OSM.dcm
+DE-BY1-OSM.dcm
+DE-BY2-OSM.dcm
+DE-HE-OSM.dcm
+DE-HH-OSM.dcm
+DE-MV-OSM.dcm
+DE-NI-OSM.dcm
+DE-NW1-OSM.dcm
+DE-NW2-OSM.dcm
+DE-RP-OSM.dcm
+DE-SH-OSM.dcm
+DE-SL-OSM.dcm
+DE-SN-OSM.dcm
+DE-ST-OSM.dcm
+DE-TH-OSM.dcm

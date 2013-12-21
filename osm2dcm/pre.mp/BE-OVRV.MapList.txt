@@ -1,2 +1,0 @@
-BE-WAL.dcm
-BE-VLG.dcm

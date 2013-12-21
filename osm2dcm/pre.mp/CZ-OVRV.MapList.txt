@@ -1,7 +1,0 @@
-CZ-02.dcm
-CZ-03.dcm
-CZ-04.dcm
-CZ-05.dcm
-CZ-06.dcm
-CZ-07.dcm
-CZ-08.dcm

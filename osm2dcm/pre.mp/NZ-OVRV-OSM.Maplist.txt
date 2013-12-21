@@ -1,0 +1,2 @@
+NZ-N-OSM.dcm
+NZ-S-OSM.dcm
