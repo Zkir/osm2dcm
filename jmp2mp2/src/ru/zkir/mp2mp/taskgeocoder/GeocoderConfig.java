@@ -233,7 +233,14 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_4}; //Уезды
     }
 
-    //Монако
+    //Молдова
+    if (strCountryCode.equals("MD"))
+    {
+      levelsForCity=new String[] { CITY_POLYGON, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+
+
+      //Монако
     if (strCountryCode.equals("MC"))
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8};
@@ -406,7 +413,7 @@ public class GeocoderConfig{
     //США
     if (strCountryCode.equals("US"))
     {
-      levelsForCity=new String[] { CITY_POLYGON, ADMIN_LEVEL_8};
+      levelsForCity=new String[] { CITY_POLYGON, ADMIN_LEVEL_8, NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
     //Чили
