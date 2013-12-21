@@ -238,7 +238,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] { CITY_POLYGON, NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-
+    }
 
       //Монако
     if (strCountryCode.equals("MC"))
