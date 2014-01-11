@@ -2157,7 +2157,8 @@ sub WritePOI {
         	#CityName is skipped, but RegionName is still assigned
         	#(for maps of russia)
         	my $region  = name_from_list( 'region', $param{tags});
-	        $region .= q{ }. $tag{'addr:district'}     if exists $tag{'addr:district'};
+	        $region .= q{ }. $tag{'addr:district'}        if exists $tag{'addr:district'};
+	        $region .= q{ }. $tag{'addr:subdistrict'}     if exists $tag{'addr:subdistrict'};
 	        printf "RegionName=%s\n", convert_string( $region )     if $region;
 	        my $country = convert_string( name_from_list( 'country', $param{tags}) );
 	        printf "CountryName=%s\n", convert_string( $country )   if $country;
@@ -2773,6 +2774,9 @@ sub execute_action {
     
     $param{region} .= q{ }. $obj->{tag}->{'addr:district'}
         if exists $param{region} && exists $obj->{tag}->{'addr:district'};
+        
+    $param{region} .= q{ }. $obj->{tag}->{'addr:subdistrict'}
+        if exists $param{region} && exists $obj->{tag}->{'addr:subdistrict'};    
 
     my %objinfo = map { $_ => $param{$_} } grep { /^_*[A-Z]/ } keys %param;
 
