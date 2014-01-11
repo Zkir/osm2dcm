@@ -416,6 +416,64 @@ public class GeocoderConfig{
       levelsForCity=new String[] { CITY_POLYGON, ADMIN_LEVEL_8, NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
+
+    // Аргентина
+    if (strCountryCode.equals("AR"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
+    //Колумбия
+    if (strCountryCode.equals("CO"))
+    {
+      levelsForCity=new String[] {ADMIN_LEVEL_7,ADMIN_LEVEL_6,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+    // Эквадор
+    if (strCountryCode.equals("EC"))
+    {
+      levelsForCity=new String[] {ADMIN_LEVEL_7,CITY_POLYGON, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+    // Уругвай
+    if (strCountryCode.equals("UY"))
+    {
+      levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+    // Перу
+    if (strCountryCode.equals("PE"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON, NEAREST_CITY_POINT };
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+    // Боливия
+    if (strCountryCode.equals("BO"))
+    {
+      levelsForCity=new String[] {ADMIN_LEVEL_8, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
+    // Суринам
+    if (strCountryCode.equals("SR"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON, NEAREST_CITY_POINT};
+    }
+
+    // Гайана
+    if (strCountryCode.equals("GY"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON, NEAREST_CITY_POINT};
+    }
+
+    //Французская Гвиана
+    if (strCountryCode.equals("GF"))
+    {
+      levelsForCity=new String[] {ADMIN_LEVEL_8};
+      levelsForRegion=new String[] {ADMIN_LEVEL_6};
+    }
+
     //Чили
     if (strCountryCode.equals("CL"))
     {
