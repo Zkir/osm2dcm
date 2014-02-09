@@ -7,6 +7,7 @@ import ru.zkir.mp2mp.taskforcejunctions.ForceJunctionsTask;
 import ru.zkir.mp2mp.taskgeocoder.GeocoderTask;
 import ru.zkir.mp2mp.tasksetheaderparams.SetHeaderParamsTask;
 import ru.zkir.mp2mp.taskextsimp.SimplifyRoadsTask;
+import ru.zkir.mp2mp.getboundarytask.GetBoundaryTask;
 
 import java.io.IOException;
 
@@ -24,7 +25,7 @@ import java.io.IOException;
 
 public class Jmp2mp {
 
-    public static void main(String[] args) throws IOException,MPParseException
+    public static void main(String[] args) throws IOException,MPParseException, InterruptedException
     {
         System.out.println(" --| jmp2mp (c) Zkir 2012-2013");
 
@@ -94,7 +95,15 @@ public class Jmp2mp {
             smpr.execute(mpData, cmdLineParser.tasks.get(i));
           }
 
-          //writemp
+          //mp_extsimp
+          if (cmdLineParser.tasks.get(i).name.equals("getboundary"))
+          {
+            GetBoundaryTask gbr;
+            gbr=new GetBoundaryTask();
+            gbr.execute(mpData, cmdLineParser.tasks.get(i));
+          }
+
+            //writemp
           if (cmdLineParser.tasks.get(i).name.equals("writemp"))
           {
             WriteMpTask writeMpTask;
