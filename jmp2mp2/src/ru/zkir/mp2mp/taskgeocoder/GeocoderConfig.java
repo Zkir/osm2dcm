@@ -648,6 +648,13 @@ public class GeocoderConfig{
       levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
+
+    //Китай
+    if (strCountryCode.equals("CN"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
     //===========================================================================================
     //Австралия/Океания
     //===========================================================================================
