@@ -148,7 +148,7 @@ public class GeocoderConfig{
     //Финляндия
     if (strCountryCode.equals("FI"))
     {
-      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8};
+      levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_9,ADMIN_LEVEL_8};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
@@ -398,6 +398,13 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
     }
 
+    // Танзания
+    if (strCountryCode.equals("TZ"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON, NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
     //ЮАР
     if (strCountryCode.equals("ZA"))
     {
@@ -622,6 +629,21 @@ public class GeocoderConfig{
     }
     //Вьетнам
     if (strCountryCode.equals("VN"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
+    //Монголия
+    if (strCountryCode.equals("MN"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      blnPerformTransliteration=false;// У монгольцев кирилица
+    }
+
+    //Малайзия
+    if (strCountryCode.equals("MY"))
     {
       levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
