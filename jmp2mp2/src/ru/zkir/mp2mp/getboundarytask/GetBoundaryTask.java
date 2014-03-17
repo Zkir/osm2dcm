@@ -96,6 +96,7 @@ public class GetBoundaryTask {
             }
 
             blnNeedForCitySearch=blnNeedForCitySearch || currentRelation.getTag("ref:nuts").equalsIgnoreCase(strNutsCode) ;
+            blnNeedForCitySearch=blnNeedForCitySearch || currentRelation.getTag("ref:nuts:1").equalsIgnoreCase(strNutsCode) ;
 
 
           }
