@@ -3,6 +3,7 @@ import ru.zkir.mp2mp.core.MPParseException;
 import ru.zkir.mp2mp.core.MpData;
 import ru.zkir.mp2mp.core.ReadMpTask;
 import ru.zkir.mp2mp.core.WriteMpTask;
+import ru.zkir.mp2mp.taskextractpoly.ExtractPolyTask;
 import ru.zkir.mp2mp.taskforcejunctions.ForceJunctionsTask;
 import ru.zkir.mp2mp.taskgeocoder.GeocoderTask;
 import ru.zkir.mp2mp.tasksetheaderparams.SetHeaderParamsTask;
@@ -95,12 +96,20 @@ public class Jmp2mp {
             smpr.execute(mpData, cmdLineParser.tasks.get(i));
           }
 
-          //mp_extsimp
+          //getboundary
           if (cmdLineParser.tasks.get(i).name.equals("getboundary"))
           {
             GetBoundaryTask gbr;
             gbr=new GetBoundaryTask();
             gbr.execute(mpData, cmdLineParser.tasks.get(i));
+          }
+
+          //extractpoly
+          if (cmdLineParser.tasks.get(i).name.equals("extractpoly"))
+          {
+            ExtractPolyTask extrp;
+            extrp=new ExtractPolyTask();
+            extrp.execute(mpData, cmdLineParser.tasks.get(i));
           }
 
             //writemp
