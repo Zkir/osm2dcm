@@ -9,6 +9,7 @@ import com.vividsolutions.jts.geom.*;
 import com.vividsolutions.jts.simplify.DouglasPeuckerSimplifier;
 import com.vividsolutions.jts.io.WKTReader;
 import com.vividsolutions.jts.io.ParseException;
+import com.vividsolutions.jts.geom.util.*;
 
 
 import java.io.*;
@@ -27,25 +28,53 @@ public class PolyBuffer {
     if (args[2]!="")
     {
       dblBufferSize= Double.parseDouble(args[2]);
-      dblSimplValue=dblBufferSize/5;
-
     }
     else
     {
       dblBufferSize=0.01;
-      dblSimplValue= 0.002;
+    }
+    if ((args.length>3) && (args[3]!=""))
+    {
+      dblSimplValue= Double.parseDouble(args[3]);
+    }
+    else
+    {
+      dblSimplValue=dblBufferSize/5;
     }
 
-    Geometry g1=ReadFromPoly(strSourceFile);
+    Geometry g1,g2,g3;
+    g1=ReadFromPoly(strSourceFile);
+    if (dblBufferSize>0)
+    {
+      g2=g1.buffer(dblBufferSize,3);
+      //GeometryComponentFilter gcfilter;
+      //gcfilter =new LinearComponentExtracter( a,b ) ;
+      //g2.apply(gcfilter);
+    }
+    else
+    {
+      g2=g1;
+    }
+    if (dblSimplValue>0)
+    {
+      dps= new DouglasPeuckerSimplifier(g2);
+      dps.setDistanceTolerance(dblSimplValue);
+      g3=dps.getResultGeometry();
+    }
+    else
+    {
+      g3=g2;
+    }
+    if (g3.getGeometryType().equals("Polygon"))
+    {
+      g3=((Polygon)g3).getExteriorRing();
+    }
+    if (g3.getGeometryType().equals("MultiPolygon"))
+    {
+      g3=((Polygon)((MultiPolygon)g3).getGeometryN(0)).getExteriorRing();
+    }
 
-    Geometry g2=g1.buffer(dblBufferSize,3);
-
-    dps= new DouglasPeuckerSimplifier(g2);
-    dps.setDistanceTolerance(dblSimplValue);
-
-    SaveToPoly(dps.getResultGeometry(),strOutFile);
-
-
+    SaveToPoly(g3,strOutFile);
 
   }
   static Geometry ReadFromPoly(String strFileName) throws IOException,ParseException
@@ -108,7 +137,8 @@ public class PolyBuffer {
     oOutFile.write("1\r\n");
     for (int i=0;i<coords.length;i++)
     {
-      oOutFile.write("     "+ (float)coords[i].x+" "+(float)coords[i].y+"\r\n");
+      //oOutFile.write("     "+ (float)coords[i].x+" "+(float)coords[i].y+"\r\n");
+      oOutFile.write("   "+ coords[i].x+"    "+coords[i].y+" \r\n");
     }
 
     oOutFile.write("END\r\n");
