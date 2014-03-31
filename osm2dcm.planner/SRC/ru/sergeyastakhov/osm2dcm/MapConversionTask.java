@@ -43,13 +43,10 @@ public class MapConversionTask
 
       if( result == 0 )
       {
-        result = Integer.valueOf(m1.usedTime).compareTo(m2.usedTime);
-      }
-
-      if( result == 0 )
-      {
         result = m1.code.compareTo(m2.code);
       }
+
+
 
       return result;
     }
