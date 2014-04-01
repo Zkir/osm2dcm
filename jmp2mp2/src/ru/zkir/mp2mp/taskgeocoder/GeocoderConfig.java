@@ -288,7 +288,7 @@ public class GeocoderConfig{
     //Португалия
     if (strCountryCode.equals("PT"))
     {
-      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      levelsForCity=new String[] {CITY_POLYGON, NEAREST_CITY_POINT}; //Пока так
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
     }
 
