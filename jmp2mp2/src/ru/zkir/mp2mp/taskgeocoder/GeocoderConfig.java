@@ -39,6 +39,14 @@ public class GeocoderConfig{
     blnHamletsExcluded=false;
     blnPerformTransliteration=true;
 
+    //Универсальные правила
+    //Для всех стран, кроме России, и тех которые ниже
+    if (!strCountryCode.equals("RU"))
+    {
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+    }
+
     //Страно-специфичные правила
     //===========================================================================================
     //Европа
@@ -376,6 +384,25 @@ public class GeocoderConfig{
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
       language="en";
     }
+
+    //Иран
+    if (strCountryCode.equals("IR"))
+    {
+      language="en";
+    }
+
+    //Пакистан
+    if (strCountryCode.equals("PK"))
+    {
+      language="en";
+    }
+
+    //Иордания
+    if (strCountryCode.equals("JO"))
+    {
+      language="en";
+    }
+
     //===========================================================================================
     //Африка
     //===========================================================================================
@@ -581,6 +608,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      blnPerformTransliteration=false;
     }
 
     //===========================================================================================

@@ -14,6 +14,8 @@ public class MpFile {
   private BufferedReader oInFile;
   private BufferedWriter oOutFile;
   private int m_intMode;
+  //final String MP_ENCODING="windows-1251";
+  final String MP_ENCODING="utf-8";
   public MpFile(String strFileName, int intMode) throws FileNotFoundException, IOException
   {
     m_intMode=intMode;
@@ -21,12 +23,12 @@ public class MpFile {
     if (intMode==0){
 
       //oInFile = new BufferedReader(new FileReader(strFileName)  );
-      oInFile = new BufferedReader(new InputStreamReader(new FileInputStream(strFileName), "windows-1251"));
+      oInFile = new BufferedReader(new InputStreamReader(new FileInputStream(strFileName),MP_ENCODING ));
 
     }
     if (intMode==1){
       //oOutFile = new BufferedWriter(new FileWriter(strFileName));
-      oOutFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), "windows-1251"));
+      oOutFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), MP_ENCODING));
     }
 
   }
