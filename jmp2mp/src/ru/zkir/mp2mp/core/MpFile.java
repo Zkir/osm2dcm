@@ -21,12 +21,12 @@ public class MpFile {
     if (intMode==0){
 
       //oInFile = new BufferedReader(new FileReader(strFileName)  );
-      oInFile = new BufferedReader(new InputStreamReader(new FileInputStream(strFileName), "windows-1251"));
+      oInFile = new BufferedReader(new InputStreamReader(new FileInputStream(strFileName), "utf-8"));
 
     }
     if (intMode==1){
       //oOutFile = new BufferedWriter(new FileWriter(strFileName));
-      oOutFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), "windows-1251"));
+      oOutFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(strFileName), "utf-8"));
     }
 
   }
