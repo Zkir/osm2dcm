@@ -54,8 +54,23 @@
     
     <!-- JAVA -->
     <echo> -- Compile java routines</echo>
+    
+    <!--Планировщик -->
+    <echo>osm2dcm.planner</echo>
+    
+     <javac destdir="osm2dcm.planner/out/production/osm2dcm.planner" encoding = "utf-8" includeantruntime="false">
+      <src path="osm2dcm.planner/src"/>
+     </javac>
+    
+     <jar destfile="${buildpath}/osm2dcm.planner.jar" manifest="osm2dcm.planner/META-INF/MANIFEST.MF" >
+       <fileset dir="osm2dcm.planner/out/production/osm2dcm.planner">
+         <include name="**/*.class"/>
+       </fileset>
+     </jar>
+    
     <!--Проверялка релиз-критерия -->
     <echo>qa_release</echo>
+        
     
      <javac destdir="qa_release/out/production/qa_release" encoding = "utf-8" includeantruntime="false">
       <src path="qa_release/src"/>
@@ -112,7 +127,7 @@
        <zipgroupfileset dir="" includes="javalibs/jts-1.13.jar" />
      </jar>
      
-    <!-- JAVA -->
+
     <echo> -- Compile delphi routines</echo>
     <!--mp2mp -->
     <echo>delphi mp2mp (just copying)</echo> 
