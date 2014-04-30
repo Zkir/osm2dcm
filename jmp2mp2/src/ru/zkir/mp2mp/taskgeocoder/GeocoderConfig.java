@@ -39,12 +39,25 @@ public class GeocoderConfig{
     blnHamletsExcluded=false;
     blnPerformTransliteration=true;
 
-    //Универсальные правила
-    //Для всех стран, кроме России, и тех которые ниже
-    if (!strCountryCode.equals("RU"))
+    //Универсальные правила, для всех стран по умолчанию.
+    //Ниже они переопределяются страноспецифичными
+    levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
+    levelsForRegion=new String[] {ADMIN_LEVEL_4};
+
+    //Страны, для которых никакого конфига не задано,
+    // это значит что геокодирование делает osm2mp
+
+    if (strCountryCode.equals("RU")||
+        strCountryCode.equals("AZ")||
+        strCountryCode.equals("AM")||
+        strCountryCode.equals("GE")||
+        strCountryCode.equals("KZ")||
+        strCountryCode.equals("UZ")||
+        strCountryCode.equals("KG")||
+        strCountryCode.equals("LV"))
     {
-      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
-      levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      levelsForCity = new String[] {};//Пусто значит что геокодер ничего не делает, просто выходит
+      levelsForRegion=new String[] {};
     }
 
     //Страно-специфичные правила
