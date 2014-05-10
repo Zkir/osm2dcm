@@ -275,14 +275,21 @@ public class clsAddrRegistryTest {
           theCityInfo.populationMissing=false;
         }
         //Название города и название присвоенное ему геокодером должно совпадать
-        if(theCityInfo.name.equals(theCityInfo.addrCity) )
-        {theCityInfo.valid2=1;}
+        //Безымянные города не учитываются, это не проблема геокодера.
+        if(theCityInfo.name.equals(theCityInfo.addrCity)||(theCityInfo.name.equals("")) )
+        {
+          theCityInfo.valid2=1;
+        }
         else
         {
           theCityInfo.valid2=0;
           intNumberOfCitiesWrongGK++;
         }
 
+        //Особый случай для швеции
+        //Родительный падеж, который нельзя вычистить геокодером
+        //if("SE".equals("SE")&&((theCityInfo.addrCity.equals(theCityInfo.name+" kommun") )||(theCityInfo.addrCity.equals(theCityInfo.name+"s kommun")) )
+        //(Не сложилось)
       }
 
 
