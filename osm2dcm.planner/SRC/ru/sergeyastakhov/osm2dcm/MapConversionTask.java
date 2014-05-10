@@ -212,6 +212,16 @@ public class MapConversionTask
                 new Object[]{code, sourceFile, lastTryDate});
         return false;
       }
+
+      //Исходный файл более новый, но он устарел
+      //TODO: Брать параметр из конфига.
+      Date currentTime = new Date();
+      if( (currentTime.getTime() - sourceFileTime.getTime()) > TimeUnit.DAYS.toMillis(2) )
+      {
+        log.log(Level.INFO, "Skipping map {0} - source file {1} is outdated ({2,date, short})",
+                new Object[]{code, sourceFile, sourceFileTime});
+        return false;
+      }
     }
 
     // Запуск конвертации
@@ -244,6 +254,7 @@ public class MapConversionTask
     pb.redirectError(ProcessBuilder.Redirect.INHERIT);
 
     long startMark = System.currentTimeMillis();
+    Date StartMarkDate= new Date();
 
     Process process = pb.start();
 
@@ -253,7 +264,7 @@ public class MapConversionTask
 
     log.log(Level.INFO, "Conversion for map {0} completed. Result code = {1}", new Object[]{code, result});
 
-    lastTryDate = new Date();
+    lastTryDate = StartMarkDate;  //дата начала конвертации. Присваивается тут, чтобы не сохранилась в файл раньше времени
 
     boolean conversionSuccess = result == 0;
 
@@ -264,7 +275,7 @@ public class MapConversionTask
       {
         version = newVersion;
         usedTime = (int) TimeUnit.MILLISECONDS.toMinutes(elapsedTime);
-        date = lastTryDate;
+        date = new Date();//дата окончания конвертации
         priority = 6;
       }
     }
