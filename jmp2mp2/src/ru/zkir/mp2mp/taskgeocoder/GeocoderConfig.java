@@ -83,7 +83,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {ADMIN_LEVEL_8,ADMIN_LEVEL_6};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-      redundantWords=new String [] {"Bezirk","Kreis","Gemeinde","(Stadt)"};
+      redundantWords=new String [] {"Bezirk","Kreis","Gemeinde","(Stadt)","Freistadt","Stadtgemeinde"};
     }
 
     //Босния и герцеговина
@@ -140,7 +140,7 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {CITY_POLYGON,ADMIN_LEVEL_8};
       levelsForRegion=new String[] {ADMIN_LEVEL_6};
-      redundantWords=new String [] {"Bezirk","Kreis"};
+      redundantWords=new String [] {"Bezirk","Kreis","Lutherstadt","Goethestadt"};
     }
 
     //Дания
@@ -416,6 +416,17 @@ public class GeocoderConfig{
       language="en";
     }
 
+    //Саудовская Аравия
+    if (strCountryCode.equals("SA"))
+    {
+      language="en";
+    }
+    //Марокко
+    if (strCountryCode.equals("MA"))
+    {
+      language="en";
+    }
+
     //===========================================================================================
     //Африка
     //===========================================================================================
@@ -530,7 +541,11 @@ public class GeocoderConfig{
     //Venezuela
     if (strCountryCode.equals("VE"))
     {
-      levelsForCity=new String[] {ADMIN_LEVEL_8,NEAREST_CITY_POINT};
+      //8 - приходы
+      //6 - муниципалитеты (крупные, включают несколько НП.
+      //4 - штаты
+      //5 - я не понимаю что такое.
+      levelsForCity=new String[] {CITY_POLYGON,NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
       blnHamletsExcluded=true;
     }
