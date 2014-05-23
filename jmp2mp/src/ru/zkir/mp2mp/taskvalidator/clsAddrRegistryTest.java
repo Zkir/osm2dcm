@@ -624,7 +624,34 @@ public class clsAddrRegistryTest {
     double dblErrorRate=(double)intUnmatchedHouses/(double)intTotalHouses ;
 
 
+    //Сводка по НП
+    //Отсортируем массив городов по населению.
+    Collections.sort(arrCities,  new Comparator<CityInfo>() {
+      public int compare(CityInfo sp1, CityInfo sp2) {
+        return (sp1.population > sp2.population ) ? -1: (sp1.population < sp2.population) ? 1:0 ;
+      }
+    });
 
+    //Найдем особый показатель, индекс правильности городов. Это доля городов с адресным поиском до первой ошибки.
+    //Например, ищутся 5 первых городов =(6-5)/6=0.16
+    Double dblNumberOfCitiesWrongGKMark;
+    int intCityCounter=0;
+    double dblCityErrors=0.0;
+    for (i=0;i<arrCities.size();i++ )
+    {
+      CityInfo theCityInfo;
+      theCityInfo=arrCities.get(i);
+      if((theCityInfo.origtype.equals(otCity)) || (theCityInfo.origtype.equals(otTown) ))
+      {
+        intCityCounter++;
+        if (theCityInfo.valid2==0)
+        {
+          dblCityErrors=1.0;
+          break;
+        }
+      }
+    }
+    dblNumberOfCitiesWrongGKMark=dblCityErrors/intCityCounter;
 
 
     oReportFile.write( "<AddressTest>\r\n");
@@ -641,6 +668,7 @@ public class clsAddrRegistryTest {
     //oReportFile.write( " <HousesNumberRelatedToTerritory>" + Integer.toString(intHousesNumberRelatedToTerritory) + "</HousesNumberRelatedToTerritory>\r\n");
     oReportFile.write( " <TotalCities>" + Integer.toString( intNumberOfCities )+ "</TotalCities>\r\n");
     oReportFile.write( " <CitiesWrongGK>" + Integer.toString( intNumberOfCitiesWrongGK )+ "</CitiesWrongGK>\r\n");
+    oReportFile.write( " <CitiesWrongGKMark>" + Double.toString( dblNumberOfCitiesWrongGKMark )+ "</CitiesWrongGKMark>\r\n");
     oReportFile.write( " <CitiesWithoutPopulation>" + Integer.toString( arrCitiesWOPopulation.size() )+ "</CitiesWithoutPopulation>\r\n");
 
     oReportFile.write( " <CitiesWithoutPlacePolygon>"  + Integer.toString(arrCitiesWOPlacePolygon.size()) + "</CitiesWithoutPlacePolygon>\r\n");
@@ -653,13 +681,7 @@ public class clsAddrRegistryTest {
 
     oReportFile.write( "</Summary>\r\n");
 
-    //Сводка по НП
-    //Отсортируем массив городов по населению.
-    Collections.sort(arrCities,  new Comparator<CityInfo>() {
-      public int compare(CityInfo sp1, CityInfo sp2) {
-        return (sp1.population > sp2.population ) ? -1: (sp1.population < sp2.population) ? 1:0 ;
-      }
-      });
+
 
     oReportFile.write( "<CitiesSummary>\r\n");
     for (i=0;i<arrCities.size();i++ )
