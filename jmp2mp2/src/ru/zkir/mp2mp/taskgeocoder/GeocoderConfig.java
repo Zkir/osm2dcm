@@ -480,6 +480,8 @@ public class GeocoderConfig{
     {
       levelsForCity=new String[] {CITY_POLYGON, ADMIN_LEVEL_8, NEAREST_CITY_POINT};
       levelsForRegion=new String[] {ADMIN_LEVEL_4};
+      redundantWords =new String[]{"Ciudad Autonoma de","Ciudad de"};
+
     }
 
     //Колумбия
