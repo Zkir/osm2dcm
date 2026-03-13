@@ -6,11 +6,13 @@
 include("ZSitePage.php");
 require_once("include/misc_utils.php"); 
 
+  global $g_SelfUrl;
+
   $zPage=new TZSitePage;
   $zPage->title="Cтатистика";
   $zPage->header="Cтатистика";
 
-  $xml = simplexml_load_file("http://peirce.gis-lab.ru/statistics.xml"); //Интерпретирует XML-файл в объект
+  $xml = simplexml_load_file($g_SelfUrl."/statistics.xml"); //Интерпретирует XML-файл в объект
 //  $xml = simplexml_load_file("statistics.xml"); //Интерпретирует XML-файл в объект
 
   $zPage->WriteHtml( "<H1>Статистика (данные OSM)</H1>");
@@ -73,13 +75,13 @@ require([
   ');
   
   $zPage->WriteHtml('<P>И между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. Описание столбцов <a href="#descr">см. ниже</a>. </P>');
-  PrintStatistics ($xml,'Россия');
+  PrintStatistics ($xml, 'Россия');
   
   $zPage->WriteHtml( "<H2>Европа </H2>");  
-  PrintStatistics ($xml,"Европа");
+  PrintStatistics ($xml, "Европа");
 
   $zPage->WriteHtml( "<H2>Остальной мир</H2>");
-  PrintStatistics ($xml,"Остальной мир");
+  PrintStatistics ($xml, "Остальной мир");
   
 
   

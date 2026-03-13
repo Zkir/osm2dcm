@@ -218,11 +218,15 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
   global $blnCityBoundaryTestApplicable;
   
   $xmlQCR = simplexml_load_file("QualityCriteria2.xml");
-  $xmlQCR =GetQAScale($xmlQCR,$mapid);
+  $xmlQCR = GetQAScale($xmlQCR,$mapid);
   if (file_exists(GetHWCXmlFileName($mapid)))
   {
     $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
   }
+  else
+  {
+	$xml1 = null;  
+  } 
   
   //Провека границ населенных пуктов применима для не всех стран.
   $blnCityBoundaryTestApplicable= false;
@@ -289,8 +293,8 @@ function PrintQADetailsMainDetails($mapid,$strMapName,$xml,$LastKnownEdit,$blnRs
                 </tr>');
   $zPage->WriteHtml('<tr>
                   <td>&nbsp;&nbsp;'._("Просроченные строящиеся дороги:").'</td>
-                  <td>'.$xml1->summary->total.'</td>
-                  <td>'.TestX($xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
+                  <td>'.@$xml1->summary->total.'</td>
+                  <td>'.TestX(@$xml1->summary->total,$xmlQCR->ClassA->MaxOutdatedConstructions,$blnRss).'</td>
                   <td><a href="'.$zPage->item_link.'#hwconstr_chk">'._("список").'</a></td>
                   <td><a href="'.$zPage->item_link.'/hwc-map">'._("на карте").'</a></td>
                 </tr>
@@ -476,18 +480,22 @@ function PrintQADetailsPage($mapid, $errtype)
   $xml = simplexml_load_file($fname = GetXmlFileName($mapid));
 //  print_r("!?! $fname"); var_dump($xml);
 //  print_r(libxml_get_errors());
-  if (file_exists(GetHWCXmlFileName($mapid)))
-    $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
+  if (file_exists(GetHWCXmlFileName($mapid))){
+    $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));}
+  else{
+	  $xml1 = null;
+  }
  
 
 if ($errtype=="")
 {
 
-  $xml_stat_map=simplexml_load_file(GetEditorsXmlFileName($mapid));
+  $xml_stat_map=@simplexml_load_file(GetEditorsXmlFileName($mapid));
   $LastKnownEdit='???';
+  $objStatRecord = null;
   
- $xml_map_list=simplexml_load_file("maplist.xml");
- foreach ($xml_map_list->map as $item)
+  $xml_map_list=simplexml_load_file("maplist.xml");
+  foreach ($xml_map_list->map as $item)
   {
       if($mapid==$item->code)
       {	  
@@ -495,10 +503,10 @@ if ($errtype=="")
       }  
   }
   
-
-  $LastKnownEdit=$xml_stat_map->mapinfo->LastKnownEdit.' (UTC)';
-  $objStatRecord=$xml_stat_map->mapinfo;
-
+  if ($xml_stat_map){
+    $LastKnownEdit=$xml_stat_map->mapinfo->LastKnownEdit.' (UTC)';
+    $objStatRecord=$xml_stat_map->mapinfo;
+  } 	
    	
   	
   $zPage->WriteHtml('<p align="right"><a href="/qa">'._('Назад к списку регионов').'</a> </p>' );
@@ -512,7 +520,11 @@ if ($errtype=="")
  
   
   //Cтатистика
-  PrintStatistics($objStatRecord,$xml,$strMapName);
+  if (!is_null($objStatRecord)){
+	PrintStatistics($objStatRecord,$xml,$strMapName);
+  }else{
+	$zPage->WriteHtml("<p>Файл статистики не найден для данного региона</p>" );  
+  }	
 
  	 
   $zPage->WriteHtml("<p/>" );
@@ -742,35 +754,36 @@ if($blnCityBoundaryTestApplicable)
                     а так же дороги, дата проверки или дата открытия которых нераспознанны.').'</p>');
   $zPage->WriteHtml('<p>'._('Правильный формат даты: YYYY-MM-DD, например, двадцать девятое марта 2012 года должно быть записано как 2012-03-29').'<p/>' );
   
-  
- if ($xml1->summary->total>0)
- {
-  $zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/hwc-map">'._('Посмотреть просроченные дороги на карте').'</a></b></p>');
-  $zPage->WriteHtml('<p><small>'._('Таблица сортируется. Достаточно щелкнуть по заголовку столбца').'</small><p/>' ); 
-  $zPage->WriteHtml( '<table width="900px" class="sortable">
-    	    <tr>
-                  <td><b>'._('Тип ошибки').'</b></td>
-                  <td><b>'._('Ожидаемая дата открытия').'</b></td>
-                  <td><b>'._('Дата последней проверки').'</b></td>
-                  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
-                  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
-         </tr>');
+  if (!is_null($xml1)){
 
-  foreach ($xml1->error_list->error as $item)
-    {
-        $zPage->WriteHtml( '<tr>');
-        $zPage->WriteHtml( '<td>'.$item['errorType'].'</td>');
-        $zPage->WriteHtml( '<td>'.$item->opening_date.'</td>');
-        $zPage->WriteHtml( '<td>'.$item->check_date.'</td>');
-        $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->bound['top'],$item->bound['left']).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
-        $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->bound['top'],$item->bound['left']) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
-        $zPage->WriteHtml( '</tr>');
-     }
-  $zPage->WriteHtml( '</table>');   
- }
- else
- {$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');};
- 
+	if ($xml1->summary->total>0)
+	{
+	$zPage->WriteHtml('<p><b><a href="/qa/'.$mapid.'/hwc-map">'._('Посмотреть просроченные дороги на карте').'</a></b></p>');
+	$zPage->WriteHtml('<p><small>'._('Таблица сортируется. Достаточно щелкнуть по заголовку столбца').'</small><p/>' ); 
+	$zPage->WriteHtml( '<table width="900px" class="sortable">
+			<tr>
+				  <td><b>'._('Тип ошибки').'</b></td>
+				  <td><b>'._('Ожидаемая дата открытия').'</b></td>
+				  <td><b>'._('Дата последней проверки').'</b></td>
+				  <td width="100px" align="center"><b>'._('Править <br /> в JOSM').'</b></td>
+				  <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
+		 </tr>');
+
+	foreach ($xml1->error_list->error as $item)
+	{
+		$zPage->WriteHtml( '<tr>');
+		$zPage->WriteHtml( '<td>'.$item['errorType'].'</td>');
+		$zPage->WriteHtml( '<td>'.$item->opening_date.'</td>');
+		$zPage->WriteHtml( '<td>'.$item->check_date.'</td>');
+		$zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->bound['top'],$item->bound['left']).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
+		$zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->bound['top'],$item->bound['left']) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
+		$zPage->WriteHtml( '</tr>');
+	 }
+	$zPage->WriteHtml( '</table>');   
+	}
+	else
+	{$zPage->WriteHtml( '<i>'._('Ошибок данного типа не обнаружено.').'</i>');};
+  } 
 /*==========================================================================
                  Изолированные рутинговые подграфы
 ============================================================================*/
@@ -940,7 +953,8 @@ else //Задан конкретный тип ошибки
 
 }
 
- 
+  $count=0;
+  $max_errors=0;
   if ( ($errtype=="")and( ($xml->AddressTest->Summary->UnmatchedHouses>3000)))
   {
   	  $zPage->WriteHtml( '<p><b>К сожалению, ошибок настолько много, что отобразить их все невозможно.
@@ -973,12 +987,11 @@ else //Задан конкретный тип ошибки
                   <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
 
-  $count=0;
+  
   $max_errors=3000;
   foreach ($xml->AddressTest->AddressErrorList->House as $item)
     {
-      if (($errtype=="") or ($item->ErrType== $errtype))
-      {
+      if (($errtype=="") or ($item->ErrType== $errtype)){
       	$count=$count+1;
       	if ($count>$max_errors) break;
         $zPage->WriteHtml( '<tr>');
@@ -989,13 +1002,13 @@ else //Задан конкретный тип ошибки
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakeJosmLink($item->Coord->lat,$item->Coord->lon).'" target="josm" title="JOSM"> <img src="/img/josm.png"/></a> </td> ');
         $zPage->WriteHtml( '<td align="center"> <a href="'.MakePotlatchLink($item->Coord->lat,$item->Coord->lon) .'" target="_blank" title="Potlach"><img src="/img/potlach.png"/></a> </td> ');
         $zPage->WriteHtml( '</tr>');
-       }
-     }
+      }
+    }
 
-  $zPage->WriteHtml( '</table>');
+    $zPage->WriteHtml( '</table>');
   }
   if ($count>$max_errors)
-   $zPage->WriteHtml( '<p>'.sprintf(_('Показаны первые %s ошибок.'),$max_errors).'</p>');
+    $zPage->WriteHtml( '<p>'.sprintf(_('Показаны первые %s ошибок.'),$max_errors).'</p>');
 
   //Классификатор ошибок
   $zPage->WriteHtml( '<a name="errdescr"><h3>'._('Объяснение типов ошибок').'</h3></a>');
@@ -1267,7 +1280,7 @@ function GetQaClass($xml_addr, $xmlQCR)
     $QARating="E";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 2*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
     $QARating="E";
-  if( tmpStreetRate >  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+  if( $tmpStreetRate >  2* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
     $QARating="E";
   
   
@@ -1284,7 +1297,7 @@ function GetQaClass($xml_addr, $xmlQCR)
     $QARating="F";
   if((float)$xml_addr->AddressTest->Summary->ErrorRate > 3*(float)$xmlQCR->ClassB->MaxUnmatchedAddrHouses)
     $QARating="F";
-  if( tmpStreetRate >  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
+  if( $tmpStreetRate >  3* (float)$xmlQCR->ClassB->MaxUnmatchedAddrStreets)
     $QARating="F";
   
   //Класс X
@@ -1531,7 +1544,10 @@ function PrintQASummary($strGroup)
 
         if(file_exists($xmlfilename))
         {
-          $xml_addr = simplexml_load_file($xmlfilename);
+          $xml_addr = @simplexml_load_file($xmlfilename);
+		  if ($xml_addr === false){
+			  continue;
+		  }
           
           if(file_exists(GetHWCXmlFileName($item->code)))
           { 
@@ -1768,6 +1784,7 @@ return $str;
 function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
 {
   global $zPage;
+  $LineNum=0;
   if ($RoutingTest->Summary->NumberOfSubgraphs>0)
   {
     $zPage->WriteHtml('<p><b><a href="'.$strMapLink.'">'._('Посмотреть изоляты на карте').'</a></b></p>');
@@ -1780,7 +1797,7 @@ function PrintIsolatedSubgraphTable($RoutingTest,$strMapLink)
                   <td width="100px" align="center"><b>'._('Править <br /> в Potlach').'</b></td>
          </tr>');
   
-    $LineNum=0;
+    
     foreach ($RoutingTest->SubgraphList->Subgraph as $item)
     { 
     	$LineNum++;
