@@ -1,0 +1,2713 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<maplist>
+<map>
+  <code>RU-AST</code>
+  <name>Астраханская обл.</name>
+  <name_ru>Астраханская обл.</name_ru>
+  <time>32</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 06:32</last_try_date>
+  <date>2026-02-26 06:32</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-AMU</code>
+  <name>Амурская обл.</name>
+  <name_ru>Амурская обл.</name_ru>
+  <time>46</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 06:46</last_try_date>
+  <date>2026-02-26 06:46</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-AL</code>
+  <name>Республика Алтай</name>
+  <name_ru>Республика Алтай</name_ru>
+  <time>112</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 07:52</last_try_date>
+  <date>2026-02-26 07:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-BEL</code>
+  <name>Белгородская обл.</name>
+  <name_ru>Белгородская обл.</name_ru>
+  <time>70</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 07:59</last_try_date>
+  <date>2026-02-26 07:59</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ARK</code>
+  <name>Архангельская обл.</name>
+  <name_ru>Архангельская обл.</name_ru>
+  <time>125</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 08:05</last_try_date>
+  <date>2026-02-26 08:05</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-CE</code>
+  <name>Чеченская Республика</name>
+  <name_ru>Чеченская Республика</name_ru>
+  <time>29</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 08:37</last_try_date>
+  <date>2026-02-26 08:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-BU</code>
+  <name>Республика Бурятия</name>
+  <name_ru>Республика Бурятия</name_ru>
+  <time>42</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 08:44</last_try_date>
+  <date>2026-02-26 08:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-BRY</code>
+  <name>Брянская обл.</name>
+  <name_ru>Брянская обл.</name_ru>
+  <time>50</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 08:44</last_try_date>
+  <date>2026-02-26 08:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-CHU</code>
+  <name>Чукотский АО</name>
+  <name_ru>Чукотский АО</name_ru>
+  <time>34</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 09:20</last_try_date>
+  <date>2026-02-26 09:20</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-CR</code>
+  <name>Республика Крым</name>
+  <name_ru>Республика Крым</name_ru>
+  <time>89</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 10:17</last_try_date>
+  <date>2026-02-26 10:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-CU</code>
+  <name>Чувашская Республика</name>
+  <name_ru>Чувашская Республика</name_ru>
+  <time>64</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 10:28</last_try_date>
+  <date>2026-02-26 10:28</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-IN</code>
+  <name>Республика Ингушетия</name>
+  <name_ru>Республика Ингушетия</name_ru>
+  <time>12</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 10:43</last_try_date>
+  <date>2026-02-26 10:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ALT</code>
+  <name>Алтайский край</name>
+  <name_ru>Алтайский край</name_ru>
+  <time>293</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 10:53</last_try_date>
+  <date>2026-02-26 10:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-BA</code>
+  <name>Республика Башкортостан</name>
+  <name_ru>Республика Башкортостан</name_ru>
+  <time>304</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 11:39</last_try_date>
+  <date>2026-02-26 11:39</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-IVA</code>
+  <name>Ивановская обл.</name>
+  <name_ru>Ивановская обл.</name_ru>
+  <time>44</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 11:41</last_try_date>
+  <date>2026-02-26 11:41</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KB</code>
+  <name>Кабардино-Балкарская Республика</name>
+  <name_ru>Кабардино-Балкарская Республика</name_ru>
+  <time>42</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 12:27</last_try_date>
+  <date>2026-02-26 12:27</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-DA</code>
+  <name>Республика Дагестан</name>
+  <name_ru>Республика Дагестан</name_ru>
+  <time>134</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 12:35</last_try_date>
+  <date>2026-02-26 12:35</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KAM</code>
+  <name>Камчатский край</name>
+  <name_ru>Камчатский край</name_ru>
+  <time>59</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 12:40</last_try_date>
+  <date>2026-02-26 12:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-CHE</code>
+  <name>Челябинская обл.</name>
+  <name_ru>Челябинская обл.</name_ru>
+  <time>249</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 12:49</last_try_date>
+  <date>2026-02-26 12:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KC</code>
+  <name>Карачаево-Черкесская Республика</name>
+  <name_ru>Карачаево-Черкесская Республика</name_ru>
+  <time>26</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 12:56</last_try_date>
+  <date>2026-02-26 12:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-IRK</code>
+  <name>Иркутская обл.</name>
+  <name_ru>Иркутская обл.</name_ru>
+  <time>164</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 13:30</last_try_date>
+  <date>2026-02-26 13:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KGD</code>
+  <name>Калининградская обл.</name>
+  <name_ru>Калининградская обл.</name_ru>
+  <time>68</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 14:07</last_try_date>
+  <date>2026-02-26 14:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KEM</code>
+  <name>Кемеровская обл.</name>
+  <name_ru>Кемеровская обл.</name_ru>
+  <time>89</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 14:19</last_try_date>
+  <date>2026-02-26 14:19</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KGN</code>
+  <name>Курганская обл.</name>
+  <name_ru>Курганская обл.</name_ru>
+  <time>50</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 14:24</last_try_date>
+  <date>2026-02-26 14:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KDA-S</code>
+  <name>Краснодарский край (Юг), Адыгея</name>
+  <name_ru>Краснодарский край (Юг), Адыгея</name_ru>
+  <time>172</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 15:34</last_try_date>
+  <date>2026-02-26 15:34</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KK</code>
+  <name>Республика Хакасия</name>
+  <name_ru>Республика Хакасия</name_ru>
+  <time>30</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 16:07</last_try_date>
+  <date>2026-02-26 16:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KHA</code>
+  <name>Хабаровский край</name>
+  <name_ru>Хабаровский край</name_ru>
+  <time>146</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 16:37</last_try_date>
+  <date>2026-02-26 16:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KL</code>
+  <name>Республика Калмыкия</name>
+  <name_ru>Республика Калмыкия</name_ru>
+  <time>24</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 17:04</last_try_date>
+  <date>2026-02-26 17:04</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KDA-N</code>
+  <name>Краснодарский край (Север)</name>
+  <name_ru>Краснодарский край (Север)</name_ru>
+  <time>292</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 17:28</last_try_date>
+  <date>2026-02-26 17:28</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KHM</code>
+  <name>Ханты-Мансийский АО</name>
+  <name_ru>Ханты-Мансийский АО</name_ru>
+  <time>228</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 18:10</last_try_date>
+  <date>2026-02-26 18:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KLU</code>
+  <name>Калужская обл.</name>
+  <name_ru>Калужская обл.</name_ru>
+  <time>88</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 18:36</last_try_date>
+  <date>2026-02-26 18:36</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KIR</code>
+  <name>Кировская обл.</name>
+  <name_ru>Кировская обл.</name_ru>
+  <time>257</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 18:45</last_try_date>
+  <date>2026-02-26 18:45</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KOS</code>
+  <name>Костромская обл.</name>
+  <name_ru>Костромская обл.</name_ru>
+  <time>38</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 18:50</last_try_date>
+  <date>2026-02-26 18:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KO</code>
+  <name>Республика Коми</name>
+  <name_ru>Республика Коми</name_ru>
+  <time>101</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 19:12</last_try_date>
+  <date>2026-02-26 19:12</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KRS</code>
+  <name>Курская обл.</name>
+  <name_ru>Курская обл.</name_ru>
+  <time>83</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 20:11</last_try_date>
+  <date>2026-02-26 20:11</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-LIP</code>
+  <name>Липецкая обл.</name>
+  <name_ru>Липецкая обл.</name_ru>
+  <time>62</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 20:18</last_try_date>
+  <date>2026-02-26 20:18</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MAG</code>
+  <name>Магаданская обл.</name>
+  <name_ru>Магаданская обл.</name_ru>
+  <time>23</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 20:37</last_try_date>
+  <date>2026-02-26 20:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ME</code>
+  <name>Республика Марий Эл</name>
+  <name_ru>Республика Марий Эл</name_ru>
+  <time>56</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 21:17</last_try_date>
+  <date>2026-02-26 21:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MO</code>
+  <name>Республика Мордовия</name>
+  <name_ru>Республика Мордовия</name_ru>
+  <time>63</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 21:44</last_try_date>
+  <date>2026-02-26 21:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MOW</code>
+  <name>Москва г.</name>
+  <name_ru>Москва г.</name_ru>
+  <time>341</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 21:51</last_try_date>
+  <date>2026-02-26 21:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KYA</code>
+  <name>Красноярский край</name>
+  <name_ru>Красноярский край</name_ru>
+  <time>218</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 22:32</last_try_date>
+  <date>2026-02-26 22:32</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-KR</code>
+  <name>Республика Карелия</name>
+  <name_ru>Республика Карелия</name_ru>
+  <time>232</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 22:32</last_try_date>
+  <date>2026-02-26 22:32</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MUR</code>
+  <name>Мурманская обл.</name>
+  <name_ru>Мурманская обл.</name_ru>
+  <time>65</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 22:58</last_try_date>
+  <date>2026-02-26 22:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-NEN</code>
+  <name>Ненецкий АО</name>
+  <name_ru>Ненецкий АО</name_ru>
+  <time>35</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 23:09</last_try_date>
+  <date>2026-02-26 23:09</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-NGR</code>
+  <name>Новгородская обл.</name>
+  <name_ru>Новгородская обл.</name_ru>
+  <time>47</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-26 23:22</last_try_date>
+  <date>2026-02-26 23:22</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-OMS</code>
+  <name>Омская обл.</name>
+  <name_ru>Омская обл.</name_ru>
+  <time>157</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 02:03</last_try_date>
+  <date>2026-02-27 02:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-NVS</code>
+  <name>Новосибирская обл.</name>
+  <name_ru>Новосибирская обл.</name_ru>
+  <time>171</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 02:03</last_try_date>
+  <date>2026-02-27 02:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ORL</code>
+  <name>Орловская обл.</name>
+  <name_ru>Орловская обл.</name_ru>
+  <time>38</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 02:43</last_try_date>
+  <date>2026-02-27 02:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MOS-E</code>
+  <name>Московская обл. (восток)</name>
+  <name_ru>Московская обл. (восток)</name_ru>
+  <time>325</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 02:46</last_try_date>
+  <date>2026-02-27 02:46</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-NIZ</code>
+  <name>Нижегородская обл.</name>
+  <name_ru>Нижегородская обл.</name_ru>
+  <time>243</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 03:03</last_try_date>
+  <date>2026-02-27 03:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-PNZ</code>
+  <name>Пензенская обл.</name>
+  <name_ru>Пензенская обл.</name_ru>
+  <time>67</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 03:56</last_try_date>
+  <date>2026-02-27 03:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ORE</code>
+  <name>Оренбургская обл.</name>
+  <name_ru>Оренбургская обл.</name_ru>
+  <time>114</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 03:58</last_try_date>
+  <date>2026-02-27 03:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-MOS-W</code>
+  <name>Московская обл. (запад)</name>
+  <name_ru>Московская обл. (запад)</name_ru>
+  <time>417</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 04:43</last_try_date>
+  <date>2026-02-27 04:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-PRI</code>
+  <name>Приморский край</name>
+  <name_ru>Приморский край</name_ru>
+  <time>130</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 05:16</last_try_date>
+  <date>2026-02-27 05:16</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-PSK</code>
+  <name>Псковская обл.</name>
+  <name_ru>Псковская обл.</name_ru>
+  <time>102</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 05:40</last_try_date>
+  <date>2026-02-27 05:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-RYA</code>
+  <name>Рязанская обл.</name>
+  <name_ru>Рязанская обл.</name_ru>
+  <time>70</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 05:56</last_try_date>
+  <date>2026-02-27 05:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-PER</code>
+  <name>Пермский край</name>
+  <name_ru>Пермский край</name_ru>
+  <time>219</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 06:24</last_try_date>
+  <date>2026-02-27 06:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SAK</code>
+  <name>Сахалинская обл.</name>
+  <name_ru>Сахалинская обл.</name_ru>
+  <time>47</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 06:30</last_try_date>
+  <date>2026-02-27 06:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SE</code>
+  <name>Республика Северная Осетия</name>
+  <name_ru>Республика Северная Осетия</name_ru>
+  <time>35</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 07:07</last_try_date>
+  <date>2026-02-27 07:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SAM</code>
+  <name>Самарская обл.</name>
+  <name_ru>Самарская обл.</name_ru>
+  <time>146</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 08:26</last_try_date>
+  <date>2026-02-27 08:26</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SMO</code>
+  <name>Смоленская обл.</name>
+  <name_ru>Смоленская обл.</name_ru>
+  <time>94</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 08:44</last_try_date>
+  <date>2026-02-27 08:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SA</code>
+  <name>Республика Саха (Якутия)</name>
+  <name_ru>Республика Саха (Якутия)</name_ru>
+  <time>206</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 08:45</last_try_date>
+  <date>2026-02-27 08:45</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ROS</code>
+  <name>Ростовская обл.</name>
+  <name_ru>Ростовская обл.</name_ru>
+  <time>287</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 08:49</last_try_date>
+  <date>2026-02-27 08:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SAR</code>
+  <name>Саратовская обл.</name>
+  <name_ru>Саратовская обл.</name_ru>
+  <time>144</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 08:50</last_try_date>
+  <date>2026-02-27 08:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TAM</code>
+  <name>Тамбовская обл.</name>
+  <name_ru>Тамбовская обл.</name_ru>
+  <time>59</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 09:53</last_try_date>
+  <date>2026-02-27 09:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-STA</code>
+  <name>Ставропольский край</name>
+  <name_ru>Ставропольский край</name_ru>
+  <time>104</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 10:30</last_try_date>
+  <date>2026-02-27 10:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TOM</code>
+  <name>Томская обл.</name>
+  <name_ru>Томская обл.</name_ru>
+  <time>52</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 10:47</last_try_date>
+  <date>2026-02-27 10:47</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TUL</code>
+  <name>Тульская обл.</name>
+  <name_ru>Тульская обл.</name_ru>
+  <time>66</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 11:38</last_try_date>
+  <date>2026-02-27 11:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TY</code>
+  <name>Республика Тыва</name>
+  <name_ru>Республика Тыва</name_ru>
+  <time>26</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 12:08</last_try_date>
+  <date>2026-02-27 12:08</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TA</code>
+  <name>Республика Татарстан</name>
+  <name_ru>Республика Татарстан</name_ru>
+  <time>249</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 13:00</last_try_date>
+  <date>2026-02-27 13:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SVE</code>
+  <name>Свердловская обл.</name>
+  <name_ru>Свердловская обл.</name_ru>
+  <time>290</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 13:38</last_try_date>
+  <date>2026-02-27 13:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TVE</code>
+  <name>Тверская обл.</name>
+  <name_ru>Тверская обл.</name_ru>
+  <time>177</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 13:48</last_try_date>
+  <date>2026-02-27 13:48</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-TYU</code>
+  <name>Тюменская обл.</name>
+  <name_ru>Тюменская обл.</name_ru>
+  <time>99</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 13:51</last_try_date>
+  <date>2026-02-27 13:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-UD</code>
+  <name>Удмуртская Республика</name>
+  <name_ru>Удмуртская Республика</name_ru>
+  <time>108</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 14:51</last_try_date>
+  <date>2026-02-27 14:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ULY</code>
+  <name>Ульяновская обл.</name>
+  <name_ru>Ульяновская обл.</name_ru>
+  <time>75</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 14:56</last_try_date>
+  <date>2026-02-27 14:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-VLA</code>
+  <name>Владимирская обл.</name>
+  <name_ru>Владимирская обл.</name_ru>
+  <time>127</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 16:02</last_try_date>
+  <date>2026-02-27 16:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-VGG</code>
+  <name>Волгоградская обл.</name>
+  <name_ru>Волгоградская обл.</name_ru>
+  <time>152</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 16:22</last_try_date>
+  <date>2026-02-27 16:22</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-VLG</code>
+  <name>Вологодская обл.</name>
+  <name_ru>Вологодская обл.</name_ru>
+  <time>104</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 16:38</last_try_date>
+  <date>2026-02-27 16:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-YEV</code>
+  <name>Еврейская автономная обл.</name>
+  <name_ru>Еврейская автономная обл.</name_ru>
+  <time>17</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 16:59</last_try_date>
+  <date>2026-02-27 16:59</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-YAN</code>
+  <name>Ямало-Ненецкий АО</name>
+  <name_ru>Ямало-Ненецкий АО</name_ru>
+  <time>66</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 17:11</last_try_date>
+  <date>2026-02-27 17:11</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-VOR</code>
+  <name>Воронежская обл.</name>
+  <name_ru>Воронежская обл.</name_ru>
+  <time>146</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 17:25</last_try_date>
+  <date>2026-02-27 17:25</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-ZAB</code>
+  <name>Забайкальский край</name>
+  <name_ru>Забайкальский край</name_ru>
+  <time>46</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 17:49</last_try_date>
+  <date>2026-02-27 17:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-YAR</code>
+  <name>Ярославская обл.</name>
+  <name_ru>Ярославская обл.</name_ru>
+  <time>90</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 17:56</last_try_date>
+  <date>2026-02-27 17:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-HO</code>
+  <name>Беларусь, Гомельская обл.</name>
+  <name_ru>Беларусь, Гомельская обл.</name_ru>
+  <time>106</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 19:37</last_try_date>
+  <date>2026-02-27 19:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-HR</code>
+  <name>Беларусь, Гродненская обл.</name>
+  <name_ru>Беларусь, Гродненская обл.</name_ru>
+  <time>112</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 19:52</last_try_date>
+  <date>2026-02-27 19:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-BR</code>
+  <name>Беларусь, Брестская обл.</name>
+  <name_ru>Беларусь, Брестская обл.</name_ru>
+  <time>147</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 19:54</last_try_date>
+  <date>2026-02-27 19:54</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-MA</code>
+  <name>Беларусь, Могилёвская обл.</name>
+  <name_ru>Беларусь, Могилёвская обл.</name_ru>
+  <time>70</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 20:51</last_try_date>
+  <date>2026-02-27 20:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-SPO</code>
+  <name>Санкт-Петербург и обл.</name>
+  <name_ru>Санкт-Петербург и обл.</name_ru>
+  <time>747</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 20:56</last_try_date>
+  <date>2026-02-27 20:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-07</code>
+  <name>Украина, Волынская обл.</name>
+  <name_ru>Украина, Волынская обл.</name_ru>
+  <time>45</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 21:45</last_try_date>
+  <date>2026-02-27 21:45</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-05</code>
+  <name>Украина, Винницкая обл.</name>
+  <name_ru>Украина, Винницкая обл.</name_ru>
+  <time>62</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 21:55</last_try_date>
+  <date>2026-02-27 21:55</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-VI</code>
+  <name>Беларусь, Витебская обл.</name>
+  <name_ru>Беларусь, Витебская обл.</name_ru>
+  <time>152</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 22:26</last_try_date>
+  <date>2026-02-27 22:26</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-MI</code>
+  <name>Беларусь, Минская обл.</name>
+  <name_ru>Беларусь, Минская обл.</name_ru>
+  <time>312</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 22:27</last_try_date>
+  <date>2026-02-27 22:27</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-18</code>
+  <name>Украина, Житомирская обл.</name>
+  <name_ru>Украина, Житомирская обл.</name_ru>
+  <time>44</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 23:11</last_try_date>
+  <date>2026-02-27 23:11</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-12</code>
+  <name>Украина, Днепропетровская обл.</name>
+  <name_ru>Украина, Днепропетровская обл.</name_ru>
+  <time>115</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 23:43</last_try_date>
+  <date>2026-02-27 23:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-21</code>
+  <name>Украина, Закарпатская обл.</name>
+  <name_ru>Украина, Закарпатская обл.</name_ru>
+  <time>75</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 23:44</last_try_date>
+  <date>2026-02-27 23:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-23</code>
+  <name>Украина, Запорожская обл.</name>
+  <name_ru>Украина, Запорожская обл.</name_ru>
+  <time>38</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-27 23:52</last_try_date>
+  <date>2026-02-27 23:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RU-OVRV</code>
+  <name>Россия, обзорн.</name>
+  <name_ru>Россия, обзорн.</name_ru>
+  <time>248</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 00:04</last_try_date>
+  <date>2026-02-28 00:04</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-14</code>
+  <name>Украина, Донецкая обл.</name>
+  <name_ru>Украина, Донецкая обл.</name_ru>
+  <time>142</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 00:21</last_try_date>
+  <date>2026-02-28 00:21</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-35</code>
+  <name>Украина, Кировоградская обл.</name>
+  <name_ru>Украина, Кировоградская обл.</name_ru>
+  <time>40</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 00:36</last_try_date>
+  <date>2026-02-28 00:36</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-26</code>
+  <name>Украина, Ивано-Франковская обл.</name>
+  <name_ru>Украина, Ивано-Франковская обл.</name_ru>
+  <time>61</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 00:46</last_try_date>
+  <date>2026-02-28 00:46</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-09</code>
+  <name>Украина, Луганская обл.</name>
+  <name_ru>Украина, Луганская обл.</name_ru>
+  <time>69</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 01:17</last_try_date>
+  <date>2026-02-28 01:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-48</code>
+  <name>Украина, Николаевская обл.</name>
+  <name_ru>Украина, Николаевская обл.</name_ru>
+  <time>42</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 01:22</last_try_date>
+  <date>2026-02-28 01:22</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-51</code>
+  <name>Украина, Одесская обл.</name>
+  <name_ru>Украина, Одесская обл.</name_ru>
+  <time>65</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 01:53</last_try_date>
+  <date>2026-02-28 01:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-56</code>
+  <name>Украина, Ровенская обл.</name>
+  <name_ru>Украина, Ровенская обл.</name_ru>
+  <time>42</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:07</last_try_date>
+  <date>2026-02-28 02:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-53</code>
+  <name>Украина, Полтавская обл.</name>
+  <name_ru>Украина, Полтавская обл.</name_ru>
+  <time>56</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:15</last_try_date>
+  <date>2026-02-28 02:15</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-59</code>
+  <name>Украина, Сумская обл.</name>
+  <name_ru>Украина, Сумская обл.</name_ru>
+  <time>34</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:31</last_try_date>
+  <date>2026-02-28 02:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-46</code>
+  <name>Украина, Львовская обл.</name>
+  <name_ru>Украина, Львовская обл.</name_ru>
+  <time>141</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:46</last_try_date>
+  <date>2026-02-28 02:46</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-32</code>
+  <name>Украина, Киевская обл.</name>
+  <name_ru>Украина, Киевская обл.</name_ru>
+  <time>189</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:57</last_try_date>
+  <date>2026-02-28 02:57</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-61</code>
+  <name>Украина, Тернопольская обл.</name>
+  <name_ru>Украина, Тернопольская обл.</name_ru>
+  <time>47</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 02:58</last_try_date>
+  <date>2026-02-28 02:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BY-OVRV</code>
+  <name>Беларусь, обзорн.</name>
+  <name_ru>Беларусь, обзорн.</name_ru>
+  <time>41</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:00</last_try_date>
+  <date>2026-02-28 03:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-65</code>
+  <name>Украина, Херсонская обл.</name>
+  <name_ru>Украина, Херсонская обл.</name_ru>
+  <time>20</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:10</last_try_date>
+  <date>2026-02-28 03:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-74</code>
+  <name>Украина, Черниговская обл.</name>
+  <name_ru>Украина, Черниговская обл.</name_ru>
+  <time>38</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:41</last_try_date>
+  <date>2026-02-28 03:41</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-68</code>
+  <name>Украина, Хмельницкая обл.</name>
+  <name_ru>Украина, Хмельницкая обл.</name_ru>
+  <time>48</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:47</last_try_date>
+  <date>2026-02-28 03:47</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-77</code>
+  <name>Украина, Черновицкая обл.</name>
+  <name_ru>Украина, Черновицкая обл.</name_ru>
+  <time>41</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:54</last_try_date>
+  <date>2026-02-28 03:54</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-71</code>
+  <name>Украина, Черкасская обл.</name>
+  <name_ru>Украина, Черкасская обл.</name_ru>
+  <time>57</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 03:58</last_try_date>
+  <date>2026-02-28 03:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-10</code>
+  <name>Казахстан, Абайская обл.</name>
+  <name_ru>Казахстан, Абайская обл.</name_ru>
+  <time>18</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:02</last_try_date>
+  <date>2026-02-28 04:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-15</code>
+  <name>Казахстан, Актюбинская обл.</name>
+  <name_ru>Казахстан, Актюбинская обл.</name_ru>
+  <time>12</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:09</last_try_date>
+  <date>2026-02-28 04:09</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-63</code>
+  <name>Украина, Харьковская обл.</name>
+  <name_ru>Украина, Харьковская обл.</name_ru>
+  <time>96</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:10</last_try_date>
+  <date>2026-02-28 04:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-23</code>
+  <name>Казахстан, Атырауская обл.</name>
+  <name_ru>Казахстан, Атырауская обл.</name_ru>
+  <time>12</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:16</last_try_date>
+  <date>2026-02-28 04:16</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-27</code>
+  <name>Казахстан, Западно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Западно-Казахстанская обл.</name_ru>
+  <time>10</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:20</last_try_date>
+  <date>2026-02-28 04:20</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-11</code>
+  <name>Казахстан, Акмолинская обл.</name>
+  <name_ru>Казахстан, Акмолинская обл.</name_ru>
+  <time>34</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:24</last_try_date>
+  <date>2026-02-28 04:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-31</code>
+  <name>Казахстан, Жамбылская обл.</name>
+  <name_ru>Казахстан, Жамбылская обл.</name_ru>
+  <time>17</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:30</last_try_date>
+  <date>2026-02-28 04:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-33</code>
+  <name>Казахстан, Жетысуская обл.</name>
+  <name_ru>Казахстан, Жетысуская обл.</name_ru>
+  <time>16</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:35</last_try_date>
+  <date>2026-02-28 04:35</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-39</code>
+  <name>Казахстан, Костанайская обл.</name>
+  <name_ru>Казахстан, Костанайская обл.</name_ru>
+  <time>13</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:40</last_try_date>
+  <date>2026-02-28 04:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-35</code>
+  <name>Казахстан, Карагандинская обл.</name>
+  <name_ru>Казахстан, Карагандинская обл.</name_ru>
+  <time>17</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:40</last_try_date>
+  <date>2026-02-28 04:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-43</code>
+  <name>Казахстан, Кызылординская обл.</name>
+  <name_ru>Казахстан, Кызылординская обл.</name_ru>
+  <time>13</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:50</last_try_date>
+  <date>2026-02-28 04:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-47</code>
+  <name>Казахстан, Мангистауская обл.</name>
+  <name_ru>Казахстан, Мангистауская обл.</name_ru>
+  <time>10</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:51</last_try_date>
+  <date>2026-02-28 04:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-55</code>
+  <name>Казахстан, Павлодарская обл.</name>
+  <name_ru>Казахстан, Павлодарская обл.</name_ru>
+  <time>14</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 04:58</last_try_date>
+  <date>2026-02-28 04:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UA-OVRV</code>
+  <name>Украина, обзорн.</name>
+  <name_ru>Украина, обзорн.</name_ru>
+  <time>29</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 05:02</last_try_date>
+  <date>2026-02-28 05:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-62</code>
+  <name>Казахстан, Улытауская обл.</name>
+  <name_ru>Казахстан, Улытауская обл.</name_ru>
+  <time>3</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 05:03</last_try_date>
+  <date>2026-02-28 05:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-59</code>
+  <name>Казахстан, Северо-Казахстанская обл.</name>
+  <name_ru>Казахстан, Северо-Казахстанская обл.</name_ru>
+  <time>14</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 05:06</last_try_date>
+  <date>2026-02-28 05:06</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-63</code>
+  <name>Казахстан, Восточно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Восточно-Казахстанская обл.</name_ru>
+  <time>23</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 05:27</last_try_date>
+  <date>2026-02-28 05:27</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-19</code>
+  <name>Казахстан, Алматинская обл.</name>
+  <name_ru>Казахстан, Алматинская обл.</name_ru>
+  <time>107</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 05:47</last_try_date>
+  <date>2026-02-28 05:47</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-61</code>
+  <name>Казахстан, Туркестанская обл.</name>
+  <name_ru>Казахстан, Туркестанская обл.</name_ru>
+  <time>68</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 06:03</last_try_date>
+  <date>2026-02-28 06:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LT-N</code>
+  <name>Lithuania, north</name>
+  <name_ru>Литва, север</name_ru>
+  <time>88</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 06:38</last_try_date>
+  <date>2026-02-28 06:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LT-W</code>
+  <name>Lithuania, west</name>
+  <name_ru>Литва, Запад</name_ru>
+  <time>96</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 07:26</last_try_date>
+  <date>2026-02-28 07:26</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AB-FULL</code>
+  <name>Абхазия</name>
+  <name_ru>Абхазия</name_ru>
+  <time>14</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 07:43</last_try_date>
+  <date>2026-02-28 07:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LT-E</code>
+  <name>Lithuania, east</name>
+  <name_ru>Литва, восток</name_ru>
+  <time>188</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 08:14</last_try_date>
+  <date>2026-02-28 08:14</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LT-S</code>
+  <name>Lithuania, south</name>
+  <name_ru>Литва, Юг</name_ru>
+  <time>184</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 08:35</last_try_date>
+  <date>2026-02-28 08:35</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KZ-OVRV</code>
+  <name>Казахстан, обзорн.</name>
+  <name_ru>Казахстан, обзорн.</name_ru>
+  <time>14</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 08:52</last_try_date>
+  <date>2026-02-28 08:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UZ-W</code>
+  <name>Узбекистан, запад</name>
+  <name_ru>Узбекистан, запад</name_ru>
+  <time>156</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 09:17</last_try_date>
+  <date>2026-02-28 09:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AM-FULL</code>
+  <name>Армения</name>
+  <name_ru>Армения</name_ru>
+  <time>126</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 09:53</last_try_date>
+  <date>2026-02-28 09:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UZ-E</code>
+  <name>Узбекистан, восток</name>
+  <name_ru>Узбекистан, восток</name_ru>
+  <time>235</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 10:02</last_try_date>
+  <date>2026-02-28 10:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AZ-FULL</code>
+  <name>Azerbaijan</name>
+  <name_ru>Азербайджан</name_ru>
+  <time>149</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 10:46</last_try_date>
+  <date>2026-02-28 10:46</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>KG-FULL</code>
+  <name>Киргизия</name>
+  <name_ru>Киргизия</name_ru>
+  <time>127</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 12:03</last_try_date>
+  <date>2026-02-28 12:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GE-FULL</code>
+  <name>Грузия</name>
+  <name_ru>Грузия</name_ru>
+  <time>202</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 12:42</last_try_date>
+  <date>2026-02-28 12:42</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TM-FULL</code>
+  <name>Turkmenistan</name>
+  <name_ru>Туркменистан</name_ru>
+  <time>55</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 13:40</last_try_date>
+  <date>2026-02-28 13:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TJ-FULL</code>
+  <name>Таджикистан</name>
+  <name_ru>Таджикистан</name_ru>
+  <time>98</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 13:45</last_try_date>
+  <date>2026-02-28 13:45</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>UZ-OVRV</code>
+  <name>Узбекистан, обзорн.</name>
+  <name_ru>Узбекистан, обзорн.</name_ru>
+  <time>6</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 13:50</last_try_date>
+  <date>2026-02-28 13:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LT-OVRV</code>
+  <name>Lithuania overview</name>
+  <name_ru>Литва, обзорн.</name_ru>
+  <time>19</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 14:07</last_try_date>
+  <date>2026-02-28 14:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>EE-FULL</code>
+  <name>Estonia</name>
+  <name_ru>Эстония</name_ru>
+  <time>423</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 15:59</last_try_date>
+  <date>2026-02-28 15:59</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BG-E</code>
+  <name>Bulgaria, east</name>
+  <name_ru>Болгария, восток</name_ru>
+  <time>169</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 16:42</last_try_date>
+  <date>2026-02-28 16:42</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BG-W</code>
+  <name>Bulgaria, west</name>
+  <name_ru>Болгария, запад</name_ru>
+  <time>235</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 18:07</last_try_date>
+  <date>2026-02-28 18:07</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>LV-FULL</code>
+  <name>Latvia</name>
+  <name_ru>Латвия</name_ru>
+  <time>506</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 18:31</last_try_date>
+  <date>2026-02-28 18:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-KA</code>
+  <name>Czech, Karlovarsky kraj</name>
+  <name_ru>Чехия Карловарский край</name_ru>
+  <time>50</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 19:00</last_try_date>
+  <date>2026-02-28 19:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-JC</code>
+  <name>Czech, Jihocesky kraj</name>
+  <name_ru>Чехия Южночешский край</name_ru>
+  <time>199</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 19:21</last_try_date>
+  <date>2026-02-28 19:21</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-JM</code>
+  <name>Czech, Jihomoravsky kraj</name>
+  <name_ru>Чехия Южноморавский край</name_ru>
+  <time>208</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 20:13</last_try_date>
+  <date>2026-02-28 20:13</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-KR</code>
+  <name>Czech, Kralovehradecky kraj</name>
+  <name_ru>Чехия Краловеградецкий край</name_ru>
+  <time>104</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 20:18</last_try_date>
+  <date>2026-02-28 20:18</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-LI</code>
+  <name>Czech, Liberecky kraj</name>
+  <name_ru>Чехия Либерецкий край</name_ru>
+  <time>77</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 20:21</last_try_date>
+  <date>2026-02-28 20:21</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>MD-FULL</code>
+  <name>Moldova</name>
+  <name_ru>Молдова</name_ru>
+  <time>616</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 21:05</last_try_date>
+  <date>2026-02-28 21:05</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-MO</code>
+  <name>Czech, Moravskoslezsky kraj</name>
+  <name_ru>Чехия Моравскосилезский край</name_ru>
+  <time>146</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 21:50</last_try_date>
+  <date>2026-02-28 21:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-PA</code>
+  <name>Czech, Pardubicky kraj</name>
+  <name_ru>Чехия Пардубицкий край</name_ru>
+  <time>93</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 21:53</last_try_date>
+  <date>2026-02-28 21:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-OL</code>
+  <name>Czech, Olomoucky kraj</name>
+  <name_ru>Чехия Оломоуцкий край</name_ru>
+  <time>105</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 22:01</last_try_date>
+  <date>2026-02-28 22:01</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-PL</code>
+  <name>Czech, Plzensky kraj</name>
+  <name_ru>Чехия Пльзенский край</name_ru>
+  <time>125</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 22:29</last_try_date>
+  <date>2026-02-28 22:29</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-US</code>
+  <name>Czech, Ustecky kraj</name>
+  <name_ru>Чехия Устецкий край</name_ru>
+  <time>111</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 23:47</last_try_date>
+  <date>2026-02-28 23:47</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-VY</code>
+  <name>Czech, Kraj Vysocina</name>
+  <name_ru>Чехия Край Высочина</name_ru>
+  <time>113</time>
+  <planned>0</planned>
+  <last_try_date>2026-02-28 23:58</last_try_date>
+  <date>2026-02-28 23:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BG-OVRV</code>
+  <name>Bulgaria overview</name>
+  <name_ru>Болгария, обзорн.</name_ru>
+  <time>10</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 00:00</last_try_date>
+  <date>2026-03-01 00:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-ZL</code>
+  <name>Czech, Zlinsky kraj   </name>
+  <name_ru>Чехия Злинский край </name_ru>
+  <time>91</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 00:02</last_try_date>
+  <date>2026-03-01 00:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-ST2</code>
+  <name>Czech, Stredocesky kraj (2)</name>
+  <name_ru>Чехия Среднечешский край (2)</name_ru>
+  <time>157</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 00:31</last_try_date>
+  <date>2026-03-01 00:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-01</code>
+  <name>Finland, Aland</name>
+  <name_ru>Финляндия, Аландские о-ва</name_ru>
+  <time>33</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 00:33</last_try_date>
+  <date>2026-03-01 00:33</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-03</code>
+  <name>Finland, Etela-Pohjanmaa</name>
+  <name_ru>Финляндия, Южная Остроботния</name_ru>
+  <time>32</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 00:37</last_try_date>
+  <date>2026-03-01 00:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-02</code>
+  <name>Finland, Etela-Karjala</name>
+  <name_ru>Финляндия, Южная Карелия</name_ru>
+  <time>60</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:02</last_try_date>
+  <date>2026-03-01 01:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-06</code>
+  <name>Finland, Kanta-Hame</name>
+  <name_ru>Финляндия, Канта-Хяме</name_ru>
+  <time>31</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:10</last_try_date>
+  <date>2026-03-01 01:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-07</code>
+  <name>Finland, Keski-Pohjanmaa</name>
+  <name_ru>Финляндия, Центральная Остроботния</name_ru>
+  <time>14</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:18</last_try_date>
+  <date>2026-03-01 01:18</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-05</code>
+  <name>Finland, Kainuu</name>
+  <name_ru>Финляндия, Кайнуу</name_ru>
+  <time>45</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:20</last_try_date>
+  <date>2026-03-01 01:20</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-ST1</code>
+  <name>Czech, Stredocesky kraj (1)</name>
+  <name_ru>Чехия Среднечешский край (1)</name_ru>
+  <time>254</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:23</last_try_date>
+  <date>2026-03-01 01:23</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-04</code>
+  <name>Finland, Etela-Savo</name>
+  <name_ru>Финляндия, Южное Саво</name_ru>
+  <time>57</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:31</last_try_date>
+  <date>2026-03-01 01:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-08</code>
+  <name>Finland, Keski-Suomi</name>
+  <name_ru>Финляндия, Центральная Финляндия</name_ru>
+  <time>38</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:51</last_try_date>
+  <date>2026-03-01 01:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-09</code>
+  <name>Finland, Kymenlaakso</name>
+  <name_ru>Финляндия, Кюменлааксо</name_ru>
+  <time>34</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 01:54</last_try_date>
+  <date>2026-03-01 01:54</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-11</code>
+  <name>Finland, Pirkanmaa</name>
+  <name_ru>Финляндия, Пирканмаа</name_ru>
+  <time>74</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 02:49</last_try_date>
+  <date>2026-03-01 02:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-12</code>
+  <name>Finland, Pohjanmaa</name>
+  <name_ru>Финляндия, Похьянмаа</name_ru>
+  <time>60</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 02:53</last_try_date>
+  <date>2026-03-01 02:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-10</code>
+  <name>Finland, Lappi</name>
+  <name_ru>Финляндия, Лапландия</name_ru>
+  <time>92</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 02:58</last_try_date>
+  <date>2026-03-01 02:58</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-14</code>
+  <name>Finland, Pohjois-Pohjanmaa</name>
+  <name_ru>Финляндия, Северная Похьянмаа</name_ru>
+  <time>69</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 03:06</last_try_date>
+  <date>2026-03-01 03:06</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>CZ-OVRV</code>
+  <name>Czech Republic</name>
+  <name_ru>Чехия, обзорн.</name_ru>
+  <time>27</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 03:24</last_try_date>
+  <date>2026-03-01 03:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-15</code>
+  <name>Finland, Pohjois-Savo</name>
+  <name_ru>Финляндия, Северное Саво</name_ru>
+  <time>42</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 03:33</last_try_date>
+  <date>2026-03-01 03:33</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-16</code>
+  <name>Finland, Paijat-Hame</name>
+  <name_ru>Финляндия, Пяйят-Хяме</name_ru>
+  <time>34</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 03:35</last_try_date>
+  <date>2026-03-01 03:35</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-17</code>
+  <name>Finland, Satakunta</name>
+  <name_ru>Финляндия, Сатакунта</name_ru>
+  <time>49</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 03:59</last_try_date>
+  <date>2026-03-01 03:59</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-13</code>
+  <name>Finland, Pohjois-Karjala</name>
+  <name_ru>Финляндия, Северная Карелия</name_ru>
+  <time>248</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 05:30</last_try_date>
+  <date>2026-03-01 05:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-19</code>
+  <name>Finland, Varsinais-Suomi</name>
+  <name_ru>Финляндия, Исконная Финляндия</name_ru>
+  <time>135</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 05:51</last_try_date>
+  <date>2026-03-01 05:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-18</code>
+  <name>Finland, Uusimaa</name>
+  <name_ru>Финляндия, Уусимаа</name_ru>
+  <time>357</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 09:23</last_try_date>
+  <date>2026-03-01 09:23</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>HU-3</code>
+  <name>Hungary, Central Hungary</name>
+  <name_ru>Венгрия, Центральная Венгрия</name_ru>
+  <time>233</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 09:27</last_try_date>
+  <date>2026-03-01 09:27</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-02a</code>
+  <name>Poland, Dolnoslaskie (1)</name>
+  <name_ru>Польша, Нижнесилезское (1)</name_ru>
+  <time>234</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 09:48</last_try_date>
+  <date>2026-03-01 09:48</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>HU-1</code>
+  <name>Hungary, Transdanubia</name>
+  <name_ru>Венгрия, Задунайский край</name_ru>
+  <time>421</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 10:40</last_try_date>
+  <date>2026-03-01 10:40</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>HU-2</code>
+  <name>Hungary, Great Plain and North</name>
+  <name_ru>Венгрия, Северный Альфёльд</name_ru>
+  <time>419</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 11:01</last_try_date>
+  <date>2026-03-01 11:01</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>FI-OVRV</code>
+  <name>Finland overview</name>
+  <name_ru>Финляндия, обзорн.</name_ru>
+  <time>27</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 11:32</last_try_date>
+  <date>2026-03-01 11:32</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-06a</code>
+  <name>Poland, Lubelskie (1)</name>
+  <name_ru>Польша, Люблинское (1)</name_ru>
+  <time>176</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 12:49</last_try_date>
+  <date>2026-03-01 12:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-02b</code>
+  <name>Poland, Dolnoslaskie (2)</name>
+  <name_ru>Польша, Нижнесилезское (2)</name_ru>
+  <time>257</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 13:44</last_try_date>
+  <date>2026-03-01 13:44</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-06b</code>
+  <name>Poland, Lubelskie (2)</name>
+  <name_ru>Польша, Люблинское (2)</name_ru>
+  <time>200</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 14:03</last_try_date>
+  <date>2026-03-01 14:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-08</code>
+  <name>Poland, Lubuskie</name>
+  <name_ru>Польша, Любуское</name_ru>
+  <time>176</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 14:31</last_try_date>
+  <date>2026-03-01 14:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-04</code>
+  <name>Poland, Kujawsko-pomorskie</name>
+  <name_ru>Польша, Куявско-Поморское</name_ru>
+  <time>386</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 15:56</last_try_date>
+  <date>2026-03-01 15:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-14a</code>
+  <name>Poland, Mazowieckie (1)</name>
+  <name_ru>Польша, Мазовецкое (1)</name_ru>
+  <time>266</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 19:00</last_try_date>
+  <date>2026-03-01 19:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-12b</code>
+  <name>Poland, Malopolskie (2)</name>
+  <name_ru>Польша, Малопольское (2)</name_ru>
+  <time>301</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 19:08</last_try_date>
+  <date>2026-03-01 19:08</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-12a</code>
+  <name>Poland, Malopolskie (1)</name>
+  <name_ru>Польша, Малопольское (1)</name_ru>
+  <time>394</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 20:22</last_try_date>
+  <date>2026-03-01 20:22</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-16</code>
+  <name>Poland, Opolskie</name>
+  <name_ru>Польша, Опольское</name_ru>
+  <time>160</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 21:51</last_try_date>
+  <date>2026-03-01 21:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-10</code>
+  <name>Poland, Lodzkie</name>
+  <name_ru>Польша, Лодзинское</name_ru>
+  <time>624</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 23:17</last_try_date>
+  <date>2026-03-01 23:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>HU-OVRV</code>
+  <name>Hungary overview</name>
+  <name_ru>Венгрия, обзорн.</name_ru>
+  <time>22</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-01 23:43</last_try_date>
+  <date>2026-03-01 23:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-14c</code>
+  <name>Poland, Mazowieckie (3)</name>
+  <name_ru>Польша, Мазовецкое (3)</name_ru>
+  <time>312</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 00:14</last_try_date>
+  <date>2026-03-02 00:14</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-14b</code>
+  <name>Poland, Mazowieckie (2)</name>
+  <name_ru>Польша, Мазовецкое (2)</name_ru>
+  <time>557</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 01:16</last_try_date>
+  <date>2026-03-02 01:16</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-18a</code>
+  <name>Poland, Podkarpackie (1)</name>
+  <name_ru>Польша, Подкарпатское (1)</name_ru>
+  <time>301</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 01:27</last_try_date>
+  <date>2026-03-02 01:27</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-18b</code>
+  <name>Poland, Podkarpackie (2)</name>
+  <name_ru>Польша, Подкарпатское (2)</name_ru>
+  <time>212</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 01:28</last_try_date>
+  <date>2026-03-02 01:28</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-20</code>
+  <name>Poland, Podlaskie</name>
+  <name_ru>Польша, Подляское</name_ru>
+  <time>223</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 03:30</last_try_date>
+  <date>2026-03-02 03:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-26</code>
+  <name>Poland, Swietokrzyskie</name>
+  <name_ru>Польша, Свентокшиское</name_ru>
+  <time>300</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 06:31</last_try_date>
+  <date>2026-03-02 06:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-24a</code>
+  <name>Poland, Slaskie (1)</name>
+  <name_ru>Польша, Силезское (1)</name_ru>
+  <time>318</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 06:36</last_try_date>
+  <date>2026-03-02 06:36</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-24b</code>
+  <name>Poland, Slaskie (2)</name>
+  <name_ru>Польша, Силезское (2)</name_ru>
+  <time>336</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 07:04</last_try_date>
+  <date>2026-03-02 07:04</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-28</code>
+  <name>Poland, Warminsko-mazurskie</name>
+  <name_ru>Польша, Варминьско-Мазурское</name_ru>
+  <time>268</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 08:01</last_try_date>
+  <date>2026-03-02 08:01</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-22</code>
+  <name>Poland, Pomorskie</name>
+  <name_ru>Польша, Поморское</name_ru>
+  <time>471</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 08:10</last_try_date>
+  <date>2026-03-02 08:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-30b</code>
+  <name>Poland, Wielkopolskie (2)</name>
+  <name_ru>Польша, Великопольское (2)</name_ru>
+  <time>202</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 10:01</last_try_date>
+  <date>2026-03-02 10:01</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RO-2</code>
+  <name>Romania, (2)</name>
+  <name_ru>Румыния (2)</name_ru>
+  <time>182</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 11:15</last_try_date>
+  <date>2026-03-02 11:15</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-30a</code>
+  <name>Poland, Wielkopolskie (1)</name>
+  <name_ru>Польша, Великопольское (1)</name_ru>
+  <time>297</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 11:31</last_try_date>
+  <date>2026-03-02 11:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RO-1</code>
+  <name>Romania, (1)</name>
+  <name_ru>Румыния (1)</name_ru>
+  <time>214</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 11:38</last_try_date>
+  <date>2026-03-02 11:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-32</code>
+  <name>Poland, Zachodniopomorskie</name>
+  <name_ru>Польша, Западно-Поморское</name_ru>
+  <time>318</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 12:25</last_try_date>
+  <date>2026-03-02 12:25</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RO-4</code>
+  <name>Romania, (4)</name>
+  <name_ru>Румыния (4)</name_ru>
+  <time>177</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 14:15</last_try_date>
+  <date>2026-03-02 14:15</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SI-E</code>
+  <name>Slovenia East</name>
+  <name_ru>Словения Восточная</name_ru>
+  <time>182</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 14:43</last_try_date>
+  <date>2026-03-02 14:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SI-W</code>
+  <name>Slovenia West</name>
+  <name_ru>Словения Западная</name_ru>
+  <time>195</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 14:49</last_try_date>
+  <date>2026-03-02 14:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SI-S</code>
+  <name>Slovenia South</name>
+  <name_ru>Словения Южная</name_ru>
+  <time>177</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 15:25</last_try_date>
+  <date>2026-03-02 15:25</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RO-3</code>
+  <name>Romania, (3)</name>
+  <name_ru>Румыния (3)</name_ru>
+  <time>331</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 15:36</last_try_date>
+  <date>2026-03-02 15:36</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>PL-OVRV</code>
+  <name>Poland overview</name>
+  <name_ru>Польша, обзорн.</name_ru>
+  <time>101</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 16:00</last_try_date>
+  <date>2026-03-02 16:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-1</code>
+  <name>Austria, Burgenland</name>
+  <name_ru>Австрия, Бургенланд</name_ru>
+  <time>53</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 16:31</last_try_date>
+  <date>2026-03-02 16:31</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-2</code>
+  <name>Austria, Karnten</name>
+  <name_ru>Австрия, Каринтия</name_ru>
+  <time>132</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 18:14</last_try_date>
+  <date>2026-03-02 18:14</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SK-E</code>
+  <name>Slovakia, Eastern</name>
+  <name_ru>Словакия, Восточная</name_ru>
+  <time>249</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 19:01</last_try_date>
+  <date>2026-03-02 19:01</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SK-C</code>
+  <name>Slovakia, Central</name>
+  <name_ru>Словакия, Центральная</name_ru>
+  <time>276</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 19:21</last_try_date>
+  <date>2026-03-02 19:21</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-3a</code>
+  <name>Austria, Niederosterreich (1)</name>
+  <name_ru>Австрия, Нижняя Австрия (1)</name_ru>
+  <time>230</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 20:24</last_try_date>
+  <date>2026-03-02 20:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-5</code>
+  <name>Austria, Salzburg</name>
+  <name_ru>Австрия, Зальцбург</name_ru>
+  <time>113</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 21:17</last_try_date>
+  <date>2026-03-02 21:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RO-OVRV</code>
+  <name>Romania overview</name>
+  <name_ru>Румыния, обзорн.</name_ru>
+  <time>28</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 21:49</last_try_date>
+  <date>2026-03-02 21:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SK-W</code>
+  <name>Slovakia, Western</name>
+  <name_ru>Словакия, Западная</name_ru>
+  <time>505</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-02 23:52</last_try_date>
+  <date>2026-03-02 23:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-7b</code>
+  <name>Austria, Osttirol</name>
+  <name_ru>Австрия, Восточный Тироль</name_ru>
+  <time>16</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 00:11</last_try_date>
+  <date>2026-03-03 00:11</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SI-OVRV</code>
+  <name>Slovenia overview</name>
+  <name_ru>Словения, обзорн.</name_ru>
+  <time>9</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 00:24</last_try_date>
+  <date>2026-03-03 00:24</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>SK-OVRV</code>
+  <name>Slovakia overview</name>
+  <name_ru>Словакия, обзорн.</name_ru>
+  <time>13</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 00:37</last_try_date>
+  <date>2025-06-05 09:43</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-7a</code>
+  <name>Austria, Nordtirol</name>
+  <name_ru>Австрия, Северный Тироль</name_ru>
+  <time>183</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 00:55</last_try_date>
+  <date>2026-03-03 00:55</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-8</code>
+  <name>Austria, Vorarlberg</name>
+  <name_ru>Австрия, Форарльберг</name_ru>
+  <time>75</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 01:53</last_try_date>
+  <date>2026-03-03 01:53</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-4</code>
+  <name>Austria, Oberosterreich</name>
+  <name_ru>Австрия, Верхняя Австрия</name_ru>
+  <time>513</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 03:37</last_try_date>
+  <date>2026-03-03 03:37</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-3b</code>
+  <name>Austria, Niederosterreich (2)</name>
+  <name_ru>Австрия, Нижняя Австрия (2)</name_ru>
+  <time>572</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 03:50</last_try_date>
+  <date>2026-03-03 03:50</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-C</code>
+  <name>Thailand, Central</name>
+  <name_ru>Таиланд, центр</name_ru>
+  <time>221</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 05:38</last_try_date>
+  <date>2026-03-03 05:38</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-B</code>
+  <name>Thailand, Bangkok</name>
+  <name_ru>Таиланд, Бангкок</name_ru>
+  <time>290</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 05:49</last_try_date>
+  <date>2026-03-03 05:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-E</code>
+  <name>Thailand, East</name>
+  <name_ru>Таиланд, восток</name_ru>
+  <time>130</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 05:51</last_try_date>
+  <date>2026-03-03 05:51</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-6</code>
+  <name>Austria, Steiermark</name>
+  <name_ru>Австрия, Штирия</name_ru>
+  <time>567</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 05:54</last_try_date>
+  <date>2026-03-03 05:54</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AT-OVRV</code>
+  <name>Austria overview</name>
+  <name_ru>Австрия, обзорн.</name_ru>
+  <time>35</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 06:33</last_try_date>
+  <date>2026-03-03 06:33</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-NE</code>
+  <name>Thailand, North-East</name>
+  <name_ru>Таиланд, северо-восток</name_ru>
+  <time>74</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 06:55</last_try_date>
+  <date>2026-03-03 06:55</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-N</code>
+  <name>Thailand, North</name>
+  <name_ru>Таиланд, север</name_ru>
+  <time>184</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 06:57</last_try_date>
+  <date>2026-03-03 06:57</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-SE</code>
+  <name>Thailand, South-East</name>
+  <name_ru>Таиланд, юго-восток</name_ru>
+  <time>116</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 07:49</last_try_date>
+  <date>2026-03-03 07:49</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-2</code>
+  <name>Greece, part 2</name>
+  <name_ru>Греция, том 2</name_ru>
+  <time>56</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 07:57</last_try_date>
+  <date>2026-03-03 07:57</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-S</code>
+  <name>Thailand, South</name>
+  <name_ru>Таиланд, юг</name_ru>
+  <time>185</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 08:55</last_try_date>
+  <date>2026-03-03 08:55</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-W</code>
+  <name>Thailand, West</name>
+  <name_ru>Таиланд, запад</name_ru>
+  <time>161</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 09:17</last_try_date>
+  <date>2026-03-03 09:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-1</code>
+  <name>Greece, part 1</name>
+  <name_ru>Греция, том 1</name_ru>
+  <time>151</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 09:28</last_try_date>
+  <date>2026-03-03 09:28</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-5</code>
+  <name>Greece, part 5</name>
+  <name_ru>Греция, том 5</name_ru>
+  <time>54</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 09:52</last_try_date>
+  <date>2026-03-03 09:52</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-CRETE</code>
+  <name>Greece, Crete</name>
+  <name_ru>Греция, Крит</name_ru>
+  <time>40</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 10:00</last_try_date>
+  <date>2026-03-03 10:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-4</code>
+  <name>Greece, part 4</name>
+  <name_ru>Греция, том 4</name_ru>
+  <time>130</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 10:10</last_try_date>
+  <date>2026-03-03 10:10</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-3</code>
+  <name>Greece, part 3</name>
+  <name_ru>Греция, том 3</name_ru>
+  <time>250</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 12:02</last_try_date>
+  <date>2026-03-03 12:02</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>AL-FULL</code>
+  <name>Albania</name>
+  <name_ru>Албания</name_ru>
+  <time>115</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 14:00</last_try_date>
+  <date>2026-03-03 14:00</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-N</code>
+  <name>Serbia (cyr), North</name>
+  <name_ru>Сербия (кир), север</name_ru>
+  <time>478</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 17:29</last_try_date>
+  <date>2026-03-03 17:29</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-N-L</code>
+  <name>Serbia (lat), North</name>
+  <name_ru>Сербия (лат), север</name_ru>
+  <time>481</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 18:03</last_try_date>
+  <date>2026-03-03 18:03</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>ME-FULL</code>
+  <name>Montenegro</name>
+  <name_ru>Черногория</name_ru>
+  <time>58</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 19:04</last_try_date>
+  <date>2026-03-03 19:04</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>MK-FULL</code>
+  <name>North Macedonia</name>
+  <name_ru>Северная Македония</name_ru>
+  <time>51</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 19:59</last_try_date>
+  <date>2026-03-03 19:59</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>TH-OVRV</code>
+  <name>Thailand overview</name>
+  <name_ru>Таиланд, обзорн.</name_ru>
+  <time>52</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 20:56</last_try_date>
+  <date>2026-03-03 20:56</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>GR-OVRV</code>
+  <name>Greece overview</name>
+  <name_ru>Греция, обзорн.</name_ru>
+  <time>30</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-03 21:29</last_try_date>
+  <date>2026-03-03 21:29</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>BA-FULL</code>
+  <name>Bosnia and Herzegovina</name>
+  <name_ru>Босния и Герцеговина</name_ru>
+  <time>608</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 00:12</last_try_date>
+  <date>2026-03-04 00:12</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-S-L</code>
+  <name>Serbia (lat), South</name>
+  <name_ru>Сербия (лат), юг</name_ru>
+  <time>861</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 00:34</last_try_date>
+  <date>2026-03-04 00:34</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-S</code>
+  <name>Serbia (cyr), South</name>
+  <name_ru>Сербия (кир), юг</name_ru>
+  <time>881</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 00:36</last_try_date>
+  <date>2026-03-04 00:36</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>HR-FULL</code>
+  <name>Croatia</name>
+  <name_ru>Хорватия</name_ru>
+  <time>717</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 05:30</last_try_date>
+  <date>2026-03-04 05:30</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-OVRV</code>
+  <name>Serbia (cyr), overview</name>
+  <name_ru>Сербия (кир), обзорн.</name_ru>
+  <time>17</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 18:16</last_try_date>
+  <date>2026-03-04 18:16</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+<map>
+  <code>RS-OVRV-L</code>
+  <name>Serbia (lat), overview</name>
+  <name_ru>Сербия (лат), обзорн.</name_ru>
+  <time>17</time>
+  <planned>0</planned>
+  <last_try_date>2026-03-04 18:17</last_try_date>
+  <date>2026-03-04 18:17</date>
+  <next_date>2026-03-12 18:18</next_date>
+</map>
+</maplist>

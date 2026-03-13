@@ -34,16 +34,22 @@ RewriteRule ^qa/([a-zA-Z0-9_-]+)/dnodes-map$ qq-map.php?mapid=$1&test=dnodes
 RewriteRule ^qa/([a-zA-Z0-9_-]+)/addr-street-map$ qq-map.php?mapid=$1&test=addr-street
 
 
-RewriteRule ^daily$ maps7.php
-RewriteRule ^daily/([a-zA-Z0-9_-]+)$ maps7.php?group=$1
+
+RewriteRule ^daily$ index.php
+RewriteRule ^daily/([a-zA-Z0-9_-]+)$ index.php?group=$1
+RewriteRule ^maps7$ maps7.php
+RewriteRule ^maps7/([a-zA-Z0-9_-]+)$ maps7.php?group=$1
 RewriteRule ^misc_maps$  maps5.php
 RewriteRule ^stat$  stat.php
 RewriteRule ^stat2$ addr.php?page=stat_summary
 RewriteRule ^stat2/([a-zA-Z0-9_-]+)$ addr.php?page=stat_summary&group=$1
-RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
-
-
+RewriteRule ^queue$  queue.php
+RewriteRule ^statistics.xml$  statistics.xml.php
 RewriteRule ^qa_addr$ addr.php?page=addr_summary
+
+#RedirectMatch  /blog/16019 http://www.openstreetmap.org/user/Zkir/diary/16019 
+#RewriteRule ^blog/([a-zA-Z0-9_-]+)$ blog.php?postid=$1
+RedirectMatch /blog/([a-zA-Z0-9_-]+)$ http://www.openstreetmap.org/user/Zkir/diary/$1
 
 RewriteRule ^fixme$  2/fixme.php
 RewriteRule ^fixme/p0/([0-9.-]+,[0-9.-]+)$  2/fixme.php?p0=$1 [QSA]
@@ -55,3 +61,5 @@ RewriteRule ^dev/fixme/TH$  2.dev/fixme.php?campaign=TH [QSA]
 RewriteRule ^dev/fixme/JP$  2.dev/fixme.php?campaign=JP [QSA]
 
 Redirect 301 /daily.php http://peirce.gis-lab.info/daily 
+
+

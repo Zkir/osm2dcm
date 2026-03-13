@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 #==================================================
 # Шаблон страницы для z-site :)
 # (с) Zkir, 2008
@@ -103,16 +103,17 @@ function PrintSideBlockNews()
        <div id="menu">
         <ul>
             <?php
-            echo '<li id="active"><a href="'.$g_SelfUrl.'">'._('Новости').'</a></li>
-                  <li><a href="'.$g_SelfUrl.'/daily">'._('Карты').'</a></li>';
+            
+            echo  '<li><a href="'.$g_SelfUrl.'/daily">'._('Карты CGNET').'</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/maps7.php">'._('Карты CGMAP').'</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/maps79.php">'._('Карты CGNET 7.9').'</a></li>';
             echo  '<li><a href="'.$g_SelfUrl.'/qa">'._('Контроль качества').'</a></li>';       
             //echo  '<li><a href="'.$g_SelfUrl.'/maps5.php">для  СГ 5.x</a></li>';
             echo  '<li><a href="'.$g_SelfUrl.'/stat">'._('Статистика 1').'</a></li>';
-            echo  '<li><a href="'.$g_SelfUrl.'/stat2">'._('Статистика 2').'</a></li>';
-          
-            
-                 // <li><a href="http://wiki.openstreetmap.org/wiki/RU:%D0%A1%D0%B8%D1%82%D0%B8%D0%93%D0%98%D0%94">ЧаВо</a></li>';
-            echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">'._('Форум').'</a></li>';
+            //echo  '<li><a href="'.$g_SelfUrl.'/stat2">'._('Статистика 2').'</a></li>';
+            echo  '<li><a href="'.$g_SelfUrl.'/queue">'._('Очередь').'</a></li>';
+            //echo  '<li><a href="https://twitter.com/peirce_osm">'.'Твиттер'.'</a></li>';
+            //echo  '<li><a href="http://forum.probki.net/forum/121-osm-karti-dlja-sitigid/">'._('Форум').'</a></li>';
                              
             ?>
         </ul>
@@ -156,7 +157,7 @@ function PrintSideBlockNews()
    		
     if ($UseWide!="1")
     {	
-
+    echo '<div>';
      //Дежурный-По-Сайту
     /*'<p>Если у вас возникли вопросы, задайте их нашему онлайн-консультанту.
                    Даже если он не знает ответ на ваш вопрос, разговор <b>будет записан</b>
@@ -170,15 +171,35 @@ function PrintSideBlockNews()
                      -->
                      <iframe src="http://ask.fm/widget/87768842a61cbcb377f2322b2e1b9c5f5e9ae926?stylesheet=large&fgcolor=%23000000&bgcolor=%23ffffff&lang=2" frameborder="0" scrolling="no" width="330" height="200" style="border:none;"></iframe>
                    <br />
-                   <a href="/#QnA"><i>Почитать ответы...</i> </a> </p>');
+                   <a href="/#QnA"><i>Почитать ответы...</i> </a> </p>
+                   <p>
+                   <small>
+                   По-вопросам, относящимся к самой программе, а не к осм-картам, есть смысл обратиться в Ситигидовский суппорт. <br />
+        
+
+                   Москва: <b>(495) 647·06·45</b> <br />
+                   Санкт-Петербург: <b>(812) 647·06·45</b> <br />
+                   E-mail: <b>support@probki.net</b> <br />                   
+                   </small> </p>
+                   
+                    ');
            
-       
+    PrintSideBlock('OSM Downloader',
+                   '<img style="float:left;position:relative;top:-7px; width:120px" src="/img/android_cg.png"></img>
+                    <p>Вы счастливый обладатель устройства с Андроид? Вам повезло.
+                   
+                    Эти карты очень удобно скачивать прямо на устройство при помощи 
+                     <a href="https://play.google.com/store/apps/details?id=com.nikanorov.OSMDownloader">специальной программы</a>. 
+                    OSM Downloader - это специализированный менеджер закачек, с ним карты на вашем андроиде всегда будут свежими и актуальными. </p>
+                    
+                    ');   
     PrintSideBlock('СитиГид',
-          '<img style="float:left;position:relative;top:-7px;" src="/img/cg_logo.gif">
+          '<img style="float:left;position:relative;top:-7px; " src="/img/cg_logo.gif" >
           <p><strong>СитиГид</strong> - это популярная программа-навигатор с поддержкой пробок.
              Существуют версии практически для всех
              распространенных платформ: Windows Mobile, WinCE (автонавигаторы, PNA), Android, Symbian, iPhone.
-             Ее можно найти (и приобрести) <a href="http://probki.net">на сайте производителя</a>. ');
+             Ее можно найти (и приобрести) <a href="http://probki.net">на сайте производителя</a>.<br />
+             <iframe width="300" height="255" src="//www.youtube.com/embed/a-M4lXw9QMY" frameborder="0" allowfullscreen></iframe> </p>');
 
     PrintSideBlock('Что такое OSM?',
           '<img style="float:right;position:relative;top:-7px;" src="/img/osm_logo.png">
@@ -198,7 +219,7 @@ function PrintSideBlockNews()
 		   		  </a></p>'); */
    
    //<!-- Новости -->
-    PrintSideBlockNews();
+   // PrintSideBlockNews();
    
 
   
@@ -221,6 +242,7 @@ function PrintSideBlockNews()
   		  <li><a href="http://navitel.osm.rambler.ru/">Карты OSM для Navitel</a></li>
 		  <ul></p>');  
 	}
+    echo '</div>';
    ?>		
  
 

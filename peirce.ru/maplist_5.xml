@@ -1,0 +1,1508 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<maplist>
+<map>
+  <code>ES-OVRV</code>
+  <name>_Испания, обзрн.</name>
+  <group>Россия</group>
+  <date>2012-04-02 02:18</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-OVRV.rar</url>
+</map>
+<map>
+  <code>RU-OVRV</code>
+  <name>_Россия, обзрн.</name>
+  <group>Россия</group>
+  <date>2012-04-01 16:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-OVRV.rar</url>
+</map>
+<map>
+  <code>DE-BR-Potsdam</code>
+  <name>DE-BR-Potsdam</name>
+  <group>Россия</group>
+  <date>2012-04-12 00:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/DE-BR-Potsdam.rar</url>
+</map>
+<map>
+  <code>DE-BW</code>
+  <name>Germany, Baden-Wurttemberg</name>
+  <group>Россия</group>
+  <date>2012-02-29 19:12</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/DE-BW.rar</url>
+</map>
+<map>
+  <code>DE-BY</code>
+  <name>Germany, Bayern</name>
+  <group>Россия</group>
+  <date>2012-03-01 00:17</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/DE-BY.rar</url>
+</map>
+<map>
+  <code>DE-MV</code>
+  <name>Germany, Mecklenburg-Vorpommern</name>
+  <group>Россия</group>
+  <date>2012-01-17 00:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/DE-MV.rar</url>
+</map>
+<map>
+  <code>LV-FULL-1</code>
+  <name>Latvia</name>
+  <group>Россия</group>
+  <date>2012-03-28 20:37</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/LV-FULL-1.rar</url>
+</map>
+<map>
+  <code>PL-DS</code>
+  <name>Poland, Dolnoslaskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 02:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-DS.rar</url>
+</map>
+<map>
+  <code>PL-KP</code>
+  <name>Poland, Kujawsko-pomorskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 01:35</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-KP.rar</url>
+</map>
+<map>
+  <code>PL-LD</code>
+  <name>Poland, Lodzkie</name>
+  <group>Россия</group>
+  <date>2012-02-09 03:20</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-LD.rar</url>
+</map>
+<map>
+  <code>PL-LU</code>
+  <name>Poland, Lubelskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 01:49</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-LU.rar</url>
+</map>
+<map>
+  <code>PL-LB</code>
+  <name>Poland, Lubuskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 02:05</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-LB.rar</url>
+</map>
+<map>
+  <code>PL-MA</code>
+  <name>Poland, Malopolskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 03:35</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-MA.rar</url>
+</map>
+<map>
+  <code>PL-MZ</code>
+  <name>Poland, Mazowieckie</name>
+  <group>Россия</group>
+  <date>2012-02-09 00:50</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-MZ.rar</url>
+</map>
+<map>
+  <code>PL-OP</code>
+  <name>Poland, Opolskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 04:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-OP.rar</url>
+</map>
+<map>
+  <code>PL-PK</code>
+  <name>Poland, Podkarpackie</name>
+  <group>Россия</group>
+  <date>2012-02-09 02:12</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-PK.rar</url>
+</map>
+<map>
+  <code>PL-PD</code>
+  <name>Poland, Podlaskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 02:22</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-PD.rar</url>
+</map>
+<map>
+  <code>PL-PM</code>
+  <name>Poland, Pomorskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 05:33</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-PM.rar</url>
+</map>
+<map>
+  <code>PL-SL</code>
+  <name>Poland, Slaskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 04:07</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-SL.rar</url>
+</map>
+<map>
+  <code>PL-SK</code>
+  <name>Poland, Swietokrzyskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 04:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-SK.rar</url>
+</map>
+<map>
+  <code>PL-WN</code>
+  <name>Poland, Warminsko-mazurskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 02:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-WN.rar</url>
+</map>
+<map>
+  <code>PL-WP</code>
+  <name>Poland, Wielkopolskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 05:59</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-WP.rar</url>
+</map>
+<map>
+  <code>PL-ZP</code>
+  <name>Poland, Zachodniopomorskie</name>
+  <group>Россия</group>
+  <date>2012-02-09 04:49</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/PL-ZP.rar</url>
+</map>
+<map>
+  <code>AT-1</code>
+  <name>Австрия, Бургенланд</name>
+  <group>Россия</group>
+  <date>2012-03-20 20:34</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-1.rar</url>
+</map>
+<map>
+  <code>AT-4</code>
+  <name>Австрия, Верхняя Австрия</name>
+  <group>Россия</group>
+  <date>2012-03-20 20:47</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-4.rar</url>
+</map>
+<map>
+  <code>AT-7b</code>
+  <name>Австрия, Восточный Тироль</name>
+  <group>Россия</group>
+  <date>2012-03-20 22:21</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-7b.rar</url>
+</map>
+<map>
+  <code>AT-5</code>
+  <name>Австрия, Зальцбург</name>
+  <group>Россия</group>
+  <date>2012-03-20 22:28</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-5.rar</url>
+</map>
+<map>
+  <code>AT-2</code>
+  <name>Австрия, Каринтия</name>
+  <group>Россия</group>
+  <date>2012-03-20 23:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-2.rar</url>
+</map>
+<map>
+  <code>AT-3</code>
+  <name>Австрия, Нижняя Австрия</name>
+  <group>Россия</group>
+  <date>2012-03-20 23:30</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-3.rar</url>
+</map>
+<map>
+  <code>AT-7a</code>
+  <name>Австрия, Северный Тироль</name>
+  <group>Россия</group>
+  <date>2012-03-21 01:33</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-7a.rar</url>
+</map>
+<map>
+  <code>AT-8</code>
+  <name>Австрия, Форарльберг</name>
+  <group>Россия</group>
+  <date>2012-03-21 02:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-8.rar</url>
+</map>
+<map>
+  <code>AT-6</code>
+  <name>Австрия, Штирия</name>
+  <group>Россия</group>
+  <date>2012-03-21 02:42</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AT-6.rar</url>
+</map>
+<map>
+  <code>AZ-FULL</code>
+  <name>Азербайджан</name>
+  <group>Россия</group>
+  <date>2012-03-27 05:14</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AZ-FULL.rar</url>
+</map>
+<map>
+  <code>AL-FULL</code>
+  <name>Албания</name>
+  <group>Россия</group>
+  <date>2012-02-21 20:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AL-FULL.rar</url>
+</map>
+<map>
+  <code>RU-ALT</code>
+  <name>Алтайский край</name>
+  <group>Россия</group>
+  <date>2012-04-03 14:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ALT.rar</url>
+</map>
+<map>
+  <code>RU-AMU</code>
+  <name>Амурская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 12:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-AMU.rar</url>
+</map>
+<map>
+  <code>AM-FULL</code>
+  <name>Армения</name>
+  <group>Россия</group>
+  <date>2012-03-28 23:10</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AM-FULL.rar</url>
+</map>
+<map>
+  <code>RU-ARK</code>
+  <name>Архангельская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 00:11</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ARK.rar</url>
+</map>
+<map>
+  <code>RU-AST</code>
+  <name>Астраханская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 15:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-AST.rar</url>
+</map>
+<map>
+  <code>RU-BA</code>
+  <name>Башкирия</name>
+  <group>Россия</group>
+  <date>2012-04-02 19:47</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-BA.rar</url>
+</map>
+<map>
+  <code>BY-FULL</code>
+  <name>Беларусь</name>
+  <group>Россия</group>
+  <date>2012-04-13 00:35</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BY-FULL.rar</url>
+</map>
+<map>
+  <code>BY-VI</code>
+  <name>Беларусь, Витебская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-13 03:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BY-VI.rar</url>
+</map>
+<map>
+  <code>BY-MI</code>
+  <name>Беларусь, Минская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-13 03:34</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BY-MI.rar</url>
+</map>
+<map>
+  <code>RU-BEL</code>
+  <name>Белгородская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 13:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-BEL.rar</url>
+</map>
+<map>
+  <code>BE-WAL</code>
+  <name>Бельгия, Валлонский регион  </name>
+  <group>Россия</group>
+  <date>2012-03-21 22:36</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BE-WAL.rar</url>
+</map>
+<map>
+  <code>BO-FULL</code>
+  <name>Болгария</name>
+  <group>Россия</group>
+  <date>2012-02-22 08:18</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BO-FULL.rar</url>
+</map>
+<map>
+  <code>BA-FULL</code>
+  <name>Босния и Герцеговина</name>
+  <group>Россия</group>
+  <date>2012-02-21 20:54</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BA-FULL.rar</url>
+</map>
+<map>
+  <code>BR-SP</code>
+  <name>Бразилия, Сан-Паулу</name>
+  <group>Россия</group>
+  <date>2012-02-10 01:50</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/BR-SP.rar</url>
+</map>
+<map>
+  <code>RU-BRY</code>
+  <name>Брянская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 09:55</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-BRY.rar</url>
+</map>
+<map>
+  <code>RU-BU</code>
+  <name>Бурятия</name>
+  <group>Россия</group>
+  <date>2012-04-02 18:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-BU.rar</url>
+</map>
+<map>
+  <code>HU-FULL</code>
+  <name>Венгрия</name>
+  <group>Россия</group>
+  <date>2012-02-22 19:59</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/HU-FULL.rar</url>
+</map>
+<map>
+  <code>RU-VLA</code>
+  <name>Владимирская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 01:58</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-VLA.rar</url>
+</map>
+<map>
+  <code>RU-VGG</code>
+  <name>Волгоградская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 06:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-VGG.rar</url>
+</map>
+<map>
+  <code>RU-VLG</code>
+  <name>Вологодская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 12:52</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-VLG.rar</url>
+</map>
+<map>
+  <code>RU-VOR</code>
+  <name>Воронежская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 07:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-VOR.rar</url>
+</map>
+<map>
+  <code>GR-FULL</code>
+  <name>Греция</name>
+  <group>Россия</group>
+  <date>2012-02-23 13:52</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/GR-FULL.rar</url>
+</map>
+<map>
+  <code>GR-CRETE</code>
+  <name>Греция, Крит</name>
+  <group>Россия</group>
+  <date>2012-02-28 03:16</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/GR-CRETE.rar</url>
+</map>
+<map>
+  <code>GR-RODOS</code>
+  <name>Греция, Родос</name>
+  <group>Россия</group>
+  <date>2012-04-01 11:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/GR-RODOS.rar</url>
+</map>
+<map>
+  <code>GE-FULL</code>
+  <name>Грузия</name>
+  <group>Россия</group>
+  <date>2012-03-27 03:58</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/GE-FULL.rar</url>
+</map>
+<map>
+  <code>RU-DA</code>
+  <name>Дагестан</name>
+  <group>Россия</group>
+  <date>2012-04-02 22:39</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-DA.rar</url>
+</map>
+<map>
+  <code>RU-YEV</code>
+  <name>Еврейская автономная обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 06:06</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-YEV.rar</url>
+</map>
+<map>
+  <code>EG-FULL</code>
+  <name>Египет</name>
+  <group>Россия</group>
+  <date>2012-04-29 16:24</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/EG-FULL.rar</url>
+</map>
+<map>
+  <code>RU-SVE</code>
+  <name>Екатеринбург и обл.</name>
+  <group>Россия</group>
+  <date>2012-04-01 20:14</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SVE.rar</url>
+</map>
+<map>
+  <code>RU-ZAB</code>
+  <name>Забайкальский край</name>
+  <group>Россия</group>
+  <date>2012-04-03 14:46</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ZAB.rar</url>
+</map>
+<map>
+  <code>RU-IVA</code>
+  <name>Ивановская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 01:14</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-IVA.rar</url>
+</map>
+<map>
+  <code>IL-FULL</code>
+  <name>Израиль</name>
+  <group>Россия</group>
+  <date>2012-03-22 03:05</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IL-FULL.rar</url>
+</map>
+<map>
+  <code>RU-IN</code>
+  <name>Ингушетия</name>
+  <group>Россия</group>
+  <date>2012-04-03 05:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-IN.rar</url>
+</map>
+<map>
+  <code>RU-IRK</code>
+  <name>Иркутская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 19:28</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-IRK.rar</url>
+</map>
+<map>
+  <code>ES-AN</code>
+  <name>Испания, Андалусия</name>
+  <group>Россия</group>
+  <date>2012-04-01 22:35</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-AN.rar</url>
+</map>
+<map>
+  <code>ES-AR</code>
+  <name>Испания, Арагон</name>
+  <group>Россия</group>
+  <date>2012-04-02 00:50</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-AR.rar</url>
+</map>
+<map>
+  <code>ES-AS</code>
+  <name>Испания, Астурия</name>
+  <group>Россия</group>
+  <date>2012-04-02 01:18</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-AS.rar</url>
+</map>
+<map>
+  <code>ES-PM</code>
+  <name>Испания, Балеарские острова</name>
+  <group>Россия</group>
+  <date>2011-08-24 23:55</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-PM.rar</url>
+</map>
+<map>
+  <code>ES-VC</code>
+  <name>Испания, Валенсия</name>
+  <group>Россия</group>
+  <date>2012-04-02 03:21</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-VC.rar</url>
+</map>
+<map>
+  <code>ES-GA</code>
+  <name>Испания, Галисия</name>
+  <group>Россия</group>
+  <date>2012-04-02 04:36</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-GA.rar</url>
+</map>
+<map>
+  <code>ES-CN</code>
+  <name>Испания, Канарские острова</name>
+  <group>Россия</group>
+  <date>2011-08-11 23:55</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-CN.rar</url>
+</map>
+<map>
+  <code>ES-CB</code>
+  <name>Испания, Кантабрия</name>
+  <group>Россия</group>
+  <date>2012-04-02 06:03</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-CB.rar</url>
+</map>
+<map>
+  <code>ES-CM</code>
+  <name>Испания, Кастилия — Ла-Манча</name>
+  <group>Россия</group>
+  <date>2012-04-02 06:25</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-CM.rar</url>
+</map>
+<map>
+  <code>ES-CL</code>
+  <name>Испания, Кастилия и Леон</name>
+  <group>Россия</group>
+  <date>2012-04-02 07:19</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-CL.rar</url>
+</map>
+<map>
+  <code>ES-CT</code>
+  <name>Испания, Каталония</name>
+  <group>Россия</group>
+  <date>2012-04-02 12:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-CT.rar</url>
+</map>
+<map>
+  <code>ES-MD</code>
+  <name>Испания, Мадрид</name>
+  <group>Россия</group>
+  <date>2012-04-02 11:25</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-MD.rar</url>
+</map>
+<map>
+  <code>ES-MC</code>
+  <name>Испания, Мурсия</name>
+  <group>Россия</group>
+  <date>2012-04-02 09:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-MC.rar</url>
+</map>
+<map>
+  <code>ES-NC</code>
+  <name>Испания, Наварра</name>
+  <group>Россия</group>
+  <date>2012-04-02 09:59</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-NC.rar</url>
+</map>
+<map>
+  <code>ES-RI</code>
+  <name>Испания, Риоха</name>
+  <group>Россия</group>
+  <date>2012-04-02 11:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-RI.rar</url>
+</map>
+<map>
+  <code>ES-PV</code>
+  <name>Испания, Страна Басков</name>
+  <group>Россия</group>
+  <date>2012-04-02 10:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-PV.rar</url>
+</map>
+<map>
+  <code>ES-EX</code>
+  <name>Испания, Эстремадура</name>
+  <group>Россия</group>
+  <date>2012-04-02 10:42</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ES-EX.rar</url>
+</map>
+<map>
+  <code>IT-65</code>
+  <name>Италия, Абруццо</name>
+  <group>Россия</group>
+  <date>2011-08-19 22:14</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-65.rar</url>
+</map>
+<map>
+  <code>IT-75</code>
+  <name>Италия, Апулия</name>
+  <group>Россия</group>
+  <date>2011-08-20 06:24</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-75.rar</url>
+</map>
+<map>
+  <code>IT-77</code>
+  <name>Италия, Базиликата</name>
+  <group>Россия</group>
+  <date>2011-08-19 22:25</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-77.rar</url>
+</map>
+<map>
+  <code>IT-23</code>
+  <name>Италия, Валле-д'Аоста</name>
+  <group>Россия</group>
+  <date>2011-08-20 08:44</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-23.rar</url>
+</map>
+<map>
+  <code>IT-34</code>
+  <name>Италия, Венето</name>
+  <group>Россия</group>
+  <date>2011-08-20 16:46</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-34.rar</url>
+</map>
+<map>
+  <code>IT-78</code>
+  <name>Италия, Калабрия</name>
+  <group>Россия</group>
+  <date>2011-08-19 22:32</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-78.rar</url>
+</map>
+<map>
+  <code>IT-72</code>
+  <name>Италия, Кампания</name>
+  <group>Россия</group>
+  <date>2011-08-19 22:42</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-72.rar</url>
+</map>
+<map>
+  <code>IT-62</code>
+  <name>Италия, Лацио</name>
+  <group>Россия</group>
+  <date>2011-08-20 02:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-62.rar</url>
+</map>
+<map>
+  <code>IT-42</code>
+  <name>Италия, Лигурия</name>
+  <group>Россия</group>
+  <date>2011-08-20 03:37</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-42.rar</url>
+</map>
+<map>
+  <code>IT-57</code>
+  <name>Италия, Марке</name>
+  <group>Россия</group>
+  <date>2011-08-20 05:24</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-57.rar</url>
+</map>
+<map>
+  <code>IT-67</code>
+  <name>Италия, Молизе</name>
+  <group>Россия</group>
+  <date>2011-08-20 05:39</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-67.rar</url>
+</map>
+<map>
+  <code>IT-21</code>
+  <name>Италия, Пьемонт</name>
+  <group>Россия</group>
+  <date>2011-08-20 05:46</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-21.rar</url>
+</map>
+<map>
+  <code>IT-88</code>
+  <name>Италия, Сардиния</name>
+  <group>Россия</group>
+  <date>2011-08-20 06:47</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-88.rar</url>
+</map>
+<map>
+  <code>IT-82</code>
+  <name>Италия, Сицилия</name>
+  <group>Россия</group>
+  <date>2011-08-19 21:30</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-82.rar</url>
+</map>
+<map>
+  <code>IT-52</code>
+  <name>Италия, Тоскана</name>
+  <group>Россия</group>
+  <date>2011-08-20 07:02</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-52.rar</url>
+</map>
+<map>
+  <code>IT-32</code>
+  <name>Италия, Трентино — Альто-Адидже</name>
+  <group>Россия</group>
+  <date>2011-08-20 07:56</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-32.rar</url>
+</map>
+<map>
+  <code>IT-55</code>
+  <name>Италия, Умбрия</name>
+  <group>Россия</group>
+  <date>2011-08-20 08:32</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-55.rar</url>
+</map>
+<map>
+  <code>IT-36</code>
+  <name>Италия, Фриули-Венеция-Джулия</name>
+  <group>Россия</group>
+  <date>2011-08-20 00:06</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-36.rar</url>
+</map>
+<map>
+  <code>IT-45</code>
+  <name>Италия, Эмилия-Романья</name>
+  <group>Россия</group>
+  <date>2011-08-19 22:56</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/IT-45.rar</url>
+</map>
+<map>
+  <code>RU-KB</code>
+  <name>Кабардино-Балкария</name>
+  <group>Россия</group>
+  <date>2012-04-03 04:34</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KB.rar</url>
+</map>
+<map>
+  <code>KZ-FULL</code>
+  <name>Казахстан</name>
+  <group>Россия</group>
+  <date>2012-03-27 04:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/KZ-FULL.rar</url>
+</map>
+<map>
+  <code>RU-KGD</code>
+  <name>Калининградская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-08 17:56</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KGD.rar</url>
+</map>
+<map>
+  <code>RU-KL</code>
+  <name>Калмыкия</name>
+  <group>Россия</group>
+  <date>2012-04-03 04:11</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KL.rar</url>
+</map>
+<map>
+  <code>RU-KLU</code>
+  <name>Калужская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 13:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KLU.rar</url>
+</map>
+<map>
+  <code>RU-KAM</code>
+  <name>Камчатский край</name>
+  <group>Россия</group>
+  <date>2012-04-03 03:12</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KAM.rar</url>
+</map>
+<map>
+  <code>RU-KC</code>
+  <name>Карачаево-Черкессия</name>
+  <group>Россия</group>
+  <date>2012-04-03 16:34</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KC.rar</url>
+</map>
+<map>
+  <code>RU-KR</code>
+  <name>Карелия</name>
+  <group>Россия</group>
+  <date>2012-04-03 01:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KR.rar</url>
+</map>
+<map>
+  <code>RU-KEM</code>
+  <name>Кемеровская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 15:25</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KEM.rar</url>
+</map>
+<map>
+  <code>CY-FULL</code>
+  <name>Кипр</name>
+  <group>Россия</group>
+  <date>2012-03-28 21:20</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CY-FULL.rar</url>
+</map>
+<map>
+  <code>KG-FULL</code>
+  <name>Киргизия</name>
+  <group>Россия</group>
+  <date>2012-03-28 23:14</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/KG-FULL.rar</url>
+</map>
+<map>
+  <code>RU-KIR</code>
+  <name>Кировская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 18:24</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KIR.rar</url>
+</map>
+<map>
+  <code>RU-KO</code>
+  <name>Коми</name>
+  <group>Россия</group>
+  <date>2012-04-03 07:06</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KO.rar</url>
+</map>
+<map>
+  <code>RU-KOS</code>
+  <name>Костромская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 17:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KOS.rar</url>
+</map>
+<map>
+  <code>RU-KDA</code>
+  <name>Краснодарский край, Адыгея</name>
+  <group>Россия</group>
+  <date>2012-04-01 21:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KDA.rar</url>
+</map>
+<map>
+  <code>RU-KYA</code>
+  <name>Красноярский край, юг</name>
+  <group>Россия</group>
+  <date>2012-04-02 19:02</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KYA.rar</url>
+</map>
+<map>
+  <code>CU-FULL</code>
+  <name>Куба</name>
+  <group>Россия</group>
+  <date>2012-04-02 13:40</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CU-FULL.rar</url>
+</map>
+<map>
+  <code>RU-KGN</code>
+  <name>Курганская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 07:30</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KGN.rar</url>
+</map>
+<map>
+  <code>RU-KRS</code>
+  <name>Курская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 08:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KRS.rar</url>
+</map>
+<map>
+  <code>LV-FULL</code>
+  <name>Латвия</name>
+  <group>Россия</group>
+  <date>2012-03-28 23:19</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/LV-FULL.rar</url>
+</map>
+<map>
+  <code>RU-LIP</code>
+  <name>Липецкая обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 08:11</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-LIP.rar</url>
+</map>
+<map>
+  <code>LT-FULL</code>
+  <name>Литва</name>
+  <group>Россия</group>
+  <date>2012-04-04 00:55</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/LT-FULL.rar</url>
+</map>
+<map>
+  <code>RU-MAG</code>
+  <name>Магаданская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 16:47</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-MAG.rar</url>
+</map>
+<map>
+  <code>RU-ME</code>
+  <name>Марий Эл</name>
+  <group>Россия</group>
+  <date>2012-04-03 05:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ME.rar</url>
+</map>
+<map>
+  <code>MD-FULL</code>
+  <name>Молдова</name>
+  <group>Россия</group>
+  <date>2012-03-28 22:44</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/MD-FULL.rar</url>
+</map>
+<map>
+  <code>RU-MO</code>
+  <name>Мордовия</name>
+  <group>Россия</group>
+  <date>2012-04-03 10:30</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-MO.rar</url>
+</map>
+<map>
+  <code>RU-MOS</code>
+  <name>Москва и обл.</name>
+  <group>Россия</group>
+  <date>2012-04-10 21:52</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-MOS.rar</url>
+</map>
+<map>
+  <code>RU-MUR</code>
+  <name>Мурманская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 08:53</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-MUR.rar</url>
+</map>
+<map>
+  <code>RU-NEN</code>
+  <name>Ненецкий АО</name>
+  <group>Россия</group>
+  <date>2012-04-03 12:26</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-NEN.rar</url>
+</map>
+<map>
+  <code>RU-NIZ</code>
+  <name>Нижегородская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 23:23</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-NIZ.rar</url>
+</map>
+<map>
+  <code>RU-NGR</code>
+  <name>Новгородская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 17:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-NGR.rar</url>
+</map>
+<map>
+  <code>RU-NVS</code>
+  <name>Новосибирская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 00:47</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-NVS.rar</url>
+</map>
+<map>
+  <code>NO-EAST</code>
+  <name>Норвегия (Восточная)</name>
+  <group>Россия</group>
+  <date>2012-04-24 04:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/NO-EAST.rar</url>
+</map>
+<map>
+  <code>NO-WEST</code>
+  <name>Норвегия (Западная)</name>
+  <group>Россия</group>
+  <date>2012-04-24 06:09</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/NO-WEST.rar</url>
+</map>
+<map>
+  <code>NO-NORTH</code>
+  <name>Норвегия (Северная)</name>
+  <group>Россия</group>
+  <date>2012-04-24 05:08</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/NO-NORTH.rar</url>
+</map>
+<map>
+  <code>NO-CENTER</code>
+  <name>Норвегия (Центральная)</name>
+  <group>Россия</group>
+  <date>2012-04-24 05:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/NO-CENTER.rar</url>
+</map>
+<map>
+  <code>NO-SOUTH</code>
+  <name>Норвегия (Южная)</name>
+  <group>Россия</group>
+  <date>2012-04-24 14:43</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/NO-SOUTH.rar</url>
+</map>
+<map>
+  <code>US-NYC</code>
+  <name>Нью-Йорк</name>
+  <group>Россия</group>
+  <date>2012-04-17 11:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/US-NYC.rar</url>
+</map>
+<map>
+  <code>AE-FULL</code>
+  <name>Объединенные Арабские Эмираты</name>
+  <group>Россия</group>
+  <date>2012-03-16 02:33</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/AE-FULL.rar</url>
+</map>
+<map>
+  <code>RU-OMS</code>
+  <name>Омская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 14:07</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-OMS.rar</url>
+</map>
+<map>
+  <code>RU-ORE</code>
+  <name>Оренбургская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 04:44</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ORE.rar</url>
+</map>
+<map>
+  <code>RU-ORL</code>
+  <name>Орловская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 04:21</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ORL.rar</url>
+</map>
+<map>
+  <code>RU-PNZ</code>
+  <name>Пензенская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 22:26</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-PNZ.rar</url>
+</map>
+<map>
+  <code>RU-PER</code>
+  <name>Пермский край</name>
+  <group>Россия</group>
+  <date>2012-04-02 21:23</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-PER.rar</url>
+</map>
+<map>
+  <code>RU-PRI</code>
+  <name>Приморский край</name>
+  <group>Россия</group>
+  <date>2012-04-13 02:57</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-PRI.rar</url>
+</map>
+<map>
+  <code>RU-PSK</code>
+  <name>Псковская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 06:17</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-PSK.rar</url>
+</map>
+<map>
+  <code>RU-AL</code>
+  <name>Республика Алтай</name>
+  <group>Россия</group>
+  <date>2012-04-03 03:02</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-AL.rar</url>
+</map>
+<map>
+  <code>MK-FULL</code>
+  <name>Республика Македония</name>
+  <group>Россия</group>
+  <date>2012-02-21 21:08</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/MK-FULL.rar</url>
+</map>
+<map>
+  <code>RU-ROS</code>
+  <name>Ростовская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 11:54</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ROS.rar</url>
+</map>
+<map>
+  <code>RO-FULL </code>
+  <name>Румыния</name>
+  <group>Россия</group>
+  <date>2012-02-21 21:12</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RO-FULL .rar</url>
+</map>
+<map>
+  <code>RU-RYA</code>
+  <name>Рязанская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 15:10</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-RYA.rar</url>
+</map>
+<map>
+  <code>RU-SAM</code>
+  <name>Самарская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 23:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SAM.rar</url>
+</map>
+<map>
+  <code>RU-SPO</code>
+  <name>Санкт-Петербург и обл.</name>
+  <group>Россия</group>
+  <date>2012-04-11 00:02</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SPO.rar</url>
+</map>
+<map>
+  <code>RU-SAR</code>
+  <name>Саратовская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 22:08</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SAR.rar</url>
+</map>
+<map>
+  <code>RU-SAK</code>
+  <name>Сахалинская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 21:09</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SAK.rar</url>
+</map>
+<map>
+  <code>RU-SE</code>
+  <name>Северная Осетия</name>
+  <group>Россия</group>
+  <date>2012-04-02 22:51</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SE.rar</url>
+</map>
+<map>
+  <code>RS-FULL</code>
+  <name>Сербия</name>
+  <group>Россия</group>
+  <date>2012-02-22 22:10</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RS-FULL.rar</url>
+</map>
+<map>
+  <code>SK-FULL</code>
+  <name>Словакия</name>
+  <group>Россия</group>
+  <date>2012-02-22 04:41</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/SK-FULL.rar</url>
+</map>
+<map>
+  <code>SI-FULL</code>
+  <name>Словения</name>
+  <group>Россия</group>
+  <date>2012-02-22 07:57</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/SI-FULL.rar</url>
+</map>
+<map>
+  <code>RU-SMO</code>
+  <name>Смоленская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 03:38</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SMO.rar</url>
+</map>
+<map>
+  <code>RU-STA</code>
+  <name>Ставропольский край</name>
+  <group>Россия</group>
+  <date>2012-04-02 16:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-STA.rar</url>
+</map>
+<map>
+  <code>TH-FULL</code>
+  <name>Таиланд</name>
+  <group>Россия</group>
+  <date>2012-01-02 16:26</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/TH-FULL.rar</url>
+</map>
+<map>
+  <code>RU-TAM</code>
+  <name>Тамбовская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 09:43</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TAM.rar</url>
+</map>
+<map>
+  <code>RU-TA</code>
+  <name>Татарстан</name>
+  <group>Россия</group>
+  <date>2012-04-08 18:10</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TA.rar</url>
+</map>
+<map>
+  <code>RU-TVE</code>
+  <name>Тверская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 18:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TVE.rar</url>
+</map>
+<map>
+  <code>RU-TOM</code>
+  <name>Томская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 03:52</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TOM.rar</url>
+</map>
+<map>
+  <code>RU-TY</code>
+  <name>Тува</name>
+  <group>Россия</group>
+  <date>2012-04-03 06:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TY.rar</url>
+</map>
+<map>
+  <code>RU-TUL</code>
+  <name>Тульская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-12 20:52</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TUL.rar</url>
+</map>
+<map>
+  <code>TR-FULL</code>
+  <name>Турция</name>
+  <group>Россия</group>
+  <date>2011-10-02 22:07</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/TR-FULL.rar</url>
+</map>
+<map>
+  <code>TR-1</code>
+  <name>Турция, Анталья</name>
+  <group>Россия</group>
+  <date>2012-03-22 03:54</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/TR-1.rar</url>
+</map>
+<map>
+  <code>RU-TYU</code>
+  <name>Тюменская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 02:42</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-TYU.rar</url>
+</map>
+<map>
+  <code>RU-UD</code>
+  <name>Удмуртия</name>
+  <group>Россия</group>
+  <date>2012-04-03 10:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-UD.rar</url>
+</map>
+<map>
+  <code>UZ-FULL</code>
+  <name>Узбекистан</name>
+  <group>Россия</group>
+  <date>2012-03-27 10:32</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/UZ-FULL.rar</url>
+</map>
+<map>
+  <code>UA-FULL</code>
+  <name>Украина</name>
+  <group>Россия</group>
+  <date>2012-01-05 04:16</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/UA-FULL.rar</url>
+</map>
+<map>
+  <code>UA-01</code>
+  <name>Украина, том 1</name>
+  <group>Россия</group>
+  <date>2012-03-27 05:17</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/UA-01.rar</url>
+</map>
+<map>
+  <code>UA-02</code>
+  <name>Украина, том 2</name>
+  <group>Россия</group>
+  <date>2012-03-27 06:38</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/UA-02.rar</url>
+</map>
+<map>
+  <code>RU-ULY</code>
+  <name>Ульяновская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-03 13:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-ULY.rar</url>
+</map>
+<map>
+  <code>FI-IS</code>
+  <name>Финляндия, Восточная Финляндия</name>
+  <group>Россия</group>
+  <date>2012-03-28 22:02</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-IS.rar</url>
+</map>
+<map>
+  <code>FI-LS</code>
+  <name>Финляндия, Западная Финляндия</name>
+  <group>Россия</group>
+  <date>2012-03-28 19:29</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-LS.rar</url>
+</map>
+<map>
+  <code>FI-LL</code>
+  <name>Финляндия, Лапландия</name>
+  <group>Россия</group>
+  <date>2012-03-28 22:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-LL.rar</url>
+</map>
+<map>
+  <code>FI-OL</code>
+  <name>Финляндия, Оулу</name>
+  <group>Россия</group>
+  <date>2012-03-27 02:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-OL.rar</url>
+</map>
+<map>
+  <code>FI-NORTH</code>
+  <name>Финляндия, Север</name>
+  <group>Россия</group>
+  <date>2012-03-27 02:30</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-NORTH.rar</url>
+</map>
+<map>
+  <code>FI-SOUTH</code>
+  <name>Финляндия, Юг</name>
+  <group>Россия</group>
+  <date>2012-03-27 08:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-SOUTH.rar</url>
+</map>
+<map>
+  <code>FI-ES</code>
+  <name>Финляндия, Южная Финляндия</name>
+  <group>Россия</group>
+  <date>2012-03-29 00:04</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FI-ES.rar</url>
+</map>
+<map>
+  <code>FR-PARIS</code>
+  <name>Франция, Париж</name>
+  <group>Россия</group>
+  <date>2012-04-21 11:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/FR-PARIS.rar</url>
+</map>
+<map>
+  <code>RU-KHA</code>
+  <name>Хабаровский край</name>
+  <group>Россия</group>
+  <date>2012-04-02 20:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KHA.rar</url>
+</map>
+<map>
+  <code>RU-KK</code>
+  <name>Хакасия</name>
+  <group>Россия</group>
+  <date>2012-04-03 03:25</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KK.rar</url>
+</map>
+<map>
+  <code>RU-KHM</code>
+  <name>Ханты-Мансийский АО</name>
+  <group>Россия</group>
+  <date>2012-04-03 15:57</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-KHM.rar</url>
+</map>
+<map>
+  <code>HR-FULL</code>
+  <name>Хорватия</name>
+  <group>Россия</group>
+  <date>2012-02-22 21:15</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/HR-FULL.rar</url>
+</map>
+<map>
+  <code>RU-CHE</code>
+  <name>Челябинская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 20:32</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-CHE.rar</url>
+</map>
+<map>
+  <code>ME-FULL</code>
+  <name>Черногория</name>
+  <group>Россия</group>
+  <date>2012-02-22 22:33</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/ME-FULL.rar</url>
+</map>
+<map>
+  <code>CZ-06</code>
+  <name>Чехия, Jihovychod </name>
+  <group>Россия</group>
+  <date>2011-08-17 01:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-06.rar</url>
+</map>
+<map>
+  <code>CZ-03</code>
+  <name>Чехия, Jihozapad </name>
+  <group>Россия</group>
+  <date>2011-08-17 03:48</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-03.rar</url>
+</map>
+<map>
+  <code>CZ-08</code>
+  <name>Чехия, Moravskoslezsko</name>
+  <group>Россия</group>
+  <date>2011-08-17 09:29</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-08.rar</url>
+</map>
+<map>
+  <code>CZ-05</code>
+  <name>Чехия, Severovychod</name>
+  <group>Россия</group>
+  <date>2011-08-17 07:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-05.rar</url>
+</map>
+<map>
+  <code>CZ-04</code>
+  <name>Чехия, Severozapad</name>
+  <group>Россия</group>
+  <date>2012-02-22 08:49</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-04.rar</url>
+</map>
+<map>
+  <code>CZ-02</code>
+  <name>Чехия, Stredni Cechy</name>
+  <group>Россия</group>
+  <date>2011-08-17 05:27</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-02.rar</url>
+</map>
+<map>
+  <code>CZ-07</code>
+  <name>Чехия, Stredni Morava </name>
+  <group>Россия</group>
+  <date>2011-08-17 16:42</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-07.rar</url>
+</map>
+<map>
+  <code>CZ-01</code>
+  <name>Чехия, Прага</name>
+  <group>Россия</group>
+  <date>2011-08-17 17:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CZ-01.rar</url>
+</map>
+<map>
+  <code>RU-CE</code>
+  <name>Чечня</name>
+  <group>Россия</group>
+  <date>2012-04-03 05:56</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-CE.rar</url>
+</map>
+<map>
+  <code>RU-CU</code>
+  <name>Чувашия</name>
+  <group>Россия</group>
+  <date>2012-04-03 15:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-CU.rar</url>
+</map>
+<map>
+  <code>RU-CHU</code>
+  <name>Чукотский АО</name>
+  <group>Россия</group>
+  <date>2012-04-03 11:43</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-CHU.rar</url>
+</map>
+<map>
+  <code>CH-2</code>
+  <name>Швейцария, Восток</name>
+  <group>Россия</group>
+  <date>2012-03-21 09:00</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CH-2.rar</url>
+</map>
+<map>
+  <code>CH-1</code>
+  <name>Швейцария, Запад</name>
+  <group>Россия</group>
+  <date>2012-03-21 06:20</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/CH-1.rar</url>
+</map>
+<map>
+  <code>SE-Gotaland</code>
+  <name>Швеция, Гёталанд</name>
+  <group>Россия</group>
+  <date>2012-05-03 00:45</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/SE-Gotaland.rar</url>
+</map>
+<map>
+  <code>SE-Norrland</code>
+  <name>Швеция, Норрланд</name>
+  <group>Россия</group>
+  <date>2012-04-24 02:53</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/SE-Norrland.rar</url>
+</map>
+<map>
+  <code>SE-Svealand</code>
+  <name>Швеция, Свеалан</name>
+  <group>Россия</group>
+  <date>2012-04-24 13:05</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/SE-Svealand.rar</url>
+</map>
+<map>
+  <code>EE-FULL</code>
+  <name>Эстония</name>
+  <group>Россия</group>
+  <date>2012-05-04 22:31</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/EE-FULL.rar</url>
+</map>
+<map>
+  <code>RU-SA</code>
+  <name>Якутия</name>
+  <group>Россия</group>
+  <date>2012-04-03 05:13</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-SA.rar</url>
+</map>
+<map>
+  <code>RU-YAN</code>
+  <name>Ямало-Ненецкий АО</name>
+  <group>Россия</group>
+  <date>2012-04-03 02:21</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-YAN.rar</url>
+</map>
+<map>
+  <code>RU-YAR</code>
+  <name>Ярославская обл.</name>
+  <group>Россия</group>
+  <date>2012-04-02 17:04</date>
+  <url>http://peirce.osm.rambler.ru/cg_maps/RU-YAR.rar</url>
+</map>
+</maplist>

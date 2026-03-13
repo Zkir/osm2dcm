@@ -1,0 +1,2442 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<maplist>
+ <map>
+  <code>AB-FULL</code>
+  <uid>340166</uid>
+  <name>Абхазия</name>
+  <name_ru>Абхазия</name_ru>
+  <date>2026-02-28 07:43</date>
+  <version>6.152</version>
+  <url>https://peirce.gis-lab.info/Maps9/AB-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-1</code>
+  <uid>340263</uid>
+  <name>Austria, Burgenland</name>
+  <name_ru>Австрия, Бургенланд</name_ru>
+  <date>2026-03-02 16:31</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-4</code>
+  <uid>340267</uid>
+  <name>Austria, Oberosterreich</name>
+  <name_ru>Австрия, Верхняя Австрия</name_ru>
+  <date>2026-03-03 03:37</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7b</code>
+  <uid>340271</uid>
+  <name>Austria, Osttirol</name>
+  <name_ru>Австрия, Восточный Тироль</name_ru>
+  <date>2026-03-03 00:11</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-7b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-5</code>
+  <uid>340268</uid>
+  <name>Austria, Salzburg</name>
+  <name_ru>Австрия, Зальцбург</name_ru>
+  <date>2026-03-02 21:17</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-2</code>
+  <uid>340264</uid>
+  <name>Austria, Karnten</name>
+  <name_ru>Австрия, Каринтия</name_ru>
+  <date>2026-03-02 18:14</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-3a</code>
+  <uid>340265</uid>
+  <name>Austria, Niederosterreich (1)</name>
+  <name_ru>Австрия, Нижняя Австрия (1)</name_ru>
+  <date>2026-03-02 20:24</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-3a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-3b</code>
+  <uid>340266</uid>
+  <name>Austria, Niederosterreich (2)</name>
+  <name_ru>Австрия, Нижняя Австрия (2)</name_ru>
+  <date>2026-03-03 03:50</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-3b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7a</code>
+  <uid>340270</uid>
+  <name>Austria, Nordtirol</name>
+  <name_ru>Австрия, Северный Тироль</name_ru>
+  <date>2026-03-03 00:55</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-7a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-8</code>
+  <uid>340272</uid>
+  <name>Austria, Vorarlberg</name>
+  <name_ru>Австрия, Форарльберг</name_ru>
+  <date>2026-03-03 01:53</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-8-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-6</code>
+  <uid>340269</uid>
+  <name>Austria, Steiermark</name>
+  <name_ru>Австрия, Штирия</name_ru>
+  <date>2026-03-03 05:54</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-OVRV</code>
+  <uid>340273</uid>
+  <name>Austria overview</name>
+  <name_ru>Австрия, обзорн.</name_ru>
+  <date>2026-03-03 06:33</date>
+  <version>6.31</version>
+  <url>https://peirce.gis-lab.info/Maps9/AT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AZ-FULL</code>
+  <uid>340168</uid>
+  <name>Azerbaijan</name>
+  <name_ru>Азербайджан</name_ru>
+  <date>2026-02-28 10:46</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/AZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AL-FULL</code>
+  <uid>340296</uid>
+  <name>Albania</name>
+  <name_ru>Албания</name_ru>
+  <date>2026-03-03 14:00</date>
+  <version>6.34</version>
+  <url>https://peirce.gis-lab.info/Maps9/AL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ALT</code>
+  <uid>340002</uid>
+  <name>Алтайский край</name>
+  <name_ru>Алтайский край</name_ru>
+  <date>2026-02-26 10:53</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ALT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AMU</code>
+  <uid>340003</uid>
+  <name>Амурская обл.</name>
+  <name_ru>Амурская обл.</name_ru>
+  <date>2026-02-26 06:46</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-AMU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AM-FULL</code>
+  <uid>340167</uid>
+  <name>Армения</name>
+  <name_ru>Армения</name_ru>
+  <date>2026-02-28 09:53</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/AM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ARK</code>
+  <uid>340004</uid>
+  <name>Архангельская обл.</name>
+  <name_ru>Архангельская обл.</name_ru>
+  <date>2026-02-26 08:05</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ARK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AST</code>
+  <uid>340005</uid>
+  <name>Астраханская обл.</name>
+  <name_ru>Астраханская обл.</name_ru>
+  <date>2026-02-26 06:32</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-AST-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-BR</code>
+  <uid>340101</uid>
+  <name>Беларусь, Брестская обл.</name>
+  <name_ru>Беларусь, Брестская обл.</name_ru>
+  <date>2026-02-27 19:54</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-BR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-VI</code>
+  <uid>340106</uid>
+  <name>Беларусь, Витебская обл.</name>
+  <name_ru>Беларусь, Витебская обл.</name_ru>
+  <date>2026-02-27 22:26</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-VI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-HO</code>
+  <uid>340102</uid>
+  <name>Беларусь, Гомельская обл.</name>
+  <name_ru>Беларусь, Гомельская обл.</name_ru>
+  <date>2026-02-27 19:37</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-HO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-HR</code>
+  <uid>340103</uid>
+  <name>Беларусь, Гродненская обл.</name>
+  <name_ru>Беларусь, Гродненская обл.</name_ru>
+  <date>2026-02-27 19:52</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-HR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-MI</code>
+  <uid>340105</uid>
+  <name>Беларусь, Минская обл.</name>
+  <name_ru>Беларусь, Минская обл.</name_ru>
+  <date>2026-02-27 22:27</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-MI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-MA</code>
+  <uid>340104</uid>
+  <name>Беларусь, Могилёвская обл.</name>
+  <name_ru>Беларусь, Могилёвская обл.</name_ru>
+  <date>2026-02-27 20:51</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-MA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-OVRV</code>
+  <uid>340107</uid>
+  <name>Беларусь, обзорн.</name>
+  <name_ru>Беларусь, обзорн.</name_ru>
+  <date>2026-02-28 03:00</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/BY-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BEL</code>
+  <uid>340007</uid>
+  <name>Белгородская обл.</name>
+  <name_ru>Белгородская обл.</name_ru>
+  <date>2026-02-26 07:59</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-BEL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BG-E</code>
+  <uid>340183</uid>
+  <name>Bulgaria, east</name>
+  <name_ru>Болгария, восток</name_ru>
+  <date>2026-02-28 16:42</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/BG-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BG-W</code>
+  <uid>340184</uid>
+  <name>Bulgaria, west</name>
+  <name_ru>Болгария, запад</name_ru>
+  <date>2026-02-28 18:07</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/BG-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BG-OVRV</code>
+  <uid>340185</uid>
+  <name>Bulgaria overview</name>
+  <name_ru>Болгария, обзорн.</name_ru>
+  <date>2026-03-01 00:00</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/BG-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BA-FULL</code>
+  <uid>340297</uid>
+  <name>Bosnia and Herzegovina</name>
+  <name_ru>Босния и Герцеговина</name_ru>
+  <date>2026-03-04 00:12</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/BA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BRY</code>
+  <uid>340008</uid>
+  <name>Брянская обл.</name>
+  <name_ru>Брянская обл.</name_ru>
+  <date>2026-02-26 08:44</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-BRY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-1</code>
+  <uid>340221</uid>
+  <name>Hungary, Transdanubia</name>
+  <name_ru>Венгрия, Задунайский край</name_ru>
+  <date>2026-03-01 10:40</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/HU-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-2</code>
+  <uid>340222</uid>
+  <name>Hungary, Great Plain and North</name>
+  <name_ru>Венгрия, Северный Альфёльд</name_ru>
+  <date>2026-03-01 11:01</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/HU-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-3</code>
+  <uid>340223</uid>
+  <name>Hungary, Central Hungary</name>
+  <name_ru>Венгрия, Центральная Венгрия</name_ru>
+  <date>2026-03-01 09:27</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/HU-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-OVRV</code>
+  <uid>340224</uid>
+  <name>Hungary overview</name>
+  <name_ru>Венгрия, обзорн.</name_ru>
+  <date>2026-03-01 23:43</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/HU-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VLA</code>
+  <uid>340078</uid>
+  <name>Владимирская обл.</name>
+  <name_ru>Владимирская обл.</name_ru>
+  <date>2026-02-27 16:02</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-VLA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VGG</code>
+  <uid>340077</uid>
+  <name>Волгоградская обл.</name>
+  <name_ru>Волгоградская обл.</name_ru>
+  <date>2026-02-27 16:22</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-VGG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VLG</code>
+  <uid>340079</uid>
+  <name>Вологодская обл.</name>
+  <name_ru>Вологодская обл.</name_ru>
+  <date>2026-02-27 16:38</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-VLG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VOR</code>
+  <uid>340080</uid>
+  <name>Воронежская обл.</name>
+  <name_ru>Воронежская обл.</name_ru>
+  <date>2026-02-27 17:25</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-VOR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-CRETE</code>
+  <uid>340288</uid>
+  <name>Greece, Crete</name>
+  <name_ru>Греция, Крит</name_ru>
+  <date>2026-03-03 10:00</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-CRETE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-OVRV</code>
+  <uid>340289</uid>
+  <name>Greece overview</name>
+  <name_ru>Греция, обзорн.</name_ru>
+  <date>2026-03-03 21:29</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-1</code>
+  <uid>340283</uid>
+  <name>Greece, part 1</name>
+  <name_ru>Греция, том 1</name_ru>
+  <date>2026-03-03 09:28</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-2</code>
+  <uid>340284</uid>
+  <name>Greece, part 2</name>
+  <name_ru>Греция, том 2</name_ru>
+  <date>2026-03-03 07:57</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-3</code>
+  <uid>340285</uid>
+  <name>Greece, part 3</name>
+  <name_ru>Греция, том 3</name_ru>
+  <date>2026-03-03 12:02</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-4</code>
+  <uid>340286</uid>
+  <name>Greece, part 4</name>
+  <name_ru>Греция, том 4</name_ru>
+  <date>2026-03-03 10:10</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-5</code>
+  <uid>340287</uid>
+  <name>Greece, part 5</name>
+  <name_ru>Греция, том 5</name_ru>
+  <date>2026-03-03 09:52</date>
+  <version>6.29</version>
+  <url>https://peirce.gis-lab.info/Maps9/GR-5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GE-FULL</code>
+  <uid>340170</uid>
+  <name>Грузия</name>
+  <name_ru>Грузия</name_ru>
+  <date>2026-02-28 12:42</date>
+  <version>6.145</version>
+  <url>https://peirce.gis-lab.info/Maps9/GE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YEV</code>
+  <uid>340083</uid>
+  <name>Еврейская автономная обл.</name>
+  <name_ru>Еврейская автономная обл.</name_ru>
+  <date>2026-02-27 16:59</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-YEV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ZAB</code>
+  <uid>340084</uid>
+  <name>Забайкальский край</name>
+  <name_ru>Забайкальский край</name_ru>
+  <date>2026-02-27 17:49</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ZAB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IVA</code>
+  <uid>340018</uid>
+  <name>Ивановская обл.</name>
+  <name_ru>Ивановская обл.</name_ru>
+  <date>2026-02-26 11:41</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-IVA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IRK</code>
+  <uid>340017</uid>
+  <name>Иркутская обл.</name>
+  <name_ru>Иркутская обл.</name_ru>
+  <date>2026-02-26 13:30</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-IRK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KB</code>
+  <uid>340020</uid>
+  <name>Кабардино-Балкарская Республика</name>
+  <name_ru>Кабардино-Балкарская Республика</name_ru>
+  <date>2026-02-26 12:27</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-10</code>
+  <uid>340140</uid>
+  <name>Казахстан, Абайская обл.</name>
+  <name_ru>Казахстан, Абайская обл.</name_ru>
+  <date>2026-02-28 04:02</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-10-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-11</code>
+  <uid>340141</uid>
+  <name>Казахстан, Акмолинская обл.</name>
+  <name_ru>Казахстан, Акмолинская обл.</name_ru>
+  <date>2026-02-28 04:24</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-11-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-15</code>
+  <uid>340142</uid>
+  <name>Казахстан, Актюбинская обл.</name>
+  <name_ru>Казахстан, Актюбинская обл.</name_ru>
+  <date>2026-02-28 04:09</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-15-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-19</code>
+  <uid>340143</uid>
+  <name>Казахстан, Алматинская обл.</name>
+  <name_ru>Казахстан, Алматинская обл.</name_ru>
+  <date>2026-02-28 05:47</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-19-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-23</code>
+  <uid>340144</uid>
+  <name>Казахстан, Атырауская обл.</name>
+  <name_ru>Казахстан, Атырауская обл.</name_ru>
+  <date>2026-02-28 04:16</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-63</code>
+  <uid>340156</uid>
+  <name>Казахстан, Восточно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Восточно-Казахстанская обл.</name_ru>
+  <date>2026-02-28 05:27</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-63-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-31</code>
+  <uid>340146</uid>
+  <name>Казахстан, Жамбылская обл.</name>
+  <name_ru>Казахстан, Жамбылская обл.</name_ru>
+  <date>2026-02-28 04:30</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-31-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-33</code>
+  <uid>340147</uid>
+  <name>Казахстан, Жетысуская обл.</name>
+  <name_ru>Казахстан, Жетысуская обл.</name_ru>
+  <date>2026-02-28 04:35</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-33-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-27</code>
+  <uid>340145</uid>
+  <name>Казахстан, Западно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Западно-Казахстанская обл.</name_ru>
+  <date>2026-02-28 04:20</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-27-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-35</code>
+  <uid>340148</uid>
+  <name>Казахстан, Карагандинская обл.</name>
+  <name_ru>Казахстан, Карагандинская обл.</name_ru>
+  <date>2026-02-28 04:40</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-35-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-39</code>
+  <uid>340149</uid>
+  <name>Казахстан, Костанайская обл.</name>
+  <name_ru>Казахстан, Костанайская обл.</name_ru>
+  <date>2026-02-28 04:40</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-39-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-43</code>
+  <uid>340150</uid>
+  <name>Казахстан, Кызылординская обл.</name>
+  <name_ru>Казахстан, Кызылординская обл.</name_ru>
+  <date>2026-02-28 04:50</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-43-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-47</code>
+  <uid>340151</uid>
+  <name>Казахстан, Мангистауская обл.</name>
+  <name_ru>Казахстан, Мангистауская обл.</name_ru>
+  <date>2026-02-28 04:51</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-47-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-55</code>
+  <uid>340152</uid>
+  <name>Казахстан, Павлодарская обл.</name>
+  <name_ru>Казахстан, Павлодарская обл.</name_ru>
+  <date>2026-02-28 04:58</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-55-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-59</code>
+  <uid>340153</uid>
+  <name>Казахстан, Северо-Казахстанская обл.</name>
+  <name_ru>Казахстан, Северо-Казахстанская обл.</name_ru>
+  <date>2026-02-28 05:06</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-59-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-61</code>
+  <uid>340154</uid>
+  <name>Казахстан, Туркестанская обл.</name>
+  <name_ru>Казахстан, Туркестанская обл.</name_ru>
+  <date>2026-02-28 06:03</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-61-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-62</code>
+  <uid>340155</uid>
+  <name>Казахстан, Улытауская обл.</name>
+  <name_ru>Казахстан, Улытауская обл.</name_ru>
+  <date>2026-02-28 05:03</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-62-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-OVRV</code>
+  <uid>340157</uid>
+  <name>Казахстан, обзорн.</name>
+  <name_ru>Казахстан, обзорн.</name_ru>
+  <date>2026-02-28 08:52</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/KZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KGD</code>
+  <uid>340025</uid>
+  <name>Калининградская обл.</name>
+  <name_ru>Калининградская обл.</name_ru>
+  <date>2026-02-26 14:07</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KGD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KLU</code>
+  <uid>340032</uid>
+  <name>Калужская обл.</name>
+  <name_ru>Калужская обл.</name_ru>
+  <date>2026-02-26 18:36</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KLU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KAM</code>
+  <uid>340019</uid>
+  <name>Камчатский край</name>
+  <name_ru>Камчатский край</name_ru>
+  <date>2026-02-26 12:40</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KC</code>
+  <uid>340021</uid>
+  <name>Карачаево-Черкесская Республика</name>
+  <name_ru>Карачаево-Черкесская Республика</name_ru>
+  <date>2026-02-26 12:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KEM</code>
+  <uid>340024</uid>
+  <name>Кемеровская обл.</name>
+  <name_ru>Кемеровская обл.</name_ru>
+  <date>2026-02-26 14:19</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KEM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KG-FULL</code>
+  <uid>340171</uid>
+  <name>Киргизия</name>
+  <name_ru>Киргизия</name_ru>
+  <date>2026-02-28 12:03</date>
+  <version>6.144</version>
+  <url>https://peirce.gis-lab.info/Maps9/KG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KIR</code>
+  <uid>340029</uid>
+  <name>Кировская обл.</name>
+  <name_ru>Кировская обл.</name_ru>
+  <date>2026-02-26 18:45</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KIR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KOS</code>
+  <uid>340034</uid>
+  <name>Костромская обл.</name>
+  <name_ru>Костромская обл.</name_ru>
+  <date>2026-02-26 18:50</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KOS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KDA-N</code>
+  <uid>340022</uid>
+  <name>Краснодарский край (Север)</name>
+  <name_ru>Краснодарский край (Север)</name_ru>
+  <date>2026-02-26 17:28</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KDA-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KDA-S</code>
+  <uid>340023</uid>
+  <name>Краснодарский край (Юг), Адыгея</name>
+  <name_ru>Краснодарский край (Юг), Адыгея</name_ru>
+  <date>2026-02-26 15:34</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KDA-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KYA</code>
+  <uid>340037</uid>
+  <name>Красноярский край</name>
+  <name_ru>Красноярский край</name_ru>
+  <date>2026-02-26 22:32</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KYA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KGN</code>
+  <uid>340026</uid>
+  <name>Курганская обл.</name>
+  <name_ru>Курганская обл.</name_ru>
+  <date>2026-02-26 14:24</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KGN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KRS</code>
+  <uid>340036</uid>
+  <name>Курская обл.</name>
+  <name_ru>Курская обл.</name_ru>
+  <date>2026-02-26 20:11</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KRS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LV-FULL</code>
+  <uid>340172</uid>
+  <name>Latvia</name>
+  <name_ru>Латвия</name_ru>
+  <date>2026-02-28 18:31</date>
+  <version>6.145</version>
+  <url>https://peirce.gis-lab.info/Maps9/LV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-LIP</code>
+  <uid>340038</uid>
+  <name>Липецкая обл.</name>
+  <name_ru>Липецкая обл.</name_ru>
+  <date>2026-02-26 20:18</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-LIP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-W</code>
+  <uid>340161</uid>
+  <name>Lithuania, west</name>
+  <name_ru>Литва, Запад</name_ru>
+  <date>2026-02-28 07:26</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/LT-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-S</code>
+  <uid>340160</uid>
+  <name>Lithuania, south</name>
+  <name_ru>Литва, Юг</name_ru>
+  <date>2026-02-28 08:35</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/LT-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-E</code>
+  <uid>340158</uid>
+  <name>Lithuania, east</name>
+  <name_ru>Литва, восток</name_ru>
+  <date>2026-02-28 08:14</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/LT-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-OVRV</code>
+  <uid>340162</uid>
+  <name>Lithuania overview</name>
+  <name_ru>Литва, обзорн.</name_ru>
+  <date>2026-02-28 14:07</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/LT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-N</code>
+  <uid>340159</uid>
+  <name>Lithuania, north</name>
+  <name_ru>Литва, север</name_ru>
+  <date>2026-02-28 06:38</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/LT-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MAG</code>
+  <uid>340039</uid>
+  <name>Магаданская обл.</name>
+  <name_ru>Магаданская обл.</name_ru>
+  <date>2026-02-26 20:37</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MAG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MD-FULL</code>
+  <uid>340180</uid>
+  <name>Moldova</name>
+  <name_ru>Молдова</name_ru>
+  <date>2026-02-28 21:05</date>
+  <version>6.145</version>
+  <url>https://peirce.gis-lab.info/Maps9/MD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MOW</code>
+  <uid>340044</uid>
+  <name>Москва г.</name>
+  <name_ru>Москва г.</name_ru>
+  <date>2026-02-26 21:51</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MOW-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MOS-E</code>
+  <uid>340042</uid>
+  <name>Московская обл. (восток)</name>
+  <name_ru>Московская обл. (восток)</name_ru>
+  <date>2026-02-27 02:46</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MOS-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MOS-W</code>
+  <uid>340043</uid>
+  <name>Московская обл. (запад)</name>
+  <name_ru>Московская обл. (запад)</name_ru>
+  <date>2026-02-27 04:43</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MOS-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MUR</code>
+  <uid>340045</uid>
+  <name>Мурманская обл.</name>
+  <name_ru>Мурманская обл.</name_ru>
+  <date>2026-02-26 22:58</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MUR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NEN</code>
+  <uid>340046</uid>
+  <name>Ненецкий АО</name>
+  <name_ru>Ненецкий АО</name_ru>
+  <date>2026-02-26 23:09</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-NEN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NIZ</code>
+  <uid>340048</uid>
+  <name>Нижегородская обл.</name>
+  <name_ru>Нижегородская обл.</name_ru>
+  <date>2026-02-27 03:03</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-NIZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NGR</code>
+  <uid>340047</uid>
+  <name>Новгородская обл.</name>
+  <name_ru>Новгородская обл.</name_ru>
+  <date>2026-02-26 23:22</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-NGR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NVS</code>
+  <uid>340049</uid>
+  <name>Новосибирская обл.</name>
+  <name_ru>Новосибирская обл.</name_ru>
+  <date>2026-02-27 02:03</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-NVS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-OMS</code>
+  <uid>340050</uid>
+  <name>Омская обл.</name>
+  <name_ru>Омская обл.</name_ru>
+  <date>2026-02-27 02:03</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-OMS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ORE</code>
+  <uid>340051</uid>
+  <name>Оренбургская обл.</name>
+  <name_ru>Оренбургская обл.</name_ru>
+  <date>2026-02-27 03:58</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ORE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ORL</code>
+  <uid>340052</uid>
+  <name>Орловская обл.</name>
+  <name_ru>Орловская обл.</name_ru>
+  <date>2026-02-27 02:43</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ORL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PNZ</code>
+  <uid>340054</uid>
+  <name>Пензенская обл.</name>
+  <name_ru>Пензенская обл.</name_ru>
+  <date>2026-02-27 03:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-PNZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PER</code>
+  <uid>340053</uid>
+  <name>Пермский край</name>
+  <name_ru>Пермский край</name_ru>
+  <date>2026-02-27 06:24</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-PER-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-28</code>
+  <uid>340245</uid>
+  <name>Poland, Warminsko-mazurskie</name>
+  <name_ru>Польша, Варминьско-Мазурское</name_ru>
+  <date>2026-03-02 08:01</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-28-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-30a</code>
+  <uid>340246</uid>
+  <name>Poland, Wielkopolskie (1)</name>
+  <name_ru>Польша, Великопольское (1)</name_ru>
+  <date>2026-03-02 11:31</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-30a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-30b</code>
+  <uid>340247</uid>
+  <name>Poland, Wielkopolskie (2)</name>
+  <name_ru>Польша, Великопольское (2)</name_ru>
+  <date>2026-03-02 10:01</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-30b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-32</code>
+  <uid>340248</uid>
+  <name>Poland, Zachodniopomorskie</name>
+  <name_ru>Польша, Западно-Поморское</name_ru>
+  <date>2026-03-02 12:25</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-32-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-04</code>
+  <uid>340227</uid>
+  <name>Poland, Kujawsko-pomorskie</name>
+  <name_ru>Польша, Куявско-Поморское</name_ru>
+  <date>2026-03-01 15:56</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-04-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-10</code>
+  <uid>340231</uid>
+  <name>Poland, Lodzkie</name>
+  <name_ru>Польша, Лодзинское</name_ru>
+  <date>2026-03-01 23:17</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-10-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-06a</code>
+  <uid>340228</uid>
+  <name>Poland, Lubelskie (1)</name>
+  <name_ru>Польша, Люблинское (1)</name_ru>
+  <date>2026-03-01 12:49</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-06a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-06b</code>
+  <uid>340229</uid>
+  <name>Poland, Lubelskie (2)</name>
+  <name_ru>Польша, Люблинское (2)</name_ru>
+  <date>2026-03-01 14:03</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-06b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-08</code>
+  <uid>340230</uid>
+  <name>Poland, Lubuskie</name>
+  <name_ru>Польша, Любуское</name_ru>
+  <date>2026-03-01 14:31</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-08-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-14a</code>
+  <uid>340234</uid>
+  <name>Poland, Mazowieckie (1)</name>
+  <name_ru>Польша, Мазовецкое (1)</name_ru>
+  <date>2026-03-01 19:00</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-14a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-14b</code>
+  <uid>340235</uid>
+  <name>Poland, Mazowieckie (2)</name>
+  <name_ru>Польша, Мазовецкое (2)</name_ru>
+  <date>2026-03-02 01:16</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-14b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-14c</code>
+  <uid>340236</uid>
+  <name>Poland, Mazowieckie (3)</name>
+  <name_ru>Польша, Мазовецкое (3)</name_ru>
+  <date>2026-03-02 00:14</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-14c-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-12a</code>
+  <uid>340232</uid>
+  <name>Poland, Malopolskie (1)</name>
+  <name_ru>Польша, Малопольское (1)</name_ru>
+  <date>2026-03-01 20:22</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-12a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-12b</code>
+  <uid>340233</uid>
+  <name>Poland, Malopolskie (2)</name>
+  <name_ru>Польша, Малопольское (2)</name_ru>
+  <date>2026-03-01 19:08</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-12b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-02a</code>
+  <uid>340225</uid>
+  <name>Poland, Dolnoslaskie (1)</name>
+  <name_ru>Польша, Нижнесилезское (1)</name_ru>
+  <date>2026-03-01 09:48</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-02a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-02b</code>
+  <uid>340226</uid>
+  <name>Poland, Dolnoslaskie (2)</name>
+  <name_ru>Польша, Нижнесилезское (2)</name_ru>
+  <date>2026-03-01 13:44</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-02b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-16</code>
+  <uid>340237</uid>
+  <name>Poland, Opolskie</name>
+  <name_ru>Польша, Опольское</name_ru>
+  <date>2026-03-01 21:51</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-16-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-18a</code>
+  <uid>340238</uid>
+  <name>Poland, Podkarpackie (1)</name>
+  <name_ru>Польша, Подкарпатское (1)</name_ru>
+  <date>2026-03-02 01:27</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-18a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-18b</code>
+  <uid>340239</uid>
+  <name>Poland, Podkarpackie (2)</name>
+  <name_ru>Польша, Подкарпатское (2)</name_ru>
+  <date>2026-03-02 01:28</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-18b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-20</code>
+  <uid>340240</uid>
+  <name>Poland, Podlaskie</name>
+  <name_ru>Польша, Подляское</name_ru>
+  <date>2026-03-02 03:30</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-20-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-22</code>
+  <uid>340241</uid>
+  <name>Poland, Pomorskie</name>
+  <name_ru>Польша, Поморское</name_ru>
+  <date>2026-03-02 08:10</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-22-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-26</code>
+  <uid>340244</uid>
+  <name>Poland, Swietokrzyskie</name>
+  <name_ru>Польша, Свентокшиское</name_ru>
+  <date>2026-03-02 06:31</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-26-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-24a</code>
+  <uid>340242</uid>
+  <name>Poland, Slaskie (1)</name>
+  <name_ru>Польша, Силезское (1)</name_ru>
+  <date>2026-03-02 06:36</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-24a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-24b</code>
+  <uid>340243</uid>
+  <name>Poland, Slaskie (2)</name>
+  <name_ru>Польша, Силезское (2)</name_ru>
+  <date>2026-03-02 07:04</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-24b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-OVRV</code>
+  <uid>340249</uid>
+  <name>Poland overview</name>
+  <name_ru>Польша, обзорн.</name_ru>
+  <date>2026-03-02 16:00</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/PL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PRI</code>
+  <uid>340055</uid>
+  <name>Приморский край</name>
+  <name_ru>Приморский край</name_ru>
+  <date>2026-02-27 05:16</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-PRI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PSK</code>
+  <uid>340056</uid>
+  <name>Псковская обл.</name>
+  <name_ru>Псковская обл.</name_ru>
+  <date>2026-02-27 05:40</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-PSK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AL</code>
+  <uid>340001</uid>
+  <name>Республика Алтай</name>
+  <name_ru>Республика Алтай</name_ru>
+  <date>2026-02-26 07:52</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-AL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BA</code>
+  <uid>340006</uid>
+  <name>Республика Башкортостан</name>
+  <name_ru>Республика Башкортостан</name_ru>
+  <date>2026-02-26 11:39</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-BA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BU</code>
+  <uid>340009</uid>
+  <name>Республика Бурятия</name>
+  <name_ru>Республика Бурятия</name_ru>
+  <date>2026-02-26 08:44</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-BU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-DA</code>
+  <uid>340015</uid>
+  <name>Республика Дагестан</name>
+  <name_ru>Республика Дагестан</name_ru>
+  <date>2026-02-26 12:35</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-DA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IN</code>
+  <uid>340016</uid>
+  <name>Республика Ингушетия</name>
+  <name_ru>Республика Ингушетия</name_ru>
+  <date>2026-02-26 10:43</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-IN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KL</code>
+  <uid>340031</uid>
+  <name>Республика Калмыкия</name>
+  <name_ru>Республика Калмыкия</name_ru>
+  <date>2026-02-26 17:04</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KR</code>
+  <uid>340035</uid>
+  <name>Республика Карелия</name>
+  <name_ru>Республика Карелия</name_ru>
+  <date>2026-02-26 22:32</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KO</code>
+  <uid>340033</uid>
+  <name>Республика Коми</name>
+  <name_ru>Республика Коми</name_ru>
+  <date>2026-02-26 19:12</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CR</code>
+  <uid>340013</uid>
+  <name>Республика Крым</name>
+  <name_ru>Республика Крым</name_ru>
+  <date>2026-02-26 10:17</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-CR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ME</code>
+  <uid>340040</uid>
+  <name>Республика Марий Эл</name>
+  <name_ru>Республика Марий Эл</name_ru>
+  <date>2026-02-26 21:17</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ME-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MO</code>
+  <uid>340041</uid>
+  <name>Республика Мордовия</name>
+  <name_ru>Республика Мордовия</name_ru>
+  <date>2026-02-26 21:44</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-MO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SA</code>
+  <uid>340059</uid>
+  <name>Республика Саха (Якутия)</name>
+  <name_ru>Республика Саха (Якутия)</name_ru>
+  <date>2026-02-27 08:45</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SE</code>
+  <uid>340063</uid>
+  <name>Республика Северная Осетия</name>
+  <name_ru>Республика Северная Осетия</name_ru>
+  <date>2026-02-27 07:07</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TA</code>
+  <uid>340068</uid>
+  <name>Республика Татарстан</name>
+  <name_ru>Республика Татарстан</name_ru>
+  <date>2026-02-27 13:00</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TY</code>
+  <uid>340073</uid>
+  <name>Республика Тыва</name>
+  <name_ru>Республика Тыва</name_ru>
+  <date>2026-02-27 12:08</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KK</code>
+  <uid>340030</uid>
+  <name>Республика Хакасия</name>
+  <name_ru>Республика Хакасия</name_ru>
+  <date>2026-02-26 16:07</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-OVRV</code>
+  <uid>340090</uid>
+  <name>Россия, обзорн.</name>
+  <name_ru>Россия, обзорн.</name_ru>
+  <date>2026-02-28 00:04</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ROS</code>
+  <uid>340057</uid>
+  <name>Ростовская обл.</name>
+  <name_ru>Ростовская обл.</name_ru>
+  <date>2026-02-27 08:49</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ROS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-1</code>
+  <uid>340250</uid>
+  <name>Romania, (1)</name>
+  <name_ru>Румыния (1)</name_ru>
+  <date>2026-03-02 11:38</date>
+  <version>6.39</version>
+  <url>https://peirce.gis-lab.info/Maps9/RO-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-2</code>
+  <uid>340251</uid>
+  <name>Romania, (2)</name>
+  <name_ru>Румыния (2)</name_ru>
+  <date>2026-03-02 11:15</date>
+  <version>6.39</version>
+  <url>https://peirce.gis-lab.info/Maps9/RO-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-3</code>
+  <uid>340252</uid>
+  <name>Romania, (3)</name>
+  <name_ru>Румыния (3)</name_ru>
+  <date>2026-03-02 15:36</date>
+  <version>6.39</version>
+  <url>https://peirce.gis-lab.info/Maps9/RO-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-4</code>
+  <uid>340253</uid>
+  <name>Romania, (4)</name>
+  <name_ru>Румыния (4)</name_ru>
+  <date>2026-03-02 14:15</date>
+  <version>6.39</version>
+  <url>https://peirce.gis-lab.info/Maps9/RO-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-OVRV</code>
+  <uid>340254</uid>
+  <name>Romania overview</name>
+  <name_ru>Румыния, обзорн.</name_ru>
+  <date>2026-03-02 21:49</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/RO-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-RYA</code>
+  <uid>340058</uid>
+  <name>Рязанская обл.</name>
+  <name_ru>Рязанская обл.</name_ru>
+  <date>2026-02-27 05:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-RYA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAM</code>
+  <uid>340061</uid>
+  <name>Самарская обл.</name>
+  <name_ru>Самарская обл.</name_ru>
+  <date>2026-02-27 08:26</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SPO</code>
+  <uid>340065</uid>
+  <name>Санкт-Петербург и обл.</name>
+  <name_ru>Санкт-Петербург и обл.</name_ru>
+  <date>2026-02-27 20:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SPO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAR</code>
+  <uid>340062</uid>
+  <name>Саратовская обл.</name>
+  <name_ru>Саратовская обл.</name_ru>
+  <date>2026-02-27 08:50</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SAR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAK</code>
+  <uid>340060</uid>
+  <name>Сахалинская обл.</name>
+  <name_ru>Сахалинская обл.</name_ru>
+  <date>2026-02-27 06:30</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SAK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SVE</code>
+  <uid>340067</uid>
+  <name>Свердловская обл.</name>
+  <name_ru>Свердловская обл.</name_ru>
+  <date>2026-02-27 13:38</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SVE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MK-FULL</code>
+  <uid>340300</uid>
+  <name>North Macedonia</name>
+  <name_ru>Северная Македония</name_ru>
+  <date>2026-03-03 19:59</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/MK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-OVRV</code>
+  <uid>340292</uid>
+  <name>Serbia (cyr), overview</name>
+  <name_ru>Сербия (кир), обзорн.</name_ru>
+  <date>2026-03-04 18:16</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-N</code>
+  <uid>340290</uid>
+  <name>Serbia (cyr), North</name>
+  <name_ru>Сербия (кир), север</name_ru>
+  <date>2026-03-03 17:29</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-S</code>
+  <uid>340291</uid>
+  <name>Serbia (cyr), South</name>
+  <name_ru>Сербия (кир), юг</name_ru>
+  <date>2026-03-04 00:36</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-OVRV-L</code>
+  <uid>340295</uid>
+  <name>Serbia (lat), overview</name>
+  <name_ru>Сербия (лат), обзорн.</name_ru>
+  <date>2026-03-04 18:17</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-OVRV-L-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-N-L</code>
+  <uid>340293</uid>
+  <name>Serbia (lat), North</name>
+  <name_ru>Сербия (лат), север</name_ru>
+  <date>2026-03-03 18:03</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-N-L-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-S-L</code>
+  <uid>340294</uid>
+  <name>Serbia (lat), South</name>
+  <name_ru>Сербия (лат), юг</name_ru>
+  <date>2026-03-04 00:34</date>
+  <version>6.25</version>
+  <url>https://peirce.gis-lab.info/Maps9/RS-S-L-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-E</code>
+  <uid>340260</uid>
+  <name>Slovakia, Eastern</name>
+  <name_ru>Словакия, Восточная</name_ru>
+  <date>2026-03-02 19:01</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SK-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-W</code>
+  <uid>340261</uid>
+  <name>Slovakia, Western</name>
+  <name_ru>Словакия, Западная</name_ru>
+  <date>2026-03-02 23:52</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SK-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-C</code>
+  <uid>340259</uid>
+  <name>Slovakia, Central</name>
+  <name_ru>Словакия, Центральная</name_ru>
+  <date>2026-03-02 19:21</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SK-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-OVRV</code>
+  <uid>340262</uid>
+  <name>Slovakia overview</name>
+  <name_ru>Словакия, обзорн.</name_ru>
+  <date>2025-06-05 09:43</date>
+  <version>6.35</version>
+  <url>https://peirce.gis-lab.info/Maps9/SK-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-E</code>
+  <uid>340256</uid>
+  <name>Slovenia East</name>
+  <name_ru>Словения Восточная</name_ru>
+  <date>2026-03-02 14:43</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SI-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-W</code>
+  <uid>340255</uid>
+  <name>Slovenia West</name>
+  <name_ru>Словения Западная</name_ru>
+  <date>2026-03-02 14:49</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SI-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-S</code>
+  <uid>340257</uid>
+  <name>Slovenia South</name>
+  <name_ru>Словения Южная</name_ru>
+  <date>2026-03-02 15:25</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SI-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-OVRV</code>
+  <uid>340258</uid>
+  <name>Slovenia overview</name>
+  <name_ru>Словения, обзорн.</name_ru>
+  <date>2026-03-03 00:24</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/SI-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SMO</code>
+  <uid>340064</uid>
+  <name>Смоленская обл.</name>
+  <name_ru>Смоленская обл.</name_ru>
+  <date>2026-02-27 08:44</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-SMO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-STA</code>
+  <uid>340066</uid>
+  <name>Ставропольский край</name>
+  <name_ru>Ставропольский край</name_ru>
+  <date>2026-02-27 10:30</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-STA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TJ-FULL</code>
+  <uid>340181</uid>
+  <name>Таджикистан</name>
+  <name_ru>Таджикистан</name_ru>
+  <date>2026-02-28 13:45</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/TJ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-B</code>
+  <uid>340274</uid>
+  <name>Thailand, Bangkok</name>
+  <name_ru>Таиланд, Бангкок</name_ru>
+  <date>2026-03-03 05:49</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-B-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-E</code>
+  <uid>340276</uid>
+  <name>Thailand, East</name>
+  <name_ru>Таиланд, восток</name_ru>
+  <date>2026-03-03 05:51</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-W</code>
+  <uid>340281</uid>
+  <name>Thailand, West</name>
+  <name_ru>Таиланд, запад</name_ru>
+  <date>2026-03-03 09:17</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-OVRV</code>
+  <uid>340282</uid>
+  <name>Thailand overview</name>
+  <name_ru>Таиланд, обзорн.</name_ru>
+  <date>2026-03-03 20:56</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-N</code>
+  <uid>340277</uid>
+  <name>Thailand, North</name>
+  <name_ru>Таиланд, север</name_ru>
+  <date>2026-03-03 06:57</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-NE</code>
+  <uid>340278</uid>
+  <name>Thailand, North-East</name>
+  <name_ru>Таиланд, северо-восток</name_ru>
+  <date>2026-03-03 06:55</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-NE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-C</code>
+  <uid>340275</uid>
+  <name>Thailand, Central</name>
+  <name_ru>Таиланд, центр</name_ru>
+  <date>2026-03-03 05:38</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-S</code>
+  <uid>340279</uid>
+  <name>Thailand, South</name>
+  <name_ru>Таиланд, юг</name_ru>
+  <date>2026-03-03 08:55</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-SE</code>
+  <uid>340280</uid>
+  <name>Thailand, South-East</name>
+  <name_ru>Таиланд, юго-восток</name_ru>
+  <date>2026-03-03 07:49</date>
+  <version>6.28</version>
+  <url>https://peirce.gis-lab.info/Maps9/TH-SE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TAM</code>
+  <uid>340069</uid>
+  <name>Тамбовская обл.</name>
+  <name_ru>Тамбовская обл.</name_ru>
+  <date>2026-02-27 09:53</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TVE</code>
+  <uid>340072</uid>
+  <name>Тверская обл.</name>
+  <name_ru>Тверская обл.</name_ru>
+  <date>2026-02-27 13:48</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TVE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TOM</code>
+  <uid>340070</uid>
+  <name>Томская обл.</name>
+  <name_ru>Томская обл.</name_ru>
+  <date>2026-02-27 10:47</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TOM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TUL</code>
+  <uid>340071</uid>
+  <name>Тульская обл.</name>
+  <name_ru>Тульская обл.</name_ru>
+  <date>2026-02-27 11:38</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TUL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TM-FULL</code>
+  <uid>340182</uid>
+  <name>Turkmenistan</name>
+  <name_ru>Туркменистан</name_ru>
+  <date>2026-02-28 13:40</date>
+  <version>6.145</version>
+  <url>https://peirce.gis-lab.info/Maps9/TM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TYU</code>
+  <uid>340074</uid>
+  <name>Тюменская обл.</name>
+  <name_ru>Тюменская обл.</name_ru>
+  <date>2026-02-27 13:51</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-TYU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-UD</code>
+  <uid>340075</uid>
+  <name>Удмуртская Республика</name>
+  <name_ru>Удмуртская Республика</name_ru>
+  <date>2026-02-27 14:51</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-UD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UZ-E</code>
+  <uid>340163</uid>
+  <name>Узбекистан, восток</name>
+  <name_ru>Узбекистан, восток</name_ru>
+  <date>2026-02-28 10:02</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/UZ-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UZ-W</code>
+  <uid>340164</uid>
+  <name>Узбекистан, запад</name>
+  <name_ru>Узбекистан, запад</name_ru>
+  <date>2026-02-28 09:17</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/UZ-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UZ-OVRV</code>
+  <uid>340165</uid>
+  <name>Узбекистан, обзорн.</name>
+  <name_ru>Узбекистан, обзорн.</name_ru>
+  <date>2026-02-28 13:50</date>
+  <version>6.146</version>
+  <url>https://peirce.gis-lab.info/Maps9/UZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-05</code>
+  <uid>340110</uid>
+  <name>Украина, Винницкая обл.</name>
+  <name_ru>Украина, Винницкая обл.</name_ru>
+  <date>2026-02-27 21:55</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-05-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-07</code>
+  <uid>340111</uid>
+  <name>Украина, Волынская обл.</name>
+  <name_ru>Украина, Волынская обл.</name_ru>
+  <date>2026-02-27 21:45</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-07-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-12</code>
+  <uid>340112</uid>
+  <name>Украина, Днепропетровская обл.</name>
+  <name_ru>Украина, Днепропетровская обл.</name_ru>
+  <date>2026-02-27 23:43</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-12-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-14</code>
+  <uid>340113</uid>
+  <name>Украина, Донецкая обл.</name>
+  <name_ru>Украина, Донецкая обл.</name_ru>
+  <date>2026-02-28 00:21</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-14-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-18</code>
+  <uid>340114</uid>
+  <name>Украина, Житомирская обл.</name>
+  <name_ru>Украина, Житомирская обл.</name_ru>
+  <date>2026-02-27 23:11</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-18-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-21</code>
+  <uid>340115</uid>
+  <name>Украина, Закарпатская обл.</name>
+  <name_ru>Украина, Закарпатская обл.</name_ru>
+  <date>2026-02-27 23:44</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-21-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-23</code>
+  <uid>340116</uid>
+  <name>Украина, Запорожская обл.</name>
+  <name_ru>Украина, Запорожская обл.</name_ru>
+  <date>2026-02-27 23:52</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-26</code>
+  <uid>340117</uid>
+  <name>Украина, Ивано-Франковская обл.</name>
+  <name_ru>Украина, Ивано-Франковская обл.</name_ru>
+  <date>2026-02-28 00:46</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-26-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-32</code>
+  <uid>340118</uid>
+  <name>Украина, Киевская обл.</name>
+  <name_ru>Украина, Киевская обл.</name_ru>
+  <date>2026-02-28 02:57</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-32-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-35</code>
+  <uid>340119</uid>
+  <name>Украина, Кировоградская обл.</name>
+  <name_ru>Украина, Кировоградская обл.</name_ru>
+  <date>2026-02-28 00:36</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-35-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-09</code>
+  <uid>340120</uid>
+  <name>Украина, Луганская обл.</name>
+  <name_ru>Украина, Луганская обл.</name_ru>
+  <date>2026-02-28 01:17</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-09-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-46</code>
+  <uid>340121</uid>
+  <name>Украина, Львовская обл.</name>
+  <name_ru>Украина, Львовская обл.</name_ru>
+  <date>2026-02-28 02:46</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-46-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-48</code>
+  <uid>340122</uid>
+  <name>Украина, Николаевская обл.</name>
+  <name_ru>Украина, Николаевская обл.</name_ru>
+  <date>2026-02-28 01:22</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-48-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-51</code>
+  <uid>340123</uid>
+  <name>Украина, Одесская обл.</name>
+  <name_ru>Украина, Одесская обл.</name_ru>
+  <date>2026-02-28 01:53</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-51-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-53</code>
+  <uid>340124</uid>
+  <name>Украина, Полтавская обл.</name>
+  <name_ru>Украина, Полтавская обл.</name_ru>
+  <date>2026-02-28 02:15</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-53-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-56</code>
+  <uid>340125</uid>
+  <name>Украина, Ровенская обл.</name>
+  <name_ru>Украина, Ровенская обл.</name_ru>
+  <date>2026-02-28 02:07</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-56-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-59</code>
+  <uid>340126</uid>
+  <name>Украина, Сумская обл.</name>
+  <name_ru>Украина, Сумская обл.</name_ru>
+  <date>2026-02-28 02:31</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-59-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-61</code>
+  <uid>340127</uid>
+  <name>Украина, Тернопольская обл.</name>
+  <name_ru>Украина, Тернопольская обл.</name_ru>
+  <date>2026-02-28 02:58</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-61-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-63</code>
+  <uid>340128</uid>
+  <name>Украина, Харьковская обл.</name>
+  <name_ru>Украина, Харьковская обл.</name_ru>
+  <date>2026-02-28 04:10</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-63-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-65</code>
+  <uid>340129</uid>
+  <name>Украина, Херсонская обл.</name>
+  <name_ru>Украина, Херсонская обл.</name_ru>
+  <date>2026-02-28 03:10</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-65-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-68</code>
+  <uid>340130</uid>
+  <name>Украина, Хмельницкая обл.</name>
+  <name_ru>Украина, Хмельницкая обл.</name_ru>
+  <date>2026-02-28 03:47</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-68-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-71</code>
+  <uid>340131</uid>
+  <name>Украина, Черкасская обл.</name>
+  <name_ru>Украина, Черкасская обл.</name_ru>
+  <date>2026-02-28 03:58</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-71-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-74</code>
+  <uid>340132</uid>
+  <name>Украина, Черниговская обл.</name>
+  <name_ru>Украина, Черниговская обл.</name_ru>
+  <date>2026-02-28 03:41</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-74-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-77</code>
+  <uid>340133</uid>
+  <name>Украина, Черновицкая обл.</name>
+  <name_ru>Украина, Черновицкая обл.</name_ru>
+  <date>2026-02-28 03:54</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-77-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-OVRV</code>
+  <uid>340134</uid>
+  <name>Украина, обзорн.</name>
+  <name_ru>Украина, обзорн.</name_ru>
+  <date>2026-02-28 05:02</date>
+  <version>6.149</version>
+  <url>https://peirce.gis-lab.info/Maps9/UA-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ULY</code>
+  <uid>340076</uid>
+  <name>Ульяновская обл.</name>
+  <name_ru>Ульяновская обл.</name_ru>
+  <date>2026-02-27 14:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-ULY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-01</code>
+  <uid>340201</uid>
+  <name>Finland, Aland</name>
+  <name_ru>Финляндия, Аландские о-ва</name_ru>
+  <date>2026-03-01 00:33</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-01-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-19</code>
+  <uid>340219</uid>
+  <name>Finland, Varsinais-Suomi</name>
+  <name_ru>Финляндия, Исконная Финляндия</name_ru>
+  <date>2026-03-01 05:51</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-19-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-05</code>
+  <uid>340205</uid>
+  <name>Finland, Kainuu</name>
+  <name_ru>Финляндия, Кайнуу</name_ru>
+  <date>2026-03-01 01:20</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-05-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-06</code>
+  <uid>340206</uid>
+  <name>Finland, Kanta-Hame</name>
+  <name_ru>Финляндия, Канта-Хяме</name_ru>
+  <date>2026-03-01 01:10</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-06-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-09</code>
+  <uid>340209</uid>
+  <name>Finland, Kymenlaakso</name>
+  <name_ru>Финляндия, Кюменлааксо</name_ru>
+  <date>2026-03-01 01:54</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-09-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-10</code>
+  <uid>340211</uid>
+  <name>Finland, Lappi</name>
+  <name_ru>Финляндия, Лапландия</name_ru>
+  <date>2026-03-01 02:58</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-10-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-11</code>
+  <uid>340212</uid>
+  <name>Finland, Pirkanmaa</name>
+  <name_ru>Финляндия, Пирканмаа</name_ru>
+  <date>2026-03-01 02:49</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-11-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-12</code>
+  <uid>340213</uid>
+  <name>Finland, Pohjanmaa</name>
+  <name_ru>Финляндия, Похьянмаа</name_ru>
+  <date>2026-03-01 02:53</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-12-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-16</code>
+  <uid>340216</uid>
+  <name>Finland, Paijat-Hame</name>
+  <name_ru>Финляндия, Пяйят-Хяме</name_ru>
+  <date>2026-03-01 03:35</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-16-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-17</code>
+  <uid>340217</uid>
+  <name>Finland, Satakunta</name>
+  <name_ru>Финляндия, Сатакунта</name_ru>
+  <date>2026-03-01 03:59</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-17-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-13</code>
+  <uid>340210</uid>
+  <name>Finland, Pohjois-Karjala</name>
+  <name_ru>Финляндия, Северная Карелия</name_ru>
+  <date>2026-03-01 05:30</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-13-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-14</code>
+  <uid>340214</uid>
+  <name>Finland, Pohjois-Pohjanmaa</name>
+  <name_ru>Финляндия, Северная Похьянмаа</name_ru>
+  <date>2026-03-01 03:06</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-14-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-15</code>
+  <uid>340215</uid>
+  <name>Finland, Pohjois-Savo</name>
+  <name_ru>Финляндия, Северное Саво</name_ru>
+  <date>2026-03-01 03:33</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-15-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-18</code>
+  <uid>340218</uid>
+  <name>Finland, Uusimaa</name>
+  <name_ru>Финляндия, Уусимаа</name_ru>
+  <date>2026-03-01 09:23</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-18-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-07</code>
+  <uid>340207</uid>
+  <name>Finland, Keski-Pohjanmaa</name>
+  <name_ru>Финляндия, Центральная Остроботния</name_ru>
+  <date>2026-03-01 01:18</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-07-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-08</code>
+  <uid>340208</uid>
+  <name>Finland, Keski-Suomi</name>
+  <name_ru>Финляндия, Центральная Финляндия</name_ru>
+  <date>2026-03-01 01:51</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-08-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-02</code>
+  <uid>340202</uid>
+  <name>Finland, Etela-Karjala</name>
+  <name_ru>Финляндия, Южная Карелия</name_ru>
+  <date>2026-03-01 01:02</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-02-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-03</code>
+  <uid>340203</uid>
+  <name>Finland, Etela-Pohjanmaa</name>
+  <name_ru>Финляндия, Южная Остроботния</name_ru>
+  <date>2026-03-01 00:37</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-03-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-04</code>
+  <uid>340204</uid>
+  <name>Finland, Etela-Savo</name>
+  <name_ru>Финляндия, Южное Саво</name_ru>
+  <date>2026-03-01 01:31</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-04-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-OVRV</code>
+  <uid>340220</uid>
+  <name>Finland overview</name>
+  <name_ru>Финляндия, обзорн.</name_ru>
+  <date>2026-03-01 11:32</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/FI-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KHA</code>
+  <uid>340027</uid>
+  <name>Хабаровский край</name>
+  <name_ru>Хабаровский край</name_ru>
+  <date>2026-02-26 16:37</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KHA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KHM</code>
+  <uid>340028</uid>
+  <name>Ханты-Мансийский АО</name>
+  <name_ru>Ханты-Мансийский АО</name_ru>
+  <date>2026-02-26 18:10</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-KHM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HR-FULL</code>
+  <uid>340298</uid>
+  <name>Croatia</name>
+  <name_ru>Хорватия</name_ru>
+  <date>2026-03-04 05:30</date>
+  <version>6.41</version>
+  <url>https://peirce.gis-lab.info/Maps9/HR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CHE</code>
+  <uid>340011</uid>
+  <name>Челябинская обл.</name>
+  <name_ru>Челябинская обл.</name_ru>
+  <date>2026-02-26 12:49</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-CHE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ME-FULL</code>
+  <uid>340299</uid>
+  <name>Montenegro</name>
+  <name_ru>Черногория</name_ru>
+  <date>2026-03-03 19:04</date>
+  <version>6.40</version>
+  <url>https://peirce.gis-lab.info/Maps9/ME-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-ZL</code>
+  <uid>340199</uid>
+  <name>Czech, Zlinsky kraj   </name>
+  <name_ru>Чехия Злинский край </name_ru>
+  <date>2026-03-01 00:02</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-ZL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-KA</code>
+  <uid>340188</uid>
+  <name>Czech, Karlovarsky kraj</name>
+  <name_ru>Чехия Карловарский край</name_ru>
+  <date>2026-02-28 19:00</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-KA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-VY</code>
+  <uid>340198</uid>
+  <name>Czech, Kraj Vysocina</name>
+  <name_ru>Чехия Край Высочина</name_ru>
+  <date>2026-02-28 23:58</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-VY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-KR</code>
+  <uid>340189</uid>
+  <name>Czech, Kralovehradecky kraj</name>
+  <name_ru>Чехия Краловеградецкий край</name_ru>
+  <date>2026-02-28 20:18</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-KR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-LI</code>
+  <uid>340190</uid>
+  <name>Czech, Liberecky kraj</name>
+  <name_ru>Чехия Либерецкий край</name_ru>
+  <date>2026-02-28 20:21</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-LI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-MO</code>
+  <uid>340191</uid>
+  <name>Czech, Moravskoslezsky kraj</name>
+  <name_ru>Чехия Моравскосилезский край</name_ru>
+  <date>2026-02-28 21:50</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-MO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-OL</code>
+  <uid>340192</uid>
+  <name>Czech, Olomoucky kraj</name>
+  <name_ru>Чехия Оломоуцкий край</name_ru>
+  <date>2026-02-28 22:01</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-OL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-PA</code>
+  <uid>340193</uid>
+  <name>Czech, Pardubicky kraj</name>
+  <name_ru>Чехия Пардубицкий край</name_ru>
+  <date>2026-02-28 21:53</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-PA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-PL</code>
+  <uid>340194</uid>
+  <name>Czech, Plzensky kraj</name>
+  <name_ru>Чехия Пльзенский край</name_ru>
+  <date>2026-02-28 22:29</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-PL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-ST1</code>
+  <uid>340195</uid>
+  <name>Czech, Stredocesky kraj (1)</name>
+  <name_ru>Чехия Среднечешский край (1)</name_ru>
+  <date>2026-03-01 01:23</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-ST1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-ST2</code>
+  <uid>340196</uid>
+  <name>Czech, Stredocesky kraj (2)</name>
+  <name_ru>Чехия Среднечешский край (2)</name_ru>
+  <date>2026-03-01 00:31</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-ST2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-US</code>
+  <uid>340197</uid>
+  <name>Czech, Ustecky kraj</name>
+  <name_ru>Чехия Устецкий край</name_ru>
+  <date>2026-02-28 23:47</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-US-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-JM</code>
+  <uid>340187</uid>
+  <name>Czech, Jihomoravsky kraj</name>
+  <name_ru>Чехия Южноморавский край</name_ru>
+  <date>2026-02-28 20:13</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-JM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-JC</code>
+  <uid>340186</uid>
+  <name>Czech, Jihocesky kraj</name>
+  <name_ru>Чехия Южночешский край</name_ru>
+  <date>2026-02-28 19:21</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-JC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-OVRV</code>
+  <uid>340200</uid>
+  <name>Czech Republic</name>
+  <name_ru>Чехия, обзорн.</name_ru>
+  <date>2026-03-01 03:24</date>
+  <version>6.38</version>
+  <url>https://peirce.gis-lab.info/Maps9/CZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CE</code>
+  <uid>340010</uid>
+  <name>Чеченская Республика</name>
+  <name_ru>Чеченская Республика</name_ru>
+  <date>2026-02-26 08:37</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-CE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CU</code>
+  <uid>340014</uid>
+  <name>Чувашская Республика</name>
+  <name_ru>Чувашская Республика</name_ru>
+  <date>2026-02-26 10:28</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-CU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CHU</code>
+  <uid>340012</uid>
+  <name>Чукотский АО</name>
+  <name_ru>Чукотский АО</name_ru>
+  <date>2026-02-26 09:20</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-CHU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EE-FULL</code>
+  <uid>340169</uid>
+  <name>Estonia</name>
+  <name_ru>Эстония</name_ru>
+  <date>2026-02-28 15:59</date>
+  <version>6.142</version>
+  <url>https://peirce.gis-lab.info/Maps9/EE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YAN</code>
+  <uid>340081</uid>
+  <name>Ямало-Ненецкий АО</name>
+  <name_ru>Ямало-Ненецкий АО</name_ru>
+  <date>2026-02-27 17:11</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-YAN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YAR</code>
+  <uid>340082</uid>
+  <name>Ярославская обл.</name>
+  <name_ru>Ярославская обл.</name_ru>
+  <date>2026-02-27 17:56</date>
+  <version>6.147</version>
+  <url>https://peirce.gis-lab.info/Maps9/RU-YAR-OSM.cgnet</url>
+ </map>
+</maplist>

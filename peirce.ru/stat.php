@@ -10,7 +10,8 @@ require_once("include/misc_utils.php");
   $zPage->title="Cтатистика";
   $zPage->header="Cтатистика";
 
-  $xml = simplexml_load_file("statistics.xml"); //Интерпретирует XML-файл в объект
+  $xml = simplexml_load_file("http://peirce.gis-lab.ru/statistics.xml"); //Интерпретирует XML-файл в объект
+//  $xml = simplexml_load_file("statistics.xml"); //Интерпретирует XML-файл в объект
 
   $zPage->WriteHtml( "<H1>Статистика (данные OSM)</H1>");
   $zPage->WriteHtml( '<p>   На этой странице приведены основные статистические данные по исходным данным OSM
@@ -74,11 +75,11 @@ require([
   $zPage->WriteHtml('<P>И между прочим, таблица сортируется. Нужно кликнуть на заголовок столбца. Описание столбцов <a href="#descr">см. ниже</a>. </P>');
   PrintStatistics ($xml,'Россия');
   
-  $zPage->WriteHtml( "<H2>Ближнее зарубежье </H2>");  
-  PrintStatistics ($xml,"Ближнее Зарубежье");
+  $zPage->WriteHtml( "<H2>Европа </H2>");  
+  PrintStatistics ($xml,"Европа");
 
-  $zPage->WriteHtml( "<H2>Дальнее зарубежье </H2>");
-  PrintStatistics ($xml,"Дальнее Зарубежье");
+  $zPage->WriteHtml( "<H2>Остальной мир</H2>");
+  PrintStatistics ($xml,"Остальной мир");
   
 
   

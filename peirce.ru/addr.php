@@ -68,7 +68,7 @@ require_once("include/misc_utils.php");
     case 'qa_summary':         
     default:
       
-      if(($mapid!="")and($mapid!="RU")and($mapid!="CIS") and ($mapid!="WORLD") and (strlen($mapid)!=2) )
+      if(($mapid!="")and($mapid!="RU")and($mapid!="EUROPE")and($mapid!="ASIA") and ($mapid!="WORLD") and (strlen($mapid)!=2) )
       {
   	    $zPage->title="Контроль качества  - $mapid";
         $zPage->header="Контроль качества - $mapid";
@@ -89,11 +89,14 @@ require_once("include/misc_utils.php");
         $zPage->header="Контроль качества - сводка по регионам";
         
         $MapGroupName="Россия";
-        if ($mapid=="CIS")
-        {$MapGroupName="Ближнее Зарубежье";}
+        if ($mapid=="ASIA")
+        {$MapGroupName="Азия";}
+        
+        if ($mapid=="EUROPE")
+        {$MapGroupName="Европа";}
         
         if ($mapid=="WORLD")
-        {$MapGroupName="Дальнее Зарубежье";}
+        {$MapGroupName="Остальной мир";}
         
         if (strlen($mapid)==2)
         {$MapGroupName=$mapid;}	
@@ -126,6 +129,19 @@ function GetXmlFileName($mapid)
 {
   return "ADDR_CHK/".$mapid.".mp_addr.xml";
 }
+
+function GetXmlFileNameSummary($mapid)
+{
+  if (file_exists("ADDR_CHK/".$mapid.".mp_summary.xml"))
+  {
+    return "ADDR_CHK/".$mapid.".mp_summary.xml";
+  }
+  else
+  {	  	  
+    return "ADDR_CHK/".$mapid.".mp_addr.xml";
+  }
+  
+}	
 function GetHWCXmlFileName($mapid)
 {
   return "ADDR_CHK/".$mapid.".hwconstr_chk.xml";
@@ -445,7 +461,7 @@ function PrintQADetailsPageRss($mapid)
   $zPage->WriteHtml("<p/>" );
   
   //Cтатистика
-  PrintStatistics($objStatRecord,$xml);
+  PrintStatistics($objStatRecord,$xml,$strMapName);
 
 }	
 
@@ -455,8 +471,11 @@ function PrintQADetailsPage($mapid, $errtype)
   global $blnCityBoundaryTestApplicable;
   
   $zPage->WriteHtml( '<h1>'.sprintf(_('Контроль качества (%s)'),$mapid).'</h1>');
-  
-  $xml = simplexml_load_file(GetXmlFileName($mapid));
+
+//libxml_use_internal_errors(true);
+  $xml = simplexml_load_file($fname = GetXmlFileName($mapid));
+//  print_r("!?! $fname"); var_dump($xml);
+//  print_r(libxml_get_errors());
   if (file_exists(GetHWCXmlFileName($mapid)))
     $xml1 = simplexml_load_file(GetHWCXmlFileName($mapid));
  
@@ -493,7 +512,7 @@ if ($errtype=="")
  
   
   //Cтатистика
-  PrintStatistics($objStatRecord,$xml);
+  PrintStatistics($objStatRecord,$xml,$strMapName);
 
  	 
   $zPage->WriteHtml("<p/>" );
@@ -981,7 +1000,7 @@ else //Задан конкретный тип ошибки
   //Классификатор ошибок
   $zPage->WriteHtml( '<a name="errdescr"><h3>'._('Объяснение типов ошибок').'</h3></a>');
   $zPage->WriteHtml( '<small><table>');
-  for ($i=1;$i<=6;$i++)
+  for ($i=1;$i<=4;$i++)
   {
     $zPage->WriteHtml( '<tr>');
     $zPage->WriteHtml( '<td valign="top"><b>'.FormatAddrErrType($i).'</b></td>');
@@ -1044,7 +1063,7 @@ function PrintAddressSummary($mode)
     {
       if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
       {
-        $xmlfilename=GetXmlFileName($item->code);
+        $xmlfilename=GetXmlFileNameSummary($item->code);
 
         if(file_exists($xmlfilename))
         {
@@ -1298,11 +1317,14 @@ function PrintQASummaryPage($GroupName)
       	                    <td>
       	                     <a href="/qa/RU#table">Россия</a>
       	                    </td>
-      	        	        <td>
-      	                     <a href="/qa/CIS#table">Ближнее Зарубежье</a>
+      	                    <td>
+      	                      <a href="/qa/EUROPE#table">Европа</a>
       	                    </td>
       	        	        <td>
-      	                     <a href="/qa/WORLD#table">Дальнее Зарубежье</a>
+      	                     <a href="/qa/ASIA#table">Азия</a>
+      	                    </td>
+      	        	        <td>
+      	                     <a href="/qa/WORLD#table">Остальной мир</a>
       	                    </td>
       	                  </tr> 
       	                  </table> 
@@ -1390,7 +1412,8 @@ function GetQAScale($xmlQCR, $mapCode)
           	  or ($strCountryCode=="DE") //Германия
           	  or ($strCountryCode=="DK") //Дания
            	  or ($strCountryCode=="ES") //Испания
-           	  or ($strCountryCode=="HR") //Хорватия           	  
+           	  or ($strCountryCode=="HR") //Хорватия  
+           	  or ($strCountryCode=="FI") //Финляндия         	  
            	  or ($strCountryCode=="FR") //Франция
            	  or ($strCountryCode=="GB") //Великобритания
            	  or ($strCountryCode=="GR") //Греция
@@ -1398,11 +1421,14 @@ function GetQAScale($xmlQCR, $mapCode)
           	  or ($strCountryCode=="IE") //Ирландия
           	  or ($strCountryCode=="IS") //Исландия
           	  or ($strCountryCode=="IT") //Италия
+          	  or ($strCountryCode=="LU") //Люксембург
+          	  or ($strCountryCode=="MD") //Молдавия
           	  or ($strCountryCode=="MK") //Македония          	  
           	  or ($strCountryCode=="MT") //Мальта
               or ($strCountryCode=="NL") //Голландия
               or ($strCountryCode=="NO") //Норвегия
               or ($strCountryCode=="PL") //Польша  
+              or ($strCountryCode=="PT") //Португалия  
               or ($strCountryCode=="RO") //Румыния
               or ($strCountryCode=="RS") //Сербия
   	          or ($strCountryCode=="SE") //Швеция
@@ -1418,10 +1444,17 @@ function GetQAScale($xmlQCR, $mapCode)
           	  	  
   	          //Африка
   	          or ($strCountryCode=="TN") //Тунис 
+  	          or ($strCountryCode=="ZA") //ЮАР 
   	          	     
   	          //Amerika
   	          or ($strCountryCode=="BR") //Бразилия
+  	          or ($strCountryCode=="AR") //Аргентина
   	          or ($strCountryCode=="CL") //Чили
+  	          or ($strCountryCode=="BO") //Боливия
+  	          or ($strCountryCode=="CO") //Колумбия
+  	          or ($strCountryCode=="PE") //Перу
+  	          or ($strCountryCode=="EC") //Эквадор
+  	          or ($strCountryCode=="UY") //Уругвай
   	          or ($strCountryCode=="CR") //Коста-Рика
   	          or ($strCountryCode=="CU") 
           	  or ($strCountryCode=="GT") 
@@ -1430,6 +1463,7 @@ function GetQAScale($xmlQCR, $mapCode)
        	  	  or ($strCountryCode=="NI") 
    	  	  	  or ($strCountryCode=="PY") 
   	  	  	  or ($strCountryCode=="US")
+  	  	  	  or ($strCountryCode=="MX")
    	  	      or ($strCountryCode=="VE") //Венесуэла
    	  	      //Австралия и Океания
    	  	      or ($strCountryCode=="AU") 
@@ -1451,8 +1485,9 @@ function PrintQASummary($strGroup)
 {
    global $zPage;
 
-   //Cписок пока строим по статистике
-   $xml = simplexml_load_file("maplist.xml");
+   //Cписок строим по очереди.
+   //$xml = simplexml_load_file("maplist.xml");
+   $xml = simplexml_load_file("queue.xml");
    $xmlQCR = simplexml_load_file("QualityCriteria2.xml");
    
    $NumberOfA=0;
@@ -1462,7 +1497,7 @@ function PrintQASummary($strGroup)
    $NumberOfE=0;
    $NumberOfF=0;
    $NumberOfX=0;
-   $zPage->WriteHtml( '<table width="900px" class="sortable">
+   $zPage->WriteHtml( '<table width="1140px" class="sortable">
 
    	    <tr style="background: #AFAFAF">
                   <td width="80px"><b>Код</b></td>
@@ -1492,7 +1527,7 @@ function PrintQASummary($strGroup)
       //if(  (substr($item->code,0,2)=='RU' and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
       if( ($strGroup==GetMapGroup(substr($item->code,0,2))) or (substr($item->code,0,2)==$strGroup) )
       {
-        $xmlfilename=GetXmlFileName($item->code);
+        $xmlfilename=GetXmlFileNameSummary($item->code);
 
         if(file_exists($xmlfilename))
         {
@@ -1555,7 +1590,10 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td width="180px"><a href="/qa/'.$item->code.'">'.$item->name.'</a></td>');
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->TotalHouses.'</td>' );
           $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-map">'.number_format(100.00*(float)$xml_addr->AddressTest->Summary->ErrorRate,2,'.', ' ').'</a></td>');
-          if (((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0)
+          
+
+          if ((((float)$xml_addr->AddressTest->Summary->TotalStreets)!=0) 
+          	  and (substr($item->code,-4,4)!='OVRV'))
           {  
             $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'/addr-street-map">'.number_format(100.00*(float)($xml_addr->AddressTest->Summary->StreetsOutsideCities/$xml_addr->AddressTest->Summary->TotalStreets),2,'.', ' ').'</a></td>');
             if($xml_addr->AddressTest->Summary->StreetsWithoutRegion!="")
@@ -1593,7 +1631,7 @@ function PrintQASummary($strGroup)
           $zPage->WriteHtml( '<td>'.$xml_addr->AddressTest->Summary->CitiesWithoutPopulation.'</td>' );
           $zPage->WriteHtml( '<td>'.$xml_addr->CoastLineTest->Summary->NumberOfBreaks.'</td>' );
           $zPage->WriteHtml( '<td>'.$xml_addr->Date.'</td>');
-          $zPage->WriteHtml( '<td>'.$QARating.'</td>');
+          $zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">'.$QARating.'</a></td>');
           //$zPage->WriteHtml( '<td><a href="/qa/'.$item->code.'">посмотреть</a></td>');
 
           $zPage->WriteHtml( '</tr>');
@@ -1840,14 +1878,14 @@ function PrintEditors($mapid)
 };
 
 //Вывод статистики
-function PrintStatistics($objStatRecord,$xml)
+function PrintStatistics($objStatRecord,$xml,$strMapName)
 {	
   global $zPage;
   $item=$objStatRecord;  
    
   $zPage->WriteHtml( '<h2><a name="stat_summary">'._('Основные статистические сведения').'</a><sup><a href="#stat_summary">#</a></sup></h2>');
   $zPage->WriteHtml( '<b>'.$item->MapId.'</b>- ');
-  $zPage->WriteHtml( '<b>'.$item->MapName.'</b>');
+  $zPage->WriteHtml( '<b>'.$strMapName.'</b>');
   $zPage->WriteHtml( '<h3>'._('Osm-данные').'</h3>' );
   $zPage->WriteHtml( '<table>');
   $zPage->WriteHtml( '<tr>
@@ -1943,7 +1981,7 @@ function PrintMpStatSummary($mode, $group)
     {
       if(  (substr($item->code,0,2)==$group and $mode==0)or (substr($item->code,0,2)!='RU' and $mode==1) )
       {
-        $xmlfilename=GetXmlFileName($item->code);
+        $xmlfilename=GetXmlFileNameSummary($item->code);
 
         if(file_exists($xmlfilename))
         {

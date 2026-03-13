@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<maplist>
+
+<map>
+  <name>Москва и область (4.1)</name>
+  <code>RU-MOS</code>
+  <group>Карты с пробками</group>
+  <date>2012-06-08</date>
+  <url>http://peirce.gis-lab.info/maps7.ga/OsmRuMos.4.1.zip</url>
+</map>
+
+<map>
+  <name>Санкт-Петербург и область (7.1) </name>
+  <code>RU-SPO</code>
+  <group>Карты с пробками</group>
+  <date>2012-11-07</date>
+  <url>http://peirce.gis-lab.info/maps7.ga/OsmRuSPO.7.1.zip</url>
+</map>
+
+<map>
+  <name>Калининградская область (4.1) </name>
+  <code>RU-KGD</code>
+  <group>Карты с пробками</group>
+  <date>2012-11-07</date>
+  <url>http://peirce.gis-lab.info/maps7.ga/OsmRuKGD.4.1.zip</url>
+</map>
+
+<map>
+  <name>Киргизия (2.1) </name>
+  <code>KG-FULL</code>
+  <group>Карты с пробками</group>
+  <date>2012-11-07</date>
+  <url>http://peirce.gis-lab.info/maps7.ga/OsmKGfull.2.1.zip</url>
+</map>
+
+
+<!--
+<map>
+  <name>Литва</name>
+  <group>Карты с пробками</group>
+  <date>04.02.2011</date>
+  <url>http://peirce.gis-lab.info/maps/OsmLT.zip</url>
+</map>
+
+
+<map>
+  <name>Минск и Минская область</name>
+  <group>Карты с пробками</group>
+  <date>23.11.2010</date>
+  <url>http://peirce.gis-lab.info/maps/OsmBYMI.rar</url>
+</map>
+-->
+
+</maplist>

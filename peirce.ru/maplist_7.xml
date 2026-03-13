@@ -1,0 +1,2856 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<maplist>
+ <map>
+  <code>AB-FULL</code>
+  <uid>340166</uid>
+  <name>Абхазия</name>
+  <name_ru>Абхазия</name_ru>
+  <date>2026-03-01 09:06</date>
+  <version>6.49</version>
+  <url>https://disk.yandex.ru/d/Hwr-u9K03a6Kum</url>
+ </map>
+ <map>
+  <code>AT-1</code>
+  <uid>340106</uid>
+  <name>Austria, Burgenland</name>
+  <name_ru>Австрия, Бургенланд</name_ru>
+  <date>2018-04-06 15:11</date>
+  <version>6.1</version>
+  <url>AT-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-4</code>
+  <uid>340109</uid>
+  <name>Austria, Oberosterreich</name>
+  <name_ru>Австрия, Верхняя Австрия</name_ru>
+  <date>2018-04-06 22:08</date>
+  <version>6.1</version>
+  <url>AT-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7b</code>
+  <uid>340113</uid>
+  <name>Austria, Osttirol</name>
+  <name_ru>Австрия, Восточный Тироль</name_ru>
+  <date>2018-04-06 18:11</date>
+  <version>6.1</version>
+  <url>AT-7b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-5</code>
+  <uid>340110</uid>
+  <name>Austria, Salzburg</name>
+  <name_ru>Австрия, Зальцбург</name_ru>
+  <date>2018-04-06 18:01</date>
+  <version>6.1</version>
+  <url>AT-5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-2</code>
+  <uid>340107</uid>
+  <name>Austria, Karnten</name>
+  <name_ru>Австрия, Каринтия</name_ru>
+  <date>2018-04-06 16:43</date>
+  <version>6.1</version>
+  <url>AT-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-3</code>
+  <uid>340108</uid>
+  <name>Austria, Niederosterreich</name>
+  <name_ru>Австрия, Нижняя Австрия</name_ru>
+  <date>2018-04-07 04:06</date>
+  <version>6.1</version>
+  <url>AT-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7a</code>
+  <uid>340112</uid>
+  <name>Austria, Nordtirol</name>
+  <name_ru>Австрия, Северный Тироль</name_ru>
+  <date>2018-04-06 19:59</date>
+  <version>6.1</version>
+  <url>AT-7a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-8</code>
+  <uid>340114</uid>
+  <name>Austria, Vorarlberg</name>
+  <name_ru>Австрия, Форарльберг</name_ru>
+  <date>2018-04-06 19:02</date>
+  <version>6.1</version>
+  <url>AT-8-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-6</code>
+  <uid>340111</uid>
+  <name>Austria, Steiermark</name>
+  <name_ru>Австрия, Штирия</name_ru>
+  <date>2018-04-07 01:39</date>
+  <version>6.1</version>
+  <url>AT-6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-OVRV</code>
+  <uid>340115</uid>
+  <name>Austria overview</name>
+  <name_ru>Австрия, обзорн.</name_ru>
+  <date>2018-04-08 13:20</date>
+  <version>6.1</version>
+  <url>AT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AZ-FULL</code>
+  <uid>340168</uid>
+  <name>Azerbaijan</name>
+  <name_ru>Азербайджан</name_ru>
+  <date>2026-03-01 12:13</date>
+  <version>6.49</version>
+  <url>https://disk.yandex.ru/d/f5GAU1Cx3a6MAd</url>
+ </map>
+ <map>
+  <code>AL-FULL</code>
+  <uid>340104</uid>
+  <name>Albania</name>
+  <name_ru>Албания</name_ru>
+  <date>2018-04-12 13:17</date>
+  <version>6.1</version>
+  <url>AL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ALT</code>
+  <uid>340002</uid>
+  <name>Алтайский край</name>
+  <name_ru>Алтайский край</name_ru>
+  <date>2026-02-26 13:02</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/m1Yf9NNJ3a6bAs</url>
+ </map>
+ <map>
+  <code>RU-AMU</code>
+  <uid>340003</uid>
+  <name>Амурская обл.</name>
+  <name_ru>Амурская обл.</name_ru>
+  <date>2026-02-26 06:43</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/xV85lKeH3a6bC8</url>
+ </map>
+ <map>
+  <code>AD-FULL</code>
+  <uid>340103</uid>
+  <name>Andorra</name>
+  <name_ru>Андорра</name_ru>
+  <date>2018-04-08 15:04</date>
+  <version>6.1</version>
+  <url>AD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AM-FULL</code>
+  <uid>340167</uid>
+  <name>Армения</name>
+  <name_ru>Армения</name_ru>
+  <date>2026-03-01 10:56</date>
+  <version>6.49</version>
+  <url>https://disk.yandex.ru/d/4qeNSk1V3a6KzQ</url>
+ </map>
+ <map>
+  <code>RU-ARK</code>
+  <uid>340004</uid>
+  <name>Архангельская обл.</name>
+  <name_ru>Архангельская обл.</name_ru>
+  <date>2026-02-26 08:28</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/okELapLm3a6bDP</url>
+ </map>
+ <map>
+  <code>RU-AST</code>
+  <uid>340005</uid>
+  <name>Астраханская обл.</name>
+  <name_ru>Астраханская обл.</name_ru>
+  <date>2026-02-26 09:01</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/RS-Zrohb3a6bEn</url>
+ </map>
+ <map>
+  <code>BY-BR</code>
+  <uid>340101</uid>
+  <name>Беларусь, Брестская обл.</name>
+  <name_ru>Беларусь, Брестская обл.</name_ru>
+  <date>2026-02-28 15:32</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/0hD8dMLJ3a6PcX</url>
+ </map>
+ <map>
+  <code>BY-VI</code>
+  <uid>340106</uid>
+  <name>Беларусь, Витебская обл.</name>
+  <name_ru>Беларусь, Витебская обл.</name_ru>
+  <date>2026-02-28 19:44</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/Qx9dYQba3a6Phx</url>
+ </map>
+ <map>
+  <code>BY-HO</code>
+  <uid>340102</uid>
+  <name>Беларусь, Гомельская обл.</name>
+  <name_ru>Беларусь, Гомельская обл.</name_ru>
+  <date>2026-02-28 17:08</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/kYg-FsLS3a6PdF</url>
+ </map>
+ <map>
+  <code>BY-HR</code>
+  <uid>340103</uid>
+  <name>Беларусь, Гродненская обл.</name>
+  <name_ru>Беларусь, Гродненская обл.</name_ru>
+  <date>2026-02-28 17:43</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/3Fv3oTdZ3a6Pe6</url>
+ </map>
+ <map>
+  <code>BY-MI</code>
+  <uid>340105</uid>
+  <name>Беларусь, Минская обл.</name>
+  <name_ru>Беларусь, Минская обл.</name_ru>
+  <date>2026-02-28 18:04</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/OAdM4-pT3a6PfX</url>
+ </map>
+ <map>
+  <code>BY-MA</code>
+  <uid>340104</uid>
+  <name>Беларусь, Могилёвская обл.</name>
+  <name_ru>Беларусь, Могилёвская обл.</name_ru>
+  <date>2026-02-28 18:03</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/Ci0KiLvD3a6Pef</url>
+ </map>
+ <map>
+  <code>BY-OVRV</code>
+  <uid>340107</uid>
+  <name>Беларусь, обзорн.</name>
+  <name_ru>Беларусь, обзорн.</name_ru>
+  <date>2026-02-28 23:15</date>
+  <version>6.53</version>
+  <url>https://disk.yandex.ru/d/rog_Ys-D3a6Pg8</url>
+ </map>
+ <map>
+  <code>RU-BEL</code>
+  <uid>340007</uid>
+  <name>Белгородская обл.</name>
+  <name_ru>Белгородская обл.</name_ru>
+  <date>2026-02-26 09:58</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/HQXqaCNw3a6bHA</url>
+ </map>
+ <map>
+  <code>BE-WAL</code>
+  <uid>340120</uid>
+  <name>Belgium, Region Wallonne</name>
+  <name_ru>Бельгия, Валлонский регион  </name_ru>
+  <date>2018-04-07 06:51</date>
+  <version>6.1</version>
+  <url>BE-WAL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-VLG1</code>
+  <uid>340118</uid>
+  <name>Belgium, Vlaams Gewes</name>
+  <name_ru>Бельгия, Фламандский регион (1)</name_ru>
+  <date>2018-04-07 02:48</date>
+  <version>6.1</version>
+  <url>BE-VLG1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-VLG2</code>
+  <uid>340119</uid>
+  <name>Belgium, Vlaams Gewes</name>
+  <name_ru>Бельгия, Фламандский регион (2)</name_ru>
+  <date>2018-04-07 09:17</date>
+  <version>6.1</version>
+  <url>BE-VLG2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-OVRV</code>
+  <uid>340121</uid>
+  <name>Belgium overview</name>
+  <name_ru>Бельгия, обзорн.</name_ru>
+  <date>2018-04-08 13:07</date>
+  <version>6.1</version>
+  <url>BE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BG-FULL</code>
+  <uid>340122</uid>
+  <name>Bulgaria</name>
+  <name_ru>Болгария</name_ru>
+  <date>2018-04-12 04:51</date>
+  <version>6.1</version>
+  <url>BG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BA-FULL</code>
+  <uid>340117</uid>
+  <name>Bosnia and Herzegovina</name>
+  <name_ru>Босния и Герцеговина</name_ru>
+  <date>2018-04-12 04:51</date>
+  <version>6.1</version>
+  <url>BA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BRY</code>
+  <uid>340008</uid>
+  <name>Брянская обл.</name>
+  <name_ru>Брянская обл.</name_ru>
+  <date>2026-02-26 10:36</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/N2AKknmV3a6bJM</url>
+ </map>
+ <map>
+  <code>HU-1</code>
+  <uid>340188</uid>
+  <name>Hungary, Transdanubia</name>
+  <name_ru>Венгрия, Задунайский край</name_ru>
+  <date>2018-04-12 00:01</date>
+  <version>6.1</version>
+  <url>HU-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-2</code>
+  <uid>340189</uid>
+  <name>Hungary, Great Plain and North</name>
+  <name_ru>Венгрия, Северный Альфёльд</name_ru>
+  <date>2018-04-11 22:46</date>
+  <version>6.1</version>
+  <url>HU-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-3</code>
+  <uid>340190</uid>
+  <name>Hungary, Central Hungary</name>
+  <name_ru>Венгрия, Центральная Венгрия</name_ru>
+  <date>2018-04-12 00:16</date>
+  <version>6.1</version>
+  <url>HU-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-OVRV</code>
+  <uid>340191</uid>
+  <name>Hungary overview</name>
+  <name_ru>Венгрия, обзорн.</name_ru>
+  <date>2018-04-12 13:38</date>
+  <version>6.1</version>
+  <url>HU-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VLA</code>
+  <uid>340078</uid>
+  <name>Владимирская обл.</name>
+  <name_ru>Владимирская обл.</name_ru>
+  <date>2026-02-28 10:28</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/u-6ZjWBN3a6csY</url>
+ </map>
+ <map>
+  <code>RU-VGG</code>
+  <uid>340077</uid>
+  <name>Волгоградская обл.</name>
+  <name_ru>Волгоградская обл.</name_ru>
+  <date>2026-02-28 10:34</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/258DW_R03a6crM</url>
+ </map>
+ <map>
+  <code>RU-VLG</code>
+  <uid>340079</uid>
+  <name>Вологодская обл.</name>
+  <name_ru>Вологодская обл.</name_ru>
+  <date>2026-02-28 11:57</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/mLnnrtJH3a6ctd</url>
+ </map>
+ <map>
+  <code>RU-VOR</code>
+  <uid>340080</uid>
+  <name>Воронежская обл.</name>
+  <name_ru>Воронежская обл.</name_ru>
+  <date>2026-02-28 12:33</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/QGRt3MYJ3a6cv4</url>
+ </map>
+ <map>
+  <code>GI-FULL</code>
+  <uid>340180</uid>
+  <name>Gibraltar</name>
+  <name_ru>Гибралтар</name_ru>
+  <date>2018-04-08 11:58</date>
+  <version>6.1</version>
+  <url>GI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-CRETE</code>
+  <uid>340184</uid>
+  <name>Greece, Crete</name>
+  <name_ru>Греция, Крит</name_ru>
+  <date>2018-04-12 07:03</date>
+  <version>6.1</version>
+  <url>GR-CRETE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-RODOS</code>
+  <uid>340185</uid>
+  <name>Greece, Rodos</name>
+  <name_ru>Греция, Родос</name_ru>
+  <date>2018-04-12 07:09</date>
+  <version>6.1</version>
+  <url>GR-RODOS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-OVRV</code>
+  <uid>340186</uid>
+  <name>Greece overview</name>
+  <name_ru>Греция, обзорн.</name_ru>
+  <date>2018-04-12 13:53</date>
+  <version>6.1</version>
+  <url>GR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-1</code>
+  <uid>340181</uid>
+  <name>Greece, volume 1</name>
+  <name_ru>Греция, том 1</name_ru>
+  <date>2018-04-12 06:47</date>
+  <version>6.1</version>
+  <url>GR-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-2</code>
+  <uid>340182</uid>
+  <name>Greece  volume 2</name>
+  <name_ru>Греция, том 2</name_ru>
+  <date>2018-04-12 08:42</date>
+  <version>6.1</version>
+  <url>GR-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-3</code>
+  <uid>340183</uid>
+  <name>Greece  volume 3</name>
+  <name_ru>Греция, том 3</name_ru>
+  <date>2018-04-12 08:07</date>
+  <version>6.1</version>
+  <url>GR-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GE-FULL</code>
+  <uid>340170</uid>
+  <name>Грузия</name>
+  <name_ru>Грузия</name_ru>
+  <date>2026-03-01 13:55</date>
+  <version>6.48</version>
+  <url>https://disk.yandex.ru/d/tEdSET_w3a6MKD</url>
+ </map>
+ <map>
+  <code>DK-85</code>
+  <uid>340147</uid>
+  <name>Denmark, Sjaelland</name>
+  <name_ru>Дания, Зеландия</name_ru>
+  <date>2018-04-04 18:32</date>
+  <version>6.1</version>
+  <url>DK-85-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-81</code>
+  <uid>340143</uid>
+  <name>Denmark, Nordjylland</name>
+  <name_ru>Дания, Северная Ютландия</name_ru>
+  <date>2018-04-04 12:33</date>
+  <version>6.1</version>
+  <url>DK-81-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-84</code>
+  <uid>340146</uid>
+  <name>Denmark, Hovedstaden</name>
+  <name_ru>Дания, Столичная область</name_ru>
+  <date>2018-04-04 16:06</date>
+  <version>6.1</version>
+  <url>DK-84-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-82</code>
+  <uid>340144</uid>
+  <name>Denmark, Midtjylland</name>
+  <name_ru>Дания, Центральная Ютландия</name_ru>
+  <date>2018-04-04 16:24</date>
+  <version>6.1</version>
+  <url>DK-82-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-83</code>
+  <uid>340145</uid>
+  <name>Denmark, Syddanmark</name>
+  <name_ru>Дания, Южная Дания</name_ru>
+  <date>2018-04-04 22:41</date>
+  <version>6.1</version>
+  <url>DK-83-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-OVRV</code>
+  <uid>340148</uid>
+  <name>Denmark  overview</name>
+  <name_ru>Дания, обзорн.</name_ru>
+  <date>2018-04-05 08:01</date>
+  <version>6.1</version>
+  <url>DK-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YEV</code>
+  <uid>340083</uid>
+  <name>Еврейская автономная обл.</name>
+  <name_ru>Еврейская автономная обл.</name_ru>
+  <date>2026-02-28 12:59</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/knh9AY0V3a6czs</url>
+ </map>
+ <map>
+  <code>RU-ZAB</code>
+  <uid>340084</uid>
+  <name>Забайкальский край</name>
+  <name_ru>Забайкальский край</name_ru>
+  <date>2026-02-28 13:38</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/dqLmAusg3a6d2q</url>
+ </map>
+ <map>
+  <code>RU-IVA</code>
+  <uid>340018</uid>
+  <name>Ивановская обл.</name>
+  <name_ru>Ивановская обл.</name_ru>
+  <date>2026-02-26 15:29</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/-t2_FTIw3a6bUt</url>
+ </map>
+ <map>
+  <code>RU-IRK</code>
+  <uid>340017</uid>
+  <name>Иркутская обл.</name>
+  <name_ru>Иркутская обл.</name_ru>
+  <date>2026-02-26 16:56</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/5AYTMtyw3a6bUB</url>
+ </map>
+ <map>
+  <code>IT-65</code>
+  <uid>340207</uid>
+  <name>Italy, Abruzzo</name>
+  <name_ru>Италия, Абруццо</name_ru>
+  <date>2018-04-06 07:13</date>
+  <version>6.1</version>
+  <url>IT-65-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-75</code>
+  <uid>340210</uid>
+  <name>Italy, Puglia</name>
+  <name_ru>Италия, Апулия</name_ru>
+  <date>2018-04-06 17:40</date>
+  <version>6.1</version>
+  <url>IT-75-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-77</code>
+  <uid>340211</uid>
+  <name>Italy, Basilicata</name>
+  <name_ru>Италия, Базиликата</name_ru>
+  <date>2018-04-06 08:55</date>
+  <version>6.1</version>
+  <url>IT-77-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-23</code>
+  <uid>340193</uid>
+  <name>Italy, Valle d'Aosta</name>
+  <name_ru>Италия, Валле-д'Аоста</name_ru>
+  <date>2018-04-05 14:30</date>
+  <version>6.1</version>
+  <url>IT-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-34a</code>
+  <uid>340197</uid>
+  <name>Italy, Veneto (1)</name>
+  <name_ru>Италия, Венето (1)</name_ru>
+  <date>2018-04-06 02:19</date>
+  <version>6.1</version>
+  <url>IT-34a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-34b</code>
+  <uid>340198</uid>
+  <name>Italy, Veneto (2)</name>
+  <name_ru>Италия, Венето (2)</name_ru>
+  <date>2018-03-22 06:13</date>
+  <version>6.1</version>
+  <url>IT-34b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-78</code>
+  <uid>340212</uid>
+  <name>Italy, Calabria</name>
+  <name_ru>Италия, Калабрия</name_ru>
+  <date>2018-04-06 11:10</date>
+  <version>6.1</version>
+  <url>IT-78-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-72</code>
+  <uid>340209</uid>
+  <name>Italy, Campania</name>
+  <name_ru>Италия, Кампания</name_ru>
+  <date>2018-04-06 10:20</date>
+  <version>6.1</version>
+  <url>IT-72-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-62</code>
+  <uid>340206</uid>
+  <name>Italy, Lazio</name>
+  <name_ru>Италия, Лацио</name_ru>
+  <date>2018-04-06 10:24</date>
+  <version>6.1</version>
+  <url>IT-62-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-42</code>
+  <uid>340200</uid>
+  <name>Italy, Liguria</name>
+  <name_ru>Италия, Лигурия</name_ru>
+  <date>2018-04-06 00:49</date>
+  <version>6.1</version>
+  <url>IT-42-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-25a</code>
+  <uid>340194</uid>
+  <name>Italy, Lombardia (1)</name>
+  <name_ru>Италия, Ломбардия (1)</name_ru>
+  <date>2018-04-05 22:41</date>
+  <version>6.1</version>
+  <url>IT-25a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-25b</code>
+  <uid>340195</uid>
+  <name>Italy, Lombardia (2)</name>
+  <name_ru>Италия, Ломбардия (2)</name_ru>
+  <date>2018-04-05 21:21</date>
+  <version>6.1</version>
+  <url>IT-25b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-57</code>
+  <uid>340205</uid>
+  <name>Italy, Marche</name>
+  <name_ru>Италия, Марке</name_ru>
+  <date>2018-04-06 04:23</date>
+  <version>6.1</version>
+  <url>IT-57-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-67</code>
+  <uid>340208</uid>
+  <name>Italy, Molise</name>
+  <name_ru>Италия, Молизе</name_ru>
+  <date>2018-04-06 07:29</date>
+  <version>6.1</version>
+  <url>IT-67-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-21</code>
+  <uid>340192</uid>
+  <name>Italy, Piemonte</name>
+  <name_ru>Италия, Пьемонт</name_ru>
+  <date>2018-04-05 21:25</date>
+  <version>6.1</version>
+  <url>IT-21-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-88</code>
+  <uid>340214</uid>
+  <name>Italy, Sardegna</name>
+  <name_ru>Италия, Сардиния</name_ru>
+  <date>2018-04-06 14:29</date>
+  <version>6.1</version>
+  <url>IT-88-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-82</code>
+  <uid>340213</uid>
+  <name>Italy, Sicilia</name>
+  <name_ru>Италия, Сицилия</name_ru>
+  <date>2018-04-06 13:55</date>
+  <version>6.1</version>
+  <url>IT-82-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-52</code>
+  <uid>340203</uid>
+  <name>Italy, Toscana</name>
+  <name_ru>Италия, Тоскана</name_ru>
+  <date>2017-11-19 20:43</date>
+  <version>6.1</version>
+  <url>IT-52-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-32</code>
+  <uid>340196</uid>
+  <name>Italy, Trentino-Alto Adige</name>
+  <name_ru>Италия, Трентино — Альто-Адидже</name_ru>
+  <date>2018-04-05 16:58</date>
+  <version>6.1</version>
+  <url>IT-32-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-55</code>
+  <uid>340204</uid>
+  <name>Italy, Umbria</name>
+  <name_ru>Италия, Умбрия</name_ru>
+  <date>2018-04-06 03:28</date>
+  <version>6.1</version>
+  <url>IT-55-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-36</code>
+  <uid>340199</uid>
+  <name>Italy, Friuli-Venezia Giulia</name>
+  <name_ru>Италия, Фриули-Венеция-Джулия</name_ru>
+  <date>2018-04-06 04:36</date>
+  <version>6.1</version>
+  <url>IT-36-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-45e</code>
+  <uid>340201</uid>
+  <name>Italy, Emilia-Romagna (1)</name>
+  <name_ru>Италия, Эмилия-Романья (1)</name_ru>
+  <date>2018-04-06 10:29</date>
+  <version>6.1</version>
+  <url>IT-45e-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-45w</code>
+  <uid>340202</uid>
+  <name>Italy, Emilia-Romagna (2)</name>
+  <name_ru>Италия, Эмилия-Романья (2)</name_ru>
+  <date>2018-04-06 06:39</date>
+  <version>6.1</version>
+  <url>IT-45w-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-OVRV</code>
+  <uid>340215</uid>
+  <name>Italy overview</name>
+  <name_ru>Италия, обзорн.</name_ru>
+  <date>2018-04-06 16:26</date>
+  <version>6.1</version>
+  <url>IT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KB</code>
+  <uid>340020</uid>
+  <name>Кабардино-Балкарская Республика</name>
+  <name_ru>Кабардино-Балкарская Республика</name_ru>
+  <date>2026-02-26 16:21</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/yUqe3rOm3a6bXH</url>
+ </map>
+ <map>
+  <code>KZ-10</code>
+  <uid>340140</uid>
+  <name>Казахстан, Абайская обл.</name>
+  <name_ru>Казахстан, Абайская обл.</name_ru>
+  <date>2026-03-01 03:28</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/pmr1vwZ6zYthvg</url>
+ </map>
+ <map>
+  <code>KZ-11</code>
+  <uid>340141</uid>
+  <name>Казахстан, Акмолинская обл.</name>
+  <name_ru>Казахстан, Акмолинская обл.</name_ru>
+  <date>2026-03-01 03:58</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/RBs9TsufiGkd_Q</url>
+ </map>
+ <map>
+  <code>KZ-15</code>
+  <uid>340142</uid>
+  <name>Казахстан, Актюбинская обл.</name>
+  <name_ru>Казахстан, Актюбинская обл.</name_ru>
+  <date>2026-03-01 03:38</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/B9T3EmlG5_HeWQ</url>
+ </map>
+ <map>
+  <code>KZ-19</code>
+  <uid>340143</uid>
+  <name>Казахстан, Алматинская обл.</name>
+  <name_ru>Казахстан, Алматинская обл.</name_ru>
+  <date>2026-03-01 05:09</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/QNRFd55XBSHzYw</url>
+ </map>
+ <map>
+  <code>KZ-23</code>
+  <uid>340144</uid>
+  <name>Казахстан, Атырауская обл.</name>
+  <name_ru>Казахстан, Атырауская обл.</name_ru>
+  <date>2026-03-01 03:49</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/7pshj-iv_FDbYg</url>
+ </map>
+ <map>
+  <code>KZ-63</code>
+  <uid>340156</uid>
+  <name>Казахстан, Восточно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Восточно-Казахстанская обл.</name_ru>
+  <date>2026-03-01 05:26</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/voz9LM8Q2Tl0BA</url>
+ </map>
+ <map>
+  <code>KZ-31</code>
+  <uid>340146</uid>
+  <name>Казахстан, Жамбылская обл.</name>
+  <name_ru>Казахстан, Жамбылская обл.</name_ru>
+  <date>2026-03-01 04:21</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/zMpmTRC4EV1yJA</url>
+ </map>
+ <map>
+  <code>KZ-33</code>
+  <uid>340147</uid>
+  <name>Казахстан, Жетысуская обл.</name>
+  <name_ru>Казахстан, Жетысуская обл.</name_ru>
+  <date>2026-03-01 04:31</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/oNarBuJGU-6xTQ</url>
+ </map>
+ <map>
+  <code>KZ-27</code>
+  <uid>340145</uid>
+  <name>Казахстан, Западно-Казахстанская обл.</name>
+  <name_ru>Казахстан, Западно-Казахстанская обл.</name_ru>
+  <date>2026-03-01 04:07</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/pwLc5Nl5TKY7yg</url>
+ </map>
+ <map>
+  <code>KZ-35</code>
+  <uid>340148</uid>
+  <name>Казахстан, Карагандинская обл.</name>
+  <name_ru>Казахстан, Карагандинская обл.</name_ru>
+  <date>2026-03-01 04:37</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/0L5joZdD7OA84A</url>
+ </map>
+ <map>
+  <code>KZ-39</code>
+  <uid>340149</uid>
+  <name>Казахстан, Костанайская обл.</name>
+  <name_ru>Казахстан, Костанайская обл.</name_ru>
+  <date>2026-03-01 04:45</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/7RM2y1YlF21DEA</url>
+ </map>
+ <map>
+  <code>KZ-43</code>
+  <uid>340150</uid>
+  <name>Казахстан, Кызылординская обл.</name>
+  <name_ru>Казахстан, Кызылординская обл.</name_ru>
+  <date>2026-03-01 04:50</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/l_TukVPIgg-zIw</url>
+ </map>
+ <map>
+  <code>KZ-47</code>
+  <uid>340151</uid>
+  <name>Казахстан, Мангистауская обл.</name>
+  <name_ru>Казахстан, Мангистауская обл.</name_ru>
+  <date>2026-03-01 04:54</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/fB4g8G5c4VaVIA</url>
+ </map>
+ <map>
+  <code>KZ-55</code>
+  <uid>340152</uid>
+  <name>Казахстан, Павлодарская обл.</name>
+  <name_ru>Казахстан, Павлодарская обл.</name_ru>
+  <date>2026-03-01 05:03</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/9JouEA3WuVLeKA</url>
+ </map>
+ <map>
+  <code>KZ-59</code>
+  <uid>340153</uid>
+  <name>Казахстан, Северо-Казахстанская обл.</name>
+  <name_ru>Казахстан, Северо-Казахстанская обл.</name_ru>
+  <date>2026-03-01 05:07</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/qz0IWxmIKHUduQ</url>
+ </map>
+ <map>
+  <code>KZ-61</code>
+  <uid>340154</uid>
+  <name>Казахстан, Туркестанская обл.</name>
+  <name_ru>Казахстан, Туркестанская обл.</name_ru>
+  <date>2026-03-01 05:54</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/t_wV4Eo3fMQLPQ</url>
+ </map>
+ <map>
+  <code>KZ-62</code>
+  <uid>340155</uid>
+  <name>Казахстан, Улытауская обл.</name>
+  <name_ru>Казахстан, Улытауская обл.</name_ru>
+  <date>2026-03-01 05:09</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/scwZ_Z0VF8mftg</url>
+ </map>
+ <map>
+  <code>KZ-OVRV</code>
+  <uid>340157</uid>
+  <name>Казахстан, обзорн.</name>
+  <name_ru>Казахстан, обзорн.</name_ru>
+  <date>2026-03-01 08:55</date>
+  <version>6.50</version>
+  <url>https://disk.yandex.ru/d/iosgugPGExE5ag</url>
+ </map>
+ <map>
+  <code>RU-KGD</code>
+  <uid>340025</uid>
+  <name>Калининградская обл.</name>
+  <name_ru>Калининградская обл.</name_ru>
+  <date>2026-02-26 19:32</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/uJXzuo1u3a6bb2</url>
+ </map>
+ <map>
+  <code>RU-KLU</code>
+  <uid>340032</uid>
+  <name>Калужская обл.</name>
+  <name_ru>Калужская обл.</name_ru>
+  <date>2026-02-27 00:41</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/vayDSQ1f3a6bhY</url>
+ </map>
+ <map>
+  <code>KH-FULL</code>
+  <uid>340340</uid>
+  <name>Cambodia</name>
+  <name_ru>Камбоджа</name_ru>
+  <date>2026-03-01 19:28</date>
+  <version>6.30</version>
+  <url>https://disk.yandex.ru/d/nek46dYd1hMmGw</url>
+ </map>
+ <map>
+  <code>RU-KAM</code>
+  <uid>340019</uid>
+  <name>Камчатский край</name>
+  <name_ru>Камчатский край</name_ru>
+  <date>2026-02-26 16:14</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/kotxBDg93a6bWT</url>
+ </map>
+ <map>
+  <code>RU-KC</code>
+  <uid>340021</uid>
+  <name>Карачаево-Черкесская Республика</name>
+  <name_ru>Карачаево-Черкесская Республика</name_ru>
+  <date>2026-02-26 16:33</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/pne1e31x3a6bYR</url>
+ </map>
+ <map>
+  <code>RU-KEM</code>
+  <uid>340024</uid>
+  <name>Кемеровская обл.</name>
+  <name_ru>Кемеровская обл.</name_ru>
+  <date>2026-02-26 18:07</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/VoVJknQM3a6baJ</url>
+ </map>
+ <map>
+  <code>CY-FULL</code>
+  <uid>340134</uid>
+  <name>Cyprus</name>
+  <name_ru>Кипр</name_ru>
+  <date>2018-04-12 12:46</date>
+  <version>6.1</version>
+  <url>CY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KG-FULL</code>
+  <uid>340171</uid>
+  <name>Киргизия</name>
+  <name_ru>Киргизия</name_ru>
+  <date>2026-03-01 13:58</date>
+  <version>6.49</version>
+  <url>https://disk.yandex.ru/d/ldB39Hhw3a6MSy</url>
+ </map>
+ <map>
+  <code>RU-KIR</code>
+  <uid>340029</uid>
+  <name>Кировская обл.</name>
+  <name_ru>Кировская обл.</name_ru>
+  <date>2026-02-27 05:05</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/KS-Yif5q3a6beL</url>
+ </map>
+ <map>
+  <code>RU-KOS</code>
+  <uid>340034</uid>
+  <name>Костромская обл.</name>
+  <name_ru>Костромская обл.</name_ru>
+  <date>2026-02-27 02:49</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/qvi252Rz3a6bjM</url>
+ </map>
+ <map>
+  <code>RU-KDA-N</code>
+  <uid>340022</uid>
+  <name>Краснодарский край (Север)</name>
+  <name_ru>Краснодарский край (Север)</name_ru>
+  <date>2026-02-26 21:14</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/2yDjNZ4aHPXVcA</url>
+ </map>
+ <map>
+  <code>RU-KDA-S</code>
+  <uid>340023</uid>
+  <name>Краснодарский край (Юг), Адыгея</name>
+  <name_ru>Краснодарский край (Юг), Адыгея</name_ru>
+  <date>2026-02-26 18:59</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/r6ClPLjeQpnX2Q</url>
+ </map>
+ <map>
+  <code>RU-KYA</code>
+  <uid>340037</uid>
+  <name>Красноярский край</name>
+  <name_ru>Красноярский край</name_ru>
+  <date>2026-02-27 06:49</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/0gqNVEDU3a6bqz</url>
+ </map>
+ <map>
+  <code>RU-KGN</code>
+  <uid>340026</uid>
+  <name>Курганская обл.</name>
+  <name_ru>Курганская обл.</name_ru>
+  <date>2026-02-26 19:54</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/X4nG8zpA3a6bbx</url>
+ </map>
+ <map>
+  <code>RU-KRS</code>
+  <uid>340036</uid>
+  <name>Курская обл.</name>
+  <name_ru>Курская обл.</name_ru>
+  <date>2026-02-27 03:56</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/mHt62mS43a6bpj</url>
+ </map>
+ <map>
+  <code>LV-FULL</code>
+  <uid>340172</uid>
+  <name>Latvia</name>
+  <name_ru>Латвия</name_ru>
+  <date>2026-03-02 01:26</date>
+  <version>6.48</version>
+  <url>https://disk.yandex.ru/d/OrRY6cTr3a6MZz</url>
+ </map>
+ <map>
+  <code>RU-LIP</code>
+  <uid>340038</uid>
+  <name>Липецкая обл.</name>
+  <name_ru>Липецкая обл.</name_ru>
+  <date>2026-02-27 05:55</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/1q4lnA0X3a6bsb</url>
+ </map>
+ <map>
+  <code>LT-W</code>
+  <uid>340161</uid>
+  <name>Lithuania, west</name>
+  <name_ru>Литва, Запад</name_ru>
+  <date>2026-03-01 08:13</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/Zi5nSD0HCAsdqA</url>
+ </map>
+ <map>
+  <code>LT-S</code>
+  <uid>340160</uid>
+  <name>Lithuania, south</name>
+  <name_ru>Литва, Юг</name_ru>
+  <date>2026-03-01 08:45</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/q_uaYMCCI2mmCQ</url>
+ </map>
+ <map>
+  <code>LT-E</code>
+  <uid>340158</uid>
+  <name>Lithuania, east</name>
+  <name_ru>Литва, восток</name_ru>
+  <date>2026-03-01 07:53</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/H5BTVZMY1HVR2g</url>
+ </map>
+ <map>
+  <code>LT-OVRV</code>
+  <uid>340162</uid>
+  <name>Lithuania overview</name>
+  <name_ru>Литва, обзорн.</name_ru>
+  <date>2026-03-01 11:11</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/vcQKqsNld95IZg</url>
+ </map>
+ <map>
+  <code>LT-N</code>
+  <uid>340159</uid>
+  <name>Lithuania, north</name>
+  <name_ru>Литва, север</name_ru>
+  <date>2026-03-01 06:40</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/ccQZbmryc3G71w</url>
+ </map>
+ <map>
+  <code>LI-FULL</code>
+  <uid>340218</uid>
+  <name>Liechtenstein</name>
+  <name_ru>Лихтенштейн</name_ru>
+  <date>2018-04-08 11:56</date>
+  <version>6.1</version>
+  <url>LI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LU-FULL</code>
+  <uid>340220</uid>
+  <name>Luxembourg</name>
+  <name_ru>Люксембург </name_ru>
+  <date>2018-04-08 11:55</date>
+  <version>6.1</version>
+  <url>LU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MAG</code>
+  <uid>340039</uid>
+  <name>Магаданская обл.</name>
+  <name_ru>Магаданская обл.</name_ru>
+  <date>2026-02-27 06:13</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/HLrC0emz3a6bv3</url>
+ </map>
+ <map>
+  <code>MT-FULL</code>
+  <uid>340225</uid>
+  <name>Malta</name>
+  <name_ru>Мальта</name_ru>
+  <date>2018-04-05 11:52</date>
+  <version>6.1</version>
+  <url>MT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MD-FULL</code>
+  <uid>340180</uid>
+  <name>Moldova</name>
+  <name_ru>Молдова</name_ru>
+  <date>2026-03-01 23:58</date>
+  <version>6.48</version>
+  <url>https://disk.yandex.ru/d/l0e_KRzG3a6Mat</url>
+ </map>
+ <map>
+  <code>RU-MOW</code>
+  <uid>340044</uid>
+  <name>Москва г.</name>
+  <name_ru>Москва г.</name_ru>
+  <date>2026-02-27 02:27</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/LoawX18f3a6c5h</url>
+ </map>
+ <map>
+  <code>RU-MOS-E</code>
+  <uid>340042</uid>
+  <name>Московская обл. (восток)</name>
+  <name_ru>Московская обл. (восток)</name_ru>
+  <date>2026-02-27 15:57</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/VtLNyg32D2TOvg</url>
+ </map>
+ <map>
+  <code>RU-MOS-W</code>
+  <uid>340043</uid>
+  <name>Московская обл. (запад)</name>
+  <name_ru>Московская обл. (запад)</name_ru>
+  <date>2026-02-27 15:39</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/sG1pCmp7BHjZzg</url>
+ </map>
+ <map>
+  <code>RU-MUR</code>
+  <uid>340045</uid>
+  <name>Мурманская обл.</name>
+  <name_ru>Мурманская обл.</name_ru>
+  <date>2026-02-27 08:13</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/bTyRMLUE3a6c7o</url>
+ </map>
+ <map>
+  <code>RU-NEN</code>
+  <uid>340046</uid>
+  <name>Ненецкий АО</name>
+  <name_ru>Ненецкий АО</name_ru>
+  <date>2026-02-27 08:40</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/3H_NnpGV3a6c9L</url>
+ </map>
+ <map>
+  <code>NL-GE1</code>
+  <uid>340229</uid>
+  <name>Netherlands, Gelderland 1</name>
+  <name_ru>Нидерланды, Гелдерланд 1</name_ru>
+  <date>2018-04-07 18:07</date>
+  <version>6.1</version>
+  <url>NL-GE1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-GE2</code>
+  <uid>340230</uid>
+  <name>Netherlands, Gelderland 2</name>
+  <name_ru>Нидерланды, Гелдерланд 2</name_ru>
+  <date>2018-04-07 18:05</date>
+  <version>6.1</version>
+  <url>NL-GE2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-GR</code>
+  <uid>340231</uid>
+  <name>Netherlands, Groningen</name>
+  <name_ru>Нидерланды, Гронинген</name_ru>
+  <date>2018-04-07 17:39</date>
+  <version>6.1</version>
+  <url>NL-GR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-DR</code>
+  <uid>340226</uid>
+  <name>Netherlands, Drenthe</name>
+  <name_ru>Нидерланды, Дренте</name_ru>
+  <date>2018-04-07 11:55</date>
+  <version>6.1</version>
+  <url>NL-DR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-ZE</code>
+  <uid>340239</uid>
+  <name>Netherlands, Zeeland</name>
+  <name_ru>Нидерланды, Зеландия</name_ru>
+  <date>2018-04-07 22:40</date>
+  <version>6.1</version>
+  <url>NL-ZE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-LI</code>
+  <uid>340232</uid>
+  <name>Netherlands, Limburg</name>
+  <name_ru>Нидерланды, Лимбург</name_ru>
+  <date>2018-04-07 21:34</date>
+  <version>6.1</version>
+  <url>NL-LI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-OV</code>
+  <uid>340237</uid>
+  <name>Netherlands, Overijssel</name>
+  <name_ru>Нидерланды, Оверэйсел</name_ru>
+  <date>2018-04-08 02:44</date>
+  <version>6.1</version>
+  <url>NL-OV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NH1</code>
+  <uid>340235</uid>
+  <name>Netherlands, Noord-Holland 1</name>
+  <name_ru>Нидерланды, Северная Голландия 1</name_ru>
+  <date>2018-04-07 20:48</date>
+  <version>6.1</version>
+  <url>NL-NH1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NH2</code>
+  <uid>340236</uid>
+  <name>Netherlands, Noord-Holland 2</name>
+  <name_ru>Нидерланды, Северная Голландия 2</name_ru>
+  <date>2018-04-08 00:48</date>
+  <version>6.1</version>
+  <url>NL-NH2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NB1</code>
+  <uid>340233</uid>
+  <name>Netherlands, Noord-Brabant 1</name>
+  <name_ru>Нидерланды, Северный Брабант 1</name_ru>
+  <date>2018-04-07 20:10</date>
+  <version>6.1</version>
+  <url>NL-NB1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NB2</code>
+  <uid>340234</uid>
+  <name>Netherlands, Noord-Brabant 2</name>
+  <name_ru>Нидерланды, Северный Брабант 2</name_ru>
+  <date>2018-04-08 00:00</date>
+  <version>6.1</version>
+  <url>NL-NB2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-UT</code>
+  <uid>340238</uid>
+  <name>Netherlands, Utrecht</name>
+  <name_ru>Нидерланды, Утрехт</name_ru>
+  <date>2018-04-08 03:28</date>
+  <version>6.1</version>
+  <url>NL-UT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-FL</code>
+  <uid>340227</uid>
+  <name>Netherlands, Flevoland</name>
+  <name_ru>Нидерланды, Флеволанд</name_ru>
+  <date>2018-04-07 10:07</date>
+  <version>6.1</version>
+  <url>NL-FL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-FR</code>
+  <uid>340228</uid>
+  <name>Netherlands, Fryslan</name>
+  <name_ru>Нидерланды, Фрисландия</name_ru>
+  <date>2018-04-07 15:02</date>
+  <version>6.1</version>
+  <url>NL-FR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-ZH1</code>
+  <uid>340240</uid>
+  <name>Netherlands, Zuid-Holland 1</name>
+  <name_ru>Нидерланды, Южная Голландия 1</name_ru>
+  <date>2018-04-08 10:21</date>
+  <version>6.1</version>
+  <url>NL-ZH1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-ZH2</code>
+  <uid>340241</uid>
+  <name>Netherlands, Zuid-Holland 2</name>
+  <name_ru>Нидерланды, Южная Голландия 2</name_ru>
+  <date>2018-04-08 04:13</date>
+  <version>6.1</version>
+  <url>NL-ZH2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-OVRV</code>
+  <uid>340242</uid>
+  <name>Netherlands overview</name>
+  <name_ru>Нидерланды, обзорн.</name_ru>
+  <date>2018-04-08 13:56</date>
+  <version>6.1</version>
+  <url>NL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NIZ</code>
+  <uid>340048</uid>
+  <name>Нижегородская обл.</name>
+  <name_ru>Нижегородская обл.</name_ru>
+  <date>2026-02-27 11:50</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/hX_IevbI3a6cBg</url>
+ </map>
+ <map>
+  <code>RU-NGR</code>
+  <uid>340047</uid>
+  <name>Новгородская обл.</name>
+  <name_ru>Новгородская обл.</name_ru>
+  <date>2026-02-27 09:16</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/Z8bhNUpl3a6cAs</url>
+ </map>
+ <map>
+  <code>RU-NVS</code>
+  <uid>340049</uid>
+  <name>Новосибирская обл.</name>
+  <name_ru>Новосибирская обл.</name_ru>
+  <date>2026-02-27 14:38</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/RL_s9XHV3a6cCW</url>
+ </map>
+ <map>
+  <code>RU-OMS</code>
+  <uid>340050</uid>
+  <name>Омская обл.</name>
+  <name_ru>Омская обл.</name_ru>
+  <date>2026-02-27 16:33</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/veewmzm03a6cDb</url>
+ </map>
+ <map>
+  <code>RU-ORE</code>
+  <uid>340051</uid>
+  <name>Оренбургская обл.</name>
+  <name_ru>Оренбургская обл.</name_ru>
+  <date>2026-02-27 17:01</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/a33CHWrN3a6cEg</url>
+ </map>
+ <map>
+  <code>RU-ORL</code>
+  <uid>340052</uid>
+  <name>Орловская обл.</name>
+  <name_ru>Орловская обл.</name_ru>
+  <date>2026-02-27 16:21</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/Tcn0amU93a6cFd</url>
+ </map>
+ <map>
+  <code>RU-PNZ</code>
+  <uid>340054</uid>
+  <name>Пензенская обл.</name>
+  <name_ru>Пензенская обл.</name_ru>
+  <date>2026-02-27 17:18</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/o2oYNUbr3a6cJj</url>
+ </map>
+ <map>
+  <code>RU-PER</code>
+  <uid>340053</uid>
+  <name>Пермский край</name>
+  <name_ru>Пермский край</name_ru>
+  <date>2026-02-27 19:38</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/2XFJo_Ra3a6cHK</url>
+ </map>
+ <map>
+  <code>PL-WN</code>
+  <uid>340276</uid>
+  <name>Poland, Warminsko-mazurskie</name>
+  <name_ru>Польша, Варминьско-Мазурское</name_ru>
+  <date>2018-04-11 00:59</date>
+  <version>6.1</version>
+  <url>PL-WN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-WP</code>
+  <uid>340277</uid>
+  <name>Poland, Wielkopolskie</name>
+  <name_ru>Польша, Великопольское</name_ru>
+  <date>2018-04-11 04:57</date>
+  <version>6.1</version>
+  <url>PL-WP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-ZP</code>
+  <uid>340278</uid>
+  <name>Poland, Zachodniopomorskie</name>
+  <name_ru>Польша, Западно-Поморское</name_ru>
+  <date>2018-04-11 05:03</date>
+  <version>6.1</version>
+  <url>PL-ZP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-KP</code>
+  <uid>340264</uid>
+  <name>Poland, Kujawsko-pomorskie</name>
+  <name_ru>Польша, Куявско-Поморское</name_ru>
+  <date>2018-04-10 13:29</date>
+  <version>6.1</version>
+  <url>PL-KP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LD</code>
+  <uid>340266</uid>
+  <name>Poland, Lodzkie</name>
+  <name_ru>Польша, Лодзинское</name_ru>
+  <date>2018-04-10 16:00</date>
+  <version>6.1</version>
+  <url>PL-LD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LU</code>
+  <uid>340267</uid>
+  <name>Poland, Lubelskie</name>
+  <name_ru>Польша, Люблинское</name_ru>
+  <date>2018-04-10 16:38</date>
+  <version>6.1</version>
+  <url>PL-LU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LB</code>
+  <uid>340265</uid>
+  <name>Poland, Lubuskie</name>
+  <name_ru>Польша, Любуское</name_ru>
+  <date>2018-04-10 12:49</date>
+  <version>6.1</version>
+  <url>PL-LB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-MZ</code>
+  <uid>340269</uid>
+  <name>Poland, Mazowieckie</name>
+  <name_ru>Польша, Мазовецкое</name_ru>
+  <date>2018-04-11 01:48</date>
+  <version>6.1</version>
+  <url>PL-MZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-MA</code>
+  <uid>340268</uid>
+  <name>Poland, Malopolskie</name>
+  <name_ru>Польша, Малопольское</name_ru>
+  <date>2018-04-10 19:57</date>
+  <version>6.1</version>
+  <url>PL-MA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-DS</code>
+  <uid>340263</uid>
+  <name>Poland, Dolnoslaskie</name>
+  <name_ru>Польша, Нижнесилезское</name_ru>
+  <date>2018-04-10 16:13</date>
+  <version>6.1</version>
+  <url>PL-DS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-OP</code>
+  <uid>340270</uid>
+  <name>Poland, Opolskie</name>
+  <name_ru>Польша, Опольское</name_ru>
+  <date>2018-04-10 17:36</date>
+  <version>6.1</version>
+  <url>PL-OP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PK</code>
+  <uid>340272</uid>
+  <name>Poland, Podkarpackie</name>
+  <name_ru>Польша, Подкарпатское</name_ru>
+  <date>2018-04-10 20:24</date>
+  <version>6.1</version>
+  <url>PL-PK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PD</code>
+  <uid>340271</uid>
+  <name>Poland, Podlaskie</name>
+  <name_ru>Польша, Подляское</name_ru>
+  <date>2018-04-10 18:53</date>
+  <version>6.1</version>
+  <url>PL-PD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PM</code>
+  <uid>340273</uid>
+  <name>Poland, Pomorskie</name>
+  <name_ru>Польша, Поморское</name_ru>
+  <date>2018-04-10 22:55</date>
+  <version>6.1</version>
+  <url>PL-PM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-SK</code>
+  <uid>340274</uid>
+  <name>Poland, Swietokrzyskie</name>
+  <name_ru>Польша, Свентокшиское</name_ru>
+  <date>2018-04-10 23:07</date>
+  <version>6.1</version>
+  <url>PL-SK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-SL</code>
+  <uid>340275</uid>
+  <name>Poland, Slaskie</name>
+  <name_ru>Польша, Силезское</name_ru>
+  <date>2018-04-11 03:37</date>
+  <version>6.1</version>
+  <url>PL-SL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-OVRV</code>
+  <uid>340279</uid>
+  <name>Poland overview</name>
+  <name_ru>Польша, обзорн.</name_ru>
+  <date>2018-04-12 13:39</date>
+  <version>6.1</version>
+  <url>PL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PRI</code>
+  <uid>340055</uid>
+  <name>Приморский край</name>
+  <name_ru>Приморский край</name_ru>
+  <date>2026-02-27 18:51</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/dJmLzUmr3a6cKn</url>
+ </map>
+ <map>
+  <code>RU-PSK</code>
+  <uid>340056</uid>
+  <name>Псковская обл.</name>
+  <name_ru>Псковская обл.</name_ru>
+  <date>2026-02-27 18:53</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/5sWgNtkR3a6cM2</url>
+ </map>
+ <map>
+  <code>RU-AL</code>
+  <uid>340001</uid>
+  <name>Республика Алтай</name>
+  <name_ru>Республика Алтай</name_ru>
+  <date>2026-02-26 09:05</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/Ugseesqg3a6b9r</url>
+ </map>
+ <map>
+  <code>RU-BA</code>
+  <uid>340006</uid>
+  <name>Республика Башкортостан</name>
+  <name_ru>Республика Башкортостан</name_ru>
+  <date>2026-02-26 13:17</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/pGqn9Rzr3a6bFw</url>
+ </map>
+ <map>
+  <code>RU-BU</code>
+  <uid>340009</uid>
+  <name>Республика Бурятия</name>
+  <name_ru>Республика Бурятия</name_ru>
+  <date>2026-02-26 11:11</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/15RYQGAW3a6bK8</url>
+ </map>
+ <map>
+  <code>RU-DA</code>
+  <uid>340015</uid>
+  <name>Республика Дагестан</name>
+  <name_ru>Республика Дагестан</name_ru>
+  <date>2026-02-26 15:50</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/V8jfHdrM3a6bSB</url>
+ </map>
+ <map>
+  <code>RU-IN</code>
+  <uid>340016</uid>
+  <name>Республика Ингушетия</name>
+  <name_ru>Республика Ингушетия</name_ru>
+  <date>2026-02-26 14:43</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/ylEFJK-p3a6bT6</url>
+ </map>
+ <map>
+  <code>RU-KL</code>
+  <uid>340031</uid>
+  <name>Республика Калмыкия</name>
+  <name_ru>Республика Калмыкия</name_ru>
+  <date>2026-02-26 23:21</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/sPMr6UzF3a6bgm</url>
+ </map>
+ <map>
+  <code>RU-KR</code>
+  <uid>340035</uid>
+  <name>Республика Карелия</name>
+  <name_ru>Республика Карелия</name_ru>
+  <date>2026-02-27 06:29</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/SsQoWA3M3a6bkj</url>
+ </map>
+ <map>
+  <code>RU-KO</code>
+  <uid>340033</uid>
+  <name>Республика Коми</name>
+  <name_ru>Республика Коми</name_ru>
+  <date>2026-02-27 02:18</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/9ChXzYHy3a6biY</url>
+ </map>
+ <map>
+  <code>RU-CR</code>
+  <uid>340013</uid>
+  <name>Республика Крым</name>
+  <name_ru>Республика Крым</name_ru>
+  <date>2026-02-26 14:34</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/pbxBgLaS3a6bPw</url>
+ </map>
+ <map>
+  <code>MK-FULL</code>
+  <uid>340224</uid>
+  <name>Macedonia</name>
+  <name_ru>Республика Македония</name_ru>
+  <date>2018-04-12 12:40</date>
+  <version>6.1</version>
+  <url>MK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ME</code>
+  <uid>340040</uid>
+  <name>Республика Марий Эл</name>
+  <name_ru>Республика Марий Эл</name_ru>
+  <date>2026-02-27 06:50</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/dft6TjKJ3a6bwj</url>
+ </map>
+ <map>
+  <code>RU-MO</code>
+  <uid>340041</uid>
+  <name>Республика Мордовия</name>
+  <name_ru>Республика Мордовия</name_ru>
+  <date>2026-02-27 07:11</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/Ve_TzQoW3a6bzq</url>
+ </map>
+ <map>
+  <code>RU-SA</code>
+  <uid>340059</uid>
+  <name>Республика Саха (Якутия)</name>
+  <name_ru>Республика Саха (Якутия)</name_ru>
+  <date>2026-02-27 22:28</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/aMT6r_nL3a6cQQ</url>
+ </map>
+ <map>
+  <code>RU-SE</code>
+  <uid>340063</uid>
+  <name>Республика Северная Осетия</name>
+  <name_ru>Республика Северная Осетия</name_ru>
+  <date>2026-02-27 22:54</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/_D3f--DI3a6cTn</url>
+ </map>
+ <map>
+  <code>RU-TA</code>
+  <uid>340068</uid>
+  <name>Республика Татарстан</name>
+  <name_ru>Республика Татарстан</name_ru>
+  <date>2026-02-28 04:31</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/aS3kkwPO3a6chM</url>
+ </map>
+ <map>
+  <code>RU-TY</code>
+  <uid>340073</uid>
+  <name>Республика Тыва</name>
+  <name_ru>Республика Тыва</name_ru>
+  <date>2026-02-28 05:47</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/VH4IYslx3a6cmj</url>
+ </map>
+ <map>
+  <code>RU-KK</code>
+  <uid>340030</uid>
+  <name>Республика Хакасия</name>
+  <name_ru>Республика Хакасия</name_ru>
+  <date>2026-02-26 22:03</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/YfvByr3P3a6bfo</url>
+ </map>
+ <map>
+  <code>RU-OVRV</code>
+  <uid>340090</uid>
+  <name>Россия, обзорн.</name>
+  <name_ru>Россия, обзорн.</name_ru>
+  <date>2026-02-28 21:15</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/a0FDd-DtSLYprA</url>
+ </map>
+ <map>
+  <code>RU-ROS</code>
+  <uid>340057</uid>
+  <name>Ростовская обл.</name>
+  <name_ru>Ростовская обл.</name_ru>
+  <date>2026-02-27 23:27</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/YgVr-UO_3a6cMy</url>
+ </map>
+ <map>
+  <code>RO-OVRV</code>
+  <uid>340286</uid>
+  <name>Romania overview</name>
+  <name_ru>Румыния, обзорн.</name_ru>
+  <date>2018-04-12 13:45</date>
+  <version>6.1</version>
+  <url>RO-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-N</code>
+  <uid>340284</uid>
+  <name>Romania, north</name>
+  <name_ru>Румыния, север</name_ru>
+  <date>2018-04-12 02:58</date>
+  <version>6.1</version>
+  <url>RO-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-S</code>
+  <uid>340285</uid>
+  <name>Romania, south</name>
+  <name_ru>Румыния, юг</name_ru>
+  <date>2018-04-12 04:15</date>
+  <version>6.1</version>
+  <url>RO-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-RYA</code>
+  <uid>340058</uid>
+  <name>Рязанская обл.</name>
+  <name_ru>Рязанская обл.</name_ru>
+  <date>2026-02-27 19:40</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/uLPEo-Yz3a6cPU</url>
+ </map>
+ <map>
+  <code>RU-SAM</code>
+  <uid>340061</uid>
+  <name>Самарская обл.</name>
+  <name_ru>Самарская обл.</name_ru>
+  <date>2026-02-27 22:17</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/Xp5v5NZq3a6cRx</url>
+ </map>
+ <map>
+  <code>RU-SPO</code>
+  <uid>340065</uid>
+  <name>Санкт-Петербург и обл.</name>
+  <name_ru>Санкт-Петербург и обл.</name_ru>
+  <date>2026-02-28 16:08</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/8QzjR3OC3a6cdn</url>
+ </map>
+ <map>
+  <code>RU-SAR</code>
+  <uid>340062</uid>
+  <name>Саратовская обл.</name>
+  <name_ru>Саратовская обл.</name_ru>
+  <date>2026-02-27 23:58</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/4WkrmCDF3a6cSw</url>
+ </map>
+ <map>
+  <code>RU-SAK</code>
+  <uid>340060</uid>
+  <name>Сахалинская обл.</name>
+  <name_ru>Сахалинская обл.</name_ru>
+  <date>2026-02-27 20:17</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/VRdqbh_t3a6cR9</url>
+ </map>
+ <map>
+  <code>RU-SVE</code>
+  <uid>340067</uid>
+  <name>Свердловская обл.</name>
+  <name_ru>Свердловская обл.</name_ru>
+  <date>2026-02-28 05:27</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/RxtID8Cw3a6cfv</url>
+ </map>
+ <map>
+  <code>RS-FULL</code>
+  <uid>340287</uid>
+  <name>Serbia</name>
+  <name_ru>Сербия</name_ru>
+  <date>2018-04-12 07:01</date>
+  <version>6.1</version>
+  <url>RS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-E</code>
+  <uid>340315</uid>
+  <name>Slovakia, Eastern</name>
+  <name_ru>Словакия, Восточная</name_ru>
+  <date>2018-04-11 16:29</date>
+  <version>6.1</version>
+  <url>SK-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-W</code>
+  <uid>340316</uid>
+  <name>Slovakia, Western</name>
+  <name_ru>Словакия, Западная</name_ru>
+  <date>2018-04-11 20:43</date>
+  <version>6.1</version>
+  <url>SK-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-C</code>
+  <uid>340314</uid>
+  <name>Slovakia, Central</name>
+  <name_ru>Словакия, Центральная</name_ru>
+  <date>2018-04-11 18:13</date>
+  <version>6.1</version>
+  <url>SK-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-OVRV</code>
+  <uid>340317</uid>
+  <name>Slovakia overview</name>
+  <name_ru>Словакия, обзорн.</name_ru>
+  <date>2018-04-12 13:22</date>
+  <version>6.1</version>
+  <url>SK-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-E</code>
+  <uid>340311</uid>
+  <name>Slovenia East</name>
+  <name_ru>Словения Восточная</name_ru>
+  <date>2018-04-11 20:08</date>
+  <version>6.1</version>
+  <url>SI-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-W</code>
+  <uid>340310</uid>
+  <name>Slovenia West</name>
+  <name_ru>Словения Западная</name_ru>
+  <date>2018-04-11 21:28</date>
+  <version>6.1</version>
+  <url>SI-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-S</code>
+  <uid>340312</uid>
+  <name>Slovenia South</name>
+  <name_ru>Словения Южная</name_ru>
+  <date>2018-04-11 23:35</date>
+  <version>6.1</version>
+  <url>SI-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-OVRV</code>
+  <uid>340313</uid>
+  <name>Slovenia overview</name>
+  <name_ru>Словения, обзорн.</name_ru>
+  <date>2018-04-12 13:30</date>
+  <version>6.1</version>
+  <url>SI-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SMO</code>
+  <uid>340064</uid>
+  <name>Смоленская обл.</name>
+  <name_ru>Смоленская обл.</name_ru>
+  <date>2026-02-27 23:59</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/quyxfaP_3a6ccb</url>
+ </map>
+ <map>
+  <code>RU-STA</code>
+  <uid>340066</uid>
+  <name>Ставропольский край</name>
+  <name_ru>Ставропольский край</name_ru>
+  <date>2026-02-28 00:50</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/KydyNlaO3a6cer</url>
+ </map>
+ <map>
+  <code>TJ-FULL</code>
+  <uid>340181</uid>
+  <name>Таджикистан</name>
+  <name_ru>Таджикистан</name_ru>
+  <date>2026-03-01 17:35</date>
+  <version>6.49</version>
+  <url>https://disk.yandex.ru/d/DfZW2pID3a6Mfd</url>
+ </map>
+ <map>
+  <code>RU-TAM</code>
+  <uid>340069</uid>
+  <name>Тамбовская обл.</name>
+  <name_ru>Тамбовская обл.</name_ru>
+  <date>2026-02-28 01:37</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/HAlUPsci3a6ciA</url>
+ </map>
+ <map>
+  <code>RU-TVE</code>
+  <uid>340072</uid>
+  <name>Тверская обл.</name>
+  <name_ru>Тверская обл.</name_ru>
+  <date>2026-02-28 07:20</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/_igY-4073a6cm4</url>
+ </map>
+ <map>
+  <code>RU-TOM</code>
+  <uid>340070</uid>
+  <name>Томская обл.</name>
+  <name_ru>Томская обл.</name_ru>
+  <date>2026-02-28 02:18</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/kIjIg4_43a6cir</url>
+ </map>
+ <map>
+  <code>RU-TUL</code>
+  <uid>340071</uid>
+  <name>Тульская обл.</name>
+  <name_ru>Тульская обл.</name_ru>
+  <date>2026-02-28 05:12</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/fVKs-P7R3a6cju</url>
+ </map>
+ <map>
+  <code>TM-FULL</code>
+  <uid>340182</uid>
+  <name>Turkmenistan</name>
+  <name_ru>Туркменистан</name_ru>
+  <date>2026-03-01 18:08</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/gnGDrArb3a6MgS</url>
+ </map>
+ <map>
+  <code>TR-4</code>
+  <uid>340323</uid>
+  <name>Turkey, Eastern Anatolia</name>
+  <name_ru>Турция,  Восточная Анатолия</name_ru>
+  <date>2018-04-12 10:09</date>
+  <version>6.1</version>
+  <url>TR-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-5a</code>
+  <uid>340324</uid>
+  <name>Turkey, Marmara (1)</name>
+  <name_ru>Турция, Мраморноморский регион (1)</name_ru>
+  <date>2018-04-12 12:10</date>
+  <version>6.1</version>
+  <url>TR-5a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-5b</code>
+  <uid>340325</uid>
+  <name>Turkey, Marmara (2)</name>
+  <name_ru>Турция, Мраморноморский регион (2)</name_ru>
+  <date>2018-04-12 11:01</date>
+  <version>6.1</version>
+  <url>TR-5b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-6</code>
+  <uid>340326</uid>
+  <name>Turkey, Mediterranean</name>
+  <name_ru>Турция, Средиземноморский регион</name_ru>
+  <date>2018-04-12 12:08</date>
+  <version>6.1</version>
+  <url>TR-6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-3</code>
+  <uid>340322</uid>
+  <name>Turkey,Central Anatolia</name>
+  <name_ru>Турция, Центральная Анатолия</name_ru>
+  <date>2018-04-12 11:41</date>
+  <version>6.1</version>
+  <url>TR-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-2</code>
+  <uid>340321</uid>
+  <name>Turkey, Black Sea Region</name>
+  <name_ru>Турция, Черноморский регион</name_ru>
+  <date>2018-04-12 09:55</date>
+  <version>6.1</version>
+  <url>TR-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-1</code>
+  <uid>340320</uid>
+  <name>Turkey, Aegean Region</name>
+  <name_ru>Турция, Эгейский регион</name_ru>
+  <date>2018-04-12 09:21</date>
+  <version>6.1</version>
+  <url>TR-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-7</code>
+  <uid>340327</uid>
+  <name>Turkey, Southeastern Anatolia</name>
+  <name_ru>Турция, Юго-Восточная Анатолия</name_ru>
+  <date>2018-04-12 12:17</date>
+  <version>6.1</version>
+  <url>TR-7-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-OVRV</code>
+  <uid>340328</uid>
+  <name>Turkey overview</name>
+  <name_ru>Турция, обзорн.</name_ru>
+  <date>2018-04-12 14:13</date>
+  <version>6.1</version>
+  <url>TR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TYU</code>
+  <uid>340074</uid>
+  <name>Тюменская обл.</name>
+  <name_ru>Тюменская обл.</name_ru>
+  <date>2026-02-28 06:58</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/QFXF8dUr3a6cna</url>
+ </map>
+ <map>
+  <code>RU-UD</code>
+  <uid>340075</uid>
+  <name>Удмуртская Республика</name>
+  <name_ru>Удмуртская Республика</name_ru>
+  <date>2026-02-28 08:24</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/kKKXkKqO3a6cpD</url>
+ </map>
+ <map>
+  <code>UZ-E</code>
+  <uid>340163</uid>
+  <name>Узбекистан, восток</name>
+  <name_ru>Узбекистан, восток</name_ru>
+  <date>2026-03-01 10:54</date>
+  <version>6.43</version>
+  <url>https://disk.yandex.ru/d/uj4vcpNp6-HF7Q</url>
+ </map>
+ <map>
+  <code>UZ-W</code>
+  <uid>340164</uid>
+  <name>Узбекистан, запад</name>
+  <name_ru>Узбекистан, запад</name_ru>
+  <date>2026-03-01 10:11</date>
+  <version>6.43</version>
+  <url>https://disk.yandex.ru/d/XDI4rtR1eOPw7A</url>
+ </map>
+ <map>
+  <code>UZ-OVRV</code>
+  <uid>340165</uid>
+  <name>Узбекистан, обзорн.</name>
+  <name_ru>Узбекистан, обзорн.</name_ru>
+  <date>2026-03-01 18:13</date>
+  <version>6.43</version>
+  <url>https://disk.yandex.ru/d/i5fH8xhD4_kmiA</url>
+ </map>
+ <map>
+  <code>UA-05</code>
+  <uid>340110</uid>
+  <name>Украина, Винницкая обл.</name>
+  <name_ru>Украина, Винницкая обл.</name_ru>
+  <date>2026-02-28 18:52</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/DOTJFOcdXsJjyQ</url>
+ </map>
+ <map>
+  <code>UA-07</code>
+  <uid>340111</uid>
+  <name>Украина, Волынская обл.</name>
+  <name_ru>Украина, Волынская обл.</name_ru>
+  <date>2026-02-28 19:24</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/9trx-dGtLhCf8Q</url>
+ </map>
+ <map>
+  <code>UA-12</code>
+  <uid>340112</uid>
+  <name>Украина, Днепропетровская обл.</name>
+  <name_ru>Украина, Днепропетровская обл.</name_ru>
+  <date>2026-02-28 20:56</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/S5teKErAA1dzMA</url>
+ </map>
+ <map>
+  <code>UA-14</code>
+  <uid>340113</uid>
+  <name>Украина, Донецкая обл.</name>
+  <name_ru>Украина, Донецкая обл.</name_ru>
+  <date>2026-02-28 21:42</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/IlLfDOdV1uDueA</url>
+ </map>
+ <map>
+  <code>UA-18</code>
+  <uid>340114</uid>
+  <name>Украина, Житомирская обл.</name>
+  <name_ru>Украина, Житомирская обл.</name_ru>
+  <date>2026-02-28 21:34</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/pUSBslrREKNU1Q</url>
+ </map>
+ <map>
+  <code>UA-21</code>
+  <uid>340115</uid>
+  <name>Украина, Закарпатская обл.</name>
+  <name_ru>Украина, Закарпатская обл.</name_ru>
+  <date>2026-02-28 22:15</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/dnJHZTGGgqdF-w</url>
+ </map>
+ <map>
+  <code>UA-23</code>
+  <uid>340116</uid>
+  <name>Украина, Запорожская обл.</name>
+  <name_ru>Украина, Запорожская обл.</name_ru>
+  <date>2026-02-28 22:03</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/Ez8YOsRkFCBc5A</url>
+ </map>
+ <map>
+  <code>UA-26</code>
+  <uid>340117</uid>
+  <name>Украина, Ивано-Франковская обл.</name>
+  <name_ru>Украина, Ивано-Франковская обл.</name_ru>
+  <date>2026-02-28 22:34</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/lojrZAyi29PyRQ</url>
+ </map>
+ <map>
+  <code>UA-32</code>
+  <uid>340118</uid>
+  <name>Украина, Киевская обл.</name>
+  <name_ru>Украина, Киевская обл.</name_ru>
+  <date>2026-03-01 00:40</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/fnETOahOCufgXA</url>
+ </map>
+ <map>
+  <code>UA-35</code>
+  <uid>340119</uid>
+  <name>Украина, Кировоградская обл.</name>
+  <name_ru>Украина, Кировоградская обл.</name_ru>
+  <date>2026-02-28 22:49</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/KTcKJA7nzQrenQ</url>
+ </map>
+ <map>
+  <code>UA-09</code>
+  <uid>340120</uid>
+  <name>Украина, Луганская обл.</name>
+  <name_ru>Украина, Луганская обл.</name_ru>
+  <date>2026-03-01 00:04</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/H13J4LOAN6oquA</url>
+ </map>
+ <map>
+  <code>UA-46</code>
+  <uid>340121</uid>
+  <name>Украина, Львовская обл.</name>
+  <name_ru>Украина, Львовская обл.</name_ru>
+  <date>2026-03-01 01:12</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/O2ctZ-p5q-eBHg</url>
+ </map>
+ <map>
+  <code>UA-48</code>
+  <uid>340122</uid>
+  <name>Украина, Николаевская обл.</name>
+  <name_ru>Украина, Николаевская обл.</name_ru>
+  <date>2026-03-01 00:47</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/2RwSkvimooXsmw</url>
+ </map>
+ <map>
+  <code>UA-51</code>
+  <uid>340123</uid>
+  <name>Украина, Одесская обл.</name>
+  <name_ru>Украина, Одесская обл.</name_ru>
+  <date>2026-03-01 01:35</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/YDxgC7jCWfd7Bg</url>
+ </map>
+ <map>
+  <code>UA-53</code>
+  <uid>340124</uid>
+  <name>Украина, Полтавская обл.</name>
+  <name_ru>Украина, Полтавская обл.</name_ru>
+  <date>2026-03-01 01:31</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/fi2kXIKk2LCo8A</url>
+ </map>
+ <map>
+  <code>UA-56</code>
+  <uid>340125</uid>
+  <name>Украина, Ровенская обл.</name>
+  <name_ru>Украина, Ровенская обл.</name_ru>
+  <date>2026-03-01 01:42</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/FISw1RmHVaQJ0g</url>
+ </map>
+ <map>
+  <code>UA-59</code>
+  <uid>340126</uid>
+  <name>Украина, Сумская обл.</name>
+  <name_ru>Украина, Сумская обл.</name_ru>
+  <date>2026-03-01 01:55</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/ipAuvQp3moeuAA</url>
+ </map>
+ <map>
+  <code>UA-61</code>
+  <uid>340127</uid>
+  <name>Украина, Тернопольская обл.</name>
+  <name_ru>Украина, Тернопольская обл.</name_ru>
+  <date>2026-03-01 02:11</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/8HoyGNCJ8a02IA</url>
+ </map>
+ <map>
+  <code>UA-63</code>
+  <uid>340128</uid>
+  <name>Украина, Харьковская обл.</name>
+  <name_ru>Украина, Харьковская обл.</name_ru>
+  <date>2026-03-01 03:06</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/rIHzmp19tyO5Jg</url>
+ </map>
+ <map>
+  <code>UA-65</code>
+  <uid>340129</uid>
+  <name>Украина, Херсонская обл.</name>
+  <name_ru>Украина, Херсонская обл.</name_ru>
+  <date>2026-03-01 02:15</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/ckb_QT831bAvxQ</url>
+ </map>
+ <map>
+  <code>UA-68</code>
+  <uid>340130</uid>
+  <name>Украина, Хмельницкая обл.</name>
+  <name_ru>Украина, Хмельницкая обл.</name_ru>
+  <date>2026-03-01 02:56</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/52C3_q8ZA9YZAQ</url>
+ </map>
+ <map>
+  <code>UA-71</code>
+  <uid>340131</uid>
+  <name>Украина, Черкасская обл.</name>
+  <name_ru>Украина, Черкасская обл.</name_ru>
+  <date>2026-03-01 03:14</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/IjD6MaKQCA_tuQ</url>
+ </map>
+ <map>
+  <code>UA-74</code>
+  <uid>340132</uid>
+  <name>Украина, Черниговская обл.</name>
+  <name_ru>Украина, Черниговская обл.</name_ru>
+  <date>2026-03-01 03:27</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/MDjL9oSEMhYluw</url>
+ </map>
+ <map>
+  <code>UA-77</code>
+  <uid>340133</uid>
+  <name>Украина, Черновицкая обл.</name>
+  <name_ru>Украина, Черновицкая обл.</name_ru>
+  <date>2026-03-01 03:36</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/PeAqifcRbSXcbQ</url>
+ </map>
+ <map>
+  <code>UA-OVRV</code>
+  <uid>340134</uid>
+  <name>Украина, обзорн.</name>
+  <name_ru>Украина, обзорн.</name_ru>
+  <date>2026-03-01 04:16</date>
+  <version>6.52</version>
+  <url>https://disk.yandex.ru/d/efECIzbI3a6egm</url>
+ </map>
+ <map>
+  <code>RU-ULY</code>
+  <uid>340076</uid>
+  <name>Ульяновская обл.</name>
+  <name_ru>Ульяновская обл.</name_ru>
+  <date>2026-02-28 08:17</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/VszeoaqB3a6cqL</url>
+ </map>
+ <map>
+  <code>FI-AL</code>
+  <uid>340171</uid>
+  <name>Finland, Aland</name>
+  <name_ru>Финляндия, Аландские о-ва</name_ru>
+  <date>2018-04-04 08:56</date>
+  <version>6.1</version>
+  <url>FI-AL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-IS</code>
+  <uid>340173</uid>
+  <name>Finland, Ita-Suomen</name>
+  <name_ru>Финляндия, Восточная Финляндия</name_ru>
+  <date>2018-04-04 10:12</date>
+  <version>6.1</version>
+  <url>FI-IS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-KS</code>
+  <uid>340174</uid>
+  <name>Finland, Lansi-ja Sisa-Suomen</name>
+  <name_ru>Финляндия, Зап. и Центр. Финляндия</name_ru>
+  <date>2018-04-04 11:47</date>
+  <version>6.1</version>
+  <url>FI-KS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-LL</code>
+  <uid>340175</uid>
+  <name>Finland, Lappi</name>
+  <name_ru>Финляндия, Лапландия</name_ru>
+  <date>2018-04-04 09:34</date>
+  <version>6.1</version>
+  <url>FI-LL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-OL</code>
+  <uid>340177</uid>
+  <name>Finland, Pohjois-Suomi</name>
+  <name_ru>Финляндия, Северная Финляндия</name_ru>
+  <date>2018-04-04 10:57</date>
+  <version>6.1</version>
+  <url>FI-OL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-LS</code>
+  <uid>340176</uid>
+  <name>Finland, Lounais-Suomen</name>
+  <name_ru>Финляндия, Юго-Западная Финляндия</name_ru>
+  <date>2018-04-04 10:40</date>
+  <version>6.1</version>
+  <url>FI-LS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-ES</code>
+  <uid>340172</uid>
+  <name>Finland, Etela-Suomen</name>
+  <name_ru>Финляндия, Южная Финляндия</name_ru>
+  <date>2018-04-04 18:22</date>
+  <version>6.1</version>
+  <url>FI-ES-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-OVRV</code>
+  <uid>340178</uid>
+  <name>Finland overview</name>
+  <name_ru>Финляндия, обзорн.</name_ru>
+  <date>2018-04-05 07:27</date>
+  <version>6.1</version>
+  <url>FI-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KHA</code>
+  <uid>340027</uid>
+  <name>Хабаровский край</name>
+  <name_ru>Хабаровский край</name_ru>
+  <date>2026-02-26 21:43</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/FHM-k8sK3a6bcY</url>
+ </map>
+ <map>
+  <code>RU-KHM</code>
+  <uid>340028</uid>
+  <name>Ханты-Мансийский АО</name>
+  <name_ru>Ханты-Мансийский АО</name_ru>
+  <date>2026-02-26 23:05</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/wKsE2ldj3a6bdc</url>
+ </map>
+ <map>
+  <code>HR-FULL</code>
+  <uid>340187</uid>
+  <name>Croatia</name>
+  <name_ru>Хорватия</name_ru>
+  <date>2018-04-12 10:23</date>
+  <version>6.1</version>
+  <url>HR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CHE</code>
+  <uid>340011</uid>
+  <name>Челябинская обл.</name>
+  <name_ru>Челябинская обл.</name_ru>
+  <date>2026-02-26 14:53</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/dSkNEYUF3a6bMN</url>
+ </map>
+ <map>
+  <code>ME-FULL</code>
+  <uid>340223</uid>
+  <name>Montenegro</name>
+  <name_ru>Черногория</name_ru>
+  <date>2018-04-12 12:34</date>
+  <version>6.1</version>
+  <url>ME-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-08</code>
+  <uid>340141</uid>
+  <name>Czech, Moravskoslezsko</name>
+  <name_ru>Чехия Мораво-Силезия</name_ru>
+  <date>2018-04-11 14:16</date>
+  <version>6.1</version>
+  <url>CZ-08-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-05</code>
+  <uid>340138</uid>
+  <name>Czech, Severovychod</name>
+  <name_ru>Чехия Северо-Восточная</name_ru>
+  <date>2018-04-11 15:45</date>
+  <version>6.1</version>
+  <url>CZ-05-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-04</code>
+  <uid>340137</uid>
+  <name>Czech, Severozapad</name>
+  <name_ru>Чехия Северо-Западная</name_ru>
+  <date>2018-04-11 09:51</date>
+  <version>6.1</version>
+  <url>CZ-04-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-07</code>
+  <uid>340140</uid>
+  <name>Czech, Stredni Morava </name>
+  <name_ru>Чехия Центральная Моравия </name_ru>
+  <date>2018-04-11 12:29</date>
+  <version>6.1</version>
+  <url>CZ-07-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-02</code>
+  <uid>340135</uid>
+  <name>Czech, Praha, Stredni Cechy</name>
+  <name_ru>Чехия Центральная, Прага</name_ru>
+  <date>2018-03-31 13:32</date>
+  <version>6.1</version>
+  <url>CZ-02-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-06</code>
+  <uid>340139</uid>
+  <name>Czech, Jihovychod</name>
+  <name_ru>Чехия Юго-Восточная</name_ru>
+  <date>2018-04-11 16:54</date>
+  <version>6.1</version>
+  <url>CZ-06-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-03</code>
+  <uid>340136</uid>
+  <name>Czech, Jihozapad</name>
+  <name_ru>Чехия Юго-Западная</name_ru>
+  <date>2018-03-31 14:43</date>
+  <version>6.1</version>
+  <url>CZ-03-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-OVRV</code>
+  <uid>340142</uid>
+  <name>Czech Republic overview</name>
+  <name_ru>Чехия, обзорн.</name_ru>
+  <date>2018-04-12 13:08</date>
+  <version>6.1</version>
+  <url>CZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CE</code>
+  <uid>340010</uid>
+  <name>Чеченская Республика</name>
+  <name_ru>Чеченская Республика</name_ru>
+  <date>2026-02-26 11:34</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/M14LS1mt3a6bLB</url>
+ </map>
+ <map>
+  <code>RU-CU</code>
+  <uid>340014</uid>
+  <name>Чувашская Республика</name>
+  <name_ru>Чувашская Республика</name_ru>
+  <date>2026-02-26 14:14</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/BAncTAi43a6bR4</url>
+ </map>
+ <map>
+  <code>RU-CHU</code>
+  <uid>340012</uid>
+  <name>Чукотский АО</name>
+  <name_ru>Чукотский АО</name_ru>
+  <date>2026-02-26 13:30</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/W3_IQH-B3a6bNi</url>
+ </map>
+ <map>
+  <code>CH-2</code>
+  <uid>340131</uid>
+  <name>Switzerland, East</name>
+  <name_ru>Швейцария, Восток</name_ru>
+  <date>2018-04-07 06:17</date>
+  <version>6.1</version>
+  <url>CH-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-1</code>
+  <uid>340130</uid>
+  <name>Switzerland, West</name>
+  <name_ru>Швейцария, Запад</name_ru>
+  <date>2018-04-07 16:01</date>
+  <version>6.1</version>
+  <url>CH-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-3</code>
+  <uid>340132</uid>
+  <name>Switzerland, North</name>
+  <name_ru>Швейцария, Север</name_ru>
+  <date>2018-04-07 15:17</date>
+  <version>6.1</version>
+  <url>CH-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-OVRV</code>
+  <uid>340133</uid>
+  <name>Switzerland overview</name>
+  <name_ru>Швейцария, обзорн.</name_ru>
+  <date>2018-04-08 13:20</date>
+  <version>6.1</version>
+  <url>CH-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-10</code>
+  <uid>340296</uid>
+  <name>Sweden, Blekinge lan</name>
+  <name_ru>Швеция, Блекинге</name_ru>
+  <date>2018-04-05 03:30</date>
+  <version>6.1</version>
+  <url>SE-10-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-17</code>
+  <uid>340300</uid>
+  <name>Sweden, Varmlands lan</name>
+  <name_ru>Швеция, Вермланд</name_ru>
+  <date>2018-04-05 04:23</date>
+  <version>6.1</version>
+  <url>SE-17-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-24</code>
+  <uid>340307</uid>
+  <name>Sweden, Vasterbottens lan</name>
+  <name_ru>Швеция, Вестерботтен</name_ru>
+  <date>2018-04-05 06:51</date>
+  <version>6.1</version>
+  <url>SE-24-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-22</code>
+  <uid>340305</uid>
+  <name>Sweden, Vasternorrlands lan</name>
+  <name_ru>Швеция, Вестерноррланд</name_ru>
+  <date>2018-04-05 06:48</date>
+  <version>6.1</version>
+  <url>SE-22-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-19</code>
+  <uid>340302</uid>
+  <name>Sweden, Vastmanlands lan</name>
+  <name_ru>Швеция, Вестманланд</name_ru>
+  <date>2018-04-05 04:56</date>
+  <version>6.1</version>
+  <url>SE-19-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-14</code>
+  <uid>340299</uid>
+  <name>Sweden, Vastra Gotalands lan</name>
+  <name_ru>Швеция, Вестра-Гёталанд</name_ru>
+  <date>2018-04-05 09:56</date>
+  <version>6.1</version>
+  <url>SE-14-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-09</code>
+  <uid>340295</uid>
+  <name>Sweden, Gotlands lan</name>
+  <name_ru>Швеция, Готланд</name_ru>
+  <date>2018-04-05 03:20</date>
+  <version>6.1</version>
+  <url>SE-09-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-20</code>
+  <uid>340303</uid>
+  <name>Sweden, Dalarnas lan</name>
+  <name_ru>Швеция, Даларна</name_ru>
+  <date>2018-04-05 05:51</date>
+  <version>6.1</version>
+  <url>SE-20-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-21</code>
+  <uid>340304</uid>
+  <name>Sweden, Gavleborgs lan</name>
+  <name_ru>Швеция, Евлеборг</name_ru>
+  <date>2018-04-05 06:17</date>
+  <version>6.1</version>
+  <url>SE-21-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-23</code>
+  <uid>340306</uid>
+  <name>Sweden, Jamtlands lan</name>
+  <name_ru>Швеция, Емтланд</name_ru>
+  <date>2018-04-05 06:31</date>
+  <version>6.1</version>
+  <url>SE-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-06</code>
+  <uid>340292</uid>
+  <name>Sweden, Jonkopings lan</name>
+  <name_ru>Швеция, Йёнчёпинг</name_ru>
+  <date>2018-04-05 02:56</date>
+  <version>6.1</version>
+  <url>SE-06-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-08</code>
+  <uid>340294</uid>
+  <name>Sweden, Kalmar lan</name>
+  <name_ru>Швеция, Кальмар</name_ru>
+  <date>2018-04-05 03:58</date>
+  <version>6.1</version>
+  <url>SE-08-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-07</code>
+  <uid>340293</uid>
+  <name>Sweden, Kronobergs lan</name>
+  <name_ru>Швеция, Крунуберг</name_ru>
+  <date>2018-04-05 03:12</date>
+  <version>6.1</version>
+  <url>SE-07-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-25</code>
+  <uid>340308</uid>
+  <name>Sweden, Norrbottens lan</name>
+  <name_ru>Швеция, Норрботтен</name_ru>
+  <date>2018-04-05 07:13</date>
+  <version>6.1</version>
+  <url>SE-25-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-12</code>
+  <uid>340297</uid>
+  <name>Sweden, Skone lan</name>
+  <name_ru>Швеция, Сконе</name_ru>
+  <date>2018-04-05 06:21</date>
+  <version>6.1</version>
+  <url>SE-12-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-01</code>
+  <uid>340288</uid>
+  <name>Sweden, Stockholms lan</name>
+  <name_ru>Швеция, Стокгольм</name_ru>
+  <date>2018-04-05 05:26</date>
+  <version>6.1</version>
+  <url>SE-01-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-04</code>
+  <uid>340290</uid>
+  <name>Sweden, Sodermanlands lan</name>
+  <name_ru>Швеция, Сёдерманланд</name_ru>
+  <date>2018-04-05 02:56</date>
+  <version>6.1</version>
+  <url>SE-04-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-03</code>
+  <uid>340289</uid>
+  <name>Sweden, Uppsala lan</name>
+  <name_ru>Швеция, Уппсала</name_ru>
+  <date>2018-04-05 02:40</date>
+  <version>6.1</version>
+  <url>SE-03-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-13</code>
+  <uid>340298</uid>
+  <name>Sweden, Hallands lan</name>
+  <name_ru>Швеция, Халланд</name_ru>
+  <date>2018-04-05 03:44</date>
+  <version>6.1</version>
+  <url>SE-13-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-18</code>
+  <uid>340301</uid>
+  <name>Sweden, Orebro lan</name>
+  <name_ru>Швеция, Эребру</name_ru>
+  <date>2018-04-05 04:41</date>
+  <version>6.1</version>
+  <url>SE-18-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-05</code>
+  <uid>340291</uid>
+  <name>Sweden, Ostergotlands lan</name>
+  <name_ru>Швеция, Эстергётланд</name_ru>
+  <date>2018-04-05 03:14</date>
+  <version>6.1</version>
+  <url>SE-05-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-OVRV</code>
+  <uid>340309</uid>
+  <name>Sweden overview</name>
+  <name_ru>Швеция, обзорн.</name_ru>
+  <date>2018-04-05 12:00</date>
+  <version>6.1</version>
+  <url>SE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EE-FULL</code>
+  <uid>340169</uid>
+  <name>Estonia</name>
+  <name_ru>Эстония</name_ru>
+  <date>2026-03-01 16:29</date>
+  <version>6.46</version>
+  <url>https://disk.yandex.ru/d/qD6giMiL3a6MJD</url>
+ </map>
+ <map>
+  <code>RU-YAN</code>
+  <uid>340081</uid>
+  <name>Ямало-Ненецкий АО</name>
+  <name_ru>Ямало-Ненецкий АО</name_ru>
+  <date>2026-02-28 12:48</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/RaTxF3Q33a6cwy</url>
+ </map>
+ <map>
+  <code>RU-YAR</code>
+  <uid>340082</uid>
+  <name>Ярославская обл.</name>
+  <name_ru>Ярославская обл.</name_ru>
+  <date>2026-02-28 13:44</date>
+  <version>6.55</version>
+  <url>https://disk.yandex.ru/d/NyebjIzi3a6cyn</url>
+ </map>
+</maplist>

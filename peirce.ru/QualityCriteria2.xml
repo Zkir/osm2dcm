@@ -20,7 +20,7 @@
 	  <MaxDeadEnds>10</MaxDeadEnds>
 	  
 	  
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.05</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.05</MaxUnmatchedAddrStreets>
 	</ClassA>
@@ -35,7 +35,7 @@
 	  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 	</ClassB>
@@ -49,7 +49,7 @@
 	  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrHouses>1.0</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrHousesFixable>0.05</MaxUnmatchedAddrHousesFixable>
@@ -64,7 +64,7 @@
 	  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxTotalAddr>2000</MaxTotalAddr>
 	  <MaxUnmatchedAddrHouses>0.999</MaxUnmatchedAddrHouses> 
 	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
@@ -82,7 +82,7 @@
 	  <MaxIsolatedSubgraphsTertiary>500</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>500</MaxDeadEnds>
 	  
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 	</ClassC>
@@ -96,7 +96,7 @@
 	  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>5</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.99</MaxUnmatchedAddrHouses> 
 	  <MaxUnmatchedAddrStreets>0.10</MaxUnmatchedAddrStreets>
 	</ClassCm>
@@ -112,7 +112,7 @@
 	  <MaxIsolatedSubgraphsTertiary>500</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>500</MaxDeadEnds>
 	  
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
 	</ClassD>
@@ -122,7 +122,7 @@
 	    Минимальные требования чтобы карта работала в СГ. Целое море.
 	  </Description>
 	  <MaxSealineBreaks>0</MaxSealineBreaks>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	</ClassF> 
 </Scale1>	
 <Scale2>
@@ -136,7 +136,7 @@
 	  <MaxIsolatedSubgraphs>100</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>200</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>100</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>0.15</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.015</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>0.10</MaxUnmatchedAddrStreetsNoRegion>
@@ -150,7 +150,7 @@
 	  <MaxIsolatedSubgraphs>200</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>200</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>500</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.015</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>0.10</MaxUnmatchedAddrStreetsNoRegion>
@@ -164,7 +164,7 @@
 	  <MaxIsolatedSubgraphs>500</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>200</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>500</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>0.05</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>0.10</MaxUnmatchedAddrStreetsNoRegion>
@@ -178,10 +178,10 @@
 	  <MaxIsolatedSubgraphs>1000</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>1000</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>500</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
-	  <MaxUnmatchedAddrStreets>0.10</MaxUnmatchedAddrStreets>
-	  <MaxUnmatchedAddrStreetsNoRegion>0.10</MaxUnmatchedAddrStreetsNoRegion>
+	  <MaxUnmatchedAddrStreets>0.15</MaxUnmatchedAddrStreets>
+	  <MaxUnmatchedAddrStreetsNoRegion>0.15</MaxUnmatchedAddrStreetsNoRegion>
 	</ClassD>
 </Scale2>	
 <Scale3>
@@ -195,7 +195,7 @@
 	  <MaxIsolatedSubgraphs>50</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>50</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10000</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>1</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>1</MaxUnmatchedAddrStreetsNoRegion>
@@ -209,7 +209,7 @@
 	  <MaxIsolatedSubgraphs>100</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>100</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10000</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>1</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>1</MaxUnmatchedAddrStreetsNoRegion>
@@ -223,7 +223,7 @@
 	  <MaxIsolatedSubgraphs>200</MaxIsolatedSubgraphs>
 	  <MaxIsolatedSubgraphsTertiary>200</MaxIsolatedSubgraphsTertiary>
 	  <MaxDeadEnds>10000</MaxDeadEnds>
-	  <MaxRoutiningEdges>600000</MaxRoutiningEdges>
+	  <MaxRoutiningEdges>700000</MaxRoutiningEdges>
 	  <MaxUnmatchedAddrHouses>1</MaxUnmatchedAddrHouses>
 	  <MaxUnmatchedAddrStreets>1</MaxUnmatchedAddrStreets>
 	  <MaxUnmatchedAddrStreetsNoRegion>1</MaxUnmatchedAddrStreetsNoRegion>

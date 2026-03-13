@@ -10,24 +10,102 @@ Function GetMapGroup($strCountryCode)
         case 'RU':
             $result="Россия";
             break;
-        case "AB":    
-        case "AZ":
-        case "AM":
-        case "BY":
-        case "GE":
-        case "KZ":
-        case "KG":
-        case "MD":
-        case "UA":
-        case "FI":
-        case "LV":
-        case "LT":
-        case "EE": 
-        case "UZ":         	
-            $result="Ближнее Зарубежье";
+        
+        case "EU": //Евромаршруты
+         
+        case "AT": //Австрия
+        case "BE": //Бельгия
+        case "GB": //Великобритания
+        case "DE": //Германия
+        case "IE": //Ирландия
+        case "IM": //остров Мэн
+        case "LI": //Лихтенштейн
+        case "LU": //Люксембург
+        case "MC": //Монако
+        case "NL": //Нидерланды
+        case "FR": //Франция
+        case "CH": //Швейцария
+
+        case "BY": //Беларусь
+        case "BG": //Болгария
+        case "HU": //Венгрия
+        case "MD": //Молдавия
+        case "PL": //Польша  
+        case "RO": //Румыния
+        case "SK": //Словакия   
+        case "CZ": //Чехия
+        case "UA": //Украина
+
+        case "DK": //Дания
+        case "IS": //Исландия
+        case "LV": //Латвия
+        case "LT": //Литва
+        case "NO": //Норвегия
+        case "FI": //Финляндия
+        case "EE": //Эстония
+        case "SE": //Швеция
+
+        case "AD": //Андора
+        case "AL": //Албания
+        case "BA": //Босния и Герцеговина
+        case "GR": //Греция
+        case "ES": //Испания
+        case "GI": //Гибралтар
+        case "IT": //Италия
+        case "MK": //Македония          	  
+        case "MT": //Мальта
+        case "PT": //Португалия
+        case "SM": //Сан-Марино
+        case "RS": //Сербия
+        case "SI": //Словения
+        case "HR": //Хорватия           	  
+        case "ME": //Черногория
+
+        case "CY": //Кипр
+        case "FO": //Фарерские о-ва
+        
+            $result="Европа";
+            break;
+            
+        case "AB": //Абхазия   
+        case "AE": //ОАЭ
+        case "AF": //Афганистан
+        case "AM": //Армения
+        case "AZ": //Азербайджан
+        case "BD": //Бангладеш
+        case "BH": //Бахрейн
+        case "CN": //Китай
+        case "IR": //Иран
+        case "IQ": //Ирак
+        case "GE": //Грузия
+        case "HK": //Гонконг
+        case "IL": //Израиль
+        case "IN": //Индия
+        case "JP": //Япония
+        case "KH": //Камбоджа
+        case "KP": //Северная Корея
+        case "KR": //Южная Корея
+        case "KZ": //Казахстан
+        case "KG": //Киргизстан
+        case "LK": //Шри-Ланка
+        case "MN": //Монголия
+        case "MY": //Малайзия
+        case "OS": //Южная Осетия
+        case "PH": //Филиппины
+        case "PK": //Пакистан
+        case "QA": //Катар
+        case "SA": //Саудовская Аравия
+        case "TH": //Таиланд
+        case "TM": //Туркменистан
+        case "TJ": //Таджикистан
+        case "TR": //Турция
+        case "VN": //Вьетнам
+        case "UZ": //Узбекистан
+        	        	
+            $result="Азия";
             break;
         default:
-            $result="Дальнее Зарубежье";
+            $result="Остальной мир";
             break;
     }
 

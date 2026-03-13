@@ -35,17 +35,18 @@ require_once("include/misc_utils.php");
 
 
   $zPage=new TZSitePage;
-  $zPage->title=_("Карты для Ситигид 7.x");
-  $zPage->header=_("Карты для Ситигид 7.x");
+  $zPage->title=_("Карты для Ситигид 7.8");
+  $zPage->header=_("Карты для Ситигид 7.8");
 
-  $xml = simplexml_load_file("maplist.xml"); //Интерпретирует XML-файл в объект
+  $xml = simplexml_load_file("maplist_7.xml"); //Интерпретирует XML-файл в объект
   $xml3 = simplexml_load_file("maplist_old.xml"); //Ручные карты
   	  
-  $zPage->WriteHtml( "<H1>"._("Карты для Ситигид 7.x")."</H1>");
+  $zPage->WriteHtml( "<H1>"._("Карты для Ситигид 7.8")."</H1>");
   $zPage->WriteHtml('<P> <img src="/img/peirce.jpg" height="65px"  style="float:left;"
                         title="'._('Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф').'">
-  	                 '._('На этой странице представленны карты Openstreetmap для навигационной программы Ситигид 7.x.').' 
-  	                 '._('Карты для предыдущей версии СГ 5.x все еще можно найти <a href="/maps5.php">здесь</a>.').' 
+  	                 '._('На этой странице представленны карты Openstreetmap для навигационной программы Ситигид 7.8.').' <br/>
+                         '._('Также, эти карты можно скачать <a href="https://yadi.sk/d/LfG5SRRZtcXT5">отсюда.</a>').'<br/>
+  	                 '._().' 
                        
                      </P>');
   /*
@@ -59,8 +60,9 @@ require_once("include/misc_utils.php");
 //  $zPage->WriteHtml('Карты, представленные в этом разделе поддерживаются пробочным сервисом и корректурами.'); 
 //  PrintMapListOld ($xml3,"Карты с пробками");
   $group=$_GET['group'];
-  $zPage->WriteHtml('<H2>'._('Ежедневные карты').'</H2>');
-  $zPage->WriteHtml(_('"Ежедневные карты" пробками не поддерживаются, но зато обновляются практически каждый день.').'<br/>');
+ $zPage->WriteHtml('<H2>'._('Карты в формате cgmap').'</H2>');
+ $zPage->WriteHtml('<H2>'._('ВНИМАНИЕ! ').'</H2>');
+ $zPage->WriteHtml('<H3>'._('С 1 июня 2022 года обновление карт формата CGMAP будет производиться раз в месяц.').'</H3>');
 
   
   if ($group!='')  
@@ -74,11 +76,14 @@ require_once("include/misc_utils.php");
       $zPage->WriteHtml(_('<p><b>Важно</b>: в этот список включаются только те карты, которые прошли <a href="/qa">контроль качества</a>.</p> ')); 
 	  PrintMapList ($xml,"Россия");
 	  
-	  $zPage->WriteHtml( "<H3>Ближнее зарубежье </H3>");  
-	  PrintMapList ($xml,"Ближнее Зарубежье");
+	  $zPage->WriteHtml( "<H3>Европа</H3>");  
+	  PrintMapList ($xml,"Европа");
+	  
+	  $zPage->WriteHtml( "<H3>Азия</H3>");  
+	  PrintMapList ($xml,"Азия");
 
-	  $zPage->WriteHtml( "<H3>Дальнее зарубежье </H3>");
-	  PrintMapList ($xml,"Дальнее Зарубежье");
+	  $zPage->WriteHtml( "<H3>Остальной мир</H3>");
+	  PrintMapList ($xml,"Остальной мир");
   }
 
 /*
@@ -105,18 +110,19 @@ require_once("include/misc_utils.php");
 //  $zPage->WriteHtml( "Возникли вопросы? Их можно задать <a href="">на форуме!</a>");
   
   
- $zPage->Output();
+ $zPage->Output("1");
 
 
 function PrintMapList($xml, $strGroup)
 {
    global $zPage;
-   $zPage->WriteHtml( '<table width="500px" class="sortable">
+   $zPage->WriteHtml( '<table width="700px" class="sortable">
           <tr>
-            <td width="80px"><b>Код</b></td>
-            <td width="200px"><b>Имя файла</b></td>
-            <td><b>Дата обновления</b></td>
-            <td><b>Cкачать<b></td>
+            <td width="100px"><b>Код</b></td>
+            <td width="350px"><b>Имя файла</b></td>
+            <td><b>Дата </b></td>
+            <td><b> Версия </b></td>
+            <td><b>Cкачать</b></td>
           </tr>');
 
   foreach ($xml->map as $item)
@@ -131,9 +137,13 @@ function PrintMapList($xml, $strGroup)
         $zPage->WriteHtml( '<tr>');
         $zPage->WriteHtml( '<td >'.$item->code.'</td>');
         $zPage->WriteHtml( '<td >'.$item->name_ru.'</td>');
-        $zPage->WriteHtml( '<td>'.$item->date.'</td>');
-       // $zPage->WriteHtml( '<td><a href="'.$item->url.'"> скачать</a></td> </tr>');
-        $zPage->WriteHtml( '<td><a href="http://peirce.osm.rambler.ru/static/cg7_maps/'.$item->code.'.cgmap"> скачать</a></td> </tr>');
+        //$zPage->WriteHtml( '<td>'.$item->version.' ('.$item->date.')</td>');
+        //$zPage->WriteHtml( '<td><a href="'.$item->url.'"> скачать</a></td> </tr>');
+        $zPage->WriteHtml( '<td>'.substr($item->date,0,10).'</td>');
+        $zPage->WriteHtml( '<td>'.$item->version.'</td>');
+        $zPage->WriteHtml( '<td><a href="'.$item->url.'">скачать</a></td> </tr>');
+        //$zPage->WriteHtml( '<td><a href="'.$item->url.'">'.$item->version.'</a></td> </tr>');
+        //$zPage->WriteHtml( '<td><a href="http://peirce.osm.rambler.ru/static/cg7_maps/'.$item->code.'.cgmap"> скачать</a></td> </tr>');
        
         $zPage->WriteHtml( '</tr>');
       }

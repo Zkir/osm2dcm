@@ -54,7 +54,7 @@ function PrintMap($mapid,$errtype)
   global $zPage;
   $zPage->WriteHtml('
   <div id="cm-example" style="width: 100%; height: 600px"></div> 
-  <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script> 
+  <script type="text/javascript" src="/cloudmate/web-maps-lite.js"></script> 
 	   
   <script type="text/javascript" src="/js/addr-map.js"> </script> 
   <script type="text/javascript">

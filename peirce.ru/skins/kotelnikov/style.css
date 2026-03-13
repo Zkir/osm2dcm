@@ -17,7 +17,7 @@ bottom: 0px;
 }
 
 #header {
-width: 953px;
+width: 1200px;
 height: 140px;
 margin: 0 auto;
 padding-top: 40px;
@@ -30,7 +30,7 @@ margin-left: 28px;
 
 #menu {
 position: relative;
-width: 953px;
+width: 1200px;
 height: 54px;
 background: url(img/menu.png) 0 0 no-repeat;
 overflow: hidden;
@@ -69,7 +69,7 @@ color: #494C4D;
 
 
 #wrap {
-width: 953px;
+width: 1200px;
 margin: 0 auto;
 margin-top: -80px;
 }
@@ -142,7 +142,7 @@ background: url(img/lista-wide.gif) 0 0 repeat-y;
 
 #content-text {
 width: 520px;
-min-height: 1700px;
+min-height: 1900px;
 padding-top: 5px;
 line-height: 1.6;
 position: relative;

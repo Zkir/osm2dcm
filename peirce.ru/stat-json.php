@@ -6,7 +6,7 @@
 #============================================	
   header('Content-Type: text/plain'); 
 
-  $xml = simplexml_load_file("statistics.xml"); //Интерпретирует XML-файл в объект
+  $xml = simplexml_load_file("http://peirce.gis-lab.ru/statistics.xml"); //Интерпретирует XML-файл в объект
 
   PrintStatistics ($xml,'Россия');
 

@@ -1,0 +1,5710 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<maplist>
+ <map>
+  <code>EU-OVRV</code>
+  <uid>2100406</uid>
+  <name>European Routes Exx</name>
+  <name_ru>_Евромаршруты</name_ru>
+  <date>2015-09-05 07:31</date>
+  <version>1.190</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EU-OVRV-OSM.cgnet</url>
+  <overview>1</overview>
+ </map>
+ <map>
+  <code>AB-FULL</code>
+  <uid>2100371</uid>
+  <name>Abkhazia</name>
+  <name_ru>Абхазия</name_ru>
+  <date>2015-08-22 19:06</date>
+  <version>1.107</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AB-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-VIC</code>
+  <uid>2100497</uid>
+  <name>Australia, Victoria</name>
+  <name_ru>Австралия, Виктория</name_ru>
+  <date>2015-08-23 15:07</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-VIC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-WA</code>
+  <uid>2100498</uid>
+  <name>Australia, Western Australia</name>
+  <name_ru>Австралия, Западная Австралия</name_ru>
+  <date>2015-08-23 14:15</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-WA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-QLD</code>
+  <uid>2100494</uid>
+  <name>Australia, Queensland</name>
+  <name_ru>Австралия, Квинсленд</name_ru>
+  <date>2015-08-23 13:13</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-QLD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-NSW</code>
+  <uid>2100493</uid>
+  <name>Australia, New South Wales</name>
+  <name_ru>Австралия, Новый Южный Уэльс</name_ru>
+  <date>2015-08-23 09:03</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-NSW-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-NT</code>
+  <uid>2100499</uid>
+  <name>Australia, Northern Territory</name>
+  <name_ru>Австралия, Северная Территория</name_ru>
+  <date>2015-08-23 12:00</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-NT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-TAS</code>
+  <uid>2100496</uid>
+  <name>Australia, Tasmania</name>
+  <name_ru>Австралия, Тасмания</name_ru>
+  <date>2015-08-23 13:38</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-TAS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-SA</code>
+  <uid>2100495</uid>
+  <name>Australia, South Australia</name>
+  <name_ru>Австралия, Южная Австралия</name_ru>
+  <date>2015-08-23 13:38</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-SA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AU-OVRV</code>
+  <uid>2100492</uid>
+  <name>Australia</name>
+  <name_ru>Австралия, обзорн.</name_ru>
+  <date>2015-08-23 07:01</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AU-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-1</code>
+  <uid>2100275</uid>
+  <name>Austria, Burgenland</name>
+  <name_ru>Австрия, Бургенланд</name_ru>
+  <date>2015-08-23 00:53</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-4</code>
+  <uid>2100277</uid>
+  <name>Austria, Oberosterreich</name>
+  <name_ru>Австрия, Верхняя Австрия</name_ru>
+  <date>2015-08-23 02:28</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7b</code>
+  <uid>2100278</uid>
+  <name>Austria, Osttirol</name>
+  <name_ru>Австрия, Восточный Тироль</name_ru>
+  <date>2015-08-23 02:32</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-7b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-5</code>
+  <uid>2100279</uid>
+  <name>Austria, Salzburg</name>
+  <name_ru>Австрия, Зальцбург</name_ru>
+  <date>2015-08-23 02:23</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-2</code>
+  <uid>2100280</uid>
+  <name>Austria, Karnten</name>
+  <name_ru>Австрия, Каринтия</name_ru>
+  <date>2015-08-23 01:09</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-3</code>
+  <uid>2100281</uid>
+  <name>Austria, Niederosterreich</name>
+  <name_ru>Австрия, Нижняя Австрия</name_ru>
+  <date>2015-08-23 02:36</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-7a</code>
+  <uid>2100282</uid>
+  <name>Austria, Nordtirol</name>
+  <name_ru>Австрия, Северный Тироль</name_ru>
+  <date>2015-08-23 03:00</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-7a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-8</code>
+  <uid>2100283</uid>
+  <name>Austria, Vorarlberg</name>
+  <name_ru>Австрия, Форарльберг</name_ru>
+  <date>2015-08-23 02:45</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-8-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-6</code>
+  <uid>2100284</uid>
+  <name>Austria, Steiermark</name>
+  <name_ru>Австрия, Штирия</name_ru>
+  <date>2015-08-23 03:02</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AT-OVRV</code>
+  <uid>2100425</uid>
+  <name>Austria</name>
+  <name_ru>Австрия, обзорн.</name_ru>
+  <date>2015-08-23 02:10</date>
+  <version>1.18</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AZ-FULL</code>
+  <uid>2100001</uid>
+  <name>Azerbaijan</name>
+  <name_ru>Азербайджан</name_ru>
+  <date>2015-08-22 21:54</date>
+  <version>1.254</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AL-FULL</code>
+  <uid>2100285</uid>
+  <name>Albania</name>
+  <name_ru>Албания</name_ru>
+  <date>2015-09-05 23:25</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DZ-FULL</code>
+  <uid>2100736</uid>
+  <name>Algeria</name>
+  <name_ru>Алжир</name_ru>
+  <date>2015-08-14 21:48</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ALT</code>
+  <uid>2100002</uid>
+  <name>Алтайский край</name>
+  <name_ru>Алтайский край</name_ru>
+  <date>2015-09-11 09:43</date>
+  <version>1.797</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ALT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AMU</code>
+  <uid>2100003</uid>
+  <name>Амурская обл.</name>
+  <name_ru>Амурская обл.</name_ru>
+  <date>2016-07-28 01:32</date>
+  <version>1.720</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-AMU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AI-FULL</code>
+  <uid>2100885</uid>
+  <name>Anguilla</name>
+  <name_ru>Ангилья</name_ru>
+  <date>2015-09-05 23:10</date>
+  <version>1.21</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN7</code>
+  <uid>2100457</uid>
+  <name>Greater London</name>
+  <name_ru>Англия, Большой Лондон</name_ru>
+  <date>2015-08-23 23:12</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN7-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN6</code>
+  <uid>2100456</uid>
+  <name>East of England</name>
+  <name_ru>Англия, Восточная Англия</name_ru>
+  <date>2015-08-24 01:01</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN4</code>
+  <uid>2100454</uid>
+  <name>East Midlands</name>
+  <name_ru>Англия, Восточный Мидленд</name_ru>
+  <date>2015-08-23 22:23</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN5</code>
+  <uid>2100455</uid>
+  <name>West Midlands</name>
+  <name_ru>Англия, Западный Мидленд</name_ru>
+  <date>2015-08-23 22:52</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN3</code>
+  <uid>2100453</uid>
+  <name>Yorkshire and the Humber</name>
+  <name_ru>Англия, Йоркшир и Хамбер</name_ru>
+  <date>2015-08-23 22:21</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN1</code>
+  <uid>2100451</uid>
+  <name>North East England</name>
+  <name_ru>Англия, Северо-Восточная Англия</name_ru>
+  <date>2015-08-23 20:37</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN2</code>
+  <uid>2100452</uid>
+  <name>North West England</name>
+  <name_ru>Англия, Северо-Западная Англия</name_ru>
+  <date>2015-08-23 22:09</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN8</code>
+  <uid>2100458</uid>
+  <name>South East England</name>
+  <name_ru>Англия, Юго-Восточная Англия</name_ru>
+  <date>2015-08-24 01:12</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN8-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-EN9</code>
+  <uid>2100459</uid>
+  <name>South West England</name>
+  <name_ru>Англия, Юго-Западная Англия</name_ru>
+  <date>2015-08-24 01:24</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-EN9-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AO-FULL</code>
+  <uid>2100737</uid>
+  <name>Angola</name>
+  <name_ru>Ангола</name_ru>
+  <date>2015-09-05 23:29</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-AN</code>
+  <uid>2100846</uid>
+  <name>Andaman and Nicobar Islands</name>
+  <name_ru>Андаманские и Никобарские острова</name_ru>
+  <date>2015-08-25 03:36</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-AN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AD-FULL</code>
+  <uid>2100287</uid>
+  <name>Andorra</name>
+  <name_ru>Андорра</name_ru>
+  <date>2015-09-05 22:46</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-AP</code>
+  <uid>2100847</uid>
+  <name>Andhra Pradesh</name>
+  <name_ru>Андхра-Прадеш</name_ru>
+  <date>2015-08-25 04:42</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-AP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AG-FULL</code>
+  <uid>2100738</uid>
+  <name>Antigua and Barbuda</name>
+  <name_ru>Антигуа и Барбуда</name_ru>
+  <date>2015-09-05 23:08</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-B</code>
+  <uid>2100669</uid>
+  <name>Buenos Aires</name>
+  <name_ru>Аргентина, Буэнос-Айрес</name_ru>
+  <date>2015-08-25 04:10</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-B-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-C</code>
+  <uid>2100670</uid>
+  <name>C. A. de Buenos Aires</name>
+  <name_ru>Аргентина, Буэнос-Айрес(город)</name_ru>
+  <date>2015-08-25 03:12</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-Y</code>
+  <uid>2100690</uid>
+  <name>Jujuy</name>
+  <name_ru>Аргентина, Жужуй</name_ru>
+  <date>2015-08-25 02:31</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-Y-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-K</code>
+  <uid>2100677</uid>
+  <name>Catamarca</name>
+  <name_ru>Аргентина, Катамарка</name_ru>
+  <date>2015-08-25 03:23</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-K-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-X</code>
+  <uid>2100689</uid>
+  <name>Cordoba</name>
+  <name_ru>Аргентина, Кордова</name_ru>
+  <date>2015-08-25 02:27</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-X-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-W</code>
+  <uid>2100688</uid>
+  <name>Corrientes</name>
+  <name_ru>Аргентина, Корриентес</name_ru>
+  <date>2015-08-25 02:16</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-L</code>
+  <uid>2100678</uid>
+  <name>La Pampa</name>
+  <name_ru>Аргентина, Ла-Пампа</name_ru>
+  <date>2015-08-25 03:24</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-L-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-F</code>
+  <uid>2100673</uid>
+  <name>La Rioja</name>
+  <name_ru>Аргентина, Ла-Риоха</name_ru>
+  <date>2015-08-25 03:16</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-F-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-M</code>
+  <uid>2100679</uid>
+  <name>Mendoza</name>
+  <name_ru>Аргентина, Мендоса</name_ru>
+  <date>2015-08-25 03:29</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-M-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-N</code>
+  <uid>2100680</uid>
+  <name>Misiones</name>
+  <name_ru>Аргентина, Мисьонес</name_ru>
+  <date>2015-08-25 03:37</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-Q</code>
+  <uid>2100682</uid>
+  <name>Neuquen</name>
+  <name_ru>Аргентина, Неукен</name_ru>
+  <date>2015-08-25 03:34</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-Q-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-V</code>
+  <uid>2100687</uid>
+  <name>Tierra del Fuego</name>
+  <name_ru>Аргентина, Огненная Земля</name_ru>
+  <date>2015-08-25 02:12</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-V-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-R</code>
+  <uid>2100683</uid>
+  <name>Rio Negro</name>
+  <name_ru>Аргентина, Рио-Негро</name_ru>
+  <date>2015-08-25 03:38</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-R-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-A</code>
+  <uid>2100668</uid>
+  <name>Salta</name>
+  <name_ru>Аргентина, Сальта</name_ru>
+  <date>2015-08-25 02:54</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-A-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-D</code>
+  <uid>2100671</uid>
+  <name>San Luis</name>
+  <name_ru>Аргентина, Сан-Луис</name_ru>
+  <date>2015-08-25 02:40</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-D-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-J</code>
+  <uid>2100676</uid>
+  <name>San Juan</name>
+  <name_ru>Аргентина, Сан-Хуан</name_ru>
+  <date>2015-08-25 03:21</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-J-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-Z</code>
+  <uid>2100691</uid>
+  <name>Santa Cruz</name>
+  <name_ru>Аргентина, Санта-Крус</name_ru>
+  <date>2015-08-25 02:38</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-Z-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-S</code>
+  <uid>2100684</uid>
+  <name>Santa Fe</name>
+  <name_ru>Аргентина, Санта-Фе</name_ru>
+  <date>2015-08-24 09:51</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-G</code>
+  <uid>2100674</uid>
+  <name>Santiago del Estero</name>
+  <name_ru>Аргентина, Сантьяго-дель-Эстеро</name_ru>
+  <date>2015-08-25 03:18</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-G-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-T</code>
+  <uid>2100685</uid>
+  <name>Tucuman</name>
+  <name_ru>Аргентина, Тукуман</name_ru>
+  <date>2015-08-25 02:04</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-T-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-P</code>
+  <uid>2100681</uid>
+  <name>Formosa</name>
+  <name_ru>Аргентина, Формоса</name_ru>
+  <date>2015-08-25 03:31</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-P-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-H</code>
+  <uid>2100675</uid>
+  <name>Chaco</name>
+  <name_ru>Аргентина, Чако</name_ru>
+  <date>2015-08-25 03:22</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-H-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-U</code>
+  <uid>2100686</uid>
+  <name>Chubut</name>
+  <name_ru>Аргентина, Чубут</name_ru>
+  <date>2015-08-25 02:10</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-U-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-E</code>
+  <uid>2100672</uid>
+  <name>Entre Rios</name>
+  <name_ru>Аргентина, Энтре-Риос</name_ru>
+  <date>2015-08-25 03:17</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AR-OVRV</code>
+  <uid>2100667</uid>
+  <name>Argentina</name>
+  <name_ru>Аргентина, обзорн.</name_ru>
+  <date>2015-08-25 03:06</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AM-FULL</code>
+  <uid>2100004</uid>
+  <name>Armenia</name>
+  <name_ru>Армения</name_ru>
+  <date>2015-08-22 21:38</date>
+  <version>1.345</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-AR</code>
+  <uid>2100848</uid>
+  <name>Arunachal Pradesh</name>
+  <name_ru>Аруначал-Прадеш</name_ru>
+  <date>2015-08-24 08:15</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-AR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ARK</code>
+  <uid>2100005</uid>
+  <name>Архангельская обл.</name>
+  <name_ru>Архангельская обл.</name_ru>
+  <date>2015-09-11 10:52</date>
+  <version>1.776</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ARK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-AS</code>
+  <uid>2100849</uid>
+  <name>Assam</name>
+  <name_ru>Ассам</name_ru>
+  <date>2015-08-24 08:15</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-AS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AST</code>
+  <uid>2100006</uid>
+  <name>Астраханская обл.</name>
+  <name_ru>Астраханская обл.</name_ru>
+  <date>2015-09-11 09:31</date>
+  <version>1.790</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-AST-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AF-FULL</code>
+  <uid>2100735</uid>
+  <name>Afghanistan</name>
+  <name_ru>Афганистан</name_ru>
+  <date>2015-09-05 23:06</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AF-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BS-FULL</code>
+  <uid>2100739</uid>
+  <name>Bahamas</name>
+  <name_ru>Багамы</name_ru>
+  <date>2015-09-16 23:09</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BD-FULL</code>
+  <uid>2100741</uid>
+  <name>Bangladesh</name>
+  <name_ru>Бангладеш</name_ru>
+  <date>2015-09-05 23:51</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BB-FULL</code>
+  <uid>2100742</uid>
+  <name>Barbados</name>
+  <name_ru>Барбадос</name_ru>
+  <date>2015-09-05 23:31</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BB-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BH-FULL</code>
+  <uid>2100740</uid>
+  <name>Bahrain</name>
+  <name_ru>Бахрейн</name_ru>
+  <date>2015-09-06 15:57</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BH-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BA</code>
+  <uid>2100007</uid>
+  <name>Башкирия</name>
+  <name_ru>Башкирия</name_ru>
+  <date>2015-09-11 09:50</date>
+  <version>1.781</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-BA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-BR</code>
+  <uid>2100471</uid>
+  <name>Беларусь, Брестская обл.</name>
+  <name_ru>Беларусь, Брестская обл.</name_ru>
+  <date>2016-07-28 09:02</date>
+  <version>1.463</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-BR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-VI</code>
+  <uid>2100009</uid>
+  <name>Беларусь, Витебская обл.</name>
+  <name_ru>Беларусь, Витебская обл.</name_ru>
+  <date>2016-07-28 02:20</date>
+  <version>1.730</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-VI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-HO</code>
+  <uid>2100472</uid>
+  <name>Беларусь, Гомельская обл.</name>
+  <name_ru>Беларусь, Гомельская обл.</name_ru>
+  <date>2016-07-28 09:12</date>
+  <version>1.463</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-HO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-HR</code>
+  <uid>2100473</uid>
+  <name>Беларусь, Гродненская обл.</name>
+  <name_ru>Беларусь, Гродненская обл.</name_ru>
+  <date>2016-07-28 09:09</date>
+  <version>1.462</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-HR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-MI</code>
+  <uid>2100010</uid>
+  <name>Беларусь, Минская обл.</name>
+  <name_ru>Беларусь, Минская обл.</name_ru>
+  <date>2016-07-28 02:19</date>
+  <version>1.721</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-MI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-MA</code>
+  <uid>2100474</uid>
+  <name>Беларусь, Могилёвская обл.</name>
+  <name_ru>Беларусь, Могилёвская обл.</name_ru>
+  <date>2016-07-28 01:56</date>
+  <version>1.461</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-MA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BY-OVRV</code>
+  <uid>2100470</uid>
+  <name>Belarus</name>
+  <name_ru>Беларусь, обзорн.</name_ru>
+  <date>2016-07-28 02:50</date>
+  <version>1.456</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BY-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BEL</code>
+  <uid>2100011</uid>
+  <name>Белгородская обл.</name>
+  <name_ru>Белгородская обл.</name_ru>
+  <date>2016-07-27 09:08</date>
+  <version>1.770</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-BEL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BZ-FULL</code>
+  <uid>2100401</uid>
+  <name>Belize</name>
+  <name_ru>Белиз</name_ru>
+  <date>2015-09-16 23:26</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-WAL</code>
+  <uid>2100288</uid>
+  <name>Belgium, Region Wallonne</name>
+  <name_ru>Бельгия, Валлонский регион</name_ru>
+  <date>2015-08-23 15:21</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BE-WAL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-VLG</code>
+  <uid>2100289</uid>
+  <name>Belgium, Vlaams Gewes</name>
+  <name_ru>Бельгия, Фламандский регион</name_ru>
+  <date>2015-08-23 18:42</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BE-VLG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BE-OVRV</code>
+  <uid>2100467</uid>
+  <name>Belgium</name>
+  <name_ru>Бельгия, обзорн.</name_ru>
+  <date>2015-08-23 07:23</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BJ-FULL</code>
+  <uid>2100743</uid>
+  <name>Benin</name>
+  <name_ru>Бенин</name_ru>
+  <date>2015-09-06 16:09</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BJ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-BR</code>
+  <uid>2100850</uid>
+  <name>Bihar</name>
+  <name_ru>Бихар</name_ru>
+  <date>2015-08-24 08:20</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-BR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BG-FULL</code>
+  <uid>2100290</uid>
+  <name>Bulgaria</name>
+  <name_ru>Болгария</name_ru>
+  <date>2015-09-06 17:00</date>
+  <version>1.55</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BO-FULL</code>
+  <uid>2100660</uid>
+  <name>Bolivia</name>
+  <name_ru>Боливия</name_ru>
+  <date>2015-09-06 17:02</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BA-FULL</code>
+  <uid>2100291</uid>
+  <name>Bosnia and Herzegovina</name>
+  <name_ru>Босния и Герцеговина</name_ru>
+  <date>2015-09-06 00:16</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BW-FULL</code>
+  <uid>2100745</uid>
+  <name>Botswana</name>
+  <name_ru>Ботсвана</name_ru>
+  <date>2015-09-16 23:25</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-MG</code>
+  <uid>2100489</uid>
+  <name>Brazil - Minas Gerais</name>
+  <name_ru>Бразилия, Минас-Жерайс</name_ru>
+  <date>2015-09-11 05:09</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-MG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-RJ</code>
+  <uid>2100488</uid>
+  <name>Brazil - Rio de Janeiro</name>
+  <name_ru>Бразилия, Рио-де-Жанейро</name_ru>
+  <date>2015-09-11 05:36</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-RJ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-SP1</code>
+  <uid>2100487</uid>
+  <name>Brazil - Sao Paolo (cidade)</name>
+  <name_ru>Бразилия, Сан-Паулу (город)</name_ru>
+  <date>2015-09-11 06:04</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-SP1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-SP2</code>
+  <uid>2100566</uid>
+  <name>Brazil - Sao Paolo (estado)</name>
+  <name_ru>Бразилия, Сан-Паулу (штат)</name_ru>
+  <date>2015-09-11 06:19</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-SP2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-N</code>
+  <uid>2100481</uid>
+  <name>Brazil - North Region</name>
+  <name_ru>Бразилия, Северный р-н</name_ru>
+  <date>2015-09-11 04:54</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-NE</code>
+  <uid>2100482</uid>
+  <name>Brazil - Northeast Region</name>
+  <name_ru>Бразилия, Северо-восточный р-н</name_ru>
+  <date>2015-09-11 07:19</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-NE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-CW</code>
+  <uid>2100483</uid>
+  <name>Brazil - Central-West Region</name>
+  <name_ru>Бразилия, Центрально-западный р-н</name_ru>
+  <date>2015-09-11 05:04</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-CW-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-ES</code>
+  <uid>2100490</uid>
+  <name>Brazil - Espirito Santo</name>
+  <name_ru>Бразилия, Эспириту-Санту</name_ru>
+  <date>2015-09-11 03:49</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-ES-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BR-S</code>
+  <uid>2100485</uid>
+  <name>Brazil - South Region</name>
+  <name_ru>Бразилия, Южный р-н</name_ru>
+  <date>2015-08-11 21:49</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BR-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BN-FULL</code>
+  <uid>2100746</uid>
+  <name>Brunei Darussalam</name>
+  <name_ru>Бруней</name_ru>
+  <date>2015-09-06 16:10</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BRY</code>
+  <uid>2100012</uid>
+  <name>Брянская обл.</name>
+  <name_ru>Брянская обл.</name_ru>
+  <date>2016-07-27 09:06</date>
+  <version>1.797</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-BRY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BF-FULL</code>
+  <uid>2100747</uid>
+  <name>Burkina Faso</name>
+  <name_ru>Буркина-Фасо</name_ru>
+  <date>2015-09-06 15:55</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BF-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BI-FULL</code>
+  <uid>2100748</uid>
+  <name>Burundi</name>
+  <name_ru>Бурунди</name_ru>
+  <date>2015-09-06 16:04</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-BU</code>
+  <uid>2100013</uid>
+  <name>Бурятия</name>
+  <name_ru>Бурятия</name_ru>
+  <date>2016-07-27 09:15</date>
+  <version>1.781</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-BU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>BT-FULL</code>
+  <uid>2100744</uid>
+  <name>Bhutan</name>
+  <name_ru>Бутан</name_ru>
+  <date>2015-09-16 23:10</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/BT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VU-FULL</code>
+  <uid>2100830</uid>
+  <name>Vanuatu</name>
+  <name_ru>Вануату</name_ru>
+  <date>2015-08-22 23:41</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-OVRV</code>
+  <uid>2100391</uid>
+  <name>United Kingdom</name>
+  <name_ru>Великобритания, обзорн.</name_ru>
+  <date>2015-08-23 06:12</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HU-FULL</code>
+  <uid>2100292</uid>
+  <name>Hungary</name>
+  <name_ru>Венгрия</name_ru>
+  <date>2015-08-15 09:33</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/HU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VE-FULL</code>
+  <uid>2100439</uid>
+  <name>Venezuela</name>
+  <name_ru>Венесуэла</name_ru>
+  <date>2015-08-23 00:20</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VLA</code>
+  <uid>2100014</uid>
+  <name>Владимирская обл.</name>
+  <name_ru>Владимирская обл.</name_ru>
+  <date>2016-07-27 08:48</date>
+  <version>1.792</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-VLA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VGG</code>
+  <uid>2100015</uid>
+  <name>Волгоградская обл.</name>
+  <name_ru>Волгоградская обл.</name_ru>
+  <date>2016-07-27 08:06</date>
+  <version>1.786</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-VGG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VLG</code>
+  <uid>2100016</uid>
+  <name>Вологодская обл.</name>
+  <name_ru>Вологодская обл.</name_ru>
+  <date>2016-07-27 08:10</date>
+  <version>1.793</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-VLG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-VOR</code>
+  <uid>2100017</uid>
+  <name>Воронежская обл.</name>
+  <name_ru>Воронежская обл.</name_ru>
+  <date>2016-07-27 08:34</date>
+  <version>1.789</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-VOR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TL-FULL</code>
+  <uid>2100824</uid>
+  <name>Timor-Leste</name>
+  <name_ru>Восточный Тимор</name_ru>
+  <date>2015-08-22 19:22</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VN-OVRV</code>
+  <uid>2100394</uid>
+  <name>Viet Nam</name>
+  <name_ru>Вьетнам</name_ru>
+  <date>2015-08-23 07:44</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VN-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VN-N</code>
+  <uid>2100699</uid>
+  <name>Viet Nam, pt.1</name>
+  <name_ru>Вьетнам, том 1</name_ru>
+  <date>2015-08-22 23:36</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VN-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VN-S</code>
+  <uid>2100700</uid>
+  <name>Viet Nam, pt.2</name>
+  <name_ru>Вьетнам, том 2</name_ru>
+  <date>2015-08-22 23:44</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VN-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GA-FULL</code>
+  <uid>2100764</uid>
+  <name>Gabon</name>
+  <name_ru>Габон</name_ru>
+  <date>2015-08-15 05:32</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HT-FULL</code>
+  <uid>2100692</uid>
+  <name>Haiti</name>
+  <name_ru>Гаити</name_ru>
+  <date>2015-08-15 07:34</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/HT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GY-FULL</code>
+  <uid>2100664</uid>
+  <name>Guyana</name>
+  <name_ru>Гайана</name_ru>
+  <date>2015-08-15 07:08</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GM-FULL</code>
+  <uid>2100765</uid>
+  <name>Gambia</name>
+  <name_ru>Гамбия</name_ru>
+  <date>2015-08-15 05:50</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GH-FULL</code>
+  <uid>2100766</uid>
+  <name>Ghana</name>
+  <name_ru>Гана</name_ru>
+  <date>2015-08-15 05:48</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GH-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GT-FULL</code>
+  <uid>2100400</uid>
+  <name>Guatemala</name>
+  <name_ru>Гватемала</name_ru>
+  <date>2015-08-14 17:56</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GN-FULL</code>
+  <uid>2100768</uid>
+  <name>Guinea</name>
+  <name_ru>Гвинея</name_ru>
+  <date>2015-08-15 06:25</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GW-FULL</code>
+  <uid>2100769</uid>
+  <name>Guinea-Bissau</name>
+  <name_ru>Гвинея-Бисау</name_ru>
+  <date>2015-08-15 07:12</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-BY1</code>
+  <uid>2100224</uid>
+  <name>Germany, Bayern, 1</name>
+  <name_ru>Германия, Бавария, 1</name_ru>
+  <date>2015-09-17 08:32</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-BY1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-BY2</code>
+  <uid>2100477</uid>
+  <name>Germany, Bayern, 2</name>
+  <name_ru>Германия, Бавария, 2</name_ru>
+  <date>2015-08-14 02:50</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-BY2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-BW1</code>
+  <uid>2100223</uid>
+  <name>Germany, Baden-Wurttemberg, 1</name>
+  <name_ru>Германия, Баден-Вюртемберг, 1</name_ru>
+  <date>2015-09-17 04:16</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-BW1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-BW2</code>
+  <uid>2100476</uid>
+  <name>Germany, Baden-Wurttemberg, 2</name>
+  <name_ru>Германия, Баден-Вюртемберг, 2</name_ru>
+  <date>2015-09-17 06:28</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-BW2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-BB</code>
+  <uid>2100225</uid>
+  <name>Germany, Brandenburg,Berlin</name>
+  <name_ru>Германия, Бранденбург, Берлин</name_ru>
+  <date>2015-09-17 03:26</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-BB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-HH</code>
+  <uid>2100227</uid>
+  <name>Germany, Hamburg</name>
+  <name_ru>Германия, Гамбург</name_ru>
+  <date>2015-09-17 03:49</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-HH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-HE</code>
+  <uid>2100228</uid>
+  <name>Germany, Hessen</name>
+  <name_ru>Германия, Гессен</name_ru>
+  <date>2015-09-17 09:59</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-HE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-MV</code>
+  <uid>2100229</uid>
+  <name>Germany, Mecklenburg-Vorpommern</name>
+  <name_ru>Германия, Мекленбург-Померания</name_ru>
+  <date>2015-08-23 08:48</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-MV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-NI</code>
+  <uid>2100230</uid>
+  <name>Germany, Niedersachsen</name>
+  <name_ru>Германия, Нижняя Саксония</name_ru>
+  <date>2015-08-14 05:57</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-NI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-RP</code>
+  <uid>2100232</uid>
+  <name>Germany, Rheinland-Pfalz</name>
+  <name_ru>Германия, Рейнланд-Пфальц</name_ru>
+  <date>2015-08-14 02:26</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-RP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-SL</code>
+  <uid>2100233</uid>
+  <name>Germany, Saarland</name>
+  <name_ru>Германия, Саар</name_ru>
+  <date>2015-08-14 02:29</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-SL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-SN</code>
+  <uid>2100234</uid>
+  <name>Germany, Sachsen</name>
+  <name_ru>Германия, Саксония</name_ru>
+  <date>2015-08-14 04:51</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-SN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-ST</code>
+  <uid>2100235</uid>
+  <name>Germany, Sachsen-Anhalt</name>
+  <name_ru>Германия, Саксония-Анхальт</name_ru>
+  <date>2015-08-14 03:26</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-ST-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-NW1</code>
+  <uid>2100231</uid>
+  <name>Germany, Nordrhein-Westfalen, 1</name>
+  <name_ru>Германия, Сев. Рейн-Вестфалия, 1</name_ru>
+  <date>2015-08-23 11:55</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-NW1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-NW2</code>
+  <uid>2100478</uid>
+  <name>Germany, Nordrhein-Westfalen, 2</name>
+  <name_ru>Германия, Сев. Рейн-Вестфалия, 2</name_ru>
+  <date>2015-08-23 14:13</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-NW2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-NW3</code>
+  <uid>2100889</uid>
+  <name>Germany, Nordrhein-Westfalen, 3</name>
+  <name_ru>Германия, Сев. Рейн-Вестфалия, 3</name_ru>
+  <date>2015-08-23 13:29</date>
+  <version>1.4</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-NW3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-TH</code>
+  <uid>2100237</uid>
+  <name>Germany, Thuringen</name>
+  <name_ru>Германия, Тюрингия</name_ru>
+  <date>2015-08-14 03:54</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-TH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-SH</code>
+  <uid>2100236</uid>
+  <name>Germany, Schleswig-Holstein</name>
+  <name_ru>Германия, Шлезвиг-Гольштейн</name_ru>
+  <date>2015-08-14 02:09</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-SH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DE-OVRV</code>
+  <uid>2100479</uid>
+  <name>Germany</name>
+  <name_ru>Германия, обзорн.</name_ru>
+  <date>2015-08-23 13:19</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-GA</code>
+  <uid>2100856</uid>
+  <name>Goa</name>
+  <name_ru>Гоа</name_ru>
+  <date>2015-08-24 08:25</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-GA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HN-FULL</code>
+  <uid>2100402</uid>
+  <name>Honduras</name>
+  <name_ru>Гондурас</name_ru>
+  <date>2015-08-14 17:55</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/HN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HK-FULL</code>
+  <uid>2100386</uid>
+  <name>Hong Kong</name>
+  <name_ru>Гонконг</name_ru>
+  <date>2015-08-15 07:16</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/HK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GD-FULL</code>
+  <uid>2100767</uid>
+  <name>Grenada</name>
+  <name_ru>Гренада</name_ru>
+  <date>2015-08-15 05:33</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-OVRV</code>
+  <uid>2100294</uid>
+  <name>Greece</name>
+  <name_ru>Греция</name_ru>
+  <date>2015-08-15 07:14</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-CRETE</code>
+  <uid>2100373</uid>
+  <name>Greece, Crete</name>
+  <name_ru>Греция, Крит</name_ru>
+  <date>2015-08-15 07:00</date>
+  <version>1.56</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-CRETE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-RODOS</code>
+  <uid>2100376</uid>
+  <name>Greece, Rodos</name>
+  <name_ru>Греция, Родос</name_ru>
+  <date>2015-08-15 07:05</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-RODOS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-1</code>
+  <uid>2100434</uid>
+  <name>Greece, volume 1</name>
+  <name_ru>Греция, том 1</name_ru>
+  <date>2015-08-15 06:52</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-2</code>
+  <uid>2100435</uid>
+  <name>Greece, volume 2</name>
+  <name_ru>Греция, том 2</name_ru>
+  <date>2015-08-15 06:53</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-3</code>
+  <uid>2100436</uid>
+  <name>Greece, volume 3</name>
+  <name_ru>Греция, том 3</name_ru>
+  <date>2015-08-15 07:03</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GR-4</code>
+  <uid>2100701</uid>
+  <name>Greece, volume 4</name>
+  <name_ru>Греция, том 4</name_ru>
+  <date>2015-08-15 07:02</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GR-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GE-FULL</code>
+  <uid>2100018</uid>
+  <name>Georgia</name>
+  <name_ru>Грузия</name_ru>
+  <date>2015-08-14 21:43</date>
+  <version>1.313</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-GJ</code>
+  <uid>2100857</uid>
+  <name>Gujarat</name>
+  <name_ru>Гуджарат</name_ru>
+  <date>2015-08-24 08:37</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-GJ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CD-FULL</code>
+  <uid>2100756</uid>
+  <name>Congo, Democratic Republic</name>
+  <name_ru>ДР Конго</name_ru>
+  <date>2015-09-17 00:19</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-DA</code>
+  <uid>2100019</uid>
+  <name>Дагестан</name>
+  <name_ru>Дагестан</name_ru>
+  <date>2016-07-27 09:55</date>
+  <version>1.707</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-DA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-DN</code>
+  <uid>2100855</uid>
+  <name>Dadra and Nagar Haveli</name>
+  <name_ru>Дадра и Нагар-Хавели</name_ru>
+  <date>2015-08-24 08:22</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-DN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-85</code>
+  <uid>2100431</uid>
+  <name>Sjaelland</name>
+  <name_ru>Дания, Зеландия</name_ru>
+  <date>2015-08-14 20:14</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-85-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-81</code>
+  <uid>2100427</uid>
+  <name>Nordjylland</name>
+  <name_ru>Дания, Северная Ютландия</name_ru>
+  <date>2015-08-14 18:57</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-81-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-84</code>
+  <uid>2100430</uid>
+  <name>Hovedstaden</name>
+  <name_ru>Дания, Столичная область</name_ru>
+  <date>2015-08-14 19:58</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-84-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-82</code>
+  <uid>2100428</uid>
+  <name>Midtjylland</name>
+  <name_ru>Дания, Центральная Ютландия</name_ru>
+  <date>2015-08-14 19:32</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-82-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-83</code>
+  <uid>2100429</uid>
+  <name>Syddanmark</name>
+  <name_ru>Дания, Южная Дания</name_ru>
+  <date>2015-08-14 20:14</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-83-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DK-OVRV</code>
+  <uid>2100426</uid>
+  <name>Denmark</name>
+  <name_ru>Дания, обзорн.</name_ru>
+  <date>2015-08-14 20:14</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DK-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-DL</code>
+  <uid>2100854</uid>
+  <name>Delhi</name>
+  <name_ru>Дели</name_ru>
+  <date>2015-08-24 08:33</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-DL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-JK</code>
+  <uid>2100861</uid>
+  <name>Jammu and Kashmir</name>
+  <name_ru>Джамму и Кашмир</name_ru>
+  <date>2015-08-24 08:44</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-JK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-JH</code>
+  <uid>2100860</uid>
+  <name>Jharkhand</name>
+  <name_ru>Джаркханд</name_ru>
+  <date>2015-08-24 08:40</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-JH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DJ-FULL</code>
+  <uid>2100758</uid>
+  <name>Djibouti</name>
+  <name_ru>Джибути</name_ru>
+  <date>2015-08-14 18:27</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DJ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DM-FULL</code>
+  <uid>2100759</uid>
+  <name>Dominica</name>
+  <name_ru>Доминика</name_ru>
+  <date>2015-08-14 20:15</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>DO-FULL</code>
+  <uid>2100693</uid>
+  <name>Dominicana</name>
+  <name_ru>Доминиканская Республика</name_ru>
+  <date>2015-08-14 20:26</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/DO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YEV</code>
+  <uid>2100020</uid>
+  <name>Еврейская автономная обл.</name>
+  <name_ru>Еврейская автономная обл.</name_ru>
+  <date>2016-07-27 08:38</date>
+  <version>1.786</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-YEV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EG-FULL</code>
+  <uid>2100361</uid>
+  <name>Egypt</name>
+  <name_ru>Египет</name_ru>
+  <date>2015-08-14 20:48</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ZAB</code>
+  <uid>2100022</uid>
+  <name>Забайкальский край</name>
+  <name_ru>Забайкальский край</name_ru>
+  <date>2015-09-11 09:22</date>
+  <version>1.707</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ZAB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZM-FULL</code>
+  <uid>2100832</uid>
+  <name>Zambia</name>
+  <name_ru>Замбия</name_ru>
+  <date>2015-08-23 00:33</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-WB</code>
+  <uid>2100880</uid>
+  <name>West Bengal</name>
+  <name_ru>Западная Бенгалия</name_ru>
+  <date>2015-08-24 10:03</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-WB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZW-FULL</code>
+  <uid>2100833</uid>
+  <name>Zimbabwe</name>
+  <name_ru>Зимбабве</name_ru>
+  <date>2015-08-23 00:36</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IVA</code>
+  <uid>2100023</uid>
+  <name>Ивановская обл.</name>
+  <name_ru>Ивановская обл.</name_ru>
+  <date>2016-07-27 10:17</date>
+  <version>1.786</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-IVA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IL-FULL</code>
+  <uid>2100298</uid>
+  <name>Israel</name>
+  <name_ru>Израиль</name_ru>
+  <date>2015-08-15 09:10</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IL-GS-WB</code>
+  <uid>2100372</uid>
+  <name>Israel and Palestine</name>
+  <name_ru>Израиль и Палестина</name_ru>
+  <date>2015-08-15 09:34</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IL-GS-WB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IN</code>
+  <uid>2100024</uid>
+  <name>Ингушетия</name>
+  <name_ru>Ингушетия</name_ru>
+  <date>2016-07-27 09:58</date>
+  <version>1.793</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-IN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-OVRV</code>
+  <uid>2100770</uid>
+  <name>India</name>
+  <name_ru>Индия, обзорн.</name_ru>
+  <date>2015-08-24 11:55</date>
+  <version>1.4</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-KA</code>
+  <uid>2100840</uid>
+  <name>Indonesia, Kalimantan</name>
+  <name_ru>Индонезия, Калимантан</name_ru>
+  <date>2015-08-24 02:54</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-KA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-NU</code>
+  <uid>2100845</uid>
+  <name>Indonesia, Nusa Tenggara</name>
+  <name_ru>Индонезия, Малые Зондские о-ва</name_ru>
+  <date>2015-08-24 03:37</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-NU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-ML</code>
+  <uid>2100841</uid>
+  <name>Indonesia, Maluku</name>
+  <name_ru>Индонезия, Молуку</name_ru>
+  <date>2015-08-24 02:59</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-ML-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-IJ</code>
+  <uid>2100843</uid>
+  <name>Indonesia, Papua</name>
+  <name_ru>Индонезия, Папуа</name_ru>
+  <date>2015-08-24 02:19</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-IJ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-SL</code>
+  <uid>2100844</uid>
+  <name>Indonesia, Sulawesi</name>
+  <name_ru>Индонезия, Сулавеси</name_ru>
+  <date>2015-08-24 03:55</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-SL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-SM</code>
+  <uid>2100842</uid>
+  <name>Indonesia, Sumatera</name>
+  <name_ru>Индонезия, Суматра</name_ru>
+  <date>2015-08-24 04:09</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-SM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ID-JW</code>
+  <uid>2100839</uid>
+  <name>Indonesia, Jawa</name>
+  <name_ru>Индонезия, Ява</name_ru>
+  <date>2015-08-24 04:25</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ID-JW-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>JO-FULL</code>
+  <uid>2100774</uid>
+  <name>Jordan</name>
+  <name_ru>Иордания</name_ru>
+  <date>2015-08-15 09:54</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/JO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IQ-FULL</code>
+  <uid>2100772</uid>
+  <name>Iraq</name>
+  <name_ru>Ирак</name_ru>
+  <date>2015-08-15 09:40</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IQ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IR-FULL</code>
+  <uid>2100771</uid>
+  <name>Iran, Islamic Republic of</name>
+  <name_ru>Иран</name_ru>
+  <date>2015-08-15 12:00</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-IRK</code>
+  <uid>2100025</uid>
+  <name>Иркутская обл.</name>
+  <name_ru>Иркутская обл.</name_ru>
+  <date>2016-07-28 01:43</date>
+  <version>1.645</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-IRK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IE-FULL</code>
+  <uid>2100299</uid>
+  <name>Ireland</name>
+  <name_ru>Ирландия</name_ru>
+  <date>2015-08-15 10:36</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IS-FULL</code>
+  <uid>2100301</uid>
+  <name>Iceland</name>
+  <name_ru>Исландия</name_ru>
+  <date>2015-08-15 09:52</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-AN</code>
+  <uid>2100302</uid>
+  <name>Spain, Andalucia</name>
+  <name_ru>Испания, Андалусия</name_ru>
+  <date>2015-08-23 18:09</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-AN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-AR</code>
+  <uid>2100303</uid>
+  <name>Spain, Aragon</name>
+  <name_ru>Испания, Арагон</name_ru>
+  <date>2015-08-23 17:32</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-AR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-AS</code>
+  <uid>2100304</uid>
+  <name>Spain, Asturias</name>
+  <name_ru>Испания, Астурия</name_ru>
+  <date>2015-08-23 17:48</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-AS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-IB</code>
+  <uid>2100305</uid>
+  <name>Spain, Islas Baleares</name>
+  <name_ru>Испания, Балеарские острова</name_ru>
+  <date>2015-08-23 19:04</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-IB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-VC</code>
+  <uid>2100306</uid>
+  <name>Spain, Valenciana</name>
+  <name_ru>Испания, Валенсия</name_ru>
+  <date>2015-08-23 20:48</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-VC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-GA</code>
+  <uid>2100307</uid>
+  <name>Spain, Galicia</name>
+  <name_ru>Испания, Галисия</name_ru>
+  <date>2015-08-23 20:44</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-GA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CN</code>
+  <uid>2100308</uid>
+  <name>Spain, Islas Canarias</name>
+  <name_ru>Испания, Канарские острова</name_ru>
+  <date>2015-08-23 18:30</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CB</code>
+  <uid>2100309</uid>
+  <name>Spain, Cantabria</name>
+  <name_ru>Испания, Кантабрия</name_ru>
+  <date>2015-08-23 18:01</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CL</code>
+  <uid>2100311</uid>
+  <name>Spain, Castilla y Leon</name>
+  <name_ru>Испания, Кастилия и Леон</name_ru>
+  <date>2015-08-23 19:17</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CM</code>
+  <uid>2100310</uid>
+  <name>Spain, Castilla-La Mancha</name>
+  <name_ru>Испания, Кастилия — Ла-Манча</name_ru>
+  <date>2015-08-23 18:35</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CT</code>
+  <uid>2100312</uid>
+  <name>Spain, Catalunya</name>
+  <name_ru>Испания, Каталония</name_ru>
+  <date>2015-08-23 20:21</date>
+  <version>1.54</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-MD</code>
+  <uid>2100313</uid>
+  <name>Spain, Madrid</name>
+  <name_ru>Испания, Мадрид</name_ru>
+  <date>2015-08-23 19:50</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-MD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-ML</code>
+  <uid>2100314</uid>
+  <name>Spain, Melilla</name>
+  <name_ru>Испания, Мелилья</name_ru>
+  <date>2015-08-23 19:19</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-ML-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-MC</code>
+  <uid>2100315</uid>
+  <name>Spain, Murcia</name>
+  <name_ru>Испания, Мурсия</name_ru>
+  <date>2015-08-23 19:17</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-MC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-NC</code>
+  <uid>2100316</uid>
+  <name>Spain, Navarra</name>
+  <name_ru>Испания, Наварра</name_ru>
+  <date>2015-08-23 19:29</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-NC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-RI</code>
+  <uid>2100317</uid>
+  <name>Spain, La Rioja</name>
+  <name_ru>Испания, Риоха</name_ru>
+  <date>2015-08-23 19:55</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-RI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-CE</code>
+  <uid>2100318</uid>
+  <name>Spain, Ceuta</name>
+  <name_ru>Испания, Сеута</name_ru>
+  <date>2015-08-23 17:56</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-CE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-PV</code>
+  <uid>2100319</uid>
+  <name>Spain, Pais Vasco</name>
+  <name_ru>Испания, Страна Басков</name_ru>
+  <date>2015-08-23 19:54</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-PV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-EX</code>
+  <uid>2100320</uid>
+  <name>Spain, Extremadura</name>
+  <name_ru>Испания, Эстремадура</name_ru>
+  <date>2015-08-23 18:48</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-EX-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ES-OVRV</code>
+  <uid>2100375</uid>
+  <name>Spain</name>
+  <name_ru>Испания, обзорн.</name_ru>
+  <date>2015-08-23 08:15</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ES-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-65</code>
+  <uid>2100238</uid>
+  <name>Italy, Abruzzo</name>
+  <name_ru>Италия, Абруццо</name_ru>
+  <date>2015-08-24 07:40</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-65-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-75</code>
+  <uid>2100250</uid>
+  <name>Italy, Puglia</name>
+  <name_ru>Италия, Апулия</name_ru>
+  <date>2015-08-24 08:10</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-75-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-77</code>
+  <uid>2100239</uid>
+  <name>Italy, Basilicata</name>
+  <name_ru>Италия, Базиликата</name_ru>
+  <date>2015-08-24 07:49</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-77-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-23</code>
+  <uid>2100256</uid>
+  <name>Italy, Valle d'Aosta</name>
+  <name_ru>Италия, Валле-д'Аоста</name_ru>
+  <date>2015-08-24 04:10</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-34a</code>
+  <uid>2100257</uid>
+  <name>Italy, Veneto (pt 1)</name>
+  <name_ru>Италия, Венето ч.1</name_ru>
+  <date>2015-08-24 05:25</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-34a-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-34b</code>
+  <uid>2100432</uid>
+  <name>Italy, Veneto (pt 2)</name>
+  <name_ru>Италия, Венето ч.2</name_ru>
+  <date>2015-08-24 06:41</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-34b-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-78</code>
+  <uid>2100240</uid>
+  <name>Italy, Calabria</name>
+  <name_ru>Италия, Калабрия</name_ru>
+  <date>2015-08-24 08:02</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-78-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-72</code>
+  <uid>2100241</uid>
+  <name>Italy, Campania</name>
+  <name_ru>Италия, Кампания</name_ru>
+  <date>2015-08-24 07:57</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-72-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-62</code>
+  <uid>2100244</uid>
+  <name>Italy, Lazio</name>
+  <name_ru>Италия, Лацио</name_ru>
+  <date>2015-08-24 07:49</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-62-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-42</code>
+  <uid>2100245</uid>
+  <name>Italy, Liguria</name>
+  <name_ru>Италия, Лигурия</name_ru>
+  <date>2015-08-24 06:07</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-42-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-25</code>
+  <uid>2100246</uid>
+  <name>Italy, Lombardia</name>
+  <name_ru>Италия, Ломбардия</name_ru>
+  <date>2015-08-24 07:36</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-25-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-57</code>
+  <uid>2100247</uid>
+  <name>Italy, Marche</name>
+  <name_ru>Италия, Марке</name_ru>
+  <date>2015-08-24 07:10</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-57-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-67</code>
+  <uid>2100248</uid>
+  <name>Italy, Molise</name>
+  <name_ru>Италия, Молизе</name_ru>
+  <date>2015-08-24 07:39</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-67-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-21</code>
+  <uid>2100249</uid>
+  <name>Italy, Piemonte</name>
+  <name_ru>Италия, Пьемонт</name_ru>
+  <date>2015-08-24 05:03</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-21-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-88</code>
+  <uid>2100251</uid>
+  <name>Italy, Sardegna</name>
+  <name_ru>Италия, Сардиния</name_ru>
+  <date>2015-08-24 08:40</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-88-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-82</code>
+  <uid>2100252</uid>
+  <name>Italy, Sicilia</name>
+  <name_ru>Италия, Сицилия</name_ru>
+  <date>2015-08-24 08:47</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-82-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-52</code>
+  <uid>2100253</uid>
+  <name>Italy, Toscana</name>
+  <name_ru>Италия, Тоскана</name_ru>
+  <date>2015-08-24 07:29</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-52-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-32</code>
+  <uid>2100254</uid>
+  <name>Italy, Trentino-Alto Adige</name>
+  <name_ru>Италия, Трентино — Альто-Адидже</name_ru>
+  <date>2015-08-24 04:59</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-32-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-55</code>
+  <uid>2100255</uid>
+  <name>Italy, Umbria</name>
+  <name_ru>Италия, Умбрия</name_ru>
+  <date>2015-08-24 06:53</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-55-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-36</code>
+  <uid>2100243</uid>
+  <name>Italy, Friuli-Venezia Giulia</name>
+  <name_ru>Италия, Фриули-Венеция-Джулия</name_ru>
+  <date>2015-08-24 05:59</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-36-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-45e</code>
+  <uid>2100242</uid>
+  <name>Italy, Emilia-Romagna (pt 1)</name>
+  <name_ru>Италия, Эмилия-Романья ч.1</name_ru>
+  <date>2015-08-24 07:32</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-45e-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IT-45w</code>
+  <uid>2100433</uid>
+  <name>Italy, Emilia-Romagna (pt 2)</name>
+  <name_ru>Италия, Эмилия-Романья ч.2</name_ru>
+  <date>2015-08-24 06:28</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IT-45w-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>YE-FULL</code>
+  <uid>2100831</uid>
+  <name>Yemen</name>
+  <name_ru>Йемен</name_ru>
+  <date>2015-08-22 23:50</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/YE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KP-FULL</code>
+  <uid>2100777</uid>
+  <name>North Korea</name>
+  <name_ru>КНДР</name_ru>
+  <date>2015-08-15 10:23</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KP-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KB</code>
+  <uid>2100026</uid>
+  <name>Кабардино-Балкария</name>
+  <name_ru>Кабардино-Балкария</name_ru>
+  <date>2016-07-27 10:19</date>
+  <version>1.778</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CV-FULL</code>
+  <uid>2100751</uid>
+  <name>Cape Verde</name>
+  <name_ru>Кабо-Верде</name_ru>
+  <date>2015-09-17 00:57</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KZ-FULL</code>
+  <uid>2100027</uid>
+  <name>Kazakhstan</name>
+  <name_ru>Казахстан</name_ru>
+  <date>2015-08-15 11:54</date>
+  <version>1.318</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KGD</code>
+  <uid>2100028</uid>
+  <name>Калининградская обл.</name>
+  <name_ru>Калининградская обл.</name_ru>
+  <date>2016-07-27 11:01</date>
+  <version>1.922</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KGD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KL</code>
+  <uid>2100029</uid>
+  <name>Калмыкия</name>
+  <name_ru>Калмыкия</name_ru>
+  <date>2016-07-27 12:26</date>
+  <version>1.783</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KLU</code>
+  <uid>2100030</uid>
+  <name>Калужская обл.</name>
+  <name_ru>Калужская обл.</name_ru>
+  <date>2015-09-11 14:17</date>
+  <version>1.794</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KLU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KH-FULL</code>
+  <uid>2100749</uid>
+  <name>Cambodia</name>
+  <name_ru>Камбоджа</name_ru>
+  <date>2015-08-15 10:01</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KH-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CM-FULL</code>
+  <uid>2100750</uid>
+  <name>Cameroon</name>
+  <name_ru>Камерун</name_ru>
+  <date>2015-09-17 01:49</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KAM</code>
+  <uid>2100031</uid>
+  <name>Камчатский край</name>
+  <name_ru>Камчатский край</name_ru>
+  <date>2016-07-27 10:13</date>
+  <version>1.611</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KC</code>
+  <uid>2100032</uid>
+  <name>Карачаево-Черкессия</name>
+  <name_ru>Карачаево-Черкессия</name_ru>
+  <date>2016-07-27 10:33</date>
+  <version>1.748</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KR</code>
+  <uid>2100033</uid>
+  <name>Карелия</name>
+  <name_ru>Карелия</name_ru>
+  <date>2015-09-11 15:27</date>
+  <version>1.755</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-KA</code>
+  <uid>2100862</uid>
+  <name>Karnataka</name>
+  <name_ru>Карнатака</name_ru>
+  <date>2015-08-24 09:40</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-KA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>QA-FULL</code>
+  <uid>2100806</uid>
+  <name>Qatar</name>
+  <name_ru>Катар</name_ru>
+  <date>2015-08-22 13:23</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/QA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KEM</code>
+  <uid>2100034</uid>
+  <name>Кемеровская обл.</name>
+  <name_ru>Кемеровская обл.</name_ru>
+  <date>2016-07-27 10:51</date>
+  <version>1.778</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KEM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KE-FULL</code>
+  <uid>2100775</uid>
+  <name>Kenya</name>
+  <name_ru>Кения</name_ru>
+  <date>2015-08-15 10:05</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-KL</code>
+  <uid>2100863</uid>
+  <name>Kerala</name>
+  <name_ru>Керала</name_ru>
+  <date>2015-08-24 08:49</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-KL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CY-FULL</code>
+  <uid>340321</uid>
+  <name>Cyprus</name>
+  <name_ru>Кипр</name_ru>
+  <date>2017-07-06 17:34</date>
+  <version>2.17</version>
+  <url>http://peirce.gis-lab.info/Maps9/CY-FULL-OSM.cgmap</url>
+ </map>
+ <map>
+  <code>KG-FULL</code>
+  <uid>2100035</uid>
+  <name>Kyrgyzstan</name>
+  <name_ru>Киргизия</name_ru>
+  <date>2015-08-15 10:33</date>
+  <version>1.366</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KIR</code>
+  <uid>2100036</uid>
+  <name>Кировская обл.</name>
+  <name_ru>Кировская обл.</name_ru>
+  <date>2015-09-11 13:48</date>
+  <version>1.775</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KIR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-34</code>
+  <uid>2100714</uid>
+  <name>Anhui</name>
+  <name_ru>Китай, Аньхой</name_ru>
+  <date>2015-08-23 09:26</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-34-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-15</code>
+  <uid>2100707</uid>
+  <name>Nei Mongol</name>
+  <name_ru>Китай, Внутренняя Монголия</name_ru>
+  <date>2015-08-23 09:00</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-15-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-62</code>
+  <uid>2100730</uid>
+  <name>Gansu</name>
+  <name_ru>Китай, Ганьсу</name_ru>
+  <date>2015-08-23 09:54</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-62-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-22</code>
+  <uid>2100709</uid>
+  <name>Jilin</name>
+  <name_ru>Китай, Гирин</name_ru>
+  <date>2015-08-23 09:08</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-22-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-44</code>
+  <uid>2100721</uid>
+  <name>Guangdong</name>
+  <name_ru>Китай, Гуандун</name_ru>
+  <date>2015-08-23 10:08</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-44-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-45</code>
+  <uid>2100722</uid>
+  <name>Guangxi</name>
+  <name_ru>Китай, Гуанси-Чжуанский</name_ru>
+  <date>2015-08-23 09:40</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-45-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-52</code>
+  <uid>2100726</uid>
+  <name>Guizhou</name>
+  <name_ru>Китай, Гуйчжоу</name_ru>
+  <date>2015-08-23 09:42</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-52-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-21</code>
+  <uid>2100708</uid>
+  <name>Liaoning</name>
+  <name_ru>Китай, Ляонин</name_ru>
+  <date>2015-08-23 09:07</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-21-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-64</code>
+  <uid>2100732</uid>
+  <name>Ningxia</name>
+  <name_ru>Китай, Нинся-Хуэйский</name_ru>
+  <date>2015-08-23 09:52</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-64-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-11</code>
+  <uid>2100703</uid>
+  <name>Beijing</name>
+  <name_ru>Китай, Пекин</name_ru>
+  <date>2015-08-23 08:23</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-11-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-65</code>
+  <uid>2100733</uid>
+  <name>Xinjiang</name>
+  <name_ru>Китай, Синьцзян-Уйгурский</name_ru>
+  <date>2015-08-23 10:05</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-65-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-51</code>
+  <uid>2100725</uid>
+  <name>Sichuan</name>
+  <name_ru>Китай, Сычуань</name_ru>
+  <date>2015-08-23 09:44</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-51-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-71</code>
+  <uid>2100734</uid>
+  <name>Taiwan</name>
+  <name_ru>Китай, Тайвань</name_ru>
+  <date>2015-08-23 09:24</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-71-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-54</code>
+  <uid>2100728</uid>
+  <name>Xizang</name>
+  <name_ru>Китай, Тибет</name_ru>
+  <date>2015-08-23 09:50</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-54-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-12</code>
+  <uid>2100704</uid>
+  <name>Tianjin</name>
+  <name_ru>Китай, Тяньцзинь</name_ru>
+  <date>2015-08-23 08:26</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-12-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-35</code>
+  <uid>2100715</uid>
+  <name>Fujian</name>
+  <name_ru>Китай, Фуцзянь</name_ru>
+  <date>2015-08-23 09:33</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-35-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-46</code>
+  <uid>2100723</uid>
+  <name>Hainan</name>
+  <name_ru>Китай, Хайнань</name_ru>
+  <date>2015-08-23 09:59</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-46-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-42</code>
+  <uid>2100719</uid>
+  <name>Hubei</name>
+  <name_ru>Китай, Хубэй</name_ru>
+  <date>2015-08-23 09:35</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-42-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-43</code>
+  <uid>2100720</uid>
+  <name>Hunan</name>
+  <name_ru>Китай, Хунань</name_ru>
+  <date>2015-08-23 09:36</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-43-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-13</code>
+  <uid>2100705</uid>
+  <name>Hebei</name>
+  <name_ru>Китай, Хэбэй</name_ru>
+  <date>2015-08-23 08:32</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-13-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-23</code>
+  <uid>2100710</uid>
+  <name>Heilongjiang</name>
+  <name_ru>Китай, Хэйлунцзян</name_ru>
+  <date>2015-08-23 09:12</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-23-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-41</code>
+  <uid>2100718</uid>
+  <name>Henan</name>
+  <name_ru>Китай, Хэнань</name_ru>
+  <date>2015-08-23 09:59</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-41-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-36</code>
+  <uid>2100716</uid>
+  <name>Jiangxi</name>
+  <name_ru>Китай, Цзянси</name_ru>
+  <date>2015-08-23 09:32</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-36-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-32</code>
+  <uid>2100712</uid>
+  <name>Jiangsu</name>
+  <name_ru>Китай, Цзянсу</name_ru>
+  <date>2015-08-23 09:29</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-32-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-63</code>
+  <uid>2100731</uid>
+  <name>Qinghai</name>
+  <name_ru>Китай, Цинхай</name_ru>
+  <date>2015-08-23 09:54</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-63-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-33</code>
+  <uid>2100713</uid>
+  <name>Zhejiang</name>
+  <name_ru>Китай, Чжэцзян</name_ru>
+  <date>2015-08-23 09:26</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-33-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-50</code>
+  <uid>2100724</uid>
+  <name>Chongqing</name>
+  <name_ru>Китай, Чунцин</name_ru>
+  <date>2015-08-23 09:39</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-50-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-31</code>
+  <uid>2100711</uid>
+  <name>Shanghai</name>
+  <name_ru>Китай, Шанхай</name_ru>
+  <date>2015-08-23 09:14</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-31-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-37</code>
+  <uid>2100717</uid>
+  <name>Shandong</name>
+  <name_ru>Китай, Шаньдун</name_ru>
+  <date>2015-08-23 09:35</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-37-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-14</code>
+  <uid>2100706</uid>
+  <name>Shanxi</name>
+  <name_ru>Китай, Шаньси</name_ru>
+  <date>2015-08-23 08:52</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-14-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-61</code>
+  <uid>2100729</uid>
+  <name>Shaanxi</name>
+  <name_ru>Китай, Шэньси</name_ru>
+  <date>2015-08-23 09:49</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-61-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-53</code>
+  <uid>2100727</uid>
+  <name>Yunnan</name>
+  <name_ru>Китай, Юньнань</name_ru>
+  <date>2015-08-23 09:50</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-53-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CN-OVRV</code>
+  <uid>2100702</uid>
+  <name>China</name>
+  <name_ru>Китай, обзорн.</name_ru>
+  <date>2015-08-24 04:01</date>
+  <version>1.5</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CN-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CO-FULL</code>
+  <uid>2100661</uid>
+  <name>Colombia</name>
+  <name_ru>Колумбия</name_ru>
+  <date>2015-09-17 02:50</date>
+  <version>1.33</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KO</code>
+  <uid>2100037</uid>
+  <name>Коми</name>
+  <name_ru>Коми</name_ru>
+  <date>2015-09-11 14:10</date>
+  <version>1.698</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KM-FULL</code>
+  <uid>2100754</uid>
+  <name>Comoros</name>
+  <name_ru>Коморы</name_ru>
+  <date>2015-08-15 10:06</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CR-FULL</code>
+  <uid>2100404</uid>
+  <name>Costa Rica</name>
+  <name_ru>Коста-Рика</name_ru>
+  <date>2015-09-17 00:29</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KOS</code>
+  <uid>2100038</uid>
+  <name>Костромская обл.</name>
+  <name_ru>Костромская обл.</name_ru>
+  <date>2015-09-11 14:07</date>
+  <version>1.788</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KOS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CI-FULL</code>
+  <uid>2100757</uid>
+  <name>Cote d'Ivoire</name>
+  <name_ru>Кот-д’Ивуар</name_ru>
+  <date>2015-09-16 23:54</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KDA</code>
+  <uid>2100039</uid>
+  <name>Краснодарский край, Адыгея</name>
+  <name_ru>Краснодарский край, Адыгея</name_ru>
+  <date>2016-07-27 12:20</date>
+  <version>1.888</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KDA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KYA</code>
+  <uid>2100040</uid>
+  <name>Красноярский край, юг</name>
+  <name_ru>Красноярский край, юг</name_ru>
+  <date>2015-09-11 14:54</date>
+  <version>1.682</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KYA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KRM</code>
+  <uid>2100881</uid>
+  <name>Крым</name>
+  <name_ru>Крым</name_ru>
+  <date>2016-07-27 13:17</date>
+  <version>1.377</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KRM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CU-FULL</code>
+  <uid>2100322</uid>
+  <name>Cuba</name>
+  <name_ru>Куба</name_ru>
+  <date>2015-09-17 00:54</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KW-FULL</code>
+  <uid>2100779</uid>
+  <name>Kuwait</name>
+  <name_ru>Кувейт</name_ru>
+  <date>2015-08-15 10:36</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KGN</code>
+  <uid>2100041</uid>
+  <name>Курганская обл.</name>
+  <name_ru>Курганская обл.</name_ru>
+  <date>2016-07-27 11:14</date>
+  <version>1.770</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KGN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KRS</code>
+  <uid>2100042</uid>
+  <name>Курская обл.</name>
+  <name_ru>Курская обл.</name_ru>
+  <date>2016-07-27 13:24</date>
+  <version>1.744</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KRS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-LD</code>
+  <uid>2100864</uid>
+  <name>Lakshadweep</name>
+  <name_ru>Лакшадвип</name_ru>
+  <date>2015-08-24 08:48</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-LD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LA-FULL</code>
+  <uid>2100780</uid>
+  <name>Lao People's Democratic Republic</name>
+  <name_ru>Лаос</name_ru>
+  <date>2015-08-15 10:45</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LV-FULL</code>
+  <uid>2100323</uid>
+  <name>Latvia</name>
+  <name_ru>Латвия</name_ru>
+  <date>2016-07-28 06:21</date>
+  <version>1.733</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LS-FULL</code>
+  <uid>2100782</uid>
+  <name>Lesotho</name>
+  <name_ru>Лесото</name_ru>
+  <date>2015-08-15 11:54</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LR-FULL</code>
+  <uid>2100783</uid>
+  <name>Liberia</name>
+  <name_ru>Либерия</name_ru>
+  <date>2015-08-15 11:28</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LB-FULL</code>
+  <uid>2100781</uid>
+  <name>Lebanon</name>
+  <name_ru>Ливан</name_ru>
+  <date>2015-08-15 10:50</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LB-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LY-FULL</code>
+  <uid>2100784</uid>
+  <name>Libya</name>
+  <name_ru>Ливия</name_ru>
+  <date>2015-08-15 12:02</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-LIP</code>
+  <uid>2100043</uid>
+  <name>Липецкая обл.</name>
+  <name_ru>Липецкая обл.</name_ru>
+  <date>2016-07-27 13:37</date>
+  <version>1.785</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-LIP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LT-FULL</code>
+  <uid>2100324</uid>
+  <name>Lithuania</name>
+  <name_ru>Литва</name_ru>
+  <date>2016-07-28 06:55</date>
+  <version>1.752</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LI-FULL</code>
+  <uid>2100463</uid>
+  <name>Liechtenstein</name>
+  <name_ru>Лихтенштейн</name_ru>
+  <date>2015-08-15 10:54</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LU-FULL</code>
+  <uid>2100325</uid>
+  <name>Luxembourg</name>
+  <name_ru>Люксембург</name_ru>
+  <date>2015-08-15 11:56</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MU-FULL</code>
+  <uid>2100791</uid>
+  <name>Mauritius</name>
+  <name_ru>Маврикий</name_ru>
+  <date>2015-08-15 12:42</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MU-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MR-FULL</code>
+  <uid>2100790</uid>
+  <name>Mauritania</name>
+  <name_ru>Мавритания</name_ru>
+  <date>2015-08-15 12:43</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MAG</code>
+  <uid>2100044</uid>
+  <name>Магаданская обл.</name>
+  <name_ru>Магаданская обл.</name_ru>
+  <date>2016-07-27 13:30</date>
+  <version>1.755</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-MAG-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MG-FULL</code>
+  <uid>2100785</uid>
+  <name>Madagascar</name>
+  <name_ru>Мадагаскар</name_ru>
+  <date>2015-08-15 12:28</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-MP</code>
+  <uid>2100868</uid>
+  <name>Madhya Pradesh</name>
+  <name_ru>Мадхья-Прадеш</name_ru>
+  <date>2015-08-24 09:02</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-MP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MW-FULL</code>
+  <uid>2100786</uid>
+  <name>Malawi</name>
+  <name_ru>Малави</name_ru>
+  <date>2015-08-15 12:53</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MY-FULL</code>
+  <uid>2100698</uid>
+  <name>Malaysia</name>
+  <name_ru>Малайзия</name_ru>
+  <date>2015-08-15 14:28</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ML-FULL</code>
+  <uid>2100788</uid>
+  <name>Mali</name>
+  <name_ru>Мали</name_ru>
+  <date>2015-08-15 12:38</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ML-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MV-FULL</code>
+  <uid>2100787</uid>
+  <name>Maldives</name>
+  <name_ru>Мальдивы</name_ru>
+  <date>2015-08-15 12:44</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MT-FULL</code>
+  <uid>2100326</uid>
+  <name>Malta</name>
+  <name_ru>Мальта</name_ru>
+  <date>2015-08-15 12:41</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-MN</code>
+  <uid>2100867</uid>
+  <name>Manipur</name>
+  <name_ru>Манипур</name_ru>
+  <date>2015-08-24 08:53</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-MN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ME</code>
+  <uid>2100045</uid>
+  <name>Марий Эл</name>
+  <name_ru>Марий Эл</name_ru>
+  <date>2016-07-27 13:44</date>
+  <version>1.781</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ME-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MA-FULL</code>
+  <uid>2100793</uid>
+  <name>Morocco</name>
+  <name_ru>Марокко</name_ru>
+  <date>2015-08-15 12:48</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MH-FULL</code>
+  <uid>2100789</uid>
+  <name>Marshall Islands</name>
+  <name_ru>Маршалловы Острова</name_ru>
+  <date>2015-08-15 12:04</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MH-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-MH</code>
+  <uid>2100865</uid>
+  <name>Maharashtra</name>
+  <name_ru>Махараштра</name_ru>
+  <date>2015-08-24 09:29</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-MH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-ML</code>
+  <uid>2100866</uid>
+  <name>Meghalaya</name>
+  <name_ru>Мегхалая</name_ru>
+  <date>2015-08-24 08:51</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-ML-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-OVRV</code>
+  <uid>2100469</uid>
+  <name>Mexico</name>
+  <name_ru>Мексика</name_ru>
+  <date>2015-06-09 20:19</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-AGU</code>
+  <uid>2100510</uid>
+  <name>Aguascalientes</name>
+  <name_ru>Мексика,Агуаскальентес</name_ru>
+  <date>2015-08-21 20:58</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-AGU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-VER</code>
+  <uid>2100533</uid>
+  <name>Veracruz</name>
+  <name_ru>Мексика,Веракрус</name_ru>
+  <date>2015-08-15 14:02</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-VER-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-GRO</code>
+  <uid>2100540</uid>
+  <name>Guerrero</name>
+  <name_ru>Мексика,Герреро</name_ru>
+  <date>2015-08-15 13:03</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-GRO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-GUA</code>
+  <uid>2100511</uid>
+  <name>Guanajuato</name>
+  <name_ru>Мексика,Гуанахуато</name_ru>
+  <date>2015-08-15 13:05</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-GUA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-DUR</code>
+  <uid>2100537</uid>
+  <name>Durango</name>
+  <name_ru>Мексика,Дуранго</name_ru>
+  <date>2015-08-15 13:00</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-DUR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-HID</code>
+  <uid>2100514</uid>
+  <name>Hidalgo</name>
+  <name_ru>Мексика,Идальго</name_ru>
+  <date>2015-08-15 13:05</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-HID-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-CAM</code>
+  <uid>2100519</uid>
+  <name>Campeche</name>
+  <name_ru>Мексика,Кампече</name_ru>
+  <date>2015-08-15 12:51</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-CAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-QUE</code>
+  <uid>2100541</uid>
+  <name>Queretaro</name>
+  <name_ru>Мексика,Керетаро</name_ru>
+  <date>2015-08-15 13:25</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-QUE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-ROO</code>
+  <uid>2100512</uid>
+  <name>Quintana Roo</name>
+  <name_ru>Мексика,Кинтана-Роо</name_ru>
+  <date>2015-08-15 13:32</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-ROO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-COA</code>
+  <uid>2100528</uid>
+  <name>Coahuila</name>
+  <name_ru>Мексика,Коауила</name_ru>
+  <date>2015-08-15 12:58</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-COA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-COL</code>
+  <uid>2100531</uid>
+  <name>Colima</name>
+  <name_ru>Мексика,Колима</name_ru>
+  <date>2015-08-15 12:56</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-COL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-MEX</code>
+  <uid>2100520</uid>
+  <name>Mexico</name>
+  <name_ru>Мексика,Мехико</name_ru>
+  <date>2015-08-15 13:17</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-MEX-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-MIC</code>
+  <uid>2100523</uid>
+  <name>Michoacan</name>
+  <name_ru>Мексика,Мичоакан</name_ru>
+  <date>2015-08-15 13:15</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-MIC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-MOR</code>
+  <uid>2100526</uid>
+  <name>Morelos</name>
+  <name_ru>Мексика,Морелос</name_ru>
+  <date>2015-08-15 13:07</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-MOR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-NAY</code>
+  <uid>2100529</uid>
+  <name>Nayarit</name>
+  <name_ru>Мексика,Наярит</name_ru>
+  <date>2015-08-15 13:12</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-NAY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-BCN</code>
+  <uid>2100513</uid>
+  <name>Baja California</name>
+  <name_ru>Мексика,Нижняя Калифорния</name_ru>
+  <date>2015-08-15 12:49</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-BCN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-NLE</code>
+  <uid>2100532</uid>
+  <name>Nuevo Leon</name>
+  <name_ru>Мексика,Нуэво-Леон</name_ru>
+  <date>2015-08-15 13:18</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-NLE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-OAX</code>
+  <uid>2100535</uid>
+  <name>Oaxaca</name>
+  <name_ru>Мексика,Оахака</name_ru>
+  <date>2015-08-15 13:20</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-OAX-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-PUE</code>
+  <uid>2100538</uid>
+  <name>Puebla</name>
+  <name_ru>Мексика,Пуэбла</name_ru>
+  <date>2015-08-15 13:28</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-PUE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-ZAC</code>
+  <uid>2100539</uid>
+  <name>Zacatecas</name>
+  <name_ru>Мексика,Сакатекас</name_ru>
+  <date>2015-08-15 13:57</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-ZAC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-SLP</code>
+  <uid>2100518</uid>
+  <name>San Luis Potosi</name>
+  <name_ru>Мексика,Сан-Луис-Потоси</name_ru>
+  <date>2015-08-15 13:41</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-SLP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-SIN</code>
+  <uid>2100515</uid>
+  <name>Sinaloa</name>
+  <name_ru>Мексика,Синалоа</name_ru>
+  <date>2015-08-15 13:38</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-SIN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-SON</code>
+  <uid>2100521</uid>
+  <name>Sonora</name>
+  <name_ru>Мексика,Сонора</name_ru>
+  <date>2015-08-15 13:44</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-SON-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-TAB</code>
+  <uid>2100524</uid>
+  <name>Tabasco</name>
+  <name_ru>Мексика,Табаско</name_ru>
+  <date>2015-08-15 13:43</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-TAB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-TAM</code>
+  <uid>2100527</uid>
+  <name>Tamaulipas</name>
+  <name_ru>Мексика,Тамаулипас</name_ru>
+  <date>2015-08-15 13:50</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-TAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-TLA</code>
+  <uid>2100530</uid>
+  <name>Tlaxcala</name>
+  <name_ru>Мексика,Тласкала</name_ru>
+  <date>2015-08-15 13:47</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-TLA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-DIF</code>
+  <uid>2100534</uid>
+  <name>Distrito Federal</name>
+  <name_ru>Мексика,Федеральный округ</name_ru>
+  <date>2015-08-15 13:01</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-DIF-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-JAL</code>
+  <uid>2100517</uid>
+  <name>Jalisco</name>
+  <name_ru>Мексика,Халиско</name_ru>
+  <date>2015-08-15 13:26</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-JAL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-CHH</code>
+  <uid>2100522</uid>
+  <name>Chihuahua</name>
+  <name_ru>Мексика,Чиуауа</name_ru>
+  <date>2015-08-15 13:04</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-CHH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-CHP</code>
+  <uid>2100525</uid>
+  <name>Chiapas</name>
+  <name_ru>Мексика,Чьяпас</name_ru>
+  <date>2015-08-15 12:55</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-CHP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-BCS</code>
+  <uid>2100516</uid>
+  <name>Baja California Sur</name>
+  <name_ru>Мексика,Южная Нижняя Калифорния</name_ru>
+  <date>2015-08-15 12:51</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-BCS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MX-YUC</code>
+  <uid>2100536</uid>
+  <name>Yucatan</name>
+  <name_ru>Мексика,Юкатан</name_ru>
+  <date>2015-08-15 13:55</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MX-YUC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-MZ</code>
+  <uid>2100869</uid>
+  <name>Mizoram</name>
+  <name_ru>Мизорам</name_ru>
+  <date>2015-08-24 08:56</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-MZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FM-FULL</code>
+  <uid>2100792</uid>
+  <name>Micronesia, Federated States of</name>
+  <name_ru>Микронезия</name_ru>
+  <date>2015-08-14 21:13</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MZ-FULL</code>
+  <uid>2100794</uid>
+  <name>Mozambique</name>
+  <name_ru>Мозамбик</name_ru>
+  <date>2015-08-15 13:38</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MD-FULL</code>
+  <uid>2100046</uid>
+  <name>Moldova</name>
+  <name_ru>Молдова</name_ru>
+  <date>2016-07-28 06:42</date>
+  <version>1.737</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MC-FULL</code>
+  <uid>2100464</uid>
+  <name>Monaco</name>
+  <name_ru>Монако</name_ru>
+  <date>2015-08-15 11:57</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MC-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MN-FULL</code>
+  <uid>2100697</uid>
+  <name>Mongolia</name>
+  <name_ru>Монголия</name_ru>
+  <date>2015-08-15 12:38</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MO</code>
+  <uid>2100047</uid>
+  <name>Мордовия</name>
+  <name_ru>Мордовия</name_ru>
+  <date>2016-07-27 13:53</date>
+  <version>1.798</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-MO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MOS</code>
+  <uid>2100048</uid>
+  <name>Москва и обл.</name>
+  <name_ru>Москва и обл.</name_ru>
+  <date>2016-07-27 12:55</date>
+  <version>1.923</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-MOS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-MUR</code>
+  <uid>2100049</uid>
+  <name>Мурманская обл.</name>
+  <name_ru>Мурманская обл.</name_ru>
+  <date>2015-09-11 15:30</date>
+  <version>1.783</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-MUR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MM-FULL</code>
+  <uid>2100795</uid>
+  <name>Myanmar</name>
+  <name_ru>Мьянма</name_ru>
+  <date>2015-08-15 12:54</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-NL</code>
+  <uid>2100870</uid>
+  <name>Nagaland</name>
+  <name_ru>Нагаланд</name_ru>
+  <date>2015-08-24 08:58</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-NL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NA-FULL</code>
+  <uid>2100796</uid>
+  <name>Namibia</name>
+  <name_ru>Намибия</name_ru>
+  <date>2015-06-02 00:31</date>
+  <version>1.1</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NR-FULL</code>
+  <uid>2100797</uid>
+  <name>Nauru</name>
+  <name_ru>Науру</name_ru>
+  <date>2015-08-22 07:33</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NEN</code>
+  <uid>2100050</uid>
+  <name>Ненецкий АО</name>
+  <name_ru>Ненецкий АО</name_ru>
+  <date>2016-07-27 14:00</date>
+  <version>1.787</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-NEN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NP-FULL</code>
+  <uid>2100798</uid>
+  <name>Nepal</name>
+  <name_ru>Непал</name_ru>
+  <date>2015-08-22 08:25</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NP-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NE-FULL</code>
+  <uid>2100799</uid>
+  <name>Niger</name>
+  <name_ru>Нигер</name_ru>
+  <date>2015-08-15 14:11</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NG-FULL</code>
+  <uid>2100800</uid>
+  <name>Nigeria</name>
+  <name_ru>Нигерия</name_ru>
+  <date>2015-08-15 15:05</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-GE</code>
+  <uid>2100411</uid>
+  <name>Gelderland</name>
+  <name_ru>Нидерланды, Гелдерланд</name_ru>
+  <date>2015-08-22 01:05</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-GE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-GR</code>
+  <uid>2100412</uid>
+  <name>Groningen</name>
+  <name_ru>Нидерланды, Гронинген</name_ru>
+  <date>2015-08-21 23:28</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-GR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-DR</code>
+  <uid>2100408</uid>
+  <name>Drenthe</name>
+  <name_ru>Нидерланды, Дренте</name_ru>
+  <date>2015-08-21 23:18</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-DR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-ZE</code>
+  <uid>2100418</uid>
+  <name>Zeeland</name>
+  <name_ru>Нидерланды, Зеландия</name_ru>
+  <date>2015-08-22 02:18</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-ZE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-LI</code>
+  <uid>2100413</uid>
+  <name>Limburg</name>
+  <name_ru>Нидерланды, Лимбург</name_ru>
+  <date>2015-08-22 00:09</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-LI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-OV</code>
+  <uid>2100416</uid>
+  <name>Overijssel</name>
+  <name_ru>Нидерланды, Оверэйсел</name_ru>
+  <date>2015-08-22 01:45</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-OV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NH</code>
+  <uid>2100415</uid>
+  <name>Noord-Holland</name>
+  <name_ru>Нидерланды, Северная Голландия</name_ru>
+  <date>2015-08-22 02:37</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-NH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-NB</code>
+  <uid>2100414</uid>
+  <name>Noord-Brabant</name>
+  <name_ru>Нидерланды, Северный Брабант</name_ru>
+  <date>2015-08-22 02:55</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-NB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-UT</code>
+  <uid>2100417</uid>
+  <name>Utrecht</name>
+  <name_ru>Нидерланды, Утрехт</name_ru>
+  <date>2015-08-22 02:30</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-UT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-FL</code>
+  <uid>2100409</uid>
+  <name>Flevoland</name>
+  <name_ru>Нидерланды, Флеволанд</name_ru>
+  <date>2015-08-21 21:53</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-FL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-FR</code>
+  <uid>2100410</uid>
+  <name>Fryslan</name>
+  <name_ru>Нидерланды, Фрисландия</name_ru>
+  <date>2015-08-21 22:49</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-FR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-ZH</code>
+  <uid>2100419</uid>
+  <name>Zuid-Holland</name>
+  <name_ru>Нидерланды, Южная Голландия</name_ru>
+  <date>2015-08-22 06:18</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-ZH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NL-OVRV</code>
+  <uid>2100421</uid>
+  <name>Netherlands</name>
+  <name_ru>Нидерланды, обзорн.</name_ru>
+  <date>2015-08-23 00:36</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NIZ</code>
+  <uid>2100051</uid>
+  <name>Нижегородская обл.</name>
+  <name_ru>Нижегородская обл.</name_ru>
+  <date>2016-07-27 14:42</date>
+  <version>1.798</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-NIZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NI-FULL</code>
+  <uid>2100405</uid>
+  <name>Nicaragua</name>
+  <name_ru>Никарагуа</name_ru>
+  <date>2015-08-14 17:54</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NZ-N</code>
+  <uid>2100509</uid>
+  <name>New Zealand, North Island</name>
+  <name_ru>Новая Зеландия, Северный остров</name_ru>
+  <date>2015-08-15 17:40</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NZ-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NZ-S</code>
+  <uid>2100500</uid>
+  <name>New Zealand, South Island</name>
+  <name_ru>Новая Зеландия, Южный остров</name_ru>
+  <date>2015-08-22 09:36</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NZ-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NZ-OVRV</code>
+  <uid>2100491</uid>
+  <name>New Zealand</name>
+  <name_ru>Новая Зеландия, обзорн.</name_ru>
+  <date>2015-08-22 22:54</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NGR</code>
+  <uid>2100052</uid>
+  <name>Новгородская обл.</name>
+  <name_ru>Новгородская обл.</name_ru>
+  <date>2015-09-11 15:41</date>
+  <version>1.744</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-NGR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-NVS</code>
+  <uid>2100053</uid>
+  <name>Новосибирская обл.</name>
+  <name_ru>Новосибирская обл.</name_ru>
+  <date>2016-07-27 15:23</date>
+  <version>1.772</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-NVS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-EAST</code>
+  <uid>2100327</uid>
+  <name>Norway (Eastern)</name>
+  <name_ru>Норвегия (Восточная)</name_ru>
+  <date>2015-08-22 07:32</date>
+  <version>1.54</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-EAST-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-WEST</code>
+  <uid>2100328</uid>
+  <name>Norway (Western)</name>
+  <name_ru>Норвегия (Западная)</name_ru>
+  <date>2015-08-22 10:45</date>
+  <version>1.55</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-WEST-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-NORTH</code>
+  <uid>2100329</uid>
+  <name>Norway (Northern)</name>
+  <name_ru>Норвегия (Северная)</name_ru>
+  <date>2015-08-22 08:01</date>
+  <version>1.54</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-NORTH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-CENTER</code>
+  <uid>2100330</uid>
+  <name>Norway (Central)</name>
+  <name_ru>Норвегия (Центральная)</name_ru>
+  <date>2015-08-15 18:00</date>
+  <version>1.55</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-CENTER-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-SOUTH</code>
+  <uid>2100331</uid>
+  <name>Norway (Southern)</name>
+  <name_ru>Норвегия (Южная)</name_ru>
+  <date>2015-08-22 03:11</date>
+  <version>1.55</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-SOUTH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>NO-OVRV</code>
+  <uid>2100422</uid>
+  <name>Norway</name>
+  <name_ru>Норвегия, обзорн.</name_ru>
+  <date>2015-08-22 23:09</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/NO-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>AE-FULL</code>
+  <uid>2100332</uid>
+  <name>United Arab Emirates</name>
+  <name_ru>Объединенные Арабские Эмираты</name_ru>
+  <date>2015-09-05 23:15</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/AE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>OM-FULL</code>
+  <uid>2100801</uid>
+  <name>Oman</name>
+  <name_ru>Оман</name_ru>
+  <date>2015-08-22 08:12</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/OM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-OMS</code>
+  <uid>2100054</uid>
+  <name>Омская обл.</name>
+  <name_ru>Омская обл.</name_ru>
+  <date>2016-07-27 14:33</date>
+  <version>1.792</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-OMS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ORE</code>
+  <uid>2100055</uid>
+  <name>Оренбургская обл.</name>
+  <name_ru>Оренбургская обл.</name_ru>
+  <date>2016-07-27 15:04</date>
+  <version>1.745</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ORE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-OR</code>
+  <uid>2100871</uid>
+  <name>Orissa</name>
+  <name_ru>Орисса</name_ru>
+  <date>2015-08-24 09:02</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-OR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ORL</code>
+  <uid>2100056</uid>
+  <name>Орловская обл.</name>
+  <name_ru>Орловская обл.</name_ru>
+  <date>2016-07-27 15:15</date>
+  <version>1.779</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ORL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PK-FULL</code>
+  <uid>2100802</uid>
+  <name>Pakistan</name>
+  <name_ru>Пакистан</name_ru>
+  <date>2015-08-22 10:53</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PW-FULL</code>
+  <uid>2100803</uid>
+  <name>Palau</name>
+  <name_ru>Палау</name_ru>
+  <date>2015-08-22 13:14</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PA-FULL</code>
+  <uid>2100403</uid>
+  <name>Panama</name>
+  <name_ru>Панама</name_ru>
+  <date>2015-08-14 17:57</date>
+  <version>1.43</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PG-FULL</code>
+  <uid>2100804</uid>
+  <name>Papua New Guinea</name>
+  <name_ru>Папуа — Новая Гвинея</name_ru>
+  <date>2015-08-22 08:33</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PY-FULL</code>
+  <uid>2100438</uid>
+  <name>Paraguay</name>
+  <name_ru>Парагвай</name_ru>
+  <date>2015-08-22 13:35</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-PB</code>
+  <uid>2100872</uid>
+  <name>Punjab</name>
+  <name_ru>Пенджаб</name_ru>
+  <date>2015-08-24 09:07</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-PB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PNZ</code>
+  <uid>2100057</uid>
+  <name>Пензенская обл.</name>
+  <name_ru>Пензенская обл.</name_ru>
+  <date>2016-07-27 15:35</date>
+  <version>1.794</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-PNZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PER</code>
+  <uid>2100058</uid>
+  <name>Пермский край</name>
+  <name_ru>Пермский край</name_ru>
+  <date>2015-09-11 17:09</date>
+  <version>1.787</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-PER-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PE-FULL</code>
+  <uid>2100659</uid>
+  <name>Peru</name>
+  <name_ru>Перу</name_ru>
+  <date>2015-08-22 10:16</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PE-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-WN</code>
+  <uid>2100272</uid>
+  <name>Poland, Warminsko-mazurskie</name>
+  <name_ru>Польша, Варминско-Мазурское</name_ru>
+  <date>2015-08-22 14:18</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-WN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-WP</code>
+  <uid>2100273</uid>
+  <name>Poland, Wielkopolskie</name>
+  <name_ru>Польша, Великопольское</name_ru>
+  <date>2015-08-22 15:10</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-WP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-ZP</code>
+  <uid>2100274</uid>
+  <name>Poland, Zachodniopomorskie</name>
+  <name_ru>Польша, Западно-Поморское</name_ru>
+  <date>2015-08-22 14:55</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-ZP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-KP</code>
+  <uid>2100260</uid>
+  <name>Poland, Kujawsko-pomorskie</name>
+  <name_ru>Польша, Куявско-Поморское</name_ru>
+  <date>2015-08-22 10:54</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-KP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LD</code>
+  <uid>2100261</uid>
+  <name>Poland, Lodzkie</name>
+  <name_ru>Польша, Лодзинское</name_ru>
+  <date>2015-08-22 11:39</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-LD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LU</code>
+  <uid>2100262</uid>
+  <name>Poland, Lubelskie</name>
+  <name_ru>Польша, Люблинское</name_ru>
+  <date>2015-08-22 11:55</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-LU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-LB</code>
+  <uid>2100263</uid>
+  <name>Poland, Lubuskie</name>
+  <name_ru>Польша, Любушское</name_ru>
+  <date>2015-08-22 11:17</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-LB-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-MZ</code>
+  <uid>2100265</uid>
+  <name>Poland, Mazowieckie</name>
+  <name_ru>Польша, Мазовецкое</name_ru>
+  <date>2015-08-22 13:11</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-MZ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-MA</code>
+  <uid>2100264</uid>
+  <name>Poland, Malopolskie</name>
+  <name_ru>Польша, Малопольское</name_ru>
+  <date>2015-08-22 12:32</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-MA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-DS</code>
+  <uid>2100259</uid>
+  <name>Poland, Dolnoslaskie</name>
+  <name_ru>Польша, Нижнесилезское</name_ru>
+  <date>2015-08-22 11:27</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-DS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-OP</code>
+  <uid>2100266</uid>
+  <name>Poland, Opolskie</name>
+  <name_ru>Польша, Опольское</name_ru>
+  <date>2015-08-22 12:04</date>
+  <version>1.53</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-OP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PK</code>
+  <uid>2100267</uid>
+  <name>Poland, Podkarpackie</name>
+  <name_ru>Польша, Подкарпатское</name_ru>
+  <date>2015-08-22 13:12</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-PK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PD</code>
+  <uid>2100268</uid>
+  <name>Poland, Podlaskie</name>
+  <name_ru>Польша, Подляское</name_ru>
+  <date>2015-08-22 12:29</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-PD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-PM</code>
+  <uid>2100269</uid>
+  <name>Poland, Pomorskie</name>
+  <name_ru>Польша, Поморское</name_ru>
+  <date>2015-08-22 13:19</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-PM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-SK</code>
+  <uid>2100271</uid>
+  <name>Poland, Swietokrzyskie</name>
+  <name_ru>Польша, Свентокшиское</name_ru>
+  <date>2015-08-22 14:03</date>
+  <version>1.52</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-SK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-SL</code>
+  <uid>2100270</uid>
+  <name>Poland, Slaskie</name>
+  <name_ru>Польша, Силезское</name_ru>
+  <date>2015-08-22 15:22</date>
+  <version>1.51</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-SL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PL-OVRV</code>
+  <uid>2100390</uid>
+  <name>Poland</name>
+  <name_ru>Польша, обзорн.</name_ru>
+  <date>2015-08-22 23:25</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PT-OVRV</code>
+  <uid>2100882</uid>
+  <name>Portugal</name>
+  <name_ru>Португалия, обзорн</name_ru>
+  <date>2015-08-23 07:38</date>
+  <version>1.17</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PT-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PT-N</code>
+  <uid>2100883</uid>
+  <name>Portugal, north</name>
+  <name_ru>Португалия, север</name_ru>
+  <date>2015-08-22 13:39</date>
+  <version>1.20</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PT-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PT-S</code>
+  <uid>2100884</uid>
+  <name>Portugal, south</name>
+  <name_ru>Португалия, юг</name_ru>
+  <date>2015-08-22 13:57</date>
+  <version>1.20</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PT-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PRI</code>
+  <uid>2100059</uid>
+  <name>Приморский край</name>
+  <name_ru>Приморский край</name_ru>
+  <date>2016-07-27 15:49</date>
+  <version>1.792</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-PRI-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-PSK</code>
+  <uid>2100060</uid>
+  <name>Псковская обл.</name>
+  <name_ru>Псковская обл.</name_ru>
+  <date>2016-07-27 16:04</date>
+  <version>1.790</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-PSK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-RJ</code>
+  <uid>2100874</uid>
+  <name>Rajasthan</name>
+  <name_ru>Раджастхан</name_ru>
+  <date>2015-08-24 09:14</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-RJ-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-AL</code>
+  <uid>2100061</uid>
+  <name>Республика Алтай</name>
+  <name_ru>Республика Алтай</name_ru>
+  <date>2015-09-11 09:20</date>
+  <version>1.792</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-AL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CG-FULL</code>
+  <uid>2100755</uid>
+  <name>Congo</name>
+  <name_ru>Республика Конго</name_ru>
+  <date>2015-09-16 23:38</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KR-FULL</code>
+  <uid>2100778</uid>
+  <name>South Korea</name>
+  <name_ru>Республика Корея</name_ru>
+  <date>2015-08-15 11:44</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MK-FULL</code>
+  <uid>2100334</uid>
+  <name>Macedonia</name>
+  <name_ru>Республика Македония</name_ru>
+  <date>2015-08-15 12:14</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ROS</code>
+  <uid>2100062</uid>
+  <name>Ростовская обл.</name>
+  <name_ru>Ростовская обл.</name_ru>
+  <date>2016-07-27 16:22</date>
+  <version>1.797</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ROS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RW-FULL</code>
+  <uid>2100807</uid>
+  <name>Rwanda</name>
+  <name_ru>Руанда</name_ru>
+  <date>2015-08-22 15:36</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RW-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-V</code>
+  <uid>2100507</uid>
+  <name>Romania, Vest</name>
+  <name_ru>Румыния, Запад</name_ru>
+  <date>2015-08-22 15:40</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-V-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-NE</code>
+  <uid>2100505</uid>
+  <name>Romania, Nord-Est</name>
+  <name_ru>Румыния, Северо-Восток</name_ru>
+  <date>2015-08-22 15:01</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-NE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-NV</code>
+  <uid>2100506</uid>
+  <name>Romania, Nord-Vest</name>
+  <name_ru>Румыния, Северо-Запад</name_ru>
+  <date>2015-08-22 15:15</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-NV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-C</code>
+  <uid>2100504</uid>
+  <name>Romania, Centru</name>
+  <name_ru>Румыния, Центр</name_ru>
+  <date>2015-08-22 13:48</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-S</code>
+  <uid>2100503</uid>
+  <name>Romania, Sud</name>
+  <name_ru>Румыния, Юг</name_ru>
+  <date>2015-08-22 15:26</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-SV</code>
+  <uid>2100508</uid>
+  <name>Romania, Sud-Vest</name>
+  <name_ru>Румыния, Юго-Запад</name_ru>
+  <date>2015-08-22 15:26</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-SV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-SE</code>
+  <uid>2100502</uid>
+  <name>Romania, Sud-Est</name>
+  <name_ru>Румыния, Юго-восток</name_ru>
+  <date>2015-08-22 15:21</date>
+  <version>1.34</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-SE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RO-OVRV</code>
+  <uid>2100501</uid>
+  <name>Romania</name>
+  <name_ru>Румыния, обзорн</name_ru>
+  <date>2015-08-22 22:10</date>
+  <version>1.35</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RO-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-RYA</code>
+  <uid>2100063</uid>
+  <name>Рязанская обл.</name>
+  <name_ru>Рязанская обл.</name_ru>
+  <date>2016-07-28 09:27</date>
+  <version>1.791</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-RYA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SV-FULL</code>
+  <uid>2100399</uid>
+  <name>El Salvador</name>
+  <name_ru>Сальвадор</name_ru>
+  <date>2015-08-14 17:59</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAM</code>
+  <uid>2100064</uid>
+  <name>Самарская обл.</name>
+  <name_ru>Самарская обл.</name_ru>
+  <date>2016-07-28 09:46</date>
+  <version>1.792</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>WS-FULL</code>
+  <uid>2100811</uid>
+  <name>Samoa</name>
+  <name_ru>Самоа</name_ru>
+  <date>2015-08-22 23:44</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/WS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SM-FULL</code>
+  <uid>2100465</uid>
+  <name>San Marino</name>
+  <name_ru>Сан-Марино</name_ru>
+  <date>2015-08-22 18:13</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ST-FULL</code>
+  <uid>2100812</uid>
+  <name>Sao Tome and Principe</name>
+  <name_ru>Сан-Томе и Принсипи</name_ru>
+  <date>2015-08-22 18:41</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ST-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SPO</code>
+  <uid>2100065</uid>
+  <name>Санкт-Петербург и обл.</name>
+  <name_ru>Санкт-Петербург и обл.</name_ru>
+  <date>2016-07-27 11:28</date>
+  <version>1.910</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SPO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAR</code>
+  <uid>2100066</uid>
+  <name>Саратовская обл.</name>
+  <name_ru>Саратовская обл.</name_ru>
+  <date>2016-07-28 09:47</date>
+  <version>1.678</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SAR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SA-FULL</code>
+  <uid>2100813</uid>
+  <name>Saudi Arabia</name>
+  <name_ru>Саудовская Аравия</name_ru>
+  <date>2015-08-22 16:30</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SA-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SAK</code>
+  <uid>2100067</uid>
+  <name>Сахалинская обл.</name>
+  <name_ru>Сахалинская обл.</name_ru>
+  <date>2016-07-28 09:40</date>
+  <version>1.700</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SAK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SZ-FULL</code>
+  <uid>2100821</uid>
+  <name>Swaziland</name>
+  <name_ru>Свазиленд</name_ru>
+  <date>2015-08-22 15:46</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SVE</code>
+  <uid>2100021</uid>
+  <name>Свердловская обл.</name>
+  <name_ru>Свердловская обл.</name_ru>
+  <date>2016-07-27 07:35</date>
+  <version>1.892</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SVE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-NIR</code>
+  <uid>2100462</uid>
+  <name>Northen Ireland</name>
+  <name_ru>Северная Ирландия</name_ru>
+  <date>2015-08-23 23:35</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-NIR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SE</code>
+  <uid>2100068</uid>
+  <name>Северная Осетия</name>
+  <name_ru>Северная Осетия</name_ru>
+  <date>2016-07-28 09:38</date>
+  <version>1.777</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SC-FULL</code>
+  <uid>2100815</uid>
+  <name>Seychelles</name>
+  <name_ru>Сейшельские Острова</name_ru>
+  <date>2015-08-22 15:44</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SC-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>MF-FULL</code>
+  <uid>2100886</uid>
+  <name>Saint Martin (French part)</name>
+  <name_ru>Сен-Мартен</name_ru>
+  <date>2015-08-15 12:02</date>
+  <version>1.18</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/MF-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SN-FULL</code>
+  <uid>2100814</uid>
+  <name>Senegal</name>
+  <name_ru>Сенегал</name_ru>
+  <date>2015-08-22 18:30</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>VC-FULL</code>
+  <uid>2100810</uid>
+  <name>Saint Vincent and the Grenadines</name>
+  <name_ru>Сент-Винсент и Гренадины</name_ru>
+  <date>2015-08-22 23:10</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/VC-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>KN-FULL</code>
+  <uid>2100808</uid>
+  <name>Saint Kitts and Nevis</name>
+  <name_ru>Сент-Китс и Невис</name_ru>
+  <date>2015-08-15 10:07</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/KN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LC-FULL</code>
+  <uid>2100809</uid>
+  <name>Saint Lucia</name>
+  <name_ru>Сент-Люсия</name_ru>
+  <date>2015-08-15 10:52</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LC-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RS-FULL</code>
+  <uid>2100336</uid>
+  <name>Serbia</name>
+  <name_ru>Сербия</name_ru>
+  <date>2015-08-22 16:16</date>
+  <version>1.56</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-SK</code>
+  <uid>2100875</uid>
+  <name>Sikkim</name>
+  <name_ru>Сикким</name_ru>
+  <date>2015-08-24 09:09</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-SK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SG-FULL</code>
+  <uid>2100395</uid>
+  <name>Singapore</name>
+  <name_ru>Сингапур</name_ru>
+  <date>2015-08-22 16:36</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SX-FULL</code>
+  <uid>2100887</uid>
+  <name>Sint Maarten (Dutch part)</name>
+  <name_ru>Синт-Мартен</name_ru>
+  <date>2015-08-22 15:31</date>
+  <version>1.18</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SX-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SY-FULL</code>
+  <uid>2100822</uid>
+  <name>Syrian Arab Republic</name>
+  <name_ru>Сирия</name_ru>
+  <date>2015-08-22 19:01</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SK-FULL</code>
+  <uid>2100337</uid>
+  <name>Slovakia</name>
+  <name_ru>Словакия</name_ru>
+  <date>2015-08-22 20:16</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SI-FULL</code>
+  <uid>2100338</uid>
+  <name>Slovenia</name>
+  <name_ru>Словения</name_ru>
+  <date>2015-08-22 17:47</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SI-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SMO</code>
+  <uid>2100069</uid>
+  <name>Смоленская обл.</name>
+  <name_ru>Смоленская обл.</name_ru>
+  <date>2016-07-28 09:57</date>
+  <version>1.774</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SMO-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SB-FULL</code>
+  <uid>2100817</uid>
+  <name>Solomon Islands</name>
+  <name_ru>Соломоновы Острова</name_ru>
+  <date>2015-08-22 15:42</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SB-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SO-FULL</code>
+  <uid>2100818</uid>
+  <name>Somalia</name>
+  <name_ru>Сомали</name_ru>
+  <date>2015-08-22 18:40</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-STA</code>
+  <uid>2100070</uid>
+  <name>Ставропольский край</name>
+  <name_ru>Ставропольский край</name_ru>
+  <date>2016-07-28 10:07</date>
+  <version>1.773</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-STA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SD-FULL</code>
+  <uid>2100820</uid>
+  <name>Sudan</name>
+  <name_ru>Судан</name_ru>
+  <date>2015-08-22 14:41</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SR-FULL</code>
+  <uid>2100665</uid>
+  <name>Suriname</name>
+  <name_ru>Суринам</name_ru>
+  <date>2015-08-22 18:35</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SL-FULL</code>
+  <uid>2100816</uid>
+  <name>Sierra Leone</name>
+  <name_ru>Сьерра-Леоне</name_ru>
+  <date>2015-08-22 18:12</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SL-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TJ-FULL</code>
+  <uid>2100823</uid>
+  <name>Tajikistan</name>
+  <name_ru>Таджикистан</name_ru>
+  <date>2015-08-22 19:19</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TJ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TH-FULL</code>
+  <uid>2100368</uid>
+  <name>Thailand</name>
+  <name_ru>Таиланд</name_ru>
+  <date>2015-08-22 22:14</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TH-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TAM</code>
+  <uid>2100071</uid>
+  <name>Тамбовская обл.</name>
+  <name_ru>Тамбовская обл.</name_ru>
+  <date>2016-07-28 10:10</date>
+  <version>1.722</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TAM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-TN</code>
+  <uid>2100876</uid>
+  <name>Tamil Nadu</name>
+  <name_ru>Тамилнад</name_ru>
+  <date>2015-08-24 09:43</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-TN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TZ-FULL</code>
+  <uid>2100696</uid>
+  <name>Tanzania</name>
+  <name_ru>Танзания</name_ru>
+  <date>2015-08-22 21:48</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TA</code>
+  <uid>2100072</uid>
+  <name>Татарстан</name>
+  <name_ru>Татарстан</name_ru>
+  <date>2016-07-28 10:24</date>
+  <version>1.750</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TVE</code>
+  <uid>2100073</uid>
+  <name>Тверская обл.</name>
+  <name_ru>Тверская обл.</name_ru>
+  <date>2016-07-28 10:54</date>
+  <version>1.793</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TVE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TG-FULL</code>
+  <uid>2100825</uid>
+  <name>Togo</name>
+  <name_ru>Того</name_ru>
+  <date>2015-08-22 19:14</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TOM</code>
+  <uid>2100074</uid>
+  <name>Томская обл.</name>
+  <name_ru>Томская обл.</name_ru>
+  <date>2016-07-28 10:22</date>
+  <version>1.721</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TOM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TO-FULL</code>
+  <uid>2100826</uid>
+  <name>Tonga</name>
+  <name_ru>Тонга</name_ru>
+  <date>2015-08-22 19:25</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TT-FULL</code>
+  <uid>2100827</uid>
+  <name>Trinidad and Tobago</name>
+  <name_ru>Тринидад и Тобаго</name_ru>
+  <date>2015-08-22 21:12</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TT-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-TR</code>
+  <uid>2100877</uid>
+  <name>Tripura</name>
+  <name_ru>Трипура</name_ru>
+  <date>2015-08-24 09:16</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-TR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TY</code>
+  <uid>2100075</uid>
+  <name>Тува</name>
+  <name_ru>Тува</name_ru>
+  <date>2016-07-28 10:28</date>
+  <version>1.777</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TV-FULL</code>
+  <uid>2100828</uid>
+  <name>Tuvalu</name>
+  <name_ru>Тувалу</name_ru>
+  <date>2015-08-22 21:13</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TV-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TUL</code>
+  <uid>2100076</uid>
+  <name>Тульская обл.</name>
+  <name_ru>Тульская обл.</name_ru>
+  <date>2016-07-28 10:34</date>
+  <version>1.764</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TUL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TN-FULL</code>
+  <uid>2100475</uid>
+  <name>Tunisia</name>
+  <name_ru>Тунис</name_ru>
+  <date>2015-08-22 19:46</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TN-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TM-FULL</code>
+  <uid>2100486</uid>
+  <name>Turkmenistan</name>
+  <name_ru>Туркменистан</name_ru>
+  <date>2015-08-22 15:30</date>
+  <version>1.51</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-4</code>
+  <uid>2100446</uid>
+  <name>Dogu Anadolu Bolgesi</name>
+  <name_ru>Турция,  Восточная Анатолия</name_ru>
+  <date>2015-08-22 20:24</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-5</code>
+  <uid>2100447</uid>
+  <name>Marmara Region</name>
+  <name_ru>Турция, Мраморноморский регион</name_ru>
+  <date>2015-08-22 21:27</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-5-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-6</code>
+  <uid>2100448</uid>
+  <name>Mediterranean Region</name>
+  <name_ru>Турция, Средиземноморский регион</name_ru>
+  <date>2015-08-22 20:47</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-6-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-3</code>
+  <uid>2100445</uid>
+  <name>Central Anatolia Region</name>
+  <name_ru>Турция, Центральная Анатолия</name_ru>
+  <date>2015-08-22 20:32</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-2</code>
+  <uid>2100444</uid>
+  <name>Black Sea Region</name>
+  <name_ru>Турция, Черноморский регион</name_ru>
+  <date>2015-08-22 20:05</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-1</code>
+  <uid>2100367</uid>
+  <name>Aegean Region</name>
+  <name_ru>Турция, Эгейский регион</name_ru>
+  <date>2015-08-22 19:50</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-7</code>
+  <uid>2100449</uid>
+  <name>Southeastern Anatolia Region</name>
+  <name_ru>Турция, Юго-Восточная Анатолия</name_ru>
+  <date>2015-08-22 20:45</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-7-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TR-OVRV</code>
+  <uid>2100450</uid>
+  <name>Turkey</name>
+  <name_ru>Турция, обзорн.</name_ru>
+  <date>2015-08-22 21:28</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-TYU</code>
+  <uid>2100077</uid>
+  <name>Тюменская обл.</name>
+  <name_ru>Тюменская обл.</name_ru>
+  <date>2016-07-28 10:42</date>
+  <version>1.791</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-TYU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UG-FULL</code>
+  <uid>2100829</uid>
+  <name>Uganda</name>
+  <name_ru>Уганда</name_ru>
+  <date>2015-08-22 21:42</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UG-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-UD</code>
+  <uid>2100078</uid>
+  <name>Удмуртия</name>
+  <name_ru>Удмуртия</name_ru>
+  <date>2015-09-11 08:23</date>
+  <version>1.678</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-UD-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UZ-FULL</code>
+  <uid>2100364</uid>
+  <name>Uzbekistan</name>
+  <name_ru>Узбекистан</name_ru>
+  <date>2015-08-22 16:02</date>
+  <version>1.122</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UZ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-E</code>
+  <uid>2100380</uid>
+  <name>Украина, Восточный регион</name>
+  <name_ru>Украина, Восточный регион</name_ru>
+  <date>2016-07-28 08:27</date>
+  <version>1.511</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-W</code>
+  <uid>2100383</uid>
+  <name>Украина, Западный регион</name>
+  <name_ru>Украина, Западный регион</name_ru>
+  <date>2016-07-27 06:52</date>
+  <version>1.515</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-W-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-N</code>
+  <uid>2100381</uid>
+  <name>Украина, Северный регион</name>
+  <name_ru>Украина, Северный регион</name_ru>
+  <date>2015-09-11 17:55</date>
+  <version>1.517</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-C</code>
+  <uid>2100379</uid>
+  <name>Украина, Центральный регион</name>
+  <name_ru>Украина, Центральный регион</name_ru>
+  <date>2016-07-28 07:48</date>
+  <version>1.491</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-S</code>
+  <uid>2100382</uid>
+  <name>Украина, Южный регион</name>
+  <name_ru>Украина, Южный регион</name_ru>
+  <date>2016-07-28 09:06</date>
+  <version>1.500</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UA-OVRV</code>
+  <uid>2100420</uid>
+  <name>Ukraine</name>
+  <name_ru>Украина, обзорн.</name_ru>
+  <date>2015-09-11 18:08</date>
+  <version>1.452</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UA-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-ULY</code>
+  <uid>2100080</uid>
+  <name>Ульяновская обл.</name>
+  <name_ru>Ульяновская обл.</name_ru>
+  <date>2016-07-28 10:56</date>
+  <version>1.789</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-ULY-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>UY-FULL</code>
+  <uid>2100662</uid>
+  <name>Uruguay</name>
+  <name_ru>Уругвай</name_ru>
+  <date>2015-08-22 23:26</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/UY-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-UP</code>
+  <uid>2100878</uid>
+  <name>Uttar Pradesh</name>
+  <name_ru>Уттар-Прадеш</name_ru>
+  <date>2015-08-24 09:33</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-UP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-UT</code>
+  <uid>2100879</uid>
+  <name>Uttarakhand</name>
+  <name_ru>Уттаракханд</name_ru>
+  <date>2015-08-24 09:36</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-UT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-WLS</code>
+  <uid>2100461</uid>
+  <name>Wales</name>
+  <name_ru>Уэльс</name_ru>
+  <date>2015-08-24 02:14</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-WLS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FO-FULL</code>
+  <uid>2100888</uid>
+  <name>Faroe Islands</name>
+  <name_ru>Фарерские о-ва</name_ru>
+  <date>2015-08-14 21:14</date>
+  <version>1.10</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FO-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PH-OVRV</code>
+  <uid>2100805</uid>
+  <name>Philippines</name>
+  <name_ru>Филиппины, обзорн.</name_ru>
+  <date>2015-08-22 23:07</date>
+  <version>1.23</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PH-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PH-1</code>
+  <uid>2100834</uid>
+  <name>Philippines, vol. 1</name>
+  <name_ru>Филиппины, том 1</name_ru>
+  <date>2015-08-22 10:11</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PH-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PH-2</code>
+  <uid>2100835</uid>
+  <name>Philippines, vol. 2</name>
+  <name_ru>Филиппины, том 2</name_ru>
+  <date>2015-08-22 10:19</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PH-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PH-3</code>
+  <uid>2100836</uid>
+  <name>Philippines, vol. 3</name>
+  <name_ru>Филиппины, том 3</name_ru>
+  <date>2015-08-22 10:26</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PH-3-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>PH-4</code>
+  <uid>2100837</uid>
+  <name>Philippines, vol. 4</name>
+  <name_ru>Филиппины, том 4</name_ru>
+  <date>2015-08-22 10:19</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/PH-4-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-AL</code>
+  <uid>2100694</uid>
+  <name>Finland, Ahvenanmaan</name>
+  <name_ru>Финляндия, Аландские острова</name_ru>
+  <date>2016-07-28 02:55</date>
+  <version>1.435</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-AL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-IS</code>
+  <uid>2100339</uid>
+  <name>Finland, Ita-Suomen</name>
+  <name_ru>Финляндия, Восточная Финляндия</name_ru>
+  <date>2016-07-28 03:38</date>
+  <version>1.778</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-IS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-LS</code>
+  <uid>2100340</uid>
+  <name>Finland, Lansi-Suomen</name>
+  <name_ru>Финляндия, Западная Финляндия</name_ru>
+  <date>2016-07-28 04:37</date>
+  <version>1.759</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-LS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-PS</code>
+  <uid>2100342</uid>
+  <name>Finland,  Pohjois-Suomi</name>
+  <name_ru>Финляндия, Северная Финляндия</name_ru>
+  <date>2016-07-28 05:20</date>
+  <version>1.759</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-PS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-ES</code>
+  <uid>2100345</uid>
+  <name>Finland, Etela-Suomen</name>
+  <name_ru>Финляндия, Южная Финляндия</name_ru>
+  <date>2016-07-28 06:11</date>
+  <version>1.782</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-ES-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FI-OVRV</code>
+  <uid>2100385</uid>
+  <name>Finland</name>
+  <name_ru>Финляндия, обзорн.</name_ru>
+  <date>2016-07-28 05:01</date>
+  <version>1.485</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FI-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FK-FULL</code>
+  <uid>2100440</uid>
+  <name>Falkland Islands</name>
+  <name_ru>Фолькленд.острова</name_ru>
+  <date>2015-08-14 21:10</date>
+  <version>1.41</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-B</code>
+  <uid>2100202</uid>
+  <name>France, Aquitaine</name>
+  <name_ru>Франция, Аквитания</name_ru>
+  <date>2015-08-14 23:47</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-B-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-E</code>
+  <uid>2100206</uid>
+  <name>France, Bretagne</name>
+  <name_ru>Франция, Бретань</name_ru>
+  <date>2015-08-24 12:29</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-E-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-D</code>
+  <uid>2100205</uid>
+  <name>France, Bourgogne</name>
+  <name_ru>Франция, Бургундия</name_ru>
+  <date>2015-08-14 23:23</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-D-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-Q</code>
+  <uid>2100211</uid>
+  <name>France, Haute-Normandie</name>
+  <name_ru>Франция, Верхняя Нормандия</name_ru>
+  <date>2015-08-15 02:58</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-Q-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-J</code>
+  <uid>2100212</uid>
+  <name>France, Ile-de-France</name>
+  <name_ru>Франция, Иль-де-Франс</name_ru>
+  <date>2015-08-15 02:12</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-J-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-H</code>
+  <uid>2100209</uid>
+  <name>France, Corse</name>
+  <name_ru>Франция, Корсика</name_ru>
+  <date>2015-08-14 22:34</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-H-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-K</code>
+  <uid>2100213</uid>
+  <name>France, Languedoc-Roussillon</name>
+  <name_ru>Франция, Лангедок-Руссильон</name_ru>
+  <date>2015-08-15 01:32</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-K-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-L</code>
+  <uid>2100214</uid>
+  <name>France, Limousin</name>
+  <name_ru>Франция, Лимузен</name_ru>
+  <date>2015-08-15 00:33</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-L-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-M</code>
+  <uid>2100215</uid>
+  <name>France, Lorraine</name>
+  <name_ru>Франция, Лотарингия</name_ru>
+  <date>2015-08-15 01:22</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-M-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-P</code>
+  <uid>2100204</uid>
+  <name>France, Basse-Normandie</name>
+  <name_ru>Франция, Нижняя Нормандия</name_ru>
+  <date>2015-08-15 02:46</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-P-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-O</code>
+  <uid>2100217</uid>
+  <name>France, Nord-Pas-de-Calais</name>
+  <name_ru>Франция, Нор-Па-де-Кале</name_ru>
+  <date>2015-08-15 03:31</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-O-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-C</code>
+  <uid>2100203</uid>
+  <name>France, Auvergne</name>
+  <name_ru>Франция, Овернь</name_ru>
+  <date>2015-08-14 23:50</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-C-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-R</code>
+  <uid>2100218</uid>
+  <name>France, Pays de la Loire</name>
+  <name_ru>Франция, Пеи-де-ла-Луар</name_ru>
+  <date>2015-08-15 06:24</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-R-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-S</code>
+  <uid>2100219</uid>
+  <name>France, Picardie</name>
+  <name_ru>Франция, Пикардия</name_ru>
+  <date>2015-08-15 04:04</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-U</code>
+  <uid>2100221</uid>
+  <name>France, Provence-Alpes-Cote d'Azur</name>
+  <name_ru>Франция, Прованс-Альпы-Лазурный берег</name_ru>
+  <date>2015-08-15 06:41</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-U-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-T</code>
+  <uid>2100220</uid>
+  <name>France, Poitou-Charentes</name>
+  <name_ru>Франция, Пуату-Шаранта</name_ru>
+  <date>2015-08-15 05:29</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-T-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-V</code>
+  <uid>2100222</uid>
+  <name>France, Rhone-Alpes</name>
+  <name_ru>Франция, Рона-Альпы</name_ru>
+  <date>2015-08-15 08:31</date>
+  <version>1.37</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-V-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-I</code>
+  <uid>2100210</uid>
+  <name>France, Franche-Comte</name>
+  <name_ru>Франция, Франш-Конте</name_ru>
+  <date>2015-08-14 23:15</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-I-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-F</code>
+  <uid>2100207</uid>
+  <name>France, Centre</name>
+  <name_ru>Франция, Центр</name_ru>
+  <date>2015-08-24 11:24</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-F-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-G</code>
+  <uid>2100208</uid>
+  <name>France, Champagne-Ardenne</name>
+  <name_ru>Франция, Шампань-Арденны</name_ru>
+  <date>2015-08-14 22:25</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-G-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-A</code>
+  <uid>2100201</uid>
+  <name>France, Alsace</name>
+  <name_ru>Франция, Эльзас</name_ru>
+  <date>2015-08-14 22:24</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-A-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-N</code>
+  <uid>2100216</uid>
+  <name>France, Midi-Pyrenees</name>
+  <name_ru>Франция, Южные Пиренеи</name_ru>
+  <date>2015-08-15 04:01</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>FR-OVRV</code>
+  <uid>2100443</uid>
+  <name>France</name>
+  <name_ru>Франция, обзорн.</name_ru>
+  <date>2015-08-23 09:21</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/FR-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GF-FULL</code>
+  <uid>2100666</uid>
+  <name>Guyane Francaise</name>
+  <name_ru>Французская Гвиана</name_ru>
+  <date>2015-08-15 05:39</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GF-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KHA</code>
+  <uid>2100081</uid>
+  <name>Хабаровский край</name>
+  <name_ru>Хабаровский край</name_ru>
+  <date>2016-07-27 11:56</date>
+  <version>1.716</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KHA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KK</code>
+  <uid>2100082</uid>
+  <name>Хакасия</name>
+  <name_ru>Хакасия</name_ru>
+  <date>2016-07-28 01:32</date>
+  <version>1.784</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KK-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-KHM</code>
+  <uid>2100083</uid>
+  <name>Ханты-Мансийский АО</name>
+  <name_ru>Ханты-Мансийский АО</name_ru>
+  <date>2016-07-27 12:39</date>
+  <version>1.802</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-KHM-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-HR</code>
+  <uid>2100859</uid>
+  <name>Haryana</name>
+  <name_ru>Харьяна</name_ru>
+  <date>2015-08-24 08:53</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-HR-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-HP</code>
+  <uid>2100858</uid>
+  <name>Himachal Pradesh</name>
+  <name_ru>Химачал-Прадеш</name_ru>
+  <date>2015-08-24 08:37</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-HP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>HR-FULL</code>
+  <uid>2100346</uid>
+  <name>Croatia</name>
+  <name_ru>Хорватия</name_ru>
+  <date>2015-08-15 08:37</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/HR-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CF-FULL</code>
+  <uid>2100752</uid>
+  <name>Central African Republic</name>
+  <name_ru>ЦАР</name_ru>
+  <date>2015-09-16 23:52</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CF-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>TD-FULL</code>
+  <uid>2100753</uid>
+  <name>Chad</name>
+  <name_ru>Чад</name_ru>
+  <date>2015-08-22 15:54</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/TD-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-CH</code>
+  <uid>2100851</uid>
+  <name>Chandigarh</name>
+  <name_ru>Чандигарх</name_ru>
+  <date>2015-08-24 08:17</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-CH-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CHE</code>
+  <uid>2100084</uid>
+  <name>Челябинская обл.</name>
+  <name_ru>Челябинская обл.</name_ru>
+  <date>2016-07-27 10:03</date>
+  <version>1.790</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-CHE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ME-FULL</code>
+  <uid>2100347</uid>
+  <name>Montenegro</name>
+  <name_ru>Черногория</name_ru>
+  <date>2015-08-15 12:03</date>
+  <version>1.65</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ME-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-06</code>
+  <uid>2100348</uid>
+  <name>Czech Rep., Jihovychod</name>
+  <name_ru>Чехия, Jihovychod</name_ru>
+  <date>2015-08-23 05:21</date>
+  <version>1.48</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-06-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-03</code>
+  <uid>2100349</uid>
+  <name>Czech Rep., Jihozapad</name>
+  <name_ru>Чехия, Jihozapad</name_ru>
+  <date>2015-08-23 04:15</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-03-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-08</code>
+  <uid>2100350</uid>
+  <name>Czech Rep., Moravskoslezsko</name>
+  <name_ru>Чехия, Moravskoslezsko</name_ru>
+  <date>2015-08-23 04:59</date>
+  <version>1.49</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-08-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-05</code>
+  <uid>2100351</uid>
+  <name>Czech Rep., Severovychod</name>
+  <name_ru>Чехия, Severovychod</name_ru>
+  <date>2015-08-23 04:29</date>
+  <version>1.46</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-05-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-04</code>
+  <uid>2100352</uid>
+  <name>Czech Rep., Severozapad</name>
+  <name_ru>Чехия, Severozapad</name_ru>
+  <date>2015-08-23 03:47</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-04-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-02</code>
+  <uid>2100353</uid>
+  <name>Czech Rep., Praha, Stredni Cechy</name>
+  <name_ru>Чехия, Stredni Cechy</name_ru>
+  <date>2015-08-23 04:18</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-02-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-07</code>
+  <uid>2100354</uid>
+  <name>Czech Rep., Stredni Morava</name>
+  <name_ru>Чехия, Stredni Morava</name_ru>
+  <date>2015-08-23 05:13</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-07-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CZ-OVRV</code>
+  <uid>2100424</uid>
+  <name>Czech Republic</name>
+  <name_ru>Чехия, обзорн.</name_ru>
+  <date>2015-08-23 01:59</date>
+  <version>1.16</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CZ-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CE</code>
+  <uid>2100085</uid>
+  <name>Чечня</name>
+  <name_ru>Чечня</name_ru>
+  <date>2016-07-27 09:22</date>
+  <version>1.742</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-CE-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CL-OVRV</code>
+  <uid>2100437</uid>
+  <name>Chile</name>
+  <name_ru>Чили</name_ru>
+  <date>2015-08-23 07:31</date>
+  <version>1.36</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CL-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CL-N</code>
+  <uid>2100441</uid>
+  <name>Chile, North</name>
+  <name_ru>Чили, Север</name_ru>
+  <date>2015-08-23 16:29</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CL-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CL-S</code>
+  <uid>2100442</uid>
+  <name>Chile, South</name>
+  <name_ru>Чили, Юг</name_ru>
+  <date>2015-08-23 17:54</date>
+  <version>1.40</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CL-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CU</code>
+  <uid>2100086</uid>
+  <name>Чувашия</name>
+  <name_ru>Чувашия</name_ru>
+  <date>2016-07-27 09:47</date>
+  <version>1.785</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-CU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-CHU</code>
+  <uid>2100087</uid>
+  <name>Чукотский АО</name>
+  <name_ru>Чукотский АО</name_ru>
+  <date>2016-07-27 09:29</date>
+  <version>1.702</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-CHU-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>IN-CT</code>
+  <uid>2100852</uid>
+  <name>Chhattisgarh</name>
+  <name_ru>Чхаттисгарх</name_ru>
+  <date>2015-08-24 08:21</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/IN-CT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-OVRV</code>
+  <uid>2100356</uid>
+  <name>Switzerland</name>
+  <name_ru>Швейцария</name_ru>
+  <date>2015-08-23 07:01</date>
+  <version>1.42</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CH-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-2</code>
+  <uid>2100363</uid>
+  <name>Switzerland, East</name>
+  <name_ru>Швейцария, Восток</name_ru>
+  <date>2015-08-23 16:40</date>
+  <version>1.45</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CH-2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>CH-1</code>
+  <uid>2100362</uid>
+  <name>Switzerland, West</name>
+  <name_ru>Швейцария, Запад</name_ru>
+  <date>2015-08-23 17:11</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/CH-1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-Gotaland</code>
+  <uid>2100357</uid>
+  <name>Sweden, Gotaland</name>
+  <name_ru>Швеция, Гёталанд</name_ru>
+  <date>2015-08-22 18:32</date>
+  <version>1.47</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SE-Gotaland-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-Norrland</code>
+  <uid>2100358</uid>
+  <name>Sweden, Norrland</name>
+  <name_ru>Швеция, Норрланд</name_ru>
+  <date>2015-08-22 17:26</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SE-Norrland-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-Svealand</code>
+  <uid>2100359</uid>
+  <name>Sweden, Svealand</name>
+  <name_ru>Швеция, Свеалан</name_ru>
+  <date>2015-08-22 19:22</date>
+  <version>1.50</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SE-Svealand-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SE-OVRV</code>
+  <uid>2100423</uid>
+  <name>Sweden</name>
+  <name_ru>Швеция, обзорн.</name_ru>
+  <date>2015-08-22 22:40</date>
+  <version>1.44</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-SC2</code>
+  <uid>2100466</uid>
+  <name>Scotland, Lowlands</name>
+  <name_ru>Шотландия, Лоулендс</name_ru>
+  <date>2015-08-24 02:58</date>
+  <version>1.39</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-SC2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GB-SC1</code>
+  <uid>2100460</uid>
+  <name>Scotland, Highlands</name>
+  <name_ru>Шотландия, Хайлендс</name_ru>
+  <date>2015-08-24 00:18</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GB-SC1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>LK-FULL</code>
+  <uid>2100392</uid>
+  <name>Sri-Lanka</name>
+  <name_ru>Шри-Ланка</name_ru>
+  <date>2015-08-15 11:07</date>
+  <version>1.71</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/LK-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EC-FULL</code>
+  <uid>2100663</uid>
+  <name>Ecuador</name>
+  <name_ru>Эквадор</name_ru>
+  <date>2015-08-14 21:07</date>
+  <version>1.33</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EC-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>GQ-FULL</code>
+  <uid>2100760</uid>
+  <name>Equatorial Guinea</name>
+  <name_ru>Экваториальная Гвинея</name_ru>
+  <date>2015-08-15 06:26</date>
+  <version>1.26</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/GQ-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ER-FULL</code>
+  <uid>2100761</uid>
+  <name>Eritrea</name>
+  <name_ru>Эритрея</name_ru>
+  <date>2015-08-14 20:51</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ER-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EE-N</code>
+  <uid>2100396</uid>
+  <name>Estonia, N</name>
+  <name_ru>Эстония, Север</name_ru>
+  <date>2015-09-11 20:19</date>
+  <version>1.487</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EE-N-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EE-S</code>
+  <uid>2100397</uid>
+  <name>Estonia, S</name>
+  <name_ru>Эстония, Юг</name_ru>
+  <date>2016-07-28 02:50</date>
+  <version>1.490</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EE-S-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>EE-OVRV</code>
+  <uid>2100360</uid>
+  <name>Estonia</name>
+  <name_ru>Эстония, обзорн.</name_ru>
+  <date>2015-09-11 20:30</date>
+  <version>1.469</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/EE-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ET-FULL</code>
+  <uid>2100762</uid>
+  <name>Ethiopia</name>
+  <name_ru>Эфиопия</name_ru>
+  <date>2015-08-14 21:12</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ET-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-EC</code>
+  <uid>2100557</uid>
+  <name>Eastern Cape</name>
+  <name_ru>ЮАР, Восточная Капская</name_ru>
+  <date>2015-08-22 23:54</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-EC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-GT</code>
+  <uid>2100559</uid>
+  <name>Gauteng</name>
+  <name_ru>ЮАР, Гаутенг</name_ru>
+  <date>2015-08-23 00:09</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-GT-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-WC1</code>
+  <uid>2100565</uid>
+  <name>Western Cape, vol1</name>
+  <name_ru>ЮАР, Западная Капская, 1</name_ru>
+  <date>2015-08-23 00:26</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-WC1-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-WC2</code>
+  <uid>2100695</uid>
+  <name>Western Cape, vol2</name>
+  <name_ru>ЮАР, Западная Капская, 2</name_ru>
+  <date>2015-08-23 00:25</date>
+  <version>1.28</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-WC2-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-NL</code>
+  <uid>2100560</uid>
+  <name>KwaZulu-Natal</name>
+  <name_ru>ЮАР, Квазулу-Натал</name_ru>
+  <date>2015-08-23 00:25</date>
+  <version>1.29</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-NL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-LP</code>
+  <uid>2100561</uid>
+  <name>Limpopo</name>
+  <name_ru>ЮАР, Лимпопо</name_ru>
+  <date>2015-08-23 00:00</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-LP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-MP</code>
+  <uid>2100562</uid>
+  <name>Mpumalanga</name>
+  <name_ru>ЮАР, Мпумаланга</name_ru>
+  <date>2015-08-23 00:04</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-MP-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-FS</code>
+  <uid>2100558</uid>
+  <name>Free State</name>
+  <name_ru>ЮАР, Свободное государство</name_ru>
+  <date>2015-08-22 23:56</date>
+  <version>1.32</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-FS-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-NC</code>
+  <uid>2100563</uid>
+  <name>Northern Cape</name>
+  <name_ru>ЮАР, Северная Капская</name_ru>
+  <date>2015-08-23 00:10</date>
+  <version>1.30</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-NC-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-NW</code>
+  <uid>2100564</uid>
+  <name>North West</name>
+  <name_ru>ЮАР, Северо-Западная</name_ru>
+  <date>2015-08-23 00:14</date>
+  <version>1.31</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-NW-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>ZA-OVRV</code>
+  <uid>2100556</uid>
+  <name>South Africa</name>
+  <name_ru>ЮАР, обзорн.</name_ru>
+  <date>2015-08-23 07:52</date>
+  <version>1.27</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/ZA-OVRV-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>SS-FULL</code>
+  <uid>2100819</uid>
+  <name>South Sudan</name>
+  <name_ru>Южный Судан</name_ru>
+  <date>2015-08-22 19:01</date>
+  <version>1.25</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/SS-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-SA</code>
+  <uid>2100088</uid>
+  <name>Якутия</name>
+  <name_ru>Якутия</name_ru>
+  <date>2016-07-28 09:33</date>
+  <version>1.739</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-SA-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>JM-FULL</code>
+  <uid>2100468</uid>
+  <name>Jamaica</name>
+  <name_ru>Ямайка</name_ru>
+  <date>2015-08-15 09:44</date>
+  <version>1.38</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/JM-FULL-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YAN</code>
+  <uid>2100089</uid>
+  <name>Ямало-Ненецкий АО</name>
+  <name_ru>Ямало-Ненецкий АО</name_ru>
+  <date>2016-07-28 01:38</date>
+  <version>1.719</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-YAN-OSM.cgnet</url>
+ </map>
+ <map>
+  <code>RU-YAR</code>
+  <uid>2100090</uid>
+  <name>Ярославская обл.</name>
+  <name_ru>Ярославская обл.</name_ru>
+  <date>2016-07-27 08:40</date>
+  <version>1.790</version>
+  <url>http://peirce.osm.rambler.ru/static/cg8_maps/RU-YAR-OSM.cgnet</url>
+ </map>
+</maplist>
