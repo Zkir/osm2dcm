@@ -432,6 +432,10 @@ function PrintQADetailsPageRss($mapid)
   $xml = simplexml_load_file(GetXmlFileName($mapid));
 
   $xml_stat = simplexml_load_file(GetEditorsXmlFileName($mapid));
+  if ($xml_stat === false){
+	  return;
+  }	  
+  
   $LastKnownEdit='???';
   foreach ($xml_stat->mapinfo as $item)
   {
