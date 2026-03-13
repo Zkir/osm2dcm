@@ -107,7 +107,7 @@ require_once("include/misc_utils.php");
   
   $zPage->WriteHtml('<h2>Очередь</h2>');
   
-  $group=$_GET['group'];
+  $group=$_GET['group'] ?? '';
   $zPage->WriteHtml("<small>Таблица сортируется, достаточно кликнуть на заголовок столбца</small>");
   PrintQueue ($xml,$group);
 

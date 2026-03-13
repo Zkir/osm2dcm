@@ -9,9 +9,9 @@ require_once("include/misc_utils.php");
 
   $zPage=new TZSitePage;
  
-  $page=$_GET['page'];
-  $mapid=$_GET['mapid'];
-  $errtype=$_GET['errtype'];
+  $page=$_GET['page'] ?? '';
+  $mapid=$_GET['mapid'] ?? '';
+  $errtype=$_GET['errtype'] ?? '';
 
 
    // Задаем текущий язык проекта

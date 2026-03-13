@@ -38,15 +38,15 @@ require_once("include/misc_utils.php");
   $zPage->title=_("Карты для Ситигид 7.9 (WinCE)");
   $zPage->header=_("Карты для Ситигид 7.9 (WinCE)");
 
-  $xml = simplexml_load_file("maplist_79.xml"); //Интерпретирует XML-файл в объект
-  $xml3 = simplexml_load_file("maplist_old.xml"); //Ручные карты
+  $xml = @simplexml_load_file("maplist_79.xml"); //Интерпретирует XML-файл в объект
+  $xml3 = @simplexml_load_file("maplist_old.xml"); //Ручные карты
   	  
   $zPage->WriteHtml( "<H1>"._("Карты для Ситигид 7.9 (WinCE)")."</H1>");
   $zPage->WriteHtml('<P> <img src="/img/peirce.jpg" height="65px"  style="float:left;"
                         title="'._('Чарльз Сандерс Пирс - знаменитый американский ученый, философ, логик и картограф').'">
   	                 '._('На этой странице представленны карты Openstreetmap, оптимизированные для навигационной программы Ситигид 7.9, для устройств на WinCE.').' <br/>
                          '._('Также, эти карты можно скачать <a href="https://disk.yandex.ru/d/5ZfD7iIQjONyCw">отсюда.</a>').'<br/>
-  	                 '._().' 
+  	                 '._('').' 
                        
                      </P>');
   /*
@@ -59,8 +59,8 @@ require_once("include/misc_utils.php");
 //  $zPage->WriteHtml('<H2>Карты с поддержкой пробок</H2>');
 //  $zPage->WriteHtml('Карты, представленные в этом разделе поддерживаются пробочным сервисом и корректурами.'); 
 //  PrintMapListOld ($xml3,"Карты с пробками");
-  $group=$_GET['group'];
- $zPage->WriteHtml('<H2>'._('Карты в формате cgnet, оптимизированные для Ситигид 7.9 (WinCE)').'</H2>');
+  $group=$_GET['group'] ?? '';
+  $zPage->WriteHtml('<H2>'._('Карты в формате cgnet, оптимизированные для Ситигид 7.9 (WinCE)').'</H2>');
 
   
   if ($group!='')  
@@ -113,6 +113,10 @@ require_once("include/misc_utils.php");
 
 function PrintMapList($xml, $strGroup)
 {
+   if (!$xml || !isset($xml->map)){
+	   return;
+   }
+   
    global $zPage;
    $zPage->WriteHtml( '<table width="700px" class="sortable">
           <tr>
