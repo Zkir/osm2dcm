@@ -177,8 +177,8 @@ function PrintStatistics($xml, $strGroup)
         $zPage->WriteHtml( '<td>'.$item->M14.'%</td> ');
         $zPage->WriteHtml( '<td>'.$item->M100.'%</td> ');
         $zPage->WriteHtml( '<td>'.$item->M365.'%</td> ');
-        $zPage->WriteHtml( '<td>'.number_format($item->AverageObjectAge,0,'.', ' ').'</td> ');
-        $zPage->WriteHtml( '<td>'.number_format($item->ObjectsPerSquareKm,2,'.', ' ').'</td> ');
+        $zPage->WriteHtml( '<td>'.number_format(str_replace(',', '.', $item->AverageObjectAge),0,'.', ' ').'</td> ');
+        $zPage->WriteHtml( '<td>'.number_format(str_replace(',', '.', $item->ObjectsPerSquareKm),2,'.', ' ').'</td> ');
         $zPage->WriteHtml( '<td>'.number_format((((float)$item->EditsPerDayPerSquareKm)*1000.0) ,1,'.', ' ').'</td> ');
        // $zPage->WriteHtml( '<td>'..'</td> ');
         $zPage->WriteHtml( '<td>'.$item->ActiveUsers.'</td> ');

@@ -58,7 +58,7 @@ require_once("include/misc_utils.php");
       break;
     case 'stat_summary':  
       $zPage->title="Статистика (наполненность карт)";       	
-      PrintMpStatSummaryPage($_GET['group']);
+      PrintMpStatSummaryPage($_GET['group'] ?? '');
       break;
     case 'rss':
     	$zPage->title="Контроль качества - $mapid";
@@ -2006,20 +2006,29 @@ function PrintMpStatSummary($mode, $group)
 
         if(file_exists($xmlfilename))
         {
-          $xml_addr = simplexml_load_file($xmlfilename);
+          $xml_addr = @simplexml_load_file($xmlfilename);
           
                     
           $zPage->WriteHtml( '<tr>');
           $zPage->WriteHtml( '<td width="80px">'.$item->code.'</td>');
           $zPage->WriteHtml( '<td width="180px">'.$item->name.'</td>');
+		  
+		  if($xml_addr===false){
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+			  $zPage->WriteHtml('<td>'."???"."</td>" );
+		  }else{
           
-          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->RoadLengthKm."</td>" );
-          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->ServiceRoadLengthKm."</td>" );
-          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->TotalPoiNumber."</td>" );
-          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->PoiWithAddressNumber."</td>" );
-          $zPage->WriteHtml('<td>'.(($xml_addr->AddressTest->Summary->TotalHouses)-($xml_addr->AddressTest->Summary->UnmatchedHouses))."</td>" );
-          $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->CitiesNumber."</td>" );
-       
+			  $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->RoadLengthKm."</td>" );
+			  $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->ServiceRoadLengthKm."</td>" );
+			  $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->TotalPoiNumber."</td>" );
+			  $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->PoiWithAddressNumber."</td>" );
+			  $zPage->WriteHtml('<td>'.(($xml_addr->AddressTest->Summary->TotalHouses)-($xml_addr->AddressTest->Summary->UnmatchedHouses))."</td>" );
+			  $zPage->WriteHtml('<td>'.$xml_addr->Statistics->Summary->CitiesNumber."</td>" );
+		  }       
 
           $zPage->WriteHtml( '</tr>');
         }
