@@ -24,7 +24,7 @@ require_once("include/misc_utils.php");
   $zPage->WriteHtml( '
   	  
   	  <!-- begin map -->
-<link rel="stylesheet" href="http://peirce.gis-lab.info/js/dijit/themes/claro/claro.css"/>
+<link rel="stylesheet" href="https://peirce.gis-lab.info/js/dijit/themes/claro/claro.css"/>
 <script>
 var selectedIndicatorIndex = 0;
 var indicators = [
@@ -40,7 +40,7 @@ var indicators = [
 ];
 var divergingIndexes = {AverageObjectAge: 1};
 </script>
-<script data-dojo-config="async:true" src="http://peirce.gis-lab.info/js/dojo/dojo.js"></script>
+<script data-dojo-config="async:true" src="https://peirce.gis-lab.info/js/dojo/dojo.js"></script>
 <script src="stat-json.php"></script>
 <script>
 require([
