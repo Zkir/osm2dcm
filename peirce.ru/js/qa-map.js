@@ -360,9 +360,9 @@ function initializeMap(showEURoutes) {
     		maxZoom: 18
 	});
 
-	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	var osmUrl='https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 	var osmAttrib='Данные карты - участники <a href=\"http://www.openstreetmap.org/copyright\" target=\"_blank\">© OpenStreetMap</a>';
-	var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});		
+	var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib, referrerPolicy: 'strict-origin-when-cross-origin'});		
 
 	osm.addTo(map);		
 
